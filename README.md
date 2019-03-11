@@ -16,8 +16,8 @@
 - Step 1: execute the following bash commands:
 
 ```
-> git clone https://github.com/jhegedus42/IM_shared_2018_11_22
-> cd IM_shared_2018_11_22
+> git clone https://github.com/jhegedus42/irie
+> cd irie
 > cd node
 > yarn
 > ./node_modules/.bin/webpack
