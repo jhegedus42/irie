@@ -66,7 +66,7 @@ object REST {
     f
   }
 
-  def resetServerToLabelOne()=resetServer(TestDataLabels.LabelOne)
+  def resetServerToLabelOne(): Future[XMLHttpRequest] = resetServer(TestDataLabels.LabelOne)
   def resetServerToLabelThree()=resetServer(TestDataLabels.LabelThree)
 
 }
