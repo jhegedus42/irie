@@ -1,7 +1,8 @@
 package app.testHelpersShared.data
 
-import app.shared.data.model.{TypeAsString, LineText, LineWithQue, User, UserLineList}
-import app.shared.data.ref.{Ref, RefDyn, RefVal, RefValDyn, Version}
+import app.shared.data.model.{LineText, LineWithQue, TypeAsString, User, UserLineList}
+import app.shared.data.ref.unTyped.RefDyn
+import app.shared.data.ref.{Ref, RefVal, RefValDyn, Version}
 
 /**
   * Created by joco on 09/10/2017.

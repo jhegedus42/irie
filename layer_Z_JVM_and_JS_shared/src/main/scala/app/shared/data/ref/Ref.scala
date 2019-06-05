@@ -2,6 +2,7 @@ package app.shared.data.ref
 
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.Entity
+import app.shared.data.ref.unTyped.RefDyn
 import app.shared.data.ref.uuid.{UUID, UUIDCompare}
 import app.shared.{InvalidUUIDinURLError, SomeError_Trait, TypeError}
 import monocle.macros.Lenses
@@ -16,24 +17,8 @@ import scala.reflect.ClassTag
 // todo 1) attenni ezt az Y layer-be ...
 // todo 2) megszuntetni ettol a fuggoseget, azaz js oldal ettol ne fuggjon ...
 
-case class RefDyn(uuid: UUID, et: TypeAsString) {
-  def toRef[E <: Entity: ClassTag](): \/[TypeError, Ref[E]] = {
-    val eto = TypeAsString.make[E]
-    if (et == eto) \/-(Ref(uuid, et))
-    else -\/(TypeError("RefValDyn.toRefVal "))
-  }
 
-  def toRef_noClassTagNeeded[E <: Entity](
-      expectedEntityType: TypeAsString): \/[TypeError, Ref[E]] = {
-    if (et == expectedEntityType) \/-(Ref(uuid, et))
-    else -\/(TypeError("RefValDyn.toRefVal "))
-  }
-//  def toRefUnsafe[E<:Entity]()=Ref[E](uuid,et)
 
-}
-object RefDyn {
-  def make(et: TypeAsString) = RefDyn(UUID.random(), et)
-}
 
 @Lenses
 case class Ref[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) {

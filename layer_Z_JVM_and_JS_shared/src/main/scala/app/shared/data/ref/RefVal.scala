@@ -3,6 +3,7 @@ package app.shared.data.ref
 import app.shared.TypeError
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.TypeAsString
+import app.shared.data.ref.unTyped.RefDyn
 import app.shared.data.ref.uuid.UUIDCompare
 import monocle.macros.Lenses
 

@@ -2,7 +2,8 @@ package app.server.persistence
 
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.{Data, Entity}
-import app.shared.data.ref.{Ref, RefDyn, RefVal, RefValDyn}
+import app.shared.data.ref.unTyped.RefDyn
+import app.shared.data.ref.{Ref, RefVal, RefValDyn}
 import app.shared.{EntityDoesNotExistError, EntityIsNotUpdateableError, InvalidVersionError, SomeError_Trait, StateOpsError, TypeError}
 import scalaz.{-\/, Disjunction, \/, \/-}
 
