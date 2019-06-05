@@ -30,9 +30,8 @@ object RefVal {
   //      def make[T<:Entity[T]](v: T) = new RefVal(Ref[T](), v)
   //    def make[T<:Entity[T]](v: T)(implicit t:Typeable[T]) = new RefVal(Ref.make[T](), v)
 
-  implicit def instance[T <: Entity]: UUIDCompare[RefVal[T]] = new UUIDCompare[RefVal[T]] {
-    override def isUUIDEq(x: RefVal[T], y: RefVal[T] ) = Ref.instance.isUUIDEq( x.r, y.r )
-  }
+  implicit def instance[T <: Entity]: UUIDCompare[RefVal[T]] =
+    (x: RefVal[T], y: RefVal[T]) => Ref.instance.isUUIDEq(x.r, y.r)
 
 }
 

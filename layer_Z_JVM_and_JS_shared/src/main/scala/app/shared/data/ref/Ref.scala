@@ -9,6 +9,13 @@ import scalaz.{-\/, \/, \/-}
 
 import scala.reflect.ClassTag
 
+// ??? ezt itt ki hasznalja  ??? => ez vmi anti pattern, nem ?
+// pers actor talan hasznalja ... => de akkor minek van itt a kozosben ?
+// miert latja ezt a js oldal ???
+// a kessbe nem akarok ilyen type nelkuli cuccokat ... akkor minek van ez itt ???
+// todo 1) attenni ezt az Y layer-be ...
+// todo 2) megszuntetni ettol a fuggoseget, azaz js oldal ettol ne fuggjon ...
+
 case class RefDyn(uuid: UUID, et: TypeAsString) {
   def toRef[E <: Entity: ClassTag](): \/[TypeError, Ref[E]] = {
     val eto = TypeAsString.make[E]
@@ -62,9 +69,7 @@ object Ref {
   implicit def imp2[E<:Entity]: Equal[Ref[E]] = Equal.equalBy(_.uuid.id)
 
   implicit def instance[T <: Entity]: UUIDCompare[Ref[T]] =
-    new UUIDCompare[Ref[T]] {
-      override def isUUIDEq(x: Ref[T], y: Ref[T]) = x.uuid == y.uuid
-    }
+    (x: Ref[T], y: Ref[T]) => x.uuid == y.uuid
 
 //    def make[T<:Entity[T]]()(implicit t:Typeable[T]): Ref[T] =
 //      new Ref[T](UUID(), EntityType.make(t))
