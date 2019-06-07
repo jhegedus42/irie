@@ -36,7 +36,7 @@ object RefVal {
 
 }
 
-//TODO - get rid of this ASAP
+//TODOlater - get rid of this ASAP
 case class RefValDyn(r: RefDyn, e: Entity, version: Version ) {
 
   def toRefVal[E <: Entity: ClassTag]: \/[TypeError, RefVal[E]] = {
