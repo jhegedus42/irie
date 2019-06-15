@@ -2,6 +2,7 @@ name := "IM root project"
 
 import sbt.Keys._
 import sbt.Project.projectToRef
+resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
 
 // a special crossProject for configuring a JS/JVM/shared structure
 lazy val layer_Z_JVM_and_JS_shared =
@@ -23,13 +24,13 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
 //    npmDependencies in Compile ++= Seq( "react" -> "15.6.1", "react-dom" -> "15.6.1" ),
     name := "layer_V_JS_client",
     version := Settings.version,
-    jsDependencies += RuntimeDOM % "test",
+//    jsDependencies += RuntimeDOM % "test",
 //    jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv,
     scalaVersion := Settings.versions.scala,
 //                                      scalacOptions ++= Settings.scalacOptions,
     libraryDependencies ++= Settings.scalajsDependencies.value,
     parallelExecution in Test := false,
-logLevel := Level.Error,
+    logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
 //    scalaJSUseMainModuleInitializer := true,
 //    scalaJSUseMainModuleInitializer in Compile := true,
@@ -41,8 +42,8 @@ logLevel := Level.Error,
   )
   .enablePlugins( ScalaJSPlugin )
 //  .enablePlugins( ScalaJSBundlerPlugin )
-  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
-//  .dependsOn( layer_Z_JS_shared % "compile->compile" )
+//  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
+  .dependsOn( layer_Z_JS_shared % "compile->compile" )
 
 // Client projects (just one in this case)
 lazy val clients = Seq( layer_V_JS_client )
@@ -92,5 +93,3 @@ scalaJSUseMainModuleInitializer in Compile := true
 
 cancelable in Global := true
 logLevel := Level.Error
-
-
