@@ -36,6 +36,20 @@ object CacheInterface extends LazyLogging {
   import io.circe.generic.auto._
   import io.circe.{Decoder, Encoder}
 
+  /**
+    *
+    *
+    // erre lehetni irni type class-okat: vmi altalanos getEntity
+    // metodust, azaz pl. attol fuggoen h. milyen entity't ker a react comp mas instance hivodik meg...
+    // de ezt majd irjuk meg azutan ha a konkret dolgok kesz vannak
+    // cache will have a separate map for each entity
+    // for each view
+    // ezek adnak egy type safety-t, nem kell kasztolgatni, az is latszik tisztan, hogy milyen
+    // entity-t vannak hasznalatban
+    // es nem is kell readLineText, stb ...
+    * @param ref
+    * @return
+    */
   def readLineText(ref: Ref[LineText] ): CacheState[LineText] = {
     this.logger.trace(
       s"BEFORE calling readEntity($ref) on cacheLineText\n",
@@ -59,11 +73,5 @@ object CacheInterface extends LazyLogging {
   }
 
 }
-// ^^^^^^^
-// erre lehetni irni type class-okat: vmi altalanos getEntity
-// metodust, azaz pl. attol fuggoen h. milyen entity't ker a react comp mas instance hivodik meg...
-// de ezt majd irjuk meg azutan ha a konkret dolgok kesz vannak
-// cache will have a separate map for each entity
-// for each view
-// ezek adnak egy type safety-t, nem kell kasztolgatni, az is latszik tisztan, hogy milyen
-// entity-t vannak hasznalatban
+
+

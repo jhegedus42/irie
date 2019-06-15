@@ -3,7 +3,7 @@ import app.client.ui.css.AppCSS
 import app.client.ui.routing.RouterComp
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
-import slogging.{LazyLogging, _}
+import slogging.{ConsoleLoggerFactory, LazyLogging, LogLevel, LoggerConfig}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.scalajs.js
@@ -21,13 +21,13 @@ object Main extends js.JSApp with LazyLogging{
 
   def setupLogging(): Unit = {
     LoggerConfig.factory = ConsoleLoggerFactory()
-    LoggerConfig.level   = LogLevel.TRACE
-
-
+//    LoggerConfig.level   = LogLevel.TRACE
+    LoggerConfig.level = LogLevel.ERROR
   }
 
   @JSExport
   def main(): Unit = {
+    println("hello")
     setupLogging()
     routedApp()
   }

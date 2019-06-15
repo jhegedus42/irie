@@ -41,16 +41,18 @@ class Backend($ : BackendScope[CacheTestRootCompProps, CacheTestRootCompState] )
       Callback {
         implicit def executionContext: ExecutionContextExecutor =
           scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-        import app.client.comm.REST.getEntity
+//        import app.client.comm.REST.getEntity
         import io.circe.generic.auto._
         val ref: Ref[LineText] = Ref.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
-        val res: Future[Unit] = getEntity[LineText]( ref ).map(
-          x => {
-            println( s"az entity visszavage $x" )
-            val lt: RefVal[LineText] = x
-            $.modState( s => s.copy( lineTextOption = Some( lt ) ) ).runNow()
-          }
-        )
+
+//        val res: Future[Unit] = getEntity[LineText]( ref ).map(
+//          x => {
+//            println( s"az entity visszavage $x" )
+//            val lt: RefVal[LineText] = x
+//            $.modState( s => s.copy( lineTextOption = Some( lt ) ) ).runNow()
+//          }
+//        )
+
       }
 
     val lineSeparator: VdomTagOf[Div] = <.div( <.br, "------------", <.br )

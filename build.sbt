@@ -7,7 +7,7 @@ import sbt.Project.projectToRef
 lazy val layer_Z_JVM_and_JS_shared =
   (crossProject.crossType( CrossType.Pure ) in file( "layer_Z_JVM_and_JS_shared" ))
     .settings(
-      addCompilerPlugin( "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full ),
+      addCompilerPlugin( "org.scalamacros" %%% "paradise" % "2.1.0" cross CrossVersion.full ),
       scalaVersion := Settings.versions.scala,
       logLevel := Level.Error,
       libraryDependencies ++= Settings.sharedDependencies.value
@@ -41,8 +41,8 @@ logLevel := Level.Error,
   )
   .enablePlugins( ScalaJSPlugin )
 //  .enablePlugins( ScalaJSBundlerPlugin )
-//  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
-  .dependsOn( layer_Z_JS_shared % "compile->compile" )
+  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
+//  .dependsOn( layer_Z_JS_shared % "compile->compile" )
 
 // Client projects (just one in this case)
 lazy val clients = Seq( layer_V_JS_client )
