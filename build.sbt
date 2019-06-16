@@ -8,7 +8,7 @@ resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
 lazy val layer_Z_JVM_and_JS_shared =
   (crossProject.crossType( CrossType.Pure ) in file( "layer_Z_JVM_and_JS_shared" ))
     .settings(
-      addCompilerPlugin( "org.scalamacros" %%% "paradise" % "2.1.0" cross CrossVersion.full ),
+      addCompilerPlugin( "org.scalamacros" %% "paradise" % "2.1.0" cross CrossVersion.full ),
       scalaVersion := Settings.versions.scala,
       logLevel := Level.Error,
       libraryDependencies ++= Settings.sharedDependencies.value
