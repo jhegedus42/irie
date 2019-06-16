@@ -2,17 +2,25 @@ name := "IM root project"
 
 import sbt.Keys._
 import sbt.Project.projectToRef
-resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
+//resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
+//resolvers += Resolver.sonatypeRepo("releases")
+lazy val macroVersion = "2.1.1"
+
+lazy val paradisePlugin = Def.setting{
+    Seq(compilerPlugin("org.scalamacros" % "paradise" % macroVersion cross CrossVersion.patch))}
 
 // a special crossProject for configuring a JS/JVM/shared structure
 lazy val layer_Z_JVM_and_JS_shared =
   (crossProject.crossType( CrossType.Pure ) in file( "layer_Z_JVM_and_JS_shared" ))
     .settings(
-      addCompilerPlugin( "org.scalamacros" %% "paradise" % "2.1.0" cross CrossVersion.full ),
+//      resolvers += Resolver.sonatypeRepo("releases"),
+//        resolvers += Resolver.bintrayRepo( "johnreed2", "maven" ),
+//      addCompilerPlugin( "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full ),
       scalaVersion := Settings.versions.scala,
       logLevel := Level.Error,
-      libraryDependencies ++= Settings.sharedDependencies.value
-    )
+      libraryDependencies ++= Settings.sharedDependencies.value,
+        libraryDependencies ++= paradisePlugin.value
+)
 
 lazy val layer_Z_JVM_shared = layer_Z_JVM_and_JS_shared.jvm.settings( name := "layer_Z_JVM_shared" )
 
