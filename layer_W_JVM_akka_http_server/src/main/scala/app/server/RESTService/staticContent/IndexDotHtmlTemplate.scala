@@ -21,7 +21,7 @@ object IndexDotHtmlTemplate{
           div(id:="joco"),
           div(id:="jsReactComp"),
           div(id:="jsReactCrop"),
-          script(`type`:="text/javascript", src:="./node/generated.js/index-bundle.js"),
+          script(`type`:="text/javascript", src:="./node/generated.js/bundle.js"),
           script(`type`:="text/javascript", src:="./js/target/scala-2.11/js-fastopt.js"),
           script(`type`:="text/javascript", src:="./js/target/scala-2.11/js-jsdeps.js"),
           script("app.client.Main().main()")//, //start scalajs-react app
