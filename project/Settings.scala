@@ -33,7 +33,7 @@ object Settings {
   object versions {
     val scala        = "2.12.4"
     val scalaDom     = "0.9.6"
-    val scalajsReact = "1.1.1"
+    val scalajsReact = "1.2.0"
     val scalaCSS     = "0.5.5"
 
     val akka              = "2.5.1"
