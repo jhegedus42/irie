@@ -1,13 +1,15 @@
-TODO : megirni ezt a script-et Omnigraffle abraban
+TODO : megirni ezt a script-et Omnigraffle abraban (esetleg ???)
 
 
 Szereplok:
-  - Fonok :   
+  - **Titkarno**
+  
+  - **Fonok** :   
     - rendereles parancsot kiado.
     - titkarnonek adja ki.
 
 
-  - Festok :
+  - **Festok** :
     - mit csinalnak, ha jon a titkarno es megkerdezi toluk, hogy mit akarnak lefesteni ?
          - megmondjak, le akarnak festeni valamit, 
            de ahhoz, hogy azt le tudjak festeni, ket dologra van szukseguk:
@@ -20,6 +22,19 @@ Szereplok:
            lehetnek ujabb beosztottjaik, akik megint adhatnak leveleket es cimeket a titkarnonek.
     - mit adnak vissza
 
+
+Targyak, fogalmak:
+  - Kep (VDOM)
+  - Terv
+    - tartalmaz :
+      - Keplista : lista mar vegleg elkeszult kepekrol (VDOM)
+      - Tervlista : egy lista arrol, hogy melyik festotol milyen terv-et kell 
+        beszerezni es mit kell nekik mondani (properties)
+      - Osszeszerelesi utmutato: 
+          megmondja, hogy ha valaki a Tervlista-bol keszit egy Keplista-t, akkor
+          azokat, hogyan kell osszerakni egy Keppe (VDOM)
+  - Festoi nyelv
+  - Festok emlekezete
 
 
 Folyamat:
