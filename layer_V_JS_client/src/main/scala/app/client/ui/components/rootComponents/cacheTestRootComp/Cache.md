@@ -7,6 +7,7 @@ Szereplok:
     - titkarnonek adja ki.
 
 
+
   - Festok :
     - mit csinalnak, ha jon a titkarno es megkerdezi toluk, hogy mit akarnak lefesteni ?
          - megmondjak, le akarnak festeni valamit, 
