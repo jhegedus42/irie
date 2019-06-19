@@ -26,14 +26,14 @@ Folyamat:
 
   - Rendereles :
 
-  - Korbemegy a titkarno az irodaban. (Lefut egy rendereles.)
+    - Korbemegy a titkarno az irodaban. (Lefut egy rendereles.)
 
-  - Feljegyzi a titkarno, hogy kinek mi kell,
-     es ad mindenkinek egy cetlit a kezebe, arrol, hogy mit kert, hogyha jon
-     valaki mas, akkor az illeto meg tudja mutatni a havarjanak, hogy milyen
-     csomagra var.
+    - Feljegyzi a titkarno, hogy kinek mi kell,
+      es ad mindenkinek egy cetlit a kezebe, arrol, hogy mit kert, hogyha jon
+      valaki mas, akkor az illeto meg tudja mutatni a havarjanak, hogy milyen
+      csomagra var.
 
-  - A renderelo, szol a beszallitonak, hogy
+    - A renderelo, szol a beszallitonak, hogy
       osszegyujtotte a listat es ezeket kell, hoznia.
       
 
