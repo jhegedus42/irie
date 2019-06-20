@@ -24,25 +24,64 @@ Szereplok:
 
 
 Targyak, fogalmak:
-  - Kep (VDOM)
-  - Terv
+  - **Kep** (VDOM) <br>
+    Nem tartalmaz semmi "utasitast". Egy sima, renderelheto kep.
+  - **Munkaterv**
     - tartalmaz :
       - Keplista : lista mar vegleg elkeszult kepekrol (VDOM)
-      - Tervlista : egy lista arrol, hogy melyik festotol milyen terv-et kell 
-        beszerezni es mit kell nekik mondani (properties)
+      - Nem aláírt szerződések alvállalkozókkal. (Amik még nincsenek aláírva.)
+        - Ez egy lista arrol, hogy melyik festővel, mit kell lefestetni és hogy
+          melyik al-festőnek mi "lesz mondva", azaz, ha pl. egy alvállakozó
+          angyal festésben profi, akkor ő meg fogja kérdezni, hogy milyen angyalt
+          akarunk, hogy lefessen nekünk : arkangyalt vagy földre hullott angyalt?
+          
+        - Az alvállalkozó visszaadhat vagy egy `Terv`-et, vagy pedig
+         
       - Osszeszerelesi utmutato: 
           megmondja, hogy ha valaki a Tervlista-bol keszit egy Keplista-t, akkor
           azokat, hogyan kell osszerakni egy Keppe (VDOM)
-  - Festoi nyelv
+  - Alvállalkozóknak leadható megrendelésben az alvállalkozó által feltett kérdések
+    és a válaszok arra.
   - Festok emlekezete
+    Bizonyos helyzetekben, ha megint le kell festeni egy festményt, csak egy kicsit más fajtát,
+    akkor lehet az, hogy a már meglévő **Munkaterv**-ben szereplő főfestő és az alvállalkozók
+    "nem lesznek elfelejtve", úgymond, lesz nevük. És így lehet az, hogy lesz "memóriájuk":
+     - azaz nem csak attól függhet, hogy mit csinál az alvállalkozó, hogy a főnök
+       mit mondott neki (props), hanem emlékezhet valamire az előző renderelésből és ezt a valamit
+       valami meg tudja változtatni. Ahol ez valami az nem a főnök.
+    
 
 
 Folyamat:
 
   - Rendereles :
 
-    - Korbemegy a titkarno az irodaban. (Lefut egy rendereles.)
-
+    - Odamegy a titkarno a fő festőhöz és aszondja neki: 
+       - Főfestő fess valami szépet a Királynak!
+       - Jó, fel tudok ajánlani néhány lehetőséget, ami alapján
+           meg tudom festeni a Király kedvenc képét. A következő 
+           kérdésekre kéne a Királynak válaszolnia.
+           - Kérdések (paraméterek, prop-ok):
+             - Miről szóljon a kép ?
+             - Milyen évszakban "legyen" ?
+             - Hol legyen ?
+             - Mikor legyen ?
+             - Mekkora legyen ?
+             - Kinek lesz ? (Esetleg ajándék egy másik uralkodónak ?)
+       - Oké megkérdezem a Királyt.
+    
+    - Jön vissza a titkárnő a válaszokkal. Odaadja a főfestőnek.
+    
+    - A főfestő nekiáll festegetni és amit nem tud megfesteni, azt kiadja
+      alvállalkozó festőknek és megmondja nekik, hogy mit kell tudniuk, ahhoz,
+      hogy megcsinálják a melót, amit kiadott nekik.
+      - Az alvállalkozó festők, megint kiadhatnak rész munkákat más alvállalkozóknak.
+    
+    - A festők (főfestő és alvállalkozók egy része), azok nem készítenek konkrét képet (VDOM),
+      hanem csak egy `Terv`-et. 
+      
+    - Sok festegetés (VDOM) és `Terv` elkészítése után.
+    
     - Feljegyzi a titkarno, hogy kinek mi kell,
       es ad mindenkinek egy cetlit a kezebe, arrol, hogy mit kert, hogyha jon
       valaki mas, akkor az illeto meg tudja mutatni a havarjanak, hogy milyen
