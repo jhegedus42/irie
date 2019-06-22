@@ -40,9 +40,11 @@ Targyak, fogalmak:
       - Osszeszerelesi utmutato: 
           megmondja, hogy ha valaki a Tervlista-bol keszit egy Keplista-t, akkor
           azokat, hogyan kell osszerakni egy Keppe (VDOM)
-  - Alvállalkozóknak leadható megrendelésben az alvállalkozó által feltett kérdések
-    és a válaszok arra.
-  - Festok emlekezete
+          
+  - Alvállalkozóknak leadható megrendelésben az alvállalkozó által feltett **kérdések**
+    és a **válaszok** arra.
+    
+  - Festok **emlekezete**
     Bizonyos helyzetekben, ha megint le kell festeni egy festményt, csak egy kicsit más fajtát,
     akkor lehet az, hogy a már meglévő **Munkaterv**-ben szereplő főfestő és az alvállalkozók
     "nem lesznek elfelejtve", úgymond, lesz nevük. És így lehet az, hogy lesz "memóriájuk":
@@ -70,12 +72,16 @@ Folyamat:
              - Kinek lesz ? (Esetleg ajándék egy másik uralkodónak ?)
        - Oké megkérdezem a Királyt.
     
-    - Jön vissza a titkárnő a válaszokkal. Odaadja a főfestőnek.
+    - Jön vissza a titkárnő a királytól a válaszokkal. Odaadja a főfestőnek.
     
     - A főfestő nekiáll festegetni és amit nem tud megfesteni, azt kiadja
       alvállalkozó festőknek és megmondja nekik, hogy mit kell tudniuk, ahhoz,
       hogy megcsinálják a melót, amit kiadott nekik.
-      - Az alvállalkozó festők, megint kiadhatnak rész munkákat más alvállalkozóknak.
+      
+      - Az alvállalkozó festők, megint kiadhatnak részmunkákat más alvállalkozóknak.
+      
+      - Ez a folyamat akkor áll meg, mikor már egyik alválalkozó sem fog másik alvállalkozót megkérni,
+        hogy segítsen neki.
     
     - A festők (főfestő és alvállalkozók egy része), azok nem készítenek konkrét képet (VDOM),
       hanem csak egy `Terv`-et. 
@@ -92,3 +98,9 @@ Folyamat:
       
 
 
+- Kess vázlat
+  
+  - Közelítések (gányolások)
+    - Globálisan el lehet érni a kesst
+  
+  - Szereplők
