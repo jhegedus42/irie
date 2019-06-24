@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaSbtSettings">
+    <option name="customVMEnabled" value="true" />
+    <option name="customVMPath" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home" />
+    <option name="linkedExternalProjectsSettings">
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/layer_V_JS_client" />
+            <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
+            <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
+            <option value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
+            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared" />
+            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
+            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
+            <option value="$PROJECT_DIR$/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="0.13.18" />
+      </SbtProjectSettings>
+    </option>
+    <option name="maximumHeapSize" value="2000" />
+  </component>
+</project>

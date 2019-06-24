@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="SBT" />
+    <profile name="sbt 1" modules="IM root project,irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
+    <profile name="sbt 2" modules="layer_Z_JS_shared">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.4/jars/paradise_2.12.4-2.1.1.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 3" modules="layer_W_JVM_akka_http_server">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-Xlint" />
+        <parameter value="-Yrangepos" />
+      </parameters>
+    </profile>
+    <profile name="sbt 4" modules="layer_Z_JVM_shared">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.4/jars/paradise_2.12.4-2.1.1.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 5" modules="layer_V_JS_client">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+      </plugins>
+    </profile>
+  </component>
+</project>
