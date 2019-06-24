@@ -33,8 +33,10 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     parallelExecution in Test := false,
     logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
-    jsEnv := new JSDOMNodeJSEnv2(), // this is a hack to make testing on node.js possible
-    scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) }
+//    jsEnv := new JSDOMNodeJSEnv2(), // this is a hack to make testing on node.js possible
+      jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
+
+        scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) }
   )
   .enablePlugins( ScalaJSPlugin )
 //  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )

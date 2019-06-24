@@ -14,6 +14,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="layer_Z_JS_shared" exported="" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scala-js:scalajs-test-interface_2.12:0.6.21:jar" level="project" />
     <orderEntry type="library" name="sbt: biz.enef:slogging_sjs0.6_2.12:0.5.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.chuusai:shapeless_sjs0.6_2.12:2.3.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.japgolly.scalacss:core_sjs0.6_2.12:0.5.5:jar" level="project" />
@@ -34,7 +35,6 @@
     <orderEntry type="library" name="sbt: io.circe:circe-scalajs_sjs0.6_2.12:0.10.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-js:scalajs-dom_sjs0.6_2.12:0.9.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-js:scalajs-library_2.12:0.6.24:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: org.scala-js:scalajs-test-interface_2.12:0.6.20:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.4:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.12.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_sjs0.6_2.12:3.0.1:jar" level="project" />

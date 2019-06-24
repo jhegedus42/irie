@@ -5,7 +5,7 @@
     <profile name="sbt 1" modules="IM root project,irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
     <profile name="sbt 2" modules="layer_Z_JS_shared">
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.21.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.4/jars/paradise_2.12.4-2.1.1.jar" />
       </plugins>
     </profile>
@@ -25,7 +25,7 @@
     </profile>
     <profile name="sbt 5" modules="layer_V_JS_client">
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.20.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.21.jar" />
       </plugins>
     </profile>
   </component>

@@ -5,7 +5,7 @@ object TestHelper {
 }
 
 //import app.client.rest.commands.forTesting.Helpers
-import app.shared.rest.TestURLs
+//import app.shared.rest.TestURLs
 import app.testHelpersShared.data.TestDataLabels
 import app.testHelpersShared.data.TestDataLabels.TestDataLabel
 //import com.sun.deploy.ref.Helpers

@@ -20,6 +20,7 @@ import scala.reflect.ClassTag
 
 object REST {
 
+  // B40E8B54-85FC-4815-8281-B60C3E9D1B3F
   def getEntity[E <: Entity : ClassTag ](ref: Ref[E])(implicit d:Decoder[RefVal[E]]): Future[RefVal[E]] = {
     import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
     val route: String =GetEntityRequest.queryURL(ref)
