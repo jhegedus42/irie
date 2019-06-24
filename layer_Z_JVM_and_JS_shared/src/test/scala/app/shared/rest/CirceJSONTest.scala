@@ -42,7 +42,9 @@ class CirceJSONTest extends FunSuite with Matchers {
     val decoded: Either[Error, RefVal[LineText]] = decode[RefVal[LineText]](rs)
     assert(1 == 1)
     decoded shouldEqual Right(rv)
+    println("DEBUG --- decoded shouldEqual Right(rv) - PASSED")
     decoded should not equal Right(rv2)
+    println("DEBUG --- decoded should not equal Right(rv2) - PASSED")
   }
 
   test("Decode incorrect RefVal With TypeCheck should be left") {
