@@ -34,6 +34,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
 //    jsEnv := new JSDOMNodeJSEnv2(), // this is a hack to make testing on node.js possible
+      // 629C403A-E26F-46FD-92AD-11C47E7BB90B 
       jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
 
         scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) }
