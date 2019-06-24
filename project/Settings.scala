@@ -1,6 +1,8 @@
 //import org.scalajs.jsenv.ExternalJSEnv.{AsyncExtRunner, ExtRunner}
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt._
+import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
+
 
 
 import java.io.{Console => _, _}
