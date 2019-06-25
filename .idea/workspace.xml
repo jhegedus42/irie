@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -60,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="321">
+              <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -69,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/JSDOMNodeJSEnv.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="551">
               <caret line="135" column="33" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="33" />
             </state>
           </provider>
@@ -457,6 +448,11 @@
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="1546996100" />
       </map>
     </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -508,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561412297161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}">
+      <created>1561491513926</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1561491513926</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -612,7 +615,8 @@
     <MESSAGE value="test &quot;JS shared&quot; module in IntelliJ does not work &#10;&#10;but in sbt it does" />
     <MESSAGE value="629C403A-E26F-46FD-92AD-11C47E7BB90B&#10;&#10;ezt megjavitani, az a kovetkezo lepes&#10;&#10;a szokasos... amugy jsdom mar muxik" />
     <MESSAGE value="629C403A-E26F-46FD-92AD-11C47E7BB90B&#10;&#10;ezt megjavitani, az a kovetkezo lepes&#10;&#10;a szokasos... amugy jsdom mar muxik&#10;&#10;ezt JSDOMNodeJSEnv valahogy fel kell konfiguralni... de mit is pontosan ?&#10;&#10;azt kell &quot;meglatni&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="629C403A-E26F-46FD-92AD-11C47E7BB90B&#10;&#10;ezt megjavitani, az a kovetkezo lepes&#10;&#10;a szokasos... amugy jsdom mar muxik&#10;&#10;ezt JSDOMNodeJSEnv valahogy fel kell konfiguralni... de mit is pontosan ?&#10;&#10;azt kell &quot;meglatni&quot;" />
+    <MESSAGE value="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}" />
+    <option name="LAST_COMMIT_MESSAGE" value="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project/build.properties">
@@ -876,6 +880,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/JSDOMNodeJSEnv.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="135" column="33" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/ExternalJSEnv.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -883,17 +894,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/JSDOMNodeJSEnv.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="135" column="33" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        <state relative-caret-position="321">
+          <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
         </state>
       </provider>
     </entry>

@@ -35,7 +35,7 @@ lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {
        |""".stripMargin
   }
   val file = Seq(new MemVirtualJSFile("init_change_URL.js").withContent(jsChangeURLCode))
-  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()
+  override def customInitFiles(): Seq[VirtualJSFile] = file // super.customInitFiles()
 }
 
 // instantiate the JS project for SBT with some additional settings
