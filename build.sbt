@@ -1,3 +1,4 @@
+import org.scalajs.core.tools.io.{MemVirtualJSFile, VirtualJSFile}
 name := "IM root project"
 
 import sbt.Keys._
@@ -23,6 +24,20 @@ lazy val layer_Z_JVM_shared = layer_Z_JVM_and_JS_shared.jvm.settings( name := "l
 
 lazy val layer_Z_JS_shared = layer_Z_JVM_and_JS_shared.js.settings( name := "layer_Z_JS_shared" )
 
+
+
+lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {
+  val jsChangeURLCode = {
+    s"""
+       |(function () {
+       |  console.log('42 137') 
+       |})();
+       |""".stripMargin
+  }
+  val file = Seq(new MemVirtualJSFile("init_change_URL.js").withContent(jsChangeURLCode))
+  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()
+}
+
 // instantiate the JS project for SBT with some additional settings
 lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
   .settings(
@@ -35,7 +50,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     mainClass in Compile := Some( "app.client.Main" ),
 //    jsEnv := new JSDOMNodeJSEnv2(), // this is a hack to make testing on node.js possible
       // 629C403A-E26F-46FD-92AD-11C47E7BB90B 
-      jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv(),
+      jsEnv := myEnv,
 
         scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) }
   )
