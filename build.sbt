@@ -27,13 +27,17 @@ lazy val layer_Z_JS_shared = layer_Z_JVM_and_JS_shared.js.settings( name := "lay
 
 
 lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {
-  val jsChangeURLCode = {
+  val jsChangeURLCode =
     s"""
        |(function () {
-       |  console.log('42 137') 
+       |  console.log('42 137')
+       |  console.log('BEFORE:')
+       |  console.log(jsdom)
+       |  jsdom.changeURL(window, "http://localhost:8043")
+       |  console.log('AFTER:')
+       |  console.log(jsdom)
        |})();
        |""".stripMargin
-  }
   val file = Seq(new MemVirtualJSFile("init_change_URL.js").withContent(jsChangeURLCode))
   override def customInitFiles(): Seq[VirtualJSFile] = file // super.customInitFiles()
 }
@@ -49,8 +53,9 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
 //    jsEnv := new JSDOMNodeJSEnv2(), // this is a hack to make testing on node.js possible
+      jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible
       // 629C403A-E26F-46FD-92AD-11C47E7BB90B 
-      jsEnv := myEnv,
+//      jsEnv := myEnv,
 
         scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) }
   )

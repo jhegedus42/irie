@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,29 +53,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
+            <state relative-caret-position="780">
+              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/JSDOMNodeJSEnv.scala">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="135" column="33" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/ExternalJSEnv.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+            <state relative-caret-position="198">
+              <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#563#595#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,6 +102,8 @@
       <find>externa</find>
       <find>init</find>
       <find>log</find>
+      <find>JSDOMNodeJSEnv2</find>
+      <find>code</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,22 +124,23 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestHelper.scala" />
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/config/Config.scala" />
+        <option value="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="25" />
+    <option name="x" value="-24" />
+    <option name="y" value="95" />
     <option name="width" value="1413" />
-    <option name="height" value="763" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,77 +150,35 @@
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="scalajs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="scalajs" type="462c0819:PsiDirectoryNode" />
-              <item name="jsenv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="scalajs" type="462c0819:PsiDirectoryNode" />
-              <item name="jsenv" type="462c0819:PsiDirectoryNode" />
-              <item name="jsdomnodejs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="sbt: sbt-and-plugins" type="70bed36:NamedLibraryElementNode" />
-              <item name="scalajs-js-envs_2.10-0.6.25.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="scalajs" type="462c0819:PsiDirectoryNode" />
-              <item name="jsenv" type="462c0819:PsiDirectoryNode" />
-              <item name="nodejs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="Module 'layer_V_JS_client'" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.46729776" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -399,32 +360,32 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_V_JS_client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
+                <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
+                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
+                <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_V_JS_client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_shared-sources" />
@@ -441,18 +402,22 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/build.sbt" value="2008240790" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="4277986204" />
+        <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="2120341553" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
         <entry key="$PROJECT_DIR$/project/Settings.scala" value="675974069" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="2802479214" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="1546996100" />
       </map>
     </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="groupPackageObjectWithPackage" value="true" />
+    <option name="projectViewHighlighting" value="true" />
+    <option name="showArgumentsToByNameParams" value="true" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SCALA_SHOW_INHERITED,ALPHA_SORTER_IGNORING_TEST_NODES" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -511,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561491513926</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="It seems to work :&#10;&#10;```&#10;&gt; reload&#10;[info] Loading project definition from /Users/joco/dev/im/irie/project&#10;[info] Set current project to layer_V_JS_client (in build file:/Users/joco/dev/im/irie/)&#10;&gt; test&#10;42 137&#10;test1&#10;test one&#10;put test payload:{&#10;  &quot;LabelOne&quot; : {&#10;&#10;  }&#10;}&#10;resetServer + url:/resetState&#10;Error: Error: connect ECONNREFUSED 127.0.0.1:80&#10;    at Object.dispatchError (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xhr-utils.js:54:19)&#10;    at Request.&lt;anonymous&gt; (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xmlhttprequest.js:675:20)&#10;    at Request.emit (events.js:205:15)&#10;    at Request.onRequestError (/Users/joco/dev/im/irie/node/node_modules/request/request.js:881:8)&#10;    at ClientRequest.emit (events.js:200:13)&#10;    at Socket.socketErrorListener (_http_client.js:410:9)&#10;    at Socket.emit (events.js:200:13)&#10;    at emitErrorNT (internal/streams/destroy.js:91:8)&#10;    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)&#10;    at processTicksAndRejections (internal/process/task_queues.js:84:9) {&#10;  type: 'XMLHttpRequest'&#10;}&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] Could not run test app.client.comm.SumIntViewTest: org.scalajs.testcommon.RPCCore$ClosedException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] java.lang.NullPointerException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:executeTests for the full output.&#10;[error] (layer_V_JS_client/test:executeTests) org.scalajs.testcommon.RPCCore$ClosedException&#10;[error] Total time: 7 s, completed Jun 25, 2019 11:56:35 PM&#10;&gt;&#10;```">
+      <created>1561496242682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561496242682</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -556,15 +528,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="25" width="1413" height="763" extended-state="0" />
+    <frame x="-24" y="95" width="1413" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37636763" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.58278143" visible="true" weight="0.38147336" />
+      <window_info id="Structure" order="1" sideWeight="0.41721854" side_tool="true" visible="true" weight="0.38147336" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32935917" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.26527572" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5678092" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -573,7 +545,7 @@
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.24441132" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32935917" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.34724292" />
+      <window_info active="true" anchor="bottom" id="Build" order="10" visible="true" weight="0.26580226" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.42921013" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -581,30 +553,9 @@
       <window_info anchor="right" id="GfmBrowser" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="sbt" order="5" weight="0.32968637" />
+      <window_info anchor="right" id="CodeMR Metrics" order="6" />
+      <window_info anchor="right" id="CodeMR" order="7" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34573305" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32935917" />
-      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.32935917" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.32935917" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="GfmBrowser" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="sbt" order="5" />
-    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding state diagram" />
@@ -616,42 +567,10 @@
     <MESSAGE value="629C403A-E26F-46FD-92AD-11C47E7BB90B&#10;&#10;ezt megjavitani, az a kovetkezo lepes&#10;&#10;a szokasos... amugy jsdom mar muxik" />
     <MESSAGE value="629C403A-E26F-46FD-92AD-11C47E7BB90B&#10;&#10;ezt megjavitani, az a kovetkezo lepes&#10;&#10;a szokasos... amugy jsdom mar muxik&#10;&#10;ezt JSDOMNodeJSEnv valahogy fel kell konfiguralni... de mit is pontosan ?&#10;&#10;azt kell &quot;meglatni&quot;" />
     <MESSAGE value="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}" />
-    <option name="LAST_COMMIT_MESSAGE" value="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}" />
+    <MESSAGE value="It seems to work :&#10;&#10;```&#10;&gt; reload&#10;[info] Loading project definition from /Users/joco/dev/im/irie/project&#10;[info] Set current project to layer_V_JS_client (in build file:/Users/joco/dev/im/irie/)&#10;&gt; test&#10;42 137&#10;test1&#10;test one&#10;put test payload:{&#10;  &quot;LabelOne&quot; : {&#10;&#10;  }&#10;}&#10;resetServer + url:/resetState&#10;Error: Error: connect ECONNREFUSED 127.0.0.1:80&#10;    at Object.dispatchError (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xhr-utils.js:54:19)&#10;    at Request.&lt;anonymous&gt; (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xmlhttprequest.js:675:20)&#10;    at Request.emit (events.js:205:15)&#10;    at Request.onRequestError (/Users/joco/dev/im/irie/node/node_modules/request/request.js:881:8)&#10;    at ClientRequest.emit (events.js:200:13)&#10;    at Socket.socketErrorListener (_http_client.js:410:9)&#10;    at Socket.emit (events.js:200:13)&#10;    at emitErrorNT (internal/streams/destroy.js:91:8)&#10;    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)&#10;    at processTicksAndRejections (internal/process/task_queues.js:84:9) {&#10;  type: 'XMLHttpRequest'&#10;}&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] Could not run test app.client.comm.SumIntViewTest: org.scalajs.testcommon.RPCCore$ClosedException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] java.lang.NullPointerException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:executeTests for the full output.&#10;[error] (layer_V_JS_client/test:executeTests) org.scalajs.testcommon.RPCCore$ClosedException&#10;[error] Total time: 7 s, completed Jun 25, 2019 11:56:35 PM&#10;&gt;&#10;```" />
+    <option name="LAST_COMMIT_MESSAGE" value="It seems to work :&#10;&#10;```&#10;&gt; reload&#10;[info] Loading project definition from /Users/joco/dev/im/irie/project&#10;[info] Set current project to layer_V_JS_client (in build file:/Users/joco/dev/im/irie/)&#10;&gt; test&#10;42 137&#10;test1&#10;test one&#10;put test payload:{&#10;  &quot;LabelOne&quot; : {&#10;&#10;  }&#10;}&#10;resetServer + url:/resetState&#10;Error: Error: connect ECONNREFUSED 127.0.0.1:80&#10;    at Object.dispatchError (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xhr-utils.js:54:19)&#10;    at Request.&lt;anonymous&gt; (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xmlhttprequest.js:675:20)&#10;    at Request.emit (events.js:205:15)&#10;    at Request.onRequestError (/Users/joco/dev/im/irie/node/node_modules/request/request.js:881:8)&#10;    at ClientRequest.emit (events.js:200:13)&#10;    at Socket.socketErrorListener (_http_client.js:410:9)&#10;    at Socket.emit (events.js:200:13)&#10;    at emitErrorNT (internal/streams/destroy.js:91:8)&#10;    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)&#10;    at processTicksAndRejections (internal/process/task_queues.js:84:9) {&#10;  type: 'XMLHttpRequest'&#10;}&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] Could not run test app.client.comm.SumIntViewTest: org.scalajs.testcommon.RPCCore$ClosedException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] java.lang.NullPointerException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:executeTests for the full output.&#10;[error] (layer_V_JS_client/test:executeTests) org.scalajs.testcommon.RPCCore$ClosedException&#10;[error] Total time: 7 s, completed Jun 25, 2019 11:56:35 PM&#10;&gt;&#10;```" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/build.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/shared/views/Views.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/___comm_model_on_the_server_side/serverSide/akkaHttpWebServer/HTTP.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding>
-            <element signature="e#290#387#0" expanded="true" />
-            <element signature="e#2485#2533#0" />
-            <element signature="e#2681#3830#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/RefTest.scala">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -766,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestFromOldSource.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestHelper.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -805,7 +717,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/node_modules/jsdom/Changelog.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="8045">
@@ -814,6 +725,7 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/RESTTest_old.scala">
       <provider selected="true" editor-type-id="text-editor">
@@ -828,16 +740,6 @@
           <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#25#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/AbstractNodeJSEnv.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4446">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <element signature="e#561#592#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -863,6 +765,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.10/jars/scalajs-tools_2.10-0.6.25.jar!/org/scalajs/core/tools/io/VirtualTextFile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/ComJSEnv.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestFromOldSource.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-258">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.10/jars/scalajs-tools_2.10-0.6.25.jar!/org/scalajs/core/tools/io/VirtualJSFile.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -870,40 +793,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/jsdomnodejs/JSDOMNodeJSEnv.scala">
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-tools_2.10-0.6.25-sources.jar!/org/scalajs/core/tools/jsdep/ResolvedJSDependency.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="240">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-tools_2.10-0.6.25-sources.jar!/org/scalajs/core/tools/io/VirtualFiles.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="107" column="6" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.7-sources.jar!/scala/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.10/jars/scalajs-js-envs_2.10-0.6.25.jar!/org/scalajs/jsenv/ExternalJSEnv.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/AbstractNodeJSEnv.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#561#592#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/JSDOMNodeJSEnv.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="135" column="33" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="33" />
+        <state relative-caret-position="195">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/ExternalJSEnv.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+        <state relative-caret-position="60">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#1099#1140#0" expanded="true" />
+            <marker date="1561496801797" expanded="true" signature="3494:3899" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/jsdomnodejs/JSDOMNodeJSEnv.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="37" column="59" selection-start-line="37" selection-start-column="59" selection-end-line="37" selection-end-column="59" />
+        <state relative-caret-position="780">
+          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#563#595#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.46729776" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.46729776" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.46729776" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>IM root project</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2145359" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -911,6 +946,29 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>scala-sdk-2.13.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.46729776" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2145359" />
               </list>
             </option>
           </splitter-proportions>

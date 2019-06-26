@@ -77,28 +77,37 @@ class JSDOMNodeJSEnv2(
            |
            |  jsdom.env({
            |    html: "",
+           |    
            |    virtualConsole: jsdom.createVirtualConsole().sendTo(console),
+           |    
            |    created: function (error, window) {
-           |      if (error == null) {
-           |        window["__ScalaJSEnv"] = __ScalaJSEnv;
-           |        window["scalajsCom"] = global.scalajsCom;
-           |        windowKeys = Object.keys(window);
-           |      } else {
-           |        console.log(error);
-           |      }
-           |    },
-           |    scripts: [${scriptsStringPath.mkString( ", " )}],
-           |    onload: function (window) {
-           |      jsdom.changeURL(window, "http://localhost:8043");
-           |      for (var k in window) {
-           |        if (windowKeys.indexOf(k) == -1)
-           |          global[k] = window[k];
-           |      }
+           |                if (error == null) {
+           |                    window["__ScalaJSEnv"] = __ScalaJSEnv;
+           |                    window["scalajsCom"] = global.scalajsCom;
+           |                    windowKeys = Object.keys(window);
+           |                } else {
+           |                    console.log(error);
+           |                }
+           |             },
            |
-           |      ${code.content}
-           |    }
-           |  });
+           |    scripts: [${scriptsStringPath.mkString( ", " )}],
+           |
+           |    onload: function (window) {
+           |
+           |                jsdom.changeURL(window, "http://localhost:8043");
+           |
+           |                for (var k in window) {
+           |                    if (windowKeys.indexOf(k) == -1)
+           |                    global[k] = window[k];
+           |                }
+           |
+           |                ${code.content}
+           |             }
+           |
+           |    });
+           |  
            |})();
+           |
            |""".stripMargin
       }
       Seq( new MemVirtualJSFile( "codeWithJSDOMContext.js" ).withContent( jsDOMCode ) )
