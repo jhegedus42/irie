@@ -1,7 +1,7 @@
-package app.client.ui.routing.routeRepresentations
+package app.client.ui.routing.dataRepresentersOfToRoutableComponents
 
-import app.client.ui.components.rootComponents.ItemsPage
-import app.client.ui.routing.routersChildren.itemsComp.{Item1DataComp, Item2DataComp, ItemsInfoComp}
+import app.client.ui.routing.componentsThatCanBeRoutedTo.itemsComp.children.{Item1DataComp, Item2DataComp, ItemsInfoComp}
+import app.client.ui.routing.componentsThatCanBeRoutedTo.itemsComp.{  ItemsPage}
 import japgolly.scalajs.react.extra.router.{RouterConfigDsl, StaticDsl}
 import japgolly.scalajs.react.vdom.VdomElement
 

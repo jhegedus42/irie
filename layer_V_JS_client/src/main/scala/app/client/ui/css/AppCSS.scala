@@ -2,8 +2,9 @@ package app.client.ui.css
 
 import scalacss.Defaults._
 import scalacss.internal.mutable.GlobalRegistry
-import app.client.ui.routing.routersChildren.{LeftNavComp, TopNavComp}
-import app.client.ui.components.rootComponents.{HomePage, ItemsPage}
+import app.client.ui.routing.generalComponents.{LeftNavComp, TopNavComp}
+import app.client.ui.routing.componentsThatCanBeRoutedTo.HomePage
+import app.client.ui.routing.componentsThatCanBeRoutedTo.itemsComp.ItemsPage
 
 object AppCSS {
 

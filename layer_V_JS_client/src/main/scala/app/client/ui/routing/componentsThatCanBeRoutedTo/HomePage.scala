@@ -1,4 +1,4 @@
-package app.client.ui.components.rootComponents
+package app.client.ui.routing.componentsThatCanBeRoutedTo
 
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._

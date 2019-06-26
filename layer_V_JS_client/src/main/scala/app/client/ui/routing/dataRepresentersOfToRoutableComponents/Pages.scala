@@ -1,4 +1,4 @@
-package app.client.ui.routing.routeRepresentations
+package app.client.ui.routing.dataRepresentersOfToRoutableComponents
 
 object Pages {
 

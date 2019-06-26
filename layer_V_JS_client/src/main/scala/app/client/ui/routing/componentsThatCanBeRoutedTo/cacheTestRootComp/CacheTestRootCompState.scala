@@ -1,4 +1,4 @@
-package app.client.ui.components.rootComponents.cacheTestRootComp
+package app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp
 
 import app.shared.data.model.LineText
 import app.shared.data.ref.RefVal

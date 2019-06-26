@@ -4,7 +4,7 @@ import app.shared.data.model.LineText
 import app.shared.data.ref.Ref
 import CacheStates.CacheState
 import app.client.ui.components.cache.hidden.EntityCacheMap
-import app.client.ui.components.rootComponents.cacheTestRootComp.ReRenderTriggererContainer.ReRenderTriggerer
+import app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp.ReRenderTriggererContainer.ReRenderTriggerer
 import slogging.LazyLogging
 
 /**

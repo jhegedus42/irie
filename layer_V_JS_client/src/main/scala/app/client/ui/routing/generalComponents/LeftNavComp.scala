@@ -1,6 +1,6 @@
-package app.client.ui.routing.routersChildren
+package app.client.ui.routing.generalComponents
 
-import app.client.ui.routing.routeRepresentations.Item
+import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Item
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl

@@ -1,12 +1,12 @@
-package app.client.ui.components.rootComponents
+package app.client.ui.routing.componentsThatCanBeRoutedTo.itemsComp
 
-import app.client.ui.routing.routersChildren.LeftNavComp
-import app.client.ui.routing.routeRepresentations.Item
-import scalacss.Defaults._
-import scalacss.ScalaCssReact._
+import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Item
+import app.client.ui.routing.generalComponents.LeftNavComp
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^._
+import scalacss.Defaults._
+import scalacss.ScalaCssReact._
 
 object ItemsPage {
 

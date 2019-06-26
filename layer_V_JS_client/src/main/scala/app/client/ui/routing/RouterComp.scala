@@ -1,11 +1,11 @@
 package app.client.ui.routing
 
-import app.client.ui.routing.routersChildren.TopNavComp.Menu
-import app.client.ui.routing.routersChildren.{FooterComp, TopNavComp}
-import app.client.ui.components.rootComponents.HomePage
-import app.client.ui.components.rootComponents.cacheTestRootComp.{CacheTestRootComp, CacheTestRootCompProps}
-import app.client.ui.routing.routeRepresentations.Item
-import app.client.ui.routing.routeRepresentations.Pages._
+import app.client.ui.routing.generalComponents.TopNavComp.Menu
+import app.client.ui.routing.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.routing.componentsThatCanBeRoutedTo.HomePage
+import app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp.{CacheTestRootComp, CacheTestRootCompProps}
+import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Item
+import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Pages._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._

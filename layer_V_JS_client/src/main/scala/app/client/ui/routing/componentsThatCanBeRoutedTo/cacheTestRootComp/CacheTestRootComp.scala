@@ -1,4 +1,4 @@
-package app.client.ui.components.rootComponents.cacheTestRootComp
+package app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp
 
 //import app.client.ui.components.cache.hidden.ReRenderTriggerer
 import app.client.ui.components.cache.exposed.CacheInterface
