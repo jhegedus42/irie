@@ -7,3 +7,13 @@ echo "--------------------------------------------------------------------------
 echo
 sbt layer_V_JS_client/test
 
+echo
+echo
+echo "----------------------------------"
+echo "now we build the .js file that will run in the browser, ultimately"
+echo
+echo
+
+sbt layer_V_JS_client/fastOptJS
+
+

@@ -104,7 +104,20 @@ echo
 echo "Your running processes after 'killall -9 java':"
 ps
 echo
+sleep 5
 echo
+echo
+echo "----------------------------------"
+echo "now we build the .js file that will run in the browser, ultimately"
+echo
+echo
+
+sbt layer_V_JS_client/fastOptJS
+
+echo
+echo "--------------------------------"
+echo
+
 echo "Press a few times enter. Just in case, to clean up"
 echo "some unneccessary text in the terminal."
 echo
@@ -115,5 +128,10 @@ echo "processes have been properly terminated and related"
 echo "resources freed."
 echo
 echo
-
-
+slepp 5
+echo "Now, you can start the test server by:"
+echo "./utils/runTestServerInSbt_light_cleaning.sh"
+echo
+echo
+echo
+echo "and open 'http://localhost:8080' in the browser"
