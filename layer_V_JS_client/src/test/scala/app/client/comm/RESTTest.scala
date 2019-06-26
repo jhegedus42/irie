@@ -7,7 +7,7 @@ import scala.concurrent.Future
 class RESTTest extends AsyncFunSuite {
 
   test("testGetEntity") {
-      println("test1")
+      println("app/client/comm/RESTTest.scala")
       Future (assert(1===1))
   }
 

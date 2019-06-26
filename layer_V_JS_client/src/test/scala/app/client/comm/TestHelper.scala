@@ -22,14 +22,15 @@ object Helpers {
     //    import io.circe.syntax._
 
     val json: String = TestDataLabels.toJSON(label).spaces2
+    println(s"we reset the server to the state described by the TestDataLabel : $label")
     //    val json="bla"
-    println( "put test payload:" + json )
+    println( "app.client.comm.Helpers.resetServer's POST payload:" + json )
     val headers = Map( "Content-Type" -> "application/json" )
     //    val url: String = ResetURL().clientEndpointWithHost.asString
 
     val url: String = "/resetState"
 
-    println( s"resetServer + url:${url}" )
+    println( s"app.client.comm.Helpers.resetServer's url:${url}" )
     val f: Future[XMLHttpRequest] =
       Ajax.post( url, json, headers = headers )
     f
@@ -47,7 +48,7 @@ trait BeforeTester {
     test( description ) { before.flatMap( _ => testToRun ) }
   }
 
-  def resetDBBeforeTest: Future[Unit] =
+  def resetDBBeforeTest_StateLabelOne: Future[Unit] =
     Helpers.resetServer( TestDataLabels.LabelOne ).map( x => () )
 }
 

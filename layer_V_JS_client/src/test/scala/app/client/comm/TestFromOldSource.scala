@@ -25,6 +25,7 @@ class SumIntViewTest extends AsyncFunSuite with Matchers with BeforeTester {
 
   implicit override def executionContext =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
   // ^^^^^ https://github.com/scalatest/scalatest/issues/1039
 
 
@@ -33,33 +34,51 @@ class SumIntViewTest extends AsyncFunSuite with Matchers with BeforeTester {
                                   requestParams: V#Par
                                 )(
                                   implicit
-                                  ct:      ClassTag[V],
+                                  ct: ClassTag[V],
                                   encoder: Encoder[V#Par],
                                   decoder: Decoder[V#Res]
                                 ): Future[V#Res] = {
 
     val routeName: ViewHttpRouteName = ViewHttpRouteNameProvider.getViewHttpRouteName[V]()
-    val url:       String            = routeName.name
+    val url: String = routeName.name
 
-    val json_line: String              = requestParams.asJson.spaces2 // encode
-    val headers:   Map[String, String] = Map( "Content-Type" -> "application/json" )
+    val json_line: String = requestParams.asJson.spaces2 // encode
+    val headers: Map[String, String] = Map("Content-Type" -> "application/json")
 
     Ajax
-      .post( url, json_line, headers = headers )
-      .map( _.responseText )
-      .map( (x: String) => { decode[V#Res]( x ) } )
-      .map( x => x.right.get )
+      .post(url, json_line, headers = headers)
+      .map(_.responseText)
+      .map((x: String) => {
+        decode[V#Res](x)
+      })
+      .map(x => x.right.get)
   }
 
-  testWithBefore( resetDBBeforeTest )( "sum int view should add two numbers " ) {
+  testWithBefore(resetDBBeforeTest_StateLabelOne)(
+    "sum int view should add two numbers correctly ") {
 
-    def res: Future[Assertion] ={
+    def res: Future[Assertion] = {
 
-      val whatWeWantToSend = SumIntView_Par( 2, 3 )
-      val res: Future[SumIntView_Res] = postViewRequest[SumIntView](whatWeWantToSend)
+      val parametersForViewQueryToBeSent = SumIntView_Par(2, 3)
+
+      val resultOfViewQuery: Future[SumIntView_Res] =
+        postViewRequest[SumIntView](parametersForViewQueryToBeSent)
 
 
-      val x: Future[Assertion] = res.map(res => res shouldBe SumIntView_Res(5))
+      val x: Future[Assertion] = resultOfViewQuery.map({
+        sumIntView_Res => {
+          val assertionResult: Assertion =
+            sumIntView_Res shouldBe SumIntView_Res(5)
+
+          println(
+            s"The result of the Future for the View Query $parametersForViewQueryToBeSent" +
+            s"\n is : $sumIntView_Res"
+          )
+
+          assertionResult
+        }
+
+      })
       x
     }
 
