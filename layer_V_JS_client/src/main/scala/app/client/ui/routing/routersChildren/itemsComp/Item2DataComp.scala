@@ -1,9 +1,9 @@
-package app.client.ui.components.notRootComponents.items
+package app.client.ui.routing.routersChildren.itemsComp
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
-object Item2Data {
+object Item2DataComp {
 
   val component =
     ScalaComponent.builder.static("Item2")(<.div("This is Item2 Page ")).build

@@ -1,6 +1,6 @@
-package app.client.ui.components.notRootComponents
+package app.client.ui.routing.routersChildren
 
-import app.client.ui.routing.routes.Item
+import app.client.ui.routing.routeRepresentations.Item
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -8,7 +8,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 
-object LeftNav {
+object LeftNavComp {
 
   object Style extends StyleSheet.Inline {
 

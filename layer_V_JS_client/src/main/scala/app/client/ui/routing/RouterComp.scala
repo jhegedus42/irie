@@ -1,11 +1,11 @@
 package app.client.ui.routing
 
-import app.client.ui.components.notRootComponents.TopNav.Menu
-import app.client.ui.components.notRootComponents.{Footer, TopNav}
+import app.client.ui.routing.routersChildren.TopNavComp.Menu
+import app.client.ui.routing.routersChildren.{FooterComp, TopNavComp}
 import app.client.ui.components.rootComponents.HomePage
 import app.client.ui.components.rootComponents.cacheTestRootComp.{CacheTestRootComp, CacheTestRootCompProps}
-import app.client.ui.routing.routes.Item
-import app.client.ui.routing.routes.Pages._
+import app.client.ui.routing.routeRepresentations.Item
+import app.client.ui.routing.routeRepresentations.Pages._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
@@ -68,9 +68,9 @@ case class RouterComp(hereWillPassedTheCache: String) {
 
     println(s"page = ${r.page}")
     <.div(
-      TopNav(TopNav.Props(mainMenu, r.page, c)),
+      TopNavComp(TopNavComp.Props(mainMenu, r.page, c)),
       r.render(),
-      Footer() //
+      FooterComp() //
     )
   }
 }

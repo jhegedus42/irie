@@ -1,10 +1,4 @@
-package app.client.comm
-import app.testHelpersShared.data.TestDataLabels
-import app.testHelpersShared.data.TestDataLabels.TestDataLabel
-import org.scalajs.dom.XMLHttpRequest
-import org.scalajs.dom.ext.Ajax
-
-import scala.concurrent.Future
+package app.client
 
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{Ref, RefVal}

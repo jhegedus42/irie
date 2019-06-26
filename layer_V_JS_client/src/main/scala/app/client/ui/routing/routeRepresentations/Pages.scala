@@ -1,4 +1,4 @@
-package app.client.ui.routing.routes
+package app.client.ui.routing.routeRepresentations
 
 object Pages {
 

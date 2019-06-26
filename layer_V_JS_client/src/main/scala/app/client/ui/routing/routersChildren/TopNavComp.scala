@@ -1,7 +1,7 @@
-package app.client.ui.components.notRootComponents
+package app.client.ui.routing.routersChildren
 
 import app.client.ui.routing.RouterComp
-import app.client.ui.routing.routes.Pages.AbstrReprOfPage
+import app.client.ui.routing.routeRepresentations.Pages.AbstrReprOfPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -10,7 +10,7 @@ import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 
 
-object TopNav {
+object TopNavComp {
 
 
   object Style extends StyleSheet.Inline {

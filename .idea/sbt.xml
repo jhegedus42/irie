@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaSbtSettings">
-    <option name="customVMEnabled" value="true" />
     <option name="customVMPath" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home" />
     <option name="linkedExternalProjectsSettings">
       <SbtProjectSettings>
+        <option name="allowSbtVersionOverride" value="false" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
@@ -19,7 +19,10 @@
             <option value="$PROJECT_DIR$/project" />
           </set>
         </option>
+        <option name="resolveSbtClassifiers" value="true" />
         <option name="sbtVersion" value="0.13.18" />
+        <option name="useSbtShellForBuild" value="true" />
+        <option name="useSbtShellForImport" value="true" />
       </SbtProjectSettings>
     </option>
     <option name="maximumHeapSize" value="2000" />

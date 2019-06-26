@@ -1,6 +1,6 @@
 package app.client.ui.components.cache.hidden
 
-import app.client.comm.REST.getEntity
+import app.client.REST.getEntity
 import app.client.ui.components.cache.exposed.CacheInterface
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{Ref, RefVal}

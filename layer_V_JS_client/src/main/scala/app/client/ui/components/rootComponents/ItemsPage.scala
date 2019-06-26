@@ -1,7 +1,7 @@
 package app.client.ui.components.rootComponents
 
-import app.client.ui.components.notRootComponents.LeftNav
-import app.client.ui.routing.routes.Item
+import app.client.ui.routing.routersChildren.LeftNavComp
+import app.client.ui.routing.routeRepresentations.Item
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 import japgolly.scalajs.react._
@@ -26,7 +26,7 @@ object ItemsPage {
       <.div(
         Style.container,
         <.div(Style.nav,
-              LeftNav(LeftNav.Props(Item.menu, P.selectedPage, P.ctrl))),
+              LeftNavComp(LeftNavComp.Props(Item.menu, P.selectedPage, P.ctrl))),
         <.div(Style.content, P.selectedPage.render())
       )
     }

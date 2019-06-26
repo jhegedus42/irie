@@ -41,7 +41,7 @@ class Backend($ : BackendScope[CacheTestRootCompProps, CacheTestRootCompState] )
       Callback {
         implicit def executionContext: ExecutionContextExecutor =
           scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-        import app.client.comm.REST.getEntity
+        import app.client.REST.getEntity
         import io.circe.generic.auto._
         val ref: Ref[LineText] = Ref.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
 
@@ -77,24 +77,16 @@ class Backend($ : BackendScope[CacheTestRootCompProps, CacheTestRootCompState] )
 
 }
 
-object CacheTestRootComp extends LazyLogging {
-
-//  import java.time.Instant
-//  def getTime={
-//    val n: Instant = Instant.now()
-//    n.toString
-//  }
-//  case class State(i: Int, lineTextOption: Option[RefVal[LineText]],timeStamp:String=getTime )
-
+object ReRenderTriggererContainer{
   class ReRenderTriggerer(private val causeReRender: Unit => Unit ) {
 
     def triggerReRender() = {
       val r = Random.nextInt( 1000 )
-      logger.trace( s"before calling causeReRender() in ReRenderTriggerer.triggerReRender, random ID: $r" )
+//      logger.trace( s"before calling causeReRender() in ReRenderTriggerer.triggerReRender, random ID: $r" )
       causeReRender()
-      logger.trace(
-        s"after call has returned causeReRender() in ReRenderTriggerer.triggerReRender, random ID: $r"
-      )
+//      logger.trace(
+//        s"after call has returned causeReRender() in ReRenderTriggerer.triggerReRender, random ID: $r"
+//      )
       ReRenderTriggerer.nrOfRerenders = ReRenderTriggerer.nrOfRerenders + 1
     }
   }
@@ -104,21 +96,25 @@ object CacheTestRootComp extends LazyLogging {
   }
 
   def toBeCalledByComponentDidMount(
-      x: Lifecycle.Base[CacheTestRootCompProps, CacheTestRootCompState, Backend]
-    ): CallbackTo[Unit] =
+                                     x: Lifecycle.Base[CacheTestRootCompProps, CacheTestRootCompState, Backend]
+                                   ): CallbackTo[Unit] =
     Callback {
       println( "toBeCalledByComponentDidMount called - component did mount" )
 
       val reRenderTriggerer =
         new ReRenderTriggerer( _ => {
-          logger.trace( "reRenderTriggerer was executed, this means a real re-render" )
+//          logger.trace( "reRenderTriggerer was executed, this means a real re-render" )
           x.backend.incCounter.runNow() // WE TRIGGER HERE A REAL RE-RENDER
-          logger.trace( "we have just increased the counter in the component" )
+//          logger.trace( "we have just increased the counter in the component" )
         } )
 
       CacheInterface.setReRenderTriggerer( reRenderTriggerer )
 
     }
+
+}
+
+object CacheTestRootComp extends LazyLogging {
 
   //noinspection TypeAnnotation
   //  case class RootComponentConstructorProvider()
@@ -128,7 +124,7 @@ object CacheTestRootComp extends LazyLogging {
       .builder[CacheTestRootCompProps]( "Cache Experiment" )
       .initialState( CacheTestRootCompState( 42, None ) )
       .renderBackend[Backend]
-      .componentDidMount( toBeCalledByComponentDidMount( _ ) )
+      .componentDidMount( ReRenderTriggererContainer.toBeCalledByComponentDidMount( _ ) )
       .componentDidUpdate(
         (x: Lifecycle.Base[CacheTestRootCompProps, CacheTestRootCompState, Backend]) =>
           Callback( {
@@ -142,5 +138,20 @@ object CacheTestRootComp extends LazyLogging {
           } )
       )
       .build
+
+}
+
+
+object _Archive{
+
+
+
+  //  import java.time.Instant
+  //  def getTime={
+  //    val n: Instant = Instant.now()
+  //    n.toString
+  //  }
+  //  case class State(i: Int, lineTextOption: Option[RefVal[LineText]],timeStamp:String=getTime )
+
 
 }
