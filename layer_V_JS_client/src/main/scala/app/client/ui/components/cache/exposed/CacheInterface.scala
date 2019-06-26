@@ -1,9 +1,9 @@
-package app.client.comm.cache.exposed
+package app.client.ui.components.cache.exposed
 
 import app.shared.data.model.LineText
 import app.shared.data.ref.Ref
 import CacheStates.CacheState
-import app.client.comm.cache.hidden.EntityCacheMap
+import app.client.ui.components.cache.hidden.EntityCacheMap
 import app.client.ui.components.rootComponents.cacheTestRootComp.CacheTestRootComp.ReRenderTriggerer
 import slogging.LazyLogging
 

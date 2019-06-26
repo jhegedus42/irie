@@ -2,7 +2,7 @@ package app.client.ui.components.rootComponents.cacheTestRootComp
 import app.shared.data.ref.{Ref, RefVal}
 import app.shared.data.model.LineText
 import app.testHelpersShared.data.TestEntities
-import app.client.comm.cache.exposed.CacheInterface
+import app.client.ui.components.cache.exposed.CacheInterface
 import app.shared.data.ref.{Ref, RefVal}
 import org.scalajs.dom.html.{Div, Pre}
 import slogging.LazyLogging

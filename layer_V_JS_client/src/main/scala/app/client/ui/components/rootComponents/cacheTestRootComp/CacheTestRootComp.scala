@@ -1,7 +1,7 @@
 package app.client.ui.components.rootComponents.cacheTestRootComp
 
-//import app.client.comm.cache.hidden.ReRenderTriggerer
-import app.client.comm.cache.exposed.CacheInterface
+//import app.client.ui.components.cache.hidden.ReRenderTriggerer
+import app.client.ui.components.cache.exposed.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.{Ref, RefVal}
 import org.scalajs.dom.html.Div

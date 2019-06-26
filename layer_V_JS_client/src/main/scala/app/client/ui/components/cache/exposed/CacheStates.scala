@@ -1,4 +1,4 @@
-package app.client.comm.cache.exposed
+package app.client.ui.components.cache.exposed
 
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{Ref, RefVal}

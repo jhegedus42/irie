@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="bit of rearranging the code">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/utils/ModelOps$Test.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheInterface.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheStates.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/hidden/EntityCacheMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheAccessHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheAccessHelper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,16 +51,18 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54412836">
+    <splitter split-orientation="horizontal" split-proportion="0.4573304">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/hidden/EntityCacheMap.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+                <state relative-caret-position="237">
+                  <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
                   <folding>
+                    <element signature="e#1011#1209#0" />
                     <element signature="e#1716#2164#0" />
+                    <element signature="e#2258#2710#0" />
                   </folding>
                 </state>
               </provider>
@@ -76,23 +73,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheStates.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-                  <folding>
-                    <element signature="e#2201#2615#0" />
-                    <element signature="e#3390#3421#1" />
-                  </folding>
+                <state relative-caret-position="60">
+                  <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -159,16 +143,16 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompState.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="32" />
-    <option name="width" value="1413" />
-    <option name="height" value="778" />
+    <option name="x" value="100" />
+    <option name="y" value="36" />
+    <option name="width" value="1271" />
+    <option name="height" value="757" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -238,132 +222,7 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="exposed" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="hidden" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="rootComponents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="rootComponents" type="462c0819:PsiDirectoryNode" />
-              <item name="cacheTestRootComp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="routing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="routing" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -456,7 +315,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.46729776" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -798,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561561290400</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="limiting accessibility in Cache classes">
+      <created>1561564176628</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1561564176629</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -843,11 +709,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="32" width="1413" height="778" extended-state="0" />
+    <frame x="100" y="36" width="1271" height="757" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47609943" visible="true" weight="0.22027718" />
-      <window_info id="Structure" order="1" sideWeight="0.52390057" side_tool="true" visible="true" weight="0.22027718" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47418737" weight="0.34499595" />
+      <window_info id="Structure" order="1" sideWeight="0.5258126" side_tool="true" weight="0.30488694" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32968637" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -856,12 +722,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32798833" />
-      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.3483965" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3265306" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" visible="true" weight="0.35939848" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.26239067" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.26530612" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.23760933" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.23760933" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -925,17 +791,11 @@
     <MESSAGE value="It seems to work :&#10;&#10;```&#10;&gt; reload&#10;[info] Loading project definition from /Users/joco/dev/im/irie/project&#10;[info] Set current project to layer_V_JS_client (in build file:/Users/joco/dev/im/irie/)&#10;&gt; test&#10;42 137&#10;test1&#10;test one&#10;put test payload:{&#10;  &quot;LabelOne&quot; : {&#10;&#10;  }&#10;}&#10;resetServer + url:/resetState&#10;Error: Error: connect ECONNREFUSED 127.0.0.1:80&#10;    at Object.dispatchError (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xhr-utils.js:54:19)&#10;    at Request.&lt;anonymous&gt; (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xmlhttprequest.js:675:20)&#10;    at Request.emit (events.js:205:15)&#10;    at Request.onRequestError (/Users/joco/dev/im/irie/node/node_modules/request/request.js:881:8)&#10;    at ClientRequest.emit (events.js:200:13)&#10;    at Socket.socketErrorListener (_http_client.js:410:9)&#10;    at Socket.emit (events.js:200:13)&#10;    at emitErrorNT (internal/streams/destroy.js:91:8)&#10;    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)&#10;    at processTicksAndRejections (internal/process/task_queues.js:84:9) {&#10;  type: 'XMLHttpRequest'&#10;}&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] Could not run test app.client.comm.SumIntViewTest: org.scalajs.testcommon.RPCCore$ClosedException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] java.lang.NullPointerException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:executeTests for the full output.&#10;[error] (layer_V_JS_client/test:executeTests) org.scalajs.testcommon.RPCCore$ClosedException&#10;[error] Total time: 7 s, completed Jun 25, 2019 11:56:35 PM&#10;&gt;&#10;```" />
     <MESSAGE value="The test works, JSDOM can connect to localhost : 8080 ." />
     <MESSAGE value="bit of rearranging the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="bit of rearranging the code" />
+    <MESSAGE value="limiting accessibility in Cache classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="limiting accessibility in Cache classes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/resolution-cache/layer_z_jvm_shared/layer_z_jvm_shared_2.12/0.1-SNAPSHOT/resolved.xml.properties" />
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/REST.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/rest/CirceJSONTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1239,13 +1099,6 @@
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/RefTest.scala">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/UUID$Test.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1270,6 +1123,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/REST.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheInterface.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding>
+            <element signature="e#658#776#0" />
+            <element signature="e#781#1359#0" />
+            <element signature="e#1303#1844#0" />
+            <element signature="e#1434#2830#0" />
+            <element signature="e#2063#2353#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1281,20 +1155,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheStates.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding>
-            <element signature="e#1716#2164#0" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/hidden/EntityCacheMap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        <state relative-caret-position="237">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+          <folding>
+            <element signature="e#1011#1209#0" />
+            <element signature="e#1716#2164#0" />
+            <element signature="e#2258#2710#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,14 +1,14 @@
-package app.client.comm.cache.hidden
+package app.client.ui.components.cache.hidden
 
 import app.client.comm.REST.getEntity
-import app.client.comm.cache.exposed.CacheInterface
+import app.client.ui.components.cache.exposed.CacheInterface
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{Ref, RefVal}
-import app.client.comm.cache.exposed.CacheStates.{CacheState, Loaded, Loading}
+import app.client.ui.components.cache.exposed.CacheStates.{CacheState, Loaded, Loading}
 import slogging.LazyLogging
 
 import scala.util.Try
-//import app.client.comm.cache.hidden._temp_disabled_ajax.AJAXGetEntityApi.InFlight_ReadEntity
+//import app.client.ui.components.cache.hidden._temp_disabled_ajax.AJAXGetEntityApi.InFlight_ReadEntity
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
