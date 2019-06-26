@@ -128,7 +128,7 @@ echo "processes have been properly terminated and related"
 echo "resources freed."
 echo
 echo
-slepp 5
+sleep 5
 echo "Now, you can start the test server by:"
 echo "./utils/runTestServerInSbt_light_cleaning.sh"
 echo
