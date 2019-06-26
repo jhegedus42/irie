@@ -33,17 +33,18 @@ object Settings {
 
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
-    val scala        = "2.12.4"
+    val scala        = "2.12.6"
     val scalaDom     = "0.9.6"
-    val scalajsReact = "1.2.1"
+    val scalajsReact = "1.3.0"
     val scalaCSS     = "0.5.5"
+    val scalaZ       = "7.2.26"
 
     val akka              = "2.5.1"
     val in_memory_journal = "2.5.1.1"
 
     val akkaHttp = "10.1.5"
 
-    val monocleVersion = "1.4.0"
+    val monocleVersion = "1.5.0"
 
   }
 
@@ -57,14 +58,11 @@ object Settings {
 
   val sharedDependencies = Def.setting(
     Seq(
-//      "org.scalactic" %%% "scalactic_2.12" % "3.0.4",
-//      "com.github.johnreedlol" %% "scala-trace-debug" % "4.5.0",
       "com.lihaoyi" %%% "scalatags" % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core" % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
-      "org.scalaz" %%% "scalaz-core" % "7.2.16",
+      "org.scalaz" %%% "scalaz-core" % versions.scalaZ,
       "com.github.julien-truffaut" %% "monocle-law" % versions.monocleVersion % "test",
-//      "com.beachape" %%% "enumeratum-circe" % "1.5.14", //,
       "com.lihaoyi" %%% "pprint" % "0.5.3",
       "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
     ) ++
@@ -79,7 +77,6 @@ object Settings {
   val jvmDependencies = Def.setting(
     Seq(
       "de.heikoseeberger" %%% "akka-http-circe" % "1.22.0",
-//        "com.beachape" %% "enumeratum-circe" % "1.5.14",
       "ch.megard" %%% "akka-http-cors" % "0.3.1",
       "com.github.dnvriend" %% "akka-persistence-inmemory" % versions.in_memory_journal,
       "com.typesafe.akka" %% "akka-persistence" % versions.akka,
@@ -87,11 +84,9 @@ object Settings {
       "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
       "com.typesafe.akka" %% "akka-actor" % versions.akka,
       "com.typesafe.akka" %% "akka-slf4j" % versions.akka,
-//          "ch.qos.logback"    % "logback-classic"            % "1.1.2",
       "com.typesafe.akka" %% "akka-http" % versions.akkaHttp,
       "com.typesafe.akka" %% "akka-http-testkit" % versions.akkaHttp,
       "org.slf4j" % "slf4j-simple" % "1.7.25",
-//      "com.typesafe.akka" %% "akka-http-spray-json" % versions.akkaHttp,
       "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
     )
   )
@@ -101,7 +96,6 @@ object Settings {
     Seq(
       "com.lihaoyi" %%% "pprint" % "0.5.3",
       "biz.enef" %%% "slogging" % "0.5.3",
-//      "com.beachape" %%% "enumeratum-circe" % "1.5.14",
       "com.github.japgolly.scalajs-react" %%% "core" % versions.scalajsReact,
       "com.github.japgolly.scalajs-react" %%% "extra" % versions.scalajsReact,
       "com.github.japgolly.scalacss" %%% "ext-react" % versions.scalaCSS,
