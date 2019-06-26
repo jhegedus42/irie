@@ -14,9 +14,15 @@ import slogging.LazyLogging
 
 object CacheInterface extends LazyLogging {
 
-  var nrOfRerendTriggererSets = 0
+  private var nrOfRerendTriggererSets = 0
   private lazy val cacheLineText: EntityCacheMap[LineText]  = new EntityCacheMap[LineText]
-  var reRenderTriggerer:          Option[ReRenderTriggerer] = None
+  private[this] var reRenderTriggerer:          Option[ReRenderTriggerer] = None
+
+  private[cache] def reRenderShouldBeTriggered() = {
+
+    reRenderTriggerer.foreach( _.triggerReRender() )
+  }
+
 
   def setReRenderTriggerer(triggerer: ReRenderTriggerer ) = {
     println( "RERENDER - CacheInterface rerender is called." )
@@ -54,7 +60,7 @@ object CacheInterface extends LazyLogging {
     this.logger.trace(
       s"BEFORE calling readEntity($ref) on cacheLineText\n",
       s"Cache was asked for $ref \n" +
-        s"The state of the cache is ${cacheLineText.map}\n" +
+//        s"The state of the cache is ${cacheLineText.map}\n" +
         s"The state of the cache pretty printed is : \n" +
         s"${cacheLineText.getCacheContentAsPrettyString}\n"
     )
@@ -64,10 +70,11 @@ object CacheInterface extends LazyLogging {
     this.logger.trace(
       s"AFTER calling readEntity($ref) on cacheLineText\n",
       s"Cache was asked for $ref \n" +
-        s"The state of the cache is ${cacheLineText.map}\n" +
+//        s"The state of the cache is ${cacheLineText.map}\n" +
         s"The state of the cache pretty printed is : \n" +
         s"${cacheLineText.getCacheContentAsPrettyString}\n"
     )
+
     this.logger.trace( s"result of the readEntity call to the cache is: \n $res" )
     res
   }

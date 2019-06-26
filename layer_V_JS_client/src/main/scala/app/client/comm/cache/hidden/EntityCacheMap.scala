@@ -23,38 +23,35 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
   logger.trace("Constructor of EntityCacheMap")
 
 
-  var map: Map[Ref[E], CacheState[E]] = Map()
+  private var map: Map[Ref[E], CacheState[E]] = Map()
 
   def getCacheContentAsPrettyString:String=map.foldLeft("")((s,t)=>s"$s\n$t\n")
 
-  def isAjaxReqStillPending: Boolean = {
+  private def isAjaxReqStillPending: Boolean = {
     val res = map.valuesIterator.exists( (x: CacheState[E]) => x.isLoading )
     res
   }
 
-  def insertIntoCache(rv:RefVal[E])={
+  private def insertIntoCache(rv:RefVal[E])={
     println(s"CACHE WRITE => we insert $rv into the cache")
     logger.trace(s"parameter:$rv")
     val map2=map + ( rv.r -> Loaded(rv.r,rv))
     this.map=map2
   }
 
-  def ajaxReqReturnHandler(r: Try[RefVal[E]] ): Unit = {
+  private def ajaxReqReturnHandler(r: Try[RefVal[E]] ): Unit = {
     logger.trace(s"ajaxReqReturnHandler called with parameter $r")
 
     r.foreach(insertIntoCache)
 
     if (!isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
       logger.trace( "LAST AJAX call returned => re-render needs to be triggered" )
-      val res=CacheInterface.reRenderTriggerer.flatMap( x => {
-        x.triggerReRender()
-        Some("successfully re-rendered")
-      } )
+      CacheInterface.reRenderShouldBeTriggered()
     }
 
   }
 
-  def launchReadAjax(ref: Ref[E] )(implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
+  private def launchReadAjax(ref: Ref[E] )(implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
     logger.trace(s"par: $ref")
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -67,7 +64,7 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
     ajaxCallAsFuture.onComplete( r => ajaxReqReturnHandler( r ) )
   }
 
-  def readEntity(
+  private[cache] def readEntity(
       refToEntity: Ref[E]
     )(
       implicit

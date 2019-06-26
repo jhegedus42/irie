@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="bit of rearranging the code">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/_design/CodeModel.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/utils/ModelOps$Test.scala" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,10 +29,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ErrorTreeViewConfiguration">
-    <option name="hideWarnings" value="true" />
-    <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -50,108 +52,54 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="IM root project" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheAccessHelper.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-              <folding>
-                <element signature="e#2201#2615#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheStates.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-              <folding>
-                <element signature="e#31#92#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompProps.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompState.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding>
-                <element signature="e#67#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/ItemsPage.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.54412836">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="199">
+                  <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#1716#2164#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#2201#2615#0" />
+                    <element signature="e#3390#3421#1" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -211,6 +159,8 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompState.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala" />
       </list>
     </option>
   </component>
@@ -417,6 +367,74 @@
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="ref" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -438,7 +456,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.46729776" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -622,28 +640,28 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
+                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="layer_V_JS_client [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
@@ -677,9 +695,6 @@
     <option name="groupPackageObjectWithPackage" value="true" />
     <option name="projectViewHighlighting" value="true" />
     <option name="showArgumentsToByNameParams" value="true" />
-  </component>
-  <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",ALPHA_SORTER_IGNORING_TEST_NODES,SCALA_SHOW_SCALATEST_TESTS" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -776,7 +791,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561512530172</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="bit of rearranging the code">
+      <created>1561561290400</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1561561290400</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -824,28 +846,28 @@
     <frame x="49" y="32" width="1413" height="778" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6676385" visible="true" weight="0.39314368" />
-      <window_info id="Structure" order="1" sideWeight="0.33236152" side_tool="true" weight="0.39314368" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47609943" visible="true" weight="0.22027718" />
+      <window_info id="Structure" order="1" sideWeight="0.52390057" side_tool="true" visible="true" weight="0.22027718" />
       <window_info id="Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" weight="0.32968637" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.27842566" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.38629737" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5678092" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32798833" />
-      <window_info active="true" anchor="bottom" id="sbt-shell-toolwindow" order="7" visible="true" weight="0.3483965" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.3483965" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.26239067" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.26530612" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.42921013" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.23760933" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="GfmBrowser" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="sbt" order="5" weight="0.32968637" />
+      <window_info anchor="right" id="sbt" order="5" weight="0.16921955" />
       <window_info anchor="right" id="CodeMR Metrics" order="6" />
       <window_info anchor="right" id="CodeMR" order="7" />
     </layout>
@@ -902,27 +924,11 @@
     <MESSAGE value="added custom &quot;init code&quot;, for testing, when running the &quot;tests&quot; using &#10;jsdom - this is needed - the custom init code to allow to connect to&#10;localhost on some &quot;different port&quot; than 80, I think... it might be&#10;some security issue... and this is the &quot;simplest&quot; way around - i think&#10;&#10;lazy val myEnv= new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv() {&#10;  val jsChangeURLCode = {&#10;    s&quot;&quot;&quot;&#10;       |(function () {&#10;       |  console.log('42 137') &#10;       |})();&#10;       |&quot;&quot;&quot;.stripMargin&#10;  }&#10;  val file = Seq(new MemVirtualJSFile(&quot;init_change_URL.js&quot;).withContent(jsChangeURLCode))&#10;  override def customInitFiles(): Seq[VirtualJSFile] = super.customInitFiles()&#10;}" />
     <MESSAGE value="It seems to work :&#10;&#10;```&#10;&gt; reload&#10;[info] Loading project definition from /Users/joco/dev/im/irie/project&#10;[info] Set current project to layer_V_JS_client (in build file:/Users/joco/dev/im/irie/)&#10;&gt; test&#10;42 137&#10;test1&#10;test one&#10;put test payload:{&#10;  &quot;LabelOne&quot; : {&#10;&#10;  }&#10;}&#10;resetServer + url:/resetState&#10;Error: Error: connect ECONNREFUSED 127.0.0.1:80&#10;    at Object.dispatchError (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xhr-utils.js:54:19)&#10;    at Request.&lt;anonymous&gt; (/Users/joco/dev/im/irie/node/node_modules/jsdom/lib/jsdom/living/xmlhttprequest.js:675:20)&#10;    at Request.emit (events.js:205:15)&#10;    at Request.onRequestError (/Users/joco/dev/im/irie/node/node_modules/request/request.js:881:8)&#10;    at ClientRequest.emit (events.js:200:13)&#10;    at Socket.socketErrorListener (_http_client.js:410:9)&#10;    at Socket.emit (events.js:200:13)&#10;    at emitErrorNT (internal/streams/destroy.js:91:8)&#10;    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)&#10;    at processTicksAndRejections (internal/process/task_queues.js:84:9) {&#10;  type: 'XMLHttpRequest'&#10;}&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] Could not run test app.client.comm.SumIntViewTest: org.scalajs.testcommon.RPCCore$ClosedException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:test for the full output.&#10;[error] java.lang.NullPointerException&#10;[trace] Stack trace suppressed: run last layer_V_JS_client/test:executeTests for the full output.&#10;[error] (layer_V_JS_client/test:executeTests) org.scalajs.testcommon.RPCCore$ClosedException&#10;[error] Total time: 7 s, completed Jun 25, 2019 11:56:35 PM&#10;&gt;&#10;```" />
     <MESSAGE value="The test works, JSDOM can connect to localhost : 8080 ." />
-    <option name="LAST_COMMIT_MESSAGE" value="The test works, JSDOM can connect to localhost : 8080 ." />
+    <MESSAGE value="bit of rearranging the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="bit of rearranging the code" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/scala-2.10/resolution-cache/reports/im-root-project-im-root-project_2.10-test-internal.xml" />
-    <entry file="file://$PROJECT_DIR$/target/scala-2.10/resolution-cache/reports/im-root-project-im-root-project_2.10-test.xml" />
-    <entry file="file://$PROJECT_DIR$/target/scala-2.10/resolution-cache/reports/im-root-project-im-root-project_2.10-plugin.xml" />
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/implicits/ForTestingOnly.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/resolution-cache/layer_z_jvm_shared/layer_z_jvm_shared_2.12/0.1-SNAPSHOT/resolved.xml.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/resolution-cache/layer_z_jvm_shared/layer_z_jvm_shared_2.12/0.1-SNAPSHOT/resolved.xml.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/resolution-cache/layer_z_jvm_shared/layer_z_jvm_shared_2.12/0.1-SNAPSHOT/resolved.xml.properties" />
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/REST.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -938,13 +944,6 @@
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.10/jars/scalajs-js-envs_2.10-0.6.21.jar!/org/scalajs/jsenv/jsdomnodejs/JSDOMNodeJSEnv.class" />
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/rest/TestURLs.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -981,7 +980,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/node_modules/jsdom/Changelog.md">
-      <provider editor-type-id="Gfm" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="8045">
@@ -990,6 +988,7 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="Gfm" />
     </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/nodejs/NodeJSEnv.scala">
       <provider selected="true" editor-type-id="text-editor">
@@ -1178,6 +1177,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/_design/CodeModel.scala" />
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheAccessHelper.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1185,36 +1185,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompProps.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        <state relative-caret-position="240">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/validation/Validation.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/akkaHttpWebServer/HTTP.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/utils/ModelOps$Test.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/extra_sjs0.6_2.12/srcs/extra_sjs0.6_2.12-1.2.0-sources.jar!/japgolly/scalajs/react/extra/router/Dsl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="539" column="6" selection-start-line="539" selection-start-column="6" selection-end-line="539" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding>
-            <element signature="e#2201#2615#0" />
+            <element signature="e#31#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        <state relative-caret-position="911">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="e#32#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/_design/CodeModel.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/RefTest.scala">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheStates.scala">
       <provider selected="true" editor-type-id="text-editor">
@@ -1223,10 +1246,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/UUID$Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state relative-caret-position="105">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootCompProps.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1240,27 +1270,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/extra_sjs0.6_2.12/srcs/extra_sjs0.6_2.12-1.2.0-sources.jar!/japgolly/scalajs/react/extra/router/Dsl.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="539" column="6" selection-start-line="539" selection-start-column="6" selection-end-line="539" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/Pages.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="216">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
           <folding>
-            <element signature="e#31#92#0" expanded="true" />
+            <element signature="e#2201#2615#0" />
+            <element signature="e#3390#3421#1" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/hidden/EntityCacheMap.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding>
+            <element signature="e#1716#2164#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/cache/exposed/CacheInterface.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
         </state>
       </provider>
     </entry>
