@@ -2,7 +2,7 @@ package app.shared.rest.routes.crudRequests
 
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.{LineText, User}
-import app.shared.data.ref.{Ref, RefVal}
+import app.shared.data.ref.{TypedRef, RefVal}
 import io.circe
 
 import scala.reflect.ClassTag
@@ -16,12 +16,12 @@ object GetEntityRequest {
     "getSingleEntity" +
       implicitly[ClassTag[E]].runtimeClass.getSimpleName
 
-  def parameterReprInURL[E <: Entity](rv: Ref[E] ): String = {
+  def parameterReprInURL[E <: Entity](rv: TypedRef[E] ): String = {
     val u = rv.uuid.id
     s"?id=$u"
   }
 
-  def queryURL[E <: Entity:ClassTag](rv: Ref[E] ): String =
+  def queryURL[E <: Entity:ClassTag](rv: TypedRef[E] ): String =
     "/" +
       pathForGetEntityRoute_serverSideCode[E] +
       parameterReprInURL( rv )

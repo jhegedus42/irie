@@ -2,7 +2,7 @@ package app.shared.rest
 
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.TypeAsString
-import app.shared.data.ref.{Ref, RefVal}
+import app.shared.data.ref.{TypedRef, RefVal}
 import io.circe.Decoder.Result
 
 import scala.reflect.ClassTag

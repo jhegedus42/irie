@@ -1,9 +1,9 @@
-package app.client.ui.components.cache.exposed
+package app.client.ui.routing.cache.exposed
 
 import app.shared.data.model.LineText
-import app.shared.data.ref.Ref
+import app.shared.data.ref.TypedRef
 import CacheStates.CacheState
-import app.client.ui.components.cache.hidden.EntityCacheMap
+import app.client.ui.routing.cache.hidden.EntityCacheMap
 import app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp.ReRenderTriggererContainer.ReRenderTriggerer
 import slogging.LazyLogging
 
@@ -56,7 +56,7 @@ object CacheInterface extends LazyLogging {
     * @param ref
     * @return
     */
-  def readLineText(ref: Ref[LineText] ): CacheState[LineText] = {
+  def readLineText(ref: TypedRef[LineText] ): CacheState[LineText] = {
     this.logger.trace(
       s"BEFORE calling readEntity($ref) on cacheLineText\n",
       s"Cache was asked for $ref \n" +

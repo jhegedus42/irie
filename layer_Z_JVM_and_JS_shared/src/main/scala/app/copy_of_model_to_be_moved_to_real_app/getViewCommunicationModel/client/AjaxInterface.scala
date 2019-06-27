@@ -1,6 +1,6 @@
 package app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.client
 
-import app.shared.data.ref.uuid.UUID
+import app.shared.data.ref.UUID_Utils.UUID
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{CirceUtils, ViewHttpRouteName, ViewHttpRouteNameProvider, JSONContainingGetViewPar, JSONContainingOptRes}
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import io.circe.{Decoder, Encoder}

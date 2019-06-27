@@ -1,9 +1,9 @@
 package app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp
-import app.shared.data.ref.{Ref, RefVal}
+import app.client.ui.routing.cache.exposed.CacheInterface
+import app.shared.data.ref.{TypedRef, RefVal}
 import app.shared.data.model.LineText
 import app.testHelpersShared.data.TestEntities
-import app.client.ui.components.cache.exposed.CacheInterface
-import app.shared.data.ref.{Ref, RefVal}
+import app.shared.data.ref.{TypedRef, RefVal}
 import org.scalajs.dom.html.{Div, Pre}
 import slogging.LazyLogging
 
@@ -18,7 +18,7 @@ object CacheAccessHelper {
 
   def getLineTextFromCache: VdomTagOf[Pre] =
     {
-      val ref: Ref[LineText] = Ref.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
+      val ref: TypedRef[LineText] = TypedRef.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
       val rv = CacheInterface.readLineText( ref )
       val s= pprint.apply( rv, width = 50,indent = 2 ).plainText
       println(s)

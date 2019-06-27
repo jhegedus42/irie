@@ -9,7 +9,7 @@ import scalaz.{\/, \/-}
 /**
   * Created by joco on 28/04/2017.
   */
-object uuid {
+object UUID_Utils {
 
   case class UUID(id: String){
     def isCorrect(): Boolean = UUID.validate_from_String(id).isRight

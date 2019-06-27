@@ -2,8 +2,8 @@ package app.shared.data.ref
 
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.unTyped.RefDyn
-import app.shared.data.ref.uuid.{UUID, UUIDCompare}
+import app.shared.data.ref.unTyped.RefNotTypeSafe
+import app.shared.data.ref.UUID_Utils.{UUID, UUIDCompare}
 import app.shared.{InvalidUUIDinURLError, SomeError_Trait, TypeError}
 import monocle.macros.Lenses
 import scalaz.{-\/, \/, \/-}
@@ -21,7 +21,7 @@ import scala.reflect.ClassTag
 
 
 @Lenses
-case class Ref[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) {
+case class TypedRef[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) {
 
   //  to do get rid of this below, use make with circe,
   //  write decoder and encoder by hand, to use the make function
@@ -30,7 +30,7 @@ case class Ref[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) 
   def isTypeCorrect(implicit t: ClassTag[T]) = dataType.isTypeCorrect[T]
 //    def apply[T<:Entity](uuid: UUID = UUID.random(), entityType: EntityType): Ref[T] = new Ref(uuid, entityType)
 
-  def isTypeAndUUIDCorrect2(implicit t: ClassTag[T]): \/[SomeError_Trait, Ref[T]] = {
+  def isTypeAndUUIDCorrect2(implicit t: ClassTag[T]): \/[SomeError_Trait, TypedRef[T]] = {
     if (!uuid.isCorrect())   return -\/(InvalidUUIDinURLError(s"uuid is $uuid"))
 
     if (!dataType.isTypeCorrect[T] ) return -\/(TypeError(s"problem with type ${t} or with uuid format ${uuid}"))
@@ -42,28 +42,28 @@ case class Ref[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) 
 //
 //}
 
-object Ref {
+object TypedRef {
 
-  implicit def toRefDyn[E <: Entity](r: Ref[E]): RefDyn = RefDyn(r.uuid, r.dataType)
+  implicit def toRefDyn[E <: Entity](r: TypedRef[E]): RefNotTypeSafe = RefNotTypeSafe(r.uuid, r.dataType)
 
 //  implicit val imp: Equal[Ref[User]] = Equal.equalBy(_.uuid)
 
   import scalaz._
   import Scalaz._
 //  implicit val se: Equal[String] = Equal.equalA
-  implicit def imp2[E<:Entity]: Equal[Ref[E]] = Equal.equalBy(_.uuid.id)
+  implicit def imp2[E<:Entity]: Equal[TypedRef[E]] = Equal.equalBy(_.uuid.id)
 
-  implicit def instance[T <: Entity]: UUIDCompare[Ref[T]] =
-    (x: Ref[T], y: Ref[T]) => x.uuid == y.uuid
+  implicit def instance[T <: Entity]: UUIDCompare[TypedRef[T]] =
+    (x: TypedRef[T], y: TypedRef[T]) => x.uuid == y.uuid
 
 //    def make[T<:Entity[T]]()(implicit t:Typeable[T]): Ref[T] =
 //      new Ref[T](UUID(), EntityType.make(t))
 
-  def make[T <: Entity]()(implicit t: ClassTag[T]): Ref[T] =
-    new Ref[T](UUID.random(), TypeAsString.make(t))
+  def make[T <: Entity]()(implicit t: ClassTag[T]): TypedRef[T] =
+    new TypedRef[T](UUID.random(), TypeAsString.make(t))
 
-  def makeWithUUID[T <: Entity](uuid: UUID)(implicit t: ClassTag[T]): Ref[T] =
-    new Ref[T](uuid, TypeAsString.make(t))
+  def makeWithUUID[T <: Entity](uuid: UUID)(implicit t: ClassTag[T]): TypedRef[T] =
+    new TypedRef[T](uuid, TypeAsString.make(t))
 
 //    def apply[T<:Entity](uuid: UUID = UUID.random(), entityType: EntityType): Ref[T] = new Ref(uuid, entityType)
 

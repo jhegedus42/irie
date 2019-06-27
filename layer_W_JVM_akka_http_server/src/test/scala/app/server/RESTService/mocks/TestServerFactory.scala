@@ -5,7 +5,7 @@ import akka.http.scaladsl.server.Route
 import app.server.RESTService.HttpServer_For_ImageMemory_App
 import app.server.persistence.ApplicationState
 import app.server.persistence.persActor.Commands.SetStatePAResponse
-import app.shared.data.ref.uuid.UUID
+import app.shared.data.ref.UUID_Utils.UUID
 
 import scala.concurrent.Future
 //import app.server.persistence.persActor.Commands.SetStatePAResponse

@@ -4,7 +4,7 @@ import app.server.persistence.ApplicationState
 import app.server.persistence.persActor.Commands.GetStatePAResponse
 import app.shared.SomeError_Trait
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{Ref, RefVal, RefValDyn}
+import app.shared.data.ref.{TypedRef, RefVal, RefValDyn}
 import io.circe.Decoder.state
 
 import scala.concurrent.Future
@@ -48,7 +48,7 @@ trait StateAccessorBase extends InterfaceToStateAccessor {
 
   }
 
-  def getEntity[E <: Entity: ClassTag](r: Ref[E] ): Future[\/[SomeError_Trait, RefVal[E]]] = {
+  def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): Future[\/[SomeError_Trait, RefVal[E]]] = {
     //hash 714b03f2a4fe4fd1a27b12f805e5bc56
     def f(x:GetStatePAResponse): \/[SomeError_Trait, RefVal[E]] = {
       val s=x.state

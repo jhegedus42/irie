@@ -1,9 +1,9 @@
 package app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp
 
 //import app.client.ui.components.cache.hidden.ReRenderTriggerer
-import app.client.ui.components.cache.exposed.CacheInterface
+import app.client.ui.routing.cache.exposed.CacheInterface
 import app.shared.data.model.LineText
-import app.shared.data.ref.{Ref, RefVal}
+import app.shared.data.ref.{TypedRef, RefVal}
 import org.scalajs.dom.html.Div
 import slogging.LazyLogging
 
@@ -43,7 +43,7 @@ class Backend($ : BackendScope[CacheTestRootCompProps, CacheTestRootCompState] )
           scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
         import app.client.REST.getEntity
         import io.circe.generic.auto._
-        val ref: Ref[LineText] = Ref.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
+        val ref: TypedRef[LineText] = TypedRef.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
 
         val res: Future[Unit] = getEntity[LineText]( ref ).map(
           x => {

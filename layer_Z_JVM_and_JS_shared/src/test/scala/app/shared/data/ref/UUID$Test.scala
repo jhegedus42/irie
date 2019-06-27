@@ -1,7 +1,7 @@
 package app.shared.data.ref
 
 import app.shared.{InvalidUUIDinURLError, StateOpsError}
-import app.shared.data.ref.uuid.UUID
+import app.shared.data.ref.UUID_Utils.UUID
 import org.scalatest.FunSuite
 
 import scalaz.\/

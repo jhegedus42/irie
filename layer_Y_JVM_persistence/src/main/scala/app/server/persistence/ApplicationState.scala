@@ -2,8 +2,8 @@ package app.server.persistence
 
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.{Data, Entity}
-import app.shared.data.ref.unTyped.RefDyn
-import app.shared.data.ref.{Ref, RefVal, RefValDyn}
+import app.shared.data.ref.unTyped.RefNotTypeSafe
+import app.shared.data.ref.{TypedRef, RefVal, RefValDyn}
 import app.shared.{EntityDoesNotExistError, EntityIsNotUpdateableError, InvalidVersionError, SomeError_Trait, StateOpsError, TypeError}
 import scalaz.{-\/, Disjunction, \/, \/-}
 
@@ -29,7 +29,7 @@ import scala.reflect.ClassTag
   *
   * @param stateMap
   */
-case class ApplicationState(stateMap: Map[RefDyn, RefValDyn] = Map.empty ) {
+case class ApplicationState(stateMap: Map[RefNotTypeSafe, RefValDyn] = Map.empty ) {
 
   // Random UUID: da1d5a2c10374c358987fd30643b8812
   // commit fc5bb550a0436ada8876f7c8a18d4b4bf9407091
@@ -42,7 +42,7 @@ case class ApplicationState(stateMap: Map[RefDyn, RefValDyn] = Map.empty ) {
   }
 
   def updateEntity(refValDyn: RefValDyn ): \/[SomeError_Trait, ( ApplicationState, RefValDyn )] = {
-    val rr: RefDyn = refValDyn.r
+    val rr: RefNotTypeSafe = refValDyn.r
 
     if (!stateMap.contains( rr ))
       return -\/(
@@ -77,11 +77,11 @@ case class ApplicationState(stateMap: Map[RefDyn, RefValDyn] = Map.empty ) {
     else -\/( StateOpsError( "getEntities type error - this should not happen" ) )
   }
 
-  private[server] def getEntity[E <: Entity: ClassTag](r: Ref[E] ): \/[SomeError_Trait, RefVal[E]] = {
+  private[server] def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): \/[SomeError_Trait, RefVal[E]] = {
 
     if (!r.isTypeCorrect) return -\/( TypeError( "State.getEntity - 1" ) )
     else {
-      val rd: RefDyn = r
+      val rd: RefNotTypeSafe = r
       getEntityDyn( rd ).flatMap( _.toRefVal[E] )
       // checks that the dyn type from the map matches with the expected type E
     }
@@ -90,7 +90,7 @@ case class ApplicationState(stateMap: Map[RefDyn, RefValDyn] = Map.empty ) {
   import scalaz._
   import Scalaz._
 
-  private def getEntityDyn(rd: RefDyn ): \/[SomeError_Trait, RefValDyn] = {
+  private def getEntityDyn(rd: RefNotTypeSafe ): \/[SomeError_Trait, RefValDyn] = {
     val r: Option[RefValDyn] = this.stateMap.get( rd )
     val r2 =
       r.toRightDisjunction( EntityDoesNotExistError( s"StateOps.getEntity " + rd ) )

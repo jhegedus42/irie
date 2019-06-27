@@ -1,10 +1,10 @@
-package app.client.ui.components.cache.hidden
+package app.client.ui.routing.cache.hidden
 
 import app.client.REST.getEntity
-import app.client.ui.components.cache.exposed.CacheInterface
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{Ref, RefVal}
-import app.client.ui.components.cache.exposed.CacheStates.{CacheState, Loaded, Loading}
+import app.shared.data.ref.{TypedRef, RefVal}
+import app.client.ui.routing.cache.exposed.CacheInterface
+import app.client.ui.routing.cache.exposed.CacheStates.{CacheState, Loaded, Loading}
 import slogging.LazyLogging
 
 import scala.util.Try
@@ -23,7 +23,7 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
   logger.trace("Constructor of EntityCacheMap")
 
 
-  private var map: Map[Ref[E], CacheState[E]] = Map()
+  private var map: Map[TypedRef[E], CacheState[E]] = Map()
 
   def getCacheContentAsPrettyString:String=map.foldLeft("")((s,t)=>s"$s\n$t\n")
 
@@ -51,7 +51,7 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
 
   }
 
-  private def launchReadAjax(ref: Ref[E] )(implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
+  private def launchReadAjax(ref: TypedRef[E] )(implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
     logger.trace(s"par: $ref")
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -65,7 +65,7 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
   }
 
   private[cache] def readEntity(
-      refToEntity: Ref[E]
+      refToEntity: TypedRef[E]
     )(
       implicit
       decoder: Decoder[RefVal[E]],
@@ -78,4 +78,5 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
       loading //INPROGRESS => update the cache to LOADING
     } else map( refToEntity )
   }
+  // TODO line list
 }
