@@ -10,54 +10,35 @@ import scalaz.{-\/, \/, \/-}
 
 import scala.reflect.ClassTag
 
-// ??? ezt itt ki hasznalja  ??? => ez vmi anti pattern, nem ?
-// pers actor talan hasznalja ... => de akkor minek van itt a kozosben ?
-// miert latja ezt a js oldal ???
-// a kessbe nem akarok ilyen type nelkuli cuccokat ... akkor minek van ez itt ???
-// todolater 1) attenni ezt az Y layer-be ...
-// todolater 2) megszuntetni ettol a fuggoseget, azaz js oldal ettol ne fuggjon ...
-
-
-
 
 @Lenses
 case class TypedRef[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsString) {
 
-  //  to do get rid of this below, use make with circe,
-  //  write decoder and encoder by hand, to use the make function
-  //  ask this on gitter how to do this
 
   def isTypeCorrect(implicit t: ClassTag[T]) = dataType.isTypeCorrect[T]
-//    def apply[T<:Entity](uuid: UUID = UUID.random(), entityType: EntityType): Ref[T] = new Ref(uuid, entityType)
 
   def isTypeAndUUIDCorrect2(implicit t: ClassTag[T]): \/[SomeError_Trait, TypedRef[T]] = {
-    if (!uuid.isCorrect())   return -\/(InvalidUUIDinURLError(s"uuid is $uuid"))
+    if (!uuid.isCorrect()) return -\/(InvalidUUIDinURLError(s"uuid is $uuid"))
 
-    if (!dataType.isTypeCorrect[T] ) return -\/(TypeError(s"problem with type ${t} or with uuid format ${uuid}"))
+    if (!dataType.isTypeCorrect[T]) return -\/(TypeError(s"problem with type ${t} or with uuid format ${uuid}"))
     return \/-(this)
   }
 }
 
-//case class OwnerRef[T <: Entity](override val uuid: UUID = UUID.random(),  override  val entityType:EntityType) extends Ref(uuid,entityType) {
-//
-//}
 
 object TypedRef {
 
-  implicit def toRefDyn[E <: Entity](r: TypedRef[E]): RefNotTypeSafe = RefNotTypeSafe(r.uuid, r.dataType)
+  implicit def toRefDyn[E <: Entity](r: TypedRef[E]): RefNotTypeSafe =
+    RefNotTypeSafe(r.uuid, r.dataType)
 
-//  implicit val imp: Equal[Ref[User]] = Equal.equalBy(_.uuid)
 
   import scalaz._
   import Scalaz._
-//  implicit val se: Equal[String] = Equal.equalA
-  implicit def imp2[E<:Entity]: Equal[TypedRef[E]] = Equal.equalBy(_.uuid.id)
+
+  implicit def imp2[E <: Entity]: Equal[TypedRef[E]] = Equal.equalBy(_.uuid.id)
 
   implicit def instance[T <: Entity]: UUIDCompare[TypedRef[T]] =
     (x: TypedRef[T], y: TypedRef[T]) => x.uuid == y.uuid
-
-//    def make[T<:Entity[T]]()(implicit t:Typeable[T]): Ref[T] =
-//      new Ref[T](UUID(), EntityType.make(t))
 
   def make[T <: Entity]()(implicit t: ClassTag[T]): TypedRef[T] =
     new TypedRef[T](UUID.random(), TypeAsString.make(t))
@@ -65,9 +46,5 @@ object TypedRef {
   def makeWithUUID[T <: Entity](uuid: UUID)(implicit t: ClassTag[T]): TypedRef[T] =
     new TypedRef[T](uuid, TypeAsString.make(t))
 
-//    def apply[T<:Entity](uuid: UUID = UUID.random(), entityType: EntityType): Ref[T] = new Ref(uuid, entityType)
-
-  //  import app.shared.apiAndModel.im.model.UUIDCompare.Pimper
-  // ala http://alvinalexander.com/scala/scala-2.10-implicit-class-example
 
 }

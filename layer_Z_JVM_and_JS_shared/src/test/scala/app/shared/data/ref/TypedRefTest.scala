@@ -11,7 +11,9 @@ import scala.reflect.ClassTag
 class TypedRefTest extends FunSuite {
 
 }
+
 object RefValTestUtil {
-  def makeWithNewUUID[T <: Entity](v: T)
-                                (implicit t: ClassTag[T]) : RefVal[T] = new RefVal(TypedRef.make[T](), v,Version())
+  def makeWithNewUUID[T <: Entity]
+  (v: T)(implicit t: ClassTag[T]): RefVal[T] =
+    new RefVal(TypedRef.make[T](), v, Version())
 }
