@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/validation/Validation.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/validation/Validation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Entity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/TypedRefTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/TypedRefTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,52 +49,45 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="87">
-                  <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-                  <folding>
-                    <element signature="e#1876#1891#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-                  <folding>
-                    <element signature="e#31#76#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" selection-start-line="11" selection-end-line="11" />
-                  <folding>
-                    <element signature="e#25#80#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding>
+                <element signature="e#1876#1891#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#31#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="Gfm" />
+          <provider editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="425">
+                <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,6 +117,7 @@
       <find>JSDOMNodeJSEnv2</find>
       <find>code</find>
       <find>statethree</find>
+      <find>readme</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -141,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest.scala" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/rest/CirceJSONTest.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/comm/REST.scala" />
@@ -190,8 +179,9 @@
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/TypedRefTest.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Entity.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" />
+        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -696,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561601521227</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="in the middle of creating some simple test data --- safety commit">
+      <created>1561603384942</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1561603384942</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -742,7 +739,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="36" width="1371" height="757" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47418737" weight="0.41158766" />
       <window_info id="Structure" order="1" sideWeight="0.5258126" side_tool="true" weight="0.30488694" />
@@ -828,19 +824,10 @@
     <MESSAGE value="safety commit after lot of rearranging of the code" />
     <MESSAGE value="lot of rearranging of code, app still seems to work as it did before" />
     <MESSAGE value="after cleaning up the model and related tests, this is a &quot;safety&quot; / &quot;snapshot&quot;&#10;commit ... now I need to check if the tests still pass ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="after cleaning up the model and related tests, this is a &quot;safety&quot; / &quot;snapshot&quot;&#10;commit ... now I need to check if the tests still pass ..." />
+    <MESSAGE value="in the middle of creating some simple test data --- safety commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="in the middle of creating some simple test data --- safety commit" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ideaLibSources/scalajs-js-envs_2.10-0.6.25-sources.jar!/org/scalajs/jsenv/jsdomnodejs/JSDOMNodeJSEnv.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1198,8 +1185,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/TestData.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
           </folding>
@@ -1208,11 +1195,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#31#76#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="Gfm" />
+      <provider editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="425">
+            <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

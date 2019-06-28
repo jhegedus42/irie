@@ -1,7 +1,6 @@
 
 
-# Getting Started
-
+# Getting Started, the "right" way
 - Step 0 : Install the following build tools: 
 
   - `node.js`  
@@ -23,6 +22,15 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
    - start `runTestServerInSbt_light_cleaning.sh` in the terminal
    - and open the browser at `http://localhost:8080/`
 
-- Step 3: Be amazed ! It's a completely useless application. It does absolutely nothing. Except for "running" and displaying a few "Lorem ipsum dolor sit amet, consectetur adipiscing elit,..."inspired pages.
+- Step 3: Be amazed ! It's a completely useless application. <br>
+          It does absolutely nothing. Except for "running" and displaying <br>
+          a few "Lorem ipsum dolor sit amet, consectetur adipiscing elit,..." <br> 
+          inspired pages.
 
 
+---
+# The "easy" way :
+ 
+Intermittently, I am running the server on my laptop, <br> 
+          and at those times the running app can be viewed at <br>
+          http://commserver.asuscomm.com:8080/
