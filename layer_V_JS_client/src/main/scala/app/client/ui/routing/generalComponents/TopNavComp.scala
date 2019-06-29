@@ -1,7 +1,7 @@
 package app.client.ui.routing.generalComponents
 
 import app.client.ui.routing.RouterComp
-import app.client.ui.routing.canBeRoutedTo.components.DataRepresentations.AbstrReprOfPage
+import app.client.ui.routing.canBeRoutedTo.DataRepresentations.AbstrReprOfPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl

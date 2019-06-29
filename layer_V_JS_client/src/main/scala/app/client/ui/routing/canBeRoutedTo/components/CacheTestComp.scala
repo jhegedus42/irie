@@ -4,7 +4,8 @@ import app.client.ui.routing.cache.exposed.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import app.testHelpersShared.data.TestEntities
-import japgolly.scalajs.react._
+import japgolly.scalajs.react.{CtorType, _}
+import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html.{Div, Pre}
 import slogging.LazyLogging
@@ -43,14 +44,15 @@ class Backend($: BackendScope[CacheTestRootCompProps, Unit]) {
 }
 
 
-object CacheTestRootComp extends LazyLogging {
+object CacheTestComp extends LazyLogging {
 
-
-  lazy val compConstructor =
+  lazy val compConstructor: Component[CacheTestRootCompProps, Unit, Backend, CtorType.Props] =
     ScalaComponent
       .builder[CacheTestRootCompProps]("Cache Experiment")
       .renderBackend[Backend]
       .build
+
+
 
 }
 

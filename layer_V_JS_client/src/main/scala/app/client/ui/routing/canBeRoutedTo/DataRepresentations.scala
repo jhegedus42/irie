@@ -1,5 +1,4 @@
-package app.client.ui.routing.canBeRoutedTo.components
-
+package app.client.ui.routing.canBeRoutedTo
 
 object DataRepresentations {
 
