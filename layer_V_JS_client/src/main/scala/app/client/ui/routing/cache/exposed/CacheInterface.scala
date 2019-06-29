@@ -9,7 +9,7 @@ import slogging.LazyLogging
 
 object ReRenderTriggererHolderSingletonGloballyAccessibleObject{
   var triggerer : Option[ReRenderTriggerer] =  None
-  case class ReRenderTriggerer(triggerReRender : () => () )
+  case class ReRenderTriggerer(triggerReRender : () => Unit )
 
 }
 
