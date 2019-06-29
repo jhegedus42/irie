@@ -6,18 +6,22 @@ import CacheStates.CacheState
 import app.client.ui.routing.cache.hidden.EntityCacheMap
 import slogging.LazyLogging
 
-trait ReRenderTriggerer {
-  def triggerReRender()
+
+object ReRenderTriggererHolderSingletonGloballyAccessibleObject{
+  var triggerer : Option[ReRenderTriggerer] =  None
+  case class ReRenderTriggerer(triggerReRender : () => () )
+
 }
 
-class CacheInterface(reRenderTriggerer:ReRenderTriggerer) extends LazyLogging {
+class CacheInterface() extends LazyLogging {
 
   private lazy val cacheLineText: EntityCacheMap[LineText]  =
     new EntityCacheMap[LineText](this)
 
   private[cache] def reRenderShouldBeTriggered() = {
 
-    reRenderTriggerer.triggerReRender()
+    ReRenderTriggererHolderSingletonGloballyAccessibleObject.
+      triggerer.foreach(_.triggerReRender())
   }
 
   import io.circe.generic.auto._

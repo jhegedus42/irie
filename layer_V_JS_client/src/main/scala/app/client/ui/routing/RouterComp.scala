@@ -1,6 +1,6 @@
 package app.client.ui.routing
 
-import app.client.ui.routing.cache.exposed.CacheInterface
+import app.client.ui.routing.cache.exposed.{CacheInterface }
 import app.client.ui.routing.generalComponents.TopNavComp.Menu
 import app.client.ui.routing.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.routing.canBeRoutedTo.components.{CacheTestComp, CacheTestRootCompProps, HomePage}
@@ -12,11 +12,10 @@ import japgolly.scalajs.react.{CtorType, _}
 
 // this wrapper is needed so that we can "re render the react tree below this"
 
-class Wrapper(toBeWrapped:Component[CacheTestRootCompProps, Unit, _, CtorType.Props] ) {
-  private var forceUpdate : Callback = null
-  CONTINUE WITH THIS HACK HERE !!!
-  class WrapperBackend($: BackendScope[CacheTestRootCompProps, Unit]) {
-    forceUpdate=$.forceUpdate
+class Wrapper(toBeWrapped:Component[CacheTestRootCompProps, Unit , _, CtorType.Props] ) {
+
+
+  class WrapperBackend($: BackendScope[CacheTestRootCompProps, Int]) {
     def render( props: CacheTestRootCompProps) = {
       <.div(
         toBeWrapped(props)
@@ -27,8 +26,19 @@ class Wrapper(toBeWrapped:Component[CacheTestRootCompProps, Unit, _, CtorType.Pr
 
   lazy val wrapperBackend=
     ScalaComponent
-      .builder[CacheTestRootCompProps]("Wrapper")
+      .builder[CacheTestRootCompProps,Int]("Wrapper")
       .renderBackend[WrapperBackend]
+      .componentWillMount($ => {
+//        $.props.cacheInterface.
+        f : () => () = {
+          $.modState()
+        }
+        val reRenderTriggerer=ReRenderTriggerer()
+        this.setReRenderTriggererOnce()
+      })
+
+      ^^^^WE CONTINUE HERE WITH THIS TERRIBLE HACK
+
       .build
 
 }
@@ -38,20 +48,12 @@ case class RouterComp() {
 
 
 
-  //  IDE VALAMI HEKKET KI KELL TALALNOM ^^^^^
-  //
-  //
-  //  VMI REFRESH V. VMI FASSAG ...
-
-
-
 
   val cacheTestRootComp =
     CacheTestComp.compConstructor(
       CacheTestRootCompProps("These are the props", cacheInterface = cache))
 
-  lazy val cache = new CacheInterface(reRenderTriggerer)
-  lazy val reRenderTriggerer = ??? // wishful thinking // TODO
+  lazy val cache = new CacheInterface()
 
 
   val config = RouterConfigDsl[AbstrReprOfPage].buildConfig {
@@ -85,11 +87,6 @@ case class RouterComp() {
 
 
   def layout(c: RouterCtl[AbstrReprOfPage], r: Resolution[AbstrReprOfPage]) = {
-    // CACHE
-
-//      val rf: Callback = c.refresh
-//      rf.runNow();
-//
 
       println(s"page = ${r.page}")
     <.div(
@@ -102,6 +99,3 @@ case class RouterComp() {
 
 }
 
-// TODO WRITE KAMU HIGHER ORDER COMPONENT
-
-// or do some sort of force update ... here
