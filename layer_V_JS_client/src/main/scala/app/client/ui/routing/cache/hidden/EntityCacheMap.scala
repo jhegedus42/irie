@@ -19,7 +19,7 @@ import scala.reflect.ClassTag
   *
   * @tparam E
   */
-private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
+private[cache] class EntityCacheMap[E <: Entity](cacheInterface: CacheInterface) extends LazyLogging{
   logger.trace("Constructor of EntityCacheMap")
 
 
@@ -46,7 +46,7 @@ private[cache] class EntityCacheMap[E <: Entity]() extends LazyLogging{
 
     if (!isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
       logger.trace( "LAST AJAX call returned => re-render needs to be triggered" )
-      CacheInterface.reRenderShouldBeTriggered()
+      cacheInterface.reRenderShouldBeTriggered()
     }
 
   }

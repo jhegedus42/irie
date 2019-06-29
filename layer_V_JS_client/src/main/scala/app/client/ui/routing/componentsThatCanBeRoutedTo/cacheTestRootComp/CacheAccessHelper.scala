@@ -16,10 +16,10 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 object CacheAccessHelper {
 
-  def getLineTextFromCache: VdomTagOf[Pre] =
+  def getLineTextFromCache(cache:CacheInterface): VdomTagOf[Pre] =
     {
       val ref: TypedRef[LineText] = TypedRef.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
-      val rv = CacheInterface.readLineText( ref )
+      val rv = cache.readLineText( ref )
       val s= pprint.apply( rv, width = 50,indent = 2 ).plainText
       println(s)
       <.pre(s)

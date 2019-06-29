@@ -1,5 +1,6 @@
 package app.client.ui.routing
 
+import app.client.ui.routing.cache.exposed.CacheInterface
 import app.client.ui.routing.generalComponents.TopNavComp.Menu
 import app.client.ui.routing.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.routing.componentsThatCanBeRoutedTo.HomePage
@@ -11,7 +12,10 @@ import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterC
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.{CtorType, _}
 
-case class RouterComp(hereWillPassedTheCache: String) {
+case class RouterComp() {
+
+  lazy val reRenderTriggerer = ??? // wishful thinking // TODO
+  lazy val cache = new CacheInterface(reRenderTriggerer)
 
   val itemPage: Component[Item_AbstrReprOfPage, Unit, Unit, CtorType.Props] = ScalaComponent
     .builder[Item_AbstrReprOfPage]("Item page")
@@ -42,7 +46,8 @@ case class RouterComp(hereWillPassedTheCache: String) {
       val cacheTestPageRoute: dsl.Rule =
         staticRoute("#cacheTest", CacheTest_AbstrReprOfPage) ~> render({
           val rootComp =
-            CacheTestRootComp.compConstructor(CacheTestRootCompProps("These are the props"))
+            CacheTestRootComp.compConstructor(
+              CacheTestRootCompProps("These are the props",cacheInterface = cache))
           rootComp
         })
 
@@ -64,8 +69,9 @@ case class RouterComp(hereWillPassedTheCache: String) {
   val router =
     Router(baseUrl, config)
 
-  def layout(c: RouterCtl[AbstrReprOfPage], r: Resolution[AbstrReprOfPage]) = {
 
+  def layout(c: RouterCtl[AbstrReprOfPage], r: Resolution[AbstrReprOfPage]) = {
+    // CACHE
     println(s"page = ${r.page}")
     <.div(
       TopNavComp(TopNavComp.Props(mainMenu, r.page, c)),

@@ -1,6 +1,7 @@
 package app.client
 import app.client.ui.css.AppCSS
 import app.client.ui.routing.RouterComp
+import app.client.ui.routing.cache.exposed.CacheInterface
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
 import slogging.{ConsoleLoggerFactory, LazyLogging, LogLevel, LoggerConfig}
@@ -36,9 +37,10 @@ object Main extends js.JSApp with LazyLogging{
     AppCSS.load
     val e: Element = document.getElementById( "rootComp" )
     logger.trace("Router is just about to be mounted into a DIV.")
-    RouterComp("kess").router().renderIntoDOM(e)
+    RouterComp().router().renderIntoDOM(e)
 
   }
+
 
 }
 
