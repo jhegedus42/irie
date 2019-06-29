@@ -13,11 +13,15 @@ import japgolly.scalajs.react.{CtorType, _}
 // this wrapper is needed so that we can "re render the react tree below this"
 
 class Wrapper(toBeWrapped:Component[CacheTestRootCompProps, Unit, _, CtorType.Props] ) {
-
+  private var forceUpdate : Callback = null
+  CONTINUE WITH THIS HACK HERE !!!
   class WrapperBackend($: BackendScope[CacheTestRootCompProps, Unit]) {
+    forceUpdate=$.forceUpdate
     def render( props: CacheTestRootCompProps) = {
-//      toBeWrapped ???
-      <.div("ble")
+      <.div(
+        toBeWrapped(props)
+      )
+
     }
   }
 
@@ -26,6 +30,7 @@ class Wrapper(toBeWrapped:Component[CacheTestRootCompProps, Unit, _, CtorType.Pr
       .builder[CacheTestRootCompProps]("Wrapper")
       .renderBackend[WrapperBackend]
       .build
+
 }
 
 
