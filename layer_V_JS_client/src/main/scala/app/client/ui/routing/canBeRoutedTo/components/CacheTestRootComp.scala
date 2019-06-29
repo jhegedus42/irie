@@ -1,13 +1,13 @@
-package app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp
+package app.client.ui.routing.canBeRoutedTo.components
 
 import app.client.ui.routing.cache.exposed.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import app.testHelpersShared.data.TestEntities
-import org.scalajs.dom.html.{Div, Pre}
-import slogging.LazyLogging
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
+import org.scalajs.dom.html.{Div, Pre}
+import slogging.LazyLogging
 
 case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface)
 

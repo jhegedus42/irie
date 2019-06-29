@@ -3,10 +3,8 @@ package app.client.ui.routing
 import app.client.ui.routing.cache.exposed.CacheInterface
 import app.client.ui.routing.generalComponents.TopNavComp.Menu
 import app.client.ui.routing.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.routing.componentsThatCanBeRoutedTo.HomePage
-import app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp.{CacheTestRootComp, CacheTestRootCompProps}
-import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Item
-import app.client.ui.routing.dataRepresentersOfToRoutableComponents.Pages._
+import app.client.ui.routing.canBeRoutedTo.components.{CacheTestRootComp, CacheTestRootCompProps, HomePage}
+import app.client.ui.routing.canBeRoutedTo.components.DataRepresentations._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
@@ -17,29 +15,11 @@ case class RouterComp() {
   lazy val reRenderTriggerer = ??? // wishful thinking // TODO
   lazy val cache = new CacheInterface(reRenderTriggerer)
 
-  val itemPage: Component[Item_AbstrReprOfPage, Unit, Unit, CtorType.Props] = ScalaComponent
-    .builder[Item_AbstrReprOfPage]("Item page")
-    .render({
-      println("render lefut")
-      p =>
-        <.div(s"Info for item #${p.props.id}")
-    })
-    .build
-  // ^^^ ennek kell adni egy state-et
 
   val config = RouterConfigDsl[AbstrReprOfPage].buildConfig {
     dsl =>
       import dsl._
 
-      val dynItemRoute
-      : dsl.Rule = dynamicRouteCT("#item" / int.caseClass[Item_AbstrReprOfPage]) ~> dynRender(
-        page => itemPage(page)
-      )
-
-      val itemRoutes: dsl.Rule =
-        Item.routes.prefixPath_/("#items").pmap[AbstrReprOfPage](Items_AbstrReprOfPage) {
-          case Items_AbstrReprOfPage(p: Item) => p
-        }
 
       val homeRoute: dsl.Rule = staticRoute(root, HomePage_AbstrReprOfPage) ~> render(HomePage())
 
@@ -51,19 +31,17 @@ case class RouterComp() {
           rootComp
         })
 
+
       (trimSlashes
         | homeRoute
-        | cacheTestPageRoute
-        | dynItemRoute
-        | itemRoutes)
+        | cacheTestPageRoute)
         .notFound(redirectToPage(HomePage_AbstrReprOfPage)(Redirect.Replace))
         .renderWith(layout)
   }
 
   val mainMenu = Vector(
     Menu("Home", HomePage_AbstrReprOfPage),
-    Menu("CacheTest", CacheTest_AbstrReprOfPage),
-    Menu("Items", Items_AbstrReprOfPage(Item.Info))
+    Menu("CacheTest", CacheTest_AbstrReprOfPage)
   )
   val baseUrl = BaseUrl.fromWindowOrigin_/
   val router =
