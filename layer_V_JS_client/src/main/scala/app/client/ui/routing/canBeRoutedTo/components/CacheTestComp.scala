@@ -12,7 +12,7 @@ import slogging.LazyLogging
 
 case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface)
 
-class Backend($: BackendScope[CacheTestRootCompProps, Unit]) {
+class NotWrapped_CacheTestRootComp_Backend($: BackendScope[CacheTestRootCompProps, Unit]) {
 
   def getLineTextFromCache(cache:CacheInterface): VdomTagOf[Pre] =
   {
@@ -46,10 +46,10 @@ class Backend($: BackendScope[CacheTestRootCompProps, Unit]) {
 
 object CacheTestComp extends LazyLogging {
 
-  lazy val compConstructor: Component[CacheTestRootCompProps, Unit, Backend, CtorType.Props] =
+  lazy val compConstructor: Component[CacheTestRootCompProps, Unit, NotWrapped_CacheTestRootComp_Backend, CtorType.Props] =
     ScalaComponent
       .builder[CacheTestRootCompProps]("Cache Experiment")
-      .renderBackend[Backend]
+      .renderBackend[NotWrapped_CacheTestRootComp_Backend]
       .build
 
 

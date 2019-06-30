@@ -11,11 +11,16 @@ object ReRenderTriggererHolderSingletonGloballyAccessibleObject extends LazyLogg
   private var triggerer: Option[ReRenderTriggerer] = None
 
   def setTriggerer(reRenderTriggerer: ReRenderTriggerer) = {
-    println("somebody should call setTriggerer")
+
+    println(s"the old value of triggerer is : $triggerer")
+
+    println("we have just called set triggerer")
 
     logger.trace("setTrigger was called",reRenderTriggerer)
 
     triggerer = Some(reRenderTriggerer);
+
+    println(s"the new value of triggerer is : $triggerer")
   }
 
   def triggerReRender() = {
@@ -27,7 +32,10 @@ object ReRenderTriggererHolderSingletonGloballyAccessibleObject extends LazyLogg
     val ne = (t.nonEmpty)
 
 
-    println(s"(t.nonEmpty) = $ne")
+    println(s"(t.nonEmpty) = $ne, in other words, " +
+      s"is the triggerer already set from None to Some ?" +
+      s"This is interesting because we are in the `triggerReRender`" +
+      s"function and want to use it to cause a re-render.")
 
 
 
@@ -35,7 +43,7 @@ object ReRenderTriggererHolderSingletonGloballyAccessibleObject extends LazyLogg
 
       val tr_naked: ReRenderTriggerer = t.head
 
-      println(tr_naked)
+      println(s"the value of the triggerer, 'the naked value'= $tr_naked")
 
       tr_naked.triggerReRender()
 
