@@ -47,6 +47,8 @@ object ReRenderTriggererHolderSingletonGloballyAccessibleObject extends LazyLogg
 
       tr_naked.triggerReRender()
 
+      println(s"now we have called triggerReRender(), did anything happen ?")
+
     }
   }
 

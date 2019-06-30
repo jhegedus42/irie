@@ -30,10 +30,13 @@ class Wrapper(toBeWrapped: Component[CacheTestRootCompProps, Unit, NotWrapped_Ca
           val h: Lifecycle.ComponentWillMount[CacheTestRootCompProps, Unit, WrapperBackend] = $
 
 
-          def f(): Unit = {
-            $.setState(Unit)
-            ()
+          def f() = {
+            val s =$.setState(Unit)
+            println(s"we will run the callback that will set the state of the Wrapper Component " +
+              s"to Unit, hopefully this should cause a re-render")
+            s.runNow()
           }
+
 
           val reRenderTriggerer: ReRenderTriggerer = ReRenderTriggerer(f)
 
