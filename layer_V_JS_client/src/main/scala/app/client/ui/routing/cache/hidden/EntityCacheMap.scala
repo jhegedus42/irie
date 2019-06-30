@@ -44,6 +44,8 @@ private[cache] class EntityCacheMap[E <: Entity](cacheInterface: CacheInterface)
 
     r.foreach(insertIntoCache)
 
+    println(s"isAjaxReqStillPending=$isAjaxReqStillPending, at ajaxReqReturnHandler")
+
     if (!isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
       logger.trace( "LAST AJAX call returned => re-render needs to be triggered" )
       cacheInterface.reRenderShouldBeTriggered()
@@ -70,13 +72,22 @@ private[cache] class EntityCacheMap[E <: Entity](cacheInterface: CacheInterface)
       implicit
       decoder: Decoder[RefVal[E]],
       ct:      ClassTag[E]
-    ): CacheState[E] = { // 74291aeb_02f0aea6
+    ): CacheState[E] = {
+
     logger.trace(s"par: $refToEntity")
+
     if (!map.contains( refToEntity )) {
       val loading = Loading( refToEntity )
-      val res: Unit = launchReadAjax( refToEntity )
-      loading //INPROGRESS => update the cache to LOADING
+
+      launchReadAjax( refToEntity )
+
+      loading
+
+      //INPROGRESS => update the cache to LOADING
+
     } else map( refToEntity )
   }
-  // TODO line list
+
+
+
 }
