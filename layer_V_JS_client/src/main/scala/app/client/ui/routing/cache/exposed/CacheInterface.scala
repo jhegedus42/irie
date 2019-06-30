@@ -7,10 +7,14 @@ import app.client.ui.routing.cache.hidden.EntityCacheMap
 import slogging.LazyLogging
 
 
-object ReRenderTriggererHolderSingletonGloballyAccessibleObject {
+object ReRenderTriggererHolderSingletonGloballyAccessibleObject extends LazyLogging {
   private var triggerer: Option[ReRenderTriggerer] = None
 
   def setTriggerer(reRenderTriggerer: ReRenderTriggerer) = {
+    println("somebody should call setTriggerer")
+
+    logger.trace("setTrigger was called",reRenderTriggerer)
+
     triggerer = Some(reRenderTriggerer);
   }
 
