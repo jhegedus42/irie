@@ -8,7 +8,6 @@ import japgolly.scalajs.react.{CtorType, _}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html.{Div, Pre}
-import slogging.LazyLogging
 
 case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface )
 
@@ -25,14 +24,12 @@ class NotWrapped_CacheTestRootComp_Backend(
       <.br,
       lineSeparator,
       getLineTextFromCache( cache ),
-      // WE SHOULD ONLY LAUNCH ONE AJAX REQ AND NOT THREE // TODO
-      // WE NEED TO CHECK THAT THIS WORKS, SOME SORT OF "debug counter", nr of ajax calls, etc
-      // number of ajax calls "away"
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache )
     )
+    // TODO add two numbers !!! using VIEW
   }
 
   def getLineTextFromCache(cache: CacheInterface ): VdomTagOf[Pre] = {
