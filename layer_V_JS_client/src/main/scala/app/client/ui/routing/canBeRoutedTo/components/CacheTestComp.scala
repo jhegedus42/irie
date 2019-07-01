@@ -34,6 +34,9 @@ class NotWrapped_CacheTestRootComp_Backend($: BackendScope[CacheTestRootCompProp
       <.br,
       lineSeparator,
       getLineTextFromCache(cache),
+      // WE SHOULD ONLY LAUNCH ONE AJAX REQ AND NOT THREE // TODO
+      // WE NEED TO CHECK THAT THIS WORKS, SOME SORT OF "debug counter", nr of ajax calls, etc
+      // number of ajax calls "away"
       lineSeparator,
       getLineTextFromCache(cache),
       lineSeparator,

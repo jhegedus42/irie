@@ -14,39 +14,71 @@ import io.circe.Decoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
+private [hidden] class MapForCache[E<:Entity]()extends LazyLogging {
+  private var map: Map[TypedRef[E], CacheState[E]] = Map()
+
+  def getCacheContentAsPrettyString:String=map.foldLeft("")((s,t)=>s"$s\n$t\n")
+
+  def isAjaxReqStillPending: Boolean = {
+    val res = map.valuesIterator.exists( (x: CacheState[E]) => x.isLoading )
+    res
+  }
+
+  def insertIntoCacheAsLoading(r:TypedRef[E]) : Loading[E] = {
+
+    println(s"CACHE WRITE => we insert $r into the cache")
+    //    logger.trace(s"parameter:$rv")
+
+    val v= Loading(r)
+
+    val map2=map + ( r -> v )
+    this.map=map2
+    v
+  }
+
+  def insertIntoCacheAsLoaded(rv:RefVal[E]): Unit ={
+    println(s"CACHE WRITE => we insert $rv into the cache")
+//    logger.trace(s"parameter:$rv")
+    val map2=map + ( rv.r -> Loaded(rv.r,rv))
+    this.map=map2
+  }
+
+  def getEntityOrExecuteAction(ref:TypedRef[E])(action : => Unit):CacheState[E]={
+
+    val res: CacheState[E] = if (!map.contains( ref )) {
+      val loading = Loading( ref )
+      logger.trace("ajax",map,loading,ref)
+      insertIntoCacheAsLoading(ref)
+      action
+      loading
+    } else map( ref )
+    res
+  }
+
+}
+
+
 /**
   * This is a map that contains cached Entities.
   *
   * @tparam E
   */
-private[cache] class EntityCacheMap[E <: Entity](cacheInterface: CacheInterface) extends LazyLogging{
+private[cache] class EntityCache[E <: Entity](cacheInterface: CacheInterface) extends LazyLogging{
   logger.trace("Constructor of EntityCacheMap")
 
 
-  private var map: Map[TypedRef[E], CacheState[E]] = Map()
+  val cacheMap=new MapForCache[E]
 
-  def getCacheContentAsPrettyString:String=map.foldLeft("")((s,t)=>s"$s\n$t\n")
 
-  private def isAjaxReqStillPending: Boolean = {
-    val res = map.valuesIterator.exists( (x: CacheState[E]) => x.isLoading )
-    res
-  }
 
-  private def insertIntoCache(rv:RefVal[E])={
-    println(s"CACHE WRITE => we insert $rv into the cache")
-    logger.trace(s"parameter:$rv")
-    val map2=map + ( rv.r -> Loaded(rv.r,rv))
-    this.map=map2
-  }
+  private def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
+    logger.trace(s"ajaxReqReturnHandler called with parameter $tryRefVal")
 
-  private def ajaxReqReturnHandler(r: Try[RefVal[E]] ): Unit = {
-    logger.trace(s"ajaxReqReturnHandler called with parameter $r")
+    tryRefVal.foreach(rv => cacheMap.insertIntoCacheAsLoaded(rv))
 
-    r.foreach(insertIntoCache)
+    println(s"isAjaxReqStillPending=${cacheMap.isAjaxReqStillPending}, at ajaxReqReturnHandler")
 
-    println(s"isAjaxReqStillPending=$isAjaxReqStillPending, at ajaxReqReturnHandler")
-
-    if (!isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
+    if (!cacheMap.isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
       logger.trace( "LAST AJAX call returned => re-render needs to be triggered" )
       cacheInterface.reRenderShouldBeTriggered()
     }
@@ -76,16 +108,12 @@ private[cache] class EntityCacheMap[E <: Entity](cacheInterface: CacheInterface)
 
     logger.trace(s"par: $refToEntity")
 
-    if (!map.contains( refToEntity )) {
-      val loading = Loading( refToEntity )
 
-      launchReadAjax( refToEntity )
+    val res=cacheMap.
+      getEntityOrExecuteAction(refToEntity){launchReadAjax( refToEntity )}
 
-      loading
+    res
 
-      //INPROGRESS => update the cache to LOADING
-
-    } else map( refToEntity )
   }
 
 
