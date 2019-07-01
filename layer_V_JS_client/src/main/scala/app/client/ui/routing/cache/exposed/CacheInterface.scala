@@ -3,7 +3,7 @@ package app.client.ui.routing.cache.exposed
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import CacheStates.CacheState
-import app.client.ui.routing.cache.hidden.EntityCache
+import app.client.ui.routing.cache.hidden.CommunicationHandlerForEntityCache
 import slogging.LazyLogging
 
 
@@ -61,8 +61,8 @@ class CacheInterface() extends LazyLogging {
   import io.circe.generic.auto._
   import io.circe.{Decoder, Encoder}
 
-  private lazy val cacheLineText: EntityCache[LineText] =
-    new EntityCache[LineText](this)
+  private lazy val cacheLineText: CommunicationHandlerForEntityCache[LineText] =
+    new CommunicationHandlerForEntityCache[LineText](this)
 
   def readLineText(ref: TypedRef[LineText]): CacheState[LineText] = {
 

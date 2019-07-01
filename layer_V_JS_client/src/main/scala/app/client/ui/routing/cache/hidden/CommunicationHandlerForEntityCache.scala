@@ -63,12 +63,14 @@ private [hidden] class MapForCache[E<:Entity]()extends LazyLogging {
   *
   * @tparam E
   */
-private[cache] class EntityCache[E <: Entity](cacheInterface: CacheInterface) extends LazyLogging{
+private[cache] class CommunicationHandlerForEntityCache[E <: Entity](cacheInterface: CacheInterface) extends LazyLogging{
   logger.trace("Constructor of EntityCacheMap")
 
 
   val cacheMap=new MapForCache[E]
 
+  var nrOfAjaxReqSent=0
+  var nrOfAjaxReqReturnedAndHandled=0
 
 
   private def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
@@ -78,15 +80,28 @@ private[cache] class EntityCache[E <: Entity](cacheInterface: CacheInterface) ex
 
     println(s"isAjaxReqStillPending=${cacheMap.isAjaxReqStillPending}, at ajaxReqReturnHandler")
 
+    // TODO trace-t kicserelni valami jobbra... ami kiirja valtozok erteket, stb
+    // TODO DUMP VARIABLES TO LOG
+    // WRITE OWN LOGGER TODO // DITCH THIS SHIT
+
+
     if (!cacheMap.isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
       logger.trace( "LAST AJAX call returned => re-render needs to be triggered" )
       cacheInterface.reRenderShouldBeTriggered()
     }
 
+    nrOfAjaxReqReturnedAndHandled=nrOfAjaxReqReturnedAndHandled+1
+
+    println(s"LOGGER ajaxReqReturnHandler, nrOfAjaxReqSent= $nrOfAjaxReqSent, nrOfAjaxReqReturnedAndHandled= $nrOfAjaxReqReturnedAndHandled")
   }
 
   private def launchReadAjax(ref: TypedRef[E] )(implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
-    logger.trace(s"par: $ref")
+
+    nrOfAjaxReqSent=nrOfAjaxReqSent+1
+
+
+    println(s"LOGGER launchReadAjax, nrOfAjaxReqSent= $nrOfAjaxReqSent, nrOfAjaxReqReturnedAndHandled= $nrOfAjaxReqReturnedAndHandled")
+
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 

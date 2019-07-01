@@ -21,9 +21,9 @@ object Main extends js.JSApp with LazyLogging{
 
 
   def setupLogging(): Unit = {
-    LoggerConfig.factory = ConsoleLoggerFactory()
-    LoggerConfig.level   = LogLevel.TRACE
-//    LoggerConfig.level = LogLevel.ERROR
+    LoggerConfig.factory = ConsoleLoggerFactory() // TODO DITCH THIS CRAP
+//    LoggerConfig.level   = LogLevel.TRACE
+    LoggerConfig.level = LogLevel.ERROR
   }
 
   @JSExport
