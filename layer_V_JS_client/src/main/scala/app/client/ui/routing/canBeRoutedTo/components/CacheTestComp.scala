@@ -10,6 +10,9 @@ import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html.{Div, Pre}
 
 case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface )
+import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.html_<^._
+import japgolly.scalajs.react.extra._
 
 class NotWrapped_CacheTestRootComp_Backend(
     $ : BackendScope[CacheTestRootCompProps, Unit]) {
@@ -27,9 +30,13 @@ class NotWrapped_CacheTestRootComp_Backend(
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,
-      getLineTextFromCache( cache )
+      getLineTextFromCache( cache ),
+      ExampleHolder.Example()
     )
     // TODO add two numbers !!! using VIEW
+
+    // TODO, add two numbers, locally
+
   }
 
   def getLineTextFromCache(cache: CacheInterface ): VdomTagOf[Pre] = {
