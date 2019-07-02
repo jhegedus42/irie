@@ -31,11 +31,11 @@ class NotWrapped_CacheTestRootComp_Backend(
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache ),
-      ExampleHolder.Example()
+      ExampleHolder.TheCorporation()
     )
-    // TODO add two numbers !!! using VIEW
 
     // TODO, add two numbers, locally
+    // TODO add two numbers !!! using VIEW
 
   }
 
