@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbers.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,26 +52,47 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+            <state relative-caret-position="519">
+              <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
               <folding>
-                <element signature="e#56#113#0" expanded="true" />
-                <element signature="e#498#529#0" expanded="true" />
+                <element signature="e#85#142#0" expanded="true" />
+                <element signature="e#477#508#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbers.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+              <folding>
+                <element signature="e#88#150#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+            <state relative-caret-position="555">
+              <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
               <folding>
-                <element signature="e#56#118#0" expanded="true" />
+                <element signature="e#88#150#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/HomePage.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -137,10 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/routes/routersChildren/itemsComp/ItemsInfoComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/cache/exposed/CacheInterface.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/rootComponents/cacheTestRootComp/CacheTestRootComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/componentsCanBeRoutedTo/ItemsPage.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/componentsCanBeRoutedTo/ItemsPage.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/componentsCanBeRoutedTo/itemsComp/ItemsPage.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/toRouteAblePageRepresenters/Item.scala" />
@@ -175,7 +186,6 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/DataRepresentations.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/css/AppCSS.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestRootComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetEntityRequest.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/EntityCacheMap.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/EntityCache.scala" />
@@ -188,6 +198,11 @@
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/Test.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTwoNumbers.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbers.scala" />
       </list>
     </option>
   </component>
@@ -306,6 +321,21 @@
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="routing" type="462c0819:PsiDirectoryNode" />
+              <item name="canBeRoutedTo" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="cacheTestCompAndRelatedStuff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -325,7 +355,7 @@
     <property name="TODO_SCOPE" value="Project Production Files" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -337,6 +367,7 @@
       <recent name="app.client.comm" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components" />
       <recent name="app.client.ui.routing.componentsThatCanBeRoutedTo.cacheTestRootComp" />
       <recent name="app.client" />
@@ -876,7 +907,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562002695598</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="we add two numbers now (without input fields) and also have a stolen &quot;todo list&quot;">
+      <created>1562037370537</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1562037370538</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -924,7 +962,7 @@
     <frame x="8" y="23" width="1409" height="798" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47418737" visible="true" weight="0.3160205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.47418737" visible="true" weight="0.4784199" />
       <window_info id="Structure" order="1" sideWeight="0.5258126" side_tool="true" weight="0.30488694" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.32968637" />
@@ -935,9 +973,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49963424" weight="0.3243626" />
-      <window_info active="true" anchor="bottom" id="sbt-shell-toolwindow" order="7" sideWeight="0.49743965" visible="true" weight="0.22379604" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" sideWeight="0.49743965" visible="true" weight="0.21388102" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963424" weight="0.2611276" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5025604" side_tool="true" visible="true" weight="0.22379604" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5025604" side_tool="true" visible="true" weight="0.21388102" />
       <window_info anchor="bottom" id="Build" order="10" sideWeight="0.49963424" weight="0.26261127" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.23760933" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -991,7 +1029,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="limiting accessibility in Cache classes" />
     <MESSAGE value="moving cache closer to its client (the UI elements)" />
     <MESSAGE value="safety commit after lot of rearranging of the code" />
     <MESSAGE value="lot of rearranging of code, app still seems to work as it did before" />
@@ -1016,16 +1053,10 @@
     <MESSAGE value="temp commit, does not compile" />
     <MESSAGE value="things work now OK, next step: GUI for adding two numbers, &quot;on the&#10;server !!!&quot;, parameters travel to server ... calculation is done on&#10;server... result comes back to client, client shows the result&#10;&#10;everybody happyyyy !!!! YEY!!!!" />
     <MESSAGE value="adding a simple stateful component into cache test, towards makeing a component&#10;that can add two numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding a simple stateful component into cache test, towards makeing a component&#10;that can add two numbers" />
+    <MESSAGE value="we add two numbers now (without input fields) and also have a stolen &quot;todo list&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="we add two numbers now (without input fields) and also have a stolen &quot;todo list&quot;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest_BaseTrait.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2670">
-          <caret line="192" column="16" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/test/scala/app/shared/data/ref/TypedRefTest.scala">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1188,13 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/HomePage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/extra_sjs0.6_2.12/srcs/extra_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/extra/router/Router.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -1243,17 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#31#148#0" expanded="true" />
-            <element signature="e#2156#2259#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1371,23 +1384,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/CacheTestComp.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+        <state relative-caret-position="405">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
-            <element signature="e#56#113#0" expanded="true" />
-            <element signature="e#498#529#0" expanded="true" />
+            <element signature="e#31#148#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/AddTwoNumbers.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        <state relative-caret-position="519">
+          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
           <folding>
-            <element signature="e#56#118#0" expanded="true" />
+            <element signature="e#85#142#0" expanded="true" />
+            <element signature="e#477#508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/HomePage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbers.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding>
+            <element signature="e#88#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding>
+            <element signature="e#88#150#0" expanded="true" />
           </folding>
         </state>
       </provider>

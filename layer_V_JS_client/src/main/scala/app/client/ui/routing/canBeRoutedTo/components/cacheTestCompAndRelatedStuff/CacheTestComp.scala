@@ -1,18 +1,17 @@
-package app.client.ui.routing.canBeRoutedTo.components
+package app
+  .client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff
 
 import app.client.ui.routing.cache.exposed.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import app.testHelpersShared.data.TestEntities
-import japgolly.scalajs.react.{CtorType, _}
+import japgolly.scalajs.react.CtorType
 import japgolly.scalajs.react.component.Scala.Component
-import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom.html.{Div, Pre}
 
 case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface )
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-import japgolly.scalajs.react.extra._
 
 class NotWrapped_CacheTestRootComp_Backend(
     $ : BackendScope[CacheTestRootCompProps, Unit]) {
@@ -31,7 +30,7 @@ class NotWrapped_CacheTestRootComp_Backend(
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache ),
-      ExampleHolder.TheCorporation()
+      AddTheThieveryNumbers.TheCorporation()
     )
 
     // TODO, add two numbers, locally
