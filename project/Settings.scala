@@ -59,6 +59,8 @@ object Settings {
       "com.github.julien-truffaut"                     %% "monocle-law" % versions.monocleVersion % "test",
 //      "com.lihaoyi" %%% "pprint" % "0.5.3",
       "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
+      // "com.softwaremill.scalamacrodebug" %% "macros" % "0.4.1"
+      // https://github.com/JohnReedLOL/pos#Logging // LATER
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -81,8 +83,7 @@ object Settings {
       "com.typesafe.akka"                       %% "akka-http" % versions.akkaHttp,
       "com.typesafe.akka"                       %% "akka-http-testkit" % versions.akkaHttp,
       "org.slf4j"                               % "slf4j-simple" % "1.7.25",
-      "org.scalatest" %%% "scalatest"           % "3.0.1" % "test",
-      "com.softwaremill.scalamacrodebug"        %% "macros" % "0.4.1"
+      "org.scalatest" %%% "scalatest"           % "3.0.1" % "test"
     )
   )
 
