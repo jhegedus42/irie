@@ -13,22 +13,30 @@ object AddTheThieveryNumbers {
     .renderBackend[Backend] // ← Use Backend class and backend.render
     .build
 
-  case class TheThieveryNumber(firstNumber: Double, b: Double ) {
+  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double ) {
 
     def onChangeFirstNumber(
         bs: BackendScope[Unit, State]
       )(
         e: ReactEventFromInput
       ) = {
-
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
-
-      val target: Input = event.target
-
+      val target:   Input = event.target
       val newValue: Double = target.valueAsNumber
-
       bs.modState( s => s.copy( firstNumber = newValue ) )
+    }
+
+    def onChangeSecondNumber(
+        bs: BackendScope[Unit, State]
+      )(
+        e: ReactEventFromInput
+      ) = {
+      val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
+      println( event )
+      val target:   Input = event.target
+      val newValue: Double = target.valueAsNumber
+      bs.modState( s => s.copy( secondNumber = newValue ) )
     }
 
   }
@@ -39,14 +47,36 @@ object AddTheThieveryNumbers {
         s: State
       ): VdomElement = // ← Accept props, state and/or propsChildren as argument
       <.div(
+        <.hr,
+        <.h3( "Itt van a Thievery Number osszeado alkalmazas !" ),
+        <.br,
+        <.br,
+        <.br,
+        <.br,
+        <.br,
         <.div(
-          s"${s.firstNumber} ${s.b} The thievery number, the corporation."
+          s"${s.firstNumber} ${s.secondNumber} The thievery number, the corporation."
         ),
-        <.div( s"The sum of the thievery numbers is : ${s.firstNumber + s.b}" ),
-        <.div( s"gyakorlaskeppen ide teszunk meg egy TODO appot :" ),
-        <.input( ^.onChange ==> s.onChangeFirstNumber( bs ),
-                ^.value := s.firstNumber ),
-        TodoListExample.TodoApp()
+        <.div(
+          s"The sum of the thievery numbers is : ${s.firstNumber + s.secondNumber}"
+        ),
+        <.input.number( ^.onChange ==> s.onChangeFirstNumber( bs ),
+                       ^.value := s.firstNumber ),
+        <.input.number( ^.onChange ==> s.onChangeSecondNumber( bs ),
+                       ^.value := s.secondNumber ),
+        <.br,
+        <.br,
+        <.hr,
+        <.br,
+        <.br,
+        <.div( s"Gyakorlaskeppen ide teszunk meg egy TODO appot :" ),
+        <.br,
+        <.br,
+        TodoListExample.TodoApp(),
+        <.br,
+        <.br,
+        <.br,
+        <.br
       )
     // we need input
     // steal it from :https://github.com/shogowada/scalajs-reactjs/tree/master/example
