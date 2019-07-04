@@ -30,11 +30,9 @@ class NotWrapped_CacheTestRootComp_Backend(
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache ),
-      AddTheThieveryNumbers.TheCorporation()
+      AddTheThieveryNumbersUsingTheClientOnly.TheCorporation(),
+      AddTheThieveryNumbersUsingTheServer.TheCorporation()
     )
-
-    // TODO, add two numbers, locally
-    // TODO add two numbers !!! using VIEW
 
   }
 

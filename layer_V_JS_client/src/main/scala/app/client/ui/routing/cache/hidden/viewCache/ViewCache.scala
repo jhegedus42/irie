@@ -1,23 +1,61 @@
-package app.client.ui.routing.cache.hidden
+package app.client.ui.routing.cache.hidden.viewCache
 
 import app.client.REST.getEntity
+import app.client.ui.routing.cache.exposed.CacheInterface
+import app.client.ui.routing.cache.exposed.CacheStates.{CacheState, Loaded, Loading}
+import app.client.ui.routing.cache.hidden.entityCache.MapForCache
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
-import app.client.ui.routing.cache.exposed.CacheInterface
-import app.client.ui.routing.cache.exposed.CacheStates.{
-  CacheState,
-  Loaded,
-  Loading
-}
-
-import scala.util.Try
-//import app.client.ui.components.cache.hidden._temp_disabled_ajax.AJAXGetEntityApi.InFlight_ReadEntity
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
+import scala.util.Try
 
-private[hidden] class MapForCache[E <: Entity]() {
+object SumIntViewCache {
+
+  import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+  import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{ViewHttpRouteName, ViewHttpRouteNameProvider}
+  import io.circe.parser.decode
+  import io.circe.syntax._
+  import io.circe.{Decoder, Encoder}
+  import org.scalajs.dom.ext.Ajax
+
+  import scala.concurrent.Future
+  import scala.reflect.ClassTag
+
+  implicit def executionContext: ExecutionContextExecutor =
+    scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+  def postViewRequest[V <: View]( requestParams: V#Par )(
+      implicit ct: ClassTag[V],
+      encoder:     Encoder[V#Par],
+      decoder:     Decoder[V#Res]
+    ): Future[V#Res] = {
+
+    val routeName: ViewHttpRouteName =
+      ViewHttpRouteNameProvider.getViewHttpRouteName[V]()
+
+    val url: String = routeName.name
+
+    val json_line: String = requestParams.asJson.spaces2 // encode
+
+    val headers: Map[String, String] = Map(
+      "Content-Type" -> "application/json"
+    )
+
+    val res: Future[V#Res] = Ajax
+      .post( url, json_line, headers = headers )
+      .map( _.responseText )
+      .map( (x: String) => { decode[V#Res]( x ) } )
+      .map( x => x.right.get )
+
+    res
+  }
+
+}
+
+private[hidden] class MapForViewCache[E <: Entity]() {
   private var map: Map[TypedRef[E], CacheState[E]] = Map()
 
   def getCacheContentAsPrettyString: String =
@@ -61,6 +99,9 @@ private[hidden] class MapForCache[E <: Entity]() {
     res
   }
 
+  //  implicit override def executionContext =
+//    scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
   def insertIntoCacheAsLoading(r: TypedRef[E] ): Loading[E] = {
 
     println( s"CACHE WRITE => we insert $r into the cache" )
@@ -80,8 +121,7 @@ private[hidden] class MapForCache[E <: Entity]() {
   *
   * @tparam E
   */
-private[cache] class CommunicationHandlerForEntityCache[E <: Entity](
-    cacheInterface: CacheInterface) {
+private[cache] class ViewCache[E <: Entity](cacheInterface: CacheInterface ) {
   println( s"Constructor of EntityCacheMap" )
 
   val cacheMap = new MapForCache[E]
@@ -111,9 +151,8 @@ private[cache] class CommunicationHandlerForEntityCache[E <: Entity](
   private def launchReadAjax(
       ref: TypedRef[E]
     )(
-      implicit
-      decoder: Decoder[RefVal[E]],
-      ct:      ClassTag[E]
+      implicit decoder: Decoder[RefVal[E]],
+      ct:               ClassTag[E]
     ): Unit = {
 
     nrOfAjaxReqSent = nrOfAjaxReqSent + 1

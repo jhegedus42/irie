@@ -5,7 +5,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react._
 import org.scalajs.dom.html.Input
 
-object AddTheThieveryNumbers {
+object AddTheThieveryNumbersUsingTheClientOnly {
   type State = TheThieveryNumber
   val TheCorporation = ScalaComponent
     .builder[Unit]( "Example" )
@@ -48,7 +48,9 @@ object AddTheThieveryNumbers {
       ): VdomElement = // ← Accept props, state and/or propsChildren as argument
       <.div(
         <.hr,
-        <.h3( "Itt van a Thievery Number osszeado alkalmazas !" ),
+        <.h3(
+          "Itt van a Thievery Number osszeado alkalmazas (USING THE CLIENT ONLY)!"
+        ),
         <.br,
         <.br,
         <.br,
@@ -69,17 +71,10 @@ object AddTheThieveryNumbers {
         <.hr,
         <.br,
         <.br,
-        <.div( s"Gyakorlaskeppen ide teszunk meg egy TODO appot :" ),
-        <.br,
-        <.br,
-        TodoListExample.TodoApp(),
         <.br,
         <.br,
         <.br,
         <.br
       )
-    // we need input
-    // steal it from :https://github.com/shogowada/scalajs-reactjs/tree/master/example
-
   }
 }

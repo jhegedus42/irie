@@ -3,7 +3,7 @@ package app.client.ui.routing.cache.exposed
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import CacheStates.CacheState
-import app.client.ui.routing.cache.hidden.CommunicationHandlerForEntityCache
+import app.client.ui.routing.cache.hidden.entityCache.EntityCache
 
 object ReRenderTriggererHolderSingletonGloballyAccessibleObject {
   private var triggerer: Option[ReRenderTriggerer] = None
@@ -69,11 +69,10 @@ class CacheInterface() {
   import io.circe.generic.auto._
   import io.circe.{Decoder, Encoder}
 
-  private lazy val cacheLineText: CommunicationHandlerForEntityCache[LineText] =
-    new CommunicationHandlerForEntityCache[LineText]( this )
+  private lazy val cacheLineText: EntityCache[LineText] =
+    new EntityCache[LineText]( this )
 
   def readLineText(ref: TypedRef[LineText] ): CacheState[LineText] = {
-
     val res: CacheState[LineText] = cacheLineText.readEntity( ref )
     res
   }
