@@ -1,5 +1,5 @@
 package app
-  .client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff
+  .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react._

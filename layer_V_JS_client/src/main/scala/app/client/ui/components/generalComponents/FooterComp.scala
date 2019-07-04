@@ -1,4 +1,4 @@
-package app.client.ui.routing.generalComponents
+package app.client.ui.components.generalComponents
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._

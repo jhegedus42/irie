@@ -1,4 +1,4 @@
-package app.client.ui.routing.canBeRoutedTo.components
+package app.client.ui.components.mainPageComponents.components
 
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
@@ -6,7 +6,7 @@ import scalacss.ScalaCssReact._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
-object HomePage {
+object HomePageComp {
 
   object Style extends StyleSheet.Inline {
     import dsl._

@@ -1,7 +1,6 @@
 package app
-  .client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff
-
-import app.client.ui.routing.cache.exposed.CacheInterface
+  .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
+import app.client.ui.caching.entityCache.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import app.testHelpersShared.data.TestEntities

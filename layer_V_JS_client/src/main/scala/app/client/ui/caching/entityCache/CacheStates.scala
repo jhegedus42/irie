@@ -1,7 +1,7 @@
-package app.client.ui.routing.cache.exposed
+package app.client.ui.caching.entityCache
 
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRef, RefVal}
+import app.shared.data.ref.{RefVal, TypedRef}
 
 object CacheStates {
   sealed trait CacheState[E <: Entity]{

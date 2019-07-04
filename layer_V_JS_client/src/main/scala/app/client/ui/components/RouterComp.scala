@@ -1,27 +1,15 @@
-package app.client.ui.routing
+package app.client.ui.components
 
-import app.client.ui.routing.cache.exposed.ReRenderTriggererHolderSingletonGloballyAccessibleObject.ReRenderTriggerer
-import app.client.ui.routing.cache.exposed.{
-  CacheInterface,
-  ReRenderTriggererHolderSingletonGloballyAccessibleObject
-}
-import app.client.ui.routing.canBeRoutedTo.DataRepresentations._
-import app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff.{
-  CacheTestComp,
-  CacheTestRootCompProps,
-  NotWrapped_CacheTestRootComp_Backend
-}
-import app.client.ui.routing.canBeRoutedTo.components.HomePage
-import app.client.ui.routing.generalComponents.TopNavComp.Menu
-import app.client.ui.routing.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.components.generalComponents.TopNavComp.Menu
+import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
+import app.client.ui.components.mainPageComponents.components.HomePageComp
+import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTestComp, CacheTestRootCompProps, NotWrapped_CacheTestRootComp_Backend}
+import app.client.ui.caching.entityCache.ReRenderTriggererHolderSingletonGloballyAccessibleObject.ReRenderTriggerer
+import app.client.ui.caching.entityCache.{CacheInterface, ReRenderTriggererHolderSingletonGloballyAccessibleObject}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.component.builder.Lifecycle
-import japgolly.scalajs.react.extra.router.{
-  Resolution,
-  RouterConfigDsl,
-  RouterCtl,
-  _
-}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.{CtorType, _}
 
@@ -95,7 +83,7 @@ case class RouterComp() {
 
   val wrapped_cachTestRootComp = new Wrapper( cacheTestRootComp )
 
-  val config = RouterConfigDsl[AbstrReprOfPage].buildConfig { dsl =>
+  val config = RouterConfigDsl[MainPageDeclaration].buildConfig { dsl =>
     import dsl._
 
     val wr =
@@ -105,12 +93,12 @@ case class RouterComp() {
       )
 
     val homeRoute
-        : dsl.Rule = staticRoute( root, HomePage_AbstrReprOfPage ) ~> render(
-      HomePage()
+        : dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
+      HomePageComp()
     )
 
     val cacheTestPageRoute: dsl.Rule =
-      staticRoute( "#cacheTest", CacheTest_AbstrReprOfPage ) ~>
+      staticRoute( "#cacheTest", MainPage_CacheTestDemoPage ) ~>
         render( {
           wr
         } )
@@ -119,14 +107,14 @@ case class RouterComp() {
       | homeRoute
       | cacheTestPageRoute)
       .notFound(
-        redirectToPage( HomePage_AbstrReprOfPage )( Redirect.Replace )
+        redirectToPage( MainPage_HomePage )( Redirect.Replace )
       )
       .renderWith( layout )
   }
 
   val mainMenu = Vector(
-    Menu( "Home", HomePage_AbstrReprOfPage ),
-    Menu( "CacheTest", CacheTest_AbstrReprOfPage )
+    Menu( "Home", MainPage_HomePage ),
+    Menu( "CacheTest", MainPage_CacheTestDemoPage )
   )
 
   val baseUrl = BaseUrl.fromWindowOrigin_/
@@ -134,7 +122,7 @@ case class RouterComp() {
   val router =
     Router( baseUrl, config )
 
-  def layout(c: RouterCtl[AbstrReprOfPage], r: Resolution[AbstrReprOfPage] ) = {
+  def layout(c: RouterCtl[MainPageDeclaration], r: Resolution[MainPageDeclaration] ) = {
 
     println( s"page = ${r.page}" )
     <.div(

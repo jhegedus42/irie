@@ -1,7 +1,7 @@
-package app.client
+package app.client.ui.caching
 
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRef, RefVal}
+import app.shared.data.ref.{RefVal, TypedRef}
 import app.shared.rest.routes.crudRequests.GetEntityRequest
 //import app.shared.rest.routes.crudRequests.GetEntityRequest.GetEntityReqResult
 import io.circe

@@ -2,22 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/viewCache/ViewCache.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_softwaremill_scalamacrodebug_macros_2_12_0_4_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheInterface.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/CommunicationHandlerForEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/entityCache/EntityCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheClientOnly.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/css/AppCSS.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/css/AppCSS.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheInterface.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheStates.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/entityCache/EntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/EntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/viewCache/ViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/viewCache/ViewCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/DataRepresentations.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/MainPageComponentsDeclarations.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/HomePage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/HomePageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheClientOnly.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/AddTheThieveryNumbersUsingTheClientOnly.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/AddTheThieveryNumbersUsingTheServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/CacheTestComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/TodoListExample.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/generalComponents/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/generalComponents/TopNavComp.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,38 +59,57 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4864667">
+    <splitter split-orientation="horizontal" split-proportion="0.6270588">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/viewCache/ViewCache.scala">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/viewCache/ViewCache.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="386">
-                  <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+                <state relative-caret-position="690">
+                  <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
                   <folding>
-                    <element signature="e#54#86#0" expanded="true" />
-                    <element signature="e#533#625#0" expanded="true" />
+                    <element signature="e#41#73#0" expanded="true" />
+                    <element signature="e#399#491#0" expanded="true" />
                     <element signature="e#1480#1530#0" />
+                    <element signature="e#1954#2102#0" />
                     <element signature="n#!!doc;n#EntityCache#0;n#!!top" />
-                    <marker date="1562216525064" expanded="false" signature="1004:1028" ph="..." />
-                    <marker date="1562216525064" expanded="false" signature="1030:1094" ph="..." />
-                    <marker date="1562216525064" expanded="false" signature="1153:1258" ph="..." />
-                    <marker date="1562216525064" expanded="false" signature="1326:1377" ph="..." />
-                    <marker date="1562216525064" expanded="true" signature="1619:1772" ph="..." />
-                    <marker date="1562216525064" expanded="false" signature="1619:1773" ph="..." />
+                    <marker date="1562236060821" expanded="false" signature="891:915" ph="..." />
+                    <marker date="1562236060821" expanded="false" signature="917:981" ph="..." />
+                    <marker date="1562236060821" expanded="false" signature="1040:1145" ph="..." />
+                    <marker date="1562236060821" expanded="false" signature="1213:1264" ph="..." />
+                    <marker date="1562236060821" expanded="true" signature="1506:1659" ph="..." />
+                    <marker date="1562236060821" expanded="false" signature="1506:1660" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheInterface.scala">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/MainPageComponentsDeclarations.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="918">
-                  <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
+                <state relative-caret-position="120">
+                  <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheStates.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
                   <folding>
-                    <element signature="e#45#82#0" expanded="true" />
+                    <element signature="e#43#85#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheInterface.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -114,11 +131,12 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/entityCache/EntityCache.scala">
+            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/EntityCache.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+                <state relative-caret-position="146">
+                  <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
                   <folding>
+                    <element signature="e#43#75#0" expanded="true" />
                     <element signature="e#1616#1867#0" />
                   </folding>
                 </state>
@@ -182,11 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/dataRepresentersOfToRoutableComponents/Item.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/uuid.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/RefVal.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UnTypedRef.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UUID_Utils.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestData.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/test/scala/app/server/persistence/tests/IMPersistentActorTest.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" />
@@ -233,6 +246,11 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/ViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/view/ViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/viewCache/ViewCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/entityCache/hidden/viewCache/ViewCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/entityCache/hidden/entityCache/EntityCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/viewCache/ViewCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/MainPageComponentsDescriptions.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/MainPageComponentsDeclarations.scala" />
       </list>
     </option>
   </component>
@@ -333,7 +351,7 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="routing" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
+              <item name="mainPages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -346,8 +364,7 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="routing" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="exposed" type="462c0819:PsiDirectoryNode" />
+              <item name="viewAndEntityCache" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -360,53 +377,22 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="routing" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-              <item name="hidden" type="462c0819:PsiDirectoryNode" />
+              <item name="viewAndEntityCache" type="462c0819:PsiDirectoryNode" />
+              <item name="entityCache" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="routing" type="462c0819:PsiDirectoryNode" />
+              <item name="viewAndEntityCache" type="462c0819:PsiDirectoryNode" />
+              <item name="viewCache" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -1018,7 +1004,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562184432373</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="preparing the place for the ViewCache (stealing things from the&#10;EntityCache)">
+      <created>1562216662121</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1562216662122</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1065,8 +1058,8 @@
   <component name="ToolWindowManager">
     <frame x="8" y="23" width="1409" height="798" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4678715" visible="true" weight="0.37820044" />
-      <window_info id="Structure" order="1" sideWeight="0.5321285" side_tool="true" weight="0.27139723" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7847534" visible="true" weight="0.38185808" />
+      <window_info id="Structure" order="1" sideWeight="0.21524663" side_tool="true" weight="0.37820044" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" weight="0.329188" />
       <window_info anchor="bottom" id="Tail" />
@@ -1077,7 +1070,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49963424" weight="0.3243626" />
-      <window_info active="true" anchor="bottom" id="sbt-shell-toolwindow" order="7" sideWeight="0.4864667" visible="true" weight="0.31303117" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" sideWeight="0.4864667" visible="true" weight="0.31303117" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49963424" weight="0.2611276" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5135333" side_tool="true" weight="0.29461756" />
       <window_info anchor="bottom" id="Build" order="10" sideWeight="0.49963424" weight="0.26261127" />
@@ -1135,7 +1128,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="after cleaning up the model and related tests, this is a &quot;safety&quot; / &quot;snapshot&quot;&#10;commit ... now I need to check if the tests still pass ..." />
     <MESSAGE value="in the middle of creating some simple test data --- safety commit" />
     <MESSAGE value="putting the app to &quot;the internet&quot;, at http://commserver.asuscomm.com:8080/#cacheTest" />
     <MESSAGE value="client code has been cleaned up... &#10;&#10;now we need some sane way to create a ReRenderTriggerer ..." />
@@ -1160,16 +1152,10 @@
     <MESSAGE value="a bit making the code look nicer" />
     <MESSAGE value="we discovered a bug ... needs to be fixed" />
     <MESSAGE value="now, we add two Thiever Numbers on the client side,&#10;&#10;next step, do the same thing on the server side !!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="now, we add two Thiever Numbers on the client side,&#10;&#10;next step, do the same thing on the server side !!!" />
+    <MESSAGE value="preparing the place for the ViewCache (stealing things from the&#10;EntityCache)" />
+    <option name="LAST_COMMIT_MESSAGE" value="preparing the place for the ViewCache (stealing things from the&#10;EntityCache)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/extra_sjs0.6_2.12/srcs/extra_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/extra/router/RouterCtl.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/extra_sjs0.6_2.12/jars/extra_sjs0.6_2.12-1.3.1.jar!/japgolly/scalajs/react/extra/router/Resolution.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1263,13 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/biz.enef/slogging_sjs0.6_2.12/srcs/slogging_sjs0.6_2.12-0.5.3-sources.jar!/slogging/logger.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-101">
@@ -1359,7 +1338,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/HomePage.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/HomePageComp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
@@ -1450,7 +1429,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/TodoListExample.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/TodoListExample.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
@@ -1475,7 +1454,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/scriptFile.scala" />
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheClientOnly.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/AddTheThieveryNumbersUsingTheClientOnly.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
@@ -1485,14 +1464,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/CacheTestComp.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/CacheTestComp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/canBeRoutedTo/components/cacheTestCompAndRelatedStuff/AddTheThieveryNumbersUsingTheServer.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/mainPageComponents/cacheTestMainPageComp/AddTheThieveryNumbersUsingTheServer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
@@ -1513,16 +1492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/exposed/CacheInterface.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="69" column="29" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-          <folding>
-            <element signature="e#45#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestFromOldSource.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -1533,31 +1502,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/entityCache/EntityCache.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheInterface.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/EntityCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
+            <element signature="e#43#75#0" expanded="true" />
             <element signature="e#1616#1867#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden/viewCache/ViewCache.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/entityCache/CacheStates.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+        <state relative-caret-position="75">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding>
-            <element signature="e#54#86#0" expanded="true" />
-            <element signature="e#533#625#0" expanded="true" />
+            <element signature="e#43#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/mainPages/MainPageComponentsDeclarations.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/viewAndEntityCache/viewCache/ViewCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding>
+            <element signature="e#41#73#0" expanded="true" />
+            <element signature="e#399#491#0" expanded="true" />
             <element signature="e#1480#1530#0" />
+            <element signature="e#1954#2102#0" />
             <element signature="n#!!doc;n#EntityCache#0;n#!!top" />
-            <marker date="1562216525064" expanded="false" signature="1004:1028" ph="..." />
-            <marker date="1562216525064" expanded="false" signature="1030:1094" ph="..." />
-            <marker date="1562216525064" expanded="false" signature="1153:1258" ph="..." />
-            <marker date="1562216525064" expanded="false" signature="1326:1377" ph="..." />
-            <marker date="1562216525064" expanded="true" signature="1619:1772" ph="..." />
-            <marker date="1562216525064" expanded="false" signature="1619:1773" ph="..." />
+            <marker date="1562236060821" expanded="false" signature="891:915" ph="..." />
+            <marker date="1562236060821" expanded="false" signature="917:981" ph="..." />
+            <marker date="1562236060821" expanded="false" signature="1040:1145" ph="..." />
+            <marker date="1562236060821" expanded="false" signature="1213:1264" ph="..." />
+            <marker date="1562236060821" expanded="true" signature="1506:1659" ph="..." />
+            <marker date="1562236060821" expanded="false" signature="1506:1660" ph="..." />
           </folding>
         </state>
       </provider>

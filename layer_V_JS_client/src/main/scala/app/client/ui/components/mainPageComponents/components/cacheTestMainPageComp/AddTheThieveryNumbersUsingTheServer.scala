@@ -1,11 +1,11 @@
 package app
-  .client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff
+  .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 
-import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Input
 
-object AddTheThieveryNumbersUsingTheClientOnly {
+object AddTheThieveryNumbersUsingTheServer {
   type State = TheThieveryNumber
   val TheCorporation = ScalaComponent
     .builder[Unit]( "Example" )
@@ -49,7 +49,7 @@ object AddTheThieveryNumbersUsingTheClientOnly {
       <.div(
         <.hr,
         <.h3(
-          "Itt van a Thievery Number osszeado alkalmazas (USING THE CLIENT ONLY)!"
+          "Itt van a Thievery Number osszeado alkalmazas (USING THE SERVER)!"
         ),
         <.br,
         <.br,
@@ -74,7 +74,10 @@ object AddTheThieveryNumbersUsingTheClientOnly {
         <.br,
         <.br,
         <.br,
+        <.br,
+        <.br,
         <.br
       )
+
   }
 }

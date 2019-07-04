@@ -2,15 +2,15 @@ package app.client.ui.css
 
 import scalacss.Defaults._
 import scalacss.internal.mutable.GlobalRegistry
-import app.client.ui.routing.generalComponents.TopNavComp
-import app.client.ui.routing.canBeRoutedTo.components.HomePage
+import app.client.ui.components.generalComponents.TopNavComp
+import app.client.ui.components.mainPageComponents.components.HomePageComp
 
 object AppCSS {
 
   def load = {
     GlobalRegistry.register(GlobalStyle,
                             TopNavComp.Style,
-                            HomePage.Style)
+                            HomePageComp.Style)
     GlobalRegistry.onRegistration(_.addToDocument())
   }
 }

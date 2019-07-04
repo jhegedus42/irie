@@ -1,7 +1,6 @@
-package app.client.ui.routing.generalComponents
-
-import app.client.ui.routing.RouterComp
-import app.client.ui.routing.canBeRoutedTo.DataRepresentations.AbstrReprOfPage
+package app.client.ui.components.generalComponents
+import app.client.ui.components.RouterComp
+import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations.MainPageDeclaration
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -36,13 +35,13 @@ object TopNavComp {
   }
 
   // this is used in the props
-  case class Menu(name: String, route: AbstrReprOfPage)
+  case class Menu(name: String, route: MainPageDeclaration)
 
   case class Props(menus: Vector[Menu],
-                   selectedPage: AbstrReprOfPage,
-                   ctrl: RouterCtl[AbstrReprOfPage])
+                   selectedPage: MainPageDeclaration,
+                   ctrl: RouterCtl[MainPageDeclaration])
 
-  implicit val currentPageReuse = Reusability.by_==[AbstrReprOfPage]
+  implicit val currentPageReuse = Reusability.by_==[MainPageDeclaration]
   implicit val propsReuse = Reusability.by((_: Props).selectedPage)
 
   val component = ScalaComponent

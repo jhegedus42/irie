@@ -1,9 +1,9 @@
-package app.client.ui.routing.cache.exposed
+package app.client.ui.caching.entityCache
 
+import app.client.ui.caching.entityCache.CacheStates.CacheState
+import app.client.ui.caching.entityCache.hidden.entityCache.EntityCache
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
-import CacheStates.CacheState
-import app.client.ui.routing.cache.hidden.entityCache.EntityCache
 
 object ReRenderTriggererHolderSingletonGloballyAccessibleObject {
   private var triggerer: Option[ReRenderTriggerer] = None
@@ -67,7 +67,6 @@ object ReRenderTriggererHolderSingletonGloballyAccessibleObject {
 class CacheInterface() {
 
   import io.circe.generic.auto._
-  import io.circe.{Decoder, Encoder}
 
   private lazy val cacheLineText: EntityCache[LineText] =
     new EntityCache[LineText]( this )
@@ -77,7 +76,7 @@ class CacheInterface() {
     res
   }
 
-  private[cache] def reRenderShouldBeTriggered() = {
+  private[entityCache] def reRenderShouldBeTriggered() = {
     println(
       s"METHOD CALL --- CacheInterface.reRenderShouldBeTriggered() --- " +
         "so now we try to trigger a re-render in reRenderShouldBeTriggered()"
