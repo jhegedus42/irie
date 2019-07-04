@@ -1,7 +1,7 @@
 package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.entityCache.CacheStates.CacheState
-import app.client.ui.caching.entityCache.hidden.entityCache.EntityCache
+import app.client.ui.caching.entityCache.hidden.EntityCache
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 
