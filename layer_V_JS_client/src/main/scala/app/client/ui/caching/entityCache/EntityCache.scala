@@ -1,8 +1,8 @@
-package app.client.ui.caching.entityCache.hidden
+package app.client.ui.caching.entityCache
 
+import app.client.ui.caching.CacheInterface
 import app.client.ui.caching.REST.getEntity
-import app.client.ui.caching.entityCache.CacheInterface
-import app.client.ui.caching.entityCache.EntityCacheStates.{CacheState, Loaded, Loading}
+import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
 
@@ -13,84 +13,28 @@ import io.circe.Decoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-private[hidden] class MapForCache[E <: Entity]() {
-  private var map: Map[TypedRef[E], CacheState[E]] = Map()
 
-  def getCacheContentAsPrettyString: String =
-    map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
-
-  def isAjaxReqStillPending: Boolean = {
-    val res = map
-      .valuesIterator.exists(
-        (x: CacheState[E]) => x.isLoading
-      )
-    res
-  }
-
-  def insertIntoCacheAsLoaded(rv: RefVal[E] ): Unit = {
-    println(
-      s"CACHE WRITE => we insert $rv into the cache"
-    )
-    //    logger.trace(s"parameter:$rv")
-    val map2 = map + (rv.r -> Loaded( rv.r, rv ))
-    this.map = map2
-  }
-
-  def getEntityOrExecuteAction(
-      ref: TypedRef[E]
-    )(
-      action: => Unit
-    ): CacheState[E] = {
-
-    val res: CacheState[E] = if (!map.contains( ref )) {
-      val loading = Loading( ref )
-      println(
-        s"getEntityOrExecuteAction, " +
-          s"map = $map, " +
-          s"loading = $loading," +
-          s" ref=$ref"
-      )
-      insertIntoCacheAsLoading( ref )
-      action
-      loading
-    } else map( ref )
-    res
-  }
-
-  def insertIntoCacheAsLoading(r: TypedRef[E] ): Loading[E] = {
-
-    println( s"CACHE WRITE => we insert $r into the cache" )
-    //    logger.trace(s"parameter:$rv")
-
-    val v = Loading( r )
-
-    val map2 = map + (r -> v)
-    this.map = map2
-    v
-  }
-
-}
 
 /**
   * This is a map that contains cached Entities.
   *
   * @tparam E
   */
-private[entityCache] class EntityCache[E <: Entity](cacheInterface: CacheInterface ) {
+private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface ) {
   println( s"Constructor of EntityCacheMap" )
 
-  val cacheMap = new MapForCache[E]
+  val cacheMap = new MapForEntityCache[E]
 
   var nrOfAjaxReqSent = 0
   var nrOfAjaxReqReturnedAndHandled = 0
 
-  private[entityCache] def readEntity(
+  private[caching] def readEntity(
       refToEntity: TypedRef[E]
     )(
       implicit
       decoder: Decoder[RefVal[E]],
       ct:      ClassTag[E]
-    ): CacheState[E] = {
+    ): EntityCacheState[E] = {
 
     println( s"par: $refToEntity" )
 

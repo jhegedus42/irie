@@ -1,7 +1,7 @@
 package app
   .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 
-import app.client.ui.caching.viewCache.SumIntViewCache
+import app.client.ui.caching.viewCache.{SumIntViewCache, ViewCacheStates}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component
@@ -41,6 +41,13 @@ object AddTheThieveryNumbersUsingTheServer {
   def getLineBreaks(i: Int ) = TagMod( List.fill( i )( <.br ).toIterator.toTraversable.toVdomArray )
 
   class ThieveryUndergroundBackend(bs: BackendScope[Unit, State] ) {
+    def getTheSum(): String =
+    {
+      val params: SumIntView_Par = SumIntView_Par( 38, 45 )
+      val res: Option[ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]] =
+        SumIntViewCache.getSumIntView( params )
+      res.toString()
+    }
 
     def render( s: State ): VdomElement =
       <.div(
@@ -67,13 +74,7 @@ object AddTheThieveryNumbersUsingTheServer {
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
 
         <.br,
-
-        {
-          val params: SumIntView_Par = SumIntView_Par( 38, 45 )
-          val res: Option[SumIntView_HolderObject.SumIntView_Res] =
-            SumIntViewCache.getSumIntView( params )
-          res.toString()
-        }
+        getTheSum()
 
       )
   }

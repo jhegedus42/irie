@@ -1,12 +1,12 @@
 package app.client.ui.components
 
+import app.client.ui.caching.{CacheInterface, ReRenderTriggererHolderSingletonGloballyAccessibleObject}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
 import app.client.ui.components.mainPageComponents.components.HomePageComp
 import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTestComp, CacheTestRootCompProps, NotWrapped_CacheTestRootComp_Backend}
-import app.client.ui.caching.entityCache.ReRenderTriggererHolderSingletonGloballyAccessibleObject.ReRenderTriggerer
-import app.client.ui.caching.entityCache.{CacheInterface, ReRenderTriggererHolderSingletonGloballyAccessibleObject}
+import app.client.ui.caching.ReRenderTriggererHolderSingletonGloballyAccessibleObject.ReRenderTriggerer
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.component.builder.Lifecycle
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}

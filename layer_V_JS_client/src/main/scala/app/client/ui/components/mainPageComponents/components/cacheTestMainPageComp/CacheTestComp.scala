@@ -1,6 +1,6 @@
 package app
   .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
-import app.client.ui.caching.entityCache.CacheInterface
+import app.client.ui.caching.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
 import app.testHelpersShared.data.TestEntities
