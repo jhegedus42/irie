@@ -1,9 +1,11 @@
 package app.client.ui.caching.viewCache
 
 import app.client.ui.caching.REST.getEntity
+import app.client.ui.caching.entityCache.ReRenderTriggererHolderSingletonGloballyAccessibleObject
 import app.shared.data.ref.{RefVal, TypedRef}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
 import io.circe.Decoder
+import io.circe.Encoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -26,7 +28,28 @@ object SumIntViewCache {
 
   var sumIntViewOpt:Option[(SumIntView#Par,SumIntView#Res)] =None
 
-  def getSumIntView(requestParams: SumIntView#Par) : Option[SumIntView#Res] = None
+
+  def getSumIntView(requestParams: SumIntView#Par): Option[SumIntView#Res] = {
+
+    import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+    import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{ViewHttpRouteName, ViewHttpRouteNameProvider}
+    import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
+    import io.circe.generic.auto._
+    import io.circe.parser.decode
+    import io.circe.syntax._
+    import io.circe.{Decoder, Encoder}
+    import org.scalajs.dom.ext.Ajax
+
+    import scala.concurrent.Future
+    import scala.reflect.ClassTag
+
+
+    ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
+
+    postViewRequest[SumIntView](requestParams)
+
+    None
+  }
 
   /*
   Here we need to send a request to the server to get the numbers
