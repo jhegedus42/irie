@@ -2,7 +2,7 @@ package app.client.ui.caching.entityCache.hidden
 
 import app.client.ui.caching.REST.getEntity
 import app.client.ui.caching.entityCache.CacheInterface
-import app.client.ui.caching.entityCache.CacheStates.{CacheState, Loaded, Loading}
+import app.client.ui.caching.entityCache.EntityCacheStates.{CacheState, Loaded, Loading}
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
 

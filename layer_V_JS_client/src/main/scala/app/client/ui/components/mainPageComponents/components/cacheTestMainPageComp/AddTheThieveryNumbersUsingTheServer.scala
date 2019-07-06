@@ -69,13 +69,9 @@ object AddTheThieveryNumbersUsingTheServer {
         <.br,
         <.br,
         <.hr,
-        <.br,
-        <.br,
-        <.br,
-        <.br,
-        <.br,
-        <.br,
-        <.br,
+        "start tagmod 10 BR",
+        TagMod(List.fill(10)(<.br).toIterator.toTraversable.toVdomArray),
+        "end tagmond 10 BR",
         <.br
       )
 

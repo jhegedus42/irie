@@ -3,7 +3,7 @@ package app.client.ui.caching.entityCache
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
 
-object CacheStates {
+object EntityCacheStates {
   sealed trait CacheState[E <: Entity]{
     def isLoading: Boolean =
       this match {
