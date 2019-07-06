@@ -6,11 +6,11 @@ object ViewCacheStates {
   sealed trait ViewCacheState[V <: View] {
     def isLoading: Boolean =
       this match {
-        case LoadingView( _ )   => true
+        case ViewLoading( _ )   => true
         case ViewLoaded( _, _ ) => false
       }
   }
-  case class LoadingView[V <: View](r: V#Par ) extends ViewCacheState[V]
+  case class ViewLoading[V <: View](r: V#Par ) extends ViewCacheState[V]
   case class ViewLoaded[V <: View](r:  V#Par, refVal: V#Res )
       extends ViewCacheState[V]
 

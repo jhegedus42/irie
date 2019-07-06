@@ -5,7 +5,7 @@ import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
 import app.client.ui.components.mainPageComponents.components.HomePageComp
-import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTestComp, CacheTestRootCompProps, NotWrapped_CacheTestRootComp_Backend}
+import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTestComp, CacheTest_RootComp_Props, NotWrapped_CacheTestRootComp_Backend}
 import app.client.ui.caching.ReRenderTriggererHolderSingletonGloballyAccessibleObject.ReRenderTriggerer
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.component.builder.Lifecycle
@@ -16,14 +16,14 @@ import japgolly.scalajs.react.{CtorType, _}
 // this wrapper is needed so that we can "re render the react tree below this"
 
 class Wrapper(
-    toBeWrapped: Component[CacheTestRootCompProps,
+    toBeWrapped: Component[CacheTest_RootComp_Props,
                            Unit,
                            NotWrapped_CacheTestRootComp_Backend,
                            CtorType.Props]) {
 
   lazy val wrapperConstructor =
     ScalaComponent
-      .builder[CacheTestRootCompProps]( "Wrapper" )
+      .builder[CacheTest_RootComp_Props]( "Wrapper" )
       .renderBackend[WrapperBackend]
       .componentWillMount( $ => {
         println(
@@ -33,7 +33,7 @@ class Wrapper(
         Callback {
 
           println( "--------------- Our CALLBACK HAS BEEN CALLED !!!!" )
-          val h: Lifecycle.ComponentWillMount[CacheTestRootCompProps,
+          val h: Lifecycle.ComponentWillMount[CacheTest_RootComp_Props,
                                               Unit,
                                               WrapperBackend] = $
 
@@ -66,8 +66,8 @@ class Wrapper(
 //      .renderBackend[WrapperBackend]
 //      .build
 
-  class WrapperBackend($ : BackendScope[CacheTestRootCompProps, Unit] ) {
-    def render(props: CacheTestRootCompProps ) = {
+  class WrapperBackend($ : BackendScope[CacheTest_RootComp_Props, Unit] ) {
+    def render(props: CacheTest_RootComp_Props ) = {
       <.div( toBeWrapped( props ) )
     }
   }
@@ -88,7 +88,7 @@ case class RouterComp() {
 
     val wr =
       wrapped_cachTestRootComp.wrapperConstructor(
-        CacheTestRootCompProps( "These are the props via the wrapper",
+        CacheTest_RootComp_Props( "These are the props via the wrapper",
                                cacheInterface = cache )
       )
 

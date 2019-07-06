@@ -8,14 +8,14 @@ import japgolly.scalajs.react.CtorType
 import japgolly.scalajs.react.component.Scala.Component
 import org.scalajs.dom.html.{Div, Pre}
 
-case class CacheTestRootCompProps(s: String, cacheInterface: CacheInterface )
+case class CacheTest_RootComp_Props(s: String, cacheInterface: CacheInterface )
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
 class NotWrapped_CacheTestRootComp_Backend(
-    $ : BackendScope[CacheTestRootCompProps, Unit]) {
+    $ : BackendScope[CacheTest_RootComp_Props, Unit]) {
 
-  def render(props: CacheTestRootCompProps ) = {
+  def render(props: CacheTest_RootComp_Props ) = {
 
     val cache = props.cacheInterface
 
@@ -23,14 +23,14 @@ class NotWrapped_CacheTestRootComp_Backend(
 
     <.div(
       <.br,
+      AddTheThieveryNumbersUsingTheServer.TheCorporation(cache),
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,
       getLineTextFromCache( cache ),
-      AddTheThieveryNumbersUsingTheClientOnly.TheCorporation(),
-      AddTheThieveryNumbersUsingTheServer.TheCorporation()
+      AddTheThieveryNumbersUsingTheClientOnly.TheCorporation()
     )
 
   }
@@ -48,12 +48,12 @@ class NotWrapped_CacheTestRootComp_Backend(
 
 object CacheTestComp {
 
-  lazy val compConstructor: Component[CacheTestRootCompProps,
+  lazy val compConstructor: Component[CacheTest_RootComp_Props,
                                       Unit,
                                       NotWrapped_CacheTestRootComp_Backend,
                                       CtorType.Props] =
     ScalaComponent
-      .builder[CacheTestRootCompProps]( "Cache Experiment" )
+      .builder[CacheTest_RootComp_Props]( "Cache Experiment" )
       .renderBackend[NotWrapped_CacheTestRootComp_Backend]
       .build
 

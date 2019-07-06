@@ -1,7 +1,7 @@
 package app.client.ui.caching.viewCache
 
 import app.client.ui.caching.ReRenderTriggererHolderSingletonGloballyAccessibleObject
-import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded}
+import app.client.ui.caching.viewCache.ViewCacheStates.{ViewLoading, ViewCacheState, ViewLoaded}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 
 import scala.concurrent.ExecutionContextExecutor
@@ -51,6 +51,7 @@ object SumIntViewCache {
           ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
 
         })
+      sumIntViewOpt=Some(ViewLoading[SumIntView](requestParams))
     }
 
     sumIntViewOpt
