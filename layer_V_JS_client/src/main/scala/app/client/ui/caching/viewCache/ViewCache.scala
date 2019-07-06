@@ -1,66 +1,77 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.REST.getEntity
 import app.client.ui.caching.entityCache.ReRenderTriggererHolderSingletonGloballyAccessibleObject
-import app.shared.data.ref.{RefVal, TypedRef}
+import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
-import io.circe.Decoder
-import io.circe.Encoder
 
-import scala.concurrent.{ExecutionContextExecutor, Future}
-import scala.reflect.ClassTag
+import scala.concurrent.ExecutionContextExecutor
 import scala.util.Try
+import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{
+  ViewHttpRouteName,
+  ViewHttpRouteNameProvider
+}
+import io.circe.parser.decode
+import io.circe.syntax._
+import io.circe.{Decoder, Encoder}
+import org.scalajs.dom.ext.Ajax
+
+import scala.concurrent.Future
+import scala.reflect.ClassTag
+
 
 object SumIntViewCache {
-
-  import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-  import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{ViewHttpRouteName, ViewHttpRouteNameProvider}
-  import io.circe.parser.decode
-  import io.circe.syntax._
-  import io.circe.{Decoder, Encoder}
-  import org.scalajs.dom.ext.Ajax
-
-  import scala.concurrent.Future
-  import scala.reflect.ClassTag
-
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  var sumIntViewOpt:Option[(SumIntView#Par,SumIntView#Res)] =None
 
+  var sumIntViewOpt: Option[( SumIntView#Par, SumIntView#Res )] = None
 
-  def getSumIntView(requestParams: SumIntView#Par): Option[SumIntView#Res] = {
+  def getSumIntView(requestParams: SumIntView#Par ): Option[SumIntView#Res] = {
 
-    import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-    import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{ViewHttpRouteName, ViewHttpRouteNameProvider}
-    import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
+    import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
     import io.circe.generic.auto._
-    import io.circe.parser.decode
-    import io.circe.syntax._
-    import io.circe.{Decoder, Encoder}
-    import org.scalajs.dom.ext.Ajax
-
-    import scala.concurrent.Future
-    import scala.reflect.ClassTag
 
 
-    ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
+    postViewRequest[SumIntView]( requestParams )
+      .onComplete( (res: Try[SumIntView_HolderObject.SumIntView_Res]) => {
 
-    postViewRequest[SumIntView](requestParams)
+        //
+        // TODO 1:
+        // we set here  `sumIntViewOpt` to "Loaded" - if Try is a "Success"
+        //
+        // then we re-render the react page with :
+        ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
 
-    None
+      } )
+
+    sumIntViewOpt.map(_._2) // this is incorrect, we need to fix this
+
+    // TODO 2 : -- see above, we need 3 states for `sumIntViewOpt`
+    //
+    // similarly to `EntityCacheStates` :
+    //
+    // NotQueriedYetFromServer, Loading, Loaded
+    // Depending on the content of `sumIntViewOpt`, based on these states
+    // we either
+    //
+    //    1) if `sumIntViewOpt` is "NotQueriedYetFromServer" then
+    //       a) launch an ajax request
+    //       b) set the state of `sumIntViewOpt` to Loading
+    //       c) return "Loading"
+    //
+    //    2) if `sumIntViewOpt` is "Loading" then
+    //       we do not launch no request and return "Loading"
+    //
+    //    3) if `sumIntViewOpt` is "Loaded then
+    //       we do not launch no ajax request and return "Loaded"
+
   }
 
-  /*
-  Here we need to send a request to the server to get the numbers
-  and do a re-render once the result is back.
 
-  Question : how do we do a re-render ?
-  Hint : look at EntityCache ... //TODO
-
-   */
-
-  def postViewRequest[V <: View]( requestParams: V#Par )(
+  def postViewRequest[V <: View](
+      requestParams: V#Par
+    )(
       implicit ct: ClassTag[V],
       encoder:     Encoder[V#Par],
       decoder:     Decoder[V#Res]
@@ -87,8 +98,6 @@ object SumIntViewCache {
   }
 
 }
-
-
 //
 //private[hidden] class MapForViewCache[E <: Entity]() {
 //  private var map: Map[TypedRef[E], CacheState[E]] = Map()
