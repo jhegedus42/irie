@@ -28,6 +28,15 @@ object SumIntViewCache {
 
   def getSumIntView(requestParams: SumIntView#Par) : Option[SumIntView#Res] = None
 
+  /*
+  Here we need to send a request to the server to get the numbers
+  and do a re-render once the result is back.
+
+  Question : how do we do a re-render ?
+  Hint : look at EntityCache ... //TODO
+
+   */
+
   def postViewRequest[V <: View]( requestParams: V#Par )(
       implicit ct: ClassTag[V],
       encoder:     Encoder[V#Par],
