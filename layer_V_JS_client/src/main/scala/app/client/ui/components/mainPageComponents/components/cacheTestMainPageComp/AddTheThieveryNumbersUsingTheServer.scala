@@ -2,20 +2,12 @@ package app
   .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 
 import app.client.ui.caching.viewCache.SumIntViewCache
-import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
-import japgolly.scalajs.react.{CtorType, _}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
+import japgolly.scalajs.react.{CtorType, _}
 import org.scalajs.dom.html.Input
-import io.circe.parser.decode
-import io.circe.syntax._
-import io.circe.{Decoder, Encoder}
-import org.scalajs.dom.ext.Ajax
-
-import scala.concurrent.Future
-import scala.reflect.ClassTag
 
 object AddTheThieveryNumbersUsingTheServer {
 
