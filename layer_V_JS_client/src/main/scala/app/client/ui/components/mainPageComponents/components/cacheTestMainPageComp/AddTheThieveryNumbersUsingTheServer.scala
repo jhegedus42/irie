@@ -67,14 +67,6 @@ object AddTheThieveryNumbersUsingTheServer {
                s"${s.firstNumber + s.secondNumber}" ),
 
 
-        // TODO meg kene oldani, hogy tenyleg legyen valami state
-        // eltarolva itten nekie
-        // ezt meg koncepciojat illetoen sem artana kitalalni
-        // hogyan legyen ... ez a state ...
-        // hol legyen...
-        // stb...
-
-        // elso korben legyen itt a komponens-ben
 
         <.input.number( ^.onChange ==> s.onChangeFirstNumber( bs ),
                         ^.value := s.firstNumber ),

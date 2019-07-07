@@ -3,7 +3,6 @@ package app.client.ui.caching
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTest_RootComp_Props, NotWrapped_CacheTestRootComp_Backend}
-import app.client.ui.caching.ReRenderer.ReRenderTriggerer
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.component.builder.Lifecycle
 

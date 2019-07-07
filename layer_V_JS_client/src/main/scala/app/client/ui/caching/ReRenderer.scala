@@ -1,5 +1,7 @@
 package app.client.ui.caching
 
+case class ReRenderTriggerer(triggerReRender: () => Unit )
+
 // global singleton accessible from everywhere
 private [caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
@@ -56,6 +58,5 @@ private [caching] object ReRenderer {
     }
   }
 
-  case class ReRenderTriggerer(triggerReRender: () => Unit )
 
 }
