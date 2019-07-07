@@ -1,6 +1,7 @@
 package app.client.ui.caching
 
-object ReRenderTriggererHolderSingletonGloballyAccessibleObject {
+// global singleton accessible from everywhere
+private [caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
 
   def setTriggerer(reRenderTriggerer: ReRenderTriggerer ) = {

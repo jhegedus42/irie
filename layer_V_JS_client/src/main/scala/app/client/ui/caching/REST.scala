@@ -12,7 +12,7 @@ import org.scalajs.dom.ext.Ajax
 import scala.concurrent.Future
 import scala.reflect.ClassTag
 
-object REST {
+private[caching] object REST {
 
   // B40E8B54-85FC-4815-8281-B60C3E9D1B3F
   def getEntity[E <: Entity : ClassTag ](ref: TypedRef[E])(implicit d:Decoder[RefVal[E]]): Future[RefVal[E]] = {

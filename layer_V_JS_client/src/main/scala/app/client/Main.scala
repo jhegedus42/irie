@@ -1,6 +1,6 @@
 package app.client
+import app.client.ui.components.router.RouterComp
 import app.client.ui.css.AppCSS
-import app.client.ui.components.RouterComp
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
 

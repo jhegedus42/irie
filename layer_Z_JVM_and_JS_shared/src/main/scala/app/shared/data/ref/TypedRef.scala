@@ -2,7 +2,7 @@ package app.shared.data.ref
 
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.unTyped.RefNotTypeSafe
+import app.shared.data.ref.unTyped.NotTypeSafeRef
 import app.shared.data.ref.UUID_Utils.{UUID, UUIDCompare}
 import app.shared.{InvalidUUIDinURLError, SomeError_Trait, TypeError}
 import monocle.macros.Lenses
@@ -28,8 +28,8 @@ case class TypedRef[T <: Entity](uuid: UUID = UUID.random(), dataType: TypeAsStr
 
 object TypedRef {
 
-  implicit def toRefDyn[E <: Entity](r: TypedRef[E]): RefNotTypeSafe =
-    RefNotTypeSafe(r.uuid, r.dataType)
+  implicit def toNotTypeSafeRef[E <: Entity](r: TypedRef[E]): NotTypeSafeRef =
+    NotTypeSafeRef(r.uuid, r.dataType)
 
 
   import scalaz._

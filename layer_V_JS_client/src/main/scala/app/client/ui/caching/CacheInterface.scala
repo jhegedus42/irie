@@ -21,7 +21,7 @@ class CacheInterface() {
       s"METHOD CALL --- CacheInterface.reRenderShouldBeTriggered() --- " +
         "so now we try to trigger a re-render in reRenderShouldBeTriggered()"
     )
-    ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
+    ReRenderer.triggerReRender()
 
     println(
       s"METHOD CALL ENDED for   `CacheInterface.reRenderShouldBeTriggered()` ---------------- "

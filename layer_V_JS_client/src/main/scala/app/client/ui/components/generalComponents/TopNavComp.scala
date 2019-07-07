@@ -1,6 +1,6 @@
 package app.client.ui.components.generalComponents
-import app.client.ui.components.RouterComp
 import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations.MainPageDeclaration
+import app.client.ui.components.router.RouterComp
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl

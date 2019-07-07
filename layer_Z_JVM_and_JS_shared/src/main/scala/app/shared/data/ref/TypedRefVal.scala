@@ -3,7 +3,7 @@ package app.shared.data.ref
 import app.shared.TypeError
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.TypeAsString
-import app.shared.data.ref.unTyped.RefNotTypeSafe
+import app.shared.data.ref.unTyped.NotTypeSafeRef
 import app.shared.data.ref.UUID_Utils.UUIDCompare
 import monocle.macros.Lenses
 
@@ -37,7 +37,7 @@ object RefVal {
 }
 
 //TODOlater - get rid of this ASAP
-case class RefValDyn(r: RefNotTypeSafe, e: Entity, version: Version ) {
+case class RefValDyn(r: NotTypeSafeRef, e: Entity, version: Version ) {
 
   def toRefVal[E <: Entity: ClassTag]: \/[TypeError, RefVal[E]] = {
     // f0c1cede98f0430c85f35944546bbba4w
@@ -79,13 +79,13 @@ object RefValDyn {
       ent: Entity
     ): RefValDyn = { // assumes that all parameters are correct
     val et  = TypeAsString.fromEntity(ent)
-    val rd  = RefNotTypeSafe.make( et )
+    val rd  = NotTypeSafeRef.make( et )
     val rvd = RefValDyn( rd, ent, Version() )
     rvd
   }
 
   implicit def fromRefValToRefValDyn[E <: Entity](rv: RefVal[E] ): RefValDyn = {
-    val rd = new RefNotTypeSafe( rv.r.uuid, rv.r.dataType )
+    val rd = new NotTypeSafeRef( rv.r.uuid, rv.r.dataType )
     new RefValDyn( rd, rv.v, rv.version )
   }
 

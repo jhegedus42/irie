@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.ReRenderTriggererHolderSingletonGloballyAccessibleObject
+import app.client.ui.caching.ReRenderer
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewLoading, ViewCacheState, ViewLoaded}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 
@@ -48,7 +48,7 @@ object SumIntViewCache {
 
           println(s"---------- getSumIntView --------- HAPPY PATH: ${sumIntViewOpt}")
 
-          ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()
+          ReRenderer.triggerReRender()
 
         })
       sumIntViewOpt=Some(ViewLoading[SumIntView](requestParams))

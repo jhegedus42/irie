@@ -2,6 +2,7 @@ package app
   .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
 
 import app.client.ui.caching.CacheInterface
+import app.client.ui.caching.localState.ClientStateEntity
 import app.client.ui.caching.viewCache.{SumIntViewCache, ViewCacheStates}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
@@ -23,7 +24,7 @@ object AddTheThieveryNumbersUsingTheServer {
       .renderBackend[ThieveryUndergroundBackend] // ← Use Backend class and backend.render
       .build
 
-  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double ) {
+  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double ) extends ClientStateEntity{
 
     def onChangeFirstNumber( bs: BackendScope[CacheInterface, State] )( e: ReactEventFromInput ) = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
@@ -47,11 +48,6 @@ object AddTheThieveryNumbersUsingTheServer {
       val params: SumIntView_Par = SumIntView_Par( 38, 45 )
       val res: Option[ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]] =
         SumIntViewCache.getSumIntView( params )
-
-      // TODO itt ezt a kess-t akkor mar a props-on keresztul (CacheInterszefesz)
-      // lenne illemes megszerezni,
-      // nem pedig globalisan
-
       res.toString()
     }
 
@@ -77,6 +73,8 @@ object AddTheThieveryNumbersUsingTheServer {
         // hogyan legyen ... ez a state ...
         // hol legyen...
         // stb...
+
+        // elso korben legyen itt a komponens-ben
 
         <.input.number( ^.onChange ==> s.onChangeFirstNumber( bs ),
                         ^.value := s.firstNumber ),
