@@ -1,6 +1,5 @@
 package app.client.ui.caching.localState
 
-import java.util
 
 import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
 import app.shared.data.model.Entity.Entity
@@ -57,6 +56,7 @@ trait ClientSideStateContainingMap[CSE <: ClientStateEntity] {
 }
 
 object ClientSideStateContainer {
+  val theThieveryNumberMap=new ClientSideStateContainingMap[TheThieveryNumber] {}
 
 }
 

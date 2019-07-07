@@ -24,7 +24,7 @@ object SumIntViewCache {
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 
-  var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
+  private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
 
   def getSumIntView(requestParams: SumIntView#Par): Option[ViewCacheState[SumIntView]] = {
 
@@ -59,7 +59,7 @@ object SumIntViewCache {
   }
 
 
-  def postViewRequest[V <: View]( requestParams: V#Par ) (
+  private def postViewRequest[V <: View]( requestParams: V#Par ) (
                                   implicit ct: ClassTag[V],
                                   encoder: Encoder[V#Par],
                                   decoder: Decoder[V#Res]

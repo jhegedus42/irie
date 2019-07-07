@@ -1,6 +1,6 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.{CacheInterface, WrapperHOC}
+import app.client.ui.caching.{CacheInterface, CacheInjectorHOC}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
@@ -21,7 +21,7 @@ case class RouterComp() {
   val cacheTestRootComp =
     CacheTestComp.compConstructor
 
-  val wrapped_cachTestRootComp = new WrapperHOC( cacheTestRootComp , ???) // TODO fill this in
+  val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp , ???) // TODO fill this in
 
   val config = RouterConfigDsl[MainPageDeclaration].buildConfig { dsl =>
     import dsl._
