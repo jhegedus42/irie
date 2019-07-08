@@ -24,6 +24,9 @@ class NotWrapped_CacheTestRootComp_Backend(
     <.div(
       <.br,
       AddTheThieveryNumbersUsingTheServer.TheCorporation(cache),
+        // TODO remember the state - using the
+        // /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala
+
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,

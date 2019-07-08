@@ -1,5 +1,6 @@
 package app.client.ui.caching
 
+import app.client.ui.caching.ReRenderer.ReRenderTriggerer
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTest_RootComp_Props, NotWrapped_CacheTestRootComp_Backend}
@@ -10,7 +11,7 @@ class CacheInjectorHOC(
                         toBeWrapped: Component[CacheTest_RootComp_Props,
                           Unit,
                           NotWrapped_CacheTestRootComp_Backend,
-                          CtorType.Props], reRenderTriggerer: ReRenderTriggerer) {
+                          CtorType.Props]) {
 
   lazy val wrapperConstructor =
     ScalaComponent

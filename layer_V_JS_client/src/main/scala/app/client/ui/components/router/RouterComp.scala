@@ -1,6 +1,5 @@
 package app.client.ui.components.router
-
-import app.client.ui.caching.{CacheInjectorHOC, CacheInterface, ReRenderTriggerer}
+import app.client.ui.caching.{CacheInjectorHOC, CacheInterface }
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
@@ -21,10 +20,8 @@ case class RouterComp() {
   val cacheTestRootComp =
     CacheTestComp.compConstructor
 
-  val reRenderTriggerer : ReRenderTriggerer = ??? //TODO
 
-  val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp , reRenderTriggerer)
-  // TODO fill this in, kell vmi kamu re-render-triggerer
+  val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp  )
 
   val config = RouterConfigDsl[MainPageDeclaration].buildConfig { dsl =>
     import dsl._
