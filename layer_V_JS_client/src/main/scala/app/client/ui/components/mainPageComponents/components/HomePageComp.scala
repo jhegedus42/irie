@@ -10,15 +10,18 @@ object HomePageComp {
 
   object Style extends StyleSheet.Inline {
     import dsl._
-    val content = style(textAlign.center,
-                        fontSize(30.px),
-                        minHeight(450.px),
-                        paddingTop(40.px))
+    val content = style( textAlign.center,
+                        fontSize( 30.px ),
+                        minHeight( 450.px ),
+                        paddingTop( 40.px ) )
   }
 
   val component =
-    ScalaComponent.builder
-      .static("HomePage")(<.div(Style.content, "Scala js react template"))
+    ScalaComponent
+      .builder
+      .static( "HomePage" )(
+        <.div( Style.content, "Scala js react template, SBT 1.2.8" )
+      )
       .build
 
   def apply() = component()

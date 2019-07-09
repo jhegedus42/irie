@@ -21,7 +21,7 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
-    println( "hello" )
+    println( "hello sbt 1.2.8" )
     setupLogging()
     routedApp()
   }

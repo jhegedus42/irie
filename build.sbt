@@ -1,4 +1,4 @@
-import org.scalajs.core.tools.io.{MemVirtualJSFile, VirtualJSFile}
+//import org.scalajs.core.tools.io.{MemVirtualJSFile, VirtualJSFile}
 name := "IM root project"
 
 import sbt.Keys._
