@@ -1,5 +1,4 @@
-package app
-  .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
+package app.client.ui.components.router.mainPageComp.cacheTestMPC
 
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react._
@@ -17,8 +16,7 @@ object AddTheThieveryNumbersUsingTheClientOnly {
 
     def onChangeFirstNumber(
         bs: BackendScope[Unit, State]
-      )(
-        e: ReactEventFromInput
+      )(e:  ReactEventFromInput
       ) = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
@@ -29,8 +27,7 @@ object AddTheThieveryNumbersUsingTheClientOnly {
 
     def onChangeSecondNumber(
         bs: BackendScope[Unit, State]
-      )(
-        e: ReactEventFromInput
+      )(e:  ReactEventFromInput
       ) = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )

@@ -1,10 +1,10 @@
-package app.client.ui.components.mainPageComponents
+package app.client.ui.components.router
 
-object MainPageComponentsDeclarations {
-
+package object mainPageComp {
 
   sealed trait MainPageDeclaration
 
   case object MainPage_HomePage extends MainPageDeclaration
   case object MainPage_CacheTestDemoPage extends MainPageDeclaration
+
 }

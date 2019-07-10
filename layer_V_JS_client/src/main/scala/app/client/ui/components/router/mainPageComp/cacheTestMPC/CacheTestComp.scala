@@ -1,5 +1,4 @@
-package app
-  .client.ui.components.mainPageComponents.components.cacheTestMainPageComp
+package app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.client.ui.caching.CacheInterface
 import app.shared.data.model.LineText
 import app.shared.data.ref.TypedRef
@@ -23,13 +22,13 @@ class NotWrapped_CacheTestRootComp_Backend(
 
     <.div(
       <.br,
-      AddTheThieveryNumbersUsingTheServer.TheCorporation(cache),
-        // TODO remember the state - using the
-        // /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala
-        // so when I navigate away from the CacheTest page and then back
-        // the thievery numbers that I entered are remembered
-        // i.e. the state is not stored in the react component's local state
-        // but in the "global state"
+      AddTheThieveryNumbersUsingTheServer.TheCorporation( cache ),
+      // TODO remember the state - using the
+      // /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala
+      // so when I navigate away from the CacheTest page and then back
+      // the thievery numbers that I entered are remembered
+      // i.e. the state is not stored in the react component's local state
+      // but in the "global state"
       lineSeparator,
       getLineTextFromCache( cache ),
       lineSeparator,

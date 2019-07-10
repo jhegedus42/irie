@@ -1,17 +1,27 @@
 package app.client.ui.components.router
-import app.client.ui.caching.{CacheInjectorHOC, CacheInterface }
+import app.client.ui.caching.{CacheInjectorHOC, CacheInterface}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.components.mainPageComponents.MainPageComponentsDeclarations._
-import app.client.ui.components.mainPageComponents.components.HomePageComp
-import app.client.ui.components.mainPageComponents.components.cacheTestMainPageComp.{CacheTestComp, CacheTest_RootComp_Props}
-import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
+import app.client.ui.components.router.mainPageComp.{
+  HomePageComp,
+  MainPageDeclaration,
+  MainPage_CacheTestDemoPage,
+  MainPage_HomePage
+}
+import app.client.ui.components.router.mainPageComp.cacheTestMPC.{
+  CacheTestComp,
+  CacheTest_RootComp_Props
+}
+import japgolly.scalajs.react.extra.router.{
+  Resolution,
+  RouterConfigDsl,
+  RouterCtl,
+  _
+}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
 // it gets the re render triggerer so that it can update-it
-
-
 
 case class RouterComp() {
 
@@ -20,8 +30,7 @@ case class RouterComp() {
   val cacheTestRootComp =
     CacheTestComp.compConstructor
 
-
-  val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp  )
+  val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp )
 
   val config = RouterConfigDsl[MainPageDeclaration].buildConfig { dsl =>
     import dsl._
@@ -29,11 +38,10 @@ case class RouterComp() {
     val wr =
       wrapped_cachTestRootComp.wrapperConstructor(
         CacheTest_RootComp_Props( "These are the props via the wrapper",
-                               cacheInterface = cache )
+                                 cacheInterface = cache )
       )
 
-    val homeRoute
-        : dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
+    val homeRoute: dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
       HomePageComp()
     )
 
@@ -62,7 +70,10 @@ case class RouterComp() {
   val router =
     Router( baseUrl, config )
 
-  def layout(c: RouterCtl[MainPageDeclaration], r: Resolution[MainPageDeclaration] ) = {
+  def layout(
+      c: RouterCtl[MainPageDeclaration],
+      r: Resolution[MainPageDeclaration]
+    ) = {
 
     println( s"page = ${r.page}" )
     <.div(
