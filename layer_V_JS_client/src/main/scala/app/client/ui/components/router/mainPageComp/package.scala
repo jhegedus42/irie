@@ -1,5 +1,8 @@
 package app.client.ui.components.router
 
+/**
+
+  */
 package object mainPageComp {
 
   sealed trait MainPageDeclaration

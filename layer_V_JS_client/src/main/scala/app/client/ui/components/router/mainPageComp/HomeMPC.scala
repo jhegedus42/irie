@@ -6,14 +6,14 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.vdom.html_<^._
 
-object HomePageComp {
+object HomeMPC {
 
   object Style extends StyleSheet.Inline {
     import dsl._
-    val content: StyleA = style( textAlign.center,
-                                fontSize( 30.px ),
-                                minHeight( 450.px ),
-                                paddingTop( 40.px ) )
+    val content: StyleA = style.apply( textAlign.center,
+                                      fontSize( 30.px ),
+                                      minHeight( 450.px ),
+                                      paddingTop( 40.px ) )
   }
 
   private val component =
