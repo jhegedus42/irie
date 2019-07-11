@@ -38,14 +38,15 @@ trait ClientSideStateContainingMap[CSE <: ClientStateEntity] {
   def addNewValue(
       clientStateEntity: CSE
     )(implicit classTag: ClassTag[CSE]
-    ) = {
-    val tr: TypedRefToClientState[CSE] = TypedRefToClientState.makeNew[CSE]
+    ): TypedRefToClientState[CSE] = {
+    val ref: TypedRefToClientState[CSE] = TypedRefToClientState.makeNew[CSE]
     val clientStateVal: ClientStateVal[CSE] =
-      ClientStateVal( tr, clientStateEntity )
+      ClientStateVal( ref, clientStateEntity )
     val keyValue
-        : ( TypedRefToClientState[CSE], ClientStateVal[CSE] ) = (tr -> clientStateVal)
+        : ( TypedRefToClientState[CSE], ClientStateVal[CSE] ) = (ref -> clientStateVal)
     val newMap = map + keyValue
     map = newMap
+    ref
   }
 
   def update(clientStateVal: ClientStateVal[CSE] ): DidUpdateWork = {
@@ -58,6 +59,11 @@ trait ClientSideStateContainingMap[CSE <: ClientStateEntity] {
       return Success
     } else return Failure
 
+  }
+  def getCSE[TRCS <: TypedRefToClientState[CSE]](
+      key: TRCS
+    ): Option[ClientStateVal[CSE]] = {
+    map.get( key )
   }
 
 }

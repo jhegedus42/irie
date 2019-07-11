@@ -4,7 +4,8 @@ import app.client.ui.caching.entityCache.EntityCache
 import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
 import app.client.ui.caching.localState.{
   ClientSideStateContainer,
-  ClientSideStateContainingMap
+  ClientSideStateContainingMap,
+  TypedRefToClientState
 }
 import app.client.ui.caching.localState.TypedRefToClientState._
 import app.client.ui.caching.viewCache.SumIntViewCache
@@ -14,6 +15,14 @@ import app.shared.data.ref.TypedRef
 import io.circe.generic.auto._
 
 class CacheInterface() {
+
+  def init(): Unit = {
+    val tn: AddTheThieveryNumbersUsingTheServer.TheThieveryNumber =
+      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber( .38, .45 )
+    val ref: TypedRefToClientState[
+      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
+    ] = clientStateThieveryNumber.addNewValue( tn )
+  }
 
   private lazy val cacheLineText: EntityCache[LineText] =
     new EntityCache[LineText]( this )

@@ -3,6 +3,8 @@ package app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.client.ui.caching.CacheInterface
 import app.client.ui.caching.localState.ClientStateEntity
 import app.client.ui.caching.viewCache.{SumIntViewCache, ViewCacheStates}
+import app.client.ui.components.router.mainPageComp
+import app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component
@@ -14,61 +16,82 @@ object AddTheThieveryNumbersUsingTheServer {
 
   type State = TheThieveryNumber
 
-  val TheCorporation: Component[CacheInterface,
-                                TheThieveryNumber,
-                                ThieveryUndergroundBackend,
-                                CtorType.Props] = ScalaComponent
-    .builder[CacheInterface]( "TheCorporation" )
-    .initialState( TheThieveryNumber( 0.38, 0.45 ) )
-    .renderBackend[ThieveryUndergroundBackend] // ← Use Backend class and backend.render
-    .build
+  // TODO - this is a "hack" - all components will share the same "initial" state
+  private var initialState
+  : mainPageComp.cacheTestMPC.AddTheThieveryNumbersUsingTheServer.State =
+    TheThieveryNumber(0.38, 0.45)
 
-  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double )
-      extends ClientStateEntity {
-
-    def onChangeFirstNumber(
-        bs: BackendScope[CacheInterface, State]
-      )(e:  ReactEventFromInput
-      ) = {
-      val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
-      println( event )
-      val target:   Input = event.target
-      val newValue: Double = target.valueAsNumber
-      bs.modState( s => s.copy( firstNumber = newValue ) )
-    }
-
-    def onChangeSecondNumber(
-        bs: BackendScope[CacheInterface, State]
-      )(e:  ReactEventFromInput
-      ) = {
-      val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
-      println( event )
-      val target:   Input = event.target
-      val newValue: Double = target.valueAsNumber
-      bs.modState( s => s.copy( secondNumber = newValue ) )
-    }
+  def saveStateIntoInitState(s: State): Unit = {
+    initialState = s
   }
 
-  def getLineBreaks(i: Int ) =
-    TagMod( List.fill( i )( <.br ).toIterator.toTraversable.toVdomArray )
+  val TheCorporation
+  : Component[CacheInterface,
+    cacheTestMPC.AddTheThieveryNumbersUsingTheServer.State,
+    ThieveryUndergroundBackend,
+    CtorType.Props] = {
+    ScalaComponent
+      .builder[CacheInterface]("TheCorporation")
+      .initialState(initialState)
+      .renderBackend[ThieveryUndergroundBackend] // ← Use Backend class and backend.render
+      .build
+  }
 
-  class ThieveryUndergroundBackend(bs: BackendScope[CacheInterface, State] ) {
+  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double)
+    extends ClientStateEntity {}
+
+  def getLineBreaks(i: Int) =
+    TagMod(List.fill(i)(<.br).toIterator.toTraversable.toVdomArray)
+
+  class ThieveryUndergroundBackend(bs: BackendScope[CacheInterface, State]) {
+
+    def updateState(s2s: State => State): CallbackTo[Unit] = {
+      bs.modState(
+        (s: State) => {
+          val newState: State = s2s(s)
+          saveStateIntoInitState(newState)
+          newState
+        }
+      )
+
+    }
+
+    def onChangeFirstNumber( //TODO continue from here
+                             bs: BackendScope[CacheInterface, State]
+                           )(e: ReactEventFromInput
+                           ): CallbackTo[Unit] = {
+      val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
+      println(event)
+      val target: Input = event.target
+      val newValue: Double = target.valueAsNumber
+      updateState(s => s.copy(firstNumber = newValue))
+    }
+
+    def onChangeSecondNumber(bs: BackendScope[CacheInterface, State])
+                            (e: ReactEventFromInput): CallbackTo[Unit] = {
+      val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
+      println(event)
+      val target: Input = event.target
+      val newValue: Double = target.valueAsNumber
+      updateState(s => s.copy(secondNumber = newValue))
+    }
+
     def getTheSum(): String = {
-      val params: SumIntView_Par = SumIntView_Par( 38, 45 )
+      val params: SumIntView_Par = SumIntView_Par(38, 45)
       val res: Option[
         ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]
-      ] =
-        SumIntViewCache.getSumIntView( params )
+        ] =
+        SumIntViewCache.getSumIntView(params)
       res.toString()
     }
 
-    def render(s: State ): VdomElement =
+    def render(s: State): VdomElement =
       <.div(
         <.hr,
         <.h3(
           "Itt van a Thievery Number osszeado alkalmazas (USING THE SERVER)!"
         ),
-        getLineBreaks( 5 ),
+        getLineBreaks(5),
         <.div(
           s"${s.firstNumber} " +
             s"${s.secondNumber} " +
@@ -78,14 +101,15 @@ object AddTheThieveryNumbersUsingTheServer {
           s"The sum of the thievery numbers is : " +
             s"${s.firstNumber + s.secondNumber}"
         ),
-        <.input.number( ^.onChange ==> s.onChangeFirstNumber( bs ),
-                       ^.value := s.firstNumber ),
-        <.input.number( ^.onChange ==> s.onChangeSecondNumber( bs ),
-                       ^.value := s.secondNumber ),
-        getLineBreaks( 5 ),
+        <.input.number(^.onChange ==> onChangeFirstNumber(bs),
+          ^.value := s.firstNumber),
+        <.input.number(^.onChange ==> onChangeSecondNumber(bs),
+          ^.value := s.secondNumber),
+        getLineBreaks(5),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         <.br,
         getTheSum()
       )
   }
+
 }
