@@ -16,7 +16,6 @@ object AddTheThieveryNumbersUsingTheServer {
 
   type State = TheThieveryNumber
 
-  // TODO - this is a "hack" - all components will share the same "initial" state
   private var initialState
   : mainPageComp.cacheTestMPC.AddTheThieveryNumbersUsingTheServer.State =
     TheThieveryNumber(0.38, 0.45)
@@ -56,7 +55,7 @@ object AddTheThieveryNumbersUsingTheServer {
 
     }
 
-    def onChangeFirstNumber( //TODO continue from here
+    def onChangeFirstNumber(
                              bs: BackendScope[CacheInterface, State]
                            )(e: ReactEventFromInput
                            ): CallbackTo[Unit] = {
@@ -92,23 +91,32 @@ object AddTheThieveryNumbersUsingTheServer {
           "Itt van a Thievery Number osszeado alkalmazas (USING THE SERVER)!"
         ),
         getLineBreaks(5),
+
         <.div(
           s"${s.firstNumber} " +
             s"${s.secondNumber} " +
             s"The thievery number, the corporation."
         ),
+
         <.div(
           s"The sum of the thievery numbers is : " +
             s"${s.firstNumber + s.secondNumber}"
         ),
+
         <.input.number(^.onChange ==> onChangeFirstNumber(bs),
           ^.value := s.firstNumber),
+
         <.input.number(^.onChange ==> onChangeSecondNumber(bs),
           ^.value := s.secondNumber),
+
         getLineBreaks(5),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         <.br,
+
         getTheSum()
+        //  TODO, write similar "adding logic as the local adding logic"
+        //   but now using the server, as well
+
       )
   }
 
