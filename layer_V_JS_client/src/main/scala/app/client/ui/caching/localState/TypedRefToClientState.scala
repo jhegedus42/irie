@@ -69,8 +69,9 @@ trait ClientSideStateContainingMap[CSE <: ClientStateEntity] {
 }
 
 object ClientSideStateContainer {
-  val theThieveryNumberMap =
-    new ClientSideStateContainingMap[TheThieveryNumber] {}
+//  val theThieveryNumberMap =
+//    new ClientSideStateContainingMap[TheThieveryNumber] {}
+  // remark : this is maybe overkill - for now
 
 }
 

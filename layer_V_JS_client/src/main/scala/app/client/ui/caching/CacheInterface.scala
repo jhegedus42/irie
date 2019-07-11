@@ -17,11 +17,15 @@ import io.circe.generic.auto._
 class CacheInterface() {
 
   def init(): Unit = {
-    val tn: AddTheThieveryNumbersUsingTheServer.TheThieveryNumber =
-      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber( .38, .45 )
-    val ref: TypedRefToClientState[
-      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
-    ] = clientStateThieveryNumber.addNewValue( tn )
+
+//    val tn: AddTheThieveryNumbersUsingTheServer.TheThieveryNumber =
+//      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber( 38, 45 )
+//
+//    val ref: TypedRefToClientState[
+//      AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
+//    ] = clientStateThieveryNumber.addNewValue( tn )
+    // remark : this is maybe overkill - for now
+
   }
 
   private lazy val cacheLineText: EntityCache[LineText] =
@@ -32,10 +36,11 @@ class CacheInterface() {
     res
   }
 
-  val clientStateThieveryNumber: ClientSideStateContainingMap[
-    AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
-  ] =
-    ClientSideStateContainer.theThieveryNumberMap
+//  val clientStateThieveryNumber: ClientSideStateContainingMap[
+//    AddTheThieveryNumbersUsingTheServer.TheThieveryNumber
+//  ] =
+//    ClientSideStateContainer.theThieveryNumberMap
+  // remark : this is maybe overkill - for now
 
   val viewCacheSumIntView: SumIntViewCache.type = SumIntViewCache
 

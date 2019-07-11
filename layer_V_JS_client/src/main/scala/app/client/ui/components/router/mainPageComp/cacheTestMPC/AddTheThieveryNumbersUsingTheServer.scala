@@ -14,11 +14,15 @@ import org.scalajs.dom.html.Input
 
 object AddTheThieveryNumbersUsingTheServer {
 
-  type State = TheThieveryNumber
+  case class OurState(tn:TheThieveryNumber,sumIntViewPars:SumIntView_Par)
 
-  private var initialState
-  : mainPageComp.cacheTestMPC.AddTheThieveryNumbersUsingTheServer.State =
-    TheThieveryNumber(0.38, 0.45)
+  type State = OurState
+
+  private var initialState  ={
+    val tn =TheThieveryNumber(38, 45)
+    val siwp: SumIntView_Par = SumIntView_Par(38, 45)
+    OurState(tn,siwp)
+  }
 
   def saveStateIntoInitState(s: State): Unit = {
     initialState = s
@@ -36,8 +40,7 @@ object AddTheThieveryNumbersUsingTheServer {
       .build
   }
 
-  case class TheThieveryNumber(firstNumber: Double, secondNumber: Double)
-    extends ClientStateEntity {}
+  case class TheThieveryNumber(firstNumber: Int, secondNumber: Int)
 
   def getLineBreaks(i: Int) =
     TagMod(List.fill(i)(<.br).toIterator.toTraversable.toVdomArray)
@@ -62,8 +65,10 @@ object AddTheThieveryNumbersUsingTheServer {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println(event)
       val target: Input = event.target
-      val newValue: Double = target.valueAsNumber
-      updateState(s => s.copy(firstNumber = newValue))
+      val number_as_double: Double =target.valueAsNumber
+      val newValue: Int = number_as_double.round.toInt
+      updateState(s => s.copy(tn=s.tn.copy(firstNumber = newValue) ))
+
     }
 
     def onChangeSecondNumber(bs: BackendScope[CacheInterface, State])
@@ -71,12 +76,12 @@ object AddTheThieveryNumbersUsingTheServer {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println(event)
       val target: Input = event.target
-      val newValue: Double = target.valueAsNumber
-      updateState(s => s.copy(secondNumber = newValue))
+      val number_as_double: Double =target.valueAsNumber
+      val newValue: Int = number_as_double.round.toInt
+      updateState(s => s.copy(tn=s.tn.copy(secondNumber = newValue) ))
     }
 
-    def getTheSum(): String = {
-      val params: SumIntView_Par = SumIntView_Par(38, 45)
+    def getTheSum(params:SumIntView_Par): String = {
       val res: Option[
         ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]
         ] =
@@ -93,29 +98,32 @@ object AddTheThieveryNumbersUsingTheServer {
         getLineBreaks(5),
 
         <.div(
-          s"${s.firstNumber} " +
-            s"${s.secondNumber} " +
+          s"${s.tn.firstNumber} " +
+            s"${s.tn.secondNumber} " +
             s"The thievery number, the corporation."
         ),
 
         <.div(
           s"The sum of the thievery numbers is : " +
-            s"${s.firstNumber + s.secondNumber}"
+            s"${s.tn.firstNumber + s.tn.secondNumber}"
         ),
 
         <.input.number(^.onChange ==> onChangeFirstNumber(bs),
-          ^.value := s.firstNumber),
+          ^.value := s.tn.firstNumber),
 
         <.input.number(^.onChange ==> onChangeSecondNumber(bs),
-          ^.value := s.secondNumber),
+          ^.value := s.tn.secondNumber),
 
         getLineBreaks(5),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         <.br,
 
-        getTheSum()
-        //  TODO, write similar "adding logic as the local adding logic"
-        //   but now using the server, as well
+        getTheSum(s.sumIntViewPars)
+
+        // TODO - BUTTON here
+        // we need some button ... and then when pressing the button
+        // then we update the `sumIntViewPars` from our state too
+        // such that it is the same as the "local" numbers
 
       )
   }
