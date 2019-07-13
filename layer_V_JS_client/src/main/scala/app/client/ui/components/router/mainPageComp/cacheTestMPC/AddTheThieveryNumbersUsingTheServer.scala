@@ -10,7 +10,10 @@ import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_Holde
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
+import org.scalajs.dom
 import org.scalajs.dom.html.Input
+
+import scala.scalajs.js
 
 object AddTheThieveryNumbersUsingTheServer {
 
@@ -65,6 +68,7 @@ object AddTheThieveryNumbersUsingTheServer {
       ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
+     // e.target.value
       val target:           Input = event.target
       val number_as_double: Double = target.valueAsNumber
       val newValue:         Int = number_as_double.round.toInt
@@ -93,7 +97,11 @@ object AddTheThieveryNumbersUsingTheServer {
     }
 
     def buttonClicked(): Callback = {
-      Callback( println( "button clicked" ) )
+      Callback( {
+        dom.window.alert("libacombot !")
+        // from https://scala-js.github.io/scala-js-dom/
+        println( "button clicked" )
+      } )
     }
 
     def render(s: State ): VdomElement =
@@ -123,7 +131,7 @@ object AddTheThieveryNumbersUsingTheServer {
         getTheSum( s.sumIntViewPars ),
 
         <.button(
-          "add the numbers on the server!",
+          "ha megnyomod a gombot, kapsz egy ?",
           ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked() }
         )
 
