@@ -68,7 +68,6 @@ object AddTheThieveryNumbersUsingTheServer {
       ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
-     // e.target.value
       val target:           Input = event.target
       val number_as_double: Double = target.valueAsNumber
       val newValue:         Int = number_as_double.round.toInt

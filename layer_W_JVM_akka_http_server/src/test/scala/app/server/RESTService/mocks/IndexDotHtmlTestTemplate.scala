@@ -17,12 +17,12 @@ object IndexDotHtmlTestTemplate {
         html(
           head(
             title( "IM TEST PAGE" ),
-            meta( httpEquiv := "Content-Type", content := "text/html; charset=UTF-8" ),
-            link( rel := "stylesheet", media := "screen", href := "./www/assets/stylesheets/general.css" ),
+            meta( httpEquiv := "Content-Type", content := "text/html; charset=UTF-8" )
+//            link( rel := "stylesheet", media := "screen", href := "./www/assets/stylesheets/general.css" ),
           ),
           body( margin := 0 )(
             div( id := "rootComp" ),
-            div( id := "rootComp2" ),
+//            div( id := "rootComp2" ),
             script( `type` := "text/javascript", src := "./node/generated.js/bundle.js" ),
             script( `type` := "text/javascript", src := "./www/wrapTrace.js" ),
             script( `type` := "text/javascript", src := js_code_path ),

@@ -7,7 +7,7 @@ import app.client.ui.components.router.mainPageComp.HomeMPC
 
 object AppCSS {
 
-  def load = {
+  def load(): Unit = {
     GlobalRegistry.register( GlobalStyle, TopNavComp.Style, HomeMPC.Style )
     GlobalRegistry.onRegistration( _.addToDocument() )
   }

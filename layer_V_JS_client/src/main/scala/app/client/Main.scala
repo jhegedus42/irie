@@ -27,7 +27,7 @@ object Main extends js.JSApp {
   }
 
   def routedApp(): Unit = {
-    AppCSS.load
+    AppCSS.load()
     val e: Element = document.getElementById( "rootComp" )
     println(
       s"Main.routedApp() : Router is just about to be mounted into a DIV."
