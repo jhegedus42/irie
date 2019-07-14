@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/OurState.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/TheThieveryNumber.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,23 +52,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
-              <folding>
-                <element signature="e#67#110#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sbt">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/OurState.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="e#67#169#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/TheThieveryNumber.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#42#84#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +120,8 @@
         <option value="ScalaTest Class" />
         <option value="Scala Object" />
         <option value="Scala Trait" />
-        <option value="Scala Class" />
         <option value="Package Object" />
+        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -205,14 +220,14 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/HomeMPC.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest_BaseTrait.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/CacheTestComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/css/AppCSS.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/Main.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
       </list>
     </option>
   </component>
@@ -273,6 +288,90 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="mainPageComp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="mainPageComp" type="462c0819:PsiDirectoryNode" />
+              <item name="cacheTestMPC" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -288,7 +387,7 @@
     <property name="TODO_SCOPE" value="Project Production Files" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -303,22 +402,22 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.client.ui.components.router.mainPageComp.cacheTestMPC" />
       <recent name="app.client.ui.components" />
       <recent name="app.client.ui.caching.entityCache" />
       <recent name="app.client.ui.caching" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
-      <recent name="app.client.ui.routing.canBeRoutedTo.components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -576,13 +675,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00030" summary="re render triggerer - terrible hack , any other way ???">
-      <created>1561812806575</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1561812806575</updated>
     </task>
     <task id="LOCAL-00031" summary="lefordul es elvileg mar lehet triggerelni re-render-t">
       <created>1561823841634</created>
@@ -920,7 +1012,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563057301273</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="lenses do not work :&#10;&#10;[IJ]sbt:IM root project&gt; compile&#10;[error] /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala:23:14: macro annotation could not be expanded (the most common reason for that is that you need to enable the macro paradise plugin; another possibility is that you try to use macro annotation in the same compilation run that defines it)&#10;[error]   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )&#10;[error]              ^&#10;[error] one error found&#10;[error] (layer_V_JS_client / Compile / compileIncremental) Compilation failed&#10;[error] Total time: 33 s, completed Jul 14, 2019 7:35:26 AM&#10;[IJ]sbt:IM root project&gt; &#10;&#10;We try now with deeper cleaning.">
+      <created>1563079142061</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1563079142062</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -978,7 +1077,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49963424" weight="0.32022473" />
-      <window_info active="true" anchor="bottom" x="1710" y="-187" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48500365" type="FLOATING" visible="true" weight="0.3300562" />
+      <window_info active="true" anchor="bottom" x="1738" y="-265" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48500365" type="FLOATING" visible="true" weight="0.3300562" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49963424" weight="0.25983146" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51499635" side_tool="true" weight="0.3300562" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49963424" weight="0.26123595" />
@@ -1038,7 +1137,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="using List to generate repeating HTML &lt;br&gt; elements" />
     <MESSAGE value="Placeholder for calculating the sum of the Thievery Numbers on&#10;the server." />
     <MESSAGE value="Before figuring out how to do re-render for a View, when the Future&#10;comes back." />
     <MESSAGE value="it seems that the Circe implicits can be now found by the ajax query&#10;launcher function for the View query&#10;&#10;next step: create a sensible .onComplete method" />
@@ -1063,11 +1161,10 @@
     <MESSAGE value="next step: we need a button" />
     <MESSAGE value="we have a button now, if we press it then we get&#10;a libacombot" />
     <MESSAGE value="the phone stylesheet has been fixed now, more or less" />
-    <option name="LAST_COMMIT_MESSAGE" value="the phone stylesheet has been fixed now, more or less" />
+    <MESSAGE value="lenses do not work :&#10;&#10;[IJ]sbt:IM root project&gt; compile&#10;[error] /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala:23:14: macro annotation could not be expanded (the most common reason for that is that you need to enable the macro paradise plugin; another possibility is that you try to use macro annotation in the same compilation run that defines it)&#10;[error]   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )&#10;[error]              ^&#10;[error] one error found&#10;[error] (layer_V_JS_client / Compile / compileIncremental) Compilation failed&#10;[error] Total time: 33 s, completed Jul 14, 2019 7:35:26 AM&#10;[IJ]sbt:IM root project&gt; &#10;&#10;We try now with deeper cleaning." />
+    <option name="LAST_COMMIT_MESSAGE" value="lenses do not work :&#10;&#10;[IJ]sbt:IM root project&gt; compile&#10;[error] /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala:23:14: macro annotation could not be expanded (the most common reason for that is that you need to enable the macro paradise plugin; another possibility is that you try to use macro annotation in the same compilation run that defines it)&#10;[error]   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )&#10;[error]              ^&#10;[error] one error found&#10;[error] (layer_V_JS_client / Compile / compileIncremental) Compilation failed&#10;[error] Total time: 33 s, completed Jul 14, 2019 7:35:26 AM&#10;[IJ]sbt:IM root project&gt; &#10;&#10;We try now with deeper cleaning." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/learning/cake/Cake.scala" />
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/learning/cake/IstenfaszaCukraszda.scala" />
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/learning/cake/IstenFaszaMinosegellenorzoOrszagosFaszegeszsegugyiSzolgalat.scala" />
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/learning/cake/Beszallito.scala" />
     <entry file="file://$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/StateAccessorBase.scala">
@@ -1249,13 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -1364,20 +1454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/Settings.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-sbt/main_2.12/srcs/main_2.12-1.2.8-sources.jar!/sbt/Plugins.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="545">
@@ -1385,20 +1461,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state>
+          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#42#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/Settings.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/OurState.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="e#67#110#0" expanded="true" />
+            <element signature="e#67#169#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/TheThieveryNumber.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

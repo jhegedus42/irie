@@ -1,26 +1,24 @@
 package app.client.ui.components.router.mainPageComp.cacheTestMPC
 
 import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.localState.ClientStateEntity
 import app.client.ui.caching.viewCache.{SumIntViewCache, ViewCacheStates}
-import app.client.ui.components.router.mainPageComp
 import app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
-import org.scalajs.dom
-import org.scalajs.dom.html.Input
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
+import org.scalajs.dom
+import org.scalajs.dom.html.Input
 
-import scala.scalajs.js
+
+
+
 
 object AddTheThieveryNumbersUsingTheServer {
 
-  @Lenses
-  case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )
 
   type State = OurState
 
@@ -47,7 +45,6 @@ object AddTheThieveryNumbersUsingTheServer {
       .build
   }
 
-  case class TheThieveryNumber(firstNumber: Int, secondNumber: Int )
 
   def getLineBreaks(i: Int ) =
     TagMod( List.fill( i )( <.br ).toIterator.toTraversable.toVdomArray )
