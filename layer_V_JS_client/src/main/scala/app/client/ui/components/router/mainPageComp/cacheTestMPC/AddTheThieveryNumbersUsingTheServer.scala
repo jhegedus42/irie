@@ -12,11 +12,14 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
+import monocle.macros.Lenses
+import monocle.macros.syntax.lens._
 
 import scala.scalajs.js
 
 object AddTheThieveryNumbersUsingTheServer {
 
+  @Lenses
   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )
 
   type State = OurState
@@ -95,13 +98,16 @@ object AddTheThieveryNumbersUsingTheServer {
       res.toString()
     }
 
-    def buttonClicked(): Callback = {
+    def buttonClicked(bs: BackendScope[CacheInterface, State]): Callback =
       Callback( {
+
+
         dom.window.alert("libacombot !")
         // from https://scala-js.github.io/scala-js-dom/
         println( "button clicked" )
-      } )
-    }
+      } ) >> bs.modState( s=>{ s.lens(_.sumIntViewPars).set(SumIntView_Par(s.tn.firstNumber,s.tn.secondNumber)) })
+
+
 
     def render(s: State ): VdomElement =
       <.div(
@@ -131,7 +137,7 @@ object AddTheThieveryNumbersUsingTheServer {
 
         <.button(
           "ha megnyomod a gombot, kapsz egy ?",
-          ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked() }
+          ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked(bs) }
         )
 
         // TODO - BUTTON here
