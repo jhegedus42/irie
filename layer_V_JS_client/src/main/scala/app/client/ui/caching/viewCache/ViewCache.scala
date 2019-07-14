@@ -25,6 +25,7 @@ object SumIntViewCache {
 
 
   private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
+  //TODO replace this with a proper MAP
 
   def getSumIntView(requestParams: SumIntView#Par): Option[ViewCacheState[SumIntView]] = {
 
