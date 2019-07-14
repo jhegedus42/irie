@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
-    <profile name="sbt 1" modules="IM root project,irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
-    <profile name="sbt 2" modules="layer_Z_JS_shared">
+    <profile name="sbt 1" modules="irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
+    <profile name="sbt 2" modules="layer_V_JS_client,layer_Z_JS_shared">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.6/jars/scalajs-compiler_2.12.6-0.6.25.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.6/jars/paradise_2.12.6-2.1.1.jar" />
@@ -23,9 +23,9 @@
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.6/jars/paradise_2.12.6-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 5" modules="layer_V_JS_client">
+    <profile name="sbt 5" modules="IM root project">
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.6/jars/scalajs-compiler_2.12.6-0.6.25.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.7/jars/paradise_2.12.7-2.1.0.jar" />
       </plugins>
     </profile>
   </component>

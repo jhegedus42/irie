@@ -1,3 +1,4 @@
+import sbt.Def
 //import org.scalajs.core.tools.io.{MemVirtualJSFile, VirtualJSFile}
 name := "IM root project"
 
@@ -7,13 +8,15 @@ import sbt.Project.projectToRef
 //resolvers += Resolver.sonatypeRepo("releases")
 lazy val macroVersion = "2.1.1"
 
-lazy val paradisePlugin = Def.setting {
+lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
   Seq(
     compilerPlugin(
       "org.scalamacros" % "paradise" % macroVersion cross CrossVersion.patch
     )
   )
 }
+
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 
 // a special crossProject for configuring a JS/JVM/shared structure
 lazy val layer_Z_JVM_and_JS_shared =
@@ -40,6 +43,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     version := Settings.version,
     scalaVersion := Settings.versions.scala,
     libraryDependencies ++= Settings.scalajsDependencies.value,
+    libraryDependencies ++= paradisePlugin.value,
     parallelExecution in Test := false,
     logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
@@ -47,7 +51,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) },
     scalaJSLinkerConfig ~= { _.withOptimizer( false ) }
   ) // see this page for details : https://www.scala-js.org/doc/project/building.html#disabling-the-optimizations
-  .enablePlugins( ScalaJSPlugin )
+  .enablePlugins( ScalaJSPlugin)
 //  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
   .dependsOn( layer_Z_JS_shared % "compile->compile" )
 
