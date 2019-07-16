@@ -8,9 +8,9 @@ import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_Holde
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
-import monocle.macros.Lenses
+//import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
-import org.scalajs.dom
+//import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
 
@@ -89,7 +89,6 @@ object AddTheThieveryNumbersUsingTheServer {
         ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]
         ] =
         SumIntViewCache.getSumIntView(params)
-      //TODO invalidalni kell a kesset !!!
       res.toString()
     }
 
@@ -137,11 +136,10 @@ object AddTheThieveryNumbersUsingTheServer {
           ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked(bs) }
         ),
 
-          getTheSum(s.sumIntViewPars)
-        // TODO - BUTTON here
-        // we need some button ... and then when pressing the button
-        // then we update the `sumIntViewPars` from our state too
-        // such that it is the same as the "local" numbers
+        getTheSum(s.sumIntViewPars),
+        <.br,
+        "---- itt a mese vege ----",
+        <.br
       )
   }
 

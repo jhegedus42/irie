@@ -23,6 +23,7 @@ object SumIntViewCache {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
+//  private var cacheMap :
 
   private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
   //TODO replace this with a proper MAP
