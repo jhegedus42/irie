@@ -1,7 +1,7 @@
 package app.client.ui.caching
 
 
-// global singleton accessible from everywhere
+// global singleton accessible from the chaching "module" only
 private [caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
 

@@ -44,7 +44,7 @@ class CacheInterface() {
 
   val viewCacheSumIntView: SumIntViewCache.type = SumIntViewCache
 
-  private[caching] def reRenderShouldBeTriggered() = {
+  private[caching] def reRenderShouldBeTriggered(): Unit = {
     println(
       s"METHOD CALL --- CacheInterface.reRenderShouldBeTriggered() --- " +
         "so now we try to trigger a re-render in reRenderShouldBeTriggered()"
