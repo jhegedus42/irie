@@ -1,11 +1,13 @@
 package app.client.ui.caching.viewCache
 
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
+import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded}
+import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
 
-private[caching] class MapForEntityCache[E <: Entity]() {
-  private var map: Map[TypedRef[E], EntityCacheState[E]] = Map()
+private[caching] class MapForViewCache[V <: View]() {
+  private var map: Map[V#Par, ViewCacheState[V]] = Map()
 
   def getCacheContentAsPrettyString: String =
     map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
@@ -13,12 +15,12 @@ private[caching] class MapForEntityCache[E <: Entity]() {
   def isAjaxReqStillPending: Boolean = {
     val res = map
       .valuesIterator.exists(
-        (x: EntityCacheState[E]) => x.isLoading
+        (x: ViewCacheState[V]) => x.isLoading
       )
     res
   }
 
-  def insertIntoCacheAsLoaded(rv: RefVal[E] ): Unit = {
+  def insertIntoCacheAsLoaded(rv: ViewLoaded[V] ): Unit = {
     println(
       s"CACHE WRITE => we insert $rv into the cache"
     )
@@ -28,12 +30,12 @@ private[caching] class MapForEntityCache[E <: Entity]() {
   }
 
   def getEntityOrExecuteAction(
-      ref: TypedRef[E]
+      ref: TypedRef[V]
     )(
       action: => Unit
-    ): EntityCacheState[E] = {
+    ): EntityCacheState[V] = {
 
-    val res: EntityCacheState[E] = if (!map.contains( ref )) {
+    val res: EntityCacheState[V] = if (!map.contains( ref )) {
       val loading = Loading( ref )
       println(
         s"getEntityOrExecuteAction, " +
@@ -48,7 +50,7 @@ private[caching] class MapForEntityCache[E <: Entity]() {
     res
   }
 
-  def insertIntoCacheAsLoading(r: TypedRef[E] ): Loading[E] = {
+  def insertIntoCacheAsLoading(r: TypedRef[V] ): Loading[V] = {
 
     println( s"CACHE WRITE => we insert $r into the cache" )
     //    logger.trace(s"parameter:$rv")
