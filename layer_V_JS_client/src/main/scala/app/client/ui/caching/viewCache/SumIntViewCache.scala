@@ -50,7 +50,9 @@ object SumIntViewCache {
           ReRenderer.triggerReRender()
 
         } )
+
       sumIntViewOpt = Some( ViewLoading[SumIntView]( requestParams ) )
+
     }
 
     sumIntViewOpt

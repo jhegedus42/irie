@@ -15,89 +15,38 @@ import scala.reflect.ClassTag
 
 
 
-/**
-  * This is a map that contains cached Entities.
-  *
-  * @tparam E
-  */
 private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface ) {
-  println( s"Constructor of EntityCacheMap" )
 
-  val cacheMap = new MapForEntityCache[E]
+  implicit def executionContext: ExecutionContextExecutor =
+    scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  var nrOfAjaxReqSent = 0
-  var nrOfAjaxReqReturnedAndHandled = 0
+  private [this] val cacheMap = new MapForEntityCache[E]
 
-  private[caching] def readEntity(
-      refToEntity: TypedRef[E]
-    )(
-      implicit
-      decoder: Decoder[RefVal[E]],
-      ct:      ClassTag[E]
-    ): EntityCacheState[E] = {
+  private [this] var nrOfAjaxReqSent = 0
+  private [this] var nrOfAjaxReqReturnedAndHandled = 0
 
-    println( s"par: $refToEntity" )
 
-    val res =
-      cacheMap.getEntityOrExecuteAction( refToEntity ) {
-        launchReadAjax( refToEntity )
-      }
+  private [this] def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
 
-    res
+    tryRefVal.foreach( cacheMap.insertIntoCacheAsLoaded( _ ) )
 
-  }
-
-  private[this] def launchReadAjax(
-      ref: TypedRef[E]
-    )(
-      implicit decoder: Decoder[RefVal[E]],
-      ct:               ClassTag[E]
-    ): Unit = {
-
-    nrOfAjaxReqSent = nrOfAjaxReqSent + 1
-
-    println(
-      s"LOGGER launchReadAjax, nrOfAjaxReqSent= $nrOfAjaxReqSent, " +
-        s"nrOfAjaxReqReturnedAndHandled= $nrOfAjaxReqReturnedAndHandled"
-    )
-
-    implicit def executionContext: ExecutionContextExecutor =
-      scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-
-    val ajaxCallAsFuture: Future[RefVal[E]] = {
-      val res: Future[RefVal[E]] = getEntity[E]( ref )
-      res
-    }
-
-    ajaxCallAsFuture.onComplete(
-      r => ajaxReqReturnHandler( r )
-    )
-  }
-
-  private[this] def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
-    println(
-      s"ajaxReqReturnHandler called with parameter $tryRefVal"
-    )
-
-    tryRefVal.foreach(
-      rv => cacheMap.insertIntoCacheAsLoaded( rv )
-    )
-
-    println(
-      s"isAjaxReqStillPending=${cacheMap.isAjaxReqStillPending}, at ajaxReqReturnHandler"
-    )
-
-    if (!cacheMap.isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
-      println( s"LAST AJAX call returned => re-render needs to be triggered" )
-      cacheInterface.reRenderShouldBeTriggered()
-    }
+    if (!cacheMap.isAjaxReqStillPending) cacheInterface.reRenderShouldBeTriggered()
 
     nrOfAjaxReqReturnedAndHandled = nrOfAjaxReqReturnedAndHandled + 1
 
-    println(
-      s"LOGGER ajaxReqReturnHandler, nrOfAjaxReqSent= $nrOfAjaxReqSent, " +
-        s"nrOfAjaxReqReturnedAndHandled= $nrOfAjaxReqReturnedAndHandled"
-    )
   }
+
+  private [this] def launchReadAjax(ref: TypedRef[E])(implicit decoder: Decoder[RefVal[E]],
+      ct: ClassTag[E] ): Unit = {
+    nrOfAjaxReqSent = nrOfAjaxReqSent + 1
+    getEntity[E]( ref ).onComplete( ajaxReqReturnHandler( _ ) )
+  }
+
+  private[caching] def readEntity( refToEntity: TypedRef[E] ) ( implicit decoder: Decoder[RefVal[E]],
+         ct:      ClassTag[E] ):
+    EntityCacheState[E] = cacheMap.getEntityOrExecuteAction( refToEntity ) {
+        launchReadAjax( refToEntity )
+      }
+
 
 }

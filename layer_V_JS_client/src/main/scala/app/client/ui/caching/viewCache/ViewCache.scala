@@ -35,10 +35,10 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
   var nrOfAjaxReqReturnedAndHandled = 0
 
 
-  private def launchReadAjax(
-      ref: TypedRef[V]
+  private def launchAjaxReqToGetViewResult(
+      ref: V#Par
     )(
-      implicit decoder: Decoder[RefVal[V]],
+      implicit decoder: Decoder[V]],
       ct:               ClassTag[V]
     ): Unit = {
 
