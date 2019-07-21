@@ -14,25 +14,14 @@ object SumIntViewCache {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  //  private var cacheMap :
 
   private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
   //TODO replace this with a proper MAP
 
-  def getSumIntView(
-      requestParams: SumIntView#Par
-    ): Option[ViewCacheState[SumIntView]] = {
-
-    println
-    println
-    println(
-      s" ---------------- we call `getSumIntView` and `sumIntViewOpt` is $sumIntViewOpt"
-    )
-    println
-    println
+  def getSumIntView( requestParams: SumIntView#Par ):
+    Option[ViewCacheState[SumIntView]] = {
 
     if (sumIntViewOpt.isEmpty) {
-
       getView[SumIntView]( requestParams )
         .onComplete( (res: Try[SumIntView_HolderObject.SumIntView_Res]) => {
 
@@ -52,7 +41,6 @@ object SumIntViewCache {
         } )
 
       sumIntViewOpt = Some( ViewLoading[SumIntView]( requestParams ) )
-
     }
 
     sumIntViewOpt
