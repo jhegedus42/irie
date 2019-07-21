@@ -1,11 +1,8 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.viewCache.ViewCacheStates.{
-  ViewCacheState,
-  ViewLoaded,
-  ViewLoading
-}
+import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+import app.shared.utils.logging.LoggingHelperFunctions
 
 private[caching] class MapForViewCache[V <: View]() {
   private var map: Map[V#Par, ViewCacheState[V]] = Map()
@@ -20,13 +17,35 @@ private[caching] class MapForViewCache[V <: View]() {
     res
   }
 
-  def insertIntoCacheAsLoaded(par: V#Par, res: V#Res ): Unit = {
-    println(
-      s"VIEW CACHE WRITE => we insert $res into the view cache for" +
-        s"parameters: $par"
-    )
-    val map2 = map + (par -> ViewLoaded( par, res ))
-    this.map = map2
+  def insertIntoCacheAsLoaded(par: V#Par, res: V#Res ): ViewLoaded[V] = {
+
+
+    val toBeInsertedIntoCache: ViewLoaded[V] =ViewLoaded( par, res )
+
+    val cacheBeforeInsertion=map
+
+    val cacheAfterInsertion= cacheBeforeInsertion + (par -> toBeInsertedIntoCache)
+
+    this.map = cacheAfterInsertion
+
+    LoggingHelperFunctions.logMethodCall(
+      "insertIntoCacheAsLoaded(par: V#Par, res: V#Res )",
+      s"""
+        |
+        |
+        | we inserted $toBeInsertedIntoCache into the cache, which had
+        |
+        | the following content before insertion :
+        | $cacheBeforeInsertion
+        |
+        |
+        | and it has following content after insertion :
+        | $cacheAfterInsertion
+        |
+        |
+      """.stripMargin)
+
+    toBeInsertedIntoCache
   }
 
   def insertIntoCacheAsLoading(par: V#Par ): ViewLoading[V] = {
@@ -54,10 +73,7 @@ private[caching] class MapForViewCache[V <: View]() {
 
   }
 
-  def getViewReqResultOrExecuteAction(
-      par:    V#Par
-    )(action: => Unit
-    ): ViewCacheState[V] = {
+  def getViewReqResultOrExecuteAction(par: V#Par)(action: => Unit): ViewCacheState[V] = {
 
     val res: ViewCacheState[V] =
       if (!map.contains( par )) {
