@@ -1,10 +1,11 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
-import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded}
+import app.client.ui.caching.viewCache.ViewCacheStates.{
+  ViewCacheState,
+  ViewLoaded,
+  ViewLoading
+}
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{RefVal, TypedRef}
 
 private[caching] class MapForViewCache[V <: View]() {
   private var map: Map[V#Par, ViewCacheState[V]] = Map()
@@ -13,53 +14,76 @@ private[caching] class MapForViewCache[V <: View]() {
     map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
 
   def isAjaxReqStillPending: Boolean = {
-    val res = map
-      .valuesIterator.exists(
-        (x: ViewCacheState[V]) => x.isLoading
-      )
-    res
-  }
-
-  def insertIntoCacheAsLoaded(rv: ViewLoaded[V] ): Unit = {
-    println(
-      s"CACHE WRITE => we insert $rv into the cache"
+    val res = map.valuesIterator.exists(
+      (x: ViewCacheState[V]) => x.isLoading
     )
-    //    logger.trace(s"parameter:$rv")
-    val map2 = map + (rv.r -> Loaded( rv.r, rv ))
-    this.map = map2
-  }
-
-  def getEntityOrExecuteAction(
-      ref: TypedRef[V]
-    )(
-      action: => Unit
-    ): EntityCacheState[V] = {
-
-    val res: EntityCacheState[V] = if (!map.contains( ref )) {
-      val loading = Loading( ref )
-      println(
-        s"getEntityOrExecuteAction, " +
-          s"map = $map, " +
-          s"loading = $loading," +
-          s" ref=$ref"
-      )
-      insertIntoCacheAsLoading( ref )
-      action
-      loading
-    } else map( ref )
     res
   }
 
-  def insertIntoCacheAsLoading(r: TypedRef[V] ): Loading[V] = {
-
-    println( s"CACHE WRITE => we insert $r into the cache" )
-    //    logger.trace(s"parameter:$rv")
-
-    val v = Loading( r )
-
-    val map2 = map + (r -> v)
+  def insertIntoCacheAsLoaded(par: V#Par, res: V#Res ): Unit = {
+    println(
+      s"VIEW CACHE WRITE => we insert $res into the view cache for" +
+        s"parameters: $par"
+    )
+    val map2 = map + (par -> ViewLoaded( par, res ))
     this.map = map2
-    v
+  }
+
+  def insertIntoCacheAsLoading(par: V#Par ): ViewLoading[V] = {
+
+    println(
+      s"""
+         |
+         |----------vvvvvvvvvvvvvvvvvvv------------------
+         |
+         | insertIntoCacheAsLoading( .. ) is called :
+         |
+         | we insert $par into the cache as loading"
+         |
+         | ----------^^^^^^^^^^^^^^^^^^------------------
+         |
+       """.stripMargin
+    )
+
+    val vl = ViewLoading( par )
+
+    val newMap = map + (par -> vl)
+    this.map   = newMap
+
+    vl
+
+  }
+
+  def getViewReqResultOrExecuteAction(
+      par:    V#Par
+    )(action: => Unit
+    ): ViewCacheState[V] = {
+
+    val res: ViewCacheState[V] =
+      if (!map.contains( par )) {
+        val loading = ViewLoading( par )
+        println(
+          s"""
+          |----------vvvvvvvvvvvvvvvvvvv------------------
+          | getViewReqResultOrExecuteAction is called
+          |
+          | map content is :
+          |
+          | $map
+          |
+          | the state is "ViewLoading" :
+          |
+          | $loading
+          | ----------^^^^^^^^^^^^^^^^^^------------------
+        """.stripMargin
+        )
+        insertIntoCacheAsLoading( par )
+        action
+        loading
+      } else map( par )
+
+    res
+
   }
 
 }

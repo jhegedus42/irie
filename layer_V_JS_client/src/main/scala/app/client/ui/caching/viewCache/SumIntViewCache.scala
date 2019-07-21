@@ -33,7 +33,7 @@ object SumIntViewCache {
 
     if (sumIntViewOpt.isEmpty) {
 
-      postViewRequest[SumIntView]( requestParams )
+      getView[SumIntView]( requestParams )
         .onComplete( (res: Try[SumIntView_HolderObject.SumIntView_Res]) => {
 
           val success: SumIntView_HolderObject.SumIntView_Res = res.get

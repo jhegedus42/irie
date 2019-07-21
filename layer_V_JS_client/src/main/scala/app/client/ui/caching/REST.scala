@@ -58,7 +58,7 @@ private[caching] object REST {
   }
 
 
-  private[viewCache] def postViewRequest[V <: View](
+  private[viewCache] def getView[V <: View](
                                requestParams: V#Par
                              )(implicit ct:   ClassTag[V],
                                encoder:       Encoder[V#Par],

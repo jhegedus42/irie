@@ -11,7 +11,11 @@ object ViewCacheStates {
       }
   }
   case class ViewLoading[V <: View](viewParam: V#Par ) extends ViewCacheState[V]
+
   case class ViewLoaded[V <: View](viewParam:  V#Par, viewResult: V#Res )
       extends ViewCacheState[V]
+
+  case class ViewStale[V <: View](viewParam:  V#Par, viewResult: V#Res )
+    extends ViewCacheState[V]
 
 }

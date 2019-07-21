@@ -4,11 +4,11 @@ import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Lo
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
 
-private[caching] class MapForEntityCache[E <: Entity]() {
-  private var map: Map[TypedRef[E], EntityCacheState[E]] = Map()
+private[entityCache] class MapForEntityCache[E <: Entity]() {
+  private[this] var map: Map[TypedRef[E], EntityCacheState[E]] = Map()
 
-  def getCacheContentAsPrettyString: String =
-    map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
+//  def getCacheContentAsPrettyString: String =
+//    map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
 
   def isAjaxReqStillPending: Boolean = {
     val res = map
@@ -48,7 +48,7 @@ private[caching] class MapForEntityCache[E <: Entity]() {
     res
   }
 
-  def insertIntoCacheAsLoading(r: TypedRef[E] ): Loading[E] = {
+  private[this] def insertIntoCacheAsLoading(r: TypedRef[E] ): Loading[E] = {
 
     println( s"CACHE WRITE => we insert $r into the cache" )
     //    logger.trace(s"parameter:$rv")

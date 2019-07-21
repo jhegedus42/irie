@@ -47,7 +47,7 @@ private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface )
 
   }
 
-  private def launchReadAjax(
+  private[this] def launchReadAjax(
       ref: TypedRef[E]
     )(
       implicit decoder: Decoder[RefVal[E]],
@@ -74,7 +74,7 @@ private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface )
     )
   }
 
-  private def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
+  private[this] def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
     println(
       s"ajaxReqReturnHandler called with parameter $tryRefVal"
     )
