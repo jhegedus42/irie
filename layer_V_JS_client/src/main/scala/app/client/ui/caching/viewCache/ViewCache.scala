@@ -74,10 +74,10 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
     )
 
     println(
-      s"isAjaxReqStillPending=${cacheMap.isAjaxReqStillPending}, at ajaxReqReturnHandler"
+      s"isAjaxReqStillPending=${cacheMap.isThereStillAjaxRequestsWhichHasNotReturnedYet}, at ajaxReqReturnHandler"
     )
 
-    if (!cacheMap.isAjaxReqStillPending) { //we trigger a re-render if this is the "last ajax request that came back"
+    if (!cacheMap.isThereStillAjaxRequestsWhichHasNotReturnedYet) { //we trigger a re-render if this is the "last ajax request that came back"
       println( s"LAST AJAX call returned => re-render needs to be triggered" )
       cacheInterface.reRenderShouldBeTriggered()
     }
