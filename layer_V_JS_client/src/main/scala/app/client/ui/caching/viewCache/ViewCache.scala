@@ -1,7 +1,7 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.REST_ForView.View_AJAX_Request_Params
-import app.client.ui.caching.{CacheInterface, REST_ForView}
+import REST_ForView.View_AJAX_Request_Params
+import app.client.ui.caching.CacheInterface
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import io.circe.{Decoder, Encoder}
 
@@ -20,7 +20,7 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
   var nrOfAjaxReqSent = 0
   var nrOfAjaxReqReturnedAndHandled = 0
 
-  private def launchAjaxReqToGetViewResult(
+  private[this] def launchAjaxReqToGetViewResult(
       par:              V#Par
     )(implicit decoder: Decoder[V#Res],
       encoder:          Encoder[V#Par],

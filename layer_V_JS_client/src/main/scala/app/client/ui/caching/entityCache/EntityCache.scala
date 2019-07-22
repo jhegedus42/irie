@@ -41,11 +41,13 @@ private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface )
     getEntity[E]( ref ).onComplete( ajaxReqReturnHandler( _ ) )
   }
 
-  private[caching] def readEntity( refToEntity: TypedRef[E] ) ( implicit decoder: Decoder[RefVal[E]],
-         ct:      ClassTag[E] ):
-    EntityCacheState[E] = cacheMap.getEntityOrExecuteAction( refToEntity ) {
-        launchReadAjax( refToEntity )
-      }
+  private[caching] def readEntity( refToEntity: TypedRef[E] )
+     ( implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): EntityCacheState[E] =
+          cacheMap.
+            getEntityOrExecuteAction(refToEntity)
+            {
+              launchReadAjax( refToEntity )
+            }
 
 
 }

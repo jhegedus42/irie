@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,81 +52,92 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47636908">
+    <splitter split-orientation="horizontal" split-proportion="0.4756189">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="282">
-                  <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#31#123#0" expanded="true" />
-                    <element signature="e#1046#1075#0" expanded="true" />
-                    <element signature="e#1545#1594#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="177">
-                  <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#40#83#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.48735955">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="149">
+                      <caret line="45" selection-start-line="45" selection-end-line="45" />
+                      <folding>
+                        <element signature="e#43#86#0" expanded="true" />
+                        <element signature="e#935#1237#0" />
+                        <element signature="e#1241#1474#0" />
+                        <element signature="e#1478#1746#0" />
+                        <marker date="1563827965178" expanded="false" signature="653:931" ph="..." />
+                        <marker date="1563827965178" expanded="false" signature="1293:1353" ph="..." />
+                        <marker date="1563827965178" expanded="true" signature="1543:1600" ph="..." />
+                        <marker date="1563827965178" expanded="false" signature="1545:1598" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="33">
+                      <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+                      <folding>
+                        <element signature="e#41#107#0" expanded="true" />
+                        <element signature="e#770#1488#0" />
+                        <element signature="e#1492#1970#0" />
+                        <marker date="1563828213178" expanded="false" signature="450:728" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="127">
-                  <caret line="27" selection-start-line="27" selection-end-line="27" />
-                  <folding>
-                    <element signature="e#43#86#0" expanded="true" />
-                    <element signature="e#922#1533#0" />
-                    <marker date="1563755590299" expanded="false" signature="653:931" ph="..." />
-                    <marker date="1563755590299" expanded="false" signature="1293:1353" ph="..." />
-                    <marker date="1563755590299" expanded="true" signature="1538:1609" ph="..." />
-                    <marker date="1563755590299" expanded="false" signature="1540:1607" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="164">
-                  <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-                  <folding>
-                    <element signature="e#41#137#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#31#123#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.5">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="234">
+                      <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+                      <folding>
+                        <element signature="e#31#83#0" expanded="true" />
+                        <element signature="e#703#770#0" />
+                        <element signature="e#679#1062#0" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="205">
+                      <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+                      <folding>
+                        <element signature="e#41#137#0" expanded="true" />
+                        <element signature="e#694#1051#0" />
+                        <element signature="e#1056#1334#0" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
@@ -189,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/client/ViewCacheStates.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/ExecutionContexts.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/shared/ViewHttpRouteName.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/shared/JSONContainingOptRes.scala" />
@@ -228,18 +242,19 @@
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/ReRenderer.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/MapForEntityCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCacheStates.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/utils/logging/LoggingHelperFunctions.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/MapForViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" />
       </list>
     </option>
   </component>
@@ -704,20 +719,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00044" summary="we discovered a bug ... needs to be fixed">
-      <created>1562049689418</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1562049689418</updated>
-    </task>
-    <task id="LOCAL-00045" summary="now, we add two Thiever Numbers on the client side,&#10;&#10;next step, do the same thing on the server side !!!">
-      <created>1562184432373</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1562184432373</updated>
-    </task>
     <task id="LOCAL-00046" summary="preparing the place for the ViewCache (stealing things from the&#10;EntityCache)">
       <created>1562216662121</created>
       <option name="number" value="00046" />
@@ -1047,7 +1048,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563756916443</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------">
+      <created>1563757338013</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1563757338014</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------">
+      <created>1563802564574</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1563802564574</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1106,8 +1121,8 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="7" sideWeight="0.49963424" visible="true" weight="0.3272472" />
-      <window_info anchor="bottom" x="31" y="256" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48500365" weight="0.33426967" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49963424" weight="0.3272472" />
+      <window_info anchor="bottom" x="31" y="256" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48500365" weight="0.33567417" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49963424" weight="0.25925925" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51499635" side_tool="true" weight="0.3300562" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49963424" weight="0.26123595" />
@@ -1166,8 +1181,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="now we need to figure out a way to re-render&#10;the child of the CacheInjectorHOC&#10;&#10;maybe by setting a state of of the `CacheInjectorHOC`&#10;whenever a re-render is needed and then at the same&#10;time setting a new CacheInterface&#10;&#10;maybe the `CacheInjectorHOC` could have a state of &quot;Int&quot;&#10;&#10;and whenever that is incremented the `CacheInjectorHOC` sets&#10;the prop of the child to &quot;something&quot;, say, to a new `CacheInterface`&#10;&#10;every time the CacheInjectorHOC gets mounted, it sets the &#10;re-render-triggerer&#10;&#10;so setting the re-render-triggerer is not the responsibility of&#10;`CacheInjectorHOC`'s child but of the `CacheInjectorHOC` itsel" />
-    <MESSAGE value="app works,next step:&#10;&#10;/Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala&#10;&#10;using ^, the entered thiever numbers should be remembered" />
     <MESSAGE value="app works,next step:&#10;&#10;/Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala&#10;&#10;using ^, the entered thiever numbers should be remembered&#10;&#10;todo written into the code too" />
     <MESSAGE value="learning cake pattern" />
     <MESSAGE value="upgrading sbt" />
@@ -1191,19 +1204,11 @@
     <MESSAGE value="Cleaning up code." />
     <MESSAGE value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means." />
     <MESSAGE value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------" />
+    <MESSAGE value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------" />
+    <MESSAGE value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up the code some more.&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding>
-            <element signature="e#40#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/FooterComp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1499,23 +1504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#31#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/collection/immutable/StringLike.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -1579,49 +1567,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/Predef.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="186" column="14" selection-start-line="186" selection-start-column="14" selection-end-line="186" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="149">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="e#43#86#0" expanded="true" />
-            <element signature="e#922#1533#0" />
-            <marker date="1563755590299" expanded="false" signature="653:931" ph="..." />
-            <marker date="1563755590299" expanded="false" signature="1293:1353" ph="..." />
-            <marker date="1563755590299" expanded="true" signature="1538:1609" ph="..." />
-            <marker date="1563755590299" expanded="false" signature="1540:1607" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#41#137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-          <folding>
-            <element signature="e#31#123#0" expanded="true" />
-            <element signature="e#1046#1075#0" expanded="true" />
-            <element signature="e#1545#1594#0" />
+            <element signature="e#935#1237#0" />
+            <element signature="e#1241#1474#0" />
+            <element signature="e#1478#1746#0" />
+            <marker date="1563827965178" expanded="false" signature="653:931" ph="..." />
+            <marker date="1563827965178" expanded="false" signature="1293:1353" ph="..." />
+            <marker date="1563827965178" expanded="true" signature="1543:1600" ph="..." />
+            <marker date="1563827965178" expanded="false" signature="1545:1598" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="33">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
-            <element signature="e#40#83#0" expanded="true" />
+            <element signature="e#41#107#0" expanded="true" />
+            <element signature="e#770#1488#0" />
+            <element signature="e#1492#1970#0" />
+            <marker date="1563828213178" expanded="false" signature="450:728" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="e#41#133#0" expanded="true" />
+            <element signature="e#627#1867#0" />
+            <element signature="e#1165#1194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="e#41#137#0" expanded="true" />
+            <element signature="e#694#1051#0" />
+            <element signature="e#1056#1334#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#31#83#0" expanded="true" />
+            <element signature="e#703#770#0" />
+            <element signature="e#679#1062#0" />
           </folding>
         </state>
       </provider>

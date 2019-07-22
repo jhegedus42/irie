@@ -1,10 +1,7 @@
-package app.client.ui.caching
+package app.client.ui.caching.viewCache
 
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{
-  ViewHttpRouteName,
-  ViewHttpRouteNameProvider
-}
+import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{ViewHttpRouteName, ViewHttpRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 

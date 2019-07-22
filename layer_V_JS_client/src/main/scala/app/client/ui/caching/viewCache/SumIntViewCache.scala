@@ -1,7 +1,7 @@
 package app.client.ui.caching.viewCache
 
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
-import app.client.ui.caching.{REST_ForView, ReRenderer}
+import app.client.ui.caching.ReRenderer
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
 import io.circe.generic.auto._
@@ -15,12 +15,13 @@ object SumIntViewCache {
 
   private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
 
+
   def getSumIntView( requestParams: SumIntView#Par ):
     Option[ViewCacheState[SumIntView]] = {
 
       if (sumIntViewOpt.isEmpty) {
-        REST_ForView.getView[SumIntView]( requestParams )
-          .onComplete( handleAjaxResult(requestParams) )
+//        REST_ForView.getView[SumIntView]( requestParams )
+//          .onComplete( handleAjaxResult(requestParams) )
 
         sumIntViewOpt = Some( ViewLoading[SumIntView]( requestParams ) )
       }
