@@ -1,7 +1,7 @@
 package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.REST.getEntity
+import app.client.ui.caching.REST_ForEntity.getEntity
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{RefVal, TypedRef}
@@ -24,7 +24,6 @@ private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface )
 
   private [this] var nrOfAjaxReqSent = 0
   private [this] var nrOfAjaxReqReturnedAndHandled = 0
-
 
   private [this] def ajaxReqReturnHandler(tryRefVal: Try[RefVal[E]] ): Unit = {
 

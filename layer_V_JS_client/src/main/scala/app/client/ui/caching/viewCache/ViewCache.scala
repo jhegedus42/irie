@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.REST.getEntity
+import app.client.ui.caching.REST_ForEntity.getEntity
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import app.shared.data.ref.{RefVal }
 import io.circe.Encoder
@@ -24,7 +24,7 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
 
 
   private def launchAjaxReqToGetViewResult( ref: V#Par )(
-      implicit decoder: Decoder[V]],
+      implicit decoder: Decoder[V],
       ct:               ClassTag[V]
     ): Unit = {
 
