@@ -1,51 +1,41 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.REST._
-import app.client.ui.caching.{REST, ReRenderer}
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
+import app.client.ui.caching.{REST_ForView, ReRenderer}
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
+import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
+import io.circe.generic.auto._
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.util.Try
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
-import io.circe.generic.auto._
 
 object SumIntViewCache {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-
   private var sumIntViewOpt: Option[ViewCacheState[SumIntView]] = None
-  //TODO replace this with a proper MAP
 
   def getSumIntView( requestParams: SumIntView#Par ):
     Option[ViewCacheState[SumIntView]] = {
 
-    if (sumIntViewOpt.isEmpty) {
-      getView[SumIntView]( requestParams )
-        .onComplete( (res: Try[SumIntView_HolderObject.SumIntView_Res]) => {
+      if (sumIntViewOpt.isEmpty) {
+        REST_ForView.getView[SumIntView]( requestParams )
+          .onComplete( handleAjaxResult(requestParams) )
 
-          val success: SumIntView_HolderObject.SumIntView_Res = res.get
-          // this is not very nice here :(
-          // one day we should introduce the "sad" path
-
-          sumIntViewOpt =
-            Some( ViewLoaded[SumIntView]( requestParams, success ) )
-
-          println(
-            s"---------- getSumIntView --------- HAPPY PATH: ${sumIntViewOpt}"
-          )
-
-          ReRenderer.triggerReRender()
-
-        } )
-
-      sumIntViewOpt = Some( ViewLoading[SumIntView]( requestParams ) )
+        sumIntViewOpt = Some( ViewLoading[SumIntView]( requestParams ) )
+      }
+      sumIntViewOpt
     }
 
-    sumIntViewOpt
 
+  private def handleAjaxResult(requestParams: SumIntView_HolderObject.SumIntView_Par) = {
+    (res: Try[SumIntView_HolderObject.SumIntView_Res]) => {
+
+      sumIntViewOpt =
+        Some(ViewLoaded[SumIntView](requestParams, res.get))
+
+      ReRenderer.triggerReRender()
+
+    }
   }
-
-
 }
