@@ -8,9 +8,9 @@ import app.client.ui.caching.viewCache.ViewCacheStates.{
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import app.shared.utils.logging.LoggingHelperFunctions
 
-private[caching] class MapForViewCache[V <: View]() {
+private[viewCache] class MapForViewCache[V <: View]() {
 
-  private var map: Map[V#Par, ViewCacheState[V]] = Map()
+  private [this] var map: Map[V#Par, ViewCacheState[V]] = Map()
 
   def prettyPrint(aMap: Map[_,_]): String = aMap.foldLeft(""){
     (key, value ) => {
@@ -40,14 +40,15 @@ private[caching] class MapForViewCache[V <: View]() {
     }
   }
 
-  def isThereStillAjaxRequestsWhichHasNotReturnedYet: Boolean = {
+  private[viewCache] def isThereStillAjaxRequestsWhichHasNotReturnedYet:
+    Boolean = {
     val res = map.valuesIterator.exists(
       (x: ViewCacheState[V]) => x.isLoading
     )
     res
   }
 
-  def insertIntoCacheAsLoaded(par: V#Par, res: V#Res ):
+  private[viewCache] def insertIntoCacheAsLoaded(par: V#Par, res: V#Res ):
     ViewLoaded[V] = {
 
     val toBeInsertedIntoCache: ViewLoaded[V] = ViewLoaded( par, res )
@@ -79,7 +80,7 @@ private[caching] class MapForViewCache[V <: View]() {
     toBeInsertedIntoCache
   }
 
-  def insertIntoCacheAsLoading(par: V#Par ):
+  private[viewCache] def insertIntoCacheAsLoading(par: V#Par ):
     ViewLoading[V] = {
 
     println(
@@ -105,7 +106,7 @@ private[caching] class MapForViewCache[V <: View]() {
 
   }
 
-  def getViewReqResultOrExecuteAction(par: V#Par)(action: => Unit):
+  private[viewCache] def getViewReqResultOrExecuteAction(par: V#Par)(action: => Unit):
     ViewCacheState[V] = {
 
     val res: ViewCacheState[V] =

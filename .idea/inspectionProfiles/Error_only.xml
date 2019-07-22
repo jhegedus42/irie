@@ -117,7 +117,7 @@
     <inspection_tool class="ScalaUnnecessarySemicolon" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="ScalaUnreachableCode" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="ScalaUnusedExpression" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="ScalaUnusedSymbol" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ScalaUnusedSymbol" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ScalaXmlUnmatchedTag" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="SideEffectsInMonadicTransformation" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="SimplifiableFoldOrReduce" enabled="false" level="ERROR" enabled_by_default="false" />

@@ -2,6 +2,7 @@ package app.client.ui.caching.viewCache
 
 import REST_ForView.View_AJAX_Request_Params
 import app.client.ui.caching.CacheInterface
+import app.client.ui.caching.viewCache.ViewCacheStates.ViewCacheState
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
 import io.circe.{Decoder, Encoder}
 
@@ -15,10 +16,10 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
 
   println( s"Constructor of EntityCacheMap" )
 
-  val cacheMap = new MapForViewCache[V]
+  private [this] val cacheMap = new MapForViewCache[V]
 
-  var nrOfAjaxReqSent = 0
-  var nrOfAjaxReqReturnedAndHandled = 0
+  private [this] var nrOfAjaxReqSent = 0
+  private [this] var nrOfAjaxReqReturnedAndHandled = 0
 
   private[this] def launchAjaxReqToGetViewResult(
       par:              V#Par
@@ -58,6 +59,10 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
 
     nrOfAjaxReqReturnedAndHandled = nrOfAjaxReqReturnedAndHandled + 1
 
+  }
+
+  private[caching] def getViewCacheState(par:V#Par):ViewCacheState[V] = {
+    ???
   }
 
 }

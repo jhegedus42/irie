@@ -27,8 +27,7 @@ class CacheInterface() {
     new ViewCache[SumIntView](this)
 
   def readView[V<:View](par:V#Par)(implicit c:ViewCache[V]):ViewCacheState[V]= {
-//    c.
-    ??? //todo we need some sort of readEntity type of method in the ViewCache
+    c.getViewCacheState(par)
   }
 
   private[caching] def reRenderShouldBeTriggered(): Unit = {
