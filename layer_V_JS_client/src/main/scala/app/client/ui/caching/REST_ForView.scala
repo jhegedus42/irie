@@ -45,6 +45,8 @@ private[caching] object REST_ForView {
         .post( url, json_line, headers = headers )
         .map( _.responseText )
         .map( (x: String) => { decode[V#Res]( x ) } )
+        // TODO-one-day : handle the decoding error here,
+         // more gracefully
         .map( x => x.right.get )
 
     val res2 = res1.map( View_AJAX_Result(plain_params,_) )
