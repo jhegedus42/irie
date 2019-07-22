@@ -16,7 +16,7 @@ class CacheInterface() {
   private lazy val cacheLineText: EntityCache[LineText] =
     new EntityCache[LineText]( this )
 
-  // todo generalize this to "type class style" -- as it is done for
+  // todo-one-day generalize this to "type class style" -- as it is done for
    // the View-s below
   def readLineText(ref: TypedRef[LineText] ): EntityCacheState[LineText] = {
     val res: EntityCacheState[LineText] = cacheLineText.readEntity( ref )

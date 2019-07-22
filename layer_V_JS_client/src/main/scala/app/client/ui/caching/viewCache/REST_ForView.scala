@@ -50,7 +50,7 @@ private[caching] object REST_ForView {
           decode[V#Res]( x )
         } )
         // TODO-one-day : handle the decoding error here,
-        // more gracefully
+        //  more gracefully
         .map( x => x.right.get )
 
     val res2 =
