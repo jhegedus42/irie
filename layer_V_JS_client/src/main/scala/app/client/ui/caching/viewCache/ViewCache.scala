@@ -1,15 +1,13 @@
 package app.client.ui.caching.viewCache
-import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.REST_ForEntity.getEntity
+
+import app.client.ui.caching.REST_ForView.View_AJAX_Request_Params
+import app.client.ui.caching.{CacheInterface, REST_ForView}
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-import app.shared.data.ref.{RefVal }
-import io.circe.Encoder
-import org.scalajs.dom.ext.Ajax
-import scala.util.Try
-import io.circe.Decoder
+import io.circe.{Decoder, Encoder}
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
-
+import scala.util.Try
 
 private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
   implicit def executionContext: ExecutionContextExecutor =
@@ -22,9 +20,10 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
   var nrOfAjaxReqSent = 0
   var nrOfAjaxReqReturnedAndHandled = 0
 
-
-  private def launchAjaxReqToGetViewResult( ref: V#Par )(
-      implicit decoder: Decoder[V],
+  private def launchAjaxReqToGetViewResult(
+      par:              V#Par
+    )(implicit decoder: Decoder[V#Res],
+      encoder:          Encoder[V#Par],
       ct:               ClassTag[V]
     ): Unit = {
 
@@ -33,22 +32,25 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-    val ajaxCallAsFuture: Future[RefVal[V]] = {
-      val res: Future[RefVal[V]] = getEntity[V]( ref )
-      res
-    }
+    val req = View_AJAX_Request_Params( par )
+
+    val ajaxCallAsFuture
+      : Future[REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]] =
+      REST_ForView.getView[V]( req )
 
     ajaxCallAsFuture.onComplete(
-      r => ajaxReqReturnHandler( r )
+      (r: Try[REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]]) =>
+        ajaxReqReturnHandler( r )
     )
   }
 
+  private def ajaxReqReturnHandler(
+      tryRes: Try[REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]]
+    ): Unit = {
 
-
-  private def ajaxReqReturnHandler(tryRes: Try[V#Res] ): Unit = {
-
-    tryRefVal.foreach(
-      rv => cacheMap.insertIntoCacheAsLoaded( rv )
+    tryRes.foreach(
+      (rv: REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]) =>
+        cacheMap.insertIntoCacheAsLoaded( rv.par,rv.res )
     )
 
     if (!cacheMap.isThereStillAjaxRequestsWhichHasNotReturnedYet)
