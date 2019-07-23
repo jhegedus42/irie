@@ -28,7 +28,12 @@ import scala.util.Try
   * @param cacheInterface This is a dependency.
   * @tparam V
   */
-private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
+private[caching] class ViewCache[V <: View]( cacheInterface: CacheInterface ) {
+
+  private[caching] def getViewCacheState(par: V#Par): ViewCacheState[V] = ???
+  // TODO implement this
+
+
 
   private[this] var map: Map[V#Par, ViewCacheState[V]] = Map()
 
@@ -37,12 +42,12 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
 
   private[this] def launchAjaxReqToGetViewResult(
       par: V#Par
-    )(
+  )(
       implicit
       decoder: Decoder[V#Res],
       encoder: Encoder[V#Par],
       ct:      ClassTag[V]
-    ): Unit = {
+  ): Unit = {
 
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -61,7 +66,7 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
 
   private[this] def ajaxReqReturnHandler(
       tryRes: Try[REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]]
-    ): Unit = {
+  ): Unit = {
 
     tryRes.foreach(
       (rv: REST_ForView.View_AJAX_Result_JSON_Decoded_Successfully[V]) =>
@@ -82,7 +87,7 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
   private[this] def insertIntoCacheAsLoaded(
       par: V#Par,
       res: V#Res
-    ): ViewLoaded[V] = {
+  ): ViewLoaded[V] = {
 
     val toBeInsertedIntoCache: ViewLoaded[V] = ViewLoaded( par, res )
 
@@ -113,7 +118,7 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
     toBeInsertedIntoCache
   }
 
-  def prettyPrint(aMap: Map[_, _] ): String = aMap.foldLeft( "" ) {
+  def prettyPrint( aMap: Map[_, _] ): String = aMap.foldLeft( "" ) {
     ( key, value ) =>
       {
         s"""
@@ -142,11 +147,9 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
       }
   }
 
-  private[viewCache] def getViewReqResultOrExecuteAction(
-      par:    V#Par
-    )(action: => Unit
-    ): ViewCacheState[V] = {
-
+  private[this] def getViewReqResultOrExecuteAction(
+      par:   V#Par
+  )( action: => Unit ): ViewCacheState[V] = {
     val res: ViewCacheState[V] =
       if (!map.contains( par )) {
         val loading = ViewLoading( par )
@@ -170,10 +173,9 @@ private[caching] class ViewCache[V <: View](cacheInterface: CacheInterface ) {
         loading
       } else map( par )
     res
-
   }
 
-  private[this] def insertIntoCacheAsLoading(par: V#Par ): ViewLoading[V] = {
+  private[this] def insertIntoCacheAsLoading( par: V#Par ): ViewLoading[V] = {
 
     println(
       s"""

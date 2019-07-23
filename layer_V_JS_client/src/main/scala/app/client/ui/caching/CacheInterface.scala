@@ -17,37 +17,19 @@ trait ReRenderTriggererTrait {
 class CacheInterface() extends ReRenderTriggererTrait {
 
   private lazy val cacheLineText: EntityCache[LineText] =
-    new EntityCache[LineText]( this )
+    new EntityCache[LineText](this)
 
-  // todo-one-day generalize this to "type class style" -- as it is done for
-  // the View-s below
-  def readLineText(ref: TypedRef[LineText] ): EntityCacheState[LineText] = {
-    val res: EntityCacheState[LineText] = cacheLineText.readEntity( ref )
+  def readLineText(ref: TypedRef[LineText]): EntityCacheState[LineText] = {
+    val res: EntityCacheState[LineText] = cacheLineText.readEntity(ref)
     res
   }
 
-  implicit val sumIntViewCache: ViewCache[SumIntView] =
-    new ViewCache[SumIntView]( this )
+  private implicit val sumIntViewCache = new ViewCache[SumIntView](this)
 
-  def readView[V <: View](
-      par: V#Par
-    )(
-      implicit
-      c: ViewCache[V]
-    ): ViewCacheState[V] = {
-    c.getViewCacheState( par )
-  }
+  def readView[V <: View](par: V#Par)(implicit c: ViewCache[V]):
+    ViewCacheState[V] = c.getViewCacheState(par)
 
-  private[caching] def reRenderShouldBeTriggered(): Unit = {
-    println(
-      s"METHOD CALL --- CacheInterface.reRenderShouldBeTriggered() --- " +
-        "so now we try to trigger a re-render in reRenderShouldBeTriggered()"
-    )
+  override private[caching] def reRenderShouldBeTriggered(): Unit =
     ReRenderer.triggerReRender()
-
-    println(
-      s"METHOD CALL ENDED for   `CacheInterface.reRenderShouldBeTriggered()` ---------------- "
-    )
-  }
 
 }

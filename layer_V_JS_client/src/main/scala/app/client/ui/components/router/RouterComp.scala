@@ -1,4 +1,5 @@
 package app.client.ui.components.router
+
 import app.client.ui.caching.{CacheInjectorHOC, CacheInterface}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
@@ -37,8 +38,10 @@ case class RouterComp() {
 
     val wr =
       wrapped_cachTestRootComp.wrapperConstructor(
-        CacheTest_RootComp_Props.apply( "These are the props via the wrapper",
-                                       cacheInterface = cache )
+        CacheTest_RootComp_Props.apply(
+          "These are the props via the wrapper",
+          cacheInterface = cache
+        )
       )
 
     val homeRoute: dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
@@ -73,7 +76,7 @@ case class RouterComp() {
   def layout(
       c: RouterCtl[MainPageDeclaration],
       r: Resolution[MainPageDeclaration]
-    ) = {
+  ) = {
 
     println( s"page = ${r.page}" )
     <.div.apply(
