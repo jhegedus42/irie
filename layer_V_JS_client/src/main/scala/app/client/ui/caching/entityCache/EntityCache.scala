@@ -1,6 +1,6 @@
 package app.client.ui.caching.entityCache
 
-import app.client.ui.caching.CacheInterface
+import app.client.ui.caching.{CacheInterface, ReRenderTriggererTrait}
 import app.client.ui.caching.REST_ForEntity.getEntity
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.data.model.Entity.Entity
@@ -15,7 +15,8 @@ import scala.reflect.ClassTag
 
 
 
-private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface ) {
+private[caching] class EntityCache[E <: Entity]
+  (reRenderTriggerer: ReRenderTriggererTrait) {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -29,25 +30,20 @@ private[caching] class EntityCache[E <: Entity](cacheInterface: CacheInterface )
 
     tryRefVal.foreach( cacheMap.insertIntoCacheAsLoaded( _ ) )
 
-    if (!cacheMap.isAjaxReqStillPending) cacheInterface.reRenderShouldBeTriggered()
+    if (!cacheMap.isAjaxReqStillPending) reRenderTriggerer.reRenderShouldBeTriggered()
 
     nrOfAjaxReqReturnedAndHandled = nrOfAjaxReqReturnedAndHandled + 1
 
   }
 
-  private [this] def launchReadAjax(ref: TypedRef[E])(implicit decoder: Decoder[RefVal[E]],
-      ct: ClassTag[E] ): Unit = {
+  private [this] def launchReadAjax(ref: TypedRef[E])
+    (implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): Unit = {
     nrOfAjaxReqSent = nrOfAjaxReqSent + 1
     getEntity[E]( ref ).onComplete( ajaxReqReturnHandler( _ ) )
   }
 
-  private[caching] def readEntity( refToEntity: TypedRef[E] )
-     ( implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ): EntityCacheState[E] =
-          cacheMap.
-            getEntityOrExecuteAction(refToEntity)
-            {
-              launchReadAjax( refToEntity )
-            }
-
+  private[caching] def readEntity( refToEntity: TypedRef[E] ) ( implicit decoder: Decoder[RefVal[E]], ct: ClassTag[E] ):
+    EntityCacheState[E] = cacheMap.
+      getEntityOrExecuteAction(refToEntity) { launchReadAjax( refToEntity ) }
 
 }

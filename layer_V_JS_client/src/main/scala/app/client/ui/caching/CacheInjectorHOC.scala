@@ -41,7 +41,7 @@ class CacheInjectorHOC(
             s.runNow()
           }
 
-          val reRenderTriggerer: ReRenderTriggerer = ReRenderTriggerer( f )
+          val reRenderTriggerer: ReRenderTriggererTrait = ReRenderTriggerer( f )
 
           println(
             "we are now just about to mount the Wrapper component (as the direct child of the Router)," +

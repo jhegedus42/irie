@@ -50,10 +50,15 @@ private[caching] object REST_ForView {
           decode[V#Res]( x )
         } )
         // TODO-one-day : handle the decoding error here,
-        //  more gracefully
+        //  more gracefully, this is here very ugly below
+        //  sorry about this...
+        //  maybe along the Future / Try / onComplete ()
+        //  ... etc ... line, one could handle this situation
+        //  or ... there are lot of options ...
+        //  using the current result type of `getView(...)`
         .map( x => x.right.get )
 
-    val res2 =
+    val res2: Future[View_AJAX_Result_JSON_Decoded_Successfully[V]] =
       res1.map(
         View_AJAX_Result_JSON_Decoded_Successfully( plain_params, _ )
       )
