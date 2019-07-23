@@ -32,7 +32,7 @@ class CacheInjectorHOC(
                                               Unit,
                                               WrapperBackend] = $
 
-          def f() = {
+          def f(): Unit = {
             val s = $.setState( Unit )
             println(
               s"we will run the callback that will set the state of the Wrapper Component " +
@@ -41,7 +41,7 @@ class CacheInjectorHOC(
             s.runNow()
           }
 
-          val reRenderTriggerer: ReRenderTriggererTrait = ReRenderTriggerer( f )
+          val reRenderTriggerer: ReRenderTriggerer = ReRenderTriggerer( f )
 
           println(
             "we are now just about to mount the Wrapper component (as the direct child of the Router)," +

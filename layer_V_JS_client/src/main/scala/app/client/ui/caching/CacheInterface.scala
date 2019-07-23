@@ -11,7 +11,7 @@ import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_Holde
 import io.circe.generic.auto._
 
 trait ReRenderTriggererTrait {
-  def reRenderShouldBeTriggered(): Unit
+  private[caching] def reRenderShouldBeTriggered(): Unit
 }
 
 class CacheInterface() extends ReRenderTriggererTrait {

@@ -1,7 +1,6 @@
 package app.client.ui.caching
 
 
-// global singleton accessible from the chaching "module" only
 private [caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
 
@@ -25,11 +24,11 @@ private [caching] object ReRenderer {
     println( s"METHOD CALL ENDED --------------------" )
   }
 
-  def triggerReRender() = {
+  def triggerReRender(): Unit = {
 
     println(
       "METHOD CALL --- " +
-        "`object ReRenderTriggererHolderSingletonGloballyAccessibleObject.triggerReRender()`"
+        "`triggerReRender()`"
     )
 
     val t = triggerer
