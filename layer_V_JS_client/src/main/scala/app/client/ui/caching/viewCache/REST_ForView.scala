@@ -16,7 +16,7 @@ private[caching] object REST_ForView {
       par: V#Par,
       res: V#Res)
 
-  private[viewCache] def getView[V <: View](
+  private[viewCache] def getViewFromServer[V <: View](
       requestParams: View_AJAX_Request_Params[V]
     )(implicit ct:   ClassTag[V],
       encoder:       Encoder[V#Par],

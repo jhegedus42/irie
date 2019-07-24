@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,34 +50,25 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.507877">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="12" column="21" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-338">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#41#84#0" expanded="true" />
+                <element signature="e#3270#3719#0" />
+                <element signature="e#3847#4579#0" />
+                <element signature="e#4583#5095#0" />
+                <element signature="e#4550#4843#0" />
+                <marker date="1563928186356" expanded="false" signature="1032:1130" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,7 +96,6 @@
       <find>sc</find>
       <find>model</find>
       <find>Ref</find>
-      <find>???</find>
       <find>cachTest</find>
       <find>sbtpl</find>
       <find>im t</find>
@@ -127,6 +112,7 @@
       <find>ReRender</find>
       <find>ReRenderTriggerer</find>
       <find>fm</find>
+      <find>???</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -196,11 +182,11 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/MapForViewCache.scala" />
         <option value="$PROJECT_DIR$/.scalafmt.conf" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/ReRenderer.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" />
       </list>
     </option>
   </component>
@@ -221,150 +207,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="caching" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="caching" type="462c0819:PsiDirectoryNode" />
-              <item name="viewCache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -593,32 +438,32 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_V_JS_client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_V_JS_client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_shared-sources" />
@@ -664,13 +509,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00053" summary="it seems that the Circe implicits can be now found by the ajax query&#10;launcher function for the View query&#10;&#10;next step: create a sensible .onComplete method">
-      <created>1562409432120</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1562409432120</updated>
     </task>
     <task id="LOCAL-00054" summary="plan for what needs to be done next is now written as TODO-s">
       <created>1562410419230</created>
@@ -1008,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563916921250</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;ˆ&#10;Making the `CacheInjectorHOC` class a bit tidier.">
+      <created>1563925557055</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1563925557056</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1054,7 +899,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="30" width="1375" height="804" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
@@ -1127,7 +971,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="next step: we need a button" />
     <MESSAGE value="we have a button now, if we press it then we get&#10;a libacombot" />
     <MESSAGE value="the phone stylesheet has been fixed now, more or less" />
     <MESSAGE value="lenses do not work :&#10;&#10;[IJ]sbt:IM root project&gt; compile&#10;[error] /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala:23:14: macro annotation could not be expanded (the most common reason for that is that you need to enable the macro paradise plugin; another possibility is that you try to use macro annotation in the same compilation run that defines it)&#10;[error]   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )&#10;[error]              ^&#10;[error] one error found&#10;[error] (layer_V_JS_client / Compile / compileIncremental) Compilation failed&#10;[error] Total time: 33 s, completed Jul 14, 2019 7:35:26 AM&#10;[IJ]sbt:IM root project&gt; &#10;&#10;We try now with deeper cleaning." />
@@ -1152,29 +995,10 @@
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit" />
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`" />
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;." />
+    <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;ˆ&#10;Making the `CacheInjectorHOC` class a bit tidier." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;ˆ&#10;Making the `CacheInjectorHOC` class a bit tidier." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/component/Generic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="120" column="60" lean-forward="true" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="60" />
-          <folding>
-            <element signature="e#42#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding>
-            <element signature="e#26#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/component/builder/Builder.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -1196,13 +1020,6 @@
           <folding>
             <element signature="e#42#65#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/CacheTestComp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -1513,16 +1330,6 @@
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/utils/logging/LoggingHelperFunctions.scala">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-          <folding>
-            <element signature="e#41#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1536,13 +1343,6 @@
             <marker date="1563845059452" expanded="true" signature="1579:1636" ph="..." />
             <marker date="1563845059452" expanded="false" signature="1581:1634" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1560,10 +1360,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/CacheTestComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/jars/core_sjs0.6_2.12-1.3.1.jar!/japgolly/scalajs/react/package.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding>
+            <element signature="e#26#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="22" />
+        <state relative-caret-position="135">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding>
+            <marker date="1563925732419" expanded="true" signature="463:576" ph="..." />
+            <marker date="1563925732419" expanded="false" signature="464:575" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#41#84#0" expanded="true" />
+            <element signature="e#3270#3719#0" />
+            <element signature="e#3847#4579#0" />
+            <element signature="e#4583#5095#0" />
+            <element signature="e#4550#4843#0" />
+            <marker date="1563928186356" expanded="false" signature="1032:1130" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

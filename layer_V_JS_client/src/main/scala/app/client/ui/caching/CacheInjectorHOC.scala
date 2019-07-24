@@ -10,13 +10,8 @@ import app.client.ui.components.router.mainPageComp.cacheTestMPC.{
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.component.builder.Lifecycle
 
-class CacheInjectorHOC(
-                        toBeWrapped: Component[
-                          CacheTest_RootComp_Props,
-                          Unit,
-                          NotWrapped_CacheTestRootComp_Backend,
-                          CtorType.Props ]
-                      ) {
+class CacheInjectorHOC( toBeWrapped: Component[CacheTest_RootComp_Props, Unit, NotWrapped_CacheTestRootComp_Backend,
+                          CtorType.Props ] ) {
 
   lazy val wrapperConstructor =
     ScalaComponent
