@@ -136,6 +136,8 @@ object AddTheThieveryNumbersUsingTheServer {
           ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked($) }
         ),
 
+        getTheSum(props,s.sumIntViewPars),
+
 //        getTheSum(s.sumIntViewPars),
         <.br,
         "---- itt a mese vege ----",

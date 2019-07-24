@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,35 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#31#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="e#41#98#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#67#110#0" expanded="true" />
               </folding>
@@ -104,9 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lazyl</find>
-      <find>slo</find>
-      <find>Ent</find>
       <find>CacheState[</find>
       <find>circe</find>
       <find>scalacom</find>
@@ -131,9 +102,12 @@
       <find>ReRender</find>
       <find>ReRenderTriggerer</find>
       <find>fm</find>
-      <find>???</find>
       <find>decoder</find>
       <find>sumin</find>
+      <find>???</find>
+      <find>lineText</find>
+      <find>TODO</find>
+      <find>TODO-one</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -197,7 +171,6 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForView.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/MapForViewCache.scala" />
         <option value="$PROJECT_DIR$/.scalafmt.conf" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
@@ -208,6 +181,7 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" />
       </list>
     </option>
   </component>
@@ -651,13 +625,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00055" summary="removed some unnecessary imports">
-      <created>1562410926833</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1562410926834</updated>
-    </task>
     <task id="LOCAL-00056" summary="jo nagy refaktoralgatas utan a dolgokat ugyan annyira nem &#10;mukodnek, mint elotte....">
       <created>1562418000112</created>
       <option name="number" value="00056" />
@@ -994,7 +961,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563928356548</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Wednesday, 24 July 2019 4.27.20 :&#10;&#10;YEEEESSSS !!!! &#10;&#10;Mission accomplisssssshed !!!&#10;&#10;The brand new shineyyy ViewCache WORKS !!! &#10;YEEESSS !&#10;&#10;need to look into the entity cache too... maybe that got messed up &#10;in the process.. the text field of LineText looks a bit ...&#10;&quot;dead&quot;">
+      <created>1563931876748</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1563931876749</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1040,6 +1014,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="39" width="1375" height="804" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
@@ -1112,7 +1087,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="the phone stylesheet has been fixed now, more or less" />
     <MESSAGE value="lenses do not work :&#10;&#10;[IJ]sbt:IM root project&gt; compile&#10;[error] /Users/joco/dev/im/irie/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala:23:14: macro annotation could not be expanded (the most common reason for that is that you need to enable the macro paradise plugin; another possibility is that you try to use macro annotation in the same compilation run that defines it)&#10;[error]   case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )&#10;[error]              ^&#10;[error] one error found&#10;[error] (layer_V_JS_client / Compile / compileIncremental) Compilation failed&#10;[error] Total time: 33 s, completed Jul 14, 2019 7:35:26 AM&#10;[IJ]sbt:IM root project&gt; &#10;&#10;We try now with deeper cleaning." />
     <MESSAGE value="taking out case classes for Lens macros =&gt; still does not work" />
     <MESSAGE value="added plugin to the &quot;right&quot; place" />
@@ -1137,36 +1111,10 @@
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;." />
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;ˆ&#10;Making the `CacheInjectorHOC` class a bit tidier." />
     <MESSAGE value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;&#10;Making the `CacheInjectorHOC` class a bit tidier.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 3.30.18&#10;&#10;simplifying the code a bit more ..., inlineing methods,&#10;throwing out garbage, logging that is not needed, etc ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 2.44.52&#10;&#10;Making the `CacheInjectorHOC` class a bit tidier.&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 3.30.18&#10;&#10;simplifying the code a bit more ..., inlineing methods,&#10;throwing out garbage, logging that is not needed, etc ..." />
+    <MESSAGE value="Wednesday, 24 July 2019 4.27.20 :&#10;&#10;YEEEESSSS !!!! &#10;&#10;Mission accomplisssssshed !!!&#10;&#10;The brand new shineyyy ViewCache WORKS !!! &#10;YEEESSS !&#10;&#10;need to look into the entity cache too... maybe that got messed up &#10;in the process.. the text field of LineText looks a bit ...&#10;&quot;dead&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wednesday, 24 July 2019 4.27.20 :&#10;&#10;YEEEESSSS !!!! &#10;&#10;Mission accomplisssssshed !!!&#10;&#10;The brand new shineyyy ViewCache WORKS !!! &#10;YEEESSS !&#10;&#10;need to look into the entity cache too... maybe that got messed up &#10;in the process.. the text field of LineText looks a bit ...&#10;&quot;dead&quot;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest_BaseTrait.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
-          <folding>
-            <element signature="e#38#90#0" expanded="true" />
-            <element signature="e#888#11877#0" />
-            <element signature="e#3551#8851#0" />
-            <element signature="e#4462#5328#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.12/srcs/scalajs-dom_sjs0.6_2.12-0.9.6-sources.jar!/org/scalajs/dom/html.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-dom_sjs0.6_2.12/srcs/scalajs-dom_sjs0.6_2.12-0.9.6-sources.jar!/org/scalajs/dom/raw/Html.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="2649" column="6" selection-start-line="2649" selection-start-column="6" selection-end-line="2649" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.3.1-sources.jar!/japgolly/scalajs/react/raw/events.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1398,18 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="e#41#133#0" expanded="true" />
-            <element signature="e#1165#1194#0" expanded="true" />
-            <element signature="e#1638#1687#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.scalafmt.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1523,6 +1459,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestData.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding>
+            <element signature="e#41#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
@@ -1533,20 +1500,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCache.scala">
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="276">
+          <caret line="78" column="7" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
           <folding>
-            <element signature="e#41#98#0" expanded="true" />
+            <element signature="e#41#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#67#110#0" expanded="true" />
           </folding>

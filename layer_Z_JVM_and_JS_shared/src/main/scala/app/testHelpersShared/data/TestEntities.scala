@@ -7,19 +7,13 @@ import app.shared.data.ref.{RefVal, RefValDyn, TypedRef, Version}
   * Created by joco on 09/10/2017.
   */
 object TestEntities {
-  val theUUIDofTheLine =   "4ce6fca0-0fd5-4197-a946-90f5e7e00d9d"
-  val theUUIDofTheLine_incorrect =   "4ce6fca0-0fd5-4197-a946-90f5e7e00d9R"
-  val line                     = LineText(text="text")
-  val refToLine: TypedRef[LineText] = TypedRef.makeWithUUID(theUUIDofTheLine)
+  val theUUIDofTheLine           = "4ce6fca0-0fd5-4197-a946-90f5e7e00d9d"
+  val theUUIDofTheLine_incorrect = "4ce6fca0-0fd5-4197-a946-90f5e7e00d9R"
+  val line                       = LineText( text = "text" )
+  val refToLine: TypedRef[LineText] = TypedRef.makeWithUUID( theUUIDofTheLine )
 
+  val refValOfLineV0 = RefVal( refToLine, line, Version() )
 
-
-
-  val refValOfLineV0           = RefVal(refToLine, line, Version())
-
-
-
-  val refValOfLineV1           = RefVal(refToLine, line, Version().inc())
+  val refValOfLineV1 = RefVal( refToLine, line, Version().inc() )
 
 }
-

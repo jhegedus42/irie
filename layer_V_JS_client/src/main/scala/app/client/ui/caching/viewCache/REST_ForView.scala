@@ -45,6 +45,19 @@ private[caching] object REST_ForView {
     val res1: Future[V#Res] =
       Ajax
         .post( url, json_line, headers = headers )
+        // TODO-one-day :
+        //  OFFLINE => CATCH the offline error here ^^^
+        //  we get an exception and the app "freezes" if the network is offline
+        //  and we try to call this method
+        //  things blow up at this post call, in that situation
+        //  this is more important than the "decoding issue below"
+        //  but maybe the two are related... need to look into this and
+        //  debug a bit ... what happens with this AJAX POST call, when
+        //  the network is offline
+        //  but for now, we are only gonna deal with the happy path ...
+        //  since we are writing a "toy" app for "prototype demo purposes"
+        //  it can freeze and can be buggy, but it should "work" i.e. be usable
+        //  and "ready" :), ready but buggy is better than not ready but perfect :)
         .map( _.responseText )
         .map( (x: String) => {
           decode[V#Res]( x )
