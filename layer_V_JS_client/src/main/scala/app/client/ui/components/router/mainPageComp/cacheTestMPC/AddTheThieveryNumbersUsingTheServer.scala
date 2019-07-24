@@ -1,10 +1,10 @@
 package app.client.ui.components.router.mainPageComp.cacheTestMPC
 
 import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.viewCache.{SumIntViewCache, ViewCacheStates}
+import app.client.ui.caching.viewCache.ViewCacheStates
 import app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView_Par
+import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
@@ -12,6 +12,12 @@ import japgolly.scalajs.react.{CtorType, _}
 import monocle.macros.syntax.lens._
 //import org.scalajs.dom
 import org.scalajs.dom.html.Input
+import io.circe.generic.auto._
+import io.circe.generic.auto._
+import io.circe.parser.decode
+import io.circe.parser._
+import io.circe.syntax._
+import io.circe.{Decoder, Encoder}
 
 
 object AddTheThieveryNumbersUsingTheServer {
@@ -46,10 +52,10 @@ object AddTheThieveryNumbersUsingTheServer {
   def getLineBreaks(i: Int) =
     TagMod(List.fill(i)(<.br).toIterator.toTraversable.toVdomArray)
 
-  class ThieveryUndergroundBackend(bs: BackendScope[CacheInterface, State]) {
+  class ThieveryUndergroundBackend($: BackendScope[CacheInterface, State]) {
 
     def updateState(s2s: State => State): CallbackTo[Unit] = {
-      bs.modState(
+      $.modState(
         (s: State) => {
           val newState: State = s2s(s)
           saveStateIntoInitState(newState)
@@ -59,10 +65,7 @@ object AddTheThieveryNumbersUsingTheServer {
 
     }
 
-    def onChangeFirstNumber(
-                             bs: BackendScope[CacheInterface, State]
-                           )(e: ReactEventFromInput
-                           ): CallbackTo[Unit] = {
+    def onChangeFirstNumber( bs: BackendScope[CacheInterface, State] )(e: ReactEventFromInput ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println(event)
       val target: Input = event.target
@@ -72,10 +75,7 @@ object AddTheThieveryNumbersUsingTheServer {
 
     }
 
-    def onChangeSecondNumber(
-                              bs: BackendScope[CacheInterface, State]
-                            )(e: ReactEventFromInput
-                            ): CallbackTo[Unit] = {
+    def onChangeSecondNumber( bs: BackendScope[CacheInterface, State] )(e: ReactEventFromInput ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println(event)
       val target: Input = event.target
@@ -84,11 +84,11 @@ object AddTheThieveryNumbersUsingTheServer {
       updateState(s => s.copy(tn = s.tn.copy(secondNumber = newValue)))
     }
 
-    def getTheSum(params: SumIntView_Par): String = {
-      val res: Option[
-        ViewCacheStates.ViewCacheState[SumIntView_HolderObject.SumIntView]
-        ] =
-        SumIntViewCache.getSumIntView(params)
+    def getTheSum(props:CacheInterface,params: SumIntView_Par): String = {
+
+      val res: ViewCacheStates.ViewCacheState[SumIntView] =
+        props.readView[SumIntView](params)
+
       res.toString()
     }
 
@@ -105,7 +105,7 @@ object AddTheThieveryNumbersUsingTheServer {
       })
 
 
-    def render(s: State): VdomElement =
+    def render(props: CacheInterface ,s: State): VdomElement =
       <.div(
         <.hr,
         <.h3(
@@ -121,22 +121,22 @@ object AddTheThieveryNumbersUsingTheServer {
           s"The sum of the thievery numbers is : " +
             s"${s.tn.firstNumber + s.tn.secondNumber}"
         ),
-        <.input.number(^.onChange ==> onChangeFirstNumber(bs),
+        <.input.number(^.onChange ==> onChangeFirstNumber($),
           ^.value := s.tn.firstNumber),
-        <.input.number(^.onChange ==> onChangeSecondNumber(bs),
+        <.input.number(^.onChange ==> onChangeSecondNumber($),
           ^.value := s.tn.secondNumber),
         getLineBreaks(5),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         <.br,
 
-        getTheSum(s.sumIntViewPars),
+        getTheSum(props,s.sumIntViewPars),
 
         <.button(
           "ha megnyomod a gombot, kapsz egy ?",
-          ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked(bs) }
+          ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked($) }
         ),
 
-        getTheSum(s.sumIntViewPars),
+//        getTheSum(s.sumIntViewPars),
         <.br,
         "---- itt a mese vege ----",
         <.br
