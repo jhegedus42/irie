@@ -29,7 +29,7 @@ lazy val layer_Z_JVM_and_JS_shared =
     "layer_Z_JVM_and_JS_shared"
   )).settings(
     scalaVersion := Settings.versions.scala,
-    logLevel := Level.Error,
+//    logLevel := Level.Error,
     libraryDependencies ++= Settings.sharedDependencies.value,
     libraryDependencies ++= paradisePlugin.value
   )
@@ -63,7 +63,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     parallelExecution in Test := false,
-    logLevel := Level.Error,
+ //   logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
     jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible
     scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) },
@@ -81,7 +81,7 @@ lazy val layer_Y_JVM_persistence =
     .settings(
       name := "layer_Y_JVM_persistence",
       version := Settings.version,
-      logLevel := Level.Error,
+   //   logLevel := Level.Error,
       libraryDependencies ++= Settings.jvmDependencies.value,
       scalaVersion := Settings.versions.scala
     ).dependsOn( layer_Z_JVM_shared )
@@ -91,7 +91,7 @@ lazy val layer_X_JVM_stateAccess =
     .settings(
       name := "layer_X_JVM_stateAccess",
       version := Settings.version,
-      logLevel := Level.Error,
+ //     logLevel := Level.Error,
       libraryDependencies ++= Settings.jvmDependencies.value,
       scalaVersion := Settings.versions.scala
     ).dependsOn( layer_Y_JVM_persistence % "compile->compile;test->test" )
@@ -102,7 +102,7 @@ lazy val layer_W_JVM_akka_http_server =
     .settings(
       name := "layer_W_JVM_akka_http_server",
       version := Settings.version,
-      logLevel := Level.Error,
+//      logLevel := Level.Error,
       scalaVersion := Settings.versions.scala,
       scalacOptions ++= Settings.scalacOptions,
       libraryDependencies ++= Settings.jvmDependencies.value,
@@ -119,4 +119,4 @@ logBuffered in Test := false
 scalaJSUseMainModuleInitializer in Compile := true
 
 cancelable in Global := true
-logLevel := Level.Error
+//logLevel := Level.Error
