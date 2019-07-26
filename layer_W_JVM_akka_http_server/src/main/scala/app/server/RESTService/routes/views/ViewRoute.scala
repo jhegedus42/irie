@@ -38,7 +38,8 @@ object ViewRoute {
     val routeName: ViewHttpRouteName = ViewHttpRouteNameProvider.getViewHttpRouteName[V]()
 
     val res: Route = {
-      cors() {
+//      cors() { // WHAT IS THIS ??? - DO WE REALLY NEED THIS ??? TODO <===
+
         post {
           // Random UUID: 6642f88b95c44dbea5dcb699d67aef83
           // path( "getSumOfIntsView" ) {
@@ -53,7 +54,7 @@ object ViewRoute {
 
           }
         }
-      }
+//      }
     }
 
     res

@@ -33,10 +33,10 @@ object Settings {
     val scalaCSS = "0.5.5"
     val scalaZ = "7.2.26"
 
-    val akka = "2.5.1"
+    val akka = "2.5.23"
     val in_memory_journal = "2.5.1.1"
 
-    val akkaHttp = "10.1.5"
+    val akkaHttp = "10.1.9"
 
     val monocleVersion = "1.5.0"
 
@@ -59,7 +59,7 @@ object Settings {
       "com.github.julien-truffaut"                     %% "monocle-law" % versions.monocleVersion % "test",
 //      "com.lihaoyi" %%% "pprint" % "0.5.3",
       "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
-      // "com.softwaremill.scalamacrodebug" %% "macros" % "0.4.1"
+      // "com.softwaremill.scalamacrodebug" %% "macros" % "0.4.1" // todo-one-day-maybe
       // https://github.com/JohnReedLOL/pos#Logging // LATER
     ) ++
       Seq(
@@ -72,18 +72,24 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
-      "de.heikoseeberger" %%% "akka-http-circe" % "1.22.0",
-      "ch.megard" %%% "akka-http-cors"          % "0.3.1",
-      "com.github.dnvriend"                     %% "akka-persistence-inmemory" % versions.in_memory_journal,
-      "com.typesafe.akka"                       %% "akka-persistence" % versions.akka,
-      "org.iq80.leveldb"                        % "leveldb" % "0.10",
-      "org.fusesource.leveldbjni"               % "leveldbjni-all" % "1.8",
-      "com.typesafe.akka"                       %% "akka-actor" % versions.akka,
-      "com.typesafe.akka"                       %% "akka-slf4j" % versions.akka,
-      "com.typesafe.akka"                       %% "akka-http" % versions.akkaHttp,
-      "com.typesafe.akka"                       %% "akka-http-testkit" % versions.akkaHttp,
-      "org.slf4j"                               % "slf4j-simple" % "1.7.25",
-      "org.scalatest" %%% "scalatest"           % "3.0.1" % "test"
+      "org.slf4j"                   %   "slf4j-simple"              % "1.7.25",
+      "com.typesafe.akka"           %%  "akka-slf4j"                % versions.akka,
+      "com.typesafe.akka"           %%  "akka-actor"                % versions.akka,
+      "com.typesafe.akka"           %%  "akka-stream-testkit"       % versions.akka,
+      "com.typesafe.akka"           %%  "akka-http"                 % versions.akkaHttp,
+      "com.typesafe.akka"           %%  "akka-http-testkit"         % versions.akkaHttp,
+      "de.heikoseeberger"           %%% "akka-http-circe"           % "1.22.0",
+      "ch.megard"                   %%% "akka-http-cors"            % "0.3.1",
+
+      // akka-persistence :
+      "com.typesafe.akka"           %%  "akka-persistence"          % versions.akka,
+      "com.github.dnvriend"         %%  "akka-persistence-inmemory" % versions.in_memory_journal,
+
+      // leveldb :
+      "org.iq80.leveldb"            %   "leveldb"                   % "0.10",
+      "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8",
+      // scalatest :
+      "org.scalatest"               %%% "scalatest"                 % "3.0.1" % "test"
     )
   )
 
@@ -96,7 +102,8 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "ext-react"  % versions.scalaCSS,
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
-      "org.scalatest" %%% "scalatest"                 % "3.0.1" % "test"
+      "org.scalatest" %%% "scalatest"                 % "3.0.1" % "test",
+      "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0"
     )
   )
 

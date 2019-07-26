@@ -6,6 +6,10 @@ import sbt.Keys._
 import sbt.Project.projectToRef
 //resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
 //resolvers += Resolver.sonatypeRepo("releases")
+//resolvers += Resolver.jcenterRepo
+resolvers += Resolver.JCenterRepository
+//resolvers += Resolver.J
+
 lazy val macroVersion = "2.1.1"
 
 lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
@@ -28,6 +32,19 @@ lazy val layer_Z_JVM_and_JS_shared =
     libraryDependencies ++= Settings.sharedDependencies.value,
     libraryDependencies ++= paradisePlugin.value
   )
+/*
+todo-one-day, maybe, fix the following SBT warning :
+/Users/joco/dev/im/irie/build.sbt:23:
+
+warning:
+lazy value CrossType in object AutoImport is deprecated (since 0.6.23):
+The built-in cross-project feature of sbt-scalajs is deprecated.
+Use the separate sbt plugin sbt-crossproject instead:
+ https://github.com/portable-scala/sbt-crossproject
+  (crossProject.crossType( CrossType.Pure ) in file(
+
+ */
+
 
 lazy val layer_Z_JVM_shared =
   layer_Z_JVM_and_JS_shared.jvm.settings( name := "layer_Z_JVM_shared" )
