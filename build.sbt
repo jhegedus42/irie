@@ -7,8 +7,9 @@ import sbt.Project.projectToRef
 //resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
 //resolvers += Resolver.sonatypeRepo("releases")
 //resolvers += Resolver.jcenterRepo
-resolvers += Resolver.JCenterRepository
+//resolvers += Resolver.JCenterRepository
 //resolvers += Resolver.J
+resolvers += Resolver.bintrayRepo("naetoligug", "maven")
 
 lazy val macroVersion = "2.1.1"
 
