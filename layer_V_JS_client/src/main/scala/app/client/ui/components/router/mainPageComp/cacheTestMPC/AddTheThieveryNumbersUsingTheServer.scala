@@ -5,6 +5,7 @@ import app.client.ui.caching.viewCache.ViewCacheStates
 import app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
+import bootstrap4.TB.C
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
@@ -53,7 +54,12 @@ object AddTheThieveryNumbersUsingTheServer {
   def getLineBreaks(i: Int) =
     TagMod(List.fill(i)(<.br).toIterator.toTraversable.toVdomArray)
 
+  def isThieveryNumber(st:State) : Boolean ={
+    (st.tn.firstNumber==38 && st.tn.secondNumber==45)
+  }
+
   class ThieveryUndergroundBackend($: BackendScope[CacheInterface, State]) {
+
 
     def updateState(s2s: State => State): CallbackTo[Unit] = {
       $.modState(
@@ -106,7 +112,8 @@ object AddTheThieveryNumbersUsingTheServer {
       })
 
 
-    def render(props: CacheInterface ,s: State): VdomElement =
+    def render(props: CacheInterface ,s: State): VdomElement ={
+
       <.div(
         <.hr,
         <.h3(
@@ -136,6 +143,17 @@ object AddTheThieveryNumbersUsingTheServer {
           "ha megnyomod a gombot, kapsz egy ?",
           ^.onClick ==> { (_: ^.onClick.Event) => buttonClicked($) }
         ),
+        "and here we have a bootstrap button (only active for thievery numbers) :"
+        ,
+        <.br,
+        {
+        import bootstrap4.TB.convertableToTagOfExtensionMethods
+        <.button.btn.btnPrimary(
+          "Thing",
+          C.active.when(isThieveryNumber(s)),
+          ^.onClick -->   buttonClicked($)  )
+        },
+        <.br,
 
         getTheSum(props,s.sumIntViewPars),
 
@@ -144,6 +162,7 @@ object AddTheThieveryNumbersUsingTheServer {
         "---- itt a mese vege ----",
         <.br
       )
+    }
   }
 
 }

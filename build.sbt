@@ -6,10 +6,10 @@ import sbt.Keys._
 import sbt.Project.projectToRef
 //resolvers += Resolver.bintrayRepo( "johnreed2", "maven" )
 //resolvers += Resolver.sonatypeRepo("releases")
-//resolvers += Resolver.jcenterRepo
-//resolvers += Resolver.JCenterRepository
 //resolvers += Resolver.J
-ThisBuild / resolvers += Resolver.bintrayRepo("naetoligug", "maven")
+ThisBuild / resolvers += Resolver.jcenterRepo
+ThisBuild / resolvers += Resolver.JCenterRepository
+ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
 
 lazy val macroVersion = "2.1.1"
 
@@ -60,6 +60,9 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     name := "layer_V_JS_client",
     version := Settings.version,
     scalaVersion := Settings.versions.scala,
+//    resolvers += Resolver.jcenterRepo,
+//    resolvers += Resolver.JCenterRepository,
+//    resolvers += Resolver.bintrayRepo("naetoligug", "maven"),
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     parallelExecution in Test := false,
