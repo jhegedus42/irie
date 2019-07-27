@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_lihaoyi_sourcecode_sjs0_6_2_12_0_1_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_github_nafg_css_dsl_bootstrap4_sjs0_6_2_12_0_4_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_js_scalajs_library_2_12_0_6_26_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_github_japgolly_scalajs_react_core_sjs0_6_2_12_1_3_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_github_japgolly_scalajs_react_core_sjs0_6_2_12_1_4_0_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,13 +49,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="227">
-              <caret line="150" column="10" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
+              <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
               <folding>
                 <element signature="e#67#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+              <folding>
+                <element signature="e#74#101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,7 +166,6 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/CacheTestComp.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/css/AppCSS.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/Main.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" />
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
@@ -187,6 +191,7 @@
         <option value="$PROJECT_DIR$/project/Settings.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" />
       </list>
     </option>
   </component>
@@ -530,13 +535,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00060" summary="client state containing map has been written">
-      <created>1562541396383</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1562541396383</updated>
-    </task>
     <task id="LOCAL-00061" summary="some basic CacheInterface is now &quot;ready&quot;&#10;&#10;next step: implement adding thievery numbers in the React &#10;clien">
       <created>1562542045604</created>
       <option name="number" value="00061" />
@@ -873,7 +871,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564174264166</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="bootstrap button compiled">
+      <created>1564189772277</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1564189772278</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -924,7 +929,7 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.39227644" side_tool="true" weight="0.46136534" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.39609903" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" weight="0.39609903" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.36657304" />
@@ -992,7 +997,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="TODO - create a &quot;proper&quot; view cache - using a &quot;real map&quot;, not just a dummy MAP, i.e. an Option" />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (generalized &quot;Map&quot; for type safe caching)" />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (generalized &quot;Map&quot; for type safe caching)&#10;&#10;(ujrainditas elotti safety check-in)" />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (parametrized by a `V&lt;:View` type-parameter)&#10;&#10;code does not compile now ... refactoring, etc ... is in progress" />
@@ -1017,7 +1021,8 @@
     <MESSAGE value="Wednesday, 24 July 2019 4.48.47&#10;&#10;- the app works, the entity cache works&#10;- the view cache works&#10;&#10;- the app freezes if the net drops, no big deal, we do not&#10;deal with this unhappy path now, maybe later, maybe in my&#10;next life&#10;&#10;- cache invalidation is non existent, but we are also not writing&#10;anything, so until then, cache validation is not a big issue&#10;&#10;- next step: load in some more complex queries, such as :&#10;List of User's :) , and maybe do a User CRUD feature :)" />
     <MESSAGE value="trying to get css-dsl working but sbt cannot resolve it" />
     <MESSAGE value="trying to get css-dsl working but sbt cannot resolve it&#10;-changed resolver to bintray, no luck" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to get css-dsl working but sbt cannot resolve it&#10;-changed resolver to bintray, no luck" />
+    <MESSAGE value="bootstrap button compiled" />
+    <option name="LAST_COMMIT_MESSAGE" value="bootstrap button compiled" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/HomeMPC.scala">
@@ -1044,13 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1348,9 +1346,19 @@
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
-          <caret line="150" column="10" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
+          <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
           <folding>
             <element signature="e#67#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <element signature="e#74#101#0" expanded="true" />
           </folding>
         </state>
       </provider>

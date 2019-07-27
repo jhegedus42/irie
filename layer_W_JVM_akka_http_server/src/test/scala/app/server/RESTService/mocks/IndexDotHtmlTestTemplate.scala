@@ -14,12 +14,14 @@ object IndexDotHtmlTestTemplate {
 
     val index_html =
       s"<!DOCTYPE html>" +
-        html(
+        html(lang := "en",
           head(
             title( "IM TEST PAGE" ),
-            meta( httpEquiv := "Content-Type", content := "text/html; charset=UTF-8" )
-//            link( rel := "stylesheet", media := "screen", href := "./www/assets/stylesheets/general.css" ),
-          ),
+            meta( charset := "utf-8"),
+            meta( name := "viewport", content := "width=device-width, initial-scale=1, shrink-to-fit=no" ),
+            link( rel := "stylesheet",
+              media := "screen",
+              href := "./www/bootstrap.min.css") ),
           body( margin := 0 )(
             div( id := "rootComp" ),
 //            div( id := "rootComp2" ),
