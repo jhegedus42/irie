@@ -34,7 +34,7 @@ object Settings {
     val scalaZ = "7.2.26"
 
     val akka = "2.5.23"
-    val in_memory_journal = "2.5.1.1"
+    val in_memory_journal = "2.5.15.2"
 
     val akkaHttp = "10.1.9"
 
