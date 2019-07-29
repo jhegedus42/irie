@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalaz_scalaz_core_2_12_7_2_28_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_github_dnvriend_akka_persistence_inmemory_2_12_2_5_1_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_github_dnvriend_akka_persistence_inmemory_2_12_2_5_15_2_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_persistence_query_2_12_2_5_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__com_typesafe_akka_akka_persistence_query_2_12_2_5_23_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/IM root project-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/runTestServerInSbt_light_cleaning_192.168.2.50.sh" beforeDir="false" afterPath="$PROJECT_DIR$/utils/runTestServerInSbt_light_cleaning_192.168.2.50.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,13 +51,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="210">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="e#111#128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/package.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+              <folding>
+                <element signature="e#1512#1536#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+              <folding>
+                <element signature="e#51#122#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,7 +199,6 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/possibleChildren/cacheTestMainPageComp/package.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/possibleChildren/PossibleChildrenDeclared.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/possibleChildren/package.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/package.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/FooterComp.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/HomeMPC.scala" />
@@ -213,6 +232,7 @@
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/cacheTestMPC/AddTheThieveryNumbersUsingTheServer.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" />
         <option value="$PROJECT_DIR$/project/Settings.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" />
       </list>
     </option>
   </component>
@@ -560,13 +580,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00062" summary="some basic CacheInterface is now &quot;ready&quot;&#10;&#10;next step: implement adding thievery numbers in the React &#10;clien">
-      <created>1562542105315</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1562542105315</updated>
-    </task>
     <task id="LOCAL-00063" summary="commenting out lot of model code">
       <created>1562542361110</created>
       <option name="number" value="00063" />
@@ -903,7 +916,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564204716580</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="bumped a dependency version to have more consistent AKKA &#10;dependency versions (compiler warned me about this)">
+      <created>1564284575546</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1564284575546</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -964,10 +984,10 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" weight="0.3272472" />
-      <window_info anchor="bottom" x="31" y="256" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" weight="0.375" />
+      <window_info active="true" anchor="bottom" x="31" y="256" width="1367" height="562" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" visible="true" weight="0.375" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49812454" weight="0.25842696" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51537883" side_tool="true" weight="0.33567417" />
-      <window_info active="true" anchor="bottom" id="Build" order="11" sideWeight="0.49812454" visible="true" weight="0.4255618" />
+      <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.19101124" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.23760933" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286517" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1023,7 +1043,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="towards a &quot;proper&quot; ViewCache (generalized &quot;Map&quot; for type safe caching)&#10;&#10;(ujrainditas elotti safety check-in)" />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (parametrized by a `V&lt;:View` type-parameter)&#10;&#10;code does not compile now ... refactoring, etc ... is in progress" />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (parametrized by a `V&lt;:View` type-parameter)&#10;&#10;code does not compile now ... refactoring, etc ... is in progress&#10;&#10;Sunday, 21 July 2019 16.07.06 --- commit :&#10;&#10;... cleaned up code a bit in MapForViewCache[ ... ] class&#10;now that class &quot;compiles&quot;, i.e. gives no compilation error." />
     <MESSAGE value="towards a &quot;proper&quot; ViewCache (parametrized by a `V&lt;:View` type-parameter)&#10;&#10;code does not compile now ... refactoring, etc ... is in progress&#10;&#10;Sunday, 21 July 2019 16.07.06 --- commit :&#10;&#10;... cleaned up code a bit in MapForViewCache[ ... ] class&#10;now that class &quot;compiles&quot;, i.e. gives no compilation error.&#10;&#10;&#10;Sunday, 21 July 2019 20.48.53 --- commit :&#10;&#10;added a bit of helper function for logging, i.e. wrapping &#10;boilerplate logging code/strings." />
@@ -1048,28 +1067,10 @@
     <MESSAGE value="trying to get css-dsl working but sbt cannot resolve it&#10;-changed resolver to bintray, no luck" />
     <MESSAGE value="bootstrap button compiled" />
     <MESSAGE value="bootstrap button works !" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap button works !" />
+    <MESSAGE value="bumped a dependency version to have more consistent AKKA &#10;dependency versions (compiler warned me about this)" />
+    <option name="LAST_COMMIT_MESSAGE" value="bumped a dependency version to have more consistent AKKA &#10;dependency versions (compiler warned me about this)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#19#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-core_sjs0.6_2.12/srcs/monocle-core_sjs0.6_2.12-1.5.0-sources.jar!/monocle/package.scala" />
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-sbt/main_2.12/srcs/main_2.12-1.2.8-sources.jar!/sbt/Plugins.scala" />
     <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1150,16 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="e#1512#1536#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1364,10 +1355,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        <state relative-caret-position="210">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
             <element signature="e#111#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComp/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+          <folding>
+            <element signature="e#1512#1536#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalacss/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-0.5.5-sources.jar!/scalacss/internal/Macros.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalacss/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-0.5.5-sources.jar!/scalacss/internal/mutable/StyleSheet.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+          <folding>
+            <element signature="e#51#122#0" expanded="true" />
           </folding>
         </state>
       </provider>
