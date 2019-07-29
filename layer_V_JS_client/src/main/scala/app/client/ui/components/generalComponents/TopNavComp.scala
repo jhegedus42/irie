@@ -49,13 +49,12 @@ object TopNavComp {
       <.header(
         <.nav(
           <.ul(
-//            Style.navMenu,
+            Style.navMenu,
             P.menus.toTagMod { item =>
               <.li(
                 ^.key := item.name,
-//                Style.menuItem(
-//                  item.route.getClass == P.selectedPage.getClass
-//                ), //TODO style it with css-dsl ...
+                Style.menuItem( item.route.getClass == P.selectedPage.getClass ),
+                // TODO style it with css-dsl ...
                 item.name,
                 P.ctrl setOnClick item.route
               )
