@@ -18,30 +18,30 @@ class NotWrapped_CacheTestRootComp_Backend(
 
     val cache = props.cacheInterface
 
-    val lineSeparator: VdomTagOf[Div] = <.div( <.br, "------------", <.br )
+//    val lineSeparator: VdomTagOf[Div] = <.div( <.br, "------------", <.br )
 
     <.div(
-      <.br,
-      AddTheThieveryNumbersUsingTheServer.TheCorporation( cache ),
-      lineSeparator,
-      getLineTextFromCache( cache ),
-      lineSeparator,
-      getLineTextFromCache( cache ),
-      lineSeparator,
-      getLineTextFromCache( cache ),
-      AddTheThieveryNumbersUsingTheClientOnly.TheCorporation()
+//      <.br,
+      AddTheThieveryNumbersUsingTheServer.TheCorporation( cache )
+//      lineSeparator,
+//      getLineTextFromCache( cache )
+//      lineSeparator,
+//      getLineTextFromCache( cache ),
+//      lineSeparator,
+//      getLineTextFromCache( cache ),
+//      AddTheThieveryNumbersUsingTheClientOnly.TheCorporation()
     )
 
   }
 
-  def getLineTextFromCache(cache: CacheInterface ): VdomTagOf[Pre] = {
-    val ref: TypedRef[LineText] =
-      TypedRef.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
-    val rv = cache.readLineText( ref )
-    val s = pprint.apply( rv, width = 50, indent = 2 ).plainText
-    println( s )
-    <.pre( s )
-  }
+//  def getLineTextFromCache(cache: CacheInterface ): VdomTagOf[Pre] = {
+//    val ref: TypedRef[LineText] =
+//      TypedRef.makeWithUUID[LineText]( TestEntities.refValOfLineV0.r.uuid )
+//    val rv = cache.readLineText( ref )
+//    val s = pprint.apply( rv, width = 50, indent = 2 ).plainText
+//    println( s )
+//    <.pre( s )
+//  }
 
 }
 

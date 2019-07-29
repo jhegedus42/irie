@@ -10,6 +10,8 @@ import sbt.Project.projectToRef
 ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
+//ThisBuild / resolvers += Resolver.bintrayRepo("oyvindberg", "ScalablyTyped")
+
 
 lazy val macroVersion = "2.1.1"
 

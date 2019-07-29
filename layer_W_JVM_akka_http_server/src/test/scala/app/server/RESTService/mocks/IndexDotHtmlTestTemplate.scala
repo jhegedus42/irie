@@ -19,14 +19,15 @@ object IndexDotHtmlTestTemplate {
             title( "IM TEST PAGE" ),
             meta( charset := "utf-8"),
             meta( name := "viewport", content := "width=device-width, initial-scale=1, shrink-to-fit=no" ),
-            link( rel := "stylesheet",
+            link(rel := "stylesheet",
               media := "screen",
-              href := "./www/bootstrap.min.css") ),
+              href := "./www/assets/stylesheets/bootstrap/bootstrap.min.css")
+          ),
           body( margin := 0 )(
             div( id := "rootComp" ),
 //            div( id := "rootComp2" ),
             script( `type` := "text/javascript", src := "./node/generated.js/bundle.js" ),
-            script( `type` := "text/javascript", src := "./www/wrapTrace.js" ),
+//            script( `type` := "text/javascript", src := "./www/wrapTrace.js" ),
             script( `type` := "text/javascript", src := js_code_path ),
             script( s"${packageName}.Main().main()" )
           )

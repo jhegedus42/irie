@@ -45,7 +45,7 @@ object TopNavComp {
 
   val component = ScalaComponent
     .builder[Props]( "TopNav" )
-    .render_P { P =>
+    .render_P { P: Props =>
       <.header(
         <.nav(
           <.ul(
@@ -55,7 +55,7 @@ object TopNavComp {
                 ^.key := item.name,
 //                Style.menuItem(
 //                  item.route.getClass == P.selectedPage.getClass
-//                ),
+//                ), //TODO style it with css-dsl ...
                 item.name,
                 P.ctrl setOnClick item.route
               )

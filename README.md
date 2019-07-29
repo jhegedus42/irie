@@ -33,4 +33,6 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
  
 Intermittently, I am running the server on my laptop, <br> 
           and at those times the running app can be viewed at <br>
-          http://commserver.asuscomm.com:8080/
+          http://commserver.asuscomm.com:8080/ <br>
+          or at (if the above one is not working) :<br>
+          http://84.248.82.193:8080/
