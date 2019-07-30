@@ -17,15 +17,11 @@ import scala.reflect.ClassTag
 //  import akka.http.scaladsl.server.directives.PathDirectives.path
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
+//import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-import io.circe.generic.auto._
+import io.circe.generic.auto._ // this cannot be removed, or can it ? TODO-later
 
 object ViewRoute {
-  // Random UUID: 48f0b22025614b9693a1a6e78461037e
-  // commit 3a7d0bc1c81a6f3d8e6aa3b6d286e8e0291af5d5
-  // Date: Sun Sep  2 18:34:49 EEST 2018
-
   def getRouteForView[V <: View](
     )(
       implicit
@@ -38,11 +34,10 @@ object ViewRoute {
     val routeName: ViewHttpRouteName = ViewHttpRouteNameProvider.getViewHttpRouteName[V]()
 
     val res: Route = {
-//      cors() { // WHAT IS THIS ??? - DO WE REALLY NEED THIS ??? TODO <===
+//      cors() { // WHAT IS THIS ??? - DO WE REALLY NEED THIS ??? ===>>> NO, things
+      // seem to work just fine without it
 
         post {
-          // Random UUID: 6642f88b95c44dbea5dcb699d67aef83
-          // path( "getSumOfIntsView" ) {
           val pathName: String = routeName.name
           path( pathName ) {
 
