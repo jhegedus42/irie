@@ -25,9 +25,10 @@ object IndexDotHtmlTestTemplate {
           ),
           body( margin := 0 )(
             div( id := "rootComp" ),
-//            div( id := "rootComp2" ),
             script( `type` := "text/javascript", src := "./node/generated.js/bundle.js" ),
-//            script( `type` := "text/javascript", src := "./www/wrapTrace.js" ),
+            script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/popper.min.js" ),
+            script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/jquery-slim.min.js" ),
+            script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/bootstrap.min.js" ),
             script( `type` := "text/javascript", src := js_code_path ),
             script( s"${packageName}.Main().main()" )
           )

@@ -33,18 +33,23 @@ object TopNavComp {
                 C.navItem,
                 C.navLink,
                 ^.key := item.name,
-                {if(P.selectedPage == item.route) C.active else C.navLink},
+                {
+                  if(P.selectedPage == item.route) C.active
+                    else C.navLink
+                },
                 // todo-now :
                 //  Put the bootstrap navbar button into this file, subtasks:
                 //    1) put the bootstrap javascript / jquery librariers into
                 //       the index.html file. >>>>>>> TICK !!!
                 //    ---------------------------------------------
-                //    2) put these libs into the server generated index.thml file
+                //    2) NOW !!! put these libs into the server generated index.thml file
                 //    ---------------------------------------------
                 //    3) Use ochron's SPA example (clone it, compile it,
                 //       run it).
                 //    ---------------------------------------------
                 //    4) lift the needed from the SPA example code into this file
+                //    ---------------------------------------------
+                //    5) make the navbar stick to the top
                 //
                 item.name,
                 P.ctrl setOnClick item.route
