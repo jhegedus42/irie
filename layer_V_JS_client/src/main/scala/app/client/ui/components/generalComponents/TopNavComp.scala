@@ -26,22 +26,14 @@ object TopNavComp {
     .builder[Props]( "TopNav" )
     .render_P { P: Props =>
       <.header(
-        <.nav(
-          C.navbar,
-          C.navbarDark,
-          C.mb4,
-          C.navbarExpandMd,
-          C.bgDark,
-          <.ul(
-            C.navbarNav,
+        <.nav( C.navbar, C.navbarDark, C.mb4, C.navbarExpandMd, C.bgDark,
+          <.ul( C.navbarNav, C.mrAuto,
             P.menus.toTagMod { item: Menu =>
               <.li(
                 C.navItem,
                 C.navLink,
                 ^.key := item.name,
-//                Style.menuItem( item.route.getClass == P.selectedPage.getClass ),
-                // TODO-one-day ^^^ make this work with bootstrap
-
+                {if(P.selectedPage == item.route) C.active else C.navLink},
                 // todo-now :
                 //  Put the bootstrap navbar button into this file, subtasks:
                 //    1) put the bootstrap javascript / jquery librariers into
@@ -54,7 +46,7 @@ object TopNavComp {
                 //    ---------------------------------------------
                 //    4) lift the needed from the SPA example code into this file
                 //
-                 item.name,
+                item.name,
                 P.ctrl setOnClick item.route
               )
             }

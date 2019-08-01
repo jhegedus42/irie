@@ -83,7 +83,6 @@ case class RouterComp() {
     <.div.apply(
       TopNavComp.apply( TopNavComp.Props.apply( mainMenu, r.page, c ) ),
         r.render.apply()
-//      FooterComp.apply() //
     )
   }
 
