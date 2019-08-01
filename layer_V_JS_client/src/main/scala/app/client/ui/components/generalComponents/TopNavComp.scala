@@ -28,9 +28,10 @@ object TopNavComp {
       <.header(
         <.nav(
           C.navbar,
-          C.navbarLight,
-          C.navbarExpand,
-          C.bgLight,
+          C.navbarDark,
+          C.mb4,
+          C.navbarExpandMd,
+          C.bgDark,
           <.ul(
             C.navbarNav,
             P.menus.toTagMod { item: Menu =>
@@ -44,17 +45,15 @@ object TopNavComp {
                 // todo-now :
                 //  Put the bootstrap navbar button into this file, subtasks:
                 //    1) put the bootstrap javascript / jquery librariers into
-                //       the index.html file.
-                //    2) Use ochron's SPA example for this (clone it, compile it,
-                //       run it, learn from it).
-                //    3) Look at www/examples/bs/index.html:61
-                //    4) Look into what is `<main` there.
-                //    5) Look into relax-ng
-                //    6) Look into relax-ng HTML 5 schema :
-                //        - when I click CMD+B on `<main` then what is that file I get ?
-                //          - look for some IntelliJ plugin for that.
-                //          - look into installing/buying IntelliJ Ultimate for
-                //            webdev/JS support, if needed
+                //       the index.html file. >>>>>>> TICK !!!
+                //    ---------------------------------------------
+                //    2) put these libs into the server generated index.thml file
+                //    ---------------------------------------------
+                //    3) Use ochron's SPA example (clone it, compile it,
+                //       run it).
+                //    ---------------------------------------------
+                //    4) lift the needed from the SPA example code into this file
+                //
                  item.name,
                 P.ctrl setOnClick item.route
               )

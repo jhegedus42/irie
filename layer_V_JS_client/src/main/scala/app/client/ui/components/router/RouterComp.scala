@@ -4,7 +4,7 @@ import app.client.ui.caching.{CacheInjectorHOC, CacheInterface}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComp.{
-  HomeMPC,
+  StaticReactCompPageExampleMPC,
   MainPageDeclaration,
   MainPage_CacheTestDemoPage,
   MainPage_HomePage
@@ -45,7 +45,7 @@ case class RouterComp() {
       )
 
     val homeRoute: dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
-      HomeMPC.apply()
+      StaticReactCompPageExampleMPC.apply()
     )
 
     val cacheTestPageRoute: dsl.Rule =
@@ -77,12 +77,13 @@ case class RouterComp() {
       c: RouterCtl[MainPageDeclaration],
       r: Resolution[MainPageDeclaration]
   ) = {
+    import bootstrap4.TB.C
 
     println( s"page = ${r.page}" )
     <.div.apply(
       TopNavComp.apply( TopNavComp.Props.apply( mainMenu, r.page, c ) ),
-      r.render.apply(),
-      FooterComp.apply() //
+        r.render.apply()
+//      FooterComp.apply() //
     )
   }
 
