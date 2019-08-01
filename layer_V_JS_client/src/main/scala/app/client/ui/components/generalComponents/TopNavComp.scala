@@ -42,14 +42,20 @@ object TopNavComp {
                 //    1) put the bootstrap javascript / jquery librariers into
                 //       the index.html file. >>>>>>> TICK !!!
                 //    ---------------------------------------------
-                //    2) NOW !!! put these libs into the server generated index.thml file
+                //    2) put these libs into the server generated index.thml file
+                //       >>>>>> TIKKKK !!!
                 //    ---------------------------------------------
-                //    3) Use ochron's SPA example (clone it, compile it,
+                //    3) use the bootstrap example index.html as "inspiration" to
+                //       generate the collapse button.
+                //    |
+                //    |  IF this does not work, then continue, but this "should"
+                //    |     "work", in principle
+                //    |
+                //    ---------------------------------------------
+                //    4) Use ochron's SPA example (clone it, compile it,
                 //       run it).
                 //    ---------------------------------------------
-                //    4) lift the needed from the SPA example code into this file
-                //    ---------------------------------------------
-                //    5) make the navbar stick to the top
+                //    5) lift the needed from the SPA example code into this file
                 //
                 item.name,
                 P.ctrl setOnClick item.route
