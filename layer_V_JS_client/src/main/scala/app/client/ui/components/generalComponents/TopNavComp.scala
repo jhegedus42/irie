@@ -22,48 +22,83 @@ object TopNavComp {
   implicit val currentPageReuse = Reusability.by_==[MainPageDeclaration]
   implicit val propsReuse = Reusability.by( (_: Props).selectedPage )
 
-  val component = ScalaComponent
-    .builder[Props]( "TopNav" )
-    .render_P { P: Props =>
-      <.header(
-        <.nav( C.navbar, C.navbarDark, C.mb4, C.navbarExpandMd, C.bgDark,
-          <.ul( C.navbarNav, C.mrAuto,
-            P.menus.toTagMod { item: Menu =>
-              <.li(
-                C.navItem,
-                C.navLink,
-                ^.key := item.name,
-                {
-                  if(P.selectedPage == item.route) C.active
-                    else C.navLink
-                },
-                // todo-now :
-                //  Put the bootstrap navbar button into this file, subtasks:
-                //    1) put the bootstrap javascript / jquery librariers into
-                //       the index.html file. >>>>>>> TICK !!!
-                //    ---------------------------------------------
-                //    2) put these libs into the server generated index.thml file
-                //       >>>>>> TIKKKK !!!
-                //    ---------------------------------------------
-                //    3) use the bootstrap example index.html as "inspiration" to
-                //       generate the collapse button.
-                //    |
-                //    |  IF this does not work, then continue, but this "should"
-                //    |     "work", in principle
-                //    |
-                //    ---------------------------------------------
-                //    4) Use ochron's SPA example (clone it, compile it,
-                //       run it).
-                //    ---------------------------------------------
-                //    5) lift the needed from the SPA example code into this file
-                //
-                item.name,
-                P.ctrl setOnClick item.route
-              )
-            }
+  val buttonInNavbar= {
+
+    import bootstrap4.TB._
+
+//    <.button.navbarToggler(
+//      ^.`type` := "button",
+//      ^.
+//      ^.aria.controls := C.navbarCollapse,
+//      ^.aria.expanded := "false",
+//      ^.aria.label := "Toggle Navigation")
+//
+//    )
+
+
+
+
+  }
+
+  private def pagesInNavbar(P: Props) = {
+    P.menus.toTagMod { item: Menu =>
+      <.li(
+        C.navItem,
+        C.navLink,
+        ^.key := item.name,
+        {
+          if (P.selectedPage == item.route) C.active
+          else C.navLink
+        },
+        //
+        item.name,
+        P.ctrl setOnClick item.route
+      )
+    }
+  }
+
+  private def navigatorOriginal(P: Props) = {
+    import bootstrap4.TB._
+    <.header(
+      <.nav(C.navbar, C.navbarDark, C.mb4, C.navbarExpandMd, C.bgDark,
+
+        <.button.btn(
+          C.navbarToggler, ^.`type` := "button",
+
+      //data-toggle="collapse"        <<<< === I need to put this here in by hand.
+      //data-target="#navbarCollapse" <<<< === I need to put this her in by hand.
+
+          ^.aria.controls := "navbarCollapse",
+          ^.aria.expanded := "false",
+          ^.aria.label :="toggle navigation",
+          <.span(C.navbarTogglerIcon)
+        ),
+        <.div(C.collapse,C.navbarCollapse, ^.id := "navbarCollapse",
+          <.ul(C.navbarNav, C.mrAuto, pagesInNavbar(P))
+        )
+      )
+    )
+  }
+
+  def navigatorFromOchrons(P:Props)=
+    <.div(
+      // here we use plain Bootstrap class names as these are specific to the top level layout defined here
+      <.nav(^.className := "navbar navbar-inverse navbar-fixed-top",
+        <.div(^.className := "container",
+          <.div(^.className := "navbar-header", <.span(^.className := "navbar-brand", "SPA Tutorial")),
+          <.div(^.className := "collapse navbar-collapse",
+            pagesInNavbar(P),
+            "ochrons"
           )
         )
       )
+    )
+
+  val component = ScalaComponent
+    .builder[Props]( "TopNav" )
+    .render_P { P: Props =>
+      navigatorOriginal(P)
+//      navigatorFromOchrons(P)
     }
     .configure( Reusability.shouldComponentUpdate )
     .build
