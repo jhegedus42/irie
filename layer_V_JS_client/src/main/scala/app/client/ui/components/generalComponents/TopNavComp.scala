@@ -67,9 +67,6 @@ object TopNavComp {
           ^.`type` := "button",
           VdomAttr("data-toggle") := "collapse",
           VdomAttr("data-target") := "#navbarCollapse",
-      // TODO :
-      //data-toggle="collapse"        <<<< === I need to put this here in by hand.
-      //data-target="#navbarCollapse" <<<< === I need to put this her in by hand.
 
           ^.aria.controls := "navbarCollapse",
           ^.aria.expanded := "false",
