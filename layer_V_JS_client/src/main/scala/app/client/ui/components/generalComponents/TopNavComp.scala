@@ -64,7 +64,7 @@ object TopNavComp {
 
         <.button.btn(
           C.navbarToggler, ^.`type` := "button",
-
+      // TODO :
       //data-toggle="collapse"        <<<< === I need to put this here in by hand.
       //data-target="#navbarCollapse" <<<< === I need to put this her in by hand.
 
