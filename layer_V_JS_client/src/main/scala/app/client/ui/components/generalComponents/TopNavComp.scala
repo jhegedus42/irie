@@ -63,7 +63,10 @@ object TopNavComp {
       <.nav(C.navbar, C.navbarDark, C.mb4, C.navbarExpandMd, C.bgDark,
 
         <.button.btn(
-          C.navbarToggler, ^.`type` := "button",
+          C.navbarToggler,
+          ^.`type` := "button",
+          VdomAttr("data-toggle") := "collapse",
+          VdomAttr("data-target") := "#navbarCollapse",
       // TODO :
       //data-toggle="collapse"        <<<< === I need to put this here in by hand.
       //data-target="#navbarCollapse" <<<< === I need to put this her in by hand.
