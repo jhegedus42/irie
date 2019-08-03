@@ -6,7 +6,7 @@ import app.server.persistence.ApplicationState
 import app.server.persistence.persActor.Commands.{CreateEntityPACommand, CreateEntityPAResponse, GetStatePACommand, GetStatePAResponse}
 import app.server.persistence.persActor.IMPersistentActor
 import app.shared.SomeError_Trait
-import app.shared.data.model.LineText
+import app.shared.data.model.Note
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
 import scalaz.{\/, \/-}
 
@@ -25,7 +25,7 @@ class IMPersistentActorTest
   }
 
   "Actor" should {
-    val el = LineText(text="testText")
+    val el = Note(content="testText")
 
     "create an entity and preserve it after restart" in {
       import app.server.persistence.persActor.Shutdown

@@ -14,7 +14,7 @@ import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_Holde
 import app.server.stateAccess.generalQueries.InterfaceToStateAccessor
 import app.shared.config.Config
 import app.shared.data.model.Entity.Entity
-import app.shared.data.model.{LineText, User, LineList}
+import app.shared.data.model.{Note, User, NoteFolder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -143,8 +143,8 @@ trait HttpServer_For_ImageMemory_App {
     val result: Route =
       routeForSumIntView ~
         SumIntViewRoute_For_Testing.route ~
-        crudEntityRoute[LineText] ~
-        crudEntityRoute[LineList] ~
+        crudEntityRoute[Note] ~
+        crudEntityRoute[NoteFolder] ~
         crudEntityRoute[User] ~
         StaticStuff.staticRootFactory( rootPageHtml )
 

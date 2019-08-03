@@ -7,7 +7,7 @@ import app.testHelpersShared.data.TestEntities
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.ref.UUID_Utils.UUID
 import app.shared.data.ref.{RefVal, TypedRef, Version}
-import app.shared.data.model.{LineText, TypeAsString}
+import app.shared.data.model.{Note, TypeAsString}
 import app.shared.{
   EntityDoesNotExistError,
   EntityIsNotUpdateableError,
@@ -41,10 +41,10 @@ trait EntityServiceTest_BaseTrait
     (aw == exp) && (aw.isRight)
   }
 
-  private[this] def newRefValLine(uuid: UUID ): RefVal[LineText] = {
-    val r = TypedRef.makeWithUUID[LineText]( uuid = uuid )
-    val line:   LineText = LineText( text = "text" )
-    val refVal: RefVal[LineText] = RefVal( r, line, Version() )
+  private[this] def newRefValLine(uuid: UUID ): RefVal[Note] = {
+    val r = TypedRef.makeWithUUID[Note]( uuid = uuid )
+    val line:   Note = Note( content = "text" )
+    val refVal: RefVal[Note] = RefVal( r, line, Version() )
     return refVal
   }
 
@@ -57,11 +57,11 @@ trait EntityServiceTest_BaseTrait
         getEntityService(
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
-      val r: TypedRef[LineText] =
-        TypedRef[LineText]( dataType = TypeAsString( "kamu" ) )
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mock.getEntity[LineText]( r )
-      val ar: \/[SomeError_Trait, RefVal[LineText]] =
+      val r: TypedRef[Note] =
+        TypedRef[Note]( dataType = TypeAsString( "kamu" ) )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mock.getEntity[Note]( r )
+      val ar: \/[SomeError_Trait, RefVal[Note]] =
         Await.result( res, 2 seconds )
       assert( ar.isLeft )
       mock.shutDownService()
@@ -73,7 +73,7 @@ trait EntityServiceTest_BaseTrait
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
 
-      isEntityPresentByGetEntity[LineText](
+      isEntityPresentByGetEntity[Note](
         mockEs,
         newRefValLine( TestEntities.theUUIDofTheLine )
       )
@@ -87,7 +87,7 @@ trait EntityServiceTest_BaseTrait
         )
 
       assert(
-        !isEntityPresentByGetEntity[LineText](
+        !isEntityPresentByGetEntity[Note](
           mockEs,
           newRefValLine( TestEntities.theUUIDofTheLine_incorrect )
         )
@@ -109,17 +109,17 @@ trait EntityServiceTest_BaseTrait
         getEntityService(
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
-      val line: LineText = LineText( text = "test" )
+      val line: Note = Note( content = "test" )
 
-      val r: TypedRef[LineText] =
-        TypedRef[LineText]( dataType = TypeAsString( "kamu" ) )
+      val r: TypedRef[Note] =
+        TypedRef[Note]( dataType = TypeAsString( "kamu" ) )
       val refVal_updateToThis
-          : RefVal[LineText] = RefVal( r, line, Version() ) // tetszoleges verziora ennek fail-elnie kell
+          : RefVal[Note] = RefVal( r, line, Version() ) // tetszoleges verziora ennek fail-elnie kell
 
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mockES.updateEntity[LineText]( refVal_updateToThis )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mockES.updateEntity[Note]( refVal_updateToThis )
 
-      val ar: \/[SomeError_Trait, RefVal[LineText]] =
+      val ar: \/[SomeError_Trait, RefVal[Note]] =
         Await.result( res, 200 seconds )
       println( ar.toEither.left.get )
 
@@ -131,16 +131,16 @@ trait EntityServiceTest_BaseTrait
 
     "complain if the to-be-updated entity does not exist -1" in {
       val mock = getEntityService( ApplicationState() )
-      val r = TypedRef.makeWithUUID[LineText](
+      val r = TypedRef.makeWithUUID[Note](
         uuid = UUID( TestEntities.theUUIDofTheLine )
       )
 
-      val line: LineText = LineText( text = "test" )
+      val line: Note = Note( content = "test" )
 
-      val refVal: RefVal[LineText] = RefVal( r, line, Version() )
+      val refVal: RefVal[Note] = RefVal( r, line, Version() )
 
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mock.updateEntity[LineText]( refVal )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mock.updateEntity[Note]( refVal )
 
       val ar = Await.result( res, 20 seconds )
 
@@ -164,16 +164,16 @@ trait EntityServiceTest_BaseTrait
         getEntityService(
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
-      val r = TypedRef.makeWithUUID[LineText](
+      val r = TypedRef.makeWithUUID[Note](
         uuid = UUID( TestEntities.theUUIDofTheLine_incorrect )
       )
 
-      val line: LineText = LineText( text = "test" )
+      val line: Note = Note( content = "test" )
 
-      val refVal: RefVal[LineText] = RefVal( r, line, Version() )
+      val refVal: RefVal[Note] = RefVal( r, line, Version() )
 
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mock.updateEntity[LineText]( refVal )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mock.updateEntity[Note]( refVal )
 
       val ar = Await.result( res, 2 seconds )
       assert( ar.isLeft )
@@ -192,16 +192,16 @@ trait EntityServiceTest_BaseTrait
         getEntityService(
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
-      val r = TypedRef.makeWithUUID[LineText](
+      val r = TypedRef.makeWithUUID[Note](
         uuid = UUID( TestEntities.theUUIDofTheLine )
       )
 
-      val line: LineText = LineText( text = "test" )
+      val line: Note = Note( content = "test" )
 
-      val refVal: RefVal[LineText] = RefVal( r, line, Version().inc() )
+      val refVal: RefVal[Note] = RefVal( r, line, Version().inc() )
 
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mock.updateEntity[LineText]( refVal )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mock.updateEntity[Note]( refVal )
 
       val ar = Await.result( res, 2 seconds )
       assert( ar.isLeft )
@@ -223,16 +223,16 @@ trait EntityServiceTest_BaseTrait
         getEntityService(
           TestData.TestState_LabelTwo_OneLine_WithVersionOne_nothing_else
         )
-      val r = TypedRef.makeWithUUID[LineText](
+      val r = TypedRef.makeWithUUID[Note](
         uuid = UUID( TestEntities.theUUIDofTheLine )
       )
 
-      val line: LineText = LineText( text = "test" )
+      val line: Note = Note( content = "test" )
 
-      val refVal: RefVal[LineText] = RefVal( r, line, Version() )
+      val refVal: RefVal[Note] = RefVal( r, line, Version() )
 
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
-        mock.updateEntity[LineText]( refVal )
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
+        mock.updateEntity[Note]( refVal )
 
       val ar = Await.result( res, 2 seconds )
       assert( ar.isLeft )
@@ -260,33 +260,33 @@ trait EntityServiceTest_BaseTrait
 
   }
 
-  def testUpdate(l: RefVal[LineText], mock: InterfaceToStateAccessor ) = {
+  def testUpdate(l: RefVal[Note], mock: InterfaceToStateAccessor ) = {
 
-    val originalTitle_v0: RefVal[LineText] = l
-    val notExisting: RefVal[LineText] = newRefValLine(
+    val originalTitle_v0: RefVal[Note] = l
+    val notExisting: RefVal[Note] = newRefValLine(
       TestEntities.theUUIDofTheLine_incorrect
     )
 
     import monocle.macros.syntax.lens._
 
-    val updatedTitle_v0: RefVal[LineText] =
-      originalTitle_v0.lens( _.v.text ).set( "helloTEXTNEW" )
+    val updatedTitle_v0: RefVal[Note] =
+      originalTitle_v0.lens( _.v.content ).set( "helloTEXTNEW" )
     //atirjuk a title-t hello-ra
-    val updatedTitle_v1: RefVal[LineText] = updatedTitle_v0
+    val updatedTitle_v1: RefVal[Note] = updatedTitle_v0
       .lens( _.version )
       .modify( _.inc() ) //megnoveljuk a verzioszamot
 
     //elotte
 
-    assert( isEntityPresentByGetEntity[LineText]( mock, originalTitle_v0 ) ) //jelen van
+    assert( isEntityPresentByGetEntity[Note]( mock, originalTitle_v0 ) ) //jelen van
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, notExisting ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, notExisting ) ) // nincs jelen
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, updatedTitle_v0 ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, updatedTitle_v0 ) ) // nincs jelen
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, updatedTitle_v1 ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, updatedTitle_v1 ) ) // nincs jelen
 
-    val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
+    val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
       mock.updateEntity( updatedTitle_v0 )
 
     // utana
@@ -296,13 +296,13 @@ trait EntityServiceTest_BaseTrait
     assert( aw == expected )
     assert( aw.isRight )
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, originalTitle_v0 ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, originalTitle_v0 ) ) // nincs jelen
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, notExisting ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, notExisting ) ) // nincs jelen
 
-    assert( !isEntityPresentByGetEntity[LineText]( mock, updatedTitle_v0 ) ) // nincs jelen
+    assert( !isEntityPresentByGetEntity[Note]( mock, updatedTitle_v0 ) ) // nincs jelen
 
-    assert( isEntityPresentByGetEntity[LineText]( mock, updatedTitle_v1 ) ) // jelen van
+    assert( isEntityPresentByGetEntity[Note]( mock, updatedTitle_v1 ) ) // jelen van
   }
 
   "createEntity " should {
@@ -314,16 +314,16 @@ trait EntityServiceTest_BaseTrait
 
       // csinalunk itt vmi line-t
 
-      val line = LineText( text = "test" )
+      val line = Note( content = "test" )
       // assert ilyen line nincsen
       val r1 = Await.result( mock.doesEntityExist( line ), 2 seconds )
       assert( !r1 )
-      val res: Future[\/[SomeError_Trait, RefVal[LineText]]] =
+      val res: Future[\/[SomeError_Trait, RefVal[Note]]] =
         mock.createEntity( line )
-      val aw: \/[SomeError_Trait, RefVal[LineText]] =
+      val aw: \/[SomeError_Trait, RefVal[Note]] =
         Await.result( res, 2 seconds )
       assert( aw.isRight )
-      val rw: RefVal[LineText] = aw.toEither.right.get
+      val rw: RefVal[Note] = aw.toEither.right.get
       val r2 = Await.result( mock.doesEntityExist( line ), 2 seconds )
       assert( r2 )
       testUpdate( rw, mock )
@@ -339,8 +339,8 @@ trait EntityServiceTest_BaseTrait
           TestData.TestState_LabelOne_OneLine_WithVersionZero_nothing_else
         )
 
-      val r: \/[SomeError_Trait, List[RefVal[LineText]]] =
-        Await.result( mockEs.getAllEntitiesOfGivenType[LineText], 2 seconds )
+      val r: \/[SomeError_Trait, List[RefVal[Note]]] =
+        Await.result( mockEs.getAllEntitiesOfGivenType[Note], 2 seconds )
 //      r shouldBe \/-
       r.toEither.right.get shouldBe List(
         TestData.LabelOneEntities.lineInState

@@ -1,7 +1,7 @@
 package app.shared.rest.routes.crudRequests
 
 import app.shared.data.model.Entity.{Data, Entity}
-import app.shared.data.model.{LineText, User}
+import app.shared.data.model.{Note, User}
 import app.shared.data.ref.{TypedRef, RefVal}
 import io.circe
 

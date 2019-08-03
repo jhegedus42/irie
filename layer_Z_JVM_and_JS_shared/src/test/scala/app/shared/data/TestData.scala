@@ -1,6 +1,6 @@
 package app.shared.data
 
-import app.shared.data.model.{LineList, LineText, User}
+import app.shared.data.model.{NoteFolder, Note, User}
 import app.shared.data.ref.TypedRef
 
 object TestData {
@@ -12,7 +12,7 @@ object TestData {
 
 //  EXT KELLL ITT MEGBUHERALNI ^^^^^^^^^^^^^^^^^^^^^
 
-  val lineText1=LineText("lineText1")
+  val lineText1=Note("lineText1")
 
 
   // 1 User

@@ -2,7 +2,7 @@ package app.testHelpersServer.state
 
 import app.server.persistence.ApplicationState
 import app.shared.SomeError_Trait
-import app.shared.data.model.LineText
+import app.shared.data.model.Note
 import app.shared.data.ref.{RefVal, Version}
 import app.shared.data.utils.PrettyPrint
 import app.testHelpersShared.data.TestDataLabels.{LabelOne, LabelThree, LabelTwo, TestDataLabel}
@@ -27,7 +27,7 @@ import scalaz.\/
 
 
     object LabelOneEntities{
-      val lineInState: RefVal[LineText] = refValOfLineV0
+      val lineInState: RefVal[Note] = refValOfLineV0
     }
 
 

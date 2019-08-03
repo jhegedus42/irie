@@ -5,7 +5,7 @@ import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
 import app.client.ui.caching.viewCache.ViewCache
 import app.client.ui.caching.viewCache.ViewCacheStates.ViewCacheState
 import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-import app.shared.data.model.LineText
+import app.shared.data.model.Note
 import app.shared.data.ref.TypedRef
 import io.circe.generic.auto._
 import io.circe.{Decoder, Encoder}
@@ -17,11 +17,11 @@ class CacheInterface()  {
 
   val theNumber=0.38
 
-  private lazy val cacheLineText: EntityCache[LineText] =
-    new EntityCache[LineText]( )
+  private lazy val cacheLineText: EntityCache[Note] =
+    new EntityCache[Note]( )
 
-  def readLineText( ref: TypedRef[LineText] ): EntityCacheState[LineText] = {
-    val res: EntityCacheState[LineText] = cacheLineText.readEntity( ref )
+  def readLineText( ref: TypedRef[Note] ): EntityCacheState[Note] = {
+    val res: EntityCacheState[Note] = cacheLineText.readEntity( ref )
     res
   }
 
