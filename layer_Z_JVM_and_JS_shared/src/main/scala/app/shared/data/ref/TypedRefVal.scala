@@ -15,11 +15,13 @@ case class Version(l: Long = 0 ) {
   def inc(): Version = this.copy( l = this.l + 1 )
 }
 
+case class DeletedFlag(isDeleted:Boolean)
+
 /**
   * Created by joco on 28/04/2017.
   */
 @Lenses
-case class RefVal[T <: Entity](r: TypedRef[T], v: T, version: Version ) {
+case class RefVal[T <: Entity](r: TypedRef[T], v: T, version: Version, isDeleted:DeletedFlag = DeletedFlag(false) ) {
   def map(f: T => T ): RefVal[T] = copy( v = f( v ) )
 
   override def toString: String = super.toString
