@@ -3,15 +3,15 @@ package app.client.ui.components.router
 import app.client.ui.caching.{CacheInjectorHOC, CacheInterface}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.components.router.mainPageComp.{
-  StaticReactCompPageExampleMPC,
-  MainPageDeclaration,
-  MainPage_CacheTestDemoPage,
-  MainPage_HomePage
+import app.client.ui.components.router.mainPageComponents.{
+  StaticPageExample,
+  MainPage,
+  CacheTestDemoPage,
+  HomePage
 }
-import app.client.ui.components.router.mainPageComp.cacheTestMPC.{
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{
   CacheTestComp,
-  CacheTest_RootComp_Props
+  SumNumbersExample_Props
 }
 import japgolly.scalajs.react.extra.router.{
   Resolution,
@@ -33,23 +33,23 @@ case class RouterComp() {
 
   val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp )
 
-  val config = RouterConfigDsl[MainPageDeclaration].buildConfig { dsl =>
+  val config = RouterConfigDsl[MainPage].buildConfig { dsl =>
     import dsl._
 
     val wr =
       wrapped_cachTestRootComp.wrapperConstructor(
-        CacheTest_RootComp_Props.apply(
+        SumNumbersExample_Props.apply(
           "These are the props via the wrapper",
           cacheInterface = cache
         )
       )
 
-    val homeRoute: dsl.Rule = staticRoute( root, MainPage_HomePage ) ~> render(
-      StaticReactCompPageExampleMPC.apply()
+    val homeRoute: dsl.Rule = staticRoute( root, HomePage ) ~> render(
+      StaticPageExample.apply()
     )
 
     val cacheTestPageRoute: dsl.Rule =
-      staticRoute( "#cacheTest", MainPage_CacheTestDemoPage ) ~>
+      staticRoute( "#cacheTest", CacheTestDemoPage ) ~>
         render( {
           wr
         } )
@@ -58,14 +58,14 @@ case class RouterComp() {
       | homeRoute
       | cacheTestPageRoute)
       .notFound(
-        redirectToPage( MainPage_HomePage )( Redirect.Replace )
+        redirectToPage( HomePage )( Redirect.Replace )
       )
       .renderWith( f = layout )
   }
 
   val mainMenu = Vector.apply(
-    Menu.apply( "Home", MainPage_HomePage ),
-    Menu.apply( "CacheTest", MainPage_CacheTestDemoPage )
+    Menu.apply( "Home", HomePage ),
+    Menu.apply( "CacheTest", CacheTestDemoPage )
   )
 
   val baseUrl = BaseUrl.fromWindowOrigin_/
@@ -74,15 +74,16 @@ case class RouterComp() {
     Router.apply( baseUrl, config )
 
   def layout(
-      c: RouterCtl[MainPageDeclaration],
-      r: Resolution[MainPageDeclaration]
+              c: RouterCtl[MainPage],
+              r: Resolution[MainPage]
   ) = {
     import bootstrap4.TB.C
 
     println( s"page = ${r.page}" )
     <.div.apply(
       TopNavComp.apply( TopNavComp.Props.apply( mainMenu, r.page, c ) ),
-        r.render.apply()
+        r.render.apply(),
+      FooterComp()
     )
   }
 

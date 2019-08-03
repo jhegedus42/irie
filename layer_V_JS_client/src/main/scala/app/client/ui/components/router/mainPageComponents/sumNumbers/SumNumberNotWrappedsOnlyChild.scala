@@ -1,21 +1,28 @@
-package app.client.ui.components.router.mainPageComp.cacheTestMPC
+package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.CacheInterface
 import app.client.ui.caching.viewCache.ViewCacheStates
-import app.client.ui.components.router.mainPageComp.cacheTestMPC
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
 import bootstrap4.TB.C
+import io.circe.generic.auto._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react.{CtorType, _}
-import org.scalajs.dom
+import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
-import io.circe.generic.auto._
+import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
-object AddTheThieveryNumbersUsingTheServer {
+@Lenses
+private[sumNumbers] case class TheThieveryNumber(firstNumber: Int, secondNumber: Int )
 
-  type State = OurState
+@Lenses
+private[sumNumbers] case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )
+
+
+private[sumNumbers] object SumNumberCompInjected {
+
+  private type State = OurState
 
   private var initialState = {
     val tn = TheThieveryNumber( 38, 45 )
@@ -23,9 +30,9 @@ object AddTheThieveryNumbersUsingTheServer {
     OurState( tn, siwp )
   }
 
-  val TheCorporation: Component[
+  private[sumNumbers] val TheCorporation: Component[
     CacheInterface,
-    cacheTestMPC.AddTheThieveryNumbersUsingTheServer.State,
+    SumNumberCompInjected.State,
     ThieveryUndergroundBackend,
     CtorType.Props
   ] = {
@@ -43,7 +50,7 @@ object AddTheThieveryNumbersUsingTheServer {
     *
     * @param s
     */
-  def saveStateIntoInitState( s: State ): Unit = {
+  private def saveStateIntoInitState( s: State ): Unit = {
     initialState = s
   }
 
@@ -52,14 +59,14 @@ object AddTheThieveryNumbersUsingTheServer {
     * @param i number of newlines to be created.
     * @return `i` newlines.
     */
-  def br(i: Int ) =
+  private def br(i: Int ) =
     TagMod( List.fill( i )( <.br ).toIterator.toTraversable.toVdomArray )
 
-  def isThieveryNumber( st: State ): Boolean = {
+  private def isThieveryNumber( st: State ): Boolean = {
     (st.tn.firstNumber == 38 && st.tn.secondNumber == 45)
   }
 
-  def showLibaCombAlert: Callback =
+  private def showLibaCombAlert: Callback =
     Callback( {
 
       dom.window.alert( "LibaComb !" )
@@ -73,7 +80,7 @@ object AddTheThieveryNumbersUsingTheServer {
     * @param params
     * @return
     */
-  def calculateSumOnServer(
+  private def calculateSumOnServer(
       props:  CacheInterface,
       params: SumIntView_Par
   ): String = {
@@ -144,18 +151,6 @@ object AddTheThieveryNumbersUsingTheServer {
           ^.onClick --> showLibaCombAlert
         ),
         <.br
-//        getLineBreaks( 2 ),
-//        s"The only two known Thievery Numbers are the following (discovered by The Corporation):",
-//        <.br,
-//        "The smallest Thievery Number (so far discovered) is : ${s.tn.firstNumber}",
-//        <.br,
-//        "The largest Thievery Number (so far discovered) is : ${s.tn.secondNumber} ",
-//        <.br,
-//        "Note that there might be more than these two, so far discovered, Thievery Numbers.",
-//        <.br,
-//        "If you suspect that you have discovered a new (so far not yet discovered Thievery Number," +
-//          "please call immediately your nearest Thievery Corporation. Your life might be in danger!",
-//        getLineBreaks( 2 )
       )
 
     def numberFields( s: State ): VdomElement =

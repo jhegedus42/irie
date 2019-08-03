@@ -25,6 +25,7 @@ lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
 
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 
+
 // a special crossProject for configuring a JS/JVM/shared structure
 lazy val layer_Z_JVM_and_JS_shared =
   (crossProject.crossType( CrossType.Pure ) in file(
@@ -74,7 +75,7 @@ lazy val layer_V_JS_client: Project = (project in file( "layer_V_JS_client" ))
     scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) },
     scalaJSLinkerConfig ~= { _.withOptimizer( false ) }
   ) // see this page for details : https://www.scala-js.org/doc/project/building.html#disabling-the-optimizations
-  .enablePlugins( ScalaJSPlugin)
+  .enablePlugins( ScalaJSPlugin )
 //  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
   .dependsOn( layer_Z_JS_shared % "compile->compile" )
 

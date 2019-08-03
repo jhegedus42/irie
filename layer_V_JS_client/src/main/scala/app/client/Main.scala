@@ -1,6 +1,7 @@
 package app.client
 import app.client.ui.components.router.RouterComp
 import app.client.ui.css.AppCSS
+import app.shared.utils.MacroExampleMakeHelloWorld
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
 
@@ -21,7 +22,9 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
+    @MacroExampleMakeHelloWorld val x: String = "Welcome and"
     println( "hello sbt 1.2.8" )
+    println( x )
     setupLogging()
     routedApp()
   }

@@ -6,11 +6,11 @@ import japgolly.scalajs.react.vdom.html_<^._
 object FooterComp {
 
   val component = ScalaComponent.builder
-    .static( "Footer" )(
-      <.footer.apply(
+    .static( "Footer 42" )(
+      <.footer(
         ^.textAlign.center,
-        <.div.apply( ^.borderBottom := "1px solid grey", ^.padding := "0px" ),
-        <.p.apply( ^.paddingTop := "5px", "Footer" )
+        <.div( ^.borderBottom := "1px solid grey", ^.padding := "0px" ),
+        <.p( ^.paddingTop := "5px", "Footer" )
       )
     )
     .build

@@ -1,5 +1,5 @@
 package app.client.ui.components.generalComponents
-import app.client.ui.components.router.mainPageComp.MainPageDeclaration
+import app.client.ui.components.router.mainPageComponents.MainPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -12,14 +12,14 @@ object TopNavComp {
 
 
   // this is used in the props
-  case class Menu(name: String, route: MainPageDeclaration )
+  case class Menu(name: String, route: MainPage )
 
   case class Props(
-      menus:        Vector[Menu],
-      selectedPage: MainPageDeclaration,
-      ctrl:         RouterCtl[MainPageDeclaration])
+                    menus:        Vector[Menu],
+                    selectedPage: MainPage,
+                    ctrl:         RouterCtl[MainPage])
 
-  implicit val currentPageReuse = Reusability.by_==[MainPageDeclaration]
+  implicit val currentPageReuse = Reusability.by_==[MainPage]
   implicit val propsReuse = Reusability.by( (_: Props).selectedPage )
 
   val buttonInNavbar= {
