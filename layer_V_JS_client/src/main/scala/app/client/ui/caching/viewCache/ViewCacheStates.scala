@@ -9,6 +9,12 @@ object ViewCacheStates {
         case ViewLoading( _ )   => true
         case ViewLoaded( _, _ ) => false
       }
+
+    def toOption: Option[V#Res] =
+      this match {
+        case ViewLoading( _ )     => Option.empty
+        case ViewLoaded( _, res ) => Some(res)
+      }
   }
   case class ViewLoading[V <: View](viewParam: V#Par ) extends ViewCacheState[V]
 

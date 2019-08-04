@@ -2,7 +2,11 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.CacheInterface
 import app.client.ui.caching.viewCache.ViewCacheStates
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
+import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
+import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{
+  SumIntView,
+  SumIntView_Par
+}
 import bootstrap4.TB.C
 import io.circe.generic.auto._
 import japgolly.scalajs.react.component.Scala.Component
@@ -14,11 +18,16 @@ import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
 @Lenses
-private[sumNumbers] case class TheThieveryNumber(firstNumber: Int, secondNumber: Int )
+private[sumNumbers] case class TheThieveryNumber(
+    firstNumber:  Int,
+    secondNumber: Int
+)
 
 @Lenses
-private[sumNumbers] case class OurState(tn: TheThieveryNumber, sumIntViewPars: SumIntView_Par )
-
+private[sumNumbers] case class OurState(
+    tn:             TheThieveryNumber,
+    sumIntViewPars: SumIntView_Par
+)
 
 private[sumNumbers] object SumNumberCompInjected {
 
@@ -59,7 +68,7 @@ private[sumNumbers] object SumNumberCompInjected {
     * @param i number of newlines to be created.
     * @return `i` newlines.
     */
-  private def br(i: Int ) =
+  private def br( i: Int ) =
     TagMod( List.fill( i )( <.br ).toIterator.toTraversable.toVdomArray )
 
   private def isThieveryNumber( st: State ): Boolean = {
@@ -78,19 +87,14 @@ private[sumNumbers] object SumNumberCompInjected {
     * Asks the cache for the sum of two numbers.
     * @param props
     * @param params
-    * @return
+    * @return the sum as String
     */
   private def calculateSumOnServer(
       props:  CacheInterface,
       params: SumIntView_Par
-  ): String = {
+  ): ViewCacheStates.ViewCacheState[SumIntView] ={
 
-    val res: ViewCacheStates.ViewCacheState[SumIntView] =
       props.readView[SumIntView]( params )
-
-    import app.shared.data.utils.PrettyPrint.prettyPrint
-
-    prettyPrint(res,indentSize = 4)
   }
 
   class ThieveryUndergroundBackend( $ : BackendScope[CacheInterface, State] ) {
@@ -181,8 +185,6 @@ private[sumNumbers] object SumNumberCompInjected {
       )
 
     def render( props: CacheInterface, s: State ): VdomElement = {
-        val res: String = calculateSumOnServer( props, s.sumIntViewPars );
-
       <.div(
         C.textCenter,
         intro,
@@ -190,21 +192,21 @@ private[sumNumbers] object SumNumberCompInjected {
         br( 2 ),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         br( 2 ),
-          res,
+        calculateSumOnServer( props, s.sumIntViewPars ).toOption.toString(),
         br( 2 ),
         "Also, here we have a bootstrap button (only active for thievery numbers ! ) :",
         <.br,
-        addNumbersBootStrapButton(s),
+        addNumbersBootStrapButton( s ),
         <.br
       )
 
     }
 
-    private def addNumbersBootStrapButton(s: State) = {
+    private def addNumbersBootStrapButton( s: State ) = {
       import bootstrap4.TB.convertableToTagOfExtensionMethods
       <.button.btn.btnPrimary(
         "Add two Thievery Numbers",
-        C.active.when(isThieveryNumber(s)),
+        C.active.when( isThieveryNumber( s ) ),
         ^.onClick --> StateChangers.refreshState()
       )
     }
