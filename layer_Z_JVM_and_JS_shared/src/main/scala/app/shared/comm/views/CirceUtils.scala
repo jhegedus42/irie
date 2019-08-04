@@ -1,6 +1,6 @@
-package app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared
+package app.shared.comm.views
 
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+import app.shared.data.model.View
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 

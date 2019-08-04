@@ -3,11 +3,11 @@ package app.___comm_model_on_the_server_side.serverSide.akkaHttpWebServer
 //  import akka.http.scaladsl.server.directives.ParameterDirectives.parameters
 //  import akka.http.scaladsl.server.directives.PathDirectives.path
 import app.___comm_model_on_the_server_side.serverSide.logic.ServerSideLogic.ServerLogicTypeClass
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.CirceUtils._
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View1_HolderObject.View1
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View2_HolderObject.View2
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{JSONContainingGetViewPar, JSONContainingOptRes, ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.comm.views.CirceUtils._
+import app.shared.comm.views.{JSONContainingGetViewPar, JSONContainingOptRes, ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.data.model.View
+import app.shared.data.model.View1_HolderObject.View1
+import app.shared.data.model.View2_HolderObject.View2
 import io.circe.generic.auto._
 import io.circe.{Decoder, Encoder, Error}
 
@@ -24,10 +24,10 @@ case class HttpServerOnTheInternet() {
     new GetViewRequestHandler[View2]()
 
   val view1_routeName: ViewHttpRouteName =
-    view1_getViewRequestHandler.getGetViewHttpRouteName()
+    view1_getViewRequestHandler.getGetViewHttpRouteName
 
   val view2_routeName: ViewHttpRouteName =
-    view2_getViewRequestHandler.getGetViewHttpRouteName()
+    view2_getViewRequestHandler.getGetViewHttpRouteName
 
   def serveRequest(
       getViewHttpRouteName: ViewHttpRouteName,
@@ -98,7 +98,7 @@ case class GetViewRequestHandler[V_method <: View:ClassTag ]() {
   // commit 3a7d0bc1c81a6f3d8e6aa3b6d286e8e0291af5d5
   // Date: Sun Sep  2 19:24:09 EEST 2018
 
-  def getGetViewHttpRouteName(): ViewHttpRouteName =
-    ViewHttpRouteNameProvider.getViewHttpRouteName[V_method]()
+  def getGetViewHttpRouteName: ViewHttpRouteName =
+    ViewHttpRouteNameProvider.getViewHttpRouteName[V_method]
 
 }

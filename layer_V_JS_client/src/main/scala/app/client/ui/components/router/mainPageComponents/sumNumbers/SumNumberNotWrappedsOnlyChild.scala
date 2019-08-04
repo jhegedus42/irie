@@ -88,7 +88,9 @@ private[sumNumbers] object SumNumberCompInjected {
     val res: ViewCacheStates.ViewCacheState[SumIntView] =
       props.readView[SumIntView]( params )
 
-    res.toString()
+    import app.shared.data.utils.PrettyPrint.prettyPrint
+
+    prettyPrint(res,indentSize = 4)
   }
 
   class ThieveryUndergroundBackend( $ : BackendScope[CacheInterface, State] ) {
@@ -179,6 +181,8 @@ private[sumNumbers] object SumNumberCompInjected {
       )
 
     def render( props: CacheInterface, s: State ): VdomElement = {
+        val res: String = calculateSumOnServer( props, s.sumIntViewPars );
+
       <.div(
         C.textCenter,
         intro,
@@ -186,13 +190,14 @@ private[sumNumbers] object SumNumberCompInjected {
         br( 2 ),
         "Here is the sum of the Thievery Numbers (as Integers), calculated on the server:",
         br( 2 ),
-        calculateSumOnServer( props, s.sumIntViewPars ),
-        br( 2 ) ,
+          res,
+        br( 2 ),
         "Also, here we have a bootstrap button (only active for thievery numbers ! ) :",
         <.br,
         addNumbersBootStrapButton(s),
         <.br
       )
+
     }
 
     private def addNumbersBootStrapButton(s: State) = {

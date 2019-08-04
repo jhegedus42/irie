@@ -121,8 +121,8 @@ trait HttpServer_For_ImageMemory_App {
 
   def crudEntityRoute[E <: Entity: ClassTag: Decoder: Encoder]: Route = {
 
+//    new CreateEntityRoute[E]().route ~
 //    new UpdateEntityRoute[E]().route ~
-//      new CreateEntityRoute[E]().route ~
 //      new GetAllEntitiesRoute[E].route ~
 //      new GetRoute[E]().route
 

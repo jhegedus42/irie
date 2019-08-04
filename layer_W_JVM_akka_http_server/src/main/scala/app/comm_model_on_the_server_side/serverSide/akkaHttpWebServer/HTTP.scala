@@ -2,6 +2,8 @@ package app.comm_model_on_the_server_side.serverSide.akkaHttpWebServer
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import akka.http.scaladsl.server.Route
+import app.shared.comm.views.{JSONContainingGetViewPar, JSONContainingOptRes, ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.data.model.View
 //  import akka.http.scaladsl.server.directives.MethodDirectives.get
 //  import akka.http.scaladsl.server.directives.ParameterDirectives.parameters
 //  import akka.http.scaladsl.server.directives.PathDirectives.path
@@ -9,22 +11,12 @@ import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.CirceUtils._
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.{
-  ViewHttpRouteName,
-  ViewHttpRouteNameProvider,
-  JSONContainingGetViewPar,
-  JSONContainingOptRes
-}
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View1_HolderObject.{
+import app.shared.comm.views.CirceUtils._
+import app.shared.data.model.View1_HolderObject.{
   View1,
   View1_Par
 }
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View2_HolderObject.View2
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.{
-  View,
-  View1_HolderObject
-}
+import app.shared.data.model.View2_HolderObject.View2
 import app.comm_model_on_the_server_side.serverSide.logic.ServerSideLogic.ServerLogicTypeClass
 import io.circe.generic.auto._
 import io.circe.{Decoder, Encoder, Error}
@@ -49,10 +41,10 @@ case class HttpServerOnTheInternet() {
     new GetViewRequestHandler[View2]()
 
   val view1_routeName: ViewHttpRouteName =
-    view1_getViewRequestHandler.getGetViewHttpRouteName()
+    view1_getViewRequestHandler.getGetViewHttpRouteName
 
   val view2_routeName: ViewHttpRouteName =
-    view2_getViewRequestHandler.getGetViewHttpRouteName()
+    view2_getViewRequestHandler.getGetViewHttpRouteName
 
   def serveRequest(
       getViewHttpRouteName: ViewHttpRouteName,
@@ -68,14 +60,14 @@ case class HttpServerOnTheInternet() {
 //        println("route for view1 is called")
         Some(
           view1_getViewRequestHandler
-            .decodeJSON2Par_SendParToLogic_EncodeResultToJSON[View1]( requestPayload )
+            .decodeJSON2Par_SendParToLogic_EncodeResultToJSON( requestPayload )
         )
       }
 
       case view2_routeName.`name` =>
         Some(
           view1_getViewRequestHandler
-            .decodeJSON2Par_SendParToLogic_EncodeResultToJSON[View2]( requestPayload )
+            .decodeJSON2Par_SendParToLogic_EncodeResultToJSON( requestPayload )
         )
 
       case _ => None
@@ -90,32 +82,32 @@ case class HttpServerOnTheInternet() {
 // commit 3a7d0bc1c81a6f3d8e6aa3b6d286e8e0291af5d5
 // Date: Sun Sep  2 18:39:13 EEST 2018
 
-case class GetViewRequestHandler[V <: View: ClassTag]() {
+case class GetViewRequestHandler[V1 <: View: ClassTag]() {
 
-  def decodeJSON2Par_SendParToLogic_EncodeResultToJSON[V <: View](
+  def decodeJSON2Par_SendParToLogic_EncodeResultToJSON(
       paramJSON: JSONContainingGetViewPar
     )(
       implicit
-      decoder:     Decoder[V#Par],
-      encoder:     Encoder[V#Res],
-      serverLogic: ServerLogicTypeClass[V]
+      decoder:     Decoder[V1#Par],
+      encoder:     Encoder[V1#Res],
+      serverLogic: ServerLogicTypeClass[V1]
     ): JSONContainingOptRes = {
 
 //    println("GetViewRequestHandler's decodeJSON2Par_SendParToLogic_EncodeResultToJSON is called " +
 //            "for the " + getGetViewHttpRouteName() + " route, with parameter: "+paramJSON)
 
-    val r: Either[Error, V#Par] = decodeJSONToPar[V]( paramJSON )
+    val r: Either[Error, V1#Par] = decodeJSONToPar[V1]( paramJSON )
 
-    val parOpt: Option[V#Par] = r.right.toOption
+    val parOpt: Option[V1#Par] = r.right.toOption
 
-    val resOpt: Option[V#Res] = for {
+    val resOpt: Option[V1#Res] = for {
       par <- parOpt
       res <- serverLogic.getView( par )
     } yield res
 
 //    println("it's results is (before encoding it):"+resOpt)
 
-    (encodeOptResToJSONContainingOptRes[V]( resOpt ) )
+    (encodeOptResToJSONContainingOptRes[V1]( resOpt ) )
 
   }
 
@@ -123,7 +115,7 @@ case class GetViewRequestHandler[V <: View: ClassTag]() {
   // commit 3a7d0bc1c81a6f3d8e6aa3b6d286e8e0291af5d5
   // Date: Sun Sep  2 19:24:09 EEST 2018
 
-  def getGetViewHttpRouteName(): ViewHttpRouteName =
-    ViewHttpRouteNameProvider.getViewHttpRouteName[V]()
+  def getGetViewHttpRouteName: ViewHttpRouteName =
+    ViewHttpRouteNameProvider.getViewHttpRouteName[V1]
 
 }

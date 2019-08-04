@@ -1,5 +1,7 @@
 package app.shared.utils
 
+import java.util.Calendar
+
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.language.experimental.macros
 import scala.reflect.macros.whitebox.Context
@@ -11,11 +13,12 @@ class MacroExampleMakeHelloWorld extends StaticAnnotation {
   def macroTransform(annottees: Any*): Any = macro ExampleMacro.impl
 }
 object ExampleMacro {
+  def time=Calendar.getInstance.getTime
   def impl(c: Context)(annottees: c.Expr[Any]*): c.Expr[Any] = {
     import c.universe._
     val result: List[Tree] = annottees.map(_.tree).toList match {
       case q"$mods val $tname: String = $expr" :: Nil =>
-        val helloWorld = " Hello World"
+        val helloWorld = s" Compilation time was : $time."
         List(q"$mods val $tname: String = $expr + $helloWorld")
       case value @ q"$mods val $tname = $expr" :: Nil =>
         c.error(value.head.pos, s"$tname must have an explicit type")

@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+import app.shared.data.model.View
 
 object ViewCacheStates {
   sealed trait ViewCacheState[V <: View] {

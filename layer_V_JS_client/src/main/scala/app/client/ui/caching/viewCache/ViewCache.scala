@@ -3,7 +3,7 @@ package app.client.ui.caching.viewCache
 import app.client.ui.caching.{CacheInterface, ReRenderer}
 import app.client.ui.caching.viewCache.REST_ForView.{View_AJAX_Request_Params, getViewFromServer}
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
-import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.views.View
+import app.shared.data.model.View
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
 import io.circe.{Decoder, Encoder}
 
