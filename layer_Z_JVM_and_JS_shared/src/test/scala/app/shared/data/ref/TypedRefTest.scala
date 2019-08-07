@@ -14,6 +14,6 @@ class TypedRefTest extends FunSuite {
 
 object RefValTestUtil {
   def makeWithNewUUID[T <: Entity]
-  (v: T)(implicit t: ClassTag[T]): RefVal[T] =
-    new RefVal(TypedRef.make[T](), v, Version())
+  (v: T)(implicit t: ClassTag[T]): TypedRefVal[T] =
+    new TypedRefVal(TypedRef.make[T](), v, Version())
 }

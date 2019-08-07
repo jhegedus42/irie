@@ -1,7 +1,7 @@
 package app.client.ui.caching.entityCache
 
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{RefVal, TypedRef}
+import app.shared.data.ref.{TypedRefVal, TypedRef}
 
 object EntityCacheStates {
   sealed trait EntityCacheState[E <: Entity]{
@@ -12,7 +12,7 @@ object EntityCacheStates {
       }
   }
   case class Loading[E <: Entity](r: TypedRef[E] ) extends EntityCacheState[E]
-  case class Loaded[E <: Entity](r:  TypedRef[E], refVal: RefVal[E] ) extends EntityCacheState[E]
+  case class Loaded[E <: Entity](r:  TypedRef[E], refVal: TypedRefVal[E] ) extends EntityCacheState[E]
 
 
 }

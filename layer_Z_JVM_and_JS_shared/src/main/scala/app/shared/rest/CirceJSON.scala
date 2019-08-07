@@ -2,7 +2,7 @@ package app.shared.rest
 
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.TypeAsString
-import app.shared.data.ref.{TypedRef, RefVal}
+import app.shared.data.ref.{TypedRef, TypedRefVal}
 import io.circe.Decoder.Result
 
 import scala.reflect.ClassTag
@@ -73,8 +73,8 @@ object CirceJSON {
     )(
       implicit
       classTag: ClassTag[E],
-      decoder:  Decoder[RefVal[E]]
-    ): Either[Error, RefVal[E]] = {
+      decoder:  Decoder[TypedRefVal[E]]
+    ): Either[Error, TypedRefVal[E]] = {
     // maybe this method is not needed because :
     // this
 
@@ -82,12 +82,12 @@ object CirceJSON {
     // takes care of the type safetyp problem already, as an assertion
 
 
-    implicit def decodeRefValWithTypeCheck() = new Decoder[RefVal[E]] {
+    implicit def decodeRefValWithTypeCheck() = new Decoder[TypedRefVal[E]] {
 
-      final def apply(c: HCursor ): Decoder.Result[RefVal[E]] = {
+      final def apply(c: HCursor ): Decoder.Result[TypedRefVal[E]] = {
         println( "my decoder is running" )
 
-        val r:  Result[RefVal[E]] = decoder.apply( c )
+        val r:  Result[TypedRefVal[E]] = decoder.apply( c )
         val et: TypeAsString        = TypeAsString.make[E]
 
         println( s"expected type ${classTag}" )
@@ -107,7 +107,7 @@ object CirceJSON {
         }
       }
     }
-    decode[RefVal[E]]( s )( decodeRefValWithTypeCheck() )
+    decode[TypedRefVal[E]]( s )( decodeRefValWithTypeCheck() )
 
   }
 

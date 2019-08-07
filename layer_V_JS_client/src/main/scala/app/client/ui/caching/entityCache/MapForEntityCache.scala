@@ -2,7 +2,7 @@ package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{RefVal, TypedRef}
+import app.shared.data.ref.{TypedRefVal, TypedRef}
 
 private[entityCache] class MapForEntityCache[E <: Entity]() {
   private[this] var map: Map[TypedRef[E], EntityCacheState[E]] = Map()
@@ -18,7 +18,7 @@ private[entityCache] class MapForEntityCache[E <: Entity]() {
     res
   }
 
-  def insertIntoCacheAsLoaded(rv: RefVal[E] ): Unit = {
+  def insertIntoCacheAsLoaded(rv: TypedRefVal[E] ): Unit = {
     println(
       s"CACHE WRITE => we insert $rv into the cache"
     )

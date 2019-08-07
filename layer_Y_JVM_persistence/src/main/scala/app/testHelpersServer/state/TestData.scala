@@ -2,7 +2,7 @@ package app.testHelpersServer.state
 
 import app.server.persistence.ApplicationState
 import app.shared.data.model.Note
-import app.shared.data.ref.RefVal
+import app.shared.data.ref.TypedRefVal
 import app.testHelpersShared.data.{LabelOne, LabelTwo, TestDataLabel}
 
 
@@ -27,7 +27,7 @@ object TestData {
   }
 
   object LabelOneEntities {
-    val lineInState: RefVal[Note] = refValOfLineV0
+    val lineInState: TypedRefVal[Note] = refValOfLineV0
   }
 
 

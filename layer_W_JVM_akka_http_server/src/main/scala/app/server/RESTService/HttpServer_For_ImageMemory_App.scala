@@ -5,7 +5,7 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Route
 import app.comm_model_on_the_server_side.simple_route.SumIntViewRoute_For_Testing
 import app.shared.{InvalidUUIDinURLError, SomeError_Trait}
-import app.shared.data.ref.{TypedRef, RefVal}
+import app.shared.data.ref.{TypedRef, TypedRefVal}
 import app.shared.rest.routes.crudRequests.GetEntityRequest
 //import app.server.RESTService.routes.entityCRUD.{CreateEntityRoute, GetAllEntitiesRoute, GetRoute, UpdateEntityRoute}
 import app.server.RESTService.routes.views.ViewRoute
@@ -101,7 +101,7 @@ trait HttpServer_For_ImageMemory_App {
 
                 println( s"refDis=$refDis" )
                 val refDisDanger: TypedRef[E]            = refDis.toEither.right.get //CRAPPYCODE
-                val fr:           Future[RefVal[E]] = isa.getEntity( refDisDanger ).map( x => x.toEither.right.get )
+                val fr:           Future[TypedRefVal[E]] = isa.getEntity( refDisDanger ).map(x => x.toEither.right.get )
 
 
 

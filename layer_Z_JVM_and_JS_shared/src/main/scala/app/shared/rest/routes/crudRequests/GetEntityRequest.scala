@@ -2,7 +2,7 @@ package app.shared.rest.routes.crudRequests
 
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.model.{Note, User}
-import app.shared.data.ref.{TypedRef, RefVal}
+import app.shared.data.ref.{TypedRef, TypedRefVal}
 import io.circe
 
 import scala.reflect.ClassTag

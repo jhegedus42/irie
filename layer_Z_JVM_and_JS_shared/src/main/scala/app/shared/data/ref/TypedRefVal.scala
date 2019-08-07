@@ -21,42 +21,42 @@ case class DeletedFlag(isDeleted:Boolean)
   * Created by joco on 28/04/2017.
   */
 @Lenses
-case class RefVal[T <: Entity](r: TypedRef[T], v: T, version: Version, isDeleted:DeletedFlag = DeletedFlag(false) ) {
-  def map(f: T => T ): RefVal[T] = copy( v = f( v ) )
+case class TypedRefVal[T <: Entity](r: TypedRef[T], v: T, version: Version, isDeleted:DeletedFlag = DeletedFlag(false) ) {
+  def map(f: T => T ): TypedRefVal[T] = copy( v = f( v ) )
 
   override def toString: String = super.toString
 }
 
-object RefVal {
+object TypedRefVal {
   //  def create[T](v:T)=RefVal(Ref(),v)
   //  def apply[T](r:Ref[T],v:T)=new RefVal(r,v)
   //      def make[T<:Entity[T]](v: T) = new RefVal(Ref[T](), v)
   //    def make[T<:Entity[T]](v: T)(implicit t:Typeable[T]) = new RefVal(Ref.make[T](), v)
 
-  implicit def instance[T <: Entity]: UUIDCompare[RefVal[T]] =
-    (x: RefVal[T], y: RefVal[T]) => TypedRef.instance.isUUIDEq(x.r, y.r)
+  implicit def instance[T <: Entity]: UUIDCompare[TypedRefVal[T]] =
+    (x: TypedRefVal[T], y: TypedRefVal[T]) => TypedRef.instance.isUUIDEq(x.r, y.r)
 
 }
 
 //TODOlater - get rid of this ASAP
 case class RefValDyn(r: NotTypeSafeRef, e: Entity, version: Version ) {
 
-  def toRefVal[E <: Entity: ClassTag]: \/[TypeError, RefVal[E]] = {
+  def toRefVal[E <: Entity: ClassTag]: \/[TypeError, TypedRefVal[E]] = {
     // f0c1cede98f0430c85f35944546bbba4w
     val et = TypeAsString.make[E]
     if (et == r.et) {
       val etyped:  E                     = e.asInstanceOf[E]
       val refDisj: \/[TypeError, TypedRef[E]] = r.toRef[E]()
-      refDisj.map( RefVal( _, etyped, version ) )
+      refDisj.map( TypedRefVal( _, etyped, version ) )
     } else -\/( TypeError( "RefValDyn.toRefVal " ) )
   }
 
-  def toRefVal_NoClassTagNeeded[E <: Entity](expectedEntityType: TypeAsString ): \/[TypeError, RefVal[E]] = {
+  def toRefVal_NoClassTagNeeded[E <: Entity](expectedEntityType: TypeAsString ): \/[TypeError, TypedRefVal[E]] = {
     // f0c1cede98f0430c85f35944546bbba4w
     if (expectedEntityType == r.et) {
       val etyped:  E                     = e.asInstanceOf[E]
       val refDisj: \/[TypeError, TypedRef[E]] = r.toRef_noClassTagNeeded( expectedEntityType )
-      refDisj.map( RefVal( _, etyped, version ) )
+      refDisj.map( TypedRefVal( _, etyped, version ) )
     } else -\/( TypeError( "RefValDyn.toRefVal " ) )
   }
 
@@ -86,7 +86,7 @@ object RefValDyn {
     rvd
   }
 
-  implicit def fromRefValToRefValDyn[E <: Entity](rv: RefVal[E] ): RefValDyn = {
+  implicit def fromRefValToRefValDyn[E <: Entity](rv: TypedRefVal[E] ): RefValDyn = {
     val rd = new NotTypeSafeRef( rv.r.uuid, rv.r.dataType )
     new RefValDyn( rd, rv.v, rv.version )
   }

@@ -3,7 +3,7 @@ package app.server.persistence
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.ref.unTyped.NotTypeSafeRef
-import app.shared.data.ref.{TypedRef, RefVal, RefValDyn}
+import app.shared.data.ref.{TypedRef, TypedRefVal, RefValDyn}
 import app.shared.{EntityDoesNotExistError, EntityIsNotUpdateableError, InvalidVersionError, SomeError_Trait, StateOpsError, TypeError}
 import scalaz.{-\/, Disjunction, \/, \/-}
 
@@ -68,16 +68,16 @@ case class ApplicationState(stateMap: Map[NotTypeSafeRef, RefValDyn] = Map.empty
   def doesEntityExist(e: Entity ): Boolean =
     stateMap.values.map( rvd => rvd.e ).toSet.contains( e )
 
-  def getEntitiesOfGivenType[E <: Entity: ClassTag](): \/[SomeError_Trait, List[RefVal[E]]] = {
+  def getEntitiesOfGivenType[E <: Entity: ClassTag](): \/[SomeError_Trait, List[TypedRefVal[E]]] = {
     val et: TypeAsString = TypeAsString.make[E]
-    val r: List[Disjunction[TypeError, RefVal[E]]] =
+    val r: List[Disjunction[TypeError, TypedRefVal[E]]] =
       stateMap.values.filter( rvd => rvd.r.et == et ).map( _.toRefVal[E] ).toList
 
     if (r.forall( dj => dj.isRight ))(\/-( r.map( _.toEither.right.get ) ) )
     else -\/( StateOpsError( "getEntities type error - this should not happen" ) )
   }
 
-  private[server] def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): \/[SomeError_Trait, RefVal[E]] = {
+  private[server] def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): \/[SomeError_Trait, TypedRefVal[E]] = {
 
     if (!r.isTypeCorrect) return -\/( TypeError( "State.getEntity - 1" ) )
     else {

@@ -4,7 +4,7 @@ import app.server.persistence.ApplicationState
 import app.server.persistence.persActor.Commands.GetStatePAResponse
 import app.shared.SomeError_Trait
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRef, RefVal, RefValDyn}
+import app.shared.data.ref.{TypedRef, TypedRefVal, RefValDyn}
 import io.circe.Decoder.state
 
 import scala.concurrent.Future
@@ -25,11 +25,11 @@ trait StateAccessorBase extends InterfaceToStateAccessor {
     actor.getState.map( _.state.doesEntityExist( e ) )
   }
 
-  override def createEntity[E <: Entity: ClassTag](e: E ): Future[\/[SomeError_Trait, RefVal[E]]] = {
+  override def createEntity[E <: Entity: ClassTag](e: E ): Future[\/[SomeError_Trait, TypedRefVal[E]]] = {
     for {
       r: \/[SomeError_Trait, RefValDyn] <- actor.createEntity( e ).map( _.payload )
 
-      z: \/[SomeError_Trait, RefVal[E]] = for {
+      z: \/[SomeError_Trait, TypedRefVal[E]] = for {
         r1 <- r
         rv <- r1.toRefVal[E]
       } yield (rv)
@@ -37,7 +37,7 @@ trait StateAccessorBase extends InterfaceToStateAccessor {
     } yield (z)
   }
 
-  def updateEntity[E <: Entity: ClassTag](rv: RefVal[E] ): Future[\/[SomeError_Trait, RefVal[E]]] = {
+  def updateEntity[E <: Entity: ClassTag](rv: TypedRefVal[E] ): Future[\/[SomeError_Trait, TypedRefVal[E]]] = {
     actor
       .updateEntity( rv ).map( uer => {
         for {
@@ -48,9 +48,9 @@ trait StateAccessorBase extends InterfaceToStateAccessor {
 
   }
 
-  def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): Future[\/[SomeError_Trait, RefVal[E]]] = {
+  def getEntity[E <: Entity: ClassTag](r: TypedRef[E] ): Future[\/[SomeError_Trait, TypedRefVal[E]]] = {
     //hash 714b03f2a4fe4fd1a27b12f805e5bc56
-    def f(x:GetStatePAResponse): \/[SomeError_Trait, RefVal[E]] = {
+    def f(x:GetStatePAResponse): \/[SomeError_Trait, TypedRefVal[E]] = {
       val s=x.state
       assert(s!=null,{println ("state is null while getting entity")})
       s.getEntity( r )
@@ -61,7 +61,7 @@ trait StateAccessorBase extends InterfaceToStateAccessor {
 
   override def getAllEntitiesOfGivenType[
       E <: Entity: ClassTag
-    ]: Future[\/[SomeError_Trait, List[RefVal[E]]]] = {
+    ]: Future[\/[SomeError_Trait, List[TypedRefVal[E]]]] = {
     println( "we get entities - in state accessor" )
     val s: Future[GetStatePAResponse] = actor.getState
     s.map( _.state.getEntitiesOfGivenType() )

@@ -1,7 +1,7 @@
 package app.client.ui.caching
 
 import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{RefVal, TypedRef}
+import app.shared.data.ref.{TypedRefVal, TypedRef}
 import app.shared.rest.routes.crudRequests.GetEntityRequest
 import io.circe
 import io.circe.Decoder
@@ -17,8 +17,8 @@ private[caching] object REST_ForEntity {
 
   def getEntity[E <: Entity: ClassTag](
       ref:        TypedRef[E]
-    )(implicit d: Decoder[RefVal[E]]
-    ): Future[RefVal[E]] = {
+    )(implicit d: Decoder[TypedRefVal[E]]
+    ): Future[TypedRefVal[E]] = {
 
     import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
@@ -26,17 +26,17 @@ private[caching] object REST_ForEntity {
 
     println( s"getEntity before creating future for $ref" )
 
-    def dd(s: String ): Either[circe.Error, RefVal[E]] = {
+    def dd(s: String ): Either[circe.Error, TypedRefVal[E]] = {
       println( s"getEntity: responseText $s" )
       decode( s )
     }
 
-    val res: Future[RefVal[E]] = Ajax
+    val res: Future[TypedRefVal[E]] = Ajax
       .get( route )
       .map( _.responseText )
       .map( x => dd( x ) )
       .map(
-        { x: Either[circe.Error, RefVal[E]] =>
+        { x: Either[circe.Error, TypedRefVal[E]] =>
           {
             println( s"returned RefVal is $x" )
             x.right.get
