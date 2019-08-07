@@ -4,6 +4,7 @@ import app.shared.data.model.Entity.{Entity}
 import app.shared.data.ref.TypedRef
 
 case class User( name: String ) extends Entity
+
 // TODO CRUD PAGE FOR THIS ^ :
 // TODO-NOW - create - TEST DATA : 3 USERS, Alice, Bob, Cecile
 // todo 1 - list them ordered by their name in the client

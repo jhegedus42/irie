@@ -6,8 +6,8 @@ object TestHelper {
 
 //import app.client.rest.commands.forTesting.Helpers
 //import app.shared.rest.TestURLs
-import app.testHelpersShared.data.TestDataLabels
-import app.testHelpersShared.data.TestDataLabels.TestDataLabel
+import app.testHelpersShared.data._
+import app.testHelpersShared.data.TestDataLabel
 //import com.sun.deploy.ref.Helpers
 import org.scalajs.dom.XMLHttpRequest
 import org.scalajs.dom.ext.Ajax
@@ -36,8 +36,8 @@ object Helpers {
     f
   }
 
-  def resetServerToLabelOne()=resetServer(TestDataLabels.LabelOne)
-  def resetServerToLabelThree()=resetServer(TestDataLabels.LabelThree)
+  def resetServerToLabelOne()=resetServer(LabelOne)
+  def resetServerToLabelThree()=resetServer(LabelThree)
 }
 
 
@@ -49,6 +49,6 @@ trait BeforeTester {
   }
 
   def resetDBBeforeTest_StateLabelOne: Future[Unit] =
-    Helpers.resetServer( TestDataLabels.LabelOne ).map( x => () )
+    Helpers.resetServer( LabelOne ).map( x => () )
 }
 

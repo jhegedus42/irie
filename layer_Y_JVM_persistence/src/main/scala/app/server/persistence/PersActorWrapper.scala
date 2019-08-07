@@ -6,7 +6,7 @@ import app.server.persistence.persActor.Commands.{CreateEntityPACommand, CreateE
 
 import app.shared.data.model.Entity.Data
 import app.shared.data.ref.RefValDyn
-import app.testHelpersShared.data.TestDataLabels.TestDataLabel
+import app.testHelpersShared.data.TestDataLabel
 import app.testHelpersShared.implicits.ForTestingOnly
 
 import scala.concurrent.Future

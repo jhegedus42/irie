@@ -3,10 +3,8 @@ package app.server.persistence
 import akka.actor.ActorSystem
 import app.server.persistence.persActor.Commands.GetStatePAResponse
 import app.server.persistence.utils.IMPersActorWrapperFactory
-//import app.server.state.persistence.utils.IMPersActorWrapperFactory
 import app.testHelpersServer.state.TestData
-import app.testHelpersShared.data.TestDataLabels.{LabelOne, LabelTwo}
-import app.testHelpersShared.implicits.ForTestingOnly
+import app.testHelpersShared.data.{LabelOne, LabelTwo}
 import org.scalatest.FunSuite
 
 import scala.concurrent.Await

@@ -10,8 +10,7 @@ import app.shared.data.model.Entity.{Data, Entity}
 import app.shared.data.ref.RefValDyn
 import app.shared.data.utils.PrettyPrint
 import app.testHelpersServer.state.TestData
-import app.testHelpersShared.data.TestDataLabels.TestDataLabel
-import app.testHelpersShared.implicits.ForTestingOnly
+import app.testHelpersShared.data.TestDataLabel
 import scalaz.{-\/, \/, \/-}
 
 case object Shutdown
