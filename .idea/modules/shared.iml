@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" external.linked.project.path="$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/classes" />
-    <output-test url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/test-classes" />
+<module external.linked.project.id="layer_Z_JVM_and_JS_shared-sources" external.linked.project.path="$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="SHARED_SOURCES_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm">
-      <sourceFolder url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/src_managed/main" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm/target/scala-2.12/src_managed/test" isTestSource="true" generated="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../../layer_Z_JVM_and_JS_shared/.jvm/target" />
+    <content url="file://$MODULE_DIR$/../../shared">
+      <sourceFolder url="file://$MODULE_DIR$/../../shared/src/main/scala" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../shared/src/test/scala" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="shared" exported="" />
+    <orderEntry type="library" name="sbt: com.chuusai:shapeless_2.12:2.3.3:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.typelevel:discipline_2.12:0.8:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scalaz:scalaz-core_2.12:7.2.26:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scalacheck:scalacheck_2.12:1.13.5:jar" level="project" />
@@ -20,7 +17,6 @@
     <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-macro_2.12:1.5.0:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: com.github.julien-truffaut:monocle-law_2.12:1.5.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-core_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.chuusai:shapeless_2.12:2.3.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:scalatags_2.12:0.6.7:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:sourcecode_2.12:0.1.4:jar" level="project" />
     <orderEntry type="library" name="sbt: io.circe:circe-core_2.12:0.10.0:jar" level="project" />
