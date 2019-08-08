@@ -1,39 +1,17 @@
 package app.server.persistence
 
+import app.server.persistence.ApplicationState.RefValDyn
 import app.shared.data.model.TypeAsString
 import app.shared.data.model.Entity.{Data, Entity}
-import app.shared.data.ref.unTyped.NotTypeSafeRef
-import app.shared.data.ref.{TypedRef, TypedRefVal, RefValDyn}
+import app.shared.data.ref.{TypedRef, TypedRefVal}
 import app.shared.{EntityDoesNotExistError, EntityIsNotUpdateableError, InvalidVersionError, SomeError_Trait, StateOpsError, TypeError}
 import scalaz.{-\/, Disjunction, \/, \/-}
 
 import scala.reflect.ClassTag
 
-/**
-  * Ez mire jó?
-  * Ez tárolja az app állapotát. Ez a state.
-  *
-  *
-  * Ki használja ?
-  *   - Az ImPersistentActor használja.
-  *     - És miért ?
-  *       - Hogy tárolja, az applikáció állapotát valamiben, amin vannak segéd metódusok,
-  *         amikkel updatelni tudja az app állapotát "kényelmesen".
-  *           - Például
-  *             - insert Entity
-  *             - update Entity
-  *             - does Entity exist ?
-  *             - get Entities of Given Type [Type]
-  *
-  * Ez immutable.
-  *
-  * @param stateMap
-  */
-case class ApplicationState(stateMap: Map[NotTypeSafeRef, RefValDyn] = Map.empty ) {
 
-  // Random UUID: da1d5a2c10374c358987fd30643b8812
-  // commit fc5bb550a0436ada8876f7c8a18d4b4bf9407091
-  // Date: Thu Aug  2 07:52:01 EEST 2018
+case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.empty ) {
+
 
   case class StateUpdateError(s: String )
 
@@ -42,7 +20,6 @@ case class ApplicationState(stateMap: Map[NotTypeSafeRef, RefValDyn] = Map.empty
   }
 
   def updateEntity(refValDyn: RefValDyn ): \/[SomeError_Trait, ( ApplicationState, RefValDyn )] = {
-    val rr: NotTypeSafeRef = refValDyn.r
 
     if (!stateMap.contains( rr ))
       return -\/(
@@ -65,7 +42,7 @@ case class ApplicationState(stateMap: Map[NotTypeSafeRef, RefValDyn] = Map.empty
 
   }
 
-  def doesEntityExist(e: Entity ): Boolean =
+  def doesEntityExist(e: Entity[_] ): Boolean =
     stateMap.values.map( rvd => rvd.e ).toSet.contains( e )
 
   def getEntitiesOfGivenType[E <: Entity: ClassTag](): \/[SomeError_Trait, List[TypedRefVal[E]]] = {
@@ -104,4 +81,8 @@ case class ApplicationState(stateMap: Map[NotTypeSafeRef, RefValDyn] = Map.empty
 
   }
 
+}
+
+object ApplicationState {
+  type RefValDyn=TypedRefVal[_]
 }

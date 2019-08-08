@@ -2,7 +2,6 @@ package app.shared.utils
 
 import java.util.Calendar
 
-import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.language.experimental.macros
 import scala.reflect.macros.whitebox.Context
 import scala.annotation.{StaticAnnotation, compileTimeOnly}

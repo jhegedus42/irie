@@ -3,7 +3,7 @@ package app.shared
 import app.shared.data.ref.Version
 
 sealed trait SomeError_Trait {
-  val string: String
+//  val string: String
 }
 
 case class EntityIsNotUpdateableError(string: String, edne: Option[SomeError_Trait] = None )

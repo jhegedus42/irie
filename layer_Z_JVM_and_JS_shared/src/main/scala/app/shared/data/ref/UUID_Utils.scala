@@ -1,10 +1,10 @@
 package app.shared.data.ref
 
-import app.shared.{InvalidUUIDinURLError, StateOpsError}
+import app.shared.InvalidUUIDinURLError
 import app.shared.data.model.Entity.Data
+import scalaz.\/
 
 import scala.util.matching.Regex
-import scalaz.{\/, \/-}
 
 /**
   * Created by joco on 28/04/2017.
@@ -12,7 +12,7 @@ import scalaz.{\/, \/-}
 object UUID_Utils {
 
   case class UUID(id: String){
-    def isCorrect(): Boolean = UUID.validate_from_String(id).isRight
+    def isCorrect: Boolean = UUID.validate_from_String(id).isRight
   }
 
   object UUID {

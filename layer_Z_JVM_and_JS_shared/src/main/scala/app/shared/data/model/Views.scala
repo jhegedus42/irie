@@ -6,14 +6,8 @@ abstract class View {
 }
 
 trait Result
-trait Parameter // marker trait parameter nelkul egy nagy rakas szar
+trait Parameter
 
-//trait Request[Response] {
-//}
-
-//case class PersonListResponse(persons: List[Person])
-
-//case class GetPersonListRequest(searchText: String) extends Request[PersonListResponse]
 
 
 

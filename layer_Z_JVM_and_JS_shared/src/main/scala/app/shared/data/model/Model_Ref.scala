@@ -3,7 +3,7 @@ package app.shared.data.model
 import app.shared.data.model.Entity.{Entity}
 import app.shared.data.ref.TypedRef
 
-case class User( name: String ) extends Entity
+case class User( name: String ) extends Entity[User]
 
 // TODO CRUD PAGE FOR THIS ^ :
 // TODO-NOW - create - TEST DATA : 3 USERS, Alice, Bob, Cecile
@@ -19,9 +19,9 @@ case class User( name: String ) extends Entity
   * @param user
   * @param name
   */
-case class NoteFolder(user: TypedRef[User], name: String ) extends Entity
+case class NoteFolder(user: TypedRef[User], name: String ) extends Entity[NoteFolder]
 
 case class Note(
     content: String,
     owner:   Option[TypedRef[NoteFolder]] = None
-) extends Entity
+) extends Entity[Note]
