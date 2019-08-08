@@ -1,8 +1,8 @@
 package app.server.persistence
 
 import app.server.persistence.ApplicationState.RefValDyn
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRef, TypedRefVal}
+import app.shared.entity.Entity.Entity
+import app.shared.entity.{TypedRef, TypedRefVal}
 
 import scala.reflect.ClassTag
 
@@ -15,27 +15,12 @@ case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.emp
     this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
   }
 
-//  def updateEntity(refValDyn: RefValDyn ): \/[SomeError_Trait, ( ApplicationState, RefValDyn )] = {
+//  def updateEntity(refValDyn: RefValDyn ) : Option[ApplicationState]  = {
 //
-//    if (!stateMap.contains( rr ))
-//      return -\/(
-//        EntityIsNotUpdateableError(
-//          "entity does not exist",
-//          Some( EntityDoesNotExistError( "while updating State" ) )
-//        )
-//      )
+//    if (!stateMap.contains(refValDyn.r )){
+//      return Some(this.copy( stateMap = this.stateMap + (refValDyn.r -> ) ) )
 //
-//    if (refValDyn.version == stateMap( refValDyn.r ).version) {
-//      val newVal = refValDyn.copy( version = refValDyn.version.inc() )
-//      return \/-( this.copy( stateMap = this.stateMap + (refValDyn.r -> newVal) ), newVal )
-//    } else {
-//      val r = -\/(
-//        InvalidVersionError( "while updating the state", stateMap( refValDyn.r ).version,
-//                             refValDyn.version )
-//      )
-//      return r
 //    }
-//
 //  }
 
 

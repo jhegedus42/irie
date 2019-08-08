@@ -1,9 +1,9 @@
 package app.server.logic
 
-import app.shared.data.model.View
-import app.shared.data.model.View1_HolderObject.{View1, View1_Par, View1_Res}
-import app.shared.data.model.View2_HolderObject.{View2, View2_Par, View2_Res}
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
+import app.shared.views.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
+import app.shared.views.View
+import app.shared.views.View1_HolderObject.{View1, View1_Par, View1_Res}
+import app.shared.views.View2_HolderObject.{View2, View2_Par, View2_Res}
 
 // 87455d2d67874215a2f95ea0202be840$f613bee1c9520139dfa883a5b364d39c2d2ed17c
 object ServerSideLogic {

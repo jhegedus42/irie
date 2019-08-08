@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.shared.data.model.View
+import app.shared.views.View
 
 object ViewCacheStates {
   sealed trait ViewCacheState[V <: View] {

@@ -1,8 +1,8 @@
 package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRefVal, TypedRef}
+import app.shared.entity.Entity.Entity
+import app.shared.entity.{TypedRef, TypedRefVal}
 
 private[entityCache] class MapForEntityCache[E <: Entity[E]]() {
   private[this] var map: Map[TypedRef[E], EntityCacheState[E]] = Map()

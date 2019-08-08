@@ -1,11 +1,8 @@
 package app.server.testData
 
 import app.server.persistence.ApplicationState
-import app.shared.data.model.{NoteFolder, User}
-import app.shared.data.ref.{TypedRef, TypedRefVal}
-import app.testHelpersShared.data.{TestDataForUsers, TestDataLabel}
-
-import scala.reflect.ClassTag
+import app.shared.entity.User
+import app.shared.testData.{TestDataForUsers, TestDataLabel}
 
 trait TestDataProvider[T<:TestDataLabel] {
   def getTestData: ApplicationState

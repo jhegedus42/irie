@@ -3,8 +3,8 @@ package app.client.ui.caching.viewCache
 import app.client.ui.caching.{CacheInterface, ReRenderer}
 import app.client.ui.caching.viewCache.REST_ForView.{View_AJAX_Request_Params, getViewFromServer}
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
-import app.shared.data.model.View
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
+import app.shared.views.SumIntView_HolderObject.SumIntView
+import app.shared.views.View
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor

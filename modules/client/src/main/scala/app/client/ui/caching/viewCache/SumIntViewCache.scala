@@ -2,8 +2,8 @@ package app.client.ui.caching.viewCache
 
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
 import app.client.ui.caching.ReRenderer
-import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject
 import app.shared.rest.views.viewsForDevelopingTheViewFramework.SumIntView_HolderObject.SumIntView
+import app.shared.views.SumIntView_HolderObject
 import io.circe.generic.auto._
 
 import scala.concurrent.ExecutionContextExecutor

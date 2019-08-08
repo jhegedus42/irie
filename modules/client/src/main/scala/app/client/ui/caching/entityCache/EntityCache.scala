@@ -1,10 +1,10 @@
 package app.client.ui.caching.entityCache
 
-import app.client.ui.caching.{ReRenderer}
+import app.client.ui.caching.ReRenderer
 import app.client.ui.caching.REST_ForEntity.getEntity
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRefVal, TypedRef}
+import app.shared.entity.Entity.Entity
+import app.shared.entity.{TypedRef, TypedRefVal}
 
 import scala.util.Try
 //import app.client.ui.components.cache.hidden._temp_disabled_ajax.AJAXGetEntityApi.InFlight_ReadEntity

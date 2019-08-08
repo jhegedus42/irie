@@ -4,8 +4,8 @@ import app.client.ui.caching.entityCache.EntityCache
 import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
 import app.client.ui.caching.viewCache.ViewCache
 import app.client.ui.caching.viewCache.ViewCacheStates.ViewCacheState
-import app.shared.data.model.{Note, View}
-import app.shared.data.ref.TypedRef
+import app.shared.entity.{Note, TypedRef}
+import app.shared.views.View
 import io.circe.generic.auto._
 import io.circe.{Decoder, Encoder}
 

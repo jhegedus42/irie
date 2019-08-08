@@ -1,8 +1,7 @@
 package app.client.ui.caching
 
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRefVal, TypedRef}
-import app.shared.rest.routes.crudRequests.GetEntityRequest
+import app.shared.entity.Entity.Entity
+import app.shared.entity.{GetEntityURLs, TypedRef, TypedRefVal}
 import io.circe
 import io.circe.Decoder
 import io.circe.parser.decode
@@ -22,7 +21,7 @@ private[caching] object REST_ForEntity {
 
     import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-    val route: String = GetEntityRequest.queryURL( ref )
+    val route: String = GetEntityURLs.queryURL( ref )
 
     println( s"getEntity before creating future for $ref" )
 

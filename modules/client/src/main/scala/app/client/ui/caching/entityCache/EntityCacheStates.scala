@@ -1,7 +1,7 @@
 package app.client.ui.caching.entityCache
 
-import app.shared.data.model.Entity.Entity
-import app.shared.data.ref.{TypedRefVal, TypedRef}
+import app.shared.entity.Entity.Entity
+import app.shared.entity.{TypedRef, TypedRefVal}
 
 object EntityCacheStates {
   sealed trait EntityCacheState[E <: Entity[E]]{

@@ -1,11 +1,13 @@
 package app.server.persistence
 
-import akka.actor.{ActorLogging, Props}
+import akka.actor.{ActorLogging, ActorRef, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.persistence.ApplicationState.RefValDyn
-import app.server.persistence.Commands.{GetState, GetStatePAResponse, SetState}
+import app.server.persistence.Commands.{GetState, GetStateResult, SetState, UpdateEntity}
 import app.server.testData.TestData
-import app.testHelpersShared.data.TestDataLabel
+import app.shared.testData.TestDataLabel
+
+import scala.concurrent.Future
 
 case class PersActorWrapper(private[this] val actor: ActorRef) {
   import akka.pattern.ask
@@ -13,20 +15,19 @@ case class PersActorWrapper(private[this] val actor: ActorRef) {
 
   import scala.concurrent.duration._
 
-  def getState: Future[GetStatePAResponse] =
-    ask(actor, GetStatePACommand)(Timeout.durationToTimeout(1 seconds))
-      .mapTo[GetStatePAResponse]
+  def getState: Future[GetStateResult] =
+    ask(actor, GetState)(Timeout.durationToTimeout(1 seconds))
+      .mapTo[GetStateResult]
 
-  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
-    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
-      .mapTo[UpdateEntityPAResponse]
+//  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
+//    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
+//      .mapTo[UpdateEntityPAResponse]
 
-  def createEntity(e:Data):Future[CreateEntityPAResponse]=
-    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
+//  def createEntity(e:Data):Future[CreateEntityPAResponse]=
+//    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
 
-  def setState(s:TestDataLabel): Future[SetStatePAResponse] =
-    ask(actor, SetStatePACommand(s))(Timeout.durationToTimeout(1 seconds))
-      .mapTo[SetStatePAResponse]
+  def setState(s:TestDataLabel):Unit=
+    ask(actor, SetState(s))(Timeout.durationToTimeout(1 seconds))
 
 }
 
@@ -37,7 +38,7 @@ object Commands {
   case class CreateEntity(e:RefValDyn)
 
   case object GetState
-  case class GetStatePAResponse(state: ApplicationState)
+  case class GetStateResult(state: ApplicationState)
 
   case class SetState(tdl:TestDataLabel)
 
@@ -90,11 +91,11 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
 //    }
 
     case GetState => {
+      import app.shared.utils.PrettyPrint
       val s=state.toString
-      import app.shared.data.utils.PrettyPrint
       val spretty=PrettyPrint.prettyPrint(s)
       println(" I am an actor and I am responding with a state : "+spretty)
-      sender() ! GetStatePAResponse(state)
+      sender() ! GetStateResult(state)
     }
 
     case SetState(tdl:TestDataLabel) => {
@@ -129,11 +130,7 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
   private def applyEvent(event: Events.Event): Unit = event match {
 
 //    case UpdateEntity(refVal: (RefValDyn)) => {
-//      val res = state.updateEntity(refVal)
-//      if (res.isRight) { state = res.toEither.right.get._1 } else {
-//        log.error(s" apply Event - UpdateEntity - $refVal - ($res.toString)")
-//      }
-//
+//      state = state.updateEntity(refVal)
 //    }
 
 
