@@ -1,9 +1,6 @@
-package app.server.stateAccess.mocks
+package app.server.httpServer
 
-import app.server.persistence.ApplicationState
-import app.server.persistence.utils.IMPersActorWrapperFactory
 //import app.server.persistence.utils.IMPersActorWrapperFactory
-import app.server.stateAccess.generalQueries.{HasPersistentActor, StateAccessorBase}
 
 /**
   * Created by joco on 11/09/2017.

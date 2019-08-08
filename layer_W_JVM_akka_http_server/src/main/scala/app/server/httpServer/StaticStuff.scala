@@ -1,4 +1,4 @@
-package app.server.RESTService
+package app.server.httpServer
 
 import akka.http.scaladsl.model.ContentType.WithCharset
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse}

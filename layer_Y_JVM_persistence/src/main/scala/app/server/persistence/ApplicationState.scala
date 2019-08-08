@@ -45,7 +45,7 @@ case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.emp
   def doesEntityExist(e: Entity[_] ): Boolean =
     stateMap.values.map( rvd => rvd.e ).toSet.contains( e )
 
-  def getEntitiesOfGivenType[E <: Entity: ClassTag](): \/[SomeError_Trait, List[TypedRefVal[E]]] = {
+  def getEntitiesOfGivenType[E <: Entity[E]: ClassTag](): \/[SomeError_Trait, List[TypedRefVal[E]]] = {
     val et: TypeAsString = TypeAsString.make[E]
     val r: List[Disjunction[TypeError, TypedRefVal[E]]] =
       stateMap.values.filter( rvd => rvd.r.et == et ).map( _.toRefVal[E] ).toList

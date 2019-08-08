@@ -15,7 +15,7 @@ import scala.reflect.ClassTag
 
 private[caching] object REST_ForEntity {
 
-  def getEntity[E <: Entity: ClassTag](
+  def getEntity[E <: Entity[E]: ClassTag](
       ref:        TypedRef[E]
     )(implicit d: Decoder[TypedRefVal[E]]
     ): Future[TypedRefVal[E]] = {

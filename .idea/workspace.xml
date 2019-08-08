@@ -6,35 +6,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_V_JS_client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_W_JVM_akka_http_server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_X_JVM_stateAccess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Y_JVM_persistence.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JS_shared.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_and_JS_shared-sources.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/layer_Z_JVM_shared.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/TestServerFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/TestServerFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/ResetStateRoute_Test.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/RoutesTestBase.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/entitySpecificRoutes/GetUserLineListRouteTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/CreateEntityTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/GetAllEntityRouteTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/GetEntityRouteTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/UpdateEntityTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/viewTests/forViewFrameWorkDevelopment/SumInt_InViewFramework_RouteTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/viewTests/forViewFrameWorkDevelopment/SumInt_WithoutViewFramework_RouteTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/RESTTest_old.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestFromOldSource.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/SumIntViewTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/__learning_playing_around/cake_pattern/LambdaCakeExample.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/Tester.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/Errors.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/HttpServer_For_ImageMemory_App.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/StaticStuff.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StaticStuff.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/CreateEntityRoute.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/GetAllEntitiesRoute.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/GetRoute.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/UpdateEntityRoute.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/common/GetRouteBase.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/common/RouteBase.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/views/ViewRoute.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/routes/ViewRoute.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/staticContent/IndexDotHtmlTemplate.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/_sandbox/FullTestKitExampleSpec.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/IndexDotHtmlTestTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/staticContent/IndexDotHtmlTestTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/TestServerFactory.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/runnableApps/TestServer_App_LabelOne_ClientTesting.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/mocks/StateAccessorMock_prodPersAct.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StateAccessorMock_prodPersAct.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest_BaseTrait.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/HasPersistentActor.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/InterfaceToStateAccessor.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/StateAccessorBase.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/Errors.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/Errors.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Entity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Model_Ref.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/SimpleModel.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Views.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Views.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UUID_Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UUID_Utils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/unTyped/NotTypeSafeRef.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/CirceJSON.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/Command.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/CreateEntityRequest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetAllEntitiesRequest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetEntityRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetEntityRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/UpdateEntityRequest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/utils/MacroTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/utils/MacroTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,28 +67,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestDataLabels.scala">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="240">
-                    <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-                    <folding>
-                      <element signature="e#84#114#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -101,41 +94,99 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4333082">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/runnableApps/TestServer_App_LabelOne_ClientTesting.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#51#104#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="281">
-                  <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#32#88#0" expanded="true" />
-                    <element signature="e#1600#1758#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/staticContent/IndexDotHtmlTestTemplate.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="e#82#109#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StateAccessorMock_prodPersAct.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/simple_route/SimpleRoute.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/HttpServer_For_ImageMemory_App.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+              <folding>
+                <element signature="e#31#59#0" expanded="true" />
+                <element signature="e#1359#1376#0" expanded="true" />
+                <element signature="e#1266#2129#0" />
+                <element signature="e#1688#1749#0" expanded="true" />
+                <element signature="e#2661#3298#0" />
+                <element signature="e#3302#3579#0" />
+                <element signature="e#3326#3387#0" expanded="true" />
+                <element signature="e#5095#5815#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-293">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#32#88#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/SumIntViewTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-118">
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/routes/ViewRoute.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+              <folding>
+                <element signature="e#39#107#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StaticStuff.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -203,22 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/generalComponents/FooterComp.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/testBed/MacroTest.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
-        <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/testBed/MacroTest.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/Main.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/copy_of_model_to_be_moved_to_real_app/getViewCommunicationModel/shared/JSONContainingGetViewPar.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/comm/views/CirceUtils.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/comm/views/ViewHttpRouteName.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/views/viewsForDevelopingTheViewFramework/SumIntView_HolderObject.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/views/ViewRoute.scala" />
-        <option value="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestFromOldSource.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/logic/ServerSideLogic.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/akkaHttpWebServer/HTTP.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/___comm_model_on_the_server_side/serverSide/logic/ServerSideLogic.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/___comm_model_on_the_server_side/serverSide/akkaHttpWebServer/HTTP.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCacheStates.scala" />
@@ -228,9 +263,6 @@
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestDataForUsers.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestData.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/testServerStates/TestDataForUsers.scala" />
-        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala" />
-        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala" />
-        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/test/scala/app/server/persistence/PersActorWrapperTest.scala" />
         <option value="$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestHelper.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestDataLabels.scala" />
@@ -240,7 +272,6 @@
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/unTyped/NotTypeSafeRef.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/SimpleModel.scala" />
-        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/CirceJSON.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/URLs.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetAllEntitiesRequest.scala" />
@@ -248,12 +279,32 @@
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRef.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UUID_Utils.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Views.scala" />
-        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala" />
-        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/runnableApps/TestServer_App_LabelOne_ClientTesting.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/viewTests/forViewFrameWorkDevelopment/SumInt_WithoutViewFramework_RouteTest.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/TestServerFactory.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/utils/MacroTest.scala" />
         <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/Errors.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" />
+        <option value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" />
+        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala" />
+        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala" />
+        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/mocks/StateAccessorMock_prodPersAct.scala" />
+        <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala" />
+        <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/InterfaceToStateAccessor.scala" />
+        <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala" />
+        <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/StateAccessorBase.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/_sandbox/FullTestKitExampleSpec.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/Errors.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/HttpServer_For_ImageMemory_App.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/runnableApps/TestServer_App_LabelOne_ClientTesting.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/TestServer_App_LabelOne_ClientTesting.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/ViewRoute.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/TestServer_App_LabelOne_ClientTesting.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/TestServerFactory.scala" />
+        <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/HttpServer_For_ImageMemory_App.scala" />
       </list>
     </option>
   </component>
@@ -274,6 +325,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -330,7 +382,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -341,38 +392,138 @@
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_V_JS_client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="comm_model_on_the_server_side" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="comm_model_on_the_server_side" type="462c0819:PsiDirectoryNode" />
+              <item name="serverSide" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="comm_model_on_the_server_side" type="462c0819:PsiDirectoryNode" />
+              <item name="serverSide" type="462c0819:PsiDirectoryNode" />
+              <item name="akkaHttpWebServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="comm_model_on_the_server_side" type="462c0819:PsiDirectoryNode" />
+              <item name="serverSide" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="comm_model_on_the_server_side" type="462c0819:PsiDirectoryNode" />
+              <item name="simple_route" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="staticContent" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -397,6 +548,16 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="_sandbox" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -417,7 +578,7 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="RESTService" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -428,7 +589,7 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="RESTService" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="mocks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -440,44 +601,7 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="RESTService" type="462c0819:PsiDirectoryNode" />
-              <item name="mocks" type="462c0819:PsiDirectoryNode" />
-              <item name="runnableApps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="stateAccess" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="stateAccess" type="462c0819:PsiDirectoryNode" />
-              <item name="mocks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="layer_W_JVM_akka_http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="stateAccess" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -573,6 +697,18 @@
               <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="layer_Y_JVM_persistence" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="testHelpersServer" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+              <item name="testServerStates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Y_JVM_persistence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -624,6 +760,18 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="persistence" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Y_JVM_persistence" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
@@ -731,6 +879,111 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="viewsForDevelopingTheViewFramework" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="testHelpersShared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="testHelpersShared" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="testHelpersShared" type="462c0819:PsiDirectoryNode" />
+              <item name="implicits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="ref" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="layer_Z_JVM_and_JS_shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IM root project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -761,23 +1014,23 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/assets/stylesheets/_not_used" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.server.RESTService" />
+      <recent name="app.server" />
       <recent name="app" />
       <recent name="app.client.ui.components.router.mainPages.sumNumber" />
       <recent name="app.client.ui.components.router.mainPages.sumNumber.children" />
-      <recent name="app.client.ui.caching" />
-      <recent name="app.client.ui.components.router.mainPageComp.cacheTestMPC" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/www/assets/stylesheets/_not_used" />
-      <recent name="$PROJECT_DIR$" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -948,6 +1201,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Remote.Debug sbt shell" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="ScalaTest.test &quot;JS shared&quot; module" />
       <item itemvalue="ScalaTest.test &quot;JVM shared&quot; module " />
@@ -955,7 +1209,6 @@
       <item itemvalue="ScalaTest.test &quot;persistence&quot; module" />
       <item itemvalue="ScalaTest.test &quot;state access&quot; module" />
       <item itemvalue="ScalaTest.RESTTest" />
-      <item itemvalue="Remote.Debug sbt shell" />
     </list>
     <recent_temporary>
       <list>
@@ -979,8 +1232,12 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Y_JVM_persistence [file:/Users/joco/dev/im/irie/]" />
@@ -991,20 +1248,16 @@
                 <option name="path" value="$PROJECT_DIR$/layer_V_JS_client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="layer_X_JVM_stateAccess [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
+                <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_sharedJVM [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="layer_W_JVM_akka_http_server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="layer_Z_JVM_and_JS_sharedJS [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="layer_Z_JVM_and_JS_shared-sources" />
@@ -1050,13 +1303,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00084" summary="towards a &quot;proper&quot; ViewCache (generalized &quot;Map&quot; for type safe caching)&#10;&#10;(ujrainditas elotti safety check-in)">
-      <created>1563364450214</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1563364450214</updated>
     </task>
     <task id="LOCAL-00085" summary="towards a &quot;proper&quot; ViewCache (parametrized by a `V&lt;:View` type-parameter)&#10;&#10;code does not compile now ... refactoring, etc ... is in progress">
       <created>1563414826978</created>
@@ -1394,7 +1640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565185729645</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Going towards adding test data for showing users on the client&#10;side.&#10;&#10;Currently the code is in ruins. Goes through major refactoring.">
+      <created>1565229117072</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1565229117072</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1446,16 +1699,16 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.39227644" side_tool="true" weight="0.46136534" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" weight="0.345893" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.41371515" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.36376813" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.36376813" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.5669173" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" weight="0.32481202" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" weight="0.4115942" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" visible="true" weight="0.4115942" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49812454" weight="0.25652173" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51537883" side_tool="true" weight="0.33567417" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.19101124" />
@@ -1516,7 +1769,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Wednesday, 24 July 2019 4.27.20 :&#10;&#10;YEEEESSSS !!!! &#10;&#10;Mission accomplisssssshed !!!&#10;&#10;The brand new shineyyy ViewCache WORKS !!! &#10;YEEESSS !&#10;&#10;need to look into the entity cache too... maybe that got messed up &#10;in the process.. the text field of LineText looks a bit ...&#10;&quot;dead&quot;" />
     <MESSAGE value="Wednesday, 24 July 2019 4.48.47&#10;&#10;- the app works, the entity cache works&#10;- the view cache works&#10;&#10;- the app freezes if the net drops, no big deal, we do not&#10;deal with this unhappy path now, maybe later, maybe in my&#10;next life&#10;&#10;- cache invalidation is non existent, but we are also not writing&#10;anything, so until then, cache validation is not a big issue&#10;&#10;- next step: load in some more complex queries, such as :&#10;List of User's :) , and maybe do a User CRUD feature :)" />
     <MESSAGE value="trying to get css-dsl working but sbt cannot resolve it" />
     <MESSAGE value="trying to get css-dsl working but sbt cannot resolve it&#10;-changed resolver to bintray, no luck" />
@@ -1541,360 +1793,12 @@
     <MESSAGE value="After some heavy cleaning.&#10;&#10;Just a &quot;safety&quot; commit, before smashing the code into pieces&#10;again." />
     <MESSAGE value="Going towards adding test data for showing users on the client&#10;side. &#10;&#10;Refactoring the code so that it looks a bit nicer." />
     <MESSAGE value="Going towards adding test data for showing users on the client&#10;side." />
-    <option name="LAST_COMMIT_MESSAGE" value="Going towards adding test data for showing users on the client&#10;side." />
+    <MESSAGE value="Going towards adding test data for showing users on the client&#10;side.&#10;&#10;Currently the code is in ruins. Goes through major refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Going towards adding test data for showing users on the client&#10;side.&#10;&#10;Currently the code is in ruins. Goes through major refactoring." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#41#116#0" expanded="true" />
-            <element signature="e#1171#1200#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2930">
-          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-          <folding>
-            <element signature="e#10065#10066#0" expanded="true" />
-            <element signature="e#10148#10149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/__learning_playing_around/cake_pattern/LambdaCakeExample.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/Option.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="97" column="22" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/CacheInterface.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/collection/generic/GenTraversableFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/views/viewsForDevelopingTheViewFramework/SumIntView_HolderObject.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumberNotWrappedsOnlyChild.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="e#71#114#0" expanded="true" />
-            <element signature="e#1581#1831#0" />
-            <element signature="e#1581#1915#0" />
-            <element signature="e#1919#2034#0" />
-            <element signature="e#2141#2257#0" />
-            <element signature="e#2317#2453#0" />
-            <element signature="e#2459#2571#0" />
-            <element signature="e#2459#2797#0" />
-            <element signature="e#2927#6424#1" />
-            <element signature="e#2955#4424#1" />
-            <element signature="e#4453#4756#0" />
-            <element signature="e#4817#5525#0" />
-            <element signature="e#5531#6119#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/viewCache/ViewCacheStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestData.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#37#83#0" expanded="true" />
-            <marker date="1565185446342" expanded="true" signature="473:527" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#32#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-236">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/test/scala/app/server/persistence/PersActorWrapperTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestHelper.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
-          <folding>
-            <element signature="e#136#184#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestDataLabels.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#84#114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/testServerStates/TestDataProvider.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="e#54#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestEntities.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/collection/immutable/Map.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/Predef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="145" column="31" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/CirceJSON.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="e#292#309#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/URLs.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetAllEntitiesRequest.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/CreateEntityRequest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/UpdateEntityRequest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/unTyped/NotTypeSafeRef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
-          <folding>
-            <element signature="e#29#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/SimpleModel.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/model/Views.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/UUID_Utils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding>
-            <element signature="e#29#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/ResetStateRoute_Test.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/RoutesTestBase.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/viewTests/forViewFrameWorkDevelopment/SumInt_InViewFramework_RouteTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/viewTests/forViewFrameWorkDevelopment/SumInt_WithoutViewFramework_RouteTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/CreateEntityTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/GetAllEntityRouteTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/GetEntityRouteTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/UpdateEntityTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/entitySpecificRoutes/GetUserLineListRouteTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/generalCRUD/UpdateEntityTest.scala" />
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/routes/entitySpecificRoutes/GetUserLineListRouteTest.scala" />
     <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/rest/routes/crudRequests/GetEntityRequest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1906,26 +1810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/TestServerFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#38#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/RESTService/mocks/runnableApps/TestServer_App_LabelOne_ClientTesting.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#51#104#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1970,13 +1854,349 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/testHelpersShared/data/TestDataLabels.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#84#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/RESTTest_old.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/TestHelper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/RESTTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/TypedRefToClientState.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="14" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+          <folding>
+            <element signature="e#42#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/IMPersistentActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="122" column="4" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+          <folding>
+            <element signature="e#42#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest_BaseTrait.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4470">
+          <caret line="318" column="34" selection-start-line="318" selection-start-column="34" selection-end-line="318" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/server/stateAccess/tests/EntityServiceTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/src/main/scala/app/shared/data/ref/TypedRefVal.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="e#29#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/persActor/Commands.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#42#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/InterfaceToStateAccessor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#47#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/StateAccessorBase.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/HasPersistentActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#32#58#0" expanded="true" />
+            <element signature="e#1109#1132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/_sandbox/FullTestKitExampleSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-151">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/__learning_playing_around/cake_pattern/LambdaCakeExample.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/testHelpersServer/state/TestData.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#37#83#0" expanded="true" />
+            <marker date="1565185446342" expanded="true" signature="473:527" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/GetAllEntitiesRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/common/GetRouteBase.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/common/RouteBase.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/GetRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="75" column="2" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/CreateEntityRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-241">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/routes/entityCRUD/UpdateEntityRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/akkaHttpWebServer/HTTP.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-167" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/Tester.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/serverSide/logic/ServerSideLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/comm_model_on_the_server_side/simple_route/SimpleRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_V_JS_client/src/test/scala/app/client/comm/SumIntViewTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/Errors.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StaticStuff.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/StateAccessorMock_prodPersAct.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/RESTService/staticContent/IndexDotHtmlTemplate.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/routes/ViewRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="e#39#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/TestServer_App_LabelOne_ClientTesting.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/staticContent/IndexDotHtmlTestTemplate.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#82#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/ApplicationState.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="-293">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#32#88#0" expanded="true" />
-            <element signature="e#1600#1758#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/TestServerFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding>
+            <element signature="e#31#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/main/scala/app/server/httpServer/HttpServer_For_ImageMemory_App.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+          <folding>
+            <element signature="e#31#59#0" expanded="true" />
+            <element signature="e#1359#1376#0" expanded="true" />
+            <element signature="e#1266#2129#0" />
+            <element signature="e#1688#1749#0" expanded="true" />
+            <element signature="e#2661#3298#0" />
+            <element signature="e#3302#3579#0" />
+            <element signature="e#3326#3387#0" expanded="true" />
+            <element signature="e#5095#5815#0" />
           </folding>
         </state>
       </provider>

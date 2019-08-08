@@ -16,6 +16,8 @@ case class DeletedFlag(isDeleted:Boolean)
   */
 @Lenses
 case class TypedRefVal[T <: Entity[T]](r: TypedRef[T], v: T, version: Version, isDeleted:DeletedFlag = DeletedFlag(false) ) {
+  def toRefVal = ???
+
 
   def map(f: T => T ): TypedRefVal[T] = copy( v = f( v ) )
 

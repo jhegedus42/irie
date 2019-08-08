@@ -4,7 +4,7 @@ import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Lo
 import app.shared.data.model.Entity.Entity
 import app.shared.data.ref.{TypedRefVal, TypedRef}
 
-private[entityCache] class MapForEntityCache[E <: Entity]() {
+private[entityCache] class MapForEntityCache[E <: Entity[E]]() {
   private[this] var map: Map[TypedRef[E], EntityCacheState[E]] = Map()
 
 //  def getCacheContentAsPrettyString: String =

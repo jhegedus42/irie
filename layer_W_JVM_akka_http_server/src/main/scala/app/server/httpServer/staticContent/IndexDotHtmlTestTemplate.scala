@@ -1,4 +1,4 @@
-package app.server.RESTService.mocks
+package app.server.httpServer.staticContent
 
 object IndexDotHtmlTestTemplate {
   import scalatags.Text.all._

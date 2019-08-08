@@ -5,9 +5,9 @@ import akka.persistence.{PersistentActor, RecoveryCompleted}
 import Commands.{CreateEntityPACommand, CreateEntityPAResponse, GetStatePACommand, GetStatePAResponse, SetStatePACommand, UpdateEntityPACommand, UpdateEntityPAResponse}
 import EventsStoredInJournal.{CreateEntity, Event, UpdateEntity}
 import app.server.persistence.ApplicationState
+import app.server.persistence.ApplicationState.RefValDyn
 import app.shared.SomeError_Trait
 import app.shared.data.model.Entity.{Data, Entity}
-import app.shared.data.ref.RefValDyn
 import app.shared.data.utils.PrettyPrint
 import app.testHelpersServer.state.TestData
 import app.testHelpersShared.data.TestDataLabel
@@ -44,33 +44,34 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
       println("shutting down persistent actor")
       context.stop(self)
 
-    case CreateEntityPACommand(e: Entity) => {
+//    case CreateEntityPACommand(e: Entity[_]) => {
+//
+//      val rvd: RefValDyn = RefValDyn.makeRefValDynForNewlyCreatedEntity(e)
+//
+//
+//      persist(CreateEntity(rvd)) { evt =>
+//        applyEvent(evt)
+//
+//        sender() ! CreateEntityPAResponse(\/-(rvd))
+//      }
+//    }
 
-      val rvd: RefValDyn = RefValDyn.makeRefValDynForNewlyCreatedEntity(e)
+//    case UpdateEntityPACommand(item) => {
+//
+//      val res: \/[SomeError_Trait, (ApplicationState, RefValDyn)] =
+//        state.updateEntity(item)
+//      if (res.isRight) {
+//        persist(UpdateEntity(item)) { evt =>
+//          applyEvent(evt)
+//          val rp = UpdateEntityPAResponse(\/-(res.toEither.right.get._2))
+//          println(rp)
+//          sender() ! rp
+//        }
+//      } else {
+//        sender() ! UpdateEntityPAResponse(-\/(res.toEither.left.get))
+//      }
+//    }
 
-
-      persist(CreateEntity(rvd)) { evt =>
-        applyEvent(evt)
-
-        sender() ! CreateEntityPAResponse(\/-(rvd))
-      }
-    }
-
-    case UpdateEntityPACommand(item) => {
-
-      val res: \/[SomeError_Trait, (ApplicationState, RefValDyn)] =
-        state.updateEntity(item)
-      if (res.isRight) {
-        persist(UpdateEntity(item)) { evt =>
-          applyEvent(evt)
-          val rp = UpdateEntityPAResponse(\/-(res.toEither.right.get._2))
-          println(rp)
-          sender() ! rp
-        }
-      } else {
-        sender() ! UpdateEntityPAResponse(-\/(res.toEither.left.get))
-      }
-    }
     case GetStatePACommand => {
       val s=state.toString
       import app.shared.data.utils.PrettyPrint
@@ -104,6 +105,7 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
   }
 
   private def applyEvent(event: Event): Unit = event match {
+
     case UpdateEntity(refVal: (RefValDyn)) => {
       val res = state.updateEntity(refVal)
       if (res.isRight) { state = res.toEither.right.get._1 } else {
@@ -112,12 +114,14 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
 
     }
 
+
     case CreateEntity(refVal: (RefValDyn)) => {
       val res = state.insertEntity(refVal)
       if (res.isRight) { state = res.toEither.right.get } else {
         log.error(s" apply Event - InsertEntity - $refVal - ($res.toString)")
       }
     }
+
   }
 
 }

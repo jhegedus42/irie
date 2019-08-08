@@ -1,7 +1,5 @@
-package app.server.RESTService.routes.views
+package app.server.httpServer.routes
 
-import akka.http.scaladsl.server.Route
-import app.comm_model_on_the_server_side.serverSide.akkaHttpWebServer.GetViewRequestHandler
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.comm_model_on_the_server_side.serverSide.logic.ServerSideLogic.ServerLogicTypeClass
 //import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider

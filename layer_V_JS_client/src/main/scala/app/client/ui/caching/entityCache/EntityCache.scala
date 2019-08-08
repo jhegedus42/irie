@@ -15,7 +15,7 @@ import scala.reflect.ClassTag
 
 
 
-private[caching] class EntityCache[E <: Entity]()
+private[caching] class EntityCache[E <: Entity[E]]()
    {
 
   implicit def executionContext: ExecutionContextExecutor =
