@@ -3,13 +3,13 @@
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
     <profile name="sbt 1" modules="irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
-    <profile name="sbt 2" modules="layer_V_JS_client,layer_Z_JS_shared">
+    <profile name="sbt 2" modules=".js-modules_shared,.js-shared_js,client,layer_V_JS_client,layer_Z_JS_shared,shared-.js-modules_shared">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.6/jars/scalajs-compiler_2.12.6-0.6.25.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.6/jars/paradise_2.12.6-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 3" modules="layer_W_JVM_akka_http_server">
+    <profile name="sbt 3" modules="layer_W_JVM_akka_http_server,server">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <option name="featureWarnings" value="true" />
@@ -18,12 +18,12 @@
         <parameter value="-Yrangepos" />
       </parameters>
     </profile>
-    <profile name="sbt 4" modules="layer_Z_JVM_shared">
+    <profile name="sbt 4" modules=".jvm-modules_shared,layer_Z_JVM_shared,modules_shared,shared_js,shared_jvm">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.6/jars/paradise_2.12.6-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 5" modules="IM root project">
+    <profile name="sbt 5" modules="IM root project,root">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.7/jars/paradise_2.12.7-2.1.0.jar" />
       </plugins>

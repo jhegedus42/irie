@@ -9,13 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/layer_V_JS_client" />
-            <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server" />
-            <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess" />
-            <option value="$PROJECT_DIR$/layer_Y_JVM_persistence" />
-            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared" />
-            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.js" />
-            <option value="$PROJECT_DIR$/layer_Z_JVM_and_JS_shared/.jvm" />
+            <option value="$PROJECT_DIR$/modules/client" />
+            <option value="$PROJECT_DIR$/modules/server" />
+            <option value="$PROJECT_DIR$/modules/shared" />
+            <option value="$PROJECT_DIR$/modules/shared/.js" />
+            <option value="$PROJECT_DIR$/modules/shared/.jvm" />
             <option value="$PROJECT_DIR$/project" />
           </set>
         </option>

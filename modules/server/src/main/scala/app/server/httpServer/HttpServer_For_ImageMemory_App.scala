@@ -71,7 +71,6 @@ case class  HttpServer_For_ImageMemory_App(persistenceModule:PersistenceModule) 
 
     val result: Route =
       routeForSumIntView ~
-        SumIntViewRoute_For_Testing.route ~
         crudEntityRoute[Note] ~
         crudEntityRoute[NoteFolder] ~
         crudEntityRoute[User] ~
