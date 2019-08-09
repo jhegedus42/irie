@@ -135,7 +135,7 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
 
 case class PersistenceModule() {
 
-  def getEntity[E](uuid:String) :Future[TypedRefVal[E]] = ???
+  def getEntity[E<:Entity[E]](uuid:String) :Future[TypedRefVal[E]] = ???
   def setState(s: Any): Route = ???
 
 }

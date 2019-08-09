@@ -9,7 +9,7 @@ import app.shared.testData.TestDataLabel
 
 import scala.concurrent.Future
 
-case class PersActorWrapper(private[this] val actor: ActorRef) {
+case class PersActorWrapper(val actor: ActorRef) {
   import akka.pattern.ask
   import akka.util.Timeout
 
