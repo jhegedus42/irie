@@ -7,7 +7,6 @@ object TestHelper {
 //import app.client.rest.commands.forTesting.Helpers
 //import app.shared.rest.TestURLs
 import app.shared.testData.{LabelOne, LabelThree, TestDataLabel, TestDataLabels}
-import app.testHelpersShared.data._
 //import com.sun.deploy.ref.Helpers
 import org.scalajs.dom.XMLHttpRequest
 import org.scalajs.dom.ext.Ajax

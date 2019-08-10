@@ -8,7 +8,9 @@ object TestData {
 
   def getTestDataFromLabels(label: TestDataLabel): ApplicationState = {
     label match {
-      case LabelOne => ApplicationState().insertEntity(TestEntities.refValOfLineV0)
+//      case LabelOne => ApplicationState().insertEntity(TestEntities.refValOfLineV0)
+        case _ => ??? // todo fix this ???
+
     }
   }
 

@@ -14,8 +14,8 @@ object TestDataProvider {
 //     todo add 3 users
 //    def TypedRef
 //    val alice=TypedRefVal.make (User("Alice"))
-    val bob=User("Bob")
-    val cecile=User("Cecile")
+//    val bob=User("Bob")
+//    val cecile=User("Cecile")
 //
 //    val ct=implicitly[ClassTag[User]]
 //    NoteFolder(user=TypedRef.make(alice),name="Friends")

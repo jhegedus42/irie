@@ -12,7 +12,9 @@ case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.emp
   case class StateUpdateError(s: String )
 
   def insertEntity(refValDyn: RefValDyn ): ApplicationState = {
-    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
+//    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
+    // todo fix this ??? below
+    ???
   }
 
 //  def updateEntity(refValDyn: RefValDyn ) : Option[ApplicationState]  = {

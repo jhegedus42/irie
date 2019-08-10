@@ -5,6 +5,8 @@ import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.persistence.ApplicationState.RefValDyn
 import app.server.persistence.Commands.{GetState, GetStateResult, SetState, UpdateEntity}
 import app.server.testData.TestData
+import app.shared.entity.Entity.Entity
+import app.shared.entity.TypedRefVal
 import app.shared.testData.TestDataLabel
 
 import scala.concurrent.Future
@@ -33,9 +35,9 @@ case class PersActorWrapper(val actor: ActorRef) {
 
 object Commands {
 
-  case class UpdateEntity(entity: RefValDyn)
+  case class UpdateEntity[E<:Entity[E]](entity: TypedRefVal[E])
 
-  case class CreateEntity(e:RefValDyn)
+  case class CreateEntity[E<:Entity[E]](e:TypedRefVal[E])
 
   case object GetState
   case class GetStateResult(state: ApplicationState)
@@ -122,8 +124,8 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
   object Events {
     //events
     sealed trait Event
-    case class UpdateEntity(entity: RefValDyn) extends Event
-    case class CreateEntity(entity: RefValDyn) extends Event
+    case class UpdateEntity[E<:Entity[E]](entity: TypedRefVal[E]) extends Event
+    case class CreateEntity[T<:Entity[T]](entity: TypedRefVal[T]) extends Event
 
   }
 
@@ -135,7 +137,8 @@ class IMPersistentActor(id: String) extends PersistentActor with ActorLogging {
 
 
     case Events.CreateEntity(refVal: (RefValDyn)) => {
-      state = state.insertEntity(refVal)
+//      state = state.insertEntity(refVal)
+        // todo ^^^ implement this uncommented line
       }
 
   }
