@@ -1,7 +1,7 @@
 package app.server.testData
 
 import app.server.persistence.ApplicationState
-import app.shared.dataModel.entity.testData.{LabelOne, TestDataLabel, TestEntities}
+import app.shared.dataModel.entity.testData.TestDataLabel
 
 
 object TestData {

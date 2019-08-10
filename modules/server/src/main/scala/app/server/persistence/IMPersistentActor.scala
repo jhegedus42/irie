@@ -3,13 +3,12 @@ package app.server.persistence
 import akka.actor.{ActorLogging, ActorRef, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.persistence.ApplicationState.RefValDyn
-import app.server.persistence.Commands.{CreateEntity, GetState, GetStateResult, SetState, UpdateEntity}
-import app.server.testData.TestData
+import app.server.persistence.Commands.{CreateEntity, GetState, GetStateResult}
 import app.shared.dataModel.entity.Entity.Entity
 import app.shared.dataModel.entity.refs.TypedRefVal
-import app.shared.dataModel.entity.testData.TestDataLabel
 
 import scala.concurrent.Future
+import scala.language.postfixOps
 
 case class PersActorWrapper( val actor: ActorRef ) {
   import akka.pattern.ask
@@ -28,8 +27,8 @@ case class PersActorWrapper( val actor: ActorRef ) {
 //  def createEntity(e:Data):Future[CreateEntityPAResponse]=
 //    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
 
-  def setState( s: TestDataLabel ): Unit =
-    ask( actor, SetState( s ) )( Timeout.durationToTimeout( 1 seconds ) )
+//  def setState( s: TestDataLabel ): Unit =
+//    ask( actor, SetState( s ) )( Timeout.durationToTimeout( 1 seconds ) )
 
 }
 
@@ -42,7 +41,7 @@ object Commands {
   case object GetState
   case class GetStateResult( state: ApplicationState )
 
-  case class SetState( tdl: TestDataLabel )
+//  case class SetState( tdl: TestDataLabel )
 
   case object Shutdown
 }
@@ -54,7 +53,7 @@ object IMPersistentActor {
 class IMPersistentActor( id: String )
     extends PersistentActor with ActorLogging {
 
-  private var state: ApplicationState = getInitState
+  private var state : ApplicationState = getInitState
 
   protected def getInitState: ApplicationState = new ApplicationState()
 
@@ -102,9 +101,9 @@ class IMPersistentActor( id: String )
       sender() ! GetStateResult( state )
     }
 
-    case SetState( tdl: TestDataLabel ) => {
-      val ns = TestData.getTestDataFromLabels( tdl )
-    }
+//    case SetState( tdl: TestDataLabel ) => {
+//      val ns = TestData.getTestDataFromLabels( tdl )
+//    }
 
   }
 
