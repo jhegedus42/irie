@@ -1,7 +1,8 @@
 package app.server.logic
 
-import app.shared.dataModel.views.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
 import app.shared.comm.views.View
+import app.shared.dataModel.views.SumIntView
+import app.shared.dataModel.views.SumIntView.{SumIntView_Par, SumIntView_Res}
 
 object ServerSideLogic {
 

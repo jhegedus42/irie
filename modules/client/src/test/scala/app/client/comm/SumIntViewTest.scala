@@ -3,7 +3,7 @@ package app.client.comm
 // copy pasted from :
 // [https://github.com/jhegedus42/IM_shared_2018_11_22/blob/c9487cf220e6388cb4315d10e7cc2282c9a4a725/_archive/old_client_tests/test/scala/app/client/rest/view/SumIntViewTest.scala](https://github.com/jhegedus42/IM_shared_2018_11_22/blob/c9487cf220e6388cb4315d10e7cc2282c9a4a725/_archive/old_client_tests/test/scala/app/client/rest/view/SumIntViewTest.scala)
 //import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider
-import app.shared.comm.views.{View, ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.comm.views.{View, ViewHttpRouteName, ViewHttpRouteName}
 import app.shared.dataModel.views.SumIntView_HolderObject.{SumIntView, SumIntView_Par, SumIntView_Res}
 import io.circe.generic.auto._
 import io.circe.parser.decode
@@ -38,7 +38,7 @@ class SumIntViewTest extends AsyncFunSuite with Matchers with BeforeTester {
                                   decoder: Decoder[V#Res]
                                 ): Future[V#Res] = {
 
-    val routeName: ViewHttpRouteName = ViewHttpRouteNameProvider.getViewHttpRouteName[V]
+    val routeName: ViewHttpRouteName = ViewHttpRouteName.getViewHttpRouteName[V]
     val url: String = routeName.name
 
     val json_line: String = requestParams.asJson.spaces2 // encode

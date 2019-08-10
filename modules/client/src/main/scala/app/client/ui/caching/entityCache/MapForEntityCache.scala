@@ -2,7 +2,6 @@ package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.dataModel.entity.Entity.Entity
-import app.shared.dataModel.entity.TypedRefVal
 import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
 
 private[entityCache] class MapForEntityCache[E <: Entity[E]]() {
