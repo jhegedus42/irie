@@ -1,13 +1,13 @@
 package app.server.httpServer.routes.staticContent
 
-object IndexDotHtmlTestTemplate {
+object IndexDotHtml {
   import scalatags.Text.all._
   import scalatags.Text.tags2.title
 
-  val jsModulesName          = "layer_V_JS_client"
+  val jsModulesName          = "client"
   val jsModulesNameLowerCase = jsModulesName.map( x => x.toLower )
 
-  def router_index(testClient: Boolean ) = {
+  def getIndexDotHTML(testClient: Boolean ): String = {
     val testString   = if (testClient) "-test-" else "-"
     val packageName  = "app.client"
     val js_code_path = s"./${jsModulesName}/target/scala-2" + s".12/$jsModulesNameLowerCase${testString}fastopt.js"

@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.view
+package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.logic.ServerSideLogic.ServerLogicTypeClass
@@ -30,8 +30,6 @@ object ViewRoute {
     val routeName: ViewHttpRouteName = ViewHttpRouteNameProvider.getViewHttpRouteName[V]
 
     val res: Route = {
-//      cors() { // WHAT IS THIS ??? - DO WE REALLY NEED THIS ??? ===>>> NO, things
-      // seem to work just fine without it
 
         post {
           val pathName: String = routeName.name
@@ -45,7 +43,6 @@ object ViewRoute {
 
           }
         }
-//      }
     }
 
     res

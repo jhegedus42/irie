@@ -3,22 +3,18 @@ package app.server.httpServer
 import akka.actor.Terminated
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.staticContent.StaticRoutes
-import app.server.httpServer.routes.view.ViewRoute
+import app.server.httpServer.routes.ViewRoute
+import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
 import app.shared.Config
 import app.shared.comm.GetEntityURLs
 import app.shared.dataModel.entity.refs.TypedRefVal
-import app.shared.dataModel.entity.testData.TestDataLabel
-//import app.server.RESTService.routes.entityCRUD.{CreateEntityRoute, GetAllEntitiesRoute, GetRoute, UpdateEntityRoute}
 import app.shared.dataModel.views.SumIntView_HolderObject.SumIntView
-//import app.server.RESTService.routes.views.UserLineListViewRoute
 import app.shared.dataModel.entity.Entity.Entity
 import app.shared.dataModel.entity.{Note, NoteFolder, User}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-//import shapeless.Typeable
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
@@ -32,28 +28,10 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
   import io.circe._
   import io.circe.generic.auto._
 
-  def setTestStateRoute(label: TestDataLabel): Route = {
-
-    import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
-    cors() {
-      post {
-        path( "setTestState") {
-          import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-          import io.circe.generic.auto._
-
-          entity( as[TestDataLabel] ) { entityBody => // get payload/json/body ...
-            complete(
-               ??? // todo some logic that depends on label
-            )
-          }
-        }
-      }
-    }
-  }
 
   implicit lazy val system: ActorSystem = ActorSystem( "trait-Server" )
 
-  def rootPageHtml: String = ??? // todo complete this
+  def rootPageHtml: String = IndexDotHtml.getIndexDotHTML(false)
 
   implicit lazy val executionContext: ExecutionContextExecutor =
     system.dispatcher
@@ -64,7 +42,7 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
 
     val routeForSumIntView =
       ViewRoute
-        .getRouteForView[SumIntView]() // copied from d7b8aea40f454a46af529da21328f1aa
+        .getRouteForView[SumIntView]()
 
     val result: Route =
       routeForSumIntView ~
@@ -80,8 +58,6 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
 
     //    new CreateEntityRoute[E]().route ~
     //    new UpdateEntityRoute[E]().route ~
-    //      new GetAllEntitiesRoute[E].route ~
-    //      new GetRoute[E]().route
     getGetEntityRoute[E]
   }
 
@@ -108,7 +84,6 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
   }
 
   def start( args: Array[String] ): Unit = {
-    // 4dc327e9dce94fcfa994ad032bdcd3dd$4c99b1ca2b825dfc2e311c49f3572327a7c77e8d
 
     implicit val materializer = ActorMaterializer()
 
@@ -137,6 +112,5 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
 case class PersistenceModule() {
 
   def getEntity[E<:Entity[E]](uuid:String) :Future[TypedRefVal[E]] = ???
-  def setState(s: Any): Route = ???
 
 }
