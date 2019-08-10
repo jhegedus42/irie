@@ -5,19 +5,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Still &quot;simplifying&quot; the code.">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRefVal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRefVal.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/testData/TestEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/testData/TestEntities.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,14 +56,14 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4822909">
+    <splitter split-orientation="horizontal" split-proportion="0.4272796">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/ApplicationState.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+                <state relative-caret-position="360">
+                  <caret line="24" selection-start-line="24" selection-end-line="24" />
                   <folding>
                     <element signature="e#32#88#0" expanded="true" />
                   </folding>
@@ -84,11 +74,11 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
+                <state relative-caret-position="150">
                   <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
                   <folding>
                     <element signature="e#29#75#0" expanded="true" />
@@ -98,10 +88,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
+            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -185,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/InterfaceToStateAccessor.scala" />
         <option value="$PROJECT_DIR$/layer_Y_JVM_persistence/src/main/scala/app/server/persistence/PersActorWrapper.scala" />
         <option value="$PROJECT_DIR$/layer_X_JVM_stateAccess/src/main/scala/app/server/stateAccess/generalQueries/StateAccessorBase.scala" />
         <option value="$PROJECT_DIR$/layer_W_JVM_akka_http_server/src/test/scala/app/_sandbox/FullTestKitExampleSpec.scala" />
@@ -236,6 +225,7 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRefVal.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/testData/TestEntities.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala" />
       </list>
     </option>
   </component>
@@ -699,12 +689,12 @@
     <list>
       <item itemvalue="Remote.Debug sbt shell" />
       <item itemvalue="sbt Task.fastOptJS" />
+      <item itemvalue="ScalaTest.RESTTest" />
       <item itemvalue="ScalaTest.test &quot;JS shared&quot; module" />
       <item itemvalue="ScalaTest.test &quot;JVM shared&quot; module " />
       <item itemvalue="ScalaTest.test &quot;http server&quot; module" />
       <item itemvalue="ScalaTest.test &quot;persistence&quot; module" />
       <item itemvalue="ScalaTest.test &quot;state access&quot; module" />
-      <item itemvalue="ScalaTest.RESTTest" />
     </list>
     <recent_temporary>
       <list>
@@ -762,6 +752,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7818113057000" />
         <entry key="$PROJECT_DIR$/build.sbt" value="3186298890" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -791,13 +782,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Sunday, 21 July 2019 21.08.21&#10;&#10;Prettified the code a bit.">
-      <created>1563732539095</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1563732539095</updated>
     </task>
     <task id="LOCAL-00089" summary="Cleaning up code.">
       <created>1563734144782</created>
@@ -1135,7 +1119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565302170588</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="Still &quot;simplifying&quot; the code.&#10;&#10;Fixed a few compiler errors.">
+      <created>1565310975621</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1565310975622</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1257,7 +1248,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="bootstrap button compiled" />
     <MESSAGE value="bootstrap button works !" />
     <MESSAGE value="bumped a dependency version to have more consistent AKKA &#10;dependency versions (compiler warned me about this)" />
     <MESSAGE value="cleaning up the code" />
@@ -1282,7 +1272,8 @@
     <MESSAGE value="Going towards adding test data for showing users on the client&#10;side.&#10;&#10;Currently the code is in ruins. Goes through major refactoring.&#10;&#10;Smashing the server side code into pieces. Major simplifications are &#10;taking place." />
     <MESSAGE value="build.sbt - refactored" />
     <MESSAGE value="Still &quot;simplifying&quot; the code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Still &quot;simplifying&quot; the code." />
+    <MESSAGE value="Still &quot;simplifying&quot; the code.&#10;&#10;Fixed a few compiler errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Still &quot;simplifying&quot; the code.&#10;&#10;Fixed a few compiler errors." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/httpServer/src/main/scala/app/server/testData/TestData.scala" />
@@ -1426,20 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#27#65#0" expanded="true" />
-            <element signature="e#721#736#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-299">
@@ -1474,16 +1451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
-          <folding>
-            <element signature="e#29#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/testData/TestDataLabels.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1508,27 +1475,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/ViewCacheStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/SumIntViewCache.scala" />
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1330">
@@ -1546,6 +1493,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/ApplicationState.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#32#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/ViewCacheStates.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRefVal.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1556,13 +1520,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/ApplicationState.scala">
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/TypedRef.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        <state relative-caret-position="43">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding>
-            <element signature="e#32#88#0" expanded="true" />
+            <element signature="e#27#65#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+          <folding>
+            <element signature="e#29#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Model.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
         </state>
       </provider>
     </entry>
