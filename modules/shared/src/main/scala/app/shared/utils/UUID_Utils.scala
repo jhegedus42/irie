@@ -1,6 +1,6 @@
 package app.shared.utils
 
-import app.shared.entity.Entity.Data
+import app.shared.dataModel.entity.Entity.Data
 import scalaz.\/
 
 import scala.util.matching.Regex

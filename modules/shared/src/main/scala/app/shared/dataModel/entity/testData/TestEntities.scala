@@ -1,6 +1,7 @@
-package app.shared.testData
+package app.shared.dataModel.entity.testData
 
-import app.shared.entity.{Note, TypedRef, TypedRefVal, Version}
+import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal, Version}
+import app.shared.dataModel.entity.Note
 
 object TestEntities {
   val theUUIDofTheLine           = "4ce6fca0-0fd5-4197-a946-90f5e7e00d9d"

@@ -2,9 +2,9 @@ package app.server.httpServer.routes.view
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.logic.ServerSideLogic.ServerLogicTypeClass
-import app.shared.views.View
+import app.shared.comm.views.View
 //import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider
-import app.shared.views.{ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.comm.views.{ViewHttpRouteName, ViewHttpRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag

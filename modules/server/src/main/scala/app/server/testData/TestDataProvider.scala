@@ -1,8 +1,8 @@
 package app.server.testData
 
 import app.server.persistence.ApplicationState
-import app.shared.entity.User
-import app.shared.testData.{TestDataForUsers, TestDataLabel}
+import app.shared.dataModel.entity.User
+import app.shared.dataModel.entity.testData.{TestDataForUsers, TestDataLabel}
 
 trait TestDataProvider[T<:TestDataLabel] {
   def getTestData: ApplicationState

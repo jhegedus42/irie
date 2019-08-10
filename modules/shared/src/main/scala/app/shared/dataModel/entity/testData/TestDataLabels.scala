@@ -1,4 +1,4 @@
-package app.shared.testData
+package app.shared.dataModel.entity.testData
 
 import io.circe.Json
 

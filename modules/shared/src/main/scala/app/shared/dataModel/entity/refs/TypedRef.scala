@@ -1,9 +1,9 @@
-package app.shared.entity
+package app.shared.dataModel.entity.refs
 
-import app.shared.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.TypeAsString
 import app.shared.utils.UUID_Utils.{UUID, UUIDCompare}
 import monocle.macros.Lenses
-import scalaz.{-\/, \/, \/-}
 
 import scala.reflect.ClassTag
 
@@ -24,14 +24,11 @@ case class TypedRef[T <: Entity[T]](uuid: UUID = UUID.random(), dataType: TypeAs
 }
 
 
+
+
 object TypedRef {
 
-
-
-  import scalaz._
-  import Scalaz._
-
-  implicit def imp2[E <: Entity[E]]: Equal[TypedRef[E]] = Equal.equalBy(_.uuid.id)
+//  implicit def imp2[E <: Entity[E]]: Equal[TypedRef[E]] = Equal.equalBy(_.uuid.id)
 
   implicit def instance[T <: Entity[T]]: UUIDCompare[TypedRef[T]] =
     (x: TypedRef[T], y: TypedRef[T]) => x.uuid == y.uuid

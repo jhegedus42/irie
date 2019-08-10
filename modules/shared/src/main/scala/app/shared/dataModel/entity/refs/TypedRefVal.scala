@@ -1,9 +1,8 @@
-package app.shared.entity
+package app.shared.dataModel.entity.refs
 
-import app.shared.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity.Entity
 import app.shared.utils.UUID_Utils.UUIDCompare
 import monocle.macros.Lenses
-import scala.reflect.ClassTag
 
 case class Version(l: Long = 0 ) {
   def inc(): Version = this.copy( l = this.l + 1 )
@@ -14,8 +13,8 @@ case class DeletedFlag(isDeleted:Boolean)
 @Lenses
 case class TypedRefVal[T <: Entity[T]](r: TypedRef[T], v: T, version: Version, isDeleted:DeletedFlag = DeletedFlag(false) ) {
 
-    def makeWithNewUUID (v: T)(implicit t: ClassTag[T]): TypedRefVal[T] =
-      new TypedRefVal(TypedRef.make[T](), v, Version())
+//    def makeWithNewUUID (v: T)(implicit t: ClassTag[T]): TypedRefVal[T] =
+//      new TypedRefVal(TypedRef.make[T](), v, Version())
 
   def map(f: T => T ): TypedRefVal[T] = copy( v = f( v ) )
 

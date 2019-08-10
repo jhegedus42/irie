@@ -1,11 +1,12 @@
-package app.shared.views
+package app.shared.comm.views.marshall
 
+import app.shared.comm.views.View
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 
 
 
-object CirceUtils {
+object ViewCirceEncodingDecoding {
 
 
   def decodeJSONContainingOptResToOptRes[V <: View](

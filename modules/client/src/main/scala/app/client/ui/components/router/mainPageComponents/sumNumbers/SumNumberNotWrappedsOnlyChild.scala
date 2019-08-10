@@ -2,7 +2,7 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.CacheInterface
 import app.client.ui.caching.viewCache.ViewCacheStates
-import app.shared.views.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
+import app.shared.dataModel.views.SumIntView_HolderObject.{SumIntView, SumIntView_Par}
 import bootstrap4.TB.C
 import io.circe.generic.auto._
 import japgolly.scalajs.react.component.Scala.Component

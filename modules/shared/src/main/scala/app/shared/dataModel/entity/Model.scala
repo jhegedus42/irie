@@ -1,6 +1,7 @@
-package app.shared.entity
+package app.shared.dataModel.entity
 
-import app.shared.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.refs.TypedRef
 
 case class User( login: String, password : String, isAdmin: Boolean ) extends Entity[User]
 

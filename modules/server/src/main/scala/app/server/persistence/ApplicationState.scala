@@ -1,8 +1,8 @@
 package app.server.persistence
 
 import app.server.persistence.ApplicationState.RefValDyn
-import app.shared.entity.Entity.Entity
-import app.shared.entity.{TypedRef, TypedRefVal}
+import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
 
 import scala.reflect.ClassTag
 

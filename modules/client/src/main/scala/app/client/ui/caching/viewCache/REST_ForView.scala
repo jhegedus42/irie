@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.shared.views.{View, ViewHttpRouteName, ViewHttpRouteNameProvider}
+import app.shared.comm.views.{View, ViewHttpRouteName, ViewHttpRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 

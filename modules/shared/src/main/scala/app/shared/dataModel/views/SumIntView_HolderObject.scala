@@ -1,4 +1,7 @@
-package app.shared.views
+package app.shared.dataModel.views
+
+import app.shared.comm.views.{Parameter, Result, View}
+
 // 9d8879cd0e3e44e6b28d75f7e6f28662
 
 object SumIntView_HolderObject {

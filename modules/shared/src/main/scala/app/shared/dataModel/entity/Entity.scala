@@ -1,6 +1,6 @@
-package app.shared.entity
+package app.shared.dataModel.entity
 
-import app.shared.entity.Entity.Data
+import app.shared.dataModel.entity.Entity.Data
 
 import scala.reflect.ClassTag
 
@@ -8,7 +8,7 @@ object Entity {
 
   trait Entity[T<:Entity[T]] extends Data
   {
-    def getTypedRef(implicit ct:ClassTag[T]) : TypedRef[T]=TypedRef.make[T]()
+//    def getTypedRef(implicit ct:ClassTag[T]) : TypedRef[T]=TypedRef.make[T]()
   }
 
   trait Data

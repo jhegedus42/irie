@@ -6,13 +6,14 @@ import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.staticContent.StaticRoutes
 import app.server.httpServer.routes.view.ViewRoute
 import app.shared.Config
-import app.shared.entity.{GetEntityURLs, TypedRefVal}
-import app.shared.testData.TestDataLabel
+import app.shared.comm.GetEntityURLs
+import app.shared.dataModel.entity.refs.TypedRefVal
+import app.shared.dataModel.entity.testData.TestDataLabel
 //import app.server.RESTService.routes.entityCRUD.{CreateEntityRoute, GetAllEntitiesRoute, GetRoute, UpdateEntityRoute}
-import app.shared.views.SumIntView_HolderObject.SumIntView
+import app.shared.dataModel.views.SumIntView_HolderObject.SumIntView
 //import app.server.RESTService.routes.views.UserLineListViewRoute
-import app.shared.entity.Entity.Entity
-import app.shared.entity.{Note, NoteFolder, User}
+import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.{Note, NoteFolder, User}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
