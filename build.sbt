@@ -7,6 +7,7 @@ ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
 
 
+
 lazy val macroVersion = "2.1.1"
 
 lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
@@ -26,7 +27,6 @@ lazy val shared =
   )).settings(
     name:="shared",
     scalaVersion := Settings.versions.scala,
-//    logLevel := Level.Error,
     libraryDependencies ++= Settings.sharedDependencies.value,
     libraryDependencies ++= paradisePlugin.value
   )
@@ -48,7 +48,6 @@ lazy val client: Project = (project in file( "modules/client" ))
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     parallelExecution in Test := false,
- //   logLevel := Level.Error,
     mainClass in Compile := Some( "app.client.Main" ),
     jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible
     scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) },
@@ -58,28 +57,22 @@ lazy val client: Project = (project in file( "modules/client" ))
 //  .dependsOn( layer_Z_JS_shared % "compile->compile;test->test" )
   .dependsOn( shared_js % "compile->compile" )
 
-//// Client projects (just one in this case)
-//lazy val clients = Seq( layer_V_JS_client )
 
-
-// instantiate the JVM project for SBT with some additional settings
 lazy val server =
   (project in file( "modules/server" ))
     .settings(
       name := "server",
       version := Settings.version,
-//      logLevel := Level.Error,
       scalaVersion := Settings.versions.scala,
       scalacOptions ++= Settings.scalacOptions,
       libraryDependencies ++= Settings.jvmDependencies.value,
       mainClass in Compile := Some( "app.server.rest.TestHttpServerApp" ) //,
     )
     .dependsOn( shared_jvm % "compile->compile;test->test" )
-//    .dependsOn( shared % "compile->compile;test->test" )
 
 logBuffered in Test := false
 
 scalaJSUseMainModuleInitializer in Compile := true
 
 cancelable in Global := true
-//logLevel := Level.Error
+logLevel := Level.Error

@@ -66,7 +66,7 @@ class IMPersistentActor( id: String )
     case CreateEntity(e: Entity[_]) => {
 
 //      val rvd: RefValDyn = RefValDyn.makeRefValDynForNewlyCreatedEntity(e)
-      val untypedRef: UntypedRef = ??? //todo fix this
+      val untypedRef: UntypedRef = ??? //todo-now
 
       val event: Events.CreateEntityEvent =Events.CreateEntityEvent(untypedRef)
 
@@ -136,7 +136,7 @@ class IMPersistentActor( id: String )
 
     case Events.CreateEntityEvent( untypedRef: (UntypedRef) ) => {
 //      state = state.insertEntity(refVal)
-      // todo ^^^ implement this uncommented line
+      // todo-now
     }
 
   }

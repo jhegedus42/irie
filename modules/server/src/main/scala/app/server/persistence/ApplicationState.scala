@@ -2,8 +2,7 @@ package app.server.persistence
 
 import app.shared.dataModel.entity.Entity.Entity
 import app.shared.dataModel.entity.EntityTypeAsString
-import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
-import app.shared.utils.UUID_Utils.EntityUUID
+import app.shared.dataModel.entity.refs.TypedRefVal
 
 import scala.reflect.ClassTag
 
@@ -16,8 +15,7 @@ case class ApplicationState(stateMap: Map[UntypedRef, TypedRefVal[_]] = Map.empt
 
   def insertEntity(untypedRef: UntypedRef ): ApplicationState = {
 //    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
-    // todo fix this ??? below
-    ???
+    ??? // todo-now
   }
 
 //  def updateEntity(refValDyn: RefValDyn ) : Option[ApplicationState]  = {

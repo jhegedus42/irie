@@ -57,10 +57,7 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
       "com.github.julien-truffaut"                     %% "monocle-law" % versions.monocleVersion % "test",
-//      "com.lihaoyi" %%% "pprint" % "0.5.3",
       "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
-      // "com.softwaremill.scalamacrodebug" %% "macros" % "0.4.1" // todo-one-day-maybe
-      // https://github.com/JohnReedLOL/pos#Logging // LATER
     ) ++
       Seq(
         "io.circe" %%% "circe-core",

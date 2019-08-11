@@ -30,7 +30,7 @@ private[caching] class EntityCache[E <: Entity[E]]()
 
     tryRefVal.foreach( cacheMap.insertIntoCacheAsLoaded( _ ) )
 
-    if (!cacheMap.isAjaxReqStillPending) ReRenderer.triggerReRender() //todo-one-day fix this ugliness
+    if (!cacheMap.isAjaxReqStillPending) ReRenderer.triggerReRender() //maybetodo-one-day fix this ugliness
 
     nrOfAjaxReqReturnedAndHandled = nrOfAjaxReqReturnedAndHandled + 1
 

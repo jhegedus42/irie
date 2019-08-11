@@ -27,8 +27,6 @@ private[caching] class ViewCache[V <: View]( ) {
           r  => {
             r.foreach( decoded => { this.map = map + (decoded.par -> ViewLoaded( decoded.par, decoded.res ) )} )
             if (!map.valuesIterator.exists( _.isLoading )) ReRenderer.triggerReRender()
-            // todo-one-day
-             // fix this ugliness with the global `triggerReRender`
           }
         )
         loading
@@ -37,5 +35,5 @@ private[caching] class ViewCache[V <: View]( ) {
   }
 
 object ViewCache {
-  implicit val sumIntViewCache = new ViewCache[SumIntView]( ) // TODO fix this
+  implicit val sumIntViewCache = new ViewCache[SumIntView]( )
 }
