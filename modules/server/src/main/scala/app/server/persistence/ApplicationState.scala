@@ -15,7 +15,7 @@ case class ApplicationState(stateMap: Map[UntypedRef, TypedRefVal[_]] = Map.empt
 
   def insertEntity(untypedRef: UntypedRef ): ApplicationState = {
 //    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
-    ??? // todo-now
+    ??? // todo-next-1
   }
 
 //  def updateEntity(refValDyn: RefValDyn ) : Option[ApplicationState]  = {

@@ -5,7 +5,8 @@ import app.shared.dataModel.entity.refs.TypedRef
 
 case class User( login: String, password : String, isAdmin: Boolean ) extends Entity[User]
 
-// TODO-next : CRUD users - "admin" page
+// todo-next-4 : CRUD users
+// It is an "admin" page:
 // steps:
 //  (there is no admin user - it is just react page, that can simply
 //  CRUD manipulate the users)
