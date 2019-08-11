@@ -1,17 +1,20 @@
 package app.server.persistence
 
-import app.server.persistence.ApplicationState.RefValDyn
 import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.EntityTypeAsString
 import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
+import app.shared.utils.UUID_Utils.EntityUUID
 
 import scala.reflect.ClassTag
 
+case class EntityUUID(uuid:EntityUUID)
+case class UntypedRef(uuid:String,version:Long,entityType:EntityTypeAsString)
 
-case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.empty ) {
+case class ApplicationState(stateMap: Map[UntypedRef, TypedRefVal[_]] = Map.empty ) {
 
-  case class StateUpdateError(s: String )
 
-  def insertEntity(refValDyn: RefValDyn ): ApplicationState = {
+
+  def insertEntity(untypedRef: UntypedRef ): ApplicationState = {
 //    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
     // todo fix this ??? below
     ???
@@ -26,11 +29,7 @@ case class ApplicationState(stateMap: Map[TypedRef[_], TypedRefVal[_]] = Map.emp
 //  }
 
 
-  def getEntity[E <: Entity[E]: ClassTag](r: TypedRef[E] ): Option[TypedRefVal[_]] = {
+  def getEntity[E <: Entity[E]: ClassTag](r: UntypedRef ): Option[TypedRefVal[_]] = {
     this.stateMap.get( r )
   }
-}
-
-object ApplicationState {
-  type RefValDyn=TypedRefVal[_]
 }

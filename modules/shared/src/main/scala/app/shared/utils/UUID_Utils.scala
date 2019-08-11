@@ -1,6 +1,5 @@
 package app.shared.utils
 
-import app.shared.dataModel.entity.Entity.Data
 import scalaz.\/
 
 import scala.util.matching.Regex
@@ -10,17 +9,16 @@ import scala.util.matching.Regex
   */
 object UUID_Utils {
 
-  case class UUID(id: String){
+  case class EntityUUID(id: String=java.util.UUID.randomUUID().toString){
 //    def isCorrect: Boolean = UUID.validate_from_String(id).isRight
   }
 
-  object UUID {
-    def random(): UUID = UUID(java.util.UUID.randomUUID().toString)
-    implicit val _from_string: String => UUID = s => UUID(s)
-    implicit val _to_string: UUID => String = (u: UUID) => u.id
-    implicit val _from_UUID: java.util.UUID => UUID = s => UUID(s.toString)
-    implicit val _to_UUID: UUID => java.util.UUID = s =>
-      java.util.UUID.fromString(s.id)
+  object EntityUUID {
+//    def random(): EntityUUID = EntityUUID()
+//    implicit val _from_string: String => EntityUUID = s => EntityUUID(s)
+//    implicit val _to_string: EntityUUID => String = (u: EntityUUID) => u.id
+//    implicit val _from_UUID: java.util.UUID => EntityUUID = s => EntityUUID(s.toString)
+//    implicit val _to_UUID: EntityUUID => java.util.UUID = s => java.util.UUID.fromString(s.id)
 
 //    def validate_from_String(s: String): \/[InvalidUUIDinURLError, UUID] = {
 //      val u: Regex =
@@ -33,20 +31,20 @@ object UUID_Utils {
 
   }
 
-  trait UUIDCompare[T] extends Data{
-    def isUUIDEq(x: T, y: T): Boolean
-  }
+//  trait UUIDCompare[T] extends Data{
+//    def isUUIDEq(x: T, y: T): Boolean
+//  }
 
-  object UUIDCompare {
-
-    implicit class PimperImplicitConverterClass[T: UUIDCompare](toBePimped: T) {
-      def compare =
-        (x: T) => (y: T) => implicitly[UUIDCompare[T]].isUUIDEq(x, y)
-
-      def isUUIDEq = compare(toBePimped)(_)
-
-      def ~ = isUUIDEq
-    }
-
-  }
+//  object UUIDCompare {
+//
+//    implicit class PimperImplicitConverterClass[T: UUIDCompare](toBePimped: T) {
+//      def compare =
+//        (x: T) => (y: T) => implicitly[UUIDCompare[T]].isUUIDEq(x, y)
+//
+//      def isUUIDEq = compare(toBePimped)(_)
+//
+//      def ~ = isUUIDEq
+//    }
+//
+//  }
 }

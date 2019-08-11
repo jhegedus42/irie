@@ -2,7 +2,6 @@ package app.server.persistence
 
 import akka.actor.{ActorLogging, ActorRef, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.persistence.ApplicationState.RefValDyn
 import app.server.persistence.Commands.{CreateEntity, GetState, GetStateResult}
 import app.shared.dataModel.entity.Entity.Entity
 import app.shared.dataModel.entity.refs.TypedRefVal
@@ -17,8 +16,7 @@ case class PersActorWrapper( val actor: ActorRef ) {
   import scala.concurrent.duration._
 
   def getState: Future[GetStateResult] =
-    ask( actor, GetState )( Timeout.durationToTimeout( 1 seconds ) )
-      .mapTo[GetStateResult]
+    ask( actor, GetState )( Timeout.durationToTimeout( 1 seconds ) ) .mapTo[GetStateResult]
 
 //  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
 //    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
@@ -33,6 +31,7 @@ case class PersActorWrapper( val actor: ActorRef ) {
 }
 
 object Commands {
+
 
   case class UpdateEntity[E <: Entity[E]]( entity: TypedRefVal[E] )
 
@@ -67,10 +66,11 @@ class IMPersistentActor( id: String )
     case CreateEntity(e: Entity[_]) => {
 
 //      val rvd: RefValDyn = RefValDyn.makeRefValDynForNewlyCreatedEntity(e)
-      val rvd: RefValDyn = ??? //todo fix this
+      val untypedRef: UntypedRef = ??? //todo fix this
 
+      val event: Events.CreateEntityEvent =Events.CreateEntityEvent(untypedRef)
 
-      persist(Events.CreateEntityEvent(rvd)) { evt =>
+      persist(event) { evt =>
         applyEvent(evt)
 
 //        sender() ! CreateEntityPAResponse(\/-(rvd))
@@ -122,10 +122,9 @@ class IMPersistentActor( id: String )
   object Events {
     //events
     sealed trait Event
-    case class UpdateEntityEvent[E <: Entity[E]](entity: TypedRefVal[E] )
-        extends Event
-    case class CreateEntityEvent[T <: Entity[T]](entity: TypedRefVal[T] )
-        extends Event
+//    case class UpdateEntityEvent[E <: Entity[E]](entity: UntypedRef )
+//        extends Event
+    case class CreateEntityEvent(entity: UntypedRef ) extends Event
 
   }
 
@@ -135,7 +134,7 @@ class IMPersistentActor( id: String )
 //      state = state.updateEntity(refVal)
 //    }
 
-    case Events.CreateEntityEvent( refVal: (RefValDyn) ) => {
+    case Events.CreateEntityEvent( untypedRef: (UntypedRef) ) => {
 //      state = state.insertEntity(refVal)
       // todo ^^^ implement this uncommented line
     }

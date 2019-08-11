@@ -1,7 +1,6 @@
 package app.shared.dataModel.entity.refs
 
 import app.shared.dataModel.entity.Entity.Entity
-import app.shared.utils.UUID_Utils.UUIDCompare
 import monocle.macros.Lenses
 
 case class Version(l: Long = 0 ) {
@@ -26,8 +25,8 @@ case class TypedRefVal[T <: Entity[T]](r: TypedRef[T], v: T, version: Version, i
 
 object TypedRefVal {
 
-  implicit def instance[T <: Entity[T]]: UUIDCompare[TypedRefVal[T]] =
-    (x: TypedRefVal[T], y: TypedRefVal[T]) => TypedRef.instance.isUUIDEq(x.r, y.r)
+//  implicit def instance[T <: Entity[T]]: UUIDCompare[TypedRefVal[T]] =
+//    (x: TypedRefVal[T], y: TypedRefVal[T]) => TypedRef.instance.isUUIDEq(x.r, y.r)
 
 }
 
