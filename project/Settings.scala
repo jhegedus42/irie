@@ -48,7 +48,7 @@ object Settings {
     */
 //  val scalaTest = Seq("org.scalatest" %%% "scalatest" % "3.0.1" % "test")
 
-  val circeVersion = "0.10.0"
+  val circeVersion = "0.11.1"
 
   val sharedDependencies = Def.setting(
     Seq(
@@ -73,7 +73,7 @@ object Settings {
       "com.typesafe.akka"           %%  "akka-stream-testkit"       % versions.akka,
       "com.typesafe.akka"           %%  "akka-http"                 % versions.akkaHttp,
       "com.typesafe.akka"           %%  "akka-http-testkit"         % versions.akkaHttp,
-      "de.heikoseeberger"           %%% "akka-http-circe"           % "1.22.0",
+      "de.heikoseeberger"           %%% "akka-http-circe"           % "1.27.0",
 
       // akka-persistence :
       "com.typesafe.akka"           %%  "akka-persistence"          % versions.akka,
