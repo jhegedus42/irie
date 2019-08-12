@@ -16,11 +16,12 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 > git clone https://github.com/jhegedus42/irie
 > cd irie
 > ./utils/build_js_dep_bundle.sh
+> ./run.sh
 ```
 
-- Step 2: Start the app
-   - start `run.sh` in the terminal
-   - and open the browser at `http://localhost:8080/`
+   
+
+- Step 2: open the browser at `http://localhost:8080/`
 
 ---
 # The "easy" way :
