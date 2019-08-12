@@ -15,7 +15,7 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 ```
 > git clone https://github.com/jhegedus42/irie
 > cd irie
-> ./nuke_rebuild_test.sh 
+> ./.sh 
 ```
 
 - Step 2: If the tests went OK, then 
