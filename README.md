@@ -15,18 +15,12 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 ```
 > git clone https://github.com/jhegedus42/irie
 > cd irie
-> ./.sh 
+> ./utils/build_js_dep_bundle.sh
 ```
 
-- Step 2: If the tests went OK, then 
-   - start `runTestServerInSbt_light_cleaning.sh` in the terminal
+- Step 2: Start the app
+   - start `run.sh` in the terminal
    - and open the browser at `http://localhost:8080/`
-
-- Step 3: Be amazed ! It's a completely useless application. <br>
-          It does absolutely nothing. Except for "running" and displaying <br>
-          a few "Lorem ipsum dolor sit amet, consectetur adipiscing elit,..." <br> 
-          inspired pages.
-
 
 ---
 # The "easy" way :
