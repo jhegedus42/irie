@@ -3,4 +3,4 @@ sbt 'clean'
 sbt 'update'
 sbt 'compile'
 sbt 'fastOptJS'
-server/runMain app.server.Main
+sbt 'server/runMain app.server.Main'
