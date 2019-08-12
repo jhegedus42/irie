@@ -29,7 +29,7 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
 
   implicit lazy val system: ActorSystem = ActorSystem( "trait-Server" )
 
-  def rootPageHtml: String = IndexDotHtml.getIndexDotHTML(false)
+  def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
 
   implicit lazy val executionContext: ExecutionContextExecutor =
     system.dispatcher

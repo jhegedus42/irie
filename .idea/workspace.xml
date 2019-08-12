@@ -6,27 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_circe_circe_core_2_12_0_11_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_circe_circe_jawn_2_12_0_11_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_circe_circe_numbers_2_12_0_11_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__io_circe_circe_parser_2_12_0_11_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_core_2_12_1_5_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_kernel_2_12_1_5_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_macros_2_12_1_5_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_jawn_parser_2_12_0_14_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_machinist_2_12_0_6_6_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__de_heikoseeberger_akka_http_circe_2_12_1_22_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__de_heikoseeberger_akka_http_circe_2_12_1_27_0_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Cache.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/GyuriJoco.graffle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/state_diagram_cache.graffle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -85,11 +66,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/Settings.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state relative-caret-position="57">
+              <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+              <folding>
+                <element signature="e#31#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,7 +184,6 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/viewCache/REST_ForView.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/logic/ServerSideLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestData.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/testData/TestDataProvider.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/SumIntViewTest.scala" />
@@ -218,6 +210,7 @@
         <option value="$PROJECT_DIR$/utils/runUnitTestsForServer.sh" />
         <option value="$PROJECT_DIR$/utils/super_clean.sh" />
         <option value="$PROJECT_DIR$/project/Settings.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
       </list>
     </option>
   </component>
@@ -305,6 +298,19 @@
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -618,13 +624,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00100" summary="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`">
-      <created>1563848902600</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1563848902600</updated>
     </task>
     <task id="LOCAL-00101" summary="Implementing a proper ViewCache - &quot;longer term project&quot; - few days ...&#10;if things go &quot;well&quot; :) .&#10;&#10;Introducing wrapper classes for making AJAX View requests more&#10;&quot;explicit&quot; / &quot;type-safe&quot;, especially in the client methods,&#10;such as &quot;getViewFromServer&quot; and alike. So that the types tell&#10;what the data means.&#10;&#10;&#10;-----------------------------------------------------------&#10;Monday, 22 July 2019 3.54.32 :&#10;&#10;Incorporating these wrapper classes into the functions in &#10;`object REST_ForView`, now those functions seem to compile.&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 4.01.52 :&#10;&#10;Adding some multi line TODO comment.&#10;&#10;-----------------------------------------------------------&#10;&#10;Monday, 22 July 2019 16.33.47 :&#10;&#10;Getting rid of some type errors.&#10;Code still does not compile.&#10;Still going towards the &quot;right&quot; View cache implementation,&#10;instead of the one where the &quot; `Map[ , ]` `&quot; was just a &#10;simple dummy `Option[ ]``.&#10;&#10;------------------------------------------------------------&#10;&#10;Monday, 22 July 2019 23.45.57 :&#10;&#10;The code compiles now, but it does not &quot;work&quot;:&#10;we should replace calls to this:&#10;`app.client.ui.caching.viewCache.SumIntViewCache#getSumIntView`&#10;with this :&#10;`app.client.ui.caching.CacheInterface#readView` .&#10;&#10;The first one does not work anymore and the second one is not implemented yet.&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 0.00.01 :&#10;&#10;Code compiles, now working on :&#10;`app.client.ui.caching.viewCache.ViewCache#getViewCacheState`&#10;to be like `readEntity` in `EntityCache`.&#10;&#10;------------------------------------------------------------&#10;&#10;Adding todo-s - Tuesday, 23 July 2019 0.03.03&#10;&#10;------------------------------------------------------------&#10;&#10;Tuesday, 23 July 2019 4.50.58 :&#10;&#10;scalafmt question commit&#10;&#10;------------------------------------------------------------&#10;Tuesday, 23 July 2019 5.26.39&#10;&#10;Simplifying the code ... it does not compile, has some &#10;problems with the reRenderTriggerer in the &#10;`CacheInjectorHOC`&#10;&#10;------------------------------------------------------------&#10;Wednesday, 24 July 2019 0.15.33&#10;&#10;Code compiles now. But we must still implement &#10;`getViewCacheState` before we can try running the &#10;&quot;new ViewCache&quot;.">
       <created>1563916921250</created>
@@ -962,7 +961,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565569751810</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="Trying to consolidate dependencies of dependencies:&#10;have the least amount of warning when typing &quot;evicted&quot; into&#10;sbt.">
+      <created>1565570626832</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1565570626832</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1014,7 +1020,7 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.39227644" side_tool="true" weight="0.46136534" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.33600584" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.266035" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.41449276" />
@@ -1023,7 +1029,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" weight="0.46666667" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" visible="true" weight="0.27391306" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" visible="true" weight="0.35652173" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49812454" weight="0.25652173" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51537883" side_tool="true" weight="0.33567417" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39710146" />
@@ -1084,7 +1090,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added a bit updated TODO." />
     <MESSAGE value="Adding asset files." />
     <MESSAGE value="need to put 2 attributes into the navbar button but I don't know how,&#10;need to figure it out" />
     <MESSAGE value="need to put 2 attributes into the navbar button but I don't know how,&#10;need to figure it out&#10;&#10;adding this as todo ^" />
@@ -1109,29 +1114,10 @@
     <MESSAGE value="Code compiles, after serious &quot;throwing out everything that is &#10;only maybe needed one day&quot;." />
     <MESSAGE value="Wrote a &quot;todo-now&quot; list." />
     <MESSAGE value="Cleaning up the code a bit more." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up the code a bit more." />
+    <MESSAGE value="Trying to consolidate dependencies of dependencies:&#10;have the least amount of warning when typing &quot;evicted&quot; into&#10;sbt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to consolidate dependencies of dependencies:&#10;have the least amount of warning when typing &quot;evicted&quot; into&#10;sbt." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/GetEntityURLs.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#25#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/staticContent/StaticRoutes.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="e#52#124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/ViewHttpRoute.scala" />
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/ViewName.scala">
       <provider selected="true" editor-type-id="text-editor">
@@ -1209,26 +1195,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/SumIntViewTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#515#569#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding>
-            <element signature="e#31#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1447,8 +1413,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/Settings.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="57">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/TestHelper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/RESTTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/SumIntViewTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-653">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+          <folding>
+            <element signature="e#31#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
