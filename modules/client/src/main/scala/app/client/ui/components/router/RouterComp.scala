@@ -3,22 +3,9 @@ package app.client.ui.components.router
 import app.client.ui.caching.{CacheInjectorHOC, CacheInterface}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.components.router.mainPageComponents.{
-  StaticPageExample,
-  MainPage,
-  CacheTestDemoPage,
-  HomePage
-}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{
-  CacheTestComp,
-  SumNumbersExample_Props
-}
-import japgolly.scalajs.react.extra.router.{
-  Resolution,
-  RouterConfigDsl,
-  RouterCtl,
-  _
-}
+import app.client.ui.components.router.mainPageComponents.{CacheTestDemoPage, HomePage, MainPage, StaticPageExample}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.injector.{PropsWithCache}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
@@ -28,8 +15,7 @@ case class RouterComp() {
 
   lazy val cache = new CacheInterface()
 
-  val cacheTestRootComp =
-    CacheTestComp.compConstructor
+  val cacheTestRootComp = ??? // todo-now
 
   val wrapped_cachTestRootComp = new CacheInjectorHOC( cacheTestRootComp )
 
@@ -38,7 +24,7 @@ case class RouterComp() {
 
     val wr =
       wrapped_cachTestRootComp.wrapperConstructor(
-        SumNumbersExample_Props.apply(
+        PropsWithCache.apply(
           "These are the props via the wrapper",
           cacheInterface = cache
         )

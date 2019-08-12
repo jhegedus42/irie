@@ -23,5 +23,7 @@ package object mainPageComponents {
 
   case object NoteListPage extends MainPage
 
+  case object AdminPage extends MainPage
+
 
 }
