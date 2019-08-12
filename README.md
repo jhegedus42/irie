@@ -30,3 +30,7 @@ Intermittently, I am running the server on my laptop, <br>
           http://commserver.asuscomm.com:8080/ <br>
           or at (if the above one is not working) :<br>
           http://84.248.82.193:8080/
+
+---
+# Some videos - from the past :
+  2019 Aug 12 - https://www.youtube.com/watch?v=oZXtshCqNeM
