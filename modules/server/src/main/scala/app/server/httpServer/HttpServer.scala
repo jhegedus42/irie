@@ -81,19 +81,9 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
     route
   }
 
-  def start( args: Array[String] ): Unit = {
+  def start( host:String ): Unit = {
 
     implicit val materializer = ActorMaterializer()
-
-    // needed for the future flatMap/onComplete in the end
-    // val bindingFuture = Http().bindAndHandle( route, "localhost", Config.port )
-
-    var host: String = null
-    if (args.length == 0) {
-      host = "localhost"
-    } else {
-      host = args( 0 )
-    }
 
     val bindingFuture: Future[Http.ServerBinding] =
       Http().bindAndHandle( route, host, Config.port )

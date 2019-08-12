@@ -4,12 +4,8 @@ object IndexDotHtml {
   import scalatags.Text.all._
   import scalatags.Text.tags2.title
 
-  val jsModulesName          = "client"
-  val jsModulesNameLowerCase = jsModulesName.map( x => x.toLower )
 
   def getIndexDotHTML: String = {
-    val packageName  = "app.client"
-    val js_code_path = s"./${jsModulesName}/target/scala-2" + s".12/($jsModulesNameLowerCase)fastopt.js"
 
     val index_html =
       s"<!DOCTYPE html>" +
@@ -28,8 +24,8 @@ object IndexDotHtml {
             script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/popper.min.js" ),
             script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/jquery-slim.min.js" ),
             script( `type` := "text/javascript", src := "./www/assets/js/bootstrap/bootstrap.min.js" ),
-            script( `type` := "text/javascript", src := js_code_path ),
-            script( s"${packageName}.Main().main()" )
+            script( `type` := "text/javascript", src := "./modules/client/target/scala-2.12/client-fastopt.js" ),
+            script( "app.client.Main().main()" ) // this starts the client
           )
         )
     index_html

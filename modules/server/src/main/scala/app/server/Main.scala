@@ -1,8 +1,17 @@
 package app.server
 
+import app.server.httpServer.{HttpServer, PersistenceModule}
+
 object Main extends App {
 
-  println( "Starting App" )
+  val pm=PersistenceModule()
+
+  val server=HttpServer(pm)
+
+  val host: String = args(0)
+
+  server.start(host)
+
 
   //  - step 1 DONE : make sbt to start the "App" (this object here, print "hello world")
 
