@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 rm -fr layer_V_JS_client/target
 rm -fr layer_W_JVM_akka_http_server/target
 rm -fr layer_X_JVM_stateAccess/target

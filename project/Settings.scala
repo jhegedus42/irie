@@ -55,9 +55,7 @@ object Settings {
       "com.lihaoyi" %%% "scalatags"                    % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
-      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
-      "com.github.julien-truffaut"                     %% "monocle-law" % versions.monocleVersion % "test",
-      "org.scalatest" %%% "scalatest" % "3.0.1" % "test"
+      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -76,7 +74,6 @@ object Settings {
       "com.typesafe.akka"           %%  "akka-http"                 % versions.akkaHttp,
       "com.typesafe.akka"           %%  "akka-http-testkit"         % versions.akkaHttp,
       "de.heikoseeberger"           %%% "akka-http-circe"           % "1.22.0",
-      "ch.megard"                   %%% "akka-http-cors"            % "0.3.1",
 
       // akka-persistence :
       "com.typesafe.akka"           %%  "akka-persistence"          % versions.akka,
@@ -84,9 +81,7 @@ object Settings {
 
       // leveldb :
       "org.iq80.leveldb"            %   "leveldb"                   % "0.10",
-      "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8",
-      // scalatest :
-      "org.scalatest"               %%% "scalatest"                 % "3.0.1" % "test"
+      "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8"
     )
   )
 
@@ -99,7 +94,6 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "ext-react"  % versions.scalaCSS,
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
-      "org.scalatest" %%% "scalatest"                 % "3.0.1" % "test",
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0"
     )
   )

@@ -7,10 +7,9 @@ object IndexDotHtml {
   val jsModulesName          = "client"
   val jsModulesNameLowerCase = jsModulesName.map( x => x.toLower )
 
-  def getIndexDotHTML(testClient: Boolean ): String = {
-    val testString   = if (testClient) "-test-" else "-"
+  def getIndexDotHTML: String = {
     val packageName  = "app.client"
-    val js_code_path = s"./${jsModulesName}/target/scala-2" + s".12/$jsModulesNameLowerCase${testString}fastopt.js"
+    val js_code_path = s"./${jsModulesName}/target/scala-2" + s".12/($jsModulesNameLowerCase)fastopt.js"
 
     val index_html =
       s"<!DOCTYPE html>" +
