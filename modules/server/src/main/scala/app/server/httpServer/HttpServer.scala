@@ -98,10 +98,6 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
     val bindingFuture: Future[Http.ServerBinding] =
       Http().bindAndHandle( route, host, Config.port )
 
-    // mac
-    // val bindingFuture = Http().bindAndHandle( route, "192.168.2.50", Config.port )
-    // server
-
     println( s"listening on $host:${Config.port}" )
   }
 

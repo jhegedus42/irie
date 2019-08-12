@@ -5,7 +5,6 @@ import sbt.Keys._
 ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
-ThisBuild / mainClass in Compile := Some( "app.server.Main" )
 
 lazy val macroVersion = "2.1.1"
 
