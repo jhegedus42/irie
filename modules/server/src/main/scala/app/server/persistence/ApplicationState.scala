@@ -1,6 +1,6 @@
 package app.server.persistence
 
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.EntityTypeAsString
 import app.shared.dataModel.entity.refs.TypedRefVal
 

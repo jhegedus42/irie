@@ -8,14 +8,14 @@ import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
 import app.shared.Config
 import app.shared.comm.GetEntityURLs
 import app.shared.dataModel.entity.refs.TypedRefVal
-import app.shared.dataModel.entity.Entity.Entity
-import app.shared.dataModel.entity.{Note, NoteFolder, User}
+import app.shared.dataModel.entity.Entity
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
+import app.shared.dataModel.model.{Note, NoteFolder, User}
 import app.shared.dataModel.views.SumIntView
 
 

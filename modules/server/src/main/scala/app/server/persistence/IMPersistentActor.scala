@@ -3,7 +3,7 @@ package app.server.persistence
 import akka.actor.{ActorLogging, ActorRef, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.persistence.Commands.{CreateEntity, GetState, GetStateResult}
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.TypedRefVal
 
 import scala.concurrent.Future

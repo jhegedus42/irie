@@ -1,6 +1,6 @@
 package app.shared.dataModel.entity.refs
 
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import monocle.macros.Lenses
 
 case class Version(l: Long = 0 ) {

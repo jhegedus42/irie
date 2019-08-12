@@ -1,6 +1,6 @@
 package app.shared.comm
 
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.TypedRef
 
 import scala.reflect.ClassTag

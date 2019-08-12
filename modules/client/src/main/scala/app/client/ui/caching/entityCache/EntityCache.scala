@@ -3,11 +3,10 @@ package app.client.ui.caching.entityCache
 import app.client.ui.caching.REST_ForEntity.getEntity
 import app.client.ui.caching.ReRenderer
 import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
 
 import scala.util.Try
-//import app.client.ui.components.cache.hidden._temp_disabled_ajax.AJAXGetEntityApi.InFlight_ReadEntity
 import io.circe.Decoder
 
 import scala.concurrent.ExecutionContextExecutor

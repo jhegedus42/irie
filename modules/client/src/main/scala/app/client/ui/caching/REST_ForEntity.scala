@@ -1,7 +1,7 @@
 package app.client.ui.caching
 
 import app.shared.comm.GetEntityURLs
-import app.shared.dataModel.entity.Entity.Entity
+import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
 import io.circe
 import io.circe.Decoder
