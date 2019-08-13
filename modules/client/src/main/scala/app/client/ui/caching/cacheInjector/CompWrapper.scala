@@ -2,22 +2,31 @@ package app.client.ui.caching.cacheInjector
 
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 
-case class CompWrapper[Props, State, Backend]
+trait ToBeWrappedComponent[Comp]{
+  type Props
+  type State
+  type Backend
+}
+
+
+// todo-one-day type projector - use this thing below
+//  instead of the one up there ^^^
+case class CompWrapper2[Comp<:ToBeWrappedComponent[Comp]]
 (
   cache: CacheInterface,
-  propsProvider: () => Props,
+  propsProvider: () => Comp#Props,
   comp: ScalaComponent[
-    CacheInterfaceWrapper[Props],
-    State,
-    Backend,
+    CacheInterfaceWrapper[Comp#Props],
+    Comp#State,
+    Comp#Backend,
     CtorType.Props]
 ) {
 
   val wrapped_cachTestRootComp =
-    new CacheInjectorHOC[Backend, Props, State](comp)
+    new CacheInjectorHOC[Comp#Backend, Comp#Props, Comp#State](comp)
 
-  val ciw: CacheInterfaceWrapper[Props] =
-    CacheInterfaceWrapper[Props](
+  val ciw: CacheInterfaceWrapper[Comp#Props] =
+    CacheInterfaceWrapper[Comp#Props](
       cacheInterface = cache,
       props = propsProvider()
     )

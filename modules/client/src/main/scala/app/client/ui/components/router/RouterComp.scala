@@ -1,28 +1,12 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{CacheInterface, CompWrapper}
+import app.client.ui.caching.cacheInjector.{CacheInterface, CompWrapper, CompWrapper2}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{
-  SumNumberState,
-  SumNumbersProps
-}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{
-  SumNumbersBackend,
-  SumNumbersComponent
-}
-import app.client.ui.components.router.mainPageComponents.{
-  CacheTestDemoPage,
-  HomePage,
-  MainPage,
-  StaticPageExample
-}
-import japgolly.scalajs.react.extra.router.{
-  Resolution,
-  RouterConfigDsl,
-  RouterCtl,
-  _
-}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{SumNumberState, SumNumbersProps}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersBackend, SumNumbersComponent, SumNumbersType}
+import app.client.ui.components.router.mainPageComponents.{SumIntDemo, HomePage, MainPage, StaticPageExample}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
@@ -39,26 +23,22 @@ case class RouterComp() {
       StaticPageExample.apply()
     )
 
-    val cacheTestPageRoute: dsl.Rule = {
+    val sumNumberCompRoute: dsl.Rule = {
 
-      val compToBeWrapped = SumNumbersComponent.component
+      val wc2=CompWrapper2[SumNumbersType](
+        cache = cache,
+        propsProvider = () => SumNumbersProps("hello world"),
+        comp=SumNumbersComponent.component
+      )
 
-      val ppr= () => SumNumbersProps("hello world")
-
-      val wrappedComp =
-        CompWrapper[SumNumbersProps,
-                    SumNumberState,
-                    SumNumbersBackend[SumNumbersProps]](
-          cache = cache, propsProvider = ppr, compToBeWrapped )
-
-      staticRoute( "#cacheTest", CacheTestDemoPage ) ~>
-        render( { wrappedComp.wr } )
+      staticRoute( "#cacheTest", SumIntDemo ) ~>
+          render( { wc2.wr } ) //todo-now <= make this dynamic
 
     }
 
     (trimSlashes
       | homeRoute
-      | cacheTestPageRoute)
+      | sumNumberCompRoute)
       .notFound(
         redirectToPage( HomePage )( Redirect.Replace )
       )
@@ -67,7 +47,7 @@ case class RouterComp() {
 
   val mainMenu = Vector.apply(
     Menu.apply( "Home", HomePage ),
-    Menu.apply( "CacheTest", CacheTestDemoPage )
+    Menu.apply( "SumIntDemo", SumIntDemo )
   )
   val baseUrl = BaseUrl.fromWindowOrigin_/
 

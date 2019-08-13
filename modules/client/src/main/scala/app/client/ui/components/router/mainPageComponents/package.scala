@@ -19,7 +19,7 @@ package object mainPageComponents {
 
   case object HomePage extends MainPage
 
-  case object CacheTestDemoPage extends MainPage
+  case object SumIntDemo extends MainPage
 
   case object NoteListPage extends MainPage
 
