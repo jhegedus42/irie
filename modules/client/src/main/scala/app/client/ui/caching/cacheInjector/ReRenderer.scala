@@ -1,5 +1,4 @@
-package app.client.ui.caching
-
+package app.client.ui.caching.cacheInjector
 
 private [caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None

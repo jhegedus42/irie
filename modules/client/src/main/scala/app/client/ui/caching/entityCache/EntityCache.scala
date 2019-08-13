@@ -1,8 +1,8 @@
 package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.REST_ForEntity.getEntity
-import app.client.ui.caching.ReRenderer
 import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
+import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
 

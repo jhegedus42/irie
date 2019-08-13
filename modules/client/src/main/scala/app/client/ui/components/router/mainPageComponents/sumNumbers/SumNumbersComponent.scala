@@ -1,6 +1,6 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.CacheInterfaceWrapper
+import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{SumNumberState, SumNumbersProps, TheThieveryNumber}
 import app.shared.dataModel.views.SumIntView.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component

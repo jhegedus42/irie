@@ -1,7 +1,7 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.CacheInterfaceWrapper
 import app.client.ui.caching.viewCache.ViewCacheStates
+import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
 import app.shared.dataModel.views.SumIntView
 import app.shared.dataModel.views.SumIntView.SumIntView_Par

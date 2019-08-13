@@ -1,8 +1,8 @@
 package app.client.ui.caching.viewCache
 
-import app.client.ui.caching.{CacheInterface, ReRenderer}
 import app.client.ui.caching.viewCache.REST_ForView.{View_AJAX_Request_Params, getViewFromServer}
 import app.client.ui.caching.viewCache.ViewCacheStates.{ViewCacheState, ViewLoaded, ViewLoading}
+import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.views.View
 import app.shared.dataModel.views.SumIntView
 import io.circe.{Decoder, Encoder}
