@@ -1,29 +1,20 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers.injected
 
-import app.client.ui.caching.CacheInterface
+import app.client.ui.caching.{CacheInterface, CacheInterfaceWrapper}
 import app.client.ui.caching.viewCache.ViewCacheStates
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.{State, TheThieveryNumber}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.SumNumberState
 import app.shared.dataModel.views.SumIntView
 import app.shared.dataModel.views.SumIntView.SumIntView_Par
 import bootstrap4.TB.C
-import japgolly.scalajs.react.component.Scala.Component
-import japgolly.scalajs.react.vdom.html_<^._
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactEventFromInput}
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
+import monocle.macros.syntax.lens._
+import io.circe._
+import io.circe.generic.auto._
 
-import app.client.ui.caching.CacheInterface
-import app.client.ui.caching.viewCache.ViewCacheStates
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.State
-import app.shared.dataModel.views.SumIntView
-import app.shared.dataModel.views.SumIntView.SumIntView_Par
-import bootstrap4.TB.C
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo}
-import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^}
-import org.scalajs.dom
-import org.scalajs.dom.html.Input
-
-class Backend($ : BackendScope[CacheInterface, State] ) {
+class SumNumbersBackend[Props]($ : BackendScope[CacheInterfaceWrapper[Props], SumNumberState] ) {
 
   /**
     * This makes sure that the next time this component will be "created"/"instantiated
@@ -32,10 +23,10 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
     *
     * @param s
     */
-  private def saveStateIntoInitState( s: State ): Unit = {
-    InjectedComp.initialState = s
+  private def saveStateIntoInitState( s: SumNumberState ): Unit = {
+    SumNumbersComponent.initialState = s
   }
-  private def isThieveryNumber( st: State ): Boolean = {
+  private def isThieveryNumber( st: SumNumberState ): Boolean = {
     (st.tn.firstNumber == 38 && st.tn.secondNumber == 45)
   }
   /**
@@ -61,20 +52,19 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
     * @return the sum as String
     */
   private def calculateSumOnServer(
-                                    props:  CacheInterface,
+                                    props:  CacheInterfaceWrapper[Props],
                                     params: SumIntView_Par
                                   ): ViewCacheStates.ViewCacheState[SumIntView] ={
 
-    //      props.readView[SumIntView]( params )
-    ???
+          props.cacheInterface.readView[SumIntView]( params )
   }
 
   object StateChangers {
 
-    def updateState( s2s: State => State ): CallbackTo[Unit] = {
+    def updateState( s2s: SumNumberState => SumNumberState ): CallbackTo[Unit] = {
       $.modState(
-        (s: State) => {
-          val newState: State = s2s( s )
+        (s: SumNumberState) => {
+          val newState: SumNumberState = s2s( s )
           saveStateIntoInitState( newState )
           newState
         }
@@ -83,15 +73,14 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
     }
 
     def refreshState() =
-      updateState((s: State) => {
-//          s.lens( _.sumIntViewPars ).set(
-//              SumIntView_Par( s.tn.firstNumber, s.tn.secondNumber )
-//            )
-        ???
+      updateState((s: SumNumberState) => {
+          s.lens( _.sumIntViewPars ).set(
+              SumIntView_Par( s.tn.firstNumber, s.tn.secondNumber )
+            )
       } )
 
     def onChangeSecondNumber(
-        bs: BackendScope[CacheInterface, State]
+        bs: BackendScope[CacheInterfaceWrapper[Props], SumNumberState]
     )( e:   ReactEventFromInput ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
@@ -102,7 +91,7 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
     }
 
     def onChangeFirstNumber(
-        bs: BackendScope[CacheInterface, State]
+        bs: BackendScope[CacheInterfaceWrapper[Props], SumNumberState]
     )( e:   ReactEventFromInput ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
       println( event )
@@ -130,7 +119,7 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
       <.br
     )
 
-  def numberFields( s: State ): VdomElement =
+  def numberFields( s: SumNumberState ): VdomElement =
     <.div(
       <.hr,
       <.h1( "Thievery Number Sum Calculator" ),
@@ -155,7 +144,7 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
       <.br
     )
 
-  def render( props: CacheInterface, s: State ): VdomElement = {
+  def render( props: CacheInterfaceWrapper[Props], s: SumNumberState ): VdomElement = {
     <.div(
       C.textCenter,
       intro,
@@ -173,7 +162,7 @@ class Backend($ : BackendScope[CacheInterface, State] ) {
 
   }
 
-  private def addNumbersBootStrapButton( s: State ) = {
+  private def addNumbersBootStrapButton( s: SumNumberState ) = {
     import bootstrap4.TB.convertableToTagOfExtensionMethods
     <.button.btn.btnPrimary(
       "Add two Thievery Numbers",
