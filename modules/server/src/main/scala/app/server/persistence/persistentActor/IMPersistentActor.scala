@@ -1,49 +1,16 @@
-package app.server.persistence
+package app.server.persistence.persistentActor
 
-import akka.actor.{ActorLogging, ActorRef, Props}
+import akka.actor.{ActorLogging, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.persistence.Commands.{CreateEntity, GetState, GetStateResult}
+import app.server.persistence.persistentActor.Commands.{CreateEntity, GetAllState, GetStateResult}
+import app.server.persistence.state.{ApplicationState, UntypedRef}
 import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.TypedRefVal
 
-import scala.concurrent.Future
 import scala.language.postfixOps
 
-case class PersActorWrapper( val actor: ActorRef ) {
-  import akka.pattern.ask
-  import akka.util.Timeout
-
-  import scala.concurrent.duration._
-
-  def getState: Future[GetStateResult] =
-    ask( actor, GetState )( Timeout.durationToTimeout( 1 seconds ) ) .mapTo[GetStateResult]
-
-//  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
-//    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
-//      .mapTo[UpdateEntityPAResponse]
-
-//  def createEntity(e:Data):Future[CreateEntityPAResponse]=
-//    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
-
-//  def setState( s: TestDataLabel ): Unit =
-//    ask( actor, SetState( s ) )( Timeout.durationToTimeout( 1 seconds ) )
-
-}
-
-object Commands {
 
 
-  case class UpdateEntity[E <: Entity[E]]( entity: TypedRefVal[E] )
 
-  case class CreateEntity[E <: Entity[E]]( e: TypedRefVal[E] )
-
-  case object GetState
-  case class GetStateResult( state: ApplicationState )
-
-//  case class SetState( tdl: TestDataLabel )
-
-  case object Shutdown
-}
 
 object IMPersistentActor {
   def props( id: String ): Props = Props( new IMPersistentActor( id ) )
@@ -59,13 +26,12 @@ class IMPersistentActor( id: String )
   override def persistenceId: String = id
 
   override def receiveCommand: Receive = {
-    case Commands.Shutdown =>
+    case Commands.ShutdownActor =>
       println( "shutting down persistent actor" )
       context.stop( self )
 
     case CreateEntity(e: Entity[_]) => {
 
-//      val rvd: RefValDyn = RefValDyn.makeRefValDynForNewlyCreatedEntity(e)
       val untypedRef: UntypedRef = ??? //todo-next-2
 
       val event: Events.CreateEntityEvent =Events.CreateEntityEvent(untypedRef)
@@ -73,7 +39,6 @@ class IMPersistentActor( id: String )
       persist(event) { evt =>
         applyEvent(evt)
 
-//        sender() ! CreateEntityPAResponse(\/-(rvd))
       }
     }
 
@@ -93,7 +58,7 @@ class IMPersistentActor( id: String )
 //      }
 //    }
 
-    case GetState => {
+    case GetAllState => {
       import app.shared.utils.PrettyPrint
       val s       = state.toString
       val spretty = PrettyPrint.prettyPrint( s )
@@ -101,9 +66,6 @@ class IMPersistentActor( id: String )
       sender() ! GetStateResult( state )
     }
 
-//    case SetState( tdl: TestDataLabel ) => {
-//      val ns = TestData.getTestDataFromLabels( tdl )
-//    }
 
   }
 
