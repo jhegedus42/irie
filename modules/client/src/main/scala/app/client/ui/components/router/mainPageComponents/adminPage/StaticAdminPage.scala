@@ -12,15 +12,15 @@ object StaticAdminPage {
 
   val component =
     ScalaComponent.builder
-      .static("Static React Page Example")(
+      .static("Admin page")(
         //        <.div( Style.content, "Scala js react template, SBT 1.2.8" )
         <.div(
           <.main(C.container, ^.role := "container")
             (
               <.div(C.jumbotron)
                 (
-                <.h1("Static example"),
-                <.p(C.lead, "paragraph")
+                <.h1("Admin page"),
+                <.p(C.lead, "User CRUD comes here")
                 )
             )
           )

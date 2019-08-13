@@ -6,11 +6,9 @@ import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumbersProps
 import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersType}
-import app.client.ui.components.router.mainPageComponents.{AdminPage, HomePage, ItemPage, MainPage, StaticPageExample, SumIntDemo}
-import japgolly.scalajs.react.component.builder.Lifecycle
+import app.client.ui.components.router.mainPageComponents._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
-import shapeless.PolyDefns.~>
 
 // this wrapper is needed so that we can "re render the react tree below this"
 // it gets the re render triggerer so that it can update-it
@@ -72,7 +70,8 @@ case class RouterComp() {
     Menu.apply( "Home", HomePage ),
     Menu.apply( "SumIntDemo", SumIntDemo ),
     Menu.apply( "ItemPage 4", ItemPage( 4 ) ),
-    Menu.apply( "ItemPage 42", ItemPage( 42 ) )
+    Menu.apply( "ItemPage 42", ItemPage( 42 )),
+    Menu.apply( "Admin Page", AdminPage)
   )
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
