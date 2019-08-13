@@ -6,18 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInterfaceWrapper.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersProps.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/Backend.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersBackend.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/InjectedComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersComponent.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/State.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/InjectorBackend.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/PropsWithCache.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/package.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#91#150#0" expanded="true" />
               </folding>
@@ -196,14 +186,14 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/InjectedComp.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersComponent.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInjectorHOC.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
-    <option name="y" value="30" />
+    <option name="x" value="189" />
+    <option name="y" value="28" />
     <option name="width" value="1234" />
     <option name="height" value="782" />
   </component>
@@ -970,13 +960,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00107" summary="trying to get css-dsl working but sbt cannot resolve it">
-      <created>1564173543901</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1564173543902</updated>
-    </task>
     <task id="LOCAL-00108" summary="trying to get css-dsl working but sbt cannot resolve it&#10;-changed resolver to bintray, no luck">
       <created>1564174264166</created>
       <option name="number" value="00108" />
@@ -1313,7 +1296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565651442408</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="Code seems to compile. Question is : does it work ?&#10;&#10;It has been a bit simplified and abstracted (wrapped component is now a &#10;&quot;type parameter&quot;).">
+      <created>1565655378910</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1565655378910</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1359,7 +1349,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="30" width="1234" height="782" extended-state="0" />
+    <frame x="189" y="28" width="1234" height="782" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
@@ -1434,7 +1425,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cleaning up code. &#10;&#10;Much heavier cleanup is ahead." />
     <MESSAGE value="After some heavy cleaning." />
     <MESSAGE value="After some heavy cleaning.&#10;&#10;Just a &quot;safety&quot; commit, before smashing the code into pieces&#10;again." />
     <MESSAGE value="Going towards adding test data for showing users on the client&#10;side. &#10;&#10;Refactoring the code so that it looks a bit nicer." />
@@ -1459,7 +1449,8 @@
     <MESSAGE value="Putting in some files." />
     <MESSAGE value="Cleaning up code." />
     <MESSAGE value="Code nuked. It is broken. Needs to be fixed. Previous version worked.&#10;AFAIR." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code nuked. It is broken. Needs to be fixed. Previous version worked.&#10;AFAIR." />
+    <MESSAGE value="Code seems to compile. Question is : does it work ?&#10;&#10;It has been a bit simplified and abstracted (wrapped component is now a &#10;&quot;type parameter&quot;)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code seems to compile. Question is : does it work ?&#10;&#10;It has been a bit simplified and abstracted (wrapped component is now a &#10;&quot;type parameter&quot;)." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/comm/RESTTest.scala" />
@@ -1801,8 +1792,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/SumNumberState.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#91#150#0" expanded="true" />
           </folding>
