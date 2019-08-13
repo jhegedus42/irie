@@ -1,7 +1,6 @@
 package app.server.persistence.state
 
 import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.TypedRefVal
 
 import scala.reflect.ClassTag
 

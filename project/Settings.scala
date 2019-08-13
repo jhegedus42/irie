@@ -1,5 +1,3 @@
-//import org.scalajs.jsenv.ExternalJSEnv.{AsyncExtRunner, ExtRunner}
-import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt._
 import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
 
@@ -46,7 +44,7 @@ object Settings {
     * These dependencies are shared between JS and JVM projects
     * the special %%% function selects the correct version for each project
     */
-//  val scalaTest = Seq("org.scalatest" %%% "scalatest" % "3.0.1" % "test")
+  val scalaTest = Seq()
 
   val circeVersion = "0.11.1"
 
@@ -55,7 +53,8 @@ object Settings {
       "com.lihaoyi" %%% "scalatags"                    % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
-      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ
+      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
+      "org.scalatest" %%% "scalatest" % "3.0.8" % "test"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -81,7 +80,10 @@ object Settings {
 
       // leveldb :
       "org.iq80.leveldb"            %   "leveldb"                   % "0.10",
-      "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8"
+      "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8",
+
+      // test:
+      "org.scalatest" %%% "scalatest" % "3.0.8" % "test"
     )
   )
 
@@ -94,7 +96,8 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "ext-react"  % versions.scalaCSS,
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
-      "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0"
+      "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
+      "org.scalatest" %%% "scalatest" % "3.0.8" % "test"
     )
   )
 

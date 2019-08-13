@@ -14,35 +14,39 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: org.typelevel:macro-compat_sjs0.6_2.12:1.1.1:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalatest:scalatest_sjs0.6_2.12:3.0.8:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_sjs0.6_2.12:3.0.8:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scala-lang.modules:scala-xml_2.12:1.2.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scala-js:scalajs-test-interface_2.12:0.6.28:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.scala-js:scalajs-library_2.12:0.6.28:jar" level="project" />
     <orderEntry type="module" module-name=".js-shared_js" exported="" />
-    <orderEntry type="library" name="sbt: org.typelevel:machinist_sjs0.6_2.12:0.6.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-macros_sjs0.6_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_sjs0.6_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.typelevel:cats-core_sjs0.6_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.circe:circe-scalajs_sjs0.6_2.12:0.11.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.circe:circe-parser_sjs0.6_2.12:0.11.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.circe:circe-numbers_sjs0.6_2.12:0.11.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.circe:circe-generic_sjs0.6_2.12:0.11.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.circe:circe-core_sjs0.6_2.12:0.11.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.chuusai:shapeless_sjs0.6_2.12:2.3.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.japgolly.scalacss:core_sjs0.6_2.12:0.5.5:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.japgolly.scalacss:ext-react_sjs0.6_2.12:0.5.5:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.japgolly.scalajs-react:core_sjs0.6_2.12:1.4.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.japgolly.scalajs-react:extra_sjs0.6_2.12:1.3.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.japgolly.univeq:univeq_sjs0.6_2.12:1.0.2:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-core_sjs0.6_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-macro_sjs0.6_2.12:1.5.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lihaoyi:fansi_sjs0.6_2.12:0.2.5:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lihaoyi:pprint_sjs0.6_2.12:0.5.3:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lihaoyi:scalatags_sjs0.6_2.12:0.6.7:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.lihaoyi:sourcecode_sjs0.6_2.12:0.1.5:jar" level="project" />
-    <orderEntry type="library" name="sbt: io.github.nafg.css-dsl:bootstrap4_sjs0.6_2.12:0.4.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-js:scalajs-dom_sjs0.6_2.12:0.9.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-js:scalajs-library_2.12:0.6.26:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="sbt: org.scala-js:scalajs-test-interface_2.12:0.6.25:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.12.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.scalaz:scalaz-core_sjs0.6_2.12:7.2.26:jar" level="project" />
     <orderEntry type="library" name="sbt: org.typelevel:macro-compat_2.12:1.1.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scalaz:scalaz-core_sjs0.6_2.12:7.2.26:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.12.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-js:scalajs-library_2.12:0.6.26:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scala-js:scalajs-dom_sjs0.6_2.12:0.9.6:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.github.nafg.css-dsl:bootstrap4_sjs0.6_2.12:0.4.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:sourcecode_sjs0.6_2.12:0.1.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:scalatags_sjs0.6_2.12:0.6.7:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:pprint_sjs0.6_2.12:0.5.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:fansi_sjs0.6_2.12:0.2.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-macro_sjs0.6_2.12:1.5.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.julien-truffaut:monocle-core_sjs0.6_2.12:1.5.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.japgolly.univeq:univeq_sjs0.6_2.12:1.0.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.japgolly.scalajs-react:extra_sjs0.6_2.12:1.3.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.japgolly.scalajs-react:core_sjs0.6_2.12:1.4.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.japgolly.scalacss:ext-react_sjs0.6_2.12:0.5.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.github.japgolly.scalacss:core_sjs0.6_2.12:0.5.5:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.chuusai:shapeless_sjs0.6_2.12:2.3.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-core_sjs0.6_2.12:0.11.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-generic_sjs0.6_2.12:0.11.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-numbers_sjs0.6_2.12:0.11.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-parser_sjs0.6_2.12:0.11.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-scalajs_sjs0.6_2.12:0.11.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-core_sjs0.6_2.12:1.5.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_sjs0.6_2.12:1.5.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-macros_sjs0.6_2.12:1.5.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:machinist_sjs0.6_2.12:0.6.6:jar" level="project" />
   </component>
 </module>
