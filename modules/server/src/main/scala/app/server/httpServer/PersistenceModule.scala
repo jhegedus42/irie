@@ -2,6 +2,7 @@ package app.server.httpServer
 
 import app.shared.dataModel.entity.Entity
 import app.shared.dataModel.entity.refs.TypedRefVal
+import app.shared.dataModel.model.User
 
 import scala.concurrent.Future
 
@@ -12,6 +13,12 @@ case class PersistenceModule() {
   def init(): Unit ={
 
     //  todo now  - step 0 - csinaljunk egy Alice-t
+    //
+    val alice= User("Alice",38)
+    val bob= User("Bob",45)
+    val kutya= User("Kutya",42)
+    val cica= User("Cica",137)
+    val meresiHiba= User("MeresiHiba",369)
 
     //  step 1 - csinaljunk belole Entity-t
     //  step 1 - tegyuk bele a journal-ba / application state-be

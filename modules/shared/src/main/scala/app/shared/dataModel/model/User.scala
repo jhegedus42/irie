@@ -2,7 +2,7 @@ package app.shared.dataModel.model
 
 import app.shared.dataModel.entity.Entity
 
-case class User( login: String, password : String ) extends Entity[User]
+case class User( name: String, favoriteNumber:Int ) extends Entity[User]
 
 
 
