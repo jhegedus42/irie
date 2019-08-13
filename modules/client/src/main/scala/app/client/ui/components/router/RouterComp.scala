@@ -3,25 +3,12 @@ package app.client.ui.components.router
 import app.client.ui.caching.cacheInjector.{CacheInterface, CompWrapper2}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumbersProps
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{
-  SumNumbersComponent,
-  SumNumbersType
-}
-import app.client.ui.components.router.mainPageComponents.{
-  HomePage,
-  ItemPage,
-  MainPage,
-  StaticPageExample,
-  SumIntDemo
-}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersType}
+import app.client.ui.components.router.mainPageComponents.{AdminPage, HomePage, ItemPage, MainPage, StaticPageExample, SumIntDemo}
 import japgolly.scalajs.react.component.builder.Lifecycle
-import japgolly.scalajs.react.extra.router.{
-  Resolution,
-  RouterConfigDsl,
-  RouterCtl,
-  _
-}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 import shapeless.PolyDefns.~>
 
@@ -54,6 +41,11 @@ case class RouterComp() {
 
     }
 
+
+    val adminPage: dsl.Rule = staticRoute( "#admin", AdminPage ) ~> render(
+      StaticAdminPage.apply()
+    )
+
     val itemPage: dsl.Rule = {
 
       val itemPage = japgolly.scalajs.react.ScalaComponent
@@ -68,7 +60,8 @@ case class RouterComp() {
     (trimSlashes
       | homeRoute
       | sumNumberCompRoute
-      | itemPage)
+      | itemPage
+      | adminPage)
       .notFound(
         redirectToPage( HomePage )( Redirect.Replace )
       )
