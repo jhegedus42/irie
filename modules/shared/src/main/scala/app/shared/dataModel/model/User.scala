@@ -2,11 +2,8 @@ package app.shared.dataModel.model
 
 import app.shared.dataModel.entity.Entity
 
-case class User( login: String, password : String, isAdmin: Boolean ) extends Entity[User]
+case class User( login: String, password : String ) extends Entity[User]
 
-// todo-now
-// step 0 :
-// server side, then starting up the server, add 3 users: Alice Bob Cili
 
 
 // todo-next admin page for users (CRUD for User Entity):

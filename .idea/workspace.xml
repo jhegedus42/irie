@@ -5,10 +5,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Current todo : create 3 users: Alice, Bob, Cica, Kutya, MeresiHiba">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CompWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CompWrapper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -63,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state relative-caret-position="300">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="e#70#101#0" expanded="true" />
               </folding>
@@ -83,17 +83,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="347">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+              <folding>
+                <element signature="e#31#59#0" expanded="true" />
+                <element signature="e#816#833#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/GetEntityURLs.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/ApplicationState.scala" />
@@ -189,7 +201,6 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/Props.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/PropsWithCache.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/State.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/PropsWithCache.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/PropsCacheInterfaceWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInterfaceWrapper.scala" />
@@ -213,10 +224,12 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/Route.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" />
-        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CompWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
       </list>
     </option>
   </component>
@@ -659,7 +672,7 @@
     <property name="TODO_SCOPE" value="Project Production Files" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -905,6 +918,10 @@
           <value>
             <list>
               <ExternalProjectPojo>
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
@@ -913,16 +930,12 @@
                 <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -939,6 +952,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7819732627000" />
         <entry key="$PROJECT_DIR$/build.sbt" value="3618729774" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -968,13 +982,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00115" summary="app styles made prettier">
-      <created>1564442364761</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1564442364761</updated>
     </task>
     <task id="LOCAL-00116" summary="adding todos">
       <created>1564498885265</created>
@@ -1312,7 +1319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565733041136</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="Current todo : create 3 users: Alice, Bob, Cica, Kutya, MeresiHiba">
+      <created>1565735100524</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1565735100524</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1364,7 +1378,7 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.39227644" side_tool="true" weight="0.46136534" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.3026792" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.31136858" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.41449276" />
@@ -1372,8 +1386,8 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" visible="true" weight="0.2347826" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" weight="0.2768116" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" weight="0.2347826" />
+      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" visible="true" weight="0.2768116" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49812454" weight="0.5072464" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51537883" side_tool="true" weight="0.33567417" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39710146" />
@@ -1434,7 +1448,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Still &quot;simplifying&quot; the code." />
     <MESSAGE value="Still &quot;simplifying&quot; the code.&#10;&#10;Fixed a few compiler errors." />
     <MESSAGE value="Still &quot;simplifying&quot; the code.&#10;&#10;Fixed a few compiler errors.&#10;&#10;Adding a few todo-s." />
     <MESSAGE value="Still &quot;simplifying&quot; the code.&#10;&#10;Code compiles, but it does not &quot;run&quot;.&#10;&#10;There are lot of ???s." />
@@ -1459,23 +1472,10 @@
     <MESSAGE value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL.&#10;&#10;- Bit of refactoring . Tuesday, 13 August 2019 6.47.01 &#10;- Code compiles.&#10;&#10;- Bit more refactoring . Tuesday, 13 August 2019 7.49.16&#10;&#10;- Some more refactoring. Tuesday, 13 August 2019 8.14.18&#10;&#10;- Dynamic page example added. Tuesday, 13 August 2019 12.07.15" />
     <MESSAGE value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL.&#10;&#10;- Bit of refactoring . Tuesday, 13 August 2019 6.47.01 &#10;- Code compiles.&#10;&#10;- Bit more refactoring . Tuesday, 13 August 2019 7.49.16&#10;&#10;- Some more refactoring. Tuesday, 13 August 2019 8.14.18&#10;&#10;- Dynamic page example added. Tuesday, 13 August 2019 12.07.15.&#10;&#10;- Added admin page - as dummy static page. Tuesday, 13 August 2019 13.15.06" />
     <MESSAGE value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL.&#10;&#10;- Bit of refactoring . Tuesday, 13 August 2019 6.47.01 &#10;- Code compiles.&#10;&#10;- Bit more refactoring . Tuesday, 13 August 2019 7.49.16&#10;&#10;- Some more refactoring. Tuesday, 13 August 2019 8.14.18&#10;&#10;- Dynamic page example added. Tuesday, 13 August 2019 12.07.15.&#10;&#10;- Added admin page - as dummy static page. Tuesday, 13 August 2019 13.15.06&#10;&#10;- Dummy admin page works. - Wednesday, 14 August 2019 0.50.13&#10;  next step: User CRUD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL.&#10;&#10;- Bit of refactoring . Tuesday, 13 August 2019 6.47.01 &#10;- Code compiles.&#10;&#10;- Bit more refactoring . Tuesday, 13 August 2019 7.49.16&#10;&#10;- Some more refactoring. Tuesday, 13 August 2019 8.14.18&#10;&#10;- Dynamic page example added. Tuesday, 13 August 2019 12.07.15.&#10;&#10;- Added admin page - as dummy static page. Tuesday, 13 August 2019 13.15.06&#10;&#10;- Dummy admin page works. - Wednesday, 14 August 2019 0.50.13&#10;  next step: User CRUD" />
+    <MESSAGE value="Current todo : create 3 users: Alice, Bob, Cica, Kutya, MeresiHiba" />
+    <option name="LAST_COMMIT_MESSAGE" value="Current todo : create 3 users: Alice, Bob, Cica, Kutya, MeresiHiba" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/EntityTypeAsString.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1535,13 +1535,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/localState/TheThieveryNumber.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/localState/TheThieveryNumber.scala" />
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/marshall/ViewCirceEncodingDecoding.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1566,17 +1560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="97" column="75" selection-start-line="97" selection-start-column="75" selection-end-line="97" selection-end-column="75" />
-          <folding>
-            <element signature="e#31#59#0" expanded="true" />
-            <element signature="e#816#833#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/package.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/InjectorBackend.scala" />
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.4.0-sources.jar!/japgolly/scalajs/react/package.scala">
@@ -1593,30 +1576,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersProps.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersComponent.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/localState/SumNumberState.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#91#150#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersProps.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersComponent.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/localState/SumNumberState.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/data/SumNumberState.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1765,16 +1727,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/Route.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#71#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/Route.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1793,30 +1746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding>
-            <element signature="e#70#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1842,8 +1771,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="223">
+          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="e#70#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#31#59#0" expanded="true" />
+            <element signature="e#816#833#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
