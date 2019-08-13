@@ -1,19 +1,17 @@
-package app.client.ui.components.router.mainPageComponents.sumNumbers.injected
+package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.{CacheInterface, CacheInterfaceWrapper}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.{SumNumberState, TheThieveryNumber}
+import app.client.ui.caching.CacheInterfaceWrapper
+import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{SumNumberState, SumNumbersProps, TheThieveryNumber}
 import app.shared.dataModel.views.SumIntView.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
-
-
 
 object SumNumbersComponent {
 
 //  private type State = OurState
 
 
-  private[injected] var initialState = {
+  private[sumNumbers] var initialState = {
     val tn = TheThieveryNumber( 38, 45 )
     val siwp: SumIntView_Par = SumIntView_Par( 38, 45 )
     SumNumberState( tn, siwp )
@@ -34,8 +32,3 @@ object SumNumbersComponent {
 
 
 }
-
-
-
-
-

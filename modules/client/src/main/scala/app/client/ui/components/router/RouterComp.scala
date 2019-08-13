@@ -1,30 +1,12 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.{
-  CacheInjectorHOC,
-  CacheInterface,
-  CacheInterfaceWrapper
-}
+import app.client.ui.caching.{CacheInjectorHOC, CacheInterface, CacheInterfaceWrapper}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.SumNumberState
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.{
-  SumNumbersBackend,
-  SumNumbersComponent,
-  SumNumbersProps
-}
-import app.client.ui.components.router.mainPageComponents.{
-  CacheTestDemoPage,
-  HomePage,
-  MainPage,
-  StaticPageExample
-}
-import japgolly.scalajs.react.extra.router.{
-  Resolution,
-  RouterConfigDsl,
-  RouterCtl,
-  _
-}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{SumNumberState, SumNumbersProps}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersBackend, SumNumbersComponent}
+import app.client.ui.components.router.mainPageComponents.{CacheTestDemoPage, HomePage, MainPage, StaticPageExample}
+import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"

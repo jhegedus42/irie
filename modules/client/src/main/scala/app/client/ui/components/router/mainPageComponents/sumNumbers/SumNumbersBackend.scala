@@ -1,18 +1,17 @@
-package app.client.ui.components.router.mainPageComponents.sumNumbers.injected
+package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.{CacheInterface, CacheInterfaceWrapper}
+import app.client.ui.caching.CacheInterfaceWrapper
 import app.client.ui.caching.viewCache.ViewCacheStates
-import app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState.SumNumberState
+import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
 import app.shared.dataModel.views.SumIntView
 import app.shared.dataModel.views.SumIntView.SumIntView_Par
 import bootstrap4.TB.C
+import io.circe.generic.auto._
 import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
 import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactEventFromInput}
+import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
-import monocle.macros.syntax.lens._
-import io.circe._
-import io.circe.generic.auto._
 
 class SumNumbersBackend[Props]($ : BackendScope[CacheInterfaceWrapper[Props], SumNumberState] ) {
 

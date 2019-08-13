@@ -1,4 +1,4 @@
-package app.client.ui.components.router.mainPageComponents.sumNumbers.injected.localState
+package app.client.ui.components.router.mainPageComponents.sumNumbers.data
 
 import monocle.macros.Lenses
 
