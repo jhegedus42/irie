@@ -25,5 +25,7 @@ package object mainPageComponents {
 
   case object AdminPage extends MainPage
 
+  case class ItemPage(id: Int)  extends MainPage
+
 
 }
