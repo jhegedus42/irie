@@ -9,8 +9,6 @@ trait ToBeWrappedComponent[Comp]{
 }
 
 
-// todo-one-day type projector - use this thing below
-//  instead of the one up there ^^^
 case class CompWrapper2[Comp<:ToBeWrappedComponent[Comp]]
 (
   cache: CacheInterface,

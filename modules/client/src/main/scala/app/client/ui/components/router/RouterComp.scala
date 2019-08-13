@@ -5,9 +5,17 @@ import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumbersProps
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersType}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{
+  SumNumbersComponent,
+  SumNumbersType
+}
 import app.client.ui.components.router.mainPageComponents._
-import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
+import japgolly.scalajs.react.extra.router.{
+  Resolution,
+  RouterConfigDsl,
+  RouterCtl,
+  _
+}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
@@ -35,10 +43,9 @@ case class RouterComp() {
       staticRoute( "#cacheTest", SumIntDemo ) ~>
         render( {
           wc2.wr
-        } ) //todo-now <= make this dynamic
+        } )
 
     }
-
 
     val adminPage: dsl.Rule = staticRoute( "#admin", AdminPage ) ~> render(
       StaticAdminPage.apply()
@@ -51,7 +58,9 @@ case class RouterComp() {
         .render( p => <.div( s"Info for item #${p.props.id}" ) )
         .build
 
-      dynamicRouteCT( "item" / int.caseClass[ItemPage] ) ~> ( dynRender( itemPage( _:ItemPage ) ) )
+      dynamicRouteCT( "item" / int.caseClass[ItemPage] ) ~> (dynRender(
+        itemPage( _: ItemPage )
+      ) )
 
     }
 
@@ -70,8 +79,8 @@ case class RouterComp() {
     Menu.apply( "Home", HomePage ),
     Menu.apply( "SumIntDemo", SumIntDemo ),
     Menu.apply( "ItemPage 4", ItemPage( 4 ) ),
-    Menu.apply( "ItemPage 42", ItemPage( 42 )),
-    Menu.apply( "Admin Page", AdminPage)
+    Menu.apply( "ItemPage 42", ItemPage( 42 ) ),
+    Menu.apply( "Admin Page", AdminPage )
   )
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
@@ -82,8 +91,6 @@ case class RouterComp() {
       c: RouterCtl[MainPage],
       r: Resolution[MainPage]
   ) = {
-
-    println( s"page = ${r.page}" )
     <.div.apply(
       TopNavComp.apply( TopNavComp.Props.apply( mainMenu, r.page, c ) ),
       r.render.apply(),
