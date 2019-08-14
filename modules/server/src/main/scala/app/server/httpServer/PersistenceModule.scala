@@ -21,7 +21,7 @@ case class PersistenceModule() {
     //  step 1 - csinaljunk beloluk valamit amit bele lehet(todo-now)
     //   tenni a journal - ba
     //     - de mit eszik a Journal ? => ki kell talalni
-    //       - hol van a Journal ? (todo-now)
+    //       - hol van a Journal ?
     //       - figure out how to store the entities in the application state
     //       - sima Entity -kent casting-gal
     //  step 2 - tegyuk bele a journal-ba / application state-be

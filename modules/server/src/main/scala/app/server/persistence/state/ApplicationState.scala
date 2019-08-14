@@ -4,12 +4,9 @@ import app.shared.dataModel.entity.Entity
 
 import scala.reflect.ClassTag
 
-case class EntityAsJSON(json:String)
 
-case class ApplicationStateEntry(
-    untypedRef:    UntypedRef,
-    entityAsJSON: EntityAsJSON
-)
+
+
 
 case class ApplicationState(
     stateMap: Map[UntypedRef, ApplicationStateEntry] = Map.empty
