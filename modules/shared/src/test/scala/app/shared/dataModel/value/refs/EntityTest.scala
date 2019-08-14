@@ -9,10 +9,12 @@ class EntityTest extends FunSuite {
   test( "testToJSON" ) {
 
     val alice = User( "Alice", 38 )
-    val refAlice: Entity[User] =
+    val entityAlice: Entity[User] =
       Entity.makeFromValue( alice )
-    println( s"refAlice as .toString() output : \n $refAlice" )
-    println( s"refAlice as JSON : \n ${refAlice.toJSON}" )
+    println( s"entity for Alice as .toString() output : \n $entityAlice" )
+
+    println( s"entity for Alice as JSON : \n ${entityAlice.toJSON}" )
+
     println( "test passed if this json was printed 'nicely'" )
 
 

@@ -59,7 +59,7 @@ class IMPersistentActor( id: String )
 //    }
 
     case GetAllState => {
-      import app.shared.utils.PrettyPrint
+      import app.server.utils.PrettyPrint
       val s       = state.toString
       val spretty = PrettyPrint.prettyPrint( s )
       println( " I am an actor and I am responding with a state : " + spretty )

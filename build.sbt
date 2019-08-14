@@ -59,6 +59,7 @@ lazy val server =
       name := "server",
       version := Settings.version,
       scalaVersion := Settings.versions.scala,
+      libraryDependencies ++= paradisePlugin.value,
       scalacOptions ++= Settings.scalacOptions,
       libraryDependencies ++= Settings.jvmDependencies.value
     )

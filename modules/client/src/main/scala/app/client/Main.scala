@@ -1,6 +1,6 @@
 package app.client
 import app.client.ui.components.router.RouterComp
-import app.shared.utils.MacroExampleMakeHelloWorld
+import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
 
@@ -21,7 +21,7 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
-    @MacroExampleMakeHelloWorld val x: String = "Welcome and"
+    @AppendCompilationTimeToString val x: String = "Welcome and"
     println( "hello sbt 1.2.8" )
     println( x )
     setupLogging()

@@ -1,9 +1,8 @@
-package app.shared.utils
+package app.server.utils
 
 /**
   * Created by joco on 28/04/2017.
   */
-//98d55ad2ce9345eeba6607fa9d357593
 object PrettyPrint {
   /**
     * Pretty prints a Scala value similar to its source represention.
@@ -42,7 +41,9 @@ object PrettyPrint {
       // Product should cover case classes.
       case p: Product =>
         val prefix = p.productPrefix
+
         // We'll use reflection to get the constructor arg names and values.
+
         val cls = p.getClass
         val fields = cls.getDeclaredFields.filterNot(_.isSynthetic).map(_.getName)
         val values = p.productIterator.toSeq

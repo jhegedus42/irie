@@ -1,24 +1,25 @@
-package app.shared.utils
+package app.shared.utils.macros.compilationTime
 
 import java.util.Calendar
 
+import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.language.experimental.macros
 import scala.reflect.macros.whitebox.Context
-import scala.annotation.{StaticAnnotation, compileTimeOnly}
 
 
 @compileTimeOnly("enable macro paradise to expand macro annotations")
-class MacroExampleMakeHelloWorld extends StaticAnnotation {
-  def macroTransform(annottees: Any*): Any = macro ExampleMacro.impl
+class AppendCompilationTimeToString extends StaticAnnotation {
+  def macroTransform(annottees: Any*): Any = macro MacroImpl.impl
 }
-object ExampleMacro {
+
+private object MacroImpl {
   def time=Calendar.getInstance.getTime
   def impl(c: Context)(annottees: c.Expr[Any]*): c.Expr[Any] = {
     import c.universe._
     val result: List[Tree] = annottees.map(_.tree).toList match {
       case q"$mods val $tname: String = $expr" :: Nil =>
-        val helloWorld = s" Compilation time was : $time."
-        List(q"$mods val $tname: String = $expr + $helloWorld")
+        val compilation_time: String = s"$time"
+        List(q"$mods val $tname: String = $expr + $compilation_time")
       case value @ q"$mods val $tname = $expr" :: Nil =>
         c.error(value.head.pos, s"$tname must have an explicit type")
         value
