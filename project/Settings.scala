@@ -83,6 +83,7 @@ object Settings {
       "org.fusesource.leveldbjni"   %   "leveldbjni-all"            % "1.8",
 
       // test:
+
       "org.scalatest" %%% "scalatest" % "3.0.8" % "test"
     )
   )

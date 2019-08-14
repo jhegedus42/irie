@@ -15,6 +15,7 @@ class TypedRefValTest extends FunSuite {
     println( s"refAlice as JSON : \n ${refAlice.toJSON}" )
     println( "test passed if this json was printed 'nicely'" )
 
+
   }
 
 }
