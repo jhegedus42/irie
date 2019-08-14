@@ -10,7 +10,7 @@ case class Test(string:String)
 class PersistenceModuleTest extends FunSuite {
 
   test("testInit") {
-    println(s"This is where the Persistence Module will be tested.")
+    println(s"\n\nThis is where the Persistence Module will be tested.\n\n")
 
   }
 
@@ -19,7 +19,7 @@ class PersistenceModuleTest extends FunSuite {
 
   test("compilation time macro test"){
 
-    println(s"compilation time was : $compilationTime")
+    println(s"\n\nCompilation time was for PersistenceModuleTest : $compilationTime\n\n")
 
   }
 
