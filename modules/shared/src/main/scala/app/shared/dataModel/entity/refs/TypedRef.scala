@@ -8,13 +8,14 @@ import monocle.macros.Lenses
 import scala.reflect.ClassTag
 
 @Lenses
-case class TypedRef[T <: Entity[T]]( uuid:     EntityUUID, dataType: EntityTypeAsString )
+case class TypedRef[T <: Entity[T]](
+    entityTypeAsString: EntityTypeAsString,
+    entityUUID:         EntityUUID = EntityUUID(),
+    version:            Version = Version()
+)
 
 object TypedRef {
-  def getDefaultValue[T <: Entity[T]](implicit t:ClassTag[T]): TypedRef[T] ={
-    val uuid:     EntityUUID         = EntityUUID()
-    val dataType: EntityTypeAsString = EntityTypeAsString.make[T]
-    TypedRef[T](uuid,dataType)
-  }
-}
 
+  def getDefaultValue[T <: Entity[T]]( implicit t: ClassTag[T] ): TypedRef[T] =
+    TypedRef[T]( EntityTypeAsString.make[T] )
+}

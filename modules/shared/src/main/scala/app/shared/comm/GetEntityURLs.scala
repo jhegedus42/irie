@@ -13,7 +13,7 @@ object GetEntityURLs {
       implicitly[ClassTag[E]].runtimeClass.getSimpleName
 
   def parameterReprInURL[E <: Entity[E]](rv: TypedRef[E] ): String = {
-    val u = rv.uuid.id
+    val u = rv.entityUUID.uuid
     s"?id=$u"
   }
 

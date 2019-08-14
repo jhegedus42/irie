@@ -23,7 +23,7 @@ private[entityCache] class MapForEntityCache[E <: Entity[E]]() {
       s"CACHE WRITE => we insert $rv into the cache"
     )
     //    logger.trace(s"parameter:$rv")
-    val map2 = map + (rv.r -> Loaded( rv.r, rv ))
+    val map2 = map + (rv.typedRef -> Loaded( rv.typedRef, rv ))
     this.map = map2
   }
 

@@ -2,6 +2,8 @@ package app.shared.dataModel.model
 
 import app.shared.dataModel.entity.Entity
 
+import io.circe._
+
 case class User( name: String, favoriteNumber:Int ) extends Entity[User]
 
 

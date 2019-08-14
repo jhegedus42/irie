@@ -4,10 +4,6 @@ import app.shared.dataModel.entity.Entity
 
 import scala.reflect.ClassTag
 
-
-
-
-
 case class ApplicationState(
     stateMap: Map[UntypedRef, ApplicationStateEntry] = Map.empty
 ) {
