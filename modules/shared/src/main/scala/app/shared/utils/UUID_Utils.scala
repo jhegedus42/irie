@@ -8,6 +8,6 @@ import scala.util.matching.Regex
   * Created by joco on 28/04/2017.
   */
 object UUID_Utils {
-  case class EntityUUID(uuid: String=java.util.UUID.randomUUID().toString)
+  case class IdentityOfEntity(uuid: String=java.util.UUID.randomUUID().toString)
 
 }

@@ -1,14 +1,16 @@
 package app.server.httpServer
 
-import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.TypedRefVal
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.refs.Entity
 import app.shared.dataModel.model.User
 
 import scala.concurrent.Future
 
 case class PersistenceModule() {
 
-  def getEntity[E<:Entity[E]](uuid:String) :Future[TypedRefVal[E]] = ???
+  def getEntity[E<:EntityValue[E]](uuid:String)    :  Future[Entity[E]] = ???
+
+  def createNewEntity[E<:EntityValue[E]](entity: EntityValue[E]): Future[Entity[E]] = ???
 
   def init(): Unit ={
 
@@ -19,7 +21,8 @@ case class PersistenceModule() {
     val meresiHiba= User("MeresiHiba",369)
 
     //  step 1 - csinaljunk beloluk valamit amit bele lehet(todo-now)
-    //   tenni a journal - ba
+    //   tenni
+    //
     //     - de mit eszik a Journal ? => ki kell talalni
     //       - hol van a Journal ?
     //       - figure out how to store the entities in the application state

@@ -1,6 +1,6 @@
 package app.server.persistence.state
 
-import app.shared.dataModel.entity.Entity
+import app.shared.dataModel.value.EntityValue
 
 import scala.reflect.ClassTag
 
@@ -23,7 +23,7 @@ case class ApplicationState(
   //    }
   //  }
 
-  def getEntity[E <: Entity[E]: ClassTag](
+  def getEntity[E <: EntityValue[E]: ClassTag](
       r: UntypedRef
   ): Option[ApplicationStateEntry] = {
     this.stateMap.get( r )

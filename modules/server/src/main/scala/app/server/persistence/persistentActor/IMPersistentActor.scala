@@ -4,7 +4,7 @@ import akka.actor.{ActorLogging, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.persistence.persistentActor.Commands.{CreateEntity, GetAllState, GetStateResult}
 import app.server.persistence.state.{ApplicationState, UntypedRef}
-import app.shared.dataModel.entity.Entity
+import app.shared.dataModel.value.EntityValue
 
 import scala.language.postfixOps
 
@@ -30,7 +30,7 @@ class IMPersistentActor( id: String )
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case CreateEntity(e: Entity[_]) => {
+    case CreateEntity(e: EntityValue[_]) => {
 
       val untypedRef: UntypedRef = ??? //todo-next-2
 

@@ -1,8 +1,8 @@
 package app.client.ui.caching
 
 import app.shared.comm.GetEntityURLs
-import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.refs.{TypedRefToEntity, Entity}
 import io.circe
 import io.circe.Decoder
 import io.circe.parser.decode
@@ -15,10 +15,10 @@ import scala.reflect.ClassTag
 
 private[caching] object REST_ForEntity {
 
-  def getEntity[E <: Entity[E]: ClassTag](
-      ref:        TypedRef[E]
-    )(implicit d: Decoder[TypedRefVal[E]]
-    ): Future[TypedRefVal[E]] = {
+  def getEntity[E <: EntityValue[E]: ClassTag](
+      ref:        TypedRefToEntity[E]
+    )(implicit d: Decoder[Entity[E]]
+    ): Future[Entity[E]] = {
 
     import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
@@ -26,17 +26,17 @@ private[caching] object REST_ForEntity {
 
     println( s"getEntity before creating future for $ref" )
 
-    def dd(s: String ): Either[circe.Error, TypedRefVal[E]] = {
+    def dd(s: String ): Either[circe.Error, Entity[E]] = {
       println( s"getEntity: responseText $s" )
       decode( s )
     }
 
-    val res: Future[TypedRefVal[E]] = Ajax
+    val res: Future[Entity[E]] = Ajax
       .get( route )
       .map( _.responseText )
       .map( x => dd( x ) )
       .map(
-        { x: Either[circe.Error, TypedRefVal[E]] =>
+        { x: Either[circe.Error, Entity[E]] =>
           {
             println( s"returned RefVal is $x" )
             x.right.get

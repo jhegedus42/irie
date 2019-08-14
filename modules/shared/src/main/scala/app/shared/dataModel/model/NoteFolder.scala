@@ -1,7 +1,7 @@
 package app.shared.dataModel.model
 
-import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.TypedRef
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.refs.TypedRefToEntity
 
 /**
   * This is a folder that contains the user's notes.
@@ -9,4 +9,4 @@ import app.shared.dataModel.entity.refs.TypedRef
   * @param user
   * @param name
   */
-case class NoteFolder(user: TypedRef[User], name: String ) extends Entity[NoteFolder]
+case class NoteFolder(user: TypedRefToEntity[User], name: String ) extends EntityValue[NoteFolder]

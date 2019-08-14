@@ -1,7 +1,7 @@
 package app.shared.dataModel.model
 
-import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.TypedRef
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.refs.TypedRefToEntity
 
 
 
@@ -11,5 +11,5 @@ import app.shared.dataModel.entity.refs.TypedRef
 
 case class Note(
     content: String,
-    owner:   Option[TypedRef[NoteFolder]] = None
-) extends Entity[Note]
+    owner:   Option[TypedRefToEntity[NoteFolder]] = None
+) extends EntityValue[Note]

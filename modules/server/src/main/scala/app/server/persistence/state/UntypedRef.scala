@@ -1,11 +1,11 @@
 package app.server.persistence.state
 
-import app.shared.dataModel.entity.EntityTypeAsString
-import app.shared.dataModel.entity.refs.Version
-import app.shared.utils.UUID_Utils.EntityUUID
+import app.shared.dataModel.value.ValueTypeAsString
+import app.shared.dataModel.value.refs.EntityVersion
+import app.shared.utils.UUID_Utils.IdentityOfEntity
 
 case class UntypedRef(
-    entityType: EntityTypeAsString,
-    uuid:       EntityUUID = EntityUUID(),
-    version:    Version = Version()
+                       entityType: ValueTypeAsString,
+                       uuid:       IdentityOfEntity = IdentityOfEntity(),
+                       version:    EntityVersion = EntityVersion()
 )

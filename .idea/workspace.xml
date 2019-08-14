@@ -5,13 +5,34 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. - &#10;Wednesday, 14 August 2019 6.59.55">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/EntityVersion.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/TypedRefToEntity.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CacheInterface.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CacheInterface.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/EntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/EntityCacheStates.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/entityCache/MapForEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/persistentActor/IMPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/persistentActor/IMPersistentActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/ApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/ApplicationState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/UntypedRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/GetEntityURLs.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/GetEntityURLs.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/Entity.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/EntityTypeAsString.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/ValueTypeAsString.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/DeletedFlag.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/DeletedFlag.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRef.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRefVal.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/Version.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/Note.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/NoteFolder.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/value/refs/EntityTest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,58 +81,44 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49384505">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
-                  <folding>
-                    <element signature="e#42#80#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
-                  <folding>
-                    <element signature="e#31#72#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/project/Settings.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="309">
-                  <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/DeletedFlag.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/TypedRefToEntity.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -179,14 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumberCompInjected.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/Props.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injector/PropsWithCache.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/localState/State.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/PropsWithCache.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/PropsCacheInterfaceWrapper.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/CacheInterfaceWrapper.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/Backend.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersBackend.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/InjectedComp.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/injected/SumNumbersComponent.scala" />
@@ -209,14 +208,12 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CompWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/ApplicationState.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/IMPersistentActor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/persistentActor/PersActorWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/persistentActor/IMPersistentActor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/persistentActor/Commands.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/ApplicationState.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/UnTypedRef.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/UntypedRef.scala" />
@@ -226,10 +223,20 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRefVal.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRef.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" />
-        <option value="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala" />
         <option value="$PROJECT_DIR$/project/Settings.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModuleTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/Entity.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/Value.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/Value.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityTypeAsString.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/ValueTypeAsString.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/TypedRef.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/TypedRefVal.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala" />
       </list>
     </option>
   </component>
@@ -332,95 +339,6 @@
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="caching" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -486,6 +404,33 @@
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="staticContent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -527,6 +472,56 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="dataModel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="dataModel" type="462c0819:PsiDirectoryNode" />
+              <item name="value" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="dataModel" type="462c0819:PsiDirectoryNode" />
+              <item name="value" type="462c0819:PsiDirectoryNode" />
+              <item name="refs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
@@ -645,7 +640,6 @@
       </method>
     </configuration>
     <configuration name="TypedRefValTest.testToJSON" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
-      <module name="modules-sources" />
       <setting name="path" value="app.shared.dataModel.entity.refs.TypedRefValTest" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
@@ -753,20 +747,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00122" summary="need to put 2 attributes into the navbar button but I don't know how,&#10;need to figure it out">
-      <created>1564715131334</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1564715131334</updated>
-    </task>
-    <task id="LOCAL-00123" summary="need to put 2 attributes into the navbar button but I don't know how,&#10;need to figure it out&#10;&#10;adding this as todo ^">
-      <created>1564715159126</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1564715159126</updated>
     </task>
     <task id="LOCAL-00124" summary="The navbar hiding/showing button works just fine.&#10;&#10;We have reached the bootstrap nirvana. Time to go on to the&#10;next level !">
       <created>1564715790878</created>
@@ -1097,7 +1077,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565755211810</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. &#10;- Wednesday, 14 August 2019 6.59.55&#10;&#10;We have now test for the server module too. - Wednesday, 14 August &#10;2019 7.15.06">
+      <created>1565756169071</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1565756169071</updated>
+    </task>
+    <task id="LOCAL-00172" summary="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. &#10;- Wednesday, 14 August 2019 6.59.55&#10;&#10;We have now test for the server module too. - Wednesday, 14 August &#10;2019 7.15.06&#10;&#10;Dummy test for Persistence Module - Wednesday, 14 August 2019 7.18.52">
+      <created>1565756335989</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1565756335989</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1149,7 +1143,7 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.39227644" side_tool="true" weight="0.46136534" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6960168" weight="0.2910934" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6960168" visible="true" weight="0.29471397" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.41449276" />
@@ -1157,7 +1151,7 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" weight="0.23351648" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49062267" visible="true" weight="0.36263737" />
       <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.48462117" weight="0.385989" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49812454" weight="0.5068681" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51537883" side_tool="true" weight="0.33567417" />
@@ -1219,8 +1213,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Code compiles, after serious &quot;throwing out everything that is &#10;only maybe needed one day&quot;." />
-    <MESSAGE value="Wrote a &quot;todo-now&quot; list." />
     <MESSAGE value="Cleaning up the code a bit more." />
     <MESSAGE value="Trying to consolidate dependencies of dependencies:&#10;have the least amount of warning when typing &quot;evicted&quot; into&#10;sbt." />
     <MESSAGE value="Getting rid of tests." />
@@ -1244,36 +1236,11 @@
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory." />
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities." />
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. - &#10;Wednesday, 14 August 2019 6.59.55" />
-    <option name="LAST_COMMIT_MESSAGE" value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. - &#10;Wednesday, 14 August 2019 6.59.55" />
+    <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. &#10;- Wednesday, 14 August 2019 6.59.55&#10;&#10;We have now test for the server module too. - Wednesday, 14 August &#10;2019 7.15.06" />
+    <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. &#10;- Wednesday, 14 August 2019 6.59.55&#10;&#10;We have now test for the server module too. - Wednesday, 14 August &#10;2019 7.15.06&#10;&#10;Dummy test for Persistence Module - Wednesday, 14 August 2019 7.18.52" />
+    <option name="LAST_COMMIT_MESSAGE" value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. &#10;- Wednesday, 14 August 2019 6.59.55&#10;&#10;We have now test for the server module too. - Wednesday, 14 August &#10;2019 7.15.06&#10;&#10;Dummy test for Persistence Module - Wednesday, 14 August 2019 7.18.52" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/logic/ServerSideLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-          <folding>
-            <element signature="e#26#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/REST_ForEntity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="e#31#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CacheInterface.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/ReRenderer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1413,17 +1380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
-          <folding>
-            <element signature="e#31#59#0" expanded="true" />
-            <element signature="e#816#833#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1479,13 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1560,14 +1509,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/DeletedFlag.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/Version.scala">
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/EntityVersion.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
@@ -1578,30 +1520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/TypedRefVal.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="e#42#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/Settings.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1619,30 +1537,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/entity/refs/TypedRefValTest.scala">
+    <entry file="file://$PROJECT_DIR$/project/Settings.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="372">
+          <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/value/refs/EntityTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#42#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala">
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/GetEntityURLs.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/PersistenceModule.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        <state relative-caret-position="150">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
             <element signature="e#31#72#0" expanded="true" />
+            <element signature="e#307#978#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/NoteFolder.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#31#59#0" expanded="true" />
+            <element signature="e#816#833#0" expanded="true" />
+            <element signature="e#1962#2299#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/ValueTypeAsString.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/DeletedFlag.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/TypedRefToEntity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
         </state>
       </provider>
     </entry>

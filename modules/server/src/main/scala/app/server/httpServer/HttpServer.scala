@@ -7,8 +7,8 @@ import app.server.httpServer.routes.ViewRoute
 import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
 import app.shared.Config
 import app.shared.comm.GetEntityURLs
-import app.shared.dataModel.entity.refs.TypedRefVal
-import app.shared.dataModel.entity.Entity
+import app.shared.dataModel.value.refs.Entity
+import app.shared.dataModel.value.EntityValue
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -52,14 +52,16 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
     result
   }
 
-  def crudEntityRoute[E <: Entity[E]: ClassTag: Decoder: Encoder]: Route = {
+  def crudEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]: Route = {
 
-    //    new CreateEntityRoute[E]().route ~
+    //    new CreateEntityRoute[E]().route ~ // todo-now - center step - 0
     //    new UpdateEntityRoute[E]().route ~
     getGetEntityRoute[E]
   }
 
-  def getGetEntityRoute[E <: Entity[E]: ClassTag: Decoder: Encoder]: Route = {
+  def getCreateEntityRoute[E] : Route = ???  // todo-now - center step - 1
+
+  def getGetEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]: Route = {
     import akka.http.scaladsl.server.Directives._
     val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
     println( pathStr )
@@ -78,6 +80,7 @@ case class  HttpServer(persistenceModule:PersistenceModule) {
           }
         }
       }
+
     route
   }
 

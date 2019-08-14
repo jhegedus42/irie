@@ -3,8 +3,8 @@ package app.client.ui.caching.entityCache
 import app.client.ui.caching.REST_ForEntity.getEntity
 import app.client.ui.caching.entityCache.EntityCacheStates.EntityCacheState
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.dataModel.entity.Entity
-import app.shared.dataModel.entity.refs.{TypedRef, TypedRefVal}
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.refs.{TypedRefToEntity, Entity}
 
 import scala.util.Try
 import io.circe.Decoder
@@ -14,7 +14,7 @@ import scala.reflect.ClassTag
 
 
 
-private[caching] class EntityCache[E <: Entity[E]]()
+private[caching] class EntityCache[E <: EntityValue[E]]()
    {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -25,7 +25,7 @@ private[caching] class EntityCache[E <: Entity[E]]()
   private [this] var nrOfAjaxReqSent = 0
   private [this] var nrOfAjaxReqReturnedAndHandled = 0
 
-  private [this] def ajaxReqReturnHandler(tryRefVal: Try[TypedRefVal[E]] ): Unit = {
+  private [this] def ajaxReqReturnHandler(tryRefVal: Try[Entity[E]] ): Unit = {
 
     tryRefVal.foreach( cacheMap.insertIntoCacheAsLoaded( _ ) )
 
@@ -35,13 +35,13 @@ private[caching] class EntityCache[E <: Entity[E]]()
 
   }
 
-  private [this] def launchReadAjax(ref: TypedRef[E])
-    (implicit decoder: Decoder[TypedRefVal[E]], ct: ClassTag[E] ): Unit = {
+  private [this] def launchReadAjax(ref: TypedRefToEntity[E])
+    (implicit decoder: Decoder[Entity[E]], ct: ClassTag[E] ): Unit = {
     nrOfAjaxReqSent = nrOfAjaxReqSent + 1
     getEntity[E]( ref ).onComplete( ajaxReqReturnHandler( _ ) )
   }
 
-  private[caching] def readEntity( refToEntity: TypedRef[E] ) (implicit decoder: Decoder[TypedRefVal[E]], ct: ClassTag[E] ):
+  private[caching] def readEntity( refToEntity: TypedRefToEntity[E] )(implicit decoder: Decoder[Entity[E]], ct: ClassTag[E] ):
     EntityCacheState[E] = cacheMap.
       getEntityOrExecuteAction(refToEntity) { launchReadAjax( refToEntity ) }
 
