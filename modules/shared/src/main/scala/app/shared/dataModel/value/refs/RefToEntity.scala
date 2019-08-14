@@ -1,0 +1,15 @@
+package app.shared.dataModel.value.refs
+
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.EntityValueTypeAsString
+import app.shared.utils.UUID_Utils.{EntityIdentity}
+import monocle.macros.Lenses
+
+import scala.reflect.ClassTag
+
+@Lenses
+case class RefToEntity[T <: EntityValue[T]](
+    entityValueTypeAsString: EntityValueTypeAsString,
+    entityIdentity:          EntityIdentity = EntityIdentity(),
+    entityVersion:           EntityVersion = EntityVersion()
+)

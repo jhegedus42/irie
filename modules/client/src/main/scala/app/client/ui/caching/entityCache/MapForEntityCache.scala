@@ -2,10 +2,10 @@ package app.client.ui.caching.entityCache
 
 import app.client.ui.caching.entityCache.EntityCacheStates.{EntityCacheState, Loaded, Loading}
 import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.value.refs.{TypedRefToEntity, Entity}
+import app.shared.dataModel.value.refs.{RefToEntity, Entity}
 
 private[entityCache] class MapForEntityCache[E <: EntityValue[E]]() {
-  private[this] var map: Map[TypedRefToEntity[E], EntityCacheState[E]] = Map()
+  private[this] var map: Map[RefToEntity[E], EntityCacheState[E]] = Map()
 
 //  def getCacheContentAsPrettyString: String =
 //    map.foldLeft( "" )( ( s, t ) => s"$s\n$t\n" )
@@ -23,12 +23,12 @@ private[entityCache] class MapForEntityCache[E <: EntityValue[E]]() {
       s"CACHE WRITE => we insert $rv into the cache"
     )
     //    logger.trace(s"parameter:$rv")
-    val map2 = map + (rv.typedRefToEntity -> Loaded( rv.typedRefToEntity, rv ))
+    val map2 = map + (rv.refToEntity -> Loaded( rv.refToEntity, rv ))
     this.map = map2
   }
 
   def getEntityOrExecuteAction(
-      ref: TypedRefToEntity[E]
+      ref: RefToEntity[E]
     )(
       action: => Unit
     ): EntityCacheState[E] = {
@@ -48,7 +48,7 @@ private[entityCache] class MapForEntityCache[E <: EntityValue[E]]() {
     res
   }
 
-  private[this] def insertIntoCacheAsLoading(r: TypedRefToEntity[E] ): Loading[E] = {
+  private[this] def insertIntoCacheAsLoading(r: RefToEntity[E] ): Loading[E] = {
 
     println( s"CACHE WRITE => we insert $r into the cache" )
     //    logger.trace(s"parameter:$rv")

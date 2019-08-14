@@ -2,7 +2,7 @@ package app.client.ui.caching
 
 import app.shared.comm.GetEntityURLs
 import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.value.refs.{TypedRefToEntity, Entity}
+import app.shared.dataModel.value.refs.{RefToEntity, Entity}
 import io.circe
 import io.circe.Decoder
 import io.circe.parser.decode
@@ -16,7 +16,7 @@ import scala.reflect.ClassTag
 private[caching] object REST_ForEntity {
 
   def getEntity[E <: EntityValue[E]: ClassTag](
-      ref:        TypedRefToEntity[E]
+      ref:        RefToEntity[E]
     )(implicit d: Decoder[Entity[E]]
     ): Future[Entity[E]] = {
 
