@@ -1,9 +1,9 @@
-package app.server.persistence.persistentActor
+package app.server.httpServer.persistence.persistentActor
 
-import akka.actor.{ActorLogging, Props}
+import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.persistence.persistentActor.Commands.{CreateEntity, GetAllState, GetStateResult}
-import app.server.persistence.state.{ApplicationState, UntypedRef}
+import app.server.httpServer.persistence.persistentActor.Commands.{CreateEntity, GetAllState, GetStateResult}
+import app.server.httpServer.persistence.state.{ApplicationState, UntypedRef}
 import app.shared.dataModel.value.EntityValue
 
 import scala.language.postfixOps
@@ -12,11 +12,13 @@ import scala.language.postfixOps
 
 
 
-object IMPersistentActor {
-  def props( id: String ): Props = Props( new IMPersistentActor( id ) )
+object AppPersistentActor {
+  def props( id: String ): Props = Props( new AppPersistentActor( id ) )
+  val as: ActorSystem =ActorSystem()
+  def getActor(id:String) = as.actorOf(props(id))
 }
 
-class IMPersistentActor( id: String )
+private[persistentActor] class AppPersistentActor(id: String )
     extends PersistentActor with ActorLogging {
 
   private var state : ApplicationState = getInitState

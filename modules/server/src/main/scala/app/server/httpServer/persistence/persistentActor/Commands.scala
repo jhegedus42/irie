@@ -1,8 +1,8 @@
-package app.server.persistence.persistentActor
+package app.server.httpServer.persistence.persistentActor
 
-import app.server.persistence.state.{ApplicationState, ApplicationStateEntry}
+import app.server.httpServer.persistence.state.{ApplicationState, ApplicationStateEntry}
 
-object Commands {
+private[persistentActor] object Commands {
 
 
   case class UpdateEntity( updatedEntry:ApplicationStateEntry )

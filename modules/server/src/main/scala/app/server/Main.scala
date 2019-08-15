@@ -1,16 +1,16 @@
 package app.server
 
-import app.server.httpServer.{HttpServer, PersistenceModule}
+import app.server.httpServer.HttpServer
+import app.server.httpServer.persistence.PersistenceModule
 
 object Main extends App {
 
-  val pm=PersistenceModule()
 
-  val server=HttpServer(pm)
+  val server=HttpServer()
 
   val host: String = args(0)
 
-  server.start(host)
+  server.startServer(host)
 
 }
 

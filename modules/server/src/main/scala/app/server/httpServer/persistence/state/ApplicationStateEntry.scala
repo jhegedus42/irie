@@ -1,4 +1,4 @@
-package app.server.persistence.state
+package app.server.httpServer.persistence.state
 
 case class ApplicationStateEntry(
     untypedRef:    UntypedRef,

@@ -1,4 +1,4 @@
-package app.server.persistence.state
+package app.server.httpServer.persistence.state
 
 import app.shared.dataModel.value.EntityValue
 

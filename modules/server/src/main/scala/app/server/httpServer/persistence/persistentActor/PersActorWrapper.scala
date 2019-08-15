@@ -1,11 +1,12 @@
-package app.server.persistence.persistentActor
+package app.server.httpServer.persistence.persistentActor
 
 import akka.actor.ActorRef
-import app.server.persistence.persistentActor.Commands.{GetAllState, GetStateResult}
+import app.server.httpServer.persistence.persistentActor.Commands.{GetAllState, GetStateResult}
 
 import scala.concurrent.Future
 
-case class PersActorWrapper(val actor: ActorRef ) {
+private[persistence]
+case class  PersActorWrapper(val actor: ActorRef ) {
   import akka.pattern.ask
   import akka.util.Timeout
 

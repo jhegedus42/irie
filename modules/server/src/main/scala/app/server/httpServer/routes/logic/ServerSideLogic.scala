@@ -1,4 +1,4 @@
-package app.server.logic
+package app.server.httpServer.routes.logic
 
 import java.util.Calendar
 
@@ -6,7 +6,7 @@ import app.shared.comm.views.View
 import app.shared.dataModel.views.SumIntView
 import app.shared.dataModel.views.SumIntView.{SumIntView_Par, SumIntView_Res}
 
-object ServerSideLogic {
+private[routes] object ServerSideLogic {
 
   trait ServerLogicTypeClass[V <: View] {
     def getView(param: V#Par ): Option[V#Res]

@@ -9,26 +9,18 @@ import akka.http.scaladsl.server.Route
   */
 
 
-object StaticRoutes {
-
-
+private[routes] object StaticRoutes {
 
   import java.util.Calendar
 
   def staticRootFactory(rootPage: String): Route = {
     val staticRoute: Route = {
       pathSingleSlash {
-        extractClientIP { ip =>
-          def address=ip.toOption.map(_.getHostAddress).getOrElse("unknown")
-          def name=ip.toOption.map(_.getHostName).getOrElse("unknown")
           def time=Calendar.getInstance.getTime
-          println(
-            s"Someone asked for the root with " +
-            s"ip=$address the time is $time, hostname:$name");
+          println( s"Someone asked for the root at $time")
           complete {
             HttpResponse(entity = HttpEntity(ContentTypes.`text/html(UTF-8)`, rootPage))
           }
-        }
       } ~
         getFromDirectory(".") // why is this here ? I don't know.
       // maybe this allows serving .css and .js
