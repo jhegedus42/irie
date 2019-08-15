@@ -61,7 +61,8 @@ lazy val server =
       scalaVersion := Settings.versions.scala,
       libraryDependencies ++= paradisePlugin.value,
       scalacOptions ++= Settings.scalacOptions,
-      libraryDependencies ++= Settings.jvmDependencies.value
+      libraryDependencies ++= Settings.jvmDependencies.value,
+
     )
     .dependsOn( shared_jvm  )
 

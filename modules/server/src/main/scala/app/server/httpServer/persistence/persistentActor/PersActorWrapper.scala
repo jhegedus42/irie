@@ -19,8 +19,9 @@ case class  PersActorWrapper(val actor: ActorRef ) {
 //    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
 //      .mapTo[UpdateEntityPAResponse]
 
-//  def createEntity(e:Data):Future[CreateEntityPAResponse]=
-//    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
+  def insertEntity(e:vx):Future[CreateEntityPAResponse]=
+    ask(actor, CreateEntityPACommand(e))(Timeout.durationToTimeout(1 seconds)).mapTo[CreateEntityPAResponse]
+
 
 //  def setState( s: TestDataLabel ): Unit =
 //    ask( actor, SetState( s ) )( Timeout.durationToTimeout( 1 seconds ) )
