@@ -45,10 +45,10 @@ private[httpServer] case class RoutesProvider(
     : Route = {
     //    new UpdateEntityRoute[E]().route ~
 
-    // todo-now - 0 - crudEntityRoute
+    // todo-next - 0 - crudEntityRoute
     //  add getCreateEntityRoute's "result"
 
-    getGetEntityRoute[E]
+    getGetEntityRoute[E] //todo-now => make this "work"
   }
 
   private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]
@@ -56,7 +56,7 @@ private[httpServer] case class RoutesProvider(
 
     val value: V = ??? // get this from request
 
-    // todo-now-2 - getCreateEntityRoute
+    // todo-next - getCreateEntityRoute
     //  we get this from the post request (extract)
     //    we need to write a simple test for that (extracting the value from
     //    the post requestion) using the akka route tester (we need to
@@ -65,7 +65,7 @@ private[httpServer] case class RoutesProvider(
     val toReturnAsResponse: Future[( StateChange, Entity[V] )] =
       persistenceModule.createAndStoreNewEntity( value )
 
-    // todo-now-1
+    // todo-next
     //   - extract Future[Entity[V]] from `toReturnAsResponse` using a map
     //  -  we return that Entity[V] as response in a `complete`
     //   directive as it is done in the `getGetEntityRoute` function

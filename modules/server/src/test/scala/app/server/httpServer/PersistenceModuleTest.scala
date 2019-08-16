@@ -70,12 +70,6 @@ class PersistenceModuleTest extends FunSuite {
 
       println( "--------------\n\nHere ENDS the init.\n\n" )
 
-      // todo-now get the state from the actor and print it out
-      //  use a dedicated command for returnning the state
-      //  so, we insert an entity and then in a new command
-      //  get the new state
-      //  and then see what changed
-
     }
 
     init()
