@@ -26,10 +26,19 @@ object AppPersistentActor {
   def props( id: String ): Props = Props( new AppPersistentActor( id ) )
 }
 
+
 private[persistentActor] class AppPersistentActor( id: String )
     extends PersistentActor with ActorLogging {
 
-  private var applicationState: ApplicationState = getInitState
+  private object ApplicationStateWrapper{
+    private var applicationState: ApplicationState = getInitState
+    def getState = applicationState
+    def setState(s:ApplicationState) :Unit=  {
+      applicationState=s
+    }
+
+  }
+
 
   /**
     * This is unsafe because it assumes that the key not exist
@@ -39,15 +48,15 @@ private[persistentActor] class AppPersistentActor( id: String )
     * @return
     */
   def unsafeInsertStateEntry( ase: ApplicationStateEntry ): ApplicationState = {
-    assert( !applicationState.map.contains( ase.untypedRef ) ) // this can throw !!!
-    val newMap = applicationState.map + (ase.untypedRef -> ase)
+    assert( !ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) ) // this can throw !!!
+    val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
     ApplicationState( newMap )
   }
 
   def getEntity[E <: EntityValue[E]: ClassTag](
       r: UntypedRef
   ): Option[ApplicationStateEntry] = {
-    this.applicationState.map.get( r )
+    ApplicationStateWrapper.getState.map.get( r )
   }
 
   override def persistenceId: String = id
@@ -59,19 +68,23 @@ private[persistentActor] class AppPersistentActor( id: String )
 
     case command @ InsertNewEntityCommand( newEntry: ApplicationStateEntry ) => {
 
-        val oldState=applicationState
+        val oldState=ApplicationStateWrapper.getState
 
         val event: events.CreateEntityEvent = {
           events.CreateEntityEvent( command )
         }
+
 
         persist( event ) { evt: events.CreateEntityEvent =>
           applyEvent( evt )
         }
 
 
-      val stateChange =
-        StateChange( oldState, applicationState)
+      val stateChange = StateChange( oldState, ApplicationStateWrapper.getState)
+
+      println("ReceiveCommand in case InsertNewEntityCommand, size of maps in StateChange:\n")
+      println(stateChange.getSizeOfMapsBeforeAndAfter)
+      println()
 
       sender() ! Responses.InsertNewEntityCommandResponse( stateChange )
 
@@ -94,7 +107,7 @@ private[persistentActor] class AppPersistentActor( id: String )
     //    }
 
     case GetAllStateCommand => {
-      sender() ! GetStateResult( applicationState )
+      sender() ! GetStateResult( ApplicationStateWrapper.getState)
     }
 
   }
@@ -107,7 +120,7 @@ private[persistentActor] class AppPersistentActor( id: String )
 
       val newState = unsafeInsertStateEntry( newEntry )
 
-      applicationState = newState
+      ApplicationStateWrapper.setState(newState)
     }
 
   }
@@ -119,7 +132,7 @@ private[persistentActor] class AppPersistentActor( id: String )
     }
 
     case RecoveryCompleted => {
-      log.info( "Recovery completed \n\nState is:\n" + applicationState)
+      log.info( "Recovery completed \n\nState is:\n" + ApplicationStateWrapper.getState)
     }
 
   }

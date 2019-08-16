@@ -5,5 +5,5 @@ import app.shared.dataModel.value.EntityValue
 import scala.reflect.ClassTag
 
 case class ApplicationState(
-    map: Map[UntypedRef, ApplicationStateEntry] = Map.empty
+    val map: Map[UntypedRef, ApplicationStateEntry] = Map.empty
 )

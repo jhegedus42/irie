@@ -12,11 +12,53 @@ import app.server.utils.PrettyPrint
 import app.shared.dataModel.model.User
 import app.shared.dataModel.value.refs.Entity
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
+import io.circe.Decoder.state
 import org.scalatest.FunSuite
 
 import scala.concurrent.Future
 
 case class Test( string: String )
+
+object StatePrintingUtils {
+
+  def printApplicationState( state: ApplicationState ): Unit = {
+
+    val stateBeforeAsString = state.map.foldLeft( "" )( {
+      ( b: String, tuple: ( UntypedRef, ApplicationStateEntry ) ) =>
+        val newString = b +
+          s"""
+             |
+              | vvvvvvvvvvv
+             | Key:
+             | ${tuple._1}
+             |
+              | Entry:
+             | ${tuple._2}
+             |
+              | ^^^^^^^^^^^
+             |
+            """.stripMargin
+        newString
+    } )
+
+    println( s"Number of entries: ${state.map.size}\n\n" )
+    println( s"Hashcode of map: ${state.map.hashCode()}\n\n" )
+    println( stateBeforeAsString )
+  }
+
+  def printStateChange( stateChange: StateChange ): Unit = {
+
+    println( "\n\n-------------- STATE BEFORE: -------------------\n\n" )
+
+    printApplicationState( stateChange.before )
+
+    println( "\n\n-------------- STATE AFTER: -------------------\n\n" )
+
+    printApplicationState( stateChange.after )
+
+  }
+
+}
 
 class PersistenceModuleTest extends FunSuite {
 
@@ -57,46 +99,24 @@ class PersistenceModuleTest extends FunSuite {
       val cica       = User( "Cica", 137 )
       val meresiHiba = User( "MeresiHiba", 369 )
 
+      println( "--------------\n\nHere STARTS the init:\n\n" )
+
       val actorSystem: ActorSystem =
         ActorSystem( "ActorSystem_for_all_Actors_in_the_app" )
-
       val pm = PersistenceModule( actorSystem )
-
-      println( "--------------\n\nHere comes the init:\n\n" )
-
       val res: Future[( StateChange, Entity[User] )] =
         pm.createAndStoreNewEntity( cica )
-
       import scala.concurrent._
-
       import scala.concurrent.duration._
-
       val res_awaited: ( StateChange, Entity[User] ) =
         Await.result( res, 5 seconds )
-
       val stateChange = res_awaited._1
 
-      val stateBeforeAsString = stateChange.before.map.foldLeft( "" )( {
-        ( b: String, tuple: ( UntypedRef, ApplicationStateEntry ) ) =>
-          s"b+tuple._2\n"
-      } )
+      StatePrintingUtils.printStateChange( stateChange )
 
-      println(stateBeforeAsString)
+      println( "--------------\n\nHere ENDS the init.\n\n" )
 
-
-      // todo-now-3 ^^^ make this test "print nice things"
-
-      //  step 1 - csinaljunk beloluk valamit amit bele lehet
-      //   tenni HOVA ?
-      //
-      //
-      //     - de mit eszik a Journal ? => ki kell talalni
-      //       - hol van a Journal ?
-      //       - figure out how to store the entities in the application state
-      //       - sima Entity -kent casting-gal
-      //  step 2 - tegyuk bele a journal-ba / application state-be
-      //  step 3 - olvassuk ki az application state tartalmat es irjuk
-      //           ki a konzolra
+      // todo-now get the state from the actor and print it out
 
     }
 
