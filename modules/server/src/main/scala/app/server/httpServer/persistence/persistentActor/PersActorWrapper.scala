@@ -6,9 +6,9 @@ import app.server.httpServer.persistence.persistentActor.PersistentActorCommands
   InsertNewEntityCommand
 }
 import app.server.httpServer.persistence.persistentActor.Responses.InsertNewEntityCommandResponse
-import app.server.httpServer.persistence.state.{
+import app.server.httpServer.persistence.persistentActor.state.{
   ApplicationStateEntry,
-  ApplicationStateMap,
+  ApplicationState,
   UntypedRef
 }
 import app.shared.dataModel.value.{EntityAsJSON, EntityValue}
@@ -18,8 +18,8 @@ import io.circe.Encoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class StateChange(
-                        before: ApplicationStateMap,
-                        after: Option[ApplicationStateMap]
+                        before: ApplicationState,
+                        after: ApplicationState
                       )
 
 private[persistence] case class PersActorWrapper(val actor: ActorRef) {

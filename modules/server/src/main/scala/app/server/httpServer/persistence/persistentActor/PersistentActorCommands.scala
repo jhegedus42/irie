@@ -1,11 +1,11 @@
 package app.server.httpServer.persistence.persistentActor
 
-import app.server.httpServer.persistence.state.{
+import app.server.httpServer.persistence.persistentActor.state.{
   ApplicationStateEntry,
-  ApplicationStateMap
+  ApplicationState
 }
 
-private[persistentActor] object PersistentActorCommands {
+object PersistentActorCommands {
 
   case class UpdateEntityCommand( updatedEntry: ApplicationStateEntry )
 
@@ -15,7 +15,8 @@ private[persistentActor] object PersistentActorCommands {
 
   case object ShutdownActor
 }
+
 private[persistentActor] object Responses {
-  case class GetStateResult( state: ApplicationStateMap )
+  case class GetStateResult( state: ApplicationState )
   case class InsertNewEntityCommandResponse(stateChange : StateChange)
 }
