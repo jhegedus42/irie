@@ -33,7 +33,7 @@ private[persistentActor] class AppPersistentActor(id: String )
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case InsertNewEntityCommand(newEntry:ApplicationStateEntry ) => {
+    case command@InsertNewEntityCommand(newEntry:ApplicationStateEntry ) => {
 
       val oldApplicationStateMap: ApplicationStateMap = state
       val newApplicationStateMap = oldApplicationStateMap.insertNewApplicationStateEntry(
@@ -42,15 +42,11 @@ private[persistentActor] class AppPersistentActor(id: String )
 
       if(!newApplicationStateMap.isEmpty) state=newApplicationStateMap.get
 
-      val event: Events.CreateEntityEvent = ???
-        // todo-now-5 fix this
-        //  create a replayable event
-        //   => wrap the InsertNewEntity command
-        //      into an event
-
-      persist(event) { evt: Events.CreateEntityEvent =>
-        applyEvent(evt)
+      val event: Events.CreateEntityEvent = {
+        Events.CreateEntityEvent(command)
       }
+
+      persist(event) { evt: Events.CreateEntityEvent => applyEvent(evt) }
 
       val stateChange= StateChange(oldApplicationStateMap,newApplicationStateMap)
 
