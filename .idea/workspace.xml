@@ -7,13 +7,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/AppPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/AppPersistentActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala" afterDir="false" />
     </list>
@@ -64,17 +62,16 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5090514">
+    <splitter split-orientation="horizontal" split-proportion="0.4199855">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="446">
-                  <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+                <state relative-caret-position="768">
+                  <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
                   <folding>
                     <element signature="e#31#60#0" expanded="true" />
-                    <element signature="e#1445#1470#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -84,36 +81,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
-                  <folding>
-                    <element signature="e#20#49#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="290">
-                  <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#59#85#0" expanded="true" />
-                    <element signature="e#613#636#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="94">
-                  <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+                <state relative-caret-position="175">
+                  <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
                   <folding>
                     <element signature="e#43#84#0" expanded="true" />
                   </folding>
@@ -191,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/persistence/state/UntypedRef.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/model/User.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/DeletedFlag.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/entity/refs/Version.scala" />
@@ -231,17 +202,18 @@
         <option value="$PROJECT_DIR$/project/plugins.sbt" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/Commands.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationState.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/AppPersistentActor.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala" />
       </list>
     </option>
   </component>
@@ -523,7 +495,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TODO_SCOPE" value="Project Production Files" />
+    <property name="TODO_SCOPE" value="Project Files" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -697,20 +669,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00130" summary="After some heavy cleaning.&#10;&#10;Just a &quot;safety&quot; commit, before smashing the code into pieces&#10;again.">
-      <created>1564997304218</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1564997304228</updated>
-    </task>
-    <task id="LOCAL-00131" summary="Going towards adding test data for showing users on the client&#10;side. &#10;&#10;Refactoring the code so that it looks a bit nicer.">
-      <created>1565145684779</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1565145684781</updated>
     </task>
     <task id="LOCAL-00132" summary="Going towards adding test data for showing users on the client&#10;side.">
       <created>1565185729643</created>
@@ -1041,7 +999,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565913091800</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.">
+      <created>1565918376781</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1565918376781</updated>
+    </task>
+    <task id="LOCAL-00180" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.&#10;   &#10;=&gt; Friday, 16 August 2019 5.42.53&#10;&#10;   Writing some more todo's and specifying how the&#10;   implementations of some functions will look.&#10;   (&quot;sort of like pseudo code&quot;)">
+      <created>1565923436634</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1565923436634</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1163,8 +1135,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cleaning up code." />
-    <MESSAGE value="Code nuked. It is broken. Needs to be fixed. Previous version worked.&#10;AFAIR." />
     <MESSAGE value="Code seems to compile. Question is : does it work ?&#10;&#10;It has been a bit simplified and abstracted (wrapped component is now a &#10;&quot;type parameter&quot;)." />
     <MESSAGE value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL." />
     <MESSAGE value="Ok, after some refactoring, the code still seems to work fine.&#10;&#10;Next step: making the Sum Number Page dynamic, so&#10;that it can extract something from the URL.&#10;&#10;- Bit of refactoring . Tuesday, 13 August 2019 6.47.01 &#10;- Code compiles." />
@@ -1188,7 +1158,9 @@
     <MESSAGE value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc..." />
     <MESSAGE value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity." />
     <MESSAGE value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor)." />
-    <option name="LAST_COMMIT_MESSAGE" value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor)." />
+    <MESSAGE value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;." />
+    <MESSAGE value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.&#10;   &#10;=&gt; Friday, 16 August 2019 5.42.53&#10;&#10;   Writing some more todo's and specifying how the&#10;   implementations of some functions will look.&#10;   (&quot;sort of like pseudo code&quot;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.&#10;   &#10;=&gt; Friday, 16 August 2019 5.42.53&#10;&#10;   Writing some more todo's and specifying how the&#10;   implementations of some functions will look.&#10;   (&quot;sort of like pseudo code&quot;)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/Route.scala" />
@@ -1406,13 +1378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/AppPersistentActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/staticContent/IndexDotHtml.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1448,31 +1413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/plugins.sbt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateEntry.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -1500,28 +1444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#20#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="77" column="19" lean-forward="true" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-          <folding>
-            <element signature="e#38#76#0" expanded="true" />
-            <element signature="e#764#1106#0" />
-            <element signature="e#2378#2439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1532,34 +1454,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateEntry.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/state/ApplicationStateMap.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
-            <element signature="e#59#85#0" expanded="true" />
-            <element signature="e#613#636#0" expanded="true" />
+            <element signature="e#38#76#0" expanded="true" />
+            <element signature="e#791#808#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/AppPersistentActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="-930">
+          <caret line="4" column="100" lean-forward="true" selection-start-line="4" selection-start-column="100" selection-end-line="4" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#43#84#0" expanded="true" />
+            <element signature="e#20#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/PersistenceModuleTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+        <state relative-caret-position="768">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#31#60#0" expanded="true" />
-            <element signature="e#1445#1470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersistentActorCommands.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#59#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/PersActorWrapper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#59#85#0" expanded="true" />
+            <element signature="e#736#759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="e#43#84#0" expanded="true" />
           </folding>
         </state>
       </provider>

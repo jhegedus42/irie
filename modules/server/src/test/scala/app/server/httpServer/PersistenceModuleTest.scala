@@ -64,7 +64,7 @@ class PersistenceModuleTest extends FunSuite {
         s"awaited result from the createEntity test:\n" +
         s"$pretty_printed_res_awaited\n\n")
 
-      // todo-now ^^^ make this test "print nice things"
+      // todo-now-3 ^^^ make this test "print nice things"
 
       //  step 1 - csinaljunk beloluk valamit amit bele lehet
       //   tenni HOVA ?

@@ -2,8 +2,9 @@ package app.server.httpServer.persistence.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{InsertNewEntity, GetAllState, GetStateResult}
-import app.server.httpServer.persistence.state.{ApplicationStateMap, UntypedRef}
+import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
+import app.server.httpServer.persistence.persistentActor.Responses.GetStateResult
+import app.server.httpServer.persistence.state.{ApplicationStateEntry, ApplicationStateMap, UntypedRef}
 import app.shared.dataModel.value.EntityValue
 
 import scala.language.postfixOps
@@ -32,16 +33,29 @@ private[persistentActor] class AppPersistentActor(id: String )
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case InsertNewEntity(e: EntityValue[_]) => {
+    case InsertNewEntityCommand(newEntry:ApplicationStateEntry ) => {
 
-      val untypedRef: UntypedRef = ??? //todo-next-2
+      val oldApplicationStateMap: ApplicationStateMap = state
+      val newApplicationStateMap = oldApplicationStateMap.insertNewApplicationStateEntry(
+        newEntry
+      )
 
-      val event: Events.CreateEntityEvent =Events.CreateEntityEvent(untypedRef)
+      state=newApplicationStateMap
 
-      persist(event) { evt =>
+      val event: Events.CreateEntityEvent = ???
+        // todo-now-5 fix this
+        //  create a replayable event
+        //   => wrap the InsertNewEntity command
+        //      into an event
+
+      persist(event) { evt: Events.CreateEntityEvent =>
         applyEvent(evt)
-
       }
+
+      val stateChange= StateChange(oldApplicationStateMap,newApplicationStateMap)
+
+      sender() ! Responses.InsertNewEntityCommandResponse ( stateChange )
+
     }
 
 //    case UpdateEntityPACommand(item) => {
@@ -60,7 +74,7 @@ private[persistentActor] class AppPersistentActor(id: String )
 //      }
 //    }
 
-    case GetAllState => {
+    case GetAllStateCommand => {
       import app.server.utils.PrettyPrint
       val s       = state.toString
       val spretty = PrettyPrint.prettyPrint( s )
@@ -88,7 +102,7 @@ private[persistentActor] class AppPersistentActor(id: String )
     sealed trait Event
 //    case class UpdateEntityEvent[E <: Entity[E]](entity: UntypedRef )
 //        extends Event
-    case class CreateEntityEvent(entity: UntypedRef ) extends Event
+    case class CreateEntityEvent(insertNewEntity: InsertNewEntityCommand) extends Event
 
   }
 

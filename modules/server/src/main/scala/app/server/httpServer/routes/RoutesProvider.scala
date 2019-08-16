@@ -51,9 +51,10 @@ private[httpServer] case class RoutesProvider(
     getGetEntityRoute[E]
   }
 
-  private def getCreateEntityRoute[V <: EntityValue[V]]: Route = {
+  private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]: Route = {
 
-    val value: V = ???
+    val value: V = ??? // get this from request
+
     // todo-now-2 - getCreateEntityRoute
     //  we get this from the post request (extract)
     //    we need to write a simple test for that (extracting the value from
@@ -62,10 +63,14 @@ private[httpServer] case class RoutesProvider(
 
     val toReturnAsResponse: Future[( StateChange, Entity[V] )] =
       persistenceModule.createAndStoreNewEntity( value )
+
     // todo-now-1
-    //   we return `toReturnAsResponse` as response in a `complete`
+    //   - extract Future[Entity[V]] from `toReturnAsResponse` using a map
+    //  -  we return that Entity[V] as response in a `complete`
     //   directive as it is done in the `getGetEntityRoute` function
     //   below
+
+
 
     ???
   }

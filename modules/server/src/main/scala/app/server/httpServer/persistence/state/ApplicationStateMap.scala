@@ -9,10 +9,10 @@ case class ApplicationStateMap(
 ) {
 
   def insertNewApplicationStateEntry(
-      untypedRef: UntypedRef
+                                    applicationStateEntry: ApplicationStateEntry
   ): ApplicationStateMap = {
     //    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
-    ??? // todo-next-1
+    ??? // todo-now-6
   }
 
   //  def updateEntity(refValDyn: RefValDyn ) : Option[ApplicationState]  = {
