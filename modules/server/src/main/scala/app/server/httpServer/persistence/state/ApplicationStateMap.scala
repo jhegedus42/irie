@@ -4,13 +4,13 @@ import app.shared.dataModel.value.EntityValue
 
 import scala.reflect.ClassTag
 
-case class ApplicationState(
+case class ApplicationStateMap(
     stateMap: Map[UntypedRef, ApplicationStateEntry] = Map.empty
 ) {
 
   def insertNewApplicationStateEntry(
       untypedRef: UntypedRef
-  ): ApplicationState = {
+  ): ApplicationStateMap = {
     //    this.copy( stateMap = this.stateMap + (refValDyn.r -> refValDyn))
     ??? // todo-next-1
   }

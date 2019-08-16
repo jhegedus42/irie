@@ -2,8 +2,8 @@ package app.server.httpServer.persistence.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.persistence.persistentActor.Commands.{CreateEntity, GetAllState, GetStateResult}
-import app.server.httpServer.persistence.state.{ApplicationState, UntypedRef}
+import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{InsertNewEntity, GetAllState, GetStateResult}
+import app.server.httpServer.persistence.state.{ApplicationStateMap, UntypedRef}
 import app.shared.dataModel.value.EntityValue
 
 import scala.language.postfixOps
@@ -21,18 +21,18 @@ object AppPersistentActor {
 private[persistentActor] class AppPersistentActor(id: String )
     extends PersistentActor with ActorLogging {
 
-  private var state : ApplicationState = getInitState
+  private var state : ApplicationStateMap = getInitState
 
-  protected def getInitState: ApplicationState = new ApplicationState()
+  protected def getInitState: ApplicationStateMap = new ApplicationStateMap()
 
   override def persistenceId: String = id
 
   override def receiveCommand: Receive = {
-    case Commands.ShutdownActor =>
+    case PersistentActorCommands.ShutdownActor =>
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case CreateEntity(e: EntityValue[_]) => {
+    case InsertNewEntity(e: EntityValue[_]) => {
 
       val untypedRef: UntypedRef = ??? //todo-next-2
 

@@ -1,10 +1,15 @@
 package app.server.httpServer
 
+import akka.actor.ActorSystem
 import app.server.httpServer.persistence.PersistenceModule
+import app.server.httpServer.persistence.persistentActor.StateChange
 import app.server.utils.PrettyPrint
 import app.shared.dataModel.model.User
+import app.shared.dataModel.value.refs.Entity
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalatest.FunSuite
+
+import scala.concurrent.Future
 
 case class Test(string:String)
 
@@ -40,7 +45,26 @@ class PersistenceModuleTest extends FunSuite {
       val cica= User("Cica",137)
       val meresiHiba= User("MeresiHiba",369)
 
-      val pm = PersistenceModule()
+      val actorSystem: ActorSystem =
+        ActorSystem( "ActorSystem for all Actors in the app." )
+
+      val pm = PersistenceModule(actorSystem)
+
+      val res: Future[(StateChange, Entity[User])] =pm.createAndStoreNewEntity(cica)
+
+      import scala.concurrent._
+
+      import scala.concurrent.duration._
+
+      val res_awaited: (StateChange, Entity[User]) = Await.result(res,5 seconds)
+
+      val pretty_printed_res_awaited= PrettyPrint.prettyPrint(res_awaited)
+
+      println(
+        s"awaited result from the createEntity test:\n" +
+        s"$pretty_printed_res_awaited\n\n")
+
+      // todo-now ^^^ make this test "print nice things"
 
       //  step 1 - csinaljunk beloluk valamit amit bele lehet
       //   tenni HOVA ?

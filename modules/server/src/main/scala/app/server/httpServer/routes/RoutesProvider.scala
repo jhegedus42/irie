@@ -9,6 +9,7 @@ import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.views.SumIntView
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
+import app.shared.dataModel.value.refs.Entity
 
 import scala.reflect.ClassTag
 
@@ -77,6 +78,7 @@ private[httpServer] case class RoutesProvider(persistenceModule: PersistenceModu
             import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
             import io.circe.generic.auto._
             complete(
+
               persistenceModule.getEntity[V]( uuid )
             )
           }

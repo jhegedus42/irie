@@ -1,12 +1,14 @@
 package app.server
 
+import akka.actor.ActorSystem
 import app.server.httpServer.HttpServer
-import app.server.httpServer.persistence.PersistenceModule
 
 object Main extends App {
 
+  implicit lazy val actorSystem: ActorSystem =
+    ActorSystem( "ActorSystem for all Actors in the app." )
 
-  val server=HttpServer()
+  val server=HttpServer(actorSystem)
 
   val host: String = args(0)
 

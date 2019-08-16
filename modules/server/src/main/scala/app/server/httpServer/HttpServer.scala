@@ -11,15 +11,16 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
 
-case class  HttpServer() {
+case class  HttpServer(actorSystem: ActorSystem) {
 
-  val persistenceModule=PersistenceModule()
+  val persistenceModule=PersistenceModule(actorSystem)
   val routes=RoutesProvider(persistenceModule)
+  implicit val actorSystemAsImplicit=actorSystem
 
   def startServer(host:String ): Unit = {
+
     implicit lazy val executionContext: ExecutionContextExecutor =
-      system.dispatcher
-    implicit lazy val system: ActorSystem = ActorSystem( "trait-Server" )
+      actorSystem.dispatcher
 
     implicit val materializer = ActorMaterializer()
 

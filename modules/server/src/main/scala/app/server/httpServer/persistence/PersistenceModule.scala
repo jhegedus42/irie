@@ -1,33 +1,41 @@
 package app.server.httpServer.persistence
 
-import akka.actor.ActorRef
-import app.server.httpServer.persistence.persistentActor.{AppPersistentActor, PersActorWrapper}
+import akka.actor.{ActorRef, ActorSystem}
+import app.server.httpServer.persistence.persistentActor.{AppPersistentActor, PersActorWrapper, StateChange}
 import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.value.refs.{Entity, RefToEntity}
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.reflect.ClassTag
 
-private[httpServer] case class PersistenceModule() {
+private[httpServer] case class PersistenceModule( actorSystem: ActorSystem ) {
 
-  private val pa: ActorRef =AppPersistentActor.getActor("one_and_only_parsistent_actor")
-  private val paw: PersActorWrapper =PersActorWrapper(pa)
+  implicit lazy val executionContext: ExecutionContextExecutor =
+    actorSystem.dispatcher
 
-  def getEntity[E<:RefToEntity[E]](uuid:String):Future[Entity[E]] = ???
+  private val pa: ActorRef =
+    AppPersistentActor.getActor( "one_and_only_parsistent_actor" )
+  private val paw: PersActorWrapper = PersActorWrapper( pa )
 
-  def createAndStoreNewEntity[V<:EntityValue[V]](value: EntityValue[V]): Future[Entity[V]] = {
+  def getEntity[V <: EntityValue[V]]( uuid: String ): Future[Entity[V]] =
+    ??? // todo-next fix this
+
+  def createAndStoreNewEntity[V <: EntityValue[V]:ClassTag](
+      value: V
+  ): Future[(StateChange,Entity[V])] = {
 
     // todo-now
     //  step 1. create new entity from Value
 
-    val entity: Entity[EntityValue[V]] = Entity.makeFromValue(value)
+    val entity: Entity[V] = Entity.makeFromValue( value )
 
     // todo-now
     //  step 2.
     //  implement : app.server.httpServer.persistence.persistentActor.PersActorWrapper.insertEntity
 
+    val res: Future[StateChange] = paw.insertEntity[V]( entity )
 
-    ??? //continue here
+    res.map( x => (x,entity) )
   }
-
 
 }
