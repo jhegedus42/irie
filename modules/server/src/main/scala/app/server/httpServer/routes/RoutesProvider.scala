@@ -9,21 +9,21 @@ import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.views.SumIntView
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
+import app.server.httpServer.persistence.persistentActor.StateChange
 import app.shared.dataModel.value.refs.Entity
 
+import scala.concurrent.Future
 import scala.reflect.ClassTag
 
-private[httpServer] case class RoutesProvider(persistenceModule: PersistenceModule) {
+private[httpServer] case class RoutesProvider(
+    persistenceModule: PersistenceModule
+) {
   val route: Route = allRoutes
 
   import io.circe._
   import io.circe.generic.auto._
 
-
-
   private def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
-
-
 
   private def allRoutes: Route = {
 
@@ -41,31 +41,37 @@ private[httpServer] case class RoutesProvider(persistenceModule: PersistenceModu
     result
   }
 
-
-  private def crudEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]: Route = {
-
-    //    new CreateEntityRoute[E]().route ~
-    //  todo-now - center step - 0
-
+  private def crudEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]
+    : Route = {
     //    new UpdateEntityRoute[E]().route ~
+
+    // todo-now - 0 - crudEntityRoute
+    //  add getCreateEntityRoute's "result"
 
     getGetEntityRoute[E]
   }
 
-  private def getCreateEntityRoute[V<:EntityValue[V]] : Route = ???
-    //   todo-now - center step - 1
-    //      => azt akarjuk, hogy legyen egy route, ami-re ha elkuldunk, egy value-t
-    //         akkor azt akarjuk, hogy adjon nekunk vissza egy entity-t
-    //         es azt az entity-t tarolja id el
-    //           => ehhez kell egy olyan valami ami value-bol csinal entity-t, az hol van ?
-    //              => DONE itt van : app.shared.dataModel.value.refs.Entity.makeFromValue
-    //           => ami hatra marad, az az, hogy megirjuk ezt :
-    //              app/server/httpServer/persistence/PersistenceModule.scala:18
-    //
-    //
+  private def getCreateEntityRoute[V <: EntityValue[V]]: Route = {
 
+    val value: V = ???
+    // todo-now-2 - getCreateEntityRoute
+    //  we get this from the post request (extract)
+    //    we need to write a simple test for that (extracting the value from
+    //    the post requestion) using the akka route tester (we need to
+    //    look that up in the akka http documentation)
 
-  private def getGetEntityRoute[V <: EntityValue[V]: ClassTag: Decoder: Encoder]: Route = {
+    val toReturnAsResponse: Future[( StateChange, Entity[V] )] =
+      persistenceModule.createAndStoreNewEntity( value )
+    // todo-now-1
+    //   we return `toReturnAsResponse` as response in a `complete`
+    //   directive as it is done in the `getGetEntityRoute` function
+    //   below
+
+    ???
+  }
+
+  private def getGetEntityRoute[V <: EntityValue[V]: ClassTag: Decoder: Encoder]
+    : Route = {
     import akka.http.scaladsl.server.Directives._
     val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
     println( pathStr )
@@ -74,20 +80,18 @@ private[httpServer] case class RoutesProvider(persistenceModule: PersistenceModu
       path( pathStr ) {
         get {
           parameters( 'uuid ) { uuid: String =>
-          {
-            import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-            import io.circe.generic.auto._
-            complete(
-
-              persistenceModule.getEntity[V]( uuid )
-            )
-          }
+            {
+              import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+              import io.circe.generic.auto._
+              complete(
+                persistenceModule.getEntity[V]( uuid )
+              )
+            }
           }
         }
       }
 
     route
   }
-
 
 }

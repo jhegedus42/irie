@@ -24,14 +24,8 @@ private[httpServer] case class PersistenceModule( actorSystem: ActorSystem ) {
       value: V
   ): Future[(StateChange,Entity[V])] = {
 
-    // todo-now
-    //  step 1. create new entity from Value
 
     val entity: Entity[V] = Entity.makeFromValue( value )
-
-    // todo-now
-    //  step 2.
-    //  implement : app.server.httpServer.persistence.persistentActor.PersActorWrapper.insertEntity
 
     val res: Future[StateChange] = paw.insertEntity[V]( entity )
 
