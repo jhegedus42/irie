@@ -1,16 +1,24 @@
 package app.server.httpServer.persistence.persistentActor.state
 
-import app.shared.dataModel.value.{EntityValue, EntityValueTypeAsString}
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.asString.EntityValueTypeAsString
 import app.shared.dataModel.value.refs.{EntityVersion, RefToEntity}
 import app.shared.utils.UUID_Utils.EntityIdentity
 
-case class UntypedRef(
+private[persistentActor] case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),
     entityVersion:           EntityVersion = EntityVersion()
 )
+{
+  def asSimpleString():String={
+      s"${this.entityIdentity.uuid} " +
+      s"${this.entityValueTypeAsString.type_as_string} " +
+      s"${entityVersion.versionNumberLong}"
+  }
+}
 
-object UntypedRef {
+private[persistentActor] object UntypedRef {
 
   def makeFromRefToEntity[T <: EntityValue[T]](
       refToEntity: RefToEntity[T]
@@ -21,5 +29,7 @@ object UntypedRef {
       entityVersion           = refToEntity.entityVersion
     )
   }
+
+
 
 }

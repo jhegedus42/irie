@@ -2,17 +2,10 @@ package app.server.httpServer.persistence.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{
-  GetAllStateCommand,
-  InsertNewEntityCommand
-}
+import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
 import app.server.httpServer.persistence.persistentActor.Responses.GetStateResult
 import app.server.httpServer.persistence.persistentActor.events.CreateEntityEvent
-import app.server.httpServer.persistence.persistentActor.state.{
-  ApplicationState,
-  ApplicationStateEntry,
-  UntypedRef
-}
+import app.server.httpServer.persistence.persistentActor.state.{ApplicationStateMap, ApplicationStateMapEntry, StatePrintingUtils, UntypedRef}
 import app.shared.dataModel.value.EntityValue
 
 import scala.language.postfixOps
@@ -31,9 +24,11 @@ private[persistentActor] class AppPersistentActor( id: String )
     extends PersistentActor with ActorLogging {
 
   private object ApplicationStateWrapper{
-    private var applicationState: ApplicationState = getInitState
+    private var applicationState: ApplicationStateMap = getInitState
     def getState = applicationState
-    def setState(s:ApplicationState) :Unit=  {
+    def setState(s:ApplicationStateMap) :Unit=  {
+      println("\n\nState was set to:\n")
+      StatePrintingUtils.printApplicationState(s)
       applicationState=s
     }
 
@@ -47,15 +42,15 @@ private[persistentActor] class AppPersistentActor( id: String )
     * @param ase
     * @return
     */
-  def unsafeInsertStateEntry( ase: ApplicationStateEntry ): ApplicationState = {
+  def unsafeInsertStateEntry( ase: ApplicationStateMapEntry ): ApplicationStateMap = {
     assert( !ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) ) // this can throw !!!
     val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
-    ApplicationState( newMap )
+    ApplicationStateMap( newMap )
   }
 
-  def getEntity[E <: EntityValue[E]: ClassTag](
+  def getEntity[V <: EntityValue[V]: ClassTag](
       r: UntypedRef
-  ): Option[ApplicationStateEntry] = {
+  ): Option[ApplicationStateMapEntry] = {
     ApplicationStateWrapper.getState.map.get( r )
   }
 
@@ -66,7 +61,7 @@ private[persistentActor] class AppPersistentActor( id: String )
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case command @ InsertNewEntityCommand( newEntry: ApplicationStateEntry ) => {
+    case command @ InsertNewEntityCommand( newEntry: ApplicationStateMapEntry ) => {
 
         val oldState=ApplicationStateWrapper.getState
 
@@ -82,7 +77,11 @@ private[persistentActor] class AppPersistentActor( id: String )
 
       val stateChange = StateChange( oldState, ApplicationStateWrapper.getState)
 
-      println("ReceiveCommand in case InsertNewEntityCommand, size of maps in StateChange:\n")
+      println(
+          "\n\n" +
+          "ReceiveCommand was called\n" +
+          "and matched the case 'InsertNewEntityCommand',\n" +
+          "size of maps in StateChange:\n")
       println(stateChange.getSizeOfMapsBeforeAndAfter)
       println()
 
@@ -114,9 +113,9 @@ private[persistentActor] class AppPersistentActor( id: String )
 
   private def applyEvent( event: events.Event ): Unit = event match {
     case CreateEntityEvent( insertNewEntity ) => {
-      println( insertNewEntity )
+      println( s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntity")
 
-      val newEntry = insertNewEntity.newEntry
+      val newEntry: ApplicationStateMapEntry = insertNewEntity.newEntry
 
       val newState = unsafeInsertStateEntry( newEntry )
 
@@ -137,7 +136,7 @@ private[persistentActor] class AppPersistentActor( id: String )
 
   }
 
-  protected def getInitState: ApplicationState = new ApplicationState()
+  protected def getInitState: ApplicationStateMap = new ApplicationStateMap()
   // match {
 
   ////    case UpdateEntity(refVal: (RefValDyn)) => {

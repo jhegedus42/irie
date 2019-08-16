@@ -1,10 +1,7 @@
 package app.shared.dataModel.value.refs
 
-import app.shared.dataModel.value.{
-  EntityAsJSON,
-  EntityValue,
-  EntityValueTypeAsString
-}
+import app.shared.dataModel.value.asString.{EntityAsJSON, EntityAsString, EntityValueAsToString, EntityValueTypeAsString}
+import app.shared.dataModel.value.EntityValue
 import io.circe._
 import monocle.macros.Lenses
 
@@ -17,10 +14,19 @@ case class Entity[E <: EntityValue[E]](
     entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag( false )
 ) {
 
-  def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
+  private def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
     val jsonAsString: String = e.apply( this ).spaces4
     EntityAsJSON( jsonAsString )
   }
+
+  private def valueAsToString():EntityValueAsToString ={
+    EntityValueAsToString(this.entityValue.toString)
+  }
+
+  def entityAsString()(implicit e: Encoder[Entity[E]]) :EntityAsString = {
+    EntityAsString(this.toJSON,this.valueAsToString())
+  }
+
 
 }
 

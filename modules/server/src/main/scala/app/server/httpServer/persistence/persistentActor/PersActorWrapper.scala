@@ -7,23 +7,25 @@ import app.server.httpServer.persistence.persistentActor.PersistentActorCommands
 }
 import app.server.httpServer.persistence.persistentActor.Responses.InsertNewEntityCommandResponse
 import app.server.httpServer.persistence.persistentActor.state.{
-  ApplicationState,
-  ApplicationStateEntry,
+  ApplicationStateMap,
+  ApplicationStateMapEntry,
   UntypedRef
 }
-import app.shared.dataModel.value.{EntityAsJSON, EntityValue}
+import app.shared.dataModel.value.EntityValue
+import app.shared.dataModel.value.asString.{EntityAsJSON, EntityAsString}
 import app.shared.dataModel.value.refs.Entity
 import io.circe.Encoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class StateChange(
-    before: ApplicationState,
-    after:  ApplicationState
+    before: ApplicationStateMap,
+    after:  ApplicationStateMap
 ) {
 
   def getSizeOfMapsBeforeAndAfter: String = {
-    val res = s"Size of maps (in StateChange):\nbefore: ${before.map.size}\nafter: ${after.map.size}"
+    val res =
+      s"Size of maps (in StateChange):\nbefore: ${before.map.size}\nafter: ${after.map.size}"
     res
   }
 
@@ -64,13 +66,14 @@ private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
     //  we are dealing with an entity which has not been inserted into the
     //  ApplicationStateMap
 
-    val newEntry: ApplicationStateEntry = {
+    val newEntry: ApplicationStateMapEntry = {
       val utr: UntypedRef =
         UntypedRef.makeFromRefToEntity[V]( entityToInsert.refToEntity )
 
-      val entityAsJSON: EntityAsJSON = entityToInsert.toJSON
+      val entityAsString: EntityAsString = entityToInsert.entityAsString()
 
-      val applicationStateEntry = ApplicationStateEntry( utr, entityAsJSON )
+      val applicationStateEntry =
+        ApplicationStateMapEntry( utr, entityAsString )
       applicationStateEntry
     }
 

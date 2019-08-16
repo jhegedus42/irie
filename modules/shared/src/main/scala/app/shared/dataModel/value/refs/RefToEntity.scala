@@ -1,8 +1,8 @@
 package app.shared.dataModel.value.refs
 
 import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.value.EntityValueTypeAsString
-import app.shared.utils.UUID_Utils.{EntityIdentity}
+import app.shared.dataModel.value.asString.EntityValueTypeAsString
+import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 
 import scala.reflect.ClassTag

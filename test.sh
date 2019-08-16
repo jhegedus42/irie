@@ -1,2 +1,4 @@
 export NODE_PATH=./node/node_modules:$NODE_PATH
-sbt test
+sbt 'clean'
+sbt 'compile'
+sbt 'server/testOnly app.server.httpServer.PersistenceModuleTest'

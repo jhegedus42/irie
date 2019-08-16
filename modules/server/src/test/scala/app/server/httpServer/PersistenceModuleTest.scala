@@ -3,62 +3,16 @@ package app.server.httpServer
 import akka.actor.ActorSystem
 import app.server.httpServer.persistence.PersistenceModule
 import app.server.httpServer.persistence.persistentActor.StateChange
-import app.server.httpServer.persistence.persistentActor.state.{
-  ApplicationState,
-  ApplicationStateEntry,
-  UntypedRef
-}
+import app.server.httpServer.persistence.persistentActor.state.{ApplicationStateMap, ApplicationStateMapEntry, StatePrintingUtils, UntypedRef}
 import app.server.utils.PrettyPrint
 import app.shared.dataModel.model.User
 import app.shared.dataModel.value.refs.Entity
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
-import io.circe.Decoder.state
 import org.scalatest.FunSuite
 
 import scala.concurrent.Future
 
-case class Test( string: String )
 
-object StatePrintingUtils {
-
-  def printApplicationState( state: ApplicationState ): Unit = {
-
-    val stateBeforeAsString = state.map.foldLeft( "" )( {
-      ( b: String, tuple: ( UntypedRef, ApplicationStateEntry ) ) =>
-        val newString = b +
-          s"""
-             |
-              | vvvvvvvvvvv
-             | Key:
-             | ${tuple._1}
-             |
-              | Entry:
-             | ${tuple._2}
-             |
-              | ^^^^^^^^^^^
-             |
-            """.stripMargin
-        newString
-    } )
-
-    println( s"Number of entries: ${state.map.size}\n\n" )
-    println( s"Hashcode of map: ${state.map.hashCode()}\n\n" )
-    println( stateBeforeAsString )
-  }
-
-  def printStateChange( stateChange: StateChange ): Unit = {
-
-    println( "\n\n-------------- STATE BEFORE: -------------------\n\n" )
-
-    printApplicationState( stateChange.before )
-
-    println( "\n\n-------------- STATE AFTER: -------------------\n\n" )
-
-    printApplicationState( stateChange.after )
-
-  }
-
-}
 
 class PersistenceModuleTest extends FunSuite {
 

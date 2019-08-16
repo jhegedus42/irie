@@ -1,5 +1,6 @@
-package app.shared.dataModel.value
+package app.shared.dataModel.value.asString
 
+import app.shared.dataModel.value.EntityValue
 
 import scala.reflect.ClassTag
 
