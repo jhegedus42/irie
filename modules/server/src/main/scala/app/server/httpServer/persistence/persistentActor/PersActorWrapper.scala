@@ -1,20 +1,28 @@
 package app.server.httpServer.persistence.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
+import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.{
+  GetAllStateCommand,
+  InsertNewEntityCommand
+}
 import app.server.httpServer.persistence.persistentActor.Responses.InsertNewEntityCommandResponse
-import app.server.httpServer.persistence.state.{ApplicationStateEntry, ApplicationStateMap, EntityAsJSON, UntypedRef}
-import app.shared.dataModel.value.EntityValue
+import app.server.httpServer.persistence.state.{
+  ApplicationStateEntry,
+  ApplicationStateMap,
+  UntypedRef
+}
+import app.shared.dataModel.value.{EntityAsJSON, EntityValue}
 import app.shared.dataModel.value.refs.Entity
+import io.circe.Encoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class StateChange(
-    before: ApplicationStateMap,
-    after:  Option[ApplicationStateMap]
-)
+                        before: ApplicationStateMap,
+                        after: Option[ApplicationStateMap]
+                      )
 
-private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
+private[persistence] case class PersActorWrapper(val actor: ActorRef) {
 
   import akka.pattern.ask
   import akka.util.Timeout
@@ -22,7 +30,7 @@ private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
   import scala.concurrent.duration._
 
   def getState: Future[Responses.GetStateResult] =
-    ask( actor, GetAllStateCommand )( Timeout.durationToTimeout( 1 seconds ) )
+    ask(actor, GetAllStateCommand)(Timeout.durationToTimeout(1 seconds))
       .mapTo[Responses.GetStateResult]
 
   //  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
@@ -34,14 +42,15 @@ private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
     *
     * @param entityToInsert Entity to insert. (This should not exist yet in the persistent actor).
     *                       It has to have version number 0.
-    * @tparam E value contained in the entity.
+    * @tparam V value contained in the entity.
     * @return the application state before and after the insertion :
     *         (in a StateChange object, first element is the state before,
     *         second one is the state after the insertion).
     */
-  def insertEntity[E <: EntityValue[E]]( entityToInsert: Entity[E] )(
-    implicit executionContextExecutor: ExecutionContextExecutor ):
-      Future[StateChange] = {
+  def insertEntity[V <: EntityValue[V]](entityToInsert: Entity[V])(
+    implicit executionContextExecutor: ExecutionContextExecutor,
+    encoder: Encoder[Entity[V]]
+  ): Future[StateChange] = {
 
     // todo-later
     //  we should check that the entity's version number is zero, i.e.
@@ -49,21 +58,22 @@ private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
     //  ApplicationStateMap
 
     val newEntry: ApplicationStateEntry = {
-       val utr:UntypedRef = ???
-       val entityAsJSON:EntityAsJSON= ???
+      val utr: UntypedRef =
+        UntypedRef.makeFromRefToEntity[V](entityToInsert.refToEntity)
 
-       // todo-now-4  ^^^ -- fill in ???-s
+      val entityAsJSON: EntityAsJSON = entityToInsert.toJSON
 
-       val applicationStateEntry=ApplicationStateEntry(utr, entityAsJSON)
-       applicationStateEntry
+
+      val applicationStateEntry = ApplicationStateEntry(utr, entityAsJSON)
+      applicationStateEntry
     }
 
     val res: Future[InsertNewEntityCommandResponse] =
-      ask( actor, InsertNewEntityCommand( newEntry ) )(
-        Timeout.durationToTimeout( 1 seconds )
+      ask(actor, InsertNewEntityCommand(newEntry))(
+        Timeout.durationToTimeout(1 seconds)
       ).mapTo[InsertNewEntityCommandResponse]
 
-    res.map( x => x.stateChange )
+    res.map(x => x.stateChange)
 
   }
 

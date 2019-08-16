@@ -51,7 +51,8 @@ private[httpServer] case class RoutesProvider(
     getGetEntityRoute[E]
   }
 
-  private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]: Route = {
+  private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]
+  ( implicit encoder: Encoder[Entity[V]] ) : Route = {
 
     val value: V = ??? // get this from request
 

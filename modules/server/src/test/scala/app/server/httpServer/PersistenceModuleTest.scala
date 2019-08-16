@@ -38,6 +38,7 @@ class PersistenceModuleTest extends FunSuite {
   test("init"){
 
     def init(): Unit ={
+      import io.circe.generic.auto._
 
       val alice= User("Alice",38)
       val bob= User("Bob",45)

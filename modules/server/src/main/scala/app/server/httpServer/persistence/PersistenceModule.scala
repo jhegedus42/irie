@@ -1,13 +1,10 @@
 package app.server.httpServer.persistence
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.persistence.persistentActor.{
-  AppPersistentActor,
-  PersActorWrapper,
-  StateChange
-}
+import app.server.httpServer.persistence.persistentActor.{AppPersistentActor, PersActorWrapper, StateChange}
 import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.value.refs.{Entity, RefToEntity}
+import io.circe.Encoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -27,7 +24,8 @@ private[httpServer] case class PersistenceModule( actorSystem: ActorSystem ) {
 
   def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag](
       value: V
-  ): Future[( StateChange, Entity[V] )] = {
+  )( implicit encoder: Encoder[Entity[V]])
+  : Future[( StateChange, Entity[V] )] = {
 
     val entity: Entity[V] = Entity.makeFromValue( value )
 
