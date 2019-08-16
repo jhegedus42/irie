@@ -40,7 +40,7 @@ private[persistentActor] class AppPersistentActor(id: String )
         newEntry
       )
 
-      state=newApplicationStateMap
+      if(!newApplicationStateMap.isEmpty) state=newApplicationStateMap.get
 
       val event: Events.CreateEntityEvent = ???
         // todo-now-5 fix this

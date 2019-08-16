@@ -14,7 +14,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class StateChange(
     before: ApplicationStateMap,
-    after:  ApplicationStateMap
+    after:  Option[ApplicationStateMap]
 )
 
 private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
