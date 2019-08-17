@@ -10,6 +10,7 @@ import app.shared.dataModel.views.SumIntView
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.persistence.persistentActor.StateChange
+import app.server.httpServer.persistence.persistentActor.state.UntypedRef
 import app.shared.dataModel.value.refs.Entity
 
 import scala.concurrent.Future
@@ -86,10 +87,13 @@ private[httpServer] case class RoutesProvider(
         get {
           parameters( 'uuid ) { uuid: String =>
             {
+
+              val untypedRef : UntypedRef = ???
+
               import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
               import io.circe.generic.auto._
               complete(
-                persistenceModule.getEntity[V]( uuid )
+                persistenceModule.getEntity[V]( untypedRef )
               )
             }
           }
