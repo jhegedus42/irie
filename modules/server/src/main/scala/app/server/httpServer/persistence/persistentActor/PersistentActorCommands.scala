@@ -16,7 +16,8 @@ object PersistentActorCommands {
   case object ShutdownActor
 }
 
-private[persistentActor] object Responses {
+private[persistence] object Responses {
   case class GetStateResult( state: ApplicationStateMap )
-  case class InsertNewEntityCommandResponse(stateChange : StateChange)
+  case class InsertNewEntityCommandResponse(stateChange :
+                                            StateChange)
 }

@@ -31,7 +31,7 @@ case class StateChange(
 
 }
 
-private[persistence] case class PersActorWrapper( val actor: ActorRef ) {
+private[persistence] case class PersistentActorWrapper(val actor: ActorRef ) {
 
   import akka.pattern.ask
   import akka.util.Timeout

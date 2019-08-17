@@ -5,7 +5,7 @@ import app.shared.dataModel.value.asString.EntityValueTypeAsString
 import app.shared.dataModel.value.refs.{EntityVersion, RefToEntity}
 import app.shared.utils.UUID_Utils.EntityIdentity
 
-private[persistentActor] case class UntypedRef(
+private[persistence] case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),
     entityVersion:           EntityVersion = EntityVersion()
@@ -18,7 +18,7 @@ private[persistentActor] case class UntypedRef(
   }
 }
 
-private[persistentActor] object UntypedRef {
+private[persistence] object UntypedRef {
 
   def makeFromRefToEntity[T <: EntityValue[T]](
       refToEntity: RefToEntity[T]

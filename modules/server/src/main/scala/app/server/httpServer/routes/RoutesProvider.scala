@@ -44,11 +44,10 @@ private[httpServer] case class RoutesProvider(
   private def crudEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]
     : Route = {
     //    new UpdateEntityRoute[E]().route ~
-
     // todo-next - 0 - crudEntityRoute
     //  add getCreateEntityRoute's "result"
 
-    getGetEntityRoute[E] //todo-now => make this "work"
+    getGetEntityRoute[E] //todo-now 0 => make this "work"
   }
 
   private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]
