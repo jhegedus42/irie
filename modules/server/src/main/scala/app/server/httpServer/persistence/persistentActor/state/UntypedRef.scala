@@ -4,6 +4,7 @@ import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.value.asString.EntityValueTypeAsString
 import app.shared.dataModel.value.refs.{EntityVersion, RefToEntity}
 import app.shared.utils.UUID_Utils.EntityIdentity
+import io.circe.generic.auto._
 
 private[httpServer] case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,

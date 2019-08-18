@@ -25,7 +25,6 @@ object ViewCirceEncodingDecoding {
       implicit
       e: Decoder[V#Par]
     ): Either[Error, V#Par] = {
-//    println("decodeJSONToPar is called, with parameter:"+res)
     val r: Either[Error, V#Par] = decode( res.string )
     r
   }

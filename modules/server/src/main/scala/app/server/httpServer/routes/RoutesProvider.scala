@@ -11,10 +11,11 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.persistence.persistentActor.StateChange
 import app.server.httpServer.persistence.persistentActor.state.UntypedRef
-import app.shared.dataModel.value.refs.Entity
+import app.shared.dataModel.value.refs.{Entity, RefToEntity}
 
 import scala.concurrent.Future
 import scala.reflect.ClassTag
+import io.circe.generic.auto._
 
 private[httpServer] case class RoutesProvider(
     persistenceModule: PersistenceModule
@@ -23,8 +24,6 @@ private[httpServer] case class RoutesProvider(
 
   import io.circe._
   import io.circe.generic.auto._
-
-  private def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
 
   private def allRoutes: Route = {
 
@@ -42,17 +41,52 @@ private[httpServer] case class RoutesProvider(
     result
   }
 
-  private def crudEntityRoute[E <: EntityValue[E]: ClassTag: Decoder: Encoder]
-    : Route = {
+  private def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
+
+  private def crudEntityRoute[V <: EntityValue[V]: ClassTag](
+      implicit unTypedRefDecoder: Decoder[RefToEntity[V]],
+      encoder:                    Encoder[Entity[V]],
+      decoder:                    Decoder[Entity[V]]
+  ): Route = {
     //    new UpdateEntityRoute[E]().route ~
     // todo-next - 0 - crudEntityRoute
     //  add getCreateEntityRoute's "result"
 
-    getGetEntityRoute[E] //todo-now 0 => make this "work"
+    getGetEntityRoute[V] //todo-now 0 => make this "work"
   }
 
-  private def getCreateEntityRoute[V <: EntityValue[V]:ClassTag]
-  ( implicit encoder: Encoder[Entity[V]] ) : Route = {
+  private def getGetEntityRoute[V <: EntityValue[V]: ClassTag](
+      implicit unTypedRefDecoder: Decoder[RefToEntity[V]],
+      encoder:                    Encoder[Entity[V]],
+      decoder:                    Decoder[Entity[V]]
+  ): Route = {
+    import akka.http.scaladsl.server.Directives._
+    val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
+
+    println( pathStr )
+    import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+    import io.circe.generic.auto._
+
+    val route: Route =
+      get {
+        path( pathStr ) {
+          //          parameters( 'json ) { uuid: String =>
+          entity( as[RefToEntity[V]] ) { refToEntity: RefToEntity[V] =>
+            val untypedRef: UntypedRef =
+              UntypedRef.makeFromRefToEntity( refToEntity )
+
+            complete(
+              persistenceModule.getEntity[V]( untypedRef )
+            )
+          }
+        }
+      }
+    route
+  }
+
+  private def getCreateEntityRoute[V <: EntityValue[V]: ClassTag](
+      implicit encoder: Encoder[Entity[V]]
+  ): Route = {
 
     val value: V = ??? // get this from request
 
@@ -71,36 +105,9 @@ private[httpServer] case class RoutesProvider(
     //   directive as it is done in the `getGetEntityRoute` function
     //   below
 
-
-
     ???
   }
 
-  private def getGetEntityRoute[V <: EntityValue[V]: ClassTag: Decoder: Encoder]
-    : Route = {
-    import akka.http.scaladsl.server.Directives._
-    val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
-    println( pathStr )
-
-    val route =
-      path( pathStr ) {
-        get {
-          parameters( 'uuid ) { uuid: String =>
-            {
-
-              val untypedRef : UntypedRef = ???
-
-              import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-              import io.circe.generic.auto._
-              complete(
-                persistenceModule.getEntity[V]( untypedRef )
-              )
-            }
-          }
-        }
-      }
-
-    route
-  }
+  route
 
 }

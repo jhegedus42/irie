@@ -1,4 +1,5 @@
 package app.shared.dataModel.value
+import io.circe.generic.auto._
 
 /**
   *

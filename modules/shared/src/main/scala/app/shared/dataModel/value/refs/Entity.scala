@@ -16,7 +16,8 @@ case class Entity[E <: EntityValue[E]](
 
   private def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
     val jsonAsString: String = e.apply( this ).spaces4
-    EntityAsJSON( jsonAsString )
+    val res: Json = e.apply(this)
+    EntityAsJSON( res )
   }
 
   private def valueAsToString():EntityValueAsToString ={

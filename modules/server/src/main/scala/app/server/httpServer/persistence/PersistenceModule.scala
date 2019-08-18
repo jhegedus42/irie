@@ -14,7 +14,7 @@ import app.server.httpServer.persistence.persistentActor.{
 import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.value.asString.EntityAsJSON
 import app.shared.dataModel.value.refs.{Entity, RefToEntity}
-import io.circe.Encoder
+import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -31,14 +31,14 @@ private[httpServer] case class PersistenceModule( actorSystem: ActorSystem ) {
   }
 
   def getEntity[V <: EntityValue[V]](
-//                                      ref: RefToEntity[V]
+      //                                      ref: RefToEntity[V]
       untypedRef: UntypedRef
-  ): Future[Entity[V]] = {
+  )( implicit d:  Decoder[Entity[V]] ): Future[Entity[V]] = {
 
     val eventualGetStateResult: Future[Responses.GetStateResult] =
       persistentActorWrapper.getState
 
-//    val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity(ref)
+    //    val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity(ref)
 
     val r1: Future[Option[ApplicationStateMapEntry]] =
       eventualGetStateResult.map( r => r.state.map.get( untypedRef ) )
