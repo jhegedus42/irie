@@ -1,6 +1,11 @@
 package app.shared.dataModel.value.refs
 
-import app.shared.dataModel.value.asString.{EntityAsJSON, EntityAsString, EntityValueAsToString, EntityValueTypeAsString}
+import app.shared.dataModel.value.asString.{
+  EntityAsJSON,
+  EntityAsString,
+  EntityValueAsToString,
+  EntityValueTypeAsString
+}
 import app.shared.dataModel.value.EntityValue
 import io.circe._
 import monocle.macros.Lenses
@@ -16,18 +21,17 @@ case class Entity[E <: EntityValue[E]](
 
   private def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
     val jsonAsString: String = e.apply( this ).spaces4
-    val res: Json = e.apply(this)
+    val res:          Json   = e.apply( this )
     EntityAsJSON( res )
   }
 
-  private def valueAsToString():EntityValueAsToString ={
-    EntityValueAsToString(this.entityValue.toString)
+  private def valueAsToString(): EntityValueAsToString = {
+    EntityValueAsToString( this.entityValue.toString )
   }
 
-  def entityAsString()(implicit e: Encoder[Entity[E]]) :EntityAsString = {
-    EntityAsString(this.toJSON,this.valueAsToString())
+  def entityAsString()( implicit e: Encoder[Entity[E]] ): EntityAsString = {
+    EntityAsString( this.toJSON, this.valueAsToString() )
   }
-
 
 }
 

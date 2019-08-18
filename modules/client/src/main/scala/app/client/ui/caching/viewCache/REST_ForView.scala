@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.shared.comm.views.{PostRequest, ViewHttpRouteName }
+import app.shared.comm.views.{PostRequest, PostRequestHttpRouteName }
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
@@ -25,8 +25,8 @@ private[caching] object REST_ForView {
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-    val routeName: ViewHttpRouteName =
-      ViewHttpRouteName.getViewHttpRouteName[V]
+    val routeName: PostRequestHttpRouteName =
+      PostRequestHttpRouteName.getPostRequestHttpRouteName[V]
 
     val url: String = routeName.name
 

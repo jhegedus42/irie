@@ -28,8 +28,8 @@ private[httpServer] case class RoutesProvider(
   private def allRoutes: Route = {
 
     val routeForSumIntView =
-      ViewRoute
-        .getRouteForView[SumIntPostRequest]()
+      PostRequestRoute
+        .getRouteForPostRequest[SumIntPostRequest]()
 
     val result: Route =
       routeForSumIntView ~

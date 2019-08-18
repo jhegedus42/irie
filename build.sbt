@@ -1,7 +1,9 @@
 import sbt.Def
+
 name := "root"
 
 import sbt.Keys._
+
 ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
@@ -16,29 +18,27 @@ lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
   )
 }
 
-addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
-
+addCompilerPlugin(
+  "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
+)
 
 lazy val shared =
-  (crossProject.crossType( CrossType.Pure ) in file(
+  (crossProject.crossType(CrossType.Pure) in file(
     "modules/shared"
   )).settings(
-    name:="shared",
+    name := "shared",
     scalaVersion := Settings.versions.scala,
     libraryDependencies ++= Settings.sharedDependencies.value,
     libraryDependencies ++= paradisePlugin.value
   )
 
-
-
 lazy val shared_jvm =
-  shared.jvm.settings( name := "shared_jvm" )
+  shared.jvm.settings(name := "shared_jvm")
 
 lazy val shared_js =
-  shared.js.settings( name := "shared_js" )
+  shared.js.settings(name := "shared_js")
 
-
-lazy val client: Project = (project in file( "modules/client" ))
+lazy val client: Project = (project in file("modules/client"))
   .settings(
     name := "client",
     version := Settings.version,
@@ -46,15 +46,18 @@ lazy val client: Project = (project in file( "modules/client" ))
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible
-    scalaJSOptimizerOptions ~= { _.withDisableOptimizer( true ) },
-    scalaJSLinkerConfig ~= { _.withOptimizer( false ) }
+    scalaJSOptimizerOptions ~= {
+      _.withDisableOptimizer(true)
+    },
+    scalaJSLinkerConfig ~= {
+      _.withOptimizer(false)
+    }
   ) // see this page for details : https://www.scala-js.org/doc/project/building.html#disabling-the-optimizations
-  .enablePlugins( ScalaJSPlugin )
-  .dependsOn( shared_js  )
-
+  .enablePlugins(ScalaJSPlugin)
+  .dependsOn(shared_js % "compile->compile;test->test")
 
 lazy val server =
-  (project in file( "modules/server" ))
+  (project in file("modules/server"))
     .settings(
       name := "server",
       version := Settings.version,
@@ -62,9 +65,8 @@ lazy val server =
       libraryDependencies ++= paradisePlugin.value,
       scalacOptions ++= Settings.scalacOptions,
       libraryDependencies ++= Settings.jvmDependencies.value,
-
     )
-    .dependsOn( shared_jvm  )
+    .dependsOn(shared_jvm % "compile->compile;test->test")
 
 logBuffered in Test := false
 

@@ -1,5 +1,8 @@
 package app.client
 
+import app.shared.dataModel.value.asString.EntityAsString
+import io.circe.Json
+import io.circe.generic.auto._
 import org.scalatest.FunSuite
 
 class MainTest extends FunSuite {
@@ -9,8 +12,8 @@ class MainTest extends FunSuite {
   // for now, I am using node+jsdom environment because that integrates
   // well with sbt's testing system/commands/framework
 
-  test("simple synchronous (blocking) - 'integration test' stub"){
-    println("hello test world")
+  test( "simple synchronous (blocking) - 'integration test' stub" ) {
+    println( "hello test world" )
     // todo-next create integration test for insert + get entity
     //  - insert a user
     //  - get the user
@@ -21,24 +24,26 @@ class MainTest extends FunSuite {
     //       hundred :) 'commits' ago :)
   }
 
-  test("url encoding / decoding"){
+  test( "url_encoding_decoding" ) {
 
-    import java.net.{URLDecoder, URLEncoder}
-    import scala.compat.Platform.currentTime
+    import scala.scalajs.js._
 
-    object UrlCoded extends App {
-      val original = """http://foo bar/"""
-      val encoded: String = URLEncoder.encode(original, "UTF-8")
+    import app.shared.dataModel.testUsers.TestUsers._
 
-      assert(encoded == "http%3A%2F%2Ffoo+bar%2F", s"Original: $original not properly encoded: $encoded")
+    val alice_as_json: String =
+      aliceEntity.entityAsString().entityAsJSON.json.spaces2
 
-      val percentEncoding = encoded.replace("+", "%20")
-      assert(percentEncoding == "http%3A%2F%2Ffoo%20bar%2F", s"Original: $original not properly percent-encoded: $percentEncoding")
+    val encoded: String = URIUtils.encodeURIComponent( alice_as_json )
 
-      assert(URLDecoder.decode(encoded, "UTF-8") == URLDecoder.decode(percentEncoding, "UTF-8"))
+    val decoded: String = URIUtils.decodeURIComponent( encoded )
 
-      println(s"Successfully completed without errors. [total ${currentTime - executionStart} ms]")
-    }
+    println(alice_as_json)
+    println(encoded)
+    println(decoded)
+
+    assert( decoded === alice_as_json)
+
+    println( s"Successfully completed without errors." )
 
   }
 

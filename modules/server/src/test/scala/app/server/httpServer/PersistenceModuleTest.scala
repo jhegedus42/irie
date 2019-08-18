@@ -47,11 +47,7 @@ class PersistenceModuleTest extends FunSuite {
     def init(): Unit = {
       import io.circe.generic.auto._
 
-      val alice      = User( "Alice", 38 )
-      val bob        = User( "Bob", 45 )
-      val kutya      = User( "Kutya", 42 )
-      val cica       = User( "Cica", 137 )
-      val meresiHiba = User( "MeresiHiba", 369 )
+      import app.shared.dataModel.testUsers.TestUsers._
 
       println( "--------------\n\nHere STARTS the init:\n\n" )
 
