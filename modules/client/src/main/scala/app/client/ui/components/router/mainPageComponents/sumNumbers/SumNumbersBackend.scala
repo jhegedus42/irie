@@ -3,8 +3,8 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 import app.client.ui.caching.viewCache.ViewCacheStates
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
-import app.shared.dataModel.views.SumIntView
-import app.shared.dataModel.views.SumIntView.SumIntView_Par
+import app.shared.dataModel.views.SumIntPostRequest
+import app.shared.dataModel.views.SumIntPostRequest.SumIntView_Par
 import bootstrap4.TB.C
 import io.circe.generic.auto._
 import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
@@ -61,9 +61,9 @@ class SumNumbersBackend[Props](
   private def calculateSumOnServer(
       props:  CacheInterfaceWrapper[Props],
       params: SumIntView_Par
-  ): ViewCacheStates.ViewCacheState[SumIntView] = {
+  ): ViewCacheStates.ViewCacheState[SumIntPostRequest] = {
 
-    props.cacheInterface.readView[SumIntView]( params )
+    props.cacheInterface.readView[SumIntPostRequest]( params )
   }
 
   object StateChangers {

@@ -36,3 +36,49 @@ Intermittently, I am running the server on my laptop, <br>
 ---
 # Some videos - from the past :
   2019 Aug 12 - https://www.youtube.com/watch?v=oZXtshCqNeM
+
+
+---
+# Setting the node path, for testing the client in `sbt`:
+```
+. ./set_node_env_variable_for_testing.sh
+env | grep NODE
+
+```
+the `.` in front of `./set_node_env_variable_for_testing.sh` makes sure
+that the exported environment variables "survive" the end of the 
+execution of the `.sh` file.
+
+The 
+```
+env | grep NODE
+```
+will check that the environment variable has been set correctly.
+
+Once this done, you can test the `client side` by:
+```
+sbt
+project client
+test
+```
+
+Which should give you something like (in the `sbt` REPL):
+
+```
+sbt:root> project client
+[info] Set current project to client (in build file:/Users/joco/dev/im/irie/)
+sbt:client> test
+I have just hacked the matrix
+hello test world
+[info] MainTest:
+[info] - simple synchronous (blocking) - 'integration test' stub
+[info] - url encoding / decoding
+[info] Run completed in 298 milliseconds.
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 8 s, completed Aug 19, 2019 2:02:07 AM
+sbt:client>
+
+```

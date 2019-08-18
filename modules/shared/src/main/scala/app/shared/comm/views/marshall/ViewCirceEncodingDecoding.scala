@@ -1,6 +1,6 @@
 package app.shared.comm.views.marshall
 
-import app.shared.comm.views.View
+import app.shared.comm.views.PostRequest
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 
@@ -9,7 +9,7 @@ import io.circe.{Decoder, Error, _}
 object ViewCirceEncodingDecoding {
 
 
-  def decodeJSONContainingOptResToOptRes[V <: View](
+  def decodeJSONContainingOptResToOptRes[V <: PostRequest](
       res: JSONContainingOptRes
     )(
       implicit
@@ -19,7 +19,7 @@ object ViewCirceEncodingDecoding {
     r
   }
 
-  def decodeJSONToPar[V <: View](
+  def decodeJSONToPar[V <: PostRequest](
       res: JSONContainingGetViewPar
     )(
       implicit
@@ -29,7 +29,7 @@ object ViewCirceEncodingDecoding {
     r
   }
 
-  def encodeOptResToJSONContainingOptRes[V <: View](
+  def encodeOptResToJSONContainingOptRes[V <: PostRequest](
       r: Option[V#Res]
     )(
       implicit
@@ -38,7 +38,7 @@ object ViewCirceEncodingDecoding {
     JSONContainingOptRes( e.apply( r ).spaces4 )
   }
 
-  def encodeParToJSON[V <: View](r: V#Par )(implicit e: Encoder[V#Par] ): JSONContainingGetViewPar = {
+  def encodeParToJSON[V <: PostRequest](r: V#Par )(implicit e: Encoder[V#Par] ): JSONContainingGetViewPar = {
     JSONContainingGetViewPar( e.apply( r ).spaces4 )
   }
 

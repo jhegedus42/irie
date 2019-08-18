@@ -1,6 +1,6 @@
 package app.client.ui.caching.viewCache
 
-import app.shared.comm.views.{View, ViewHttpRouteName }
+import app.shared.comm.views.{PostRequest, ViewHttpRouteName }
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
@@ -9,13 +9,13 @@ import scala.reflect.ClassTag
 
 private[caching] object REST_ForView {
 
-  case class View_AJAX_Request_Params[V <: View](par: V#Par )
+  case class View_AJAX_Request_Params[V <: PostRequest](par: V#Par )
 
-  case class View_AJAX_Result_JSON_Decoded_Successfully[V <: View](
+  case class View_AJAX_Result_JSON_Decoded_Successfully[V <: PostRequest](
       par: V#Par,
       res: V#Res)
 
-  private[viewCache] def getViewFromServer[V <: View](
+  private[viewCache] def getViewFromServer[V <: PostRequest](
       requestParams: View_AJAX_Request_Params[V]
     )(implicit ct:   ClassTag[V],
       encoder:       Encoder[V#Par],

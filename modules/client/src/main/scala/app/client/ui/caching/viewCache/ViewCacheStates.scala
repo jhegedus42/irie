@@ -1,9 +1,9 @@
 package app.client.ui.caching.viewCache
 
-import app.shared.comm.views.View
+import app.shared.comm.views.PostRequest
 
 object ViewCacheStates {
-  sealed trait ViewCacheState[V <: View] {
+  sealed trait ViewCacheState[V <: PostRequest] {
     def isLoading: Boolean =
       this match {
         case ViewLoading( _ )   => true
@@ -16,12 +16,12 @@ object ViewCacheStates {
         case ViewLoaded( _, res ) => Some(res)
       }
   }
-  case class ViewLoading[V <: View](viewParam: V#Par ) extends ViewCacheState[V]
+  case class ViewLoading[V <: PostRequest](viewParam: V#Par ) extends ViewCacheState[V]
 
-  case class ViewLoaded[V <: View](viewParam:  V#Par, viewResult: V#Res )
+  case class ViewLoaded[V <: PostRequest](viewParam:  V#Par, viewResult: V#Res )
       extends ViewCacheState[V]
 
-  case class ViewStale[V <: View](viewParam:  V#Par, viewResult: V#Res )
+  case class ViewStale[V <: PostRequest](viewParam:  V#Par, viewResult: V#Res )
     extends ViewCacheState[V]
 
 }

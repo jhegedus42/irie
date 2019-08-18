@@ -2,7 +2,7 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.httpServer.routes.logic.ServerSideLogic.ServerLogicTypeClass
-import app.shared.comm.views.View
+import app.shared.comm.views.PostRequest
 //import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider
 import app.shared.comm.views.ViewHttpRouteName
 import io.circe.{Decoder, Encoder}
@@ -18,7 +18,7 @@ import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 //import io.circe.generic.auto._ // this cannot be removed, or can it ? maybeTODO-later
 
 object ViewRoute {
-  def getRouteForView[V <: View](
+  def getRouteForView[V <: PostRequest](
     )(
       implicit
       classTag:    ClassTag[V],

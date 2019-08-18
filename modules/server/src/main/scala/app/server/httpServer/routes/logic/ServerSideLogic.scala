@@ -2,17 +2,17 @@ package app.server.httpServer.routes.logic
 
 import java.util.Calendar
 
-import app.shared.comm.views.View
-import app.shared.dataModel.views.SumIntView
-import app.shared.dataModel.views.SumIntView.{SumIntView_Par, SumIntView_Res}
+import app.shared.comm.views.PostRequest
+import app.shared.dataModel.views.SumIntPostRequest
+import app.shared.dataModel.views.SumIntPostRequest.{SumIntView_Par, SumIntView_Res}
 
 private[routes] object ServerSideLogic {
 
-  trait ServerLogicTypeClass[V <: View] {
+  trait ServerLogicTypeClass[V <: PostRequest] {
     def getView(param: V#Par ): Option[V#Res]
   }
 
-  implicit object ServerLogicTypeClassImpl_SumIntView extends ServerLogicTypeClass[SumIntView] {
+  implicit object ServerLogicTypeClassImpl_SumIntView extends ServerLogicTypeClass[SumIntPostRequest] {
     override def getView(param:SumIntView_Par ): Option[SumIntView_Res] = {
 
       def time=Calendar.getInstance.getTime
@@ -20,5 +20,8 @@ private[routes] object ServerSideLogic {
       Some(SumIntView_Res(param.x+param.y))
     }
   }
+
+
+
 
 }

@@ -6,7 +6,7 @@ import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
 import app.shared.comm.GetEntityURLs
 import app.shared.dataModel.model.{Note, NoteFolder, User}
 import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.views.SumIntView
+import app.shared.dataModel.views.SumIntPostRequest
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.persistence.persistentActor.StateChange
@@ -29,7 +29,7 @@ private[httpServer] case class RoutesProvider(
 
     val routeForSumIntView =
       ViewRoute
-        .getRouteForView[SumIntView]()
+        .getRouteForView[SumIntPostRequest]()
 
     val result: Route =
       routeForSumIntView ~
@@ -108,6 +108,7 @@ private[httpServer] case class RoutesProvider(
     ???
   }
 
-  route
+
+
 
 }
