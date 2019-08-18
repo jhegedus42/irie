@@ -5,17 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/PersistenceModule.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/persistence/persistentActor/state/UntypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/marshall/ViewCirceEncodingDecoding.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/marshall/ViewCirceEncodingDecoding.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/EntityValue.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/asString/EntityAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/asString/EntityAsJSON.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/Entity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/RefToEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/dataModel/value/refs/RefToEntity.scala" afterDir="false" />
-    </list>
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -69,7 +59,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
+                <state relative-caret-position="667">
                   <caret line="95" column="22" lean-forward="true" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="22" />
                   <folding>
                     <element signature="e#38#76#0" expanded="true" />
@@ -437,13 +427,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00146" summary="Wrote a &quot;todo-now&quot; list.">
-      <created>1565544031812</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1565544031812</updated>
-    </task>
     <task id="LOCAL-00147" summary="Wrote a &quot;todo-now&quot; list.">
       <created>1565544076096</created>
       <option name="number" value="00147" />
@@ -780,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566080820836</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress...&#10;   &#10;=&gt; Sunday, 18 August 2019 1.24.07 :&#10;   app.server.httpServer.persistence.PersistenceModule#getEntity is&#10;   &quot;ready&quot;, however there are two related ???-s that need to be filled&#10;   in. Hopefully in the coming few commits they will be worked &#10;   out as well.&#10;   &#10;=&gt; Sunday, 18 August 2019 3.43.29 :&#10;&#10;   The question-marks have been filled in, the getEntityRoute is &#10;   &quot;ready&quot;, i.e. it compiles. Now the create entity route should&#10;   be created too, after that an integration test started from &#10;   the client side (running inside node.js using jsdom &quot;emulator&quot;),&#10;   started in sbt by typing &quot;test&quot;.">
+      <created>1566089126668</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1566089126668</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -902,7 +892,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51" />
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory." />
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities." />
     <MESSAGE value="Current todo : create 3 users: Alice, Bob, Kutya, Cica, MeresiHiba.&#10;&#10;In progress, starting to create more detailed TODO-s, how to change&#10;PersistenceModule and implement the &quot;foundation for the user admin &#10;page&quot; - (and the current todo). - Wednesday, 14 August 2019 1.46.31&#10;&#10;Creating some dummy users - Wednesday, 14 August 2019 1.51.15.&#10;&#10;Figuring out how to store - entities in the Application State Map (&#10;which lives inside the persistent actor). &#10; - Wednesday, 14 August 2019 2.29.51&#10; &#10;Adding scalatest. It works now for &quot;node&quot; as well, see the `.test.sh`&#10;in the root directory.&#10;&#10;Enhancing `app.shared.dataModel.entity.refs.TypedRefVal` with&#10;a few helper methods, now it is easier to create these Ref-s&#10;from plain Entities.&#10;&#10;`TypedRefValTest` seems to &quot;pass&quot;, that is, print nice output. - &#10;Wednesday, 14 August 2019 6.59.55" />
@@ -927,7 +916,8 @@
     <MESSAGE value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works." />
     <MESSAGE value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress..." />
     <MESSAGE value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress...&#10;   &#10;=&gt; Sunday, 18 August 2019 1.24.07 :&#10;   app.server.httpServer.persistence.PersistenceModule#getEntity is&#10;   &quot;ready&quot;, however there are two related ???-s that need to be filled&#10;   in. Hopefully in the coming few commits they will be worked &#10;   out as well." />
-    <option name="LAST_COMMIT_MESSAGE" value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress...&#10;   &#10;=&gt; Sunday, 18 August 2019 1.24.07 :&#10;   app.server.httpServer.persistence.PersistenceModule#getEntity is&#10;   &quot;ready&quot;, however there are two related ???-s that need to be filled&#10;   in. Hopefully in the coming few commits they will be worked &#10;   out as well." />
+    <MESSAGE value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress...&#10;   &#10;=&gt; Sunday, 18 August 2019 1.24.07 :&#10;   app.server.httpServer.persistence.PersistenceModule#getEntity is&#10;   &quot;ready&quot;, however there are two related ???-s that need to be filled&#10;   in. Hopefully in the coming few commits they will be worked &#10;   out as well.&#10;   &#10;=&gt; Sunday, 18 August 2019 3.43.29 :&#10;&#10;   The question-marks have been filled in, the getEntityRoute is &#10;   &quot;ready&quot;, i.e. it compiles. Now the create entity route should&#10;   be created too, after that an integration test started from &#10;   the client side (running inside node.js using jsdom &quot;emulator&quot;),&#10;   started in sbt by typing &quot;test&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Friday, 16 August 2019 21.50.18:&#10;&#10;InsertNewEntityCommand in PersistenceModule&#10;&#10;Does not seem to store the change &quot;right away&quot;.&#10;&#10;Maybe I need to issue a GetState Command, and see if that has&#10;worked.&#10;&#10;=&gt; Saturday, 17 August 2019 1.55.12:&#10;   Insert and store new entity seems to work.&#10;   &#10;   Next step: getEntity + routes for both insert + get.&#10;   &#10;=&gt; Saturday, 17 August 2019 2.13.16:&#10;   Client side synchronous testing works.&#10;   &#10;=&gt; Sunday, 18 August 2019 1.10.33 :&#10;   getEntity implementation is in progress...&#10;   &#10;=&gt; Sunday, 18 August 2019 1.24.07 :&#10;   app.server.httpServer.persistence.PersistenceModule#getEntity is&#10;   &quot;ready&quot;, however there are two related ???-s that need to be filled&#10;   in. Hopefully in the coming few commits they will be worked &#10;   out as well.&#10;   &#10;=&gt; Sunday, 18 August 2019 3.43.29 :&#10;&#10;   The question-marks have been filled in, the getEntityRoute is &#10;   &quot;ready&quot;, i.e. it compiles. Now the create entity route should&#10;   be created too, after that an integration test started from &#10;   the client side (running inside node.js using jsdom &quot;emulator&quot;),&#10;   started in sbt by typing &quot;test&quot;." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/views/marshall/JSONContainingGetViewPar.scala">
@@ -1305,7 +1295,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RoutesProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
+        <state relative-caret-position="667">
           <caret line="95" column="22" lean-forward="true" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="22" />
           <folding>
             <element signature="e#38#76#0" expanded="true" />
