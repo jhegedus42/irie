@@ -14,6 +14,7 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 
 ```
 > git clone https://github.com/jhegedus42/irie
+> git checkout 2719f8ecc3faf224653f6595b3236eac04b20d6d
 > cd irie
 > ./utils/build_js_dep_bundle.sh
 > ./run.sh
