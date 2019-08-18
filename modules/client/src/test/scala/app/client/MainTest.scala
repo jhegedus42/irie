@@ -31,7 +31,7 @@ class MainTest extends FunSuite {
     import app.shared.dataModel.testUsers.TestUsers._
 
     val alice_as_json: String =
-      aliceEntity.entityAsString().entityAsJSON.json.spaces2
+      aliceEntity.entityAsString().entityAsJSON.json.noSpaces
 
     val encoded: String = URIUtils.encodeURIComponent( alice_as_json )
 
