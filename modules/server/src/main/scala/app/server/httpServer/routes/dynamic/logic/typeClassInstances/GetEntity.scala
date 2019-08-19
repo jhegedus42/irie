@@ -1,9 +1,9 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances
 
 import app.server.httpServer.routes.dynamic.logic.ServerSideLogic.ServerLogicTypeClass
-import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.views.GetEntityRequest
-import app.shared.dataModel.views.GetEntityRequest.{GetEntityRequestParameter, GetEntityRequestResult}
+import app.shared.comm.requests.GetEntityRequest
+import app.shared.comm.requests.GetEntityRequest.{GetEntityRequestParameter, GetEntityRequestResult}
+import app.shared.entity.entityValue.EntityValue
 
 private[logic] object GetEntity {
 

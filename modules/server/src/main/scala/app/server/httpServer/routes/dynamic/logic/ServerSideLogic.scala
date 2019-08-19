@@ -2,14 +2,11 @@ package app.server.httpServer.routes.dynamic.logic
 
 import java.util.Calendar
 
-import app.shared.comm.requests.Request
-import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.views.GetEntityRequest.{GetEntityRequestParameter, GetEntityRequestResult}
-import app.shared.dataModel.views.{GetEntityRequest, SumIntPostRequest}
-import app.shared.dataModel.views.SumIntPostRequest.{SumIntView_Par, SumIntView_Res}
-import scalaz.Alpha.V
+import app.shared.comm.Request
+import app.shared.comm.requests.SumIntPostRequest
+import app.shared.comm.requests.SumIntPostRequest.{SumIntView_Par, SumIntView_Res}
 
-private[routes] object ServerSideLogic {
+private[dynamic] object ServerSideLogic {
 
   trait ServerLogicTypeClass[V <: Request] {
     def getResult(param: V#Par ): Option[V#Res]

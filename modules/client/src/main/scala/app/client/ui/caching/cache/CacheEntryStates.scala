@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.requests.Request
+import app.shared.comm.Request
 
 object CacheEntryStates {
   sealed trait CacheEntryState[Req <: Request] {

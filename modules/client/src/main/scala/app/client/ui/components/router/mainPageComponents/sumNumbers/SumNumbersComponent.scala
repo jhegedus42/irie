@@ -2,7 +2,7 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.{SumNumberState, SumNumbersProps, TheThieveryNumber}
-import app.shared.dataModel.views.SumIntPostRequest.SumIntView_Par
+import app.shared.comm.requests.SumIntPostRequest.SumIntView_Par
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 

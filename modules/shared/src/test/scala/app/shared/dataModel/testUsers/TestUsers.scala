@@ -1,7 +1,7 @@
 package app.shared.dataModel.testUsers
 
-import app.shared.dataModel.model.User
-import app.shared.dataModel.value.refs.Entity
+import app.shared.entity.Entity
+import app.shared.entity.entityValue.values.User
 
 object TestUsers {
 

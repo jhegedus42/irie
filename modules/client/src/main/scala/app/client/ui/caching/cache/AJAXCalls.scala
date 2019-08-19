@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.requests.{Request, RouteName }
+import app.shared.comm.{Request, RouteName}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 

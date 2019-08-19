@@ -1,6 +1,6 @@
 package app.shared.comm.requests.marshall
 
-import app.shared.comm.requests.Request
+import app.shared.comm.Request
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 

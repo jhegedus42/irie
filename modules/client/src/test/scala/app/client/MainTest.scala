@@ -1,6 +1,6 @@
 package app.client
 
-import app.shared.dataModel.value.asString.EntityAsString
+import app.shared.entity.asString.EntityAsString
 import io.circe.Json
 import io.circe.generic.auto._
 import org.scalatest.FunSuite

@@ -1,6 +1,6 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers.data
 
-import app.shared.dataModel.views.SumIntPostRequest.SumIntView_Par
+import app.shared.comm.requests.SumIntPostRequest.SumIntView_Par
 import monocle.macros.Lenses
 
 @Lenses

@@ -3,17 +3,12 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
-import app.shared.dataModel.views.SumIntPostRequest
-import app.shared.dataModel.views.SumIntPostRequest.SumIntView_Par
+import app.shared.comm.requests.SumIntPostRequest
+import app.shared.comm.requests.SumIntPostRequest.SumIntView_Par
 import bootstrap4.TB.C
 import io.circe.generic.auto._
 import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  ReactEventFromInput
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactEventFromInput}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input

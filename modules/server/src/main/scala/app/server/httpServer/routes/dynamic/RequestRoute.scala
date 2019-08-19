@@ -2,9 +2,8 @@ package app.server.httpServer.routes.dynamic
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.httpServer.routes.dynamic.logic.ServerSideLogic.ServerLogicTypeClass
-import app.shared.comm.requests.Request
+import app.shared.comm.{Request, RouteName}
 //import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider
-import app.shared.comm.requests.RouteName
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
@@ -30,8 +29,7 @@ private[routes] object RequestRoute {
       encoder:     Encoder[Req#Res]
   ): RequestRoute[Req] = {
 
-    val routeName: RouteName =
-      RouteName.getRouteName[Req]
+    val routeName: RouteName = RouteName.getRouteName[Req]
 
     val res: Route = {
 

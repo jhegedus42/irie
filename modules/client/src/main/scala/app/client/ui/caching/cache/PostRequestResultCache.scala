@@ -1,17 +1,10 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.AJAXCalls.{
-  AjaxCallParams,
-  getResults
-}
-import app.client.ui.caching.cache.CacheEntryStates.{
-  CacheEntryState,
-  Loaded,
-  Loading
-}
+import app.client.ui.caching.cache.AJAXCalls.{AjaxCallParams, getResults}
+import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.requests.Request
-import app.shared.dataModel.views.SumIntPostRequest
+import app.shared.comm.Request
+import app.shared.comm.requests.SumIntPostRequest
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor

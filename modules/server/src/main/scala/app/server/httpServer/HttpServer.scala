@@ -3,8 +3,8 @@ package app.server.httpServer
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import app.server.httpServer.routes.dynamic.RoutesProvider
-import app.server.httpServer.routes.dynamic.logic.persistence.PersistenceModule
+import app.server.httpServer.routes.RoutesProvider
+import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
 import app.shared.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -13,8 +13,8 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class  HttpServer(actorSystem: ActorSystem) {
 
-  val persistenceModule=PersistenceModule(actorSystem)
-  val routes=RoutesProvider(persistenceModule)
+  val routes=RoutesProvider(actorSystem )
+
   implicit val actorSystemAsImplicit=actorSystem
 
   def startServer(host:String ): Unit = {

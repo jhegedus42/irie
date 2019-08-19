@@ -2,7 +2,7 @@ package app.client.ui.caching.cacheInjector
 
 import app.client.ui.caching.cache.PostRequestResultCache
 import app.client.ui.caching.cache.CacheEntryStates.CacheEntryState
-import app.shared.comm.requests.Request
+import app.shared.comm.Request
 import io.circe.generic.auto._
 import io.circe.{Decoder, Encoder}
 
