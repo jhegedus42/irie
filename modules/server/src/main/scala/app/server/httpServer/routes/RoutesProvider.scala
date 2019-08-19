@@ -3,7 +3,6 @@ package app.server.httpServer.routes
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.persistence.PersistenceModule
 import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
-import app.shared.comm.GetEntityURLs
 import app.shared.dataModel.model.{Note, NoteFolder, User}
 import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.views.SumIntPostRequest
@@ -27,12 +26,10 @@ private[httpServer] case class RoutesProvider(
 
   private def allRoutes: Route = {
 
-    val routeForSumIntView =
-      PostRequestRoute
-        .getRouteForPostRequest[SumIntPostRequest]()
 
     val result: Route =
-      routeForSumIntView ~
+        PostRequestRoute
+          .getRouteForPostRequest[SumIntPostRequest]().route
         crudEntityRoute[Note] ~
         crudEntityRoute[NoteFolder] ~
         crudEntityRoute[User] ~
@@ -60,28 +57,29 @@ private[httpServer] case class RoutesProvider(
       encoder:                    Encoder[Entity[V]],
       decoder:                    Decoder[Entity[V]]
   ): Route = {
-    import akka.http.scaladsl.server.Directives._
-    val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
-
-    println( pathStr )
-    import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-    import io.circe.generic.auto._
-
-    val route: Route =
-      get {
-        path( pathStr ) {
-          //          parameters( 'json ) { uuid: String =>
-          entity( as[RefToEntity[V]] ) { refToEntity: RefToEntity[V] =>
-            val untypedRef: UntypedRef =
-              UntypedRef.makeFromRefToEntity( refToEntity )
-
-            complete(
-              persistenceModule.getEntity[V]( untypedRef )
-            )
-          }
-        }
-      }
-    route
+//    import akka.http.scaladsl.server.Directives._
+//    val pathStr: String = GetEntityURLs.pathForGetEntityRoute_serverSideCode
+//
+//    println( pathStr )
+//    import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+//    import io.circe.generic.auto._
+//
+//    val route: Route =
+//      get {
+//        path( pathStr ) {
+//          //          parameters( 'json ) { uuid: String =>
+//          entity( as[RefToEntity[V]] ) { refToEntity: RefToEntity[V] =>
+//            val untypedRef: UntypedRef =
+//              UntypedRef.makeFromRefToEntity( refToEntity )
+//
+//            complete(
+//              persistenceModule.getEntity[V]( untypedRef )
+//            )
+//          }
+//        }
+//      }
+//    route
+    ???
   }
 
   private def getCreateEntityRoute[V <: EntityValue[V]: ClassTag](

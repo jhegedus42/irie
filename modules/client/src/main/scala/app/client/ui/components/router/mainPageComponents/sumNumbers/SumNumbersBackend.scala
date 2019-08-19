@@ -1,6 +1,6 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.viewCache.ViewCacheStates
+import app.client.ui.caching.postRequestResultCache.PostRequestResultCacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
 import app.shared.dataModel.views.SumIntPostRequest
@@ -61,7 +61,7 @@ class SumNumbersBackend[Props](
   private def calculateSumOnServer(
       props:  CacheInterfaceWrapper[Props],
       params: SumIntView_Par
-  ): ViewCacheStates.ViewCacheState[SumIntPostRequest] = {
+  ): PostRequestResultCacheEntryStates.PostRequestResultCacheEntryState[SumIntPostRequest] = {
 
     props.cacheInterface.readView[SumIntPostRequest]( params )
   }
