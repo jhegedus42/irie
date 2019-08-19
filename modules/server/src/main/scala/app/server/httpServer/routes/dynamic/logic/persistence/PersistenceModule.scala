@@ -1,11 +1,11 @@
-package app.server.httpServer.persistence
+package app.server.httpServer.routes.dynamic.logic.persistence
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.persistence.persistentActor.state.{
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.state.{
   ApplicationStateMapEntry,
   UntypedRef
 }
-import app.server.httpServer.persistence.persistentActor.{
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.{
   AppPersistentActor,
   PersistentActorWrapper,
   Responses,

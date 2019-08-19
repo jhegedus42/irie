@@ -1,6 +1,6 @@
-package app.server.httpServer.persistence.persistentActor.state
+package app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.state
 
-import app.server.httpServer.persistence.persistentActor.StateChange
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.StateChange
 
 object StatePrintingUtils {
 

@@ -3,8 +3,8 @@ package app.server.httpServer
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import app.server.httpServer.persistence.PersistenceModule
-import app.server.httpServer.routes.RoutesProvider
+import app.server.httpServer.routes.dynamic.RoutesProvider
+import app.server.httpServer.routes.dynamic.logic.persistence.PersistenceModule
 import app.shared.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

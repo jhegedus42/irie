@@ -1,6 +1,6 @@
-package app.server.httpServer.persistence.persistentActor.events
+package app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.events
 
-import app.server.httpServer.persistence.persistentActor.PersistentActorCommands.InsertNewEntityCommand
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.PersistentActorCommands.InsertNewEntityCommand
 
 
 //events

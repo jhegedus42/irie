@@ -1,6 +1,6 @@
-package app.server.httpServer.persistence.persistentActor
+package app.server.httpServer.routes.dynamic.logic.persistence.persistentActor
 
-import app.server.httpServer.persistence.persistentActor.state.{
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.state.{
   ApplicationStateMapEntry,
   ApplicationStateMap
 }

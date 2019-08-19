@@ -1,9 +1,9 @@
 package app.server.httpServer
 
 import akka.actor.ActorSystem
-import app.server.httpServer.persistence.PersistenceModule
-import app.server.httpServer.persistence.persistentActor.StateChange
-import app.server.httpServer.persistence.persistentActor.state.{ApplicationStateMap, ApplicationStateMapEntry, StatePrintingUtils, UntypedRef}
+import app.server.httpServer.routes.dynamic.logic.persistence.PersistenceModule
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.StateChange
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.state.{ApplicationStateMap, ApplicationStateMapEntry, StatePrintingUtils, UntypedRef}
 import app.server.utils.PrettyPrint
 import app.shared.dataModel.model.User
 import app.shared.dataModel.value.refs.Entity

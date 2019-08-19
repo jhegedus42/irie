@@ -1,20 +1,17 @@
-package app.server.httpServer.routes
+package app.server.httpServer.routes.dynamic
 
-import akka.http.scaladsl.server.Route
-import app.server.httpServer.persistence.PersistenceModule
-import app.server.httpServer.routes.staticContent.{IndexDotHtml, StaticRoutes}
-import app.shared.dataModel.model.{Note, NoteFolder, User}
-import app.shared.dataModel.value.EntityValue
-import app.shared.dataModel.views.SumIntPostRequest
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.persistence.persistentActor.StateChange
-import app.server.httpServer.persistence.persistentActor.state.UntypedRef
+import app.server.httpServer.routes.dynamic.logic.persistence.PersistenceModule
+import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.StateChange
+import app.server.httpServer.routes.static.{IndexDotHtml, StaticRoutes}
+import app.shared.dataModel.model.{Note, NoteFolder, User}
+import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.value.refs.{Entity, RefToEntity}
+import app.shared.dataModel.views.SumIntPostRequest
 
 import scala.concurrent.Future
 import scala.reflect.ClassTag
-import io.circe.generic.auto._
 
 private[httpServer] case class RoutesProvider(
     persistenceModule: PersistenceModule
@@ -28,8 +25,8 @@ private[httpServer] case class RoutesProvider(
 
 
     val result: Route =
-        PostRequestRoute
-          .getRouteForPostRequest[SumIntPostRequest]().route
+        RequestRoute
+          .getRoute[SumIntPostRequest]().route
         crudEntityRoute[Note] ~
         crudEntityRoute[NoteFolder] ~
         crudEntityRoute[User] ~

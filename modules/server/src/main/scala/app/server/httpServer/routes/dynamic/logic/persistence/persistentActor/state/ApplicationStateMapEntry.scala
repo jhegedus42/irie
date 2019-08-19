@@ -1,4 +1,4 @@
-package app.server.httpServer.persistence.persistentActor.state
+package app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.state
 
 import app.shared.dataModel.value.asString.EntityAsString
 
