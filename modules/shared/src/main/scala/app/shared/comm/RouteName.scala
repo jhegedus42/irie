@@ -8,7 +8,7 @@ case class RouteName(name: String ) {
 
 object RouteName {
 
-  def getRouteName[Req <: Request: ClassTag]
+  def getRouteName[Req <: PostRequest: ClassTag]
     : RouteName = {
     val name=implicitly[ClassTag[Req]].runtimeClass.getSimpleName
     RouteName( "route_" + name)

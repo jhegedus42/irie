@@ -1,15 +1,9 @@
 package app.client.ui.caching.cacheInjector
 
+import app.client.ui.caching.cacheInjector.injector.CacheInjectorHOC
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 
-trait ToBeWrappedComponent[Comp]{
-  type Props
-  type State
-  type Backend
-}
-
-
-case class CompWrapper2[Comp<:ToBeWrappedComponent[Comp]]
+case class ReactCompWrapper[Comp<:ToBeWrappedComponent[Comp]]
 (
   cache: CacheInterface,
   propsProvider: () => Comp#Props,

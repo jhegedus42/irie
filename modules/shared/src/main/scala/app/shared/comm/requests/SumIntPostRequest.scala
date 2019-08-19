@@ -1,19 +1,19 @@
 package app.shared.comm.requests
 
-import app.shared.comm.Request
-import app.shared.comm.requests.SumIntPostRequest.{SumIntView_Par, SumIntView_Res}
+import app.shared.comm.PostRequest
+import app.shared.comm.requests.SumIntPostRequest.{SumIntPar, SumIntRes}
 
 object SumIntPostRequest {
 
-    case class SumIntView_Par(x:Int, y:Int ) extends Request.PostReqParameter
+    case class SumIntPar(x:Int, y:Int ) extends PostRequest.Parameter
 
-    case class SumIntView_Res(sum: Int ) extends Request.PostReqResult
+    case class SumIntRes(sum: Int ) extends PostRequest.Result
 }
 
 
-class SumIntPostRequest extends Request {
-  type Par = SumIntView_Par
-  type Res = SumIntView_Res
+class SumIntPostRequest extends PostRequest {
+  type Par = SumIntPar
+  type Res = SumIntRes
 }
 
 

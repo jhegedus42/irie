@@ -5,26 +5,34 @@ import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.Responses.GetStateResult
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.events.CreateEntityEvent
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{ApplicationStateMap, ApplicationStateMapEntry, StateChange, StatePrintingUtils, UntypedRef}
+import app.shared.state.{ApplicationStateMap, ApplicationStateMapEntry, StateChange, StatePrintingUtils, UntypedRef}
 import app.shared.entity.entityValue.EntityValue
+import app.shared.initialization.Config
 
 import scala.language.postfixOps
 import scala.reflect.ClassTag
 
-object AppPersistentActor {
+object WrappedPersistentActor {
   val as: ActorSystem = ActorSystem()
 
   def getActor( id: String ) = as.actorOf( props( id ) )
 
-  def props( id: String ): Props = Props( new AppPersistentActor( id ) )
+  def props( id: String ): Props = Props( new WrappedPersistentActor( id ) )
 }
 
 
-private[persistentActor] class AppPersistentActor( id: String )
+private[persistentActor] class WrappedPersistentActor(id: String )
     extends PersistentActor with ActorLogging {
 
   private object ApplicationStateWrapper{
-    private var applicationState: ApplicationStateMap = new ApplicationStateMap()
+
+    val areWeTesting= Config.details.areWeTesting
+    val testState=Config.details.testApplicationState.applicationStateMap
+    private var applicationState: ApplicationStateMap = if(!areWeTesting)
+      new ApplicationStateMap()
+    else testState
+
+
     def getState = applicationState
     def setState(s:ApplicationStateMap) :Unit=  {
       println("\n\nState was set to:\n")

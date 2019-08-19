@@ -1,6 +1,6 @@
 package app.shared.comm.requests.marshall
 
-import app.shared.comm.Request
+import app.shared.comm.PostRequest
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 
@@ -9,7 +9,7 @@ import io.circe.{Decoder, Error, _}
 object EncodersDecoders {
 
 
-  def decodeResult[Req <: Request](
+  def decodeResult[Req <: PostRequest](
       res: ResultOptionAsJSON
     )(
       implicit
@@ -19,7 +19,7 @@ object EncodersDecoders {
     r
   }
 
-  def decodeParameters[Req <: Request](
+  def decodeParameters[Req <: PostRequest](
       res: ParametersAsJSON
     )(
       implicit
@@ -29,7 +29,7 @@ object EncodersDecoders {
     r
   }
 
-  def encodeResult[Req <: Request](
+  def encodeResult[Req <: PostRequest](
       r: Option[Req#Res]
     )(
       implicit
@@ -38,7 +38,7 @@ object EncodersDecoders {
     ResultOptionAsJSON( e.apply( r ).spaces4 )
   }
 
-  def encodeParameters[Req <: Request](r: Req#Par )(implicit e: Encoder[Req#Par] ): ParametersAsJSON = {
+  def encodeParameters[Req <: PostRequest](r: Req#Par )(implicit e: Encoder[Req#Par] ): ParametersAsJSON = {
     ParametersAsJSON( e.apply( r ).spaces4 )
   }
 

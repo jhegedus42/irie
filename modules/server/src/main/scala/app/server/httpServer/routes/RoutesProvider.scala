@@ -7,7 +7,7 @@ import app.server.httpServer.routes.dynamic.RequestRoute
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.GetEntity
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
 import app.server.httpServer.routes.static.{IndexDotHtml, StaticRoutes}
-import app.shared.comm.requests.{GetEntityRequest, SumIntPostRequest}
+import app.shared.comm.requests.{GetEntityPostRequest, SumIntPostRequest}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.{Note, NoteFolder, User}
 import app.shared.entity.{Entity, RefToEntity}
@@ -31,7 +31,7 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
 
     val result: Route =
       RequestRoute.getRoute[SumIntPostRequest]().route
-    crudEntityRoute[Note] ~
+      crudEntityRoute[Note] ~
       crudEntityRoute[NoteFolder] ~
       crudEntityRoute[User] ~
       StaticRoutes.staticRootFactory( rootPageHtml )
@@ -46,15 +46,11 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
       encoder:                    Encoder[Entity[V]],
       decoder:                    Decoder[Entity[V]]
   ): Route = {
+
     //  todo-next create entity route
     //  todo-next update entity route
 
     getGetEntityRoute[V]
-      // todo-now-0  => TEST this :
-      //  client side ASYNC integration test:
-      //  - insert an entity
-      //  - get an entity
-      //  - assert that they are the same
   }
 
   private def getGetEntityRoute[V <: EntityValue[V]: ClassTag](
@@ -66,7 +62,7 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
     implicit val logic = GetEntity
       .GetEntityLogic[V]( persistenceModule, entityDecoder, executionContext )
 
-    val rr = RequestRoute.getRoute[GetEntityRequest[V]]
+    val rr = RequestRoute.getRoute[GetEntityPostRequest[V]]
 
 
     rr.route

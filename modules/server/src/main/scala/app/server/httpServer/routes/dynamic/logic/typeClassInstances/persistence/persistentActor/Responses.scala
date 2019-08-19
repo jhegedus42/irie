@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor
 
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{ApplicationStateMap, StateChange}
+import app.shared.state.{ApplicationStateMap, StateChange}
 
 private[persistence] object Responses {
   case class GetStateResult( state: ApplicationStateMap )

@@ -2,7 +2,7 @@ package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{StateChange, StatePrintingUtils}
+import app.shared.state.{StateChange, StatePrintingUtils}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -44,7 +44,7 @@ class PersistenceModuleTest extends FunSuite {
   test( "init" ) {
 
     def init(): Unit = {
-      import app.shared.dataModel.testUsers.TestUsers._
+      import app.shared.initialization.testing.TestUsers._
       import io.circe.generic.auto._
 
       println( "--------------\n\nHere STARTS the init:\n\n" )

@@ -1,10 +1,10 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state
+package app.shared.state
 
 import app.shared.entity.asString.EntityAsString
 
 
 
-private[persistence] case class ApplicationStateMapEntry(
+case class ApplicationStateMapEntry(
     untypedRef:    UntypedRef,
     entityAsString:EntityAsString
 ){

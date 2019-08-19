@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor
 
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{
+import app.shared.state.{
   ApplicationStateMapEntry,
   ApplicationStateMap
 }

@@ -2,8 +2,8 @@ package app.server.httpServer.routes.dynamic.logic.typeClassInstances
 
 import app.server.httpServer.routes.dynamic.logic.ServerSideLogic.ServerLogicTypeClass
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
-import app.shared.comm.requests.GetEntityRequest
-import app.shared.comm.requests.GetEntityRequest.{
+import app.shared.comm.requests.GetEntityPostRequest
+import app.shared.comm.requests.GetEntityPostRequest.{
   GetEntityRequestParameter,
   GetEntityRequestResult
 }
@@ -19,7 +19,7 @@ private[routes] object GetEntity {
       persistenceModule: PersistenceModule,
       d:                 Decoder[Entity[V]],
       contextExecutor:   ExecutionContextExecutor,
-  ) extends ServerLogicTypeClass[GetEntityRequest[V]] {
+  ) extends ServerLogicTypeClass[GetEntityPostRequest[V]] {
 
     override def getResult(
         param: GetEntityRequestParameter[V]

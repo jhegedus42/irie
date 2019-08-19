@@ -3,7 +3,11 @@ package app.client
 import app.shared.entity.asString.EntityAsString
 import io.circe.Json
 import io.circe.generic.auto._
-import org.scalatest.FunSuite
+import org.scalatest.{AsyncFunSuite, FunSuite}
+
+import scala.concurrent.Future
+
+
 
 class MainTest extends FunSuite {
 
@@ -18,17 +22,13 @@ class MainTest extends FunSuite {
     //  - insert a user
     //  - get the user
     //  - assert that the two are the same
-    //    => we need to use async test for this (that is,
-    //       we need to go back in time, way back, and see
-    //       how the async test worked for the client a few
-    //       hundred :) 'commits' ago :)
   }
 
   test( "url_encoding_decoding" ) {
 
     import scala.scalajs.js._
 
-    import app.shared.dataModel.testUsers.TestUsers._
+    import app.shared.initialization.testing.TestUsers._
 
     val alice_as_json: String =
       aliceEntity.entityAsString().entityAsJSON.json.noSpaces

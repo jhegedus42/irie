@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state
+package app.shared.state
 
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.asString.EntityValueTypeAsString
@@ -6,7 +6,7 @@ import app.shared.entity.{EntityVersion, RefToEntity}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.generic.auto._
 
-private[httpServer] case class UntypedRef(
+case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),
     entityVersion:           EntityVersion = EntityVersion()
@@ -19,7 +19,7 @@ private[httpServer] case class UntypedRef(
   }
 }
 
-private[httpServer] object UntypedRef {
+object UntypedRef {
 
   def makeFromRefToEntity[T <: EntityValue[T]](
       refToEntity: RefToEntity[T]

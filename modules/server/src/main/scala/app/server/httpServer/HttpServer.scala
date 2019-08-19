@@ -4,8 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import app.server.httpServer.routes.RoutesProvider
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
-import app.shared.Config
+import app.shared.initialization.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 

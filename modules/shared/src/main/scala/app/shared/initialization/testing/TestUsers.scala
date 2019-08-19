@@ -1,4 +1,4 @@
-package app.shared.dataModel.testUsers
+package app.shared.initialization.testing
 
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -12,6 +12,7 @@ object TestUsers {
   val meresiHiba = User( "MeresiHiba", 369 )
 
   val aliceEntity: Entity[User] = Entity.makeFromValue(alice)
+  val bobEntity :Entity[User]= Entity.makeFromValue(bob)
 
 }
 

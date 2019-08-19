@@ -4,7 +4,7 @@ import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
 import app.shared.comm.requests.SumIntPostRequest
-import app.shared.comm.requests.SumIntPostRequest.SumIntView_Par
+import app.shared.comm.requests.SumIntPostRequest.SumIntPar
 import bootstrap4.TB.C
 import io.circe.generic.auto._
 import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
@@ -55,7 +55,7 @@ class SumNumbersBackend[Props](
     */
   private def calculateSumOnServer(
       props:  CacheInterfaceWrapper[Props],
-      params: SumIntView_Par
+      params: SumIntPar
   ): CacheEntryStates.CacheEntryState[SumIntPostRequest] = {
 
     props.cacheInterface.readView[SumIntPostRequest]( params )
@@ -79,7 +79,7 @@ class SumNumbersBackend[Props](
     def refreshState() =
       updateState( (s: SumNumberState) => {
         s.lens( _.sumIntViewPars ).set(
-            SumIntView_Par( s.tn.firstNumber, s.tn.secondNumber )
+            SumIntPar( s.tn.firstNumber, s.tn.secondNumber )
           )
       } )
 

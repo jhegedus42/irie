@@ -16,8 +16,8 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 > git clone https://github.com/jhegedus42/irie
 > cd irie
 > git checkout 2719f8ecc3faf224653f6595b3236eac04b20d6d
-> ./utils/build_js_dep_bundle.sh
-> ./run.sh
+> ./bash/build_js_dep_bundle.sh
+> ./bash/run.sh
 ```
 
    
@@ -41,11 +41,11 @@ Intermittently, I am running the server on my laptop, <br>
 ---
 # Setting the node path, for testing the client in `sbt`:
 ```
-. ./set_node_env_variable_for_testing.sh
+. ./bash/set_node_env_variable_for_testing.sh
 env | grep NODE
 
 ```
-the `.` in front of `./set_node_env_variable_for_testing.sh` makes sure
+the `.` in front of `./bash/set_node_env_variable_for_testing.sh` makes sure
 that the exported environment variables "survive" the end of the 
 execution of the `.sh` file.
 

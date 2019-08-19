@@ -1,6 +1,6 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{CacheInterface, CompWrapper2}
+import app.client.ui.caching.cacheInjector.{CacheInterface, ReactCompWrapper}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
@@ -34,7 +34,7 @@ case class RouterComp() {
 
     val sumNumberCompRoute: dsl.Rule = {
 
-      val wc2 = CompWrapper2[SumNumbersType](
+      val wc2 = ReactCompWrapper[SumNumbersType](
         cache         = cache,
         propsProvider = () => SumNumbersProps( "hello world" ),
         comp          = SumNumbersComponent.component

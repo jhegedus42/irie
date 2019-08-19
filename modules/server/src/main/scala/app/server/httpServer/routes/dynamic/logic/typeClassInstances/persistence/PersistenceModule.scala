@@ -1,13 +1,13 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{
+import app.shared.state.{
   ApplicationStateMapEntry,
   StateChange,
   UntypedRef
 }
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.{
-  AppPersistentActor,
+  WrappedPersistentActor,
   PersistentActorWrapper,
   Responses
 }
@@ -27,7 +27,7 @@ private[routes] case class PersistenceModule(
 
   private val persistentActorWrapper: PersistentActorWrapper = {
     val peristentActor: ActorRef =
-      AppPersistentActor.getActor( "one_and_only_parsistent_actor" )
+      WrappedPersistentActor.getActor( "one_and_only_parsistent_actor" )
     PersistentActorWrapper( peristentActor )
   }
 

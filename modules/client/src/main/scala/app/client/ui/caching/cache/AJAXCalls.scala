@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.{Request, RouteName}
+import app.shared.comm.{PostRequest, RouteName}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
@@ -9,18 +9,18 @@ import scala.reflect.ClassTag
 
 private[caching] object AJAXCalls {
 
-  case class AjaxCallParams[Req <: Request](par: Req#Par )
+  case class AjaxCallPar[Req <: PostRequest](par: Req#Par )
 
-  case class DecondingSuccess[Req <: Request](
+  case class DecodingSuccess[Req <: PostRequest](
       par: Req#Par,
       res: Req#Res)
 
-  private[cache] def getResults[Req <: Request](
-      requestParams: AjaxCallParams[Req]
+  private[cache] def sendPostAjaxRequest[Req <: PostRequest](
+      requestParams: AjaxCallPar[Req]
     )(implicit ct:   ClassTag[Req],
       encoder:       Encoder[Req#Par],
       decoder:       Decoder[Req#Res]
-    ): Future[DecondingSuccess[Req]] = {
+    ): Future[DecodingSuccess[Req]] = {
 
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -41,6 +41,35 @@ private[caching] object AJAXCalls {
       "Content-Type" -> "application/json"
     )
 
+    println(
+      s"""
+        |
+        |
+        |vvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        |
+        |In `private[caching] object AJAXCalls `,
+        |
+        |in `val json_line: String = plain_params.asJson.spaces2`
+        |
+        |`json_line` is :
+        |
+        |
+        |$json_line
+        |
+        |
+        |In `val url: String = routeName.name`
+        |
+        |`url` is:
+        |
+        |$url
+        |
+        |^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |
+        |
+       """.stripMargin)
+
+    // todo-now , debug this :
+
     val res1: Future[Req#Res] =
       Ajax
         .post( url, json_line, headers = headers )
@@ -50,9 +79,9 @@ private[caching] object AJAXCalls {
         } )
         .map( x => x.right.get )
 
-    val res2: Future[DecondingSuccess[Req]] =
+    val res2: Future[DecodingSuccess[Req]] =
       res1.map(
-        DecondingSuccess( plain_params, _ )
+        DecodingSuccess( plain_params, _ )
       )
     res2
   }
