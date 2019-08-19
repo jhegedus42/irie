@@ -49,7 +49,12 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
     //  todo-next create entity route
     //  todo-next update entity route
 
-    getGetEntityRoute[V] //todo-now 0 => make this "work"
+    getGetEntityRoute[V]
+      // todo-now-0  => TEST this :
+      //  client side ASYNC integration test:
+      //  - insert an entity
+      //  - get an entity
+      //  - assert that they are the same
   }
 
   private def getGetEntityRoute[V <: EntityValue[V]: ClassTag](
@@ -63,7 +68,6 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
 
     val rr = RequestRoute.getRoute[GetEntityRequest[V]]
 
-    // todo-now-0
 
     rr.route
   }
