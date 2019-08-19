@@ -5,7 +5,7 @@ import app.shared.dataModel.value.EntityValue
 import app.shared.dataModel.views.GetEntityRequest
 import app.shared.dataModel.views.GetEntityRequest.{GetEntityRequestParameter, GetEntityRequestResult}
 
-object GetEntity {
+private[logic] object GetEntity {
 
 
   case class GetEntityLogic[V<:EntityValue[V]]() extends ServerLogicTypeClass[GetEntityRequest[V]] {

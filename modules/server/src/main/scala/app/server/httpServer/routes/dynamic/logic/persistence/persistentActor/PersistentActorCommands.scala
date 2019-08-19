@@ -5,7 +5,7 @@ import app.server.httpServer.routes.dynamic.logic.persistence.persistentActor.st
   ApplicationStateMap
 }
 
-object PersistentActorCommands {
+private[persistentActor] object PersistentActorCommands {
 
   case class UpdateEntityCommand( updatedEntry: ApplicationStateMapEntry )
 
