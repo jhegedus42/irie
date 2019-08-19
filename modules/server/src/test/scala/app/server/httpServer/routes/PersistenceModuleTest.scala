@@ -8,10 +8,9 @@ import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalatest.FunSuite
+
 import scala.language.postfixOps
-
-import scala.concurrent.Future
-
+import scala.concurrent.{ExecutionContextExecutor, Future}
 
 
 class PersistenceModuleTest extends FunSuite {
@@ -52,7 +51,12 @@ class PersistenceModuleTest extends FunSuite {
 
       val actorSystem: ActorSystem =
         ActorSystem( "ActorSystem_for_all_Actors_in_the_app" )
-      val pm = PersistenceModule( actorSystem )
+
+      implicit val executionContext: ExecutionContextExecutor =
+      actorSystem.dispatcher
+
+      val pm = PersistenceModule(executionContext)
+
       val res: Future[( StateChange, Entity[User] )] =
         pm.createAndStoreNewEntity( cica )
       import scala.concurrent._

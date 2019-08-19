@@ -1,8 +1,16 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{ApplicationStateMapEntry, StateChange, UntypedRef}
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.{AppPersistentActor, PersistentActorWrapper, Responses}
+import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.state.{
+  ApplicationStateMapEntry,
+  StateChange,
+  UntypedRef
+}
+import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.{
+  AppPersistentActor,
+  PersistentActorWrapper,
+  Responses
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.asString.EntityAsJSON
 import app.shared.entity.{Entity, RefToEntity}
@@ -11,10 +19,11 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-private[routes] case class PersistenceModule( actorSystem: ActorSystem ) {
+private[routes] case class PersistenceModule(
+    context: ExecutionContextExecutor
+) {
 
-  implicit lazy val executionContext: ExecutionContextExecutor =
-    actorSystem.dispatcher
+  implicit val context_as_implicit = context
 
   private val persistentActorWrapper: PersistentActorWrapper = {
     val peristentActor: ActorRef =
@@ -23,14 +32,16 @@ private[routes] case class PersistenceModule( actorSystem: ActorSystem ) {
   }
 
   def getEntity[V <: EntityValue[V]](
-      //                                      ref: RefToEntity[V]
-      untypedRef: UntypedRef
-  )( implicit d:  Decoder[Entity[V]] ): Future[Entity[V]] = {
+      ref:       RefToEntity[V]
+  )(
+    implicit d: Decoder[Entity[V]]
+//  ): Future[Option[Entity[V]]] = {
+    ): Future[Option[Entity[V]]] = {
 
     val eventualGetStateResult: Future[Responses.GetStateResult] =
       persistentActorWrapper.getState
 
-    //    val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity(ref)
+    val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity( ref )
 
     val r1: Future[Option[ApplicationStateMapEntry]] =
       eventualGetStateResult.map( r => r.state.map.get( untypedRef ) )
@@ -69,7 +80,8 @@ private[routes] case class PersistenceModule( actorSystem: ActorSystem ) {
       }
 
     } )
-    r5
+
+    r4
   }
 
   def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag](

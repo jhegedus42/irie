@@ -24,7 +24,7 @@ private[persistentActor] class AppPersistentActor( id: String )
     extends PersistentActor with ActorLogging {
 
   private object ApplicationStateWrapper{
-    private var applicationState: ApplicationStateMap = getInitState
+    private var applicationState: ApplicationStateMap = new ApplicationStateMap()
     def getState = applicationState
     def setState(s:ApplicationStateMap) :Unit=  {
       println("\n\nState was set to:\n")
@@ -135,19 +135,5 @@ private[persistentActor] class AppPersistentActor( id: String )
     }
 
   }
-
-  protected def getInitState: ApplicationStateMap = new ApplicationStateMap()
-  // match {
-
-  ////    case UpdateEntity(refVal: (RefValDyn)) => {
-  ////      state = state.updateEntity(refVal)
-  ////    }
-  //
-  //    case events.CreateEntityEvent( untypedRef: (UntypedRef) ) => {
-  ////      state = state.insertEntity(refVal)
-  //      // todo-next-3
-  //    }
-  //
-  //  }
 
 }

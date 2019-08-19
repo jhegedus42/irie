@@ -12,6 +12,4 @@ case class RefToEntity[T <: EntityValue[T]](
     entityVersion:           EntityVersion = EntityVersion()
 )
 
-object RefToEntity {
-}
 
