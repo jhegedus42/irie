@@ -1,13 +1,13 @@
-package app.client.ui.caching.postRequestResultCache
+package app.client.ui.caching.cache
 
-import app.client.ui.caching.postRequestResultCache.PostRequestAJAXCalls.{
-  View_AJAX_Request_Params,
-  getPostRequestResultFromServer
+import app.client.ui.caching.cache.AJAXCalls.{
+  AjaxCallParams,
+  getResults
 }
-import app.client.ui.caching.postRequestResultCache.PostRequestResultCacheEntryStates.{
-  PostRequestResultCacheEntryState,
-  PostRequestResultLoaded,
-  PostRequestResultLoading
+import app.client.ui.caching.cache.CacheEntryStates.{
+  CacheEntryState,
+  Loaded,
+  Loading
 }
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.requests.Request
@@ -22,22 +22,22 @@ private[caching] class PostRequestResultCache[Req <: Request]() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  private[this] var map: Map[Req#Par, PostRequestResultCacheEntryState[Req]] = Map()
+  private[this] var map: Map[Req#Par, CacheEntryState[Req]] = Map()
 
   private[caching] def getPostRequestResultCacheState(par: Req#Par)(
     implicit
     decoder: Decoder[Req#Res],
     encoder: Encoder[Req#Par],
     ct: ClassTag[Req]
-  ): PostRequestResultCacheEntryState[Req] =
+  ): CacheEntryState[Req] =
     if (!map.contains(par)) {
-      val loading = PostRequestResultLoading(par)
+      val loading = Loading(par)
       this.map = map + (par -> loading)
-      getPostRequestResultFromServer[Req](View_AJAX_Request_Params(par))
+      getResults[Req](AjaxCallParams(par))
         .onComplete(
           r => {
             r.foreach(decoded => {
-              this.map = map + (decoded.par -> PostRequestResultLoaded(
+              this.map = map + (decoded.par -> Loaded(
                 decoded.par,
                 decoded.res
               ))

@@ -4,4 +4,4 @@ package app.shared.comm.requests.marshall
   * Created by joco on 09/07/2018.
   */
 case
-class JSONContainingRequestPar(string: String )
+class ParametersAsJSON(string: String )
