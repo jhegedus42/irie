@@ -12,6 +12,7 @@ import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.util.Try
 
 private[routes] object GetEntity {
 
@@ -26,13 +27,41 @@ private[routes] object GetEntity {
     ): Future[Option[GetEntityRequestResult[V]]] = {
 
       val p: RefToEntity[V] = param.par
+
       val res: Future[Option[Entity[V]]] =
         persistenceModule.getEntity[V]( p )( d )
 
       val r2: Future[GetEntityRequestResult[V]] =
         res.map( GetEntityRequestResult( _ ) )( contextExecutor )
 
-      r2.map( Some( _ ) )( contextExecutor )
+      val r3: Future[Some[GetEntityRequestResult[V]]] =
+        r2.map( Some( _ ) )( contextExecutor )
+
+      r3.onComplete( (x: Try[Some[GetEntityRequestResult[V]]]) => {
+        val s2 =
+          s"""
+            |
+            |
+            |vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+            |
+            |
+            |r3 has completed in `GetEntityLogic`
+            |it was called with param:
+            |$param
+            |
+            |it resulted in a :
+            |$x
+            |
+            |
+            |^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            |
+            |
+           """.stripMargin
+        println( s2 )
+
+      } )( contextExecutor )
+
+      r3
 
     }
 

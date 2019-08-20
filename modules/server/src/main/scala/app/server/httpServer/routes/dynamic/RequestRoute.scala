@@ -41,6 +41,16 @@ private[routes] object RequestRoute {
           entity( as[Req#Par] ) { params: Req#Par =>
             val res: Future[Option[Req#Res]] =
               serverLogic.getResult( params )
+
+            println(
+              s"""
+                |
+                | ServerLogic was called with parameters:
+                | $params
+                |
+               """.stripMargin)
+
+
             complete( res )
           }
 
