@@ -13,4 +13,6 @@ object RouteName {
     val name=implicitly[ClassTag[Req]].runtimeClass.getSimpleName
     RouteName( "route_" + name)
   }
+
+
 }

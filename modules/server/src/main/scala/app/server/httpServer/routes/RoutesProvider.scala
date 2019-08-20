@@ -31,8 +31,6 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
 
     val result: Route =
       RequestRoute.getRoute[SumIntPostRequest]().route
-      crudEntityRoute[Note] ~
-      crudEntityRoute[NoteFolder] ~
       crudEntityRoute[User] ~
       StaticRoutes.staticRootFactory( rootPageHtml )
 
@@ -58,12 +56,9 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
       encoder:          Encoder[Entity[V]],
       entityDecoder:    Decoder[Entity[V]]
   ): Route = {
-
     implicit val logic = GetEntity
       .GetEntityLogic[V]( persistenceModule, entityDecoder, executionContext )
-
     val rr = RequestRoute.getRoute[GetEntityPostRequest[V]]
-
 
     rr.route
   }

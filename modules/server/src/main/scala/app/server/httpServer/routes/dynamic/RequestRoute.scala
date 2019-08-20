@@ -31,11 +31,13 @@ private[routes] object RequestRoute {
   ): RequestRoute[Req] = {
 
     val routeName: RouteName = RouteName.getRouteName[Req]
+    val pathName: String = routeName.name
+
+    println(s"We set up a route with the path of :\n$pathName")
 
     val res: Route = {
 
       post {
-        val pathName: String = routeName.name
         path( pathName ) {
 
           entity( as[Req#Par] ) { params: Req#Par =>

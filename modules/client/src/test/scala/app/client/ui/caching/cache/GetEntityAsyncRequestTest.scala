@@ -38,7 +38,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   }
 
   test( "get entity test" ) {
-    val alice: Entity[User] = TestUsers.aliceEntity
+    val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
 
     val alicePar: GetEntityRequestParameter[User] =
       GetEntityRequestParameter( alice.refToEntity )

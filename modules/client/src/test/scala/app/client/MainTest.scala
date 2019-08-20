@@ -1,11 +1,7 @@
 package app.client
 
-import app.shared.entity.asString.EntityAsString
-import io.circe.Json
 import io.circe.generic.auto._
-import org.scalatest.{AsyncFunSuite, FunSuite}
-
-import scala.concurrent.Future
+import org.scalatest.FunSuite
 
 
 
@@ -26,9 +22,9 @@ class MainTest extends FunSuite {
 
   test( "url_encoding_decoding" ) {
 
-    import scala.scalajs.js._
-
     import app.shared.initialization.testing.TestUsers._
+
+    import scala.scalajs.js._
 
     val alice_as_json: String =
       aliceEntity.entityAsString().entityAsJSON.json.noSpaces
@@ -45,6 +41,10 @@ class MainTest extends FunSuite {
 
     println( s"Successfully completed without errors." )
 
+  }
+
+  test("testing type tags"){
+    //TODO-NOW test type tags in scala.js
   }
 
 }
