@@ -12,8 +12,9 @@ object SumIntPostRequest {
 
 
 class SumIntPostRequest extends PostRequest {
-  type Par = SumIntPar
-  type Res = SumIntRes
+  override type Par = SumIntPar
+  override type Res = SumIntRes
+  override type PayLoad = Unit
 }
 
 

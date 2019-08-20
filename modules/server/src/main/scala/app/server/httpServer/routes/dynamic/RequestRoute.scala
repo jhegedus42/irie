@@ -25,6 +25,7 @@ private[routes] object RequestRoute {
   def getRoute[Req <: PostRequest]( )(
       implicit
       classTag:    ClassTag[Req],
+      classTag2:    ClassTag[Req#PayLoad],
       serverLogic: ServerLogicTypeClass[Req],
       decoder:     Decoder[Req#Par],
       encoder:     Encoder[Req#Res]

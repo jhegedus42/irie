@@ -12,12 +12,13 @@ import scala.reflect.ClassTag
 class CacheInterface()  {
 
 
-  def readView[V <: PostRequest](par: V#Par )(
-    implicit c:               PostRequestResultCache[V],
-    decoder:                  Decoder[V#Res],
-    encoder:                  Encoder[V#Par],
-    ct:                       ClassTag[V]
-  ): CacheEntryState[V] = c.getPostRequestResultCacheState( par )
+  def readView[Req <: PostRequest](par: Req#Par )(
+    implicit c:               PostRequestResultCache[Req],
+    decoder:                  Decoder[Req#Res],
+    encoder:                  Encoder[Req#Par],
+    ct:                       ClassTag[Req],
+    ct2:                       ClassTag[Req#PayLoad]
+  ): CacheEntryState[Req] = c.getPostRequestResultCacheState( par )
 
 
 }

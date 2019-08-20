@@ -18,8 +18,10 @@ private[caching] object AJAXCalls {
   private[cache] def sendPostAjaxRequest[Req <: PostRequest](
       requestParams: AjaxCallPar[Req]
     )(implicit ct:   ClassTag[Req],
+      classTag2:    ClassTag[Req#PayLoad],
       encoder:       Encoder[Req#Par],
       decoder:       Decoder[Req#Res]
+
     ): Future[DecodingSuccess[Req]] = {
 
     implicit def executionContext: ExecutionContextExecutor =

@@ -30,8 +30,8 @@ private[httpServer] case class RoutesProvider( actorSystem: ActorSystem ) {
   private def allRoutes: Route = {
 
     val result: Route =
-      RequestRoute.getRoute[SumIntPostRequest]().route
       crudEntityRoute[User] ~
+      RequestRoute.getRoute[SumIntPostRequest]().route ~
       StaticRoutes.staticRootFactory( rootPageHtml )
 
     result

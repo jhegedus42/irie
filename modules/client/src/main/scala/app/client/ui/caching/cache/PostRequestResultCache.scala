@@ -21,7 +21,8 @@ private[caching] class PostRequestResultCache[Req <: PostRequest]() {
     implicit
     decoder: Decoder[Req#Res],
     encoder: Encoder[Req#Par],
-    ct: ClassTag[Req]
+    ct: ClassTag[Req],
+    ct2:    ClassTag[Req#PayLoad]
   ): CacheEntryState[Req] =
     if (!map.contains(par)) {
       val loading = Loading(par)
