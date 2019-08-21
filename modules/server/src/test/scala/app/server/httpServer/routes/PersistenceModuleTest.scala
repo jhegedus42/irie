@@ -1,7 +1,7 @@
 package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
+import app.server.httpServer.routes.persistenceProvider.PersistenceModule
 import app.shared.state.{StateChange, StatePrintingUtils}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity

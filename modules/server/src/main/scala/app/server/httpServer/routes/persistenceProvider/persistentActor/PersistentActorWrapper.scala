@@ -1,12 +1,12 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor
+package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.PersistentActorCommands.{
+import app.server.httpServer.routes.persistenceProvider.persistentActor.PersistentActorCommands.{
   GetAllStateCommand,
   InsertNewEntityCommand
 }
 
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.Responses.InsertNewEntityCommandResponse
+import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.InsertNewEntityCommandResponse
 import app.shared.state.{
   ApplicationStateMapEntry,
   StateChange,
@@ -21,7 +21,7 @@ import io.circe.Encoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.language.postfixOps
 
-private[persistence] case class PersistentActorWrapper(val actor: ActorRef) {
+private[persistenceProvider] case class PersistentActorWrapper(val actor: ActorRef) {
 
   import akka.pattern.ask
   import akka.util.Timeout

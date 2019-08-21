@@ -1,11 +1,11 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.InsertNewEntity.{InsertReqPar, InsertReqRes}
+import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 
-object InsertNewEntity {
+object InsertNewEntityReq {
   case class InsertReqPar[V <: EntityValue[V]](
       entityValue: EntityValue[V]
   ) extends PostRequest.Parameter
@@ -15,7 +15,7 @@ object InsertNewEntity {
   ) extends PostRequest.Result
 }
 
-class InsertNewEntity[V<:EntityValue[V]] extends PostRequest {
+class InsertNewEntityReq[V<:EntityValue[V]] extends PostRequest {
   override type Par = InsertReqPar[V]
   override type Res = InsertReqRes[V]
   override type PayLoad = V

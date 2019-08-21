@@ -1,7 +1,7 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances
+package app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories
 
-import app.server.httpServer.routes.dynamic.logic.ServerLogicTypeClass
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
+import app.server.httpServer.routes.persistenceProvider.PersistenceModule
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
 import app.shared.entity.entityValue.EntityValue
@@ -15,12 +15,13 @@ import scala.util.Try
   case class GetEntityLogic[V <: EntityValue[V]](
       persistenceModule: PersistenceModule,
       d:                 Decoder[Entity[V]],
-      contextExecutor:   ExecutionContextExecutor,
+      contextExecutor:   ExecutionContextExecutor
   ) extends ServerLogicTypeClass[GetEntityReq[V]] {
 
     override def getResult(
         param: GetEntityReqPar[V]
-    ): Future[Option[GetEntityReqRes[V]]] = {
+    )
+    : Future[Option[GetEntityReqRes[V]]] = {
 
       val p: RefToEntity[V] = param.par
 

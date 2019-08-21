@@ -1,10 +1,10 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor
+package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.Responses.GetStateResult
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.events.CreateEntityEvent
+import app.server.httpServer.routes.persistenceProvider.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.GetStateResult
+import app.server.httpServer.routes.persistenceProvider.persistentActor.events.CreateEntityEvent
 import app.shared.state.{ApplicationStateMap, ApplicationStateMapEntry, StateChange, StatePrintingUtils, UntypedRef}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.initialization.Config

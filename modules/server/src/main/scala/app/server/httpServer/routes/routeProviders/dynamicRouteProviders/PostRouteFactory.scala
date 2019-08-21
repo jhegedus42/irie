@@ -1,7 +1,7 @@
-package app.server.httpServer.routes.dynamic
+package app.server.httpServer.routes.routeProviders.dynamicRouteProviders
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
-import app.server.httpServer.routes.dynamic.logic.ServerLogicTypeClass
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
 import app.server.utils.GetTimeOnJVM
 import app.shared.comm.{PostRequest, RouteName}
 
@@ -13,9 +13,9 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 
-private[routes] case class PostRoute[Req <: PostRequest](route: Route )
 
-private[routes] object PostRoute {
+
+private[routes] object PostRouteFactory {
 
   def createPostRoute[Req <: PostRequest]( )(
       implicit

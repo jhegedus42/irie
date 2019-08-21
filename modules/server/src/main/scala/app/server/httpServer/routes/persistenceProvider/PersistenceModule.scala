@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence
+package app.server.httpServer.routes.persistenceProvider
 
 import akka.actor.{ActorRef, ActorSystem}
 import app.shared.state.{
@@ -6,7 +6,7 @@ import app.shared.state.{
   StateChange,
   UntypedRef
 }
-import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.persistentActor.{
+import app.server.httpServer.routes.persistenceProvider.persistentActor.{
   WrappedPersistentActor,
   PersistentActorWrapper,
   Responses

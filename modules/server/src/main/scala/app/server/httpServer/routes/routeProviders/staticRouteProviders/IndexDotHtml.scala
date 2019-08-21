@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.static
+package app.server.httpServer.routes.routeTypes.static
 
 private[routes] object IndexDotHtml {
   import scalatags.Text.all._
