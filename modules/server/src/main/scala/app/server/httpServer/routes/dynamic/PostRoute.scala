@@ -2,21 +2,16 @@ package app.server.httpServer.routes.dynamic
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.httpServer.routes.dynamic.logic.ServerLogicTypeClass
+import app.server.utils.GetTimeOnJVM
 import app.shared.comm.{PostRequest, RouteName}
 
 import scala.concurrent.Future
-//import app.copy_of_model_to_be_moved_to_real_app.getViewCommunicationModel.shared.ViewHttpRouteNameProvider
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
-//  import akka.http.scaladsl.server.directives.MethodDirectives.get
-//  import akka.http.scaladsl.server.directives.ParameterDirectives.parameters
-//  import akka.http.scaladsl.server.directives.PathDirectives.path
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-//import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-//import io.circe.generic.auto._ // this cannot be removed, or can it ? maybeTODO-later
 
 private[routes] case class PostRoute[Req <: PostRequest](route: Route )
 
@@ -48,12 +43,17 @@ private[routes] object PostRoute {
             println(
               s"""
                 |
+                | vvvvvvvvvvv------------------------------
                 |
                 |
                 | ServerLogic was called with parameters:
                 | $params
                 |
+                | Time is :
+                | ${GetTimeOnJVM.time.toString}
                 |
+                |
+                | ^^^^^^^^^^^------------------------------
                 |
                """.stripMargin)
 

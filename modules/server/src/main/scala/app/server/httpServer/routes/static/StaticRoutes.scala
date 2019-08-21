@@ -11,11 +11,11 @@ import akka.http.scaladsl.server.Route
 
 private[routes] object StaticRoutes {
 
-  import java.util.Calendar
 
   def staticRootFactory(rootPage: String): Route = {
     val staticRoute: Route = {
       pathSingleSlash {
+          import java.util.Calendar
           def time=Calendar.getInstance.getTime
           println( s"Someone asked for the root at $time")
           complete {
