@@ -1,51 +1,57 @@
 package app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories
 
-
 import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq}
 import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
+import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.{Entity, RefToEntity}
-import io.circe.Decoder
+import app.shared.state.StateChange
+import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.reflect.ClassTag
 import scala.util.Try
 
+case class InsertEntityLogic[V <: EntityValue[V]](
+    persistenceModule: PersistenceModule,
+    d:                 Decoder[Entity[V]],
+    e:                 Encoder[Entity[V]],
+    ct: ClassTag[V],
+    contextExecutor:   ExecutionContextExecutor
+) extends ServerLogicTypeClass[InsertNewEntityReq[V]] {
+
+  override def getResult(
+      param: InsertReqPar[V]
+  ): Future[Option[InsertReqRes[V]]] = {
+
+    val p: V = param.value
 
 
-  case class InsertEntityLogic[V <: EntityValue[V]](
-      persistenceModule: PersistenceModule,
-      d:                 Decoder[Entity[V]],
-      contextExecutor:   ExecutionContextExecutor
-  ) extends ServerLogicTypeClass[GetEntityReq[V]] {
-// todo-now ^^^ "FIX" this
+    implicit val encoder: Encoder[Entity[V]] =e
+    implicit val cti: ClassTag[V] =ct
 
-    override def getResult(
-        param: GetEntityReqPar[V]
-    )
-    : Future[Option[GetEntityReqRes[V]]] = {
+    val res =
+      persistenceModule.createAndStoreNewEntity[V]( p )
 
-      val p: RefToEntity[V] = param.par
+    val r2: Future[InsertReqRes[V]] =
+      res.map( (x: ( StateChange, Entity[V] )) => InsertReqRes( x._2 ) )(
+        contextExecutor
+      )
 
-      val res: Future[Option[Entity[V]]] =
-        persistenceModule.getEntity[V]( p )( d )
+    val r3: Future[Some[InsertReqRes[V]]] =
+      r2.map( Some( _ ) )( contextExecutor )
 
-      val r2: Future[GetEntityReqRes[V]] =
-        res.map( GetEntityReqRes( _ ) )( contextExecutor )
-
-      val r3: Future[Some[GetEntityReqRes[V]]] =
-        r2.map( Some( _ ) )( contextExecutor )
-
-      r3.onComplete( (x: Try[Some[GetEntityReqRes[V]]]) => {
-        val s2 =
-          s"""
+    r3.onComplete( (x: Try[Some[InsertReqRes[V]]]) => {
+      val s2 =
+        s"""
             |
             |
             |vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
             |
             |
-            |r3 has completed in `GetEntityLogic`
+            |r3 has completed in `InsertEntityLogic`
             |it was called with param:
             |$param
             |
@@ -57,12 +63,12 @@ import scala.util.Try
             |
             |
            """.stripMargin
-        println( s2 )
+      println( s2 )
 
-      } )( contextExecutor )
+    } )( contextExecutor )
 
-      r3
-
-    }
+    r3
 
   }
+
+}

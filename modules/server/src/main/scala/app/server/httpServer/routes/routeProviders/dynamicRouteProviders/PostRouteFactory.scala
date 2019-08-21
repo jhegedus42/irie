@@ -22,6 +22,7 @@ private[routes] object PostRouteFactory {
       classTag:    ClassTag[Req],
       classTag2:    ClassTag[Req#PayLoad],
       serverLogic: ServerLogicTypeClass[Req],
+      dpl:Decoder[Req#PayLoad],
       decoder:     Decoder[Req#Par],
       encoder:     Encoder[Req#Res]
   ): PostRoute[Req] = {

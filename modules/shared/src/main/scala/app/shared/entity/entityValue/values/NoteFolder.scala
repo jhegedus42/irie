@@ -9,4 +9,5 @@ import app.shared.entity.entityValue.EntityValue
   * @param user
   * @param name
   */
-case class NoteFolder(user: RefToEntity[User], name: String ) extends EntityValue[NoteFolder]
+case class NoteFolder( user: RefToEntity[User], name: String )
+    extends EntityValue[NoteFolder]

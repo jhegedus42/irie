@@ -35,7 +35,6 @@ private[routes] case class PersistenceModule(
       ref:       RefToEntity[V]
   )(
     implicit d: Decoder[Entity[V]]
-//  ): Future[Option[Entity[V]]] = {
     ): Future[Option[Entity[V]]] = {
 
     val eventualGetStateResult: Future[Responses.GetStateResult] =
@@ -84,7 +83,7 @@ private[routes] case class PersistenceModule(
     r4
   }
 
-  def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag](
+  def createAndStoreNewEntity[V <: EntityValue[V]:ClassTag](
       value: V
   )(
       implicit encoder: Encoder[Entity[V]]

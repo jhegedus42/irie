@@ -1,21 +1,12 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.persistenceProvider.persistentActor.PersistentActorCommands.{
-  GetAllStateCommand,
-  InsertNewEntityCommand
-}
-
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.InsertNewEntityCommandResponse
-import app.shared.state.{
-  ApplicationStateMapEntry,
-  StateChange,
-  UntypedRef
-}
-
-import app.shared.entity.asString.EntityAsString
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand}
 import app.shared.entity.Entity
+import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
+import app.shared.state.{ApplicationStateMapEntry, StateChange, UntypedRef}
 import io.circe.Encoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

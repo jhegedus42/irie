@@ -2,12 +2,12 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.PersistentActorCommands.{GetAllStateCommand, InsertNewEntityCommand}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.GetStateResult
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, ShutdownActor}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.events.CreateEntityEvent
-import app.shared.state.{ApplicationStateMap, ApplicationStateMapEntry, StateChange, StatePrintingUtils, UntypedRef}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.initialization.Config
+import app.shared.state._
 
 import scala.language.postfixOps
 import scala.reflect.ClassTag
@@ -65,7 +65,7 @@ private[persistentActor] class WrappedPersistentActor(id: String )
   override def persistenceId: String = id
 
   override def receiveCommand: Receive = {
-    case PersistentActorCommands.ShutdownActor =>
+    case ShutdownActor =>
       println( "shutting down persistent actor" )
       context.stop( self )
 
