@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, DecodingSuccess}
+import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
 import app.shared.comm.postRequests.SumIntPostRequest
 import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
 import org.scalatest.{Assertion, AsyncFunSuite}
@@ -24,10 +24,10 @@ class SumIntRequestAsyncTest extends AsyncFunSuite {
 
     val expectedResult: SumIntRes = SumIntRes( 9 )
 
-    val expectedCallResult: DecodingSuccess[SumIntPostRequest] =
-      DecodingSuccess[SumIntPostRequest]( par, expectedResult )
+    val expectedCallResult: PostAJAXRequestSuccessfulResponse[SumIntPostRequest] =
+      PostAJAXRequestSuccessfulResponse[SumIntPostRequest]( par, expectedResult )
 
-    val callResult: Future[DecodingSuccess[SumIntPostRequest]] =
+    val callResult: Future[PostAJAXRequestSuccessfulResponse[SumIntPostRequest]] =
       AJAXCalls.sendPostAjaxRequest( apar )
 
     val resInt: Future[Int] =

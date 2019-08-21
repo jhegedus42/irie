@@ -11,7 +11,7 @@ private[caching] object AJAXCalls {
 
   case class AjaxCallPar[Req <: PostRequest](par: Req#Par )
 
-  case class DecodingSuccess[Req <: PostRequest](
+  case class PostAJAXRequestSuccessfulResponse[Req <: PostRequest](
       par: Req#Par,
       res: Req#Res)
 
@@ -22,7 +22,7 @@ private[caching] object AJAXCalls {
       encoder:       Encoder[Req#Par],
       decoder:       Decoder[Req#Res]
 
-    ): Future[DecodingSuccess[Req]] = {
+    ): Future[PostAJAXRequestSuccessfulResponse[Req]] = {
 
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -80,9 +80,9 @@ private[caching] object AJAXCalls {
         } )
         .map( x => x.right.get )
 
-    val res2: Future[DecodingSuccess[Req]] =
+    val res2: Future[PostAJAXRequestSuccessfulResponse[Req]] =
       res1.map(
-        DecodingSuccess( plain_params, _ )
+        PostAJAXRequestSuccessfulResponse( plain_params, _ )
       )
     res2
   }
