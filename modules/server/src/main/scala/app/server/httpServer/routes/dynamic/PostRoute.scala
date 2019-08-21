@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.dynamic
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
-import app.server.httpServer.routes.dynamic.logic.ServerSideLogic.ServerLogicTypeClass
+import app.server.httpServer.routes.dynamic.logic.ServerLogicTypeClass
 import app.shared.comm.{PostRequest, RouteName}
 
 import scala.concurrent.Future
@@ -18,18 +18,18 @@ import akka.http.scaladsl.server.Route
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 //import io.circe.generic.auto._ // this cannot be removed, or can it ? maybeTODO-later
 
-private[routes] case class RequestRoute[Req <: PostRequest](route: Route )
+private[routes] case class PostRoute[Req <: PostRequest](route: Route )
 
-private[routes] object RequestRoute {
+private[routes] object PostRoute {
 
-  def getRoute[Req <: PostRequest]( )(
+  def createPostRoute[Req <: PostRequest]( )(
       implicit
       classTag:    ClassTag[Req],
       classTag2:    ClassTag[Req#PayLoad],
       serverLogic: ServerLogicTypeClass[Req],
       decoder:     Decoder[Req#Par],
       encoder:     Encoder[Req#Res]
-  ): RequestRoute[Req] = {
+  ): PostRoute[Req] = {
 
     val routeName: RouteName = RouteName.getRouteName[Req]
     val pathName: String = routeName.name
@@ -48,8 +48,12 @@ private[routes] object RequestRoute {
             println(
               s"""
                 |
+                |
+                |
                 | ServerLogic was called with parameters:
                 | $params
+                |
+                |
                 |
                """.stripMargin)
 
@@ -61,7 +65,7 @@ private[routes] object RequestRoute {
       }
     }
 
-    RequestRoute[Req]( res )
+    PostRoute[Req]( res )
   }
 
 }

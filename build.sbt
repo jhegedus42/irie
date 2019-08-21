@@ -8,6 +8,8 @@ ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
 
+
+
 lazy val macroVersion = "2.1.1"
 
 lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {

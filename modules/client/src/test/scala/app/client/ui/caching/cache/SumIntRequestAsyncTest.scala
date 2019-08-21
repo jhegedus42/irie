@@ -1,8 +1,8 @@
 package app.client.ui.caching.cache
 
 import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, DecodingSuccess}
-import app.shared.comm.requests.SumIntPostRequest
-import app.shared.comm.requests.SumIntPostRequest.{SumIntPar, SumIntRes}
+import app.shared.comm.postRequests.SumIntPostRequest
+import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
 import org.scalatest.{Assertion, AsyncFunSuite}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

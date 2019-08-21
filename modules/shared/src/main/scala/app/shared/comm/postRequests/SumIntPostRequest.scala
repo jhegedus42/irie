@@ -1,7 +1,7 @@
-package app.shared.comm.requests
+package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.requests.SumIntPostRequest.{SumIntPar, SumIntRes}
+import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
 
 object SumIntPostRequest {
 

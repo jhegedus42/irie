@@ -70,7 +70,6 @@ private[caching] object AJAXCalls {
         |
        """.stripMargin)
 
-    // todo-now , debug this :
 
     val res1: Future[Req#Res] =
       Ajax

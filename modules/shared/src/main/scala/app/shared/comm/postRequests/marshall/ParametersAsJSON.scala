@@ -1,4 +1,4 @@
-package app.shared.comm.requests.marshall
+package app.shared.comm.postRequests.marshall
 
 /**
   * Created by joco on 09/07/2018.

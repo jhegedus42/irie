@@ -1,43 +1,39 @@
 package app.server.httpServer.routes.dynamic.logic.typeClassInstances
 
-import app.server.httpServer.routes.dynamic.logic.ServerSideLogic.ServerLogicTypeClass
+import app.server.httpServer.routes.dynamic.logic.ServerLogicTypeClass
 import app.server.httpServer.routes.dynamic.logic.typeClassInstances.persistence.PersistenceModule
-import app.shared.comm.requests.GetEntityPostRequest
-import app.shared.comm.requests.GetEntityPostRequest.{
-  GetEntityRequestParameter,
-  GetEntityRequestResult
-}
-import app.shared.entity.{Entity, RefToEntity}
+import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
 import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.{Entity, RefToEntity}
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.Try
 
-private[routes] object GetEntity {
 
   case class GetEntityLogic[V <: EntityValue[V]](
       persistenceModule: PersistenceModule,
       d:                 Decoder[Entity[V]],
       contextExecutor:   ExecutionContextExecutor,
-  ) extends ServerLogicTypeClass[GetEntityPostRequest[V]] {
+  ) extends ServerLogicTypeClass[GetEntityReq[V]] {
 
     override def getResult(
-        param: GetEntityRequestParameter[V]
-    ): Future[Option[GetEntityRequestResult[V]]] = {
+        param: GetEntityReqPar[V]
+    ): Future[Option[GetEntityReqRes[V]]] = {
 
       val p: RefToEntity[V] = param.par
 
       val res: Future[Option[Entity[V]]] =
         persistenceModule.getEntity[V]( p )( d )
 
-      val r2: Future[GetEntityRequestResult[V]] =
-        res.map( GetEntityRequestResult( _ ) )( contextExecutor )
+      val r2: Future[GetEntityReqRes[V]] =
+        res.map( GetEntityReqRes( _ ) )( contextExecutor )
 
-      val r3: Future[Some[GetEntityRequestResult[V]]] =
+      val r3: Future[Some[GetEntityReqRes[V]]] =
         r2.map( Some( _ ) )( contextExecutor )
 
-      r3.onComplete( (x: Try[Some[GetEntityRequestResult[V]]]) => {
+      r3.onComplete( (x: Try[Some[GetEntityReqRes[V]]]) => {
         val s2 =
           s"""
             |
@@ -67,4 +63,3 @@ private[routes] object GetEntity {
 
   }
 
-}

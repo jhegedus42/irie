@@ -4,7 +4,7 @@ import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.PostRequest
-import app.shared.comm.requests.SumIntPostRequest
+import app.shared.comm.postRequests.SumIntPostRequest
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor

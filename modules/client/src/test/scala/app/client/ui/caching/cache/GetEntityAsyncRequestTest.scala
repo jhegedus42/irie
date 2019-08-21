@@ -1,8 +1,8 @@
 package app.client.ui.caching.cache
 
 import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, DecodingSuccess}
-import app.shared.comm.requests.GetEntityPostRequest
-import app.shared.comm.requests.GetEntityPostRequest.GetEntityRequestParameter
+import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.GetEntityReq.GetEntityReqPar
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
@@ -15,7 +15,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   override implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  def myAssert(ds:DecodingSuccess[GetEntityPostRequest[User]],user:User)={
+  def myAssert(ds:DecodingSuccess[GetEntityReq[User]], user:User)={
     val user_alice=ds.res.res.get.entityValue
     println(
       s"""
@@ -40,10 +40,10 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   test( "get entity test" ) {
     val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
 
-    val alicePar: GetEntityRequestParameter[User] =
-      GetEntityRequestParameter( alice.refToEntity )
+    val alicePar: GetEntityReqPar[User] =
+      GetEntityReqPar( alice.refToEntity )
 
-    val ajaxCallPar = AjaxCallPar[GetEntityPostRequest[User]]( alicePar )
+    val ajaxCallPar = AjaxCallPar[GetEntityReq[User]]( alicePar )
 
     println(
      s"""
@@ -58,7 +58,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
         |^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       """.stripMargin)
 
-    val res: Future[AJAXCalls.DecodingSuccess[GetEntityPostRequest[User]]] =
+    val res: Future[AJAXCalls.DecodingSuccess[GetEntityReq[User]]] =
       AJAXCalls.sendPostAjaxRequest( ajaxCallPar )
 
     res.map(myAssert(_,alice.entityValue))

@@ -14,7 +14,7 @@ class MainTest extends FunSuite {
 
   test( "simple synchronous (blocking) - 'integration test' stub" ) {
     println( "hello test world" )
-    // todo-next create integration test for insert + get entity
+    // todo-next-2 create integration test for insert + get entity
     //  - insert a user
     //  - get the user
     //  - assert that the two are the same
@@ -43,8 +43,5 @@ class MainTest extends FunSuite {
 
   }
 
-  test("testing type tags"){
-    //TODO-NOW test type tags in scala.js
-  }
 
 }

@@ -1,4 +1,4 @@
-package app.shared.comm.requests.marshall
+package app.shared.comm.postRequests.marshall
 
 import app.shared.comm.PostRequest
 import io.circe.parser._
