@@ -18,6 +18,7 @@ import scala.util.Try
       contextExecutor:   ExecutionContextExecutor
   ) extends ServerLogicTypeClass[GetEntityReq[V]] {
 
+
     override def getResult(
         param: GetEntityReqPar[V]
     )
