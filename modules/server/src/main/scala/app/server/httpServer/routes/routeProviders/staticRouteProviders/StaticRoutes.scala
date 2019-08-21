@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.routeTypes.static
+package app.server.httpServer.routes.routeProviders.staticRouteProviders
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse}
 import akka.http.scaladsl.server.Directives.{complete, getFromDirectory, pathSingleSlash, _}

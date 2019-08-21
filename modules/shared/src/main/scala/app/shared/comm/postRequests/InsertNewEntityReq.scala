@@ -6,13 +6,9 @@ import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 
 object InsertNewEntityReq {
-  case class InsertReqPar[V <: EntityValue[V]](
-      value: V
-  ) extends PostRequest.Parameter
+  case class InsertReqPar[V <: EntityValue[V]]( value: V ) extends PostRequest.Parameter
 
-  case class InsertReqRes[V <: EntityValue[V]](
-      entity: Entity[V]
-  ) extends PostRequest.Result
+  case class InsertReqRes[V <: EntityValue[V]]( entity: Entity[V] ) extends PostRequest.Result
 }
 
 class InsertNewEntityReq[V<:EntityValue[V]] extends PostRequest {

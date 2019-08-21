@@ -3,21 +3,11 @@ package app.server.httpServer.routes
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.PostRouteFactory
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{
-  GetEntityLogic,
-  InsertEntityLogic
-}
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.server.httpServer.routes.routeTypes.static.{
-  IndexDotHtml,
-  StaticRoutes
-}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertNewEntityReq,
-  SumIntPostRequest
-}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.PostRouteFactory
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic}
+import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.{Entity, RefToEntity}
@@ -42,7 +32,7 @@ private[httpServer] case class RouteProvidersFacade(
   private def allRoutes: Route = {
 
     val result: Route =
-      crudEntityRoute[User] ~
+        crudEntityRoute[User] ~
         PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
         StaticRoutes.staticRootFactory( rootPageHtml )
 
@@ -60,7 +50,6 @@ private[httpServer] case class RouteProvidersFacade(
 
     //  todo-next-1 update entity route
 
-    //  todo-next-3 create entity route => todo-now
 
     val createEntity = PostRouteFactory.createPostRoute()
 
@@ -83,6 +72,7 @@ private[httpServer] case class RouteProvidersFacade(
 
     val getEntity = PostRouteFactory.createPostRoute[GetEntityReq[V]].route
 
+    insertRoute ~ // todo-now => test this, using CURL
     getEntity
   }
 
