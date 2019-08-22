@@ -1,8 +1,8 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.InsertNewEntityCommandResponse
-import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{InsertNewEntityCommandResponse, UpdateEntityResponse}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, UpdateEntityCommand}
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
@@ -42,10 +42,7 @@ private[persistenceProvider] case class PersistentActorWrapper(val actor: ActorR
     encoder: Encoder[Entity[V]]
   ): Future[StateChange] = {
 
-    // todo-later
-    //  we should check that the entity's version number is zero, i.e.
-    //  we are dealing with an entity which has not been inserted into the
-    //  ApplicationStateMap
+    assert(entityToInsert.refToEntity.entityVersion.versionNumberLong==0)
 
     val newEntry: ApplicationStateMapEntry = {
       val utr: UntypedRef =
@@ -64,6 +61,37 @@ private[persistenceProvider] case class PersistentActorWrapper(val actor: ActorR
       ).mapTo[InsertNewEntityCommandResponse]
 
     res.map(x => x.stateChange)
+
+  }
+
+  // todo-now updateEntity
+  //  - we have to increase the version numer
+  //  - we have to check that the new Entity has the same version number as the old one
+
+
+  def updateEntity[V <: EntityValue[V]](entityToUpdate: Entity[V])(
+    implicit executionContextExecutor: ExecutionContextExecutor,
+    encoder: Encoder[Entity[V]]
+  ): Future[Either[Errors.EntityUpdateVersionError, StateChange]] = {
+
+
+    val updatedEntry: ApplicationStateMapEntry = {
+      val utr: UntypedRef =
+        UntypedRef.makeFromRefToEntity[V](entityToUpdate.refToEntity)
+
+      val entityAsString: EntityAsString = entityToUpdate.entityAsString()
+
+      val applicationStateEntry =
+        ApplicationStateMapEntry(utr, entityAsString)
+      applicationStateEntry
+    }
+
+    val res: Future[UpdateEntityResponse] =
+      ask(actor, UpdateEntityCommand(updatedEntry))(
+        Timeout.durationToTimeout(1 seconds)
+      ).mapTo[UpdateEntityResponse]
+
+    res.map((x: UpdateEntityResponse) => x.result)
 
   }
 

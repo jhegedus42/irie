@@ -1,11 +1,11 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor.events
 
-import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.InsertNewEntityCommand
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{InsertNewEntityCommand, UpdateEntityCommand}
 
-//events
 sealed trait Event
-//    case class UpdateEntityEvent[E <: Entity[E]](entity: UntypedRef )
-//        extends Event
 
-case class CreateEntityEvent( insertNewEntity: InsertNewEntityCommand )
+case class CreateEntityEvent(insertNewEntityCommand: InsertNewEntityCommand )
     extends Event
+
+case class UpdateEntityEvent(updateEntityCommand: UpdateEntityCommand )
+  extends Event

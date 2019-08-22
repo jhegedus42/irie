@@ -10,13 +10,16 @@ case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),
     entityVersion:           EntityVersion = EntityVersion()
-)
-{
-  def asSimpleString():String={
-      s"${this.entityIdentity.uuid} " +
+) {
+
+  def asSimpleString(): String = {
+    s"${this.entityIdentity.uuid} " +
       s"${this.entityValueTypeAsString.type_as_string} " +
       s"${entityVersion.versionNumberLong}"
   }
+
+  def stripVersion(): UntypedRefWithoutVersion =
+    UntypedRefWithoutVersion( entityValueTypeAsString, entityIdentity )
 }
 
 object UntypedRef {
@@ -30,7 +33,5 @@ object UntypedRef {
       entityVersion           = refToEntity.entityVersion
     )
   }
-
-
 
 }

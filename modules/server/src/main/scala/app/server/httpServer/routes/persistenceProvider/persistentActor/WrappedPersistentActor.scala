@@ -4,7 +4,7 @@ import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.GetStateResult
 import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, ShutdownActor}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.events.CreateEntityEvent
+import app.server.httpServer.routes.persistenceProvider.persistentActor.events.{CreateEntityEvent, UpdateEntityEvent}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.initialization.Config
 import app.shared.state._
@@ -51,7 +51,33 @@ private[persistentActor] class WrappedPersistentActor(id: String )
     * @return
     */
   def unsafeInsertStateEntry( ase: ApplicationStateMapEntry ): ApplicationStateMap = {
-    assert( !ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) ) // this can throw !!!
+    // todo-later - this can throw !!!
+    assert( !ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) )
+    val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
+    ApplicationStateMap( newMap )
+  }
+
+  def getLatestVersionForEntity(untypedRefWithoutVersion: UntypedRefWithoutVersion) = ???
+  // continue-here
+
+  def unsafeUpdateStateEntry( ase: ApplicationStateMapEntry ): ApplicationStateMap = {
+
+    // todo-later - this can throw !!!
+    //  wrap it into try/catch and return the error to the caller in an Either
+    //  so that it can handle it, "some way", (possibly some OCC related "way")
+
+    assert( ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) )
+
+    val before=ApplicationStateWrapper.getState.map.get( ase.untypedRef).get
+    val versionBefore: Long =before.untypedRef.entityVersion.versionNumberLong
+    val versionAfter: Long =ase.untypedRef.entityVersion.versionNumberLong
+    assert(versionAfter==versionBefore)
+
+
+    // todo-now - continue here - simply update the
+    //  - let's store all versions that have been "made" so far
+    //  - let's create a function that returns the latest version
+
     val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
     ApplicationStateMap( newMap )
   }
@@ -120,15 +146,30 @@ private[persistentActor] class WrappedPersistentActor(id: String )
   }
 
   private def applyEvent( event: events.Event ): Unit = event match {
-    case CreateEntityEvent( insertNewEntity ) => {
-      println( s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntity")
 
-      val newEntry: ApplicationStateMapEntry = insertNewEntity.newEntry
+    case CreateEntityEvent( insertNewEntityCommand ) => {
+      println( s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand")
+
+      val newEntry: ApplicationStateMapEntry = insertNewEntityCommand.newEntry
 
       val newState = unsafeInsertStateEntry( newEntry )
 
       ApplicationStateWrapper.setState(newState)
     }
+
+      // todo-now update entity event
+    case UpdateEntityEvent(updateEntityCommand) =>{
+
+      println( s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand")
+
+      val newEntry: ApplicationStateMapEntry = updateEntityCommand.updatedEntry
+
+      val newState = unsafeInsertStateEntry( newEntry )
+
+      ApplicationStateWrapper.setState(newState)
+
+    }
+
 
   }
 
