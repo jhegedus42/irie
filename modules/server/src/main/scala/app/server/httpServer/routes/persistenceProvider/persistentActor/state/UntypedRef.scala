@@ -1,11 +1,12 @@
-package app.shared.state
+package app.server.httpServer.routes.persistenceProvider.persistentActor.state
 
-import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.asString.EntityValueTypeAsString
+import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.{EntityVersion, RefToEntity}
 import app.shared.utils.UUID_Utils.EntityIdentity
-import io.circe.generic.auto._
+import monocle.macros.Lenses
 
+@Lenses
 case class UntypedRef(
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),

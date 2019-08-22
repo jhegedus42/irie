@@ -1,5 +1,8 @@
 package app.shared.entity
 
+import monocle.macros.Lenses
+
+@Lenses
 case class EntityVersion(versionNumberLong: Long = 0 ) {
 
   def inc(): EntityVersion =

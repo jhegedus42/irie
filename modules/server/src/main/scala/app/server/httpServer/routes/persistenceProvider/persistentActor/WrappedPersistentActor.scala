@@ -5,9 +5,11 @@ import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.GetStateResult
 import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, ShutdownActor}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.events.{CreateEntityEvent, UpdateEntityEvent}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMap, ApplicationStateMapContainer, ApplicationStateMapEntry, UntypedRef}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.initialization.Config
 import app.shared.state._
+import app.shared.utils.UUID_Utils.EntityIdentity
 
 import scala.language.postfixOps
 import scala.reflect.ClassTag
@@ -20,72 +22,15 @@ object WrappedPersistentActor {
   def props( id: String ): Props = Props( new WrappedPersistentActor( id ) )
 }
 
-
-private[persistentActor] class WrappedPersistentActor(id: String )
+private[persistentActor] class WrappedPersistentActor( id: String )
     extends PersistentActor with ActorLogging {
 
-  private object ApplicationStateWrapper{
-
-    val areWeTesting= Config.details.areWeTesting
-    val testState=Config.details.testApplicationState.applicationStateMap
-    private var applicationState: ApplicationStateMap = if(!areWeTesting)
-      new ApplicationStateMap()
-    else testState
-
-
-    def getState = applicationState
-    def setState(s:ApplicationStateMap) :Unit=  {
-      println("\n\nState was set to:\n")
-      StatePrintingUtils.printApplicationState(s)
-      applicationState=s
-    }
-
-  }
-
-
-  /**
-    * This is unsafe because it assumes that the key not exist
-    * yet in the map.
-    *
-    * @param ase
-    * @return
-    */
-  def unsafeInsertStateEntry( ase: ApplicationStateMapEntry ): ApplicationStateMap = {
-    // todo-later - this can throw !!!
-    assert( !ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) )
-    val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
-    ApplicationStateMap( newMap )
-  }
-
-  def getLatestVersionForEntity(untypedRefWithoutVersion: UntypedRefWithoutVersion) = ???
-  // continue-here
-
-  def unsafeUpdateStateEntry( ase: ApplicationStateMapEntry ): ApplicationStateMap = {
-
-    // todo-later - this can throw !!!
-    //  wrap it into try/catch and return the error to the caller in an Either
-    //  so that it can handle it, "some way", (possibly some OCC related "way")
-
-    assert( ApplicationStateWrapper.getState.map.contains( ase.untypedRef ) )
-
-    val before=ApplicationStateWrapper.getState.map.get( ase.untypedRef).get
-    val versionBefore: Long =before.untypedRef.entityVersion.versionNumberLong
-    val versionAfter: Long =ase.untypedRef.entityVersion.versionNumberLong
-    assert(versionAfter==versionBefore)
-
-
-    // todo-now - continue here - simply update the
-    //  - let's store all versions that have been "made" so far
-    //  - let's create a function that returns the latest version
-
-    val newMap = ApplicationStateWrapper.getState.map + (ase.untypedRef -> ase)
-    ApplicationStateMap( newMap )
-  }
+  val state=ApplicationStateMapContainer()
 
   def getEntity[V <: EntityValue[V]: ClassTag](
       r: UntypedRef
   ): Option[ApplicationStateMapEntry] = {
-    ApplicationStateWrapper.getState.map.get( r )
+    state.getState.map.get( r )
   }
 
   override def persistenceId: String = id
@@ -95,52 +40,39 @@ private[persistentActor] class WrappedPersistentActor(id: String )
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case command @ InsertNewEntityCommand( newEntry: ApplicationStateMapEntry ) => {
+    case command @ InsertNewEntityCommand(
+          newEntry: ApplicationStateMapEntry
+        ) => {
 
-        val oldState=ApplicationStateWrapper.getState
+      val oldState = state.getState
 
-        val event: events.CreateEntityEvent = {
-          events.CreateEntityEvent( command )
-        }
+      val event: events.CreateEntityEvent = {
+        events.CreateEntityEvent( command )
+      }
 
+      persist( event ) { evt: events.CreateEntityEvent =>
+        applyEvent( evt )
+      }
 
-        persist( event ) { evt: events.CreateEntityEvent =>
-          applyEvent( evt )
-        }
-
-
-      val stateChange = StateChange( oldState, ApplicationStateWrapper.getState)
+      val stateChange =
+        StateChange( oldState, state.getState )
 
       println(
-          "\n\n" +
+        "\n\n" +
           "ReceiveCommand was called\n" +
           "and matched the case 'InsertNewEntityCommand',\n" +
-          "size of maps in StateChange:\n")
-      println(stateChange.getSizeOfMapsBeforeAndAfter)
+          "size of maps in StateChange:\n"
+      )
+      println( stateChange.getSizeOfMapsBeforeAndAfter )
       println()
 
       sender() ! Responses.InsertNewEntityCommandResponse( stateChange )
 
     }
 
-    //    case UpdateEntityPACommand(item) => {
-    //
-    //      val res: \/[SomeError_Trait, (ApplicationState, RefValDyn)] =
-    //        state.updateEntity(item)
-    //      if (res.isRight) {
-    //        persist(UpdateEntity(item)) { evt =>
-    //          applyEvent(evt)
-    //          val rp = UpdateEntityPAResponse(\/-(res.toEither.right.get._2))
-    //          println(rp)
-    //          sender() ! rp
-    //        }
-    //      } else {
-    //        sender() ! UpdateEntityPAResponse(-\/(res.toEither.left.get))
-    //      }
-    //    }
 
     case GetAllStateCommand => {
-      sender() ! GetStateResult( ApplicationStateWrapper.getState)
+      sender() ! GetStateResult( state.getState )
     }
 
   }
@@ -148,30 +80,32 @@ private[persistentActor] class WrappedPersistentActor(id: String )
   private def applyEvent( event: events.Event ): Unit = event match {
 
     case CreateEntityEvent( insertNewEntityCommand ) => {
-      println( s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand")
+      println(
+        s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand"
+      )
 
       val newEntry: ApplicationStateMapEntry = insertNewEntityCommand.newEntry
 
-      val newState = unsafeInsertStateEntry( newEntry )
+      state.unsafeInsertStateEntry( newEntry )
 
-      ApplicationStateWrapper.setState(newState)
     }
 
-      // todo-now update entity event
-    case UpdateEntityEvent(updateEntityCommand) =>{
+    // todo-now update entity event
+    case UpdateEntityEvent( updateEntityCommand ) => {
 
-      println( s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand")
+      println(
+        s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand"
+      )
 
       val newEntry: ApplicationStateMapEntry = updateEntityCommand.updatedEntry
 
-      val newState = unsafeInsertStateEntry( newEntry )
+      state.unsafeInsertUpdatedEntity( newEntry )
 
-      ApplicationStateWrapper.setState(newState)
 
     }
 
-
   }
+
 
   override def receiveRecover: Receive = {
 
@@ -180,9 +114,21 @@ private[persistentActor] class WrappedPersistentActor(id: String )
     }
 
     case RecoveryCompleted => {
-      log.info( "Recovery completed \n\nState is:\n" + ApplicationStateWrapper.getState)
+      log.info(
+        "Recovery completed \n\nState is:\n" + state.getState
+      )
     }
 
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+

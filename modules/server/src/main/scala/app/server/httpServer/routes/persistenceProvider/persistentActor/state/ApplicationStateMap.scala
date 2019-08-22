@@ -1,13 +1,18 @@
-package app.shared.state
-
+package app.server.httpServer.routes.persistenceProvider.persistentActor.state
+import app.shared.entity.Entity
+import app.shared.entity.asString.EntityAsString
+import app.shared.entity.entityValue.EntityValue
+import io.circe.Encoder
+import app.shared.entity.asString.EntityAsString
+import monocle.macros.Lenses
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Encoder
 
 case class ApplicationStateMap (
-  val map: Map[UntypedRef, ApplicationStateMapEntry] = Map.empty
-) {
+                                 val map: Map[UntypedRef, ApplicationStateMapEntry] = Map.empty
+                               ) {
 
   def insertEntity[V <: EntityValue[V]](entity: Entity[V])(
     implicit encoder: Encoder[Entity[V]]

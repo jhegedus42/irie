@@ -1,16 +1,9 @@
 package app.server.httpServer.routes.persistenceProvider
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.shared.state.{
-  ApplicationStateMapEntry,
-  StateChange,
-  UntypedRef
-}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.{
-  WrappedPersistentActor,
-  PersistentActorWrapper,
-  Responses
-}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{StateChange, UntypedRef}
+import app.shared.state.ApplicationStateMapEntry
+import app.server.httpServer.routes.persistenceProvider.persistentActor.{PersistentActorWrapper, Responses, WrappedPersistentActor}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.asString.EntityAsJSON
 import app.shared.entity.{Entity, RefToEntity}

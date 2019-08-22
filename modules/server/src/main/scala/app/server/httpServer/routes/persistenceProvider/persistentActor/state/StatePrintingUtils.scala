@@ -1,4 +1,4 @@
-package app.shared.state
+package app.server.httpServer.routes.persistenceProvider.persistentActor.state
 
 object StatePrintingUtils {
 

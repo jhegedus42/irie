@@ -2,7 +2,7 @@ package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.shared.state.{StateChange, StatePrintingUtils}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{StateChange, StatePrintingUtils}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User

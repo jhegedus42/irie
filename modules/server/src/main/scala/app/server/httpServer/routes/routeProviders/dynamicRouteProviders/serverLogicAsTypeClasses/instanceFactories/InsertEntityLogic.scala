@@ -1,12 +1,12 @@
 package app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories
 
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.StateChange
 import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
 import app.shared.comm.postRequests.InsertNewEntityReq
 import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.state.StateChange
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

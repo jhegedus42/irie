@@ -1,7 +1,8 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Errors.EntityUpdateVersionError
-import app.shared.state.{ApplicationStateMap, StateChange}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMap, StateChange}
+import app.shared.state.ApplicationStateMap
 
 private[persistenceProvider] object Responses {
 
