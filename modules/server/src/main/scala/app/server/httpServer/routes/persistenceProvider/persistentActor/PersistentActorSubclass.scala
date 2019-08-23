@@ -13,15 +13,15 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 import scala.language.postfixOps
 import scala.reflect.ClassTag
 
-object WrappedPersistentActor {
+object PersistentActorSubclass {
   val as: ActorSystem = ActorSystem()
 
   def getActor( id: String ) = as.actorOf( props( id ) )
 
-  def props( id: String ): Props = Props( new WrappedPersistentActor( id ) )
+  def props( id: String ): Props = Props( new PersistentActorSubclass( id ) )
 }
 
-private[persistentActor] class WrappedPersistentActor( id: String )
+private[persistentActor] class PersistentActorSubclass(id: String )
     extends PersistentActor with ActorLogging {
 
   val state=ApplicationStateMapContainer()

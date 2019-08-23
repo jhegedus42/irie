@@ -28,7 +28,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
 
     val e: Entity[V] = param.entity
 
-//    implicit val encoder: Encoder[Entity[V]] = e
+    implicit val encoder: Encoder[Entity[V]] = e_ent
     implicit val cti:     ClassTag[V]        = ct
 
 //    val res = persistenceModule.createAndStoreNewEntity[V]( p )

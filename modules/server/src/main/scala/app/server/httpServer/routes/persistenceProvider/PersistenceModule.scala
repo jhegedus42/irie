@@ -1,18 +1,9 @@
 package app.server.httpServer.routes.persistenceProvider
 
-import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{
-  ApplicationStateMapEntry,
-  StateChange,
-  UntypedRef
-}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.{
-  PersistentActorWrapper,
-  Responses,
-  WrappedPersistentActor
-}
-import app.shared.entity.entityValue.EntityValue
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMapEntry, StateChange, UntypedRef}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.{Errors, PlainFunctionInterfaceToPersistentActor, Responses}
 import app.shared.entity.asString.EntityAsJSON
+import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.{Entity, RefToEntity}
 import io.circe.{Decoder, Encoder}
 
@@ -25,10 +16,10 @@ private[routes] case class PersistenceModule(
 
   implicit val context_as_implicit = context
 
-  private val persistentActorWrapper: PersistentActorWrapper = {
-    val peristentActor: ActorRef =
-      WrappedPersistentActor.getActor( "one_and_only_parsistent_actor" )
-    PersistentActorWrapper( peristentActor )
+  private val simpleFunctionInterfaceToPersistentActor
+    : PlainFunctionInterfaceToPersistentActor = {
+//    WrappedPersistentActor(context)
+    PlainFunctionInterfaceToPersistentActor()
   }
 
   def getEntity[V <: EntityValue[V]](
@@ -38,7 +29,7 @@ private[routes] case class PersistenceModule(
   ): Future[Option[Entity[V]]] = {
 
     val eventualGetStateResult: Future[Responses.GetStateResult] =
-      persistentActorWrapper.getState
+      simpleFunctionInterfaceToPersistentActor.getState
 
     val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity( ref )
 
@@ -83,22 +74,36 @@ private[routes] case class PersistenceModule(
     r4
   }
 
-  def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag](
-      value: V
-  )(
+  def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag]( value: V )(
       implicit encoder: Encoder[Entity[V]]
   ): Future[( StateChange, Entity[V] )] = {
 
     val entity: Entity[V] = Entity.makeFromValue( value )
 
     val res: Future[StateChange] =
-      persistentActorWrapper.insertEntity[V]( entity )
+      simpleFunctionInterfaceToPersistentActor.insertEntity[V]( entity )
 
     res.map( x => ( x, entity ) )
   }
 
   def updateEntity[V <: EntityValue[V]: ClassTag](
-      entity: Entity[V]
-  ): Future[( StateChange, Entity[V] )] = ??? // todo-now fill in this ???
+      entity: Entity[V])( implicit encoder: Encoder[Entity[V]]) :
+        Future[( StateChange, Entity[V] )] = {
+
+    val res: Future[Either[Errors.EntityUpdateVersionError, StateChange]] =
+      simpleFunctionInterfaceToPersistentActor.updateEntity( entity )
+
+    val res2: Future[(StateChange, Entity[V])] = res.flatMap((x: Either[Errors.EntityUpdateVersionError, StateChange]) =>{
+      x match {
+        case Left(value) => Future.failed(
+          new Exception(
+            "There was some problem with the versions or something when" +
+            s"trying to update the entity : \n$entity "))
+        case Right(value) =>Future.successful((value,entity))
+      }
+
+    })
+    res2
+  }
 
 }

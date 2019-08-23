@@ -70,6 +70,13 @@ private[httpServer] case class RouteProvidersFacade(
 
     implicit val getRouteLogic = GetEntityLogic[V]( persistenceModule, decoder, executionContext )
 
+    //
+    // todo-now :
+    //  testing the update entity route :
+    //    1) write a simple CURL test in a .sh script
+    //    2) write JSDOM + Scala.js + Node.js based integration test
+    //
+
     PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
     PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route ~
     PostRouteFactory.createPostRoute[GetEntityReq[V]].route
