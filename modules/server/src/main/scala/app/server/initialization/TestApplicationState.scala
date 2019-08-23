@@ -1,7 +1,8 @@
-package app.shared.initialization.testing
+package app.server.initialization
 
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.ApplicationStateMap
+import app.shared.initialization.testing.TestUsers
 import io.circe.generic.auto._
-import app.shared.state.ApplicationStateMap
 
 case class TestApplicationState ( applicationStateMap: ApplicationStateMap)
 

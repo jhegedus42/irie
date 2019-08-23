@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import app.server.httpServer.routes.RouteProvidersFacade
-import app.shared.initialization.Config
+import app.server.initialization.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 

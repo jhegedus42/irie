@@ -1,6 +1,4 @@
-package app.shared.initialization
-
-
+package app.server.initialization
 
 object Config {
   val port = 8080

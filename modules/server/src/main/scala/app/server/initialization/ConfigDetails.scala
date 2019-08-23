@@ -1,6 +1,4 @@
-package app.shared.initialization
-
-import app.shared.initialization.testing.TestApplicationState
+package app.server.initialization
 
 /**
   * Created by joco on 16/06/2017.

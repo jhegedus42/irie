@@ -4,10 +4,10 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.PostRouteFactory
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
 import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest}
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.{Entity, RefToEntity}
@@ -32,7 +32,7 @@ private[httpServer] case class RouteProvidersFacade(
   private def allRoutes: Route = {
 
     val result: Route =
-        crudEntityRoute[User] ~
+      crudEntityRoute[User] ~
         PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
         StaticRoutes.staticRootFactory( rootPageHtml )
 
@@ -50,30 +50,29 @@ private[httpServer] case class RouteProvidersFacade(
 
     //  todo-next-1 update entity route
 
-
-    val createEntity = PostRouteFactory.createPostRoute()
-
-    implicit val insertRouteLogic =
-      InsertEntityLogic(
-        persistenceModule,
-        decoder,
-        encoder,
-        implicitly[ClassTag[V]],
-        executionContext
-      )
-
     import io.circe.generic.auto._
 
-    val insertRoute =
-      PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route
+    implicit val insertRouteLogic = InsertEntityLogic(
+      persistenceModule,
+      decoder,
+      encoder,
+      implicitly[ClassTag[V]],
+      executionContext
+    )
 
-    implicit val getRouteLogic =
-      GetEntityLogic[V]( persistenceModule, decoder, executionContext )
+    implicit val updateRouteLogic = UpdateEntityLogic(
+      persistenceModule,
+      decoder,
+      encoder,
+      implicitly[ClassTag[V]],
+      executionContext
+    )
 
-    val getEntity = PostRouteFactory.createPostRoute[GetEntityReq[V]].route
+    implicit val getRouteLogic = GetEntityLogic[V]( persistenceModule, decoder, executionContext )
 
-    insertRoute ~ // todo-now => test this, using CURL
-    getEntity
+    PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
+    PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route ~
+    PostRouteFactory.createPostRoute[GetEntityReq[V]].route
   }
 
 }

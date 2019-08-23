@@ -1,9 +1,16 @@
 package app.server.httpServer.routes.persistenceProvider
 
 import akka.actor.{ActorRef, ActorSystem}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{StateChange, UntypedRef}
-import app.shared.state.ApplicationStateMapEntry
-import app.server.httpServer.routes.persistenceProvider.persistentActor.{PersistentActorWrapper, Responses, WrappedPersistentActor}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{
+  ApplicationStateMapEntry,
+  StateChange,
+  UntypedRef
+}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.{
+  PersistentActorWrapper,
+  Responses,
+  WrappedPersistentActor
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.asString.EntityAsJSON
 import app.shared.entity.{Entity, RefToEntity}
@@ -25,10 +32,10 @@ private[routes] case class PersistenceModule(
   }
 
   def getEntity[V <: EntityValue[V]](
-      ref:       RefToEntity[V]
+      ref: RefToEntity[V]
   )(
-    implicit d: Decoder[Entity[V]]
-    ): Future[Option[Entity[V]]] = {
+      implicit d: Decoder[Entity[V]]
+  ): Future[Option[Entity[V]]] = {
 
     val eventualGetStateResult: Future[Responses.GetStateResult] =
       persistentActorWrapper.getState
@@ -76,7 +83,7 @@ private[routes] case class PersistenceModule(
     r4
   }
 
-  def createAndStoreNewEntity[V <: EntityValue[V]:ClassTag](
+  def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag](
       value: V
   )(
       implicit encoder: Encoder[Entity[V]]
@@ -89,5 +96,9 @@ private[routes] case class PersistenceModule(
 
     res.map( x => ( x, entity ) )
   }
+
+  def updateEntity[V <: EntityValue[V]: ClassTag](
+      entity: Entity[V]
+  ): Future[( StateChange, Entity[V] )] = ??? // todo-now fill in this ???
 
 }

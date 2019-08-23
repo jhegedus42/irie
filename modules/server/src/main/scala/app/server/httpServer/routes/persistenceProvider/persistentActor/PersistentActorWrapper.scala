@@ -64,9 +64,6 @@ private[persistenceProvider] case class PersistentActorWrapper(val actor: ActorR
 
   }
 
-  // todo-now updateEntity
-  //  - we have to increase the version numer
-  //  - we have to check that the new Entity has the same version number as the old one
 
 
   def updateEntity[V <: EntityValue[V]](entityToUpdate: Entity[V])(

@@ -1,11 +1,11 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor.state
+import app.server.initialization.Config
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Encoder
 import app.shared.entity.asString.EntityAsString
 import monocle.macros.Lenses
-import app.shared.initialization.Config
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 private[persistentActor] case class ApplicationStateMapContainer() {

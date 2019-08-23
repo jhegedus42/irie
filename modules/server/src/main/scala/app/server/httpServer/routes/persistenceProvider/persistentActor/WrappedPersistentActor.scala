@@ -5,10 +5,9 @@ import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.GetStateResult
 import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, ShutdownActor}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.events.{CreateEntityEvent, UpdateEntityEvent}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMap, ApplicationStateMapContainer, ApplicationStateMapEntry, UntypedRef}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMap, ApplicationStateMapContainer, ApplicationStateMapEntry, StateChange, UntypedRef}
+import app.server.initialization.Config
 import app.shared.entity.entityValue.EntityValue
-import app.shared.initialization.Config
-import app.shared.state._
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 import scala.language.postfixOps
@@ -90,7 +89,6 @@ private[persistentActor] class WrappedPersistentActor( id: String )
 
     }
 
-    // todo-now update entity event
     case UpdateEntityEvent( updateEntityCommand ) => {
 
       println(
