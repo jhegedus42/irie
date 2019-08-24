@@ -2,7 +2,7 @@ package app.server.httpServer.routes.routeProviders.dynamicRouteProviders
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
-import app.server.utils.GetTimeOnJVM
+import app.server.utils.{GetTimeOnJVM, PrettyPrint}
 import app.shared.comm.{PostRequest, RouteName}
 
 import scala.concurrent.Future
@@ -38,6 +38,23 @@ private[routes] object PostRouteFactory {
         path( pathName ) {
 
           entity( as[Req#Par] ) { params: Req#Par =>
+            // todo-one-day
+            //  get rid of this magical entity marshalling
+            //  and do the marshalling by hand using circe's
+            //  Decoder[Req#Par] directly from json ...
+            //  this way we can debug the requests ... at all
+            //  and print out to the console the incoming JSON's.
+            //  Now, they get "lost somewhere in the translation".
+            //  => let's try to extract the json in the ping_pong
+            //     route
+            //  for example, let's look at :
+            //  https://doc.akka.io/docs/akka-http/current/routing-dsl/directives/index.html#basics
+            //
+            //
+
+
+
+
             val res: Future[Option[Req#Res]] =
               serverLogic.getResult( params )
 
@@ -49,6 +66,12 @@ private[routes] object PostRouteFactory {
                 |
                 | ServerLogic was called with parameters:
                 | $params
+                |
+                |
+                | or the same, just pretty printed:
+                |
+                | ${PrettyPrint.prettyPrint(params)}
+                |
                 |
                 | Time is :
                 | ${GetTimeOnJVM.time.toString}

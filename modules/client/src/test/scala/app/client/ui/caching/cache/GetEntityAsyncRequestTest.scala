@@ -71,7 +71,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
       AJAXCalls.PostAJAXRequestSuccessfulResponse[GetEntityReq[User]]
     ] =
       AJAXCalls.sendPostAjaxRequest( ajaxCallPar )
-    res.map( _.res.res.get )
+    res.map( _.res.optionEntity.get )
   }
 
   test( "get entity test" ) {

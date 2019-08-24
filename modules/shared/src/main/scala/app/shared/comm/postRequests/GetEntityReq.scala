@@ -10,13 +10,9 @@ import app.shared.entity.{Entity, RefToEntity}
 
 object GetEntityReq {
 
-  case class GetEntityReqPar[V <: EntityValue[V]](
-      par: RefToEntity[V]
-  ) extends PostRequest.Parameter
+  case class GetEntityReqPar[V <: EntityValue[V]](refToEntity: RefToEntity[V] ) extends PostRequest.Parameter
 
-  case class GetEntityReqRes[V <: EntityValue[V]](
-      res: Option[Entity[V]]
-  ) extends PostRequest.Result
+  case class GetEntityReqRes[V <: EntityValue[V]](optionEntity: Option[Entity[V]] ) extends PostRequest.Result
 
 }
 

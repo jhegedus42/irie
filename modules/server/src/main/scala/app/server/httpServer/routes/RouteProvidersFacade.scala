@@ -1,33 +1,19 @@
 package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
+import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{
-  PostRoute,
-  PostRouteFactory
-}
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{
-  GetEntityLogic,
-  InsertEntityLogic,
-  UpdateEntityLogic
-}
-import app.server.httpServer.routes.routeProviders.staticRouteProviders.{
-  IndexDotHtml,
-  StaticRoutes
-}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertNewEntityReq,
-  SumIntPostRequest,
-  UpdateEntityReq
-}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
+import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.{Entity, RefToEntity}
 
-import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
 private[httpServer] case class RouteProvidersFacade(
@@ -48,8 +34,10 @@ private[httpServer] case class RouteProvidersFacade(
 
     val result: Route =
       crudEntityRoute[User] ~
-        PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
-        StaticRoutes.staticRootFactory( rootPageHtml )
+      PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
+      StaticRoutes.staticRootFactory( rootPageHtml )~
+      simplePostRouteHelloWorld ~
+      ping_pong
 
     result
   }
@@ -99,5 +87,43 @@ private[httpServer] case class RouteProvidersFacade(
 
   // todo-next
   //    2) write JSDOM + Scala.js + Node.js based integration test
+
+  private def simplePostRouteHelloWorld :Route ={
+    post{
+      path ("hello_world"){
+        complete("Hello world !")
+      }
+    }
+  }
+
+  private def ping_pong :Route ={
+    post{
+      path ("ping_pong"){ ctx => {
+            ctx.complete({
+              val r1: RequestEntity =ctx.request.entity
+              val ctype: ContentType =ctx.request.entity.httpEntity.contentType
+              val res=
+                s"""
+                   |
+                   | Request Entity is :
+                   | $r1
+                   |
+                   | Content type is:
+                   | $ctype
+                   |
+                   |
+                 """.stripMargin
+
+              println(
+                "ping pong route was called, we respond" +
+                "with the following string:\n+res")
+
+              res
+
+            })
+        }
+      }
+    }
+  }
 
 }

@@ -1,20 +1,10 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{
-  InsertNewEntityCommandResponse,
-  UpdateEntityResponse
-}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{
-  GetAllStateCommand,
-  InsertNewEntityCommand,
-  UpdateEntityCommand
-}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{
-  ApplicationStateMapEntry,
-  StateChange,
-  UntypedRef
-}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{InsertNewEntityCommandResponse, UpdateEntityResponse}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMapEntry, StateChange, UntypedRef}
+import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
@@ -34,7 +24,7 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
 //  implicit val context_as_implicit = context
 
   val actor: ActorRef =
-    PersistentActorSubclass.getActor( "one_and_only_parsistent_actor" )
+    PersistentActorForOurApp.getActor( "the_one_and_only_parsistent_actor" )
 
   def getState: Future[Responses.GetStateResult] =
     ask( actor, GetAllStateCommand )( Timeout.durationToTimeout( 1 seconds ) )
@@ -97,10 +87,38 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
       applicationStateEntry
     }
 
-    val res: Future[UpdateEntityResponse] =
-      ask( actor, UpdateEntityCommand( updatedEntry ) )(
+    val res: Future[UpdateEntityResponse] ={
+
+      val commandToExecute=UpdateEntityCommand( updatedEntry )
+
+
+      println(
+        s"""
+          |
+          |vvvvvvvvvvvvvvvvvvvvvvv-------------------------------
+          |
+          |We are now in updateEntity, inside PlainFunctionInterfaceToPersistentActor
+          |
+          |we will "ask" the persistent actor to execute the following
+          |UpdateEntityCommand :
+          |
+          |$commandToExecute
+          |
+          |
+          |or pretty printed:
+          |
+          |${PrettyPrint.prettyPrint(commandToExecute)}
+          |
+          |
+          |^^^^^^^^^^^^^^^^^^^^^^^-------------------------------
+          |
+        """.stripMargin)
+
+      ask( actor, commandToExecute )(
         Timeout.durationToTimeout( 1 seconds )
       ).mapTo[UpdateEntityResponse]
+
+    }
 
     res.map( (x: UpdateEntityResponse) => x.result )
 

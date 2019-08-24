@@ -31,7 +31,6 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
     implicit val encoder: Encoder[Entity[V]] = e_ent
     implicit val cti:     ClassTag[V]        = ct
 
-//    val res = persistenceModule.createAndStoreNewEntity[V]( p )
     val res: Future[(StateChange, Entity[V])] = persistenceModule.updateEntity[V]( e )
 
     val r2: Future[UpdateReqRes[V]] =
@@ -48,7 +47,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
            |vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
            |
            |
-           |r3 has completed in `InsertEntityLogic`
+           |r3 has completed in `UpdateEntityLogic`
            |it was called with param:
            |$param
            |

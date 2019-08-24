@@ -24,7 +24,7 @@ import scala.util.Try
     )
     : Future[Option[GetEntityReqRes[V]]] = {
 
-      val p: RefToEntity[V] = param.par
+      val p: RefToEntity[V] = param.refToEntity
 
       val res: Future[Option[Entity[V]]] =
         persistenceModule.getEntity[V]( p )( d )
