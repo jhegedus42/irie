@@ -4,10 +4,25 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
-import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{
+  PostRoute,
+  PostRouteFactory
+}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{
+  GetEntityLogic,
+  InsertEntityLogic,
+  UpdateEntityLogic
+}
+import app.server.httpServer.routes.routeProviders.staticRouteProviders.{
+  IndexDotHtml,
+  StaticRoutes
+}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  InsertNewEntityReq,
+  SumIntPostRequest,
+  UpdateEntityReq
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.{Entity, RefToEntity}
@@ -68,18 +83,21 @@ private[httpServer] case class RouteProvidersFacade(
       executionContext
     )
 
-    implicit val getRouteLogic = GetEntityLogic[V]( persistenceModule, decoder, executionContext )
+    implicit val getRouteLogic =
+      GetEntityLogic[V]( persistenceModule, decoder, executionContext )
 
-    //
     // todo-now :
-    //  testing the update entity route :
-    //    1) write a simple CURL test in a .sh script
-    //    2) write JSDOM + Scala.js + Node.js based integration test
-    //
+    //    1) write a simple CURL test in a .sh script <<<<====
+    //       for the update entity route
 
-    PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
-    PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route ~
-    PostRouteFactory.createPostRoute[GetEntityReq[V]].route
+
+
+      PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
+      PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route ~
+      PostRouteFactory.createPostRoute[GetEntityReq[V]].route
   }
+
+  // todo-next
+  //    2) write JSDOM + Scala.js + Node.js based integration test
 
 }

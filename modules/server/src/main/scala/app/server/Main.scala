@@ -10,7 +10,7 @@ object Main extends App {
 
   val server=HttpServer(actorSystem)
 
-  val host: String = args(0)
+  val host: String = if(args.length==0) "localhost" else args(0)
 
   server.startServer(host)
 
