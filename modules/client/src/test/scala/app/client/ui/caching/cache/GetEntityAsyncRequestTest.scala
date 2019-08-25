@@ -7,7 +7,7 @@ import app.client.ui.caching.cache.AJAXCalls.{
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq}
 import app.shared.comm.postRequests.GetEntityReq.GetEntityReqPar
 import app.shared.comm.postRequests.InsertNewEntityReq.InsertReqPar
-import app.shared.entity.{Entity, RefToEntity}
+import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
 import org.scalatest.{Assertion, AsyncFunSuite}

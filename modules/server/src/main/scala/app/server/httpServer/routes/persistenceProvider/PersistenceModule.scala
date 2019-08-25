@@ -4,7 +4,8 @@ import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{A
 import app.server.httpServer.routes.persistenceProvider.persistentActor.{Errors, PlainFunctionInterfaceToPersistentActor, Responses}
 import app.shared.entity.asString.EntityAsJSON
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.{Entity, RefToEntity}
+import app.shared.entity.Entity
+import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -22,9 +23,7 @@ private[routes] case class PersistenceModule(
     PlainFunctionInterfaceToPersistentActor()
   }
 
-  def getEntity[V <: EntityValue[V]](
-      ref: RefToEntity[V]
-  )(
+  def getEntity[V <: EntityValue[V]]( ref: RefToEntityWithVersion[V] )(
       implicit d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 

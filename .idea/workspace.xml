@@ -7,30 +7,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/building/build_js_dep_bundle.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/cleaning/clean.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/cleaning/super_clean.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/running/run-no-cleaning-192.168.2.50.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/running/run-no-cleaning.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/running/run.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/client_testOnly_GetEntityAsyncRequestTest.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/addTwoInts.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/addTwoIntsUsingCURL.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/createEntity/createBob.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/createEntity/createBobUsingCURL.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/getEntity/askForAlice.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/curl/getEntity/askForAliceUsingCURL.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/set_node_env_variable_for_testing.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/test-everything.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash/testing/test-server-only.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/module_overview_diagram.graffle" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/module_overview_diagram.graffle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorSubclass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/state/UntypedRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntityWithVersion.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,18 +70,73 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+                <state relative-caret-position="247">
+                  <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
                   <folding>
-                    <element signature="e#74#126#0" expanded="true" />
-                    <element signature="e#1616#2534#0" />
-                    <element signature="e#2540#3258#0" />
-                    <element signature="e#3266#3721#0" />
-                    <element signature="e#3779#4452#0" />
-                    <element signature="e#4456#4689#0" />
+                    <element signature="e#828#917#0" />
+                    <element signature="e#921#2462#0" />
+                    <element signature="e#2466#2831#0" />
+                    <element signature="e#2835#3575#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntityWithVersion.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="222">
+                  <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#38#67#0" expanded="true" />
+                    <element signature="e#1347#1622#0" />
+                    <element signature="e#2920#3057#0" />
+                    <element signature="e#3061#3791#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="247">
+                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="348">
+                  <caret line="33" column="70" lean-forward="true" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+                  <folding>
+                    <element signature="e#118#191#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="15" selection-start-line="15" selection-end-line="15" />
+                  <folding>
+                    <element signature="e#74#177#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -104,12 +147,12 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+                <state relative-caret-position="171">
+                  <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
                   <folding>
-                    <element signature="e#74#177#0" expanded="true" />
+                    <element signature="e#1156#2737#0" />
                   </folding>
                 </state>
               </provider>
@@ -186,9 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistence/PersistenceModule.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/dependsOn/persistence/persistentActor/PersistentActorCommands.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/PersistentActorCommands.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala" />
@@ -227,7 +267,6 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/UpdateEntityReq.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorWrapper.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/WrappedPersistentActor.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" />
@@ -237,14 +276,18 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntity.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntityWithVersion.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
-    <option name="y" value="27" />
-    <option name="width" value="1382" />
-    <option name="height" value="760" />
+    <option name="x" value="1514" />
+    <option name="y" value="-88" />
+    <option name="width" value="1735" />
+    <option name="height" value="996" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -482,6 +525,69 @@
               <item name="persistentActor" type="462c0819:PsiDirectoryNode" />
               <item name="commands" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -498,13 +604,13 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.46729776" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -686,13 +792,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00175" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).">
-      <created>1565814251244</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1565814251245</updated>
     </task>
     <task id="LOCAL-00176" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...">
       <created>1565814576736</created>
@@ -1030,7 +1129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566614271798</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests.">
+      <created>1566687579085</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1566687579085</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1077,13 +1183,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="27" width="1382" height="760" extended-state="0" />
+    <frame x="1514" y="-88" width="1735" height="996" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.3670635" side_tool="true" weight="0.27686566" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.63293654" weight="0.39402986" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.63293654" visible="true" weight="0.3936867" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.4883721" />
@@ -1092,7 +1198,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.27994013" />
-      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.43862274" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" weight="0.43862274" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.50817436" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1163,7 +1269,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Bit of refactoring. Making same testing data available to both sides:&#10;client and server. Renaming a few things. Creating URI friendly &#10;encoding for JSON strings." />
     <MESSAGE value="Commit before trying to parametrize over request type." />
     <MESSAGE value="Using POST for all communication." />
     <MESSAGE value="Using POST for all communication.&#10;&#10;Hierarchical decomposition and facades." />
@@ -1188,26 +1293,10 @@
     <MESSAGE value="Update Entity &quot;feature&quot; implementation is in progress.&#10;&#10;Heavy refactoring. Moving classes to more appropriate&#10;places for increasing cohesion (from a graph theoretic&#10;point of view).&#10;&#10;Refactoring is &quot;done&quot;.&#10;&#10;Progress in the Update entity route implementation has been made.&#10;&#10;In principle, &quot;only&quot; one method needs to be implemented now&#10;in the PersistenceModule.&#10;&#10;Friday, 23 August 2019 6.56.37" />
     <MESSAGE value="Next step: test the update entity route." />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough" />
-    <option name="LAST_COMMIT_MESSAGE" value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough" />
+    <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/staticRouteProviders/StaticRoutes.scala">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/staticRouteProviders/IndexDotHtml.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/SumIntInstance.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1246,16 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRoute.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#75#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityValueTypeAsString.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1263,13 +1342,6 @@
           <folding>
             <element signature="e#36#84#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1482,27 +1554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="93" column="54" lean-forward="true" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
-          <folding>
-            <element signature="e#58#187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-          <folding>
-            <element signature="e#38#67#0" expanded="true" />
-            <element signature="e#1252#1269#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/utils/PrettyPrint.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1520,16 +1571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
-          <folding>
-            <element signature="e#75#143#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/InsertEntityLogic.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -1540,47 +1581,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="33" column="71" lean-forward="true" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
-          <folding>
-            <element signature="e#118#191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding>
-            <element signature="e#74#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/CommandHandlers.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/CommandHandlers.scala" />
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Errors.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="e#74#177#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1597,8 +1602,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="101">
+          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
           <folding>
             <element signature="e#74#126#0" expanded="true" />
             <element signature="e#1616#2534#0" />
@@ -1606,6 +1611,110 @@
             <element signature="e#3266#3721#0" />
             <element signature="e#3779#4452#0" />
             <element signature="e#4456#4689#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding>
+            <element signature="e#74#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#74#177#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="e#75#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="70" column="21" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+          <folding>
+            <element signature="e#38#67#0" expanded="true" />
+            <element signature="e#1347#1622#0" />
+            <element signature="e#2920#3057#0" />
+            <element signature="e#3061#3791#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/ServerLogicTypeClass.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="33" column="70" lean-forward="true" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+          <folding>
+            <element signature="e#118#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="e#828#917#0" />
+            <element signature="e#921#2462#0" />
+            <element signature="e#2466#2831#0" />
+            <element signature="e#2835#3575#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/RefToEntityWithVersion.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="e#1156#2737#0" />
           </folding>
         </state>
       </provider>

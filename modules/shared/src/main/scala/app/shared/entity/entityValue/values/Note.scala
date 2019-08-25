@@ -1,10 +1,10 @@
 package app.shared.entity.entityValue.values
 
-import app.shared.entity.RefToEntity
 import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.refs.RefToEntityWithVersion
 
 
 case class Note(
     content: String,
-    owner:   Option[RefToEntity[NoteFolder]] = None
+    owner:   Option[RefToEntityWithVersion[NoteFolder]] = None
 ) extends EntityValue[Note]

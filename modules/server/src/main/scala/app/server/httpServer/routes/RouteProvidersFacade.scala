@@ -11,7 +11,8 @@ import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDo
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.{Entity, RefToEntity}
+import app.shared.entity.Entity
+import app.shared.entity.refs.RefToEntityWithVersion
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -45,10 +46,10 @@ private[httpServer] case class RouteProvidersFacade(
   private def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
 
   private def crudEntityRoute[V <: EntityValue[V]: ClassTag](
-      implicit unTypedRefDecoder: Decoder[RefToEntity[V]],
-      encoder:                    Encoder[Entity[V]],
-      decoder:                    Decoder[Entity[V]],
-      dpl:                        Decoder[V]
+                                                              implicit unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
+                                                              encoder:                    Encoder[Entity[V]],
+                                                              decoder:                    Decoder[Entity[V]],
+                                                              dpl:                        Decoder[V]
   ): Route = {
 
     //  todo-next-1 update entity route

@@ -2,7 +2,7 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor.state
 
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.{EntityVersion, RefToEntity}
+import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 
@@ -26,7 +26,7 @@ case class UntypedRef(
 object UntypedRef {
 
   def makeFromRefToEntity[T <: EntityValue[T]](
-      refToEntity: RefToEntity[T]
+      refToEntity: RefToEntityWithVersion[T]
   ): UntypedRef = {
     UntypedRef(
       entityValueTypeAsString = refToEntity.entityValueTypeAsString,

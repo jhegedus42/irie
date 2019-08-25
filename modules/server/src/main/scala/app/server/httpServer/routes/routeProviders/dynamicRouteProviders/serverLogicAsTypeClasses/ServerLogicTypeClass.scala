@@ -5,8 +5,8 @@ import app.shared.comm.PostRequest
 import scala.concurrent.Future
 
 
-  trait ServerLogicTypeClass[V <: PostRequest] {
-    def getResult(param: V#Par ): Future[Option[V#Res]]
+  trait ServerLogicTypeClass[Req <: PostRequest] {
+    def getResult(param: Req#Par ): Future[Option[Req#Res]]
   }
 
 object ServerLogicTypeClass {

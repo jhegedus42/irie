@@ -1,4 +1,4 @@
-package app.shared.entity
+package app.shared.entity.refs
 
 import monocle.macros.Lenses
 
