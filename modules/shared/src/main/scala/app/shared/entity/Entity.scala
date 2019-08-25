@@ -1,6 +1,11 @@
 package app.shared.entity
 
-import app.shared.entity.asString.{EntityAsJSON, EntityAsString, EntityValueAsToString, EntityValueTypeAsString}
+import app.shared.entity.asString.{
+  EntityAsJSON,
+  EntityAsString,
+  EntityValueAsToString,
+  EntityValueTypeAsString
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion}
 import io.circe._
@@ -10,10 +15,14 @@ import scala.reflect.ClassTag
 
 @Lenses
 case class Entity[E <: EntityValue[E]](
-                                        entityValue:       E,
-                                        refToEntity:       RefToEntityWithVersion[E],
-                                        entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag( false )
+    entityValue:       E,
+    refToEntity:       RefToEntityWithVersion[E],
+    entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag( false )
 ) {
+
+  def entityAsString()( implicit e: Encoder[Entity[E]] ): EntityAsString = {
+    EntityAsString( this.toJSON, this.valueAsToString() )
+  }
 
   private def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
     val jsonAsString: String = e.apply( this ).spaces4
@@ -25,10 +34,6 @@ case class Entity[E <: EntityValue[E]](
     EntityValueAsToString( this.entityValue.toString )
   }
 
-  def entityAsString()( implicit e: Encoder[Entity[E]] ): EntityAsString = {
-    EntityAsString( this.toJSON, this.valueAsToString() )
-  }
-
 }
 
 object Entity {
@@ -38,6 +43,4 @@ object Entity {
     Entity( v, tr )
   }
 
-
 }
-

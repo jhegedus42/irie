@@ -2,4 +2,4 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor.command
 
 import app.server.httpServer.routes.persistenceProvider.persistentActor.state.ApplicationStateMapEntry
 
-case class UpdateEntityCommand( updatedEntry: ApplicationStateMapEntry )
+case class UpdateEntity_Command(updatedEntry: ApplicationStateMapEntry )

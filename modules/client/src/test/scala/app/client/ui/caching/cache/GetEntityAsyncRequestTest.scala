@@ -51,7 +51,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   def getUser( entity: Entity[User] ): Future[Entity[User]] = {
 
     val requestPar: GetEntityReqPar[User] =
-      GetEntityReqPar( entity.refToEntity )
+      GetEntityReqPar( entity.refToEntity.stripVersion() )
 
     val ajaxCallPar = AjaxCallPar[GetEntityReq[User]]( requestPar )
 

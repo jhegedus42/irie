@@ -6,7 +6,8 @@ import app.server.httpServer.HttpServer
 object Main extends App {
 
   implicit lazy val actorSystem: ActorSystem =
-    ActorSystem( "ActorSystem_for_all_Actors_in_the_app_created_in_Main_App_this_is_not_test" )
+    ActorSystem(
+      "ActorSystem_for_all_Actors_in_the_app_created_in_Main_App_this_is_not_test" )
 
   val server=HttpServer(actorSystem)
 

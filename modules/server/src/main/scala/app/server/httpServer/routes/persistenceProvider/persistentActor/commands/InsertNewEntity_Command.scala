@@ -3,4 +3,4 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor.command
 import app.server.httpServer.routes.persistenceProvider.persistentActor.state.ApplicationStateMapEntry
 
 
-case class InsertNewEntityCommand( newEntry: ApplicationStateMapEntry )
+case class InsertNewEntity_Command(newEntry: ApplicationStateMapEntry )

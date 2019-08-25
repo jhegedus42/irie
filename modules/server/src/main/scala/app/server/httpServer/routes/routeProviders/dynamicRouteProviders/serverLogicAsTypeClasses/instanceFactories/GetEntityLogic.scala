@@ -6,7 +6,7 @@ import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -25,10 +25,10 @@ import scala.util.Try
     )
     : Future[Option[GetEntityReqRes[V]]] = {
 
-      val p: RefToEntityWithVersion[V] = param.refToEntity
+      val p: RefToEntityWithoutVersion[V] = param.refToEntityWithoutVersion
 
       val res: Future[Option[Entity[V]]] =
-        persistenceModule.getEntity[V]( p )( d )
+        persistenceModule.getEntityWithLatestVersion[V]( p )( d )
 
       val r2: Future[GetEntityReqRes[V]] =
         res.map( GetEntityReqRes( _ ) )( contextExecutor )

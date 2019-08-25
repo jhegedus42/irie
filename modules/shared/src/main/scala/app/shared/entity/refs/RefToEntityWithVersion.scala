@@ -10,4 +10,9 @@ case class RefToEntityWithVersion[T <: EntityValue[T]](
     entityValueTypeAsString: EntityValueTypeAsString,
     entityIdentity:          EntityIdentity = EntityIdentity(),
     entityVersion:           EntityVersion = EntityVersion()
-)
+
+){
+  def stripVersion():RefToEntityWithoutVersion[T] = ???
+  // todo-now
+}
+

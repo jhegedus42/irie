@@ -1,8 +1,8 @@
 package app.server.httpServer.routes.persistenceProvider.persistentActor
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{InsertNewEntityCommandResponse, UpdateEntityResponse}
-import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetAllStateCommand, InsertNewEntityCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{InsertNewEntity_Command_Response, UpdateEntity_Command_Response}
+import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{GetFullApplicationState_Command, InsertNewEntity_Command, UpdateEntity_Command}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{ApplicationStateMapEntry, StateChange, UntypedRef}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
@@ -26,9 +26,9 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
   val actor: ActorRef =
     PersistentActorForOurApp.getActor( "the_one_and_only_parsistent_actor" )
 
-  def getState: Future[Responses.GetStateResult] =
-    ask( actor, GetAllStateCommand )( Timeout.durationToTimeout( 1 seconds ) )
-      .mapTo[Responses.GetStateResult]
+  def getState: Future[Responses.GetFullApplicationState_Command_Response] =
+    ask( actor, GetFullApplicationState_Command )( Timeout.durationToTimeout( 1 seconds ) )
+      .mapTo[Responses.GetFullApplicationState_Command_Response]
 
   //  def updateEntity(rfvd: RefValDyn): Future[UpdateEntityPAResponse] =
   //    ask(actor, UpdateEntityPACommand(rfvd))(Timeout.durationToTimeout(1 seconds))
@@ -62,10 +62,10 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
       applicationStateEntry
     }
 
-    val res: Future[InsertNewEntityCommandResponse] =
-      ask( actor, InsertNewEntityCommand( newEntry ) )(
+    val res: Future[InsertNewEntity_Command_Response] =
+      ask( actor, InsertNewEntity_Command( newEntry ) )(
         Timeout.durationToTimeout( 1 seconds )
-      ).mapTo[InsertNewEntityCommandResponse]
+      ).mapTo[InsertNewEntity_Command_Response]
 
     res.map( x => x.stateChange )
 
@@ -87,9 +87,9 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
       applicationStateEntry
     }
 
-    val res: Future[UpdateEntityResponse] ={
+    val res: Future[UpdateEntity_Command_Response] ={
 
-      val commandToExecute=UpdateEntityCommand( updatedEntry )
+      val commandToExecute=UpdateEntity_Command( updatedEntry )
 
 
       println(
@@ -116,11 +116,11 @@ private[persistenceProvider] case class PlainFunctionInterfaceToPersistentActor(
 
       ask( actor, commandToExecute )(
         Timeout.durationToTimeout( 1 seconds )
-      ).mapTo[UpdateEntityResponse]
+      ).mapTo[UpdateEntity_Command_Response]
 
     }
 
-    res.map( (x: UpdateEntityResponse) => x.result )
+    res.map( (x: UpdateEntity_Command_Response) => x.result )
 
   }
 

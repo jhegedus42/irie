@@ -5,11 +5,11 @@ import app.server.httpServer.routes.persistenceProvider.persistentActor.state.{A
 
 private[persistenceProvider] object Responses {
 
-  case class GetStateResult( state: ApplicationStateMap )
+  case class GetFullApplicationState_Command_Response(state: ApplicationStateMap )
 
-  case class InsertNewEntityCommandResponse( stateChange: StateChange )
+  case class InsertNewEntity_Command_Response(stateChange: StateChange )
 
-  case class UpdateEntityResponse(
+  case class UpdateEntity_Command_Response(
       result: Either[EntityUpdateVersionError, StateChange]
   )
 

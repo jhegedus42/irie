@@ -5,7 +5,7 @@ import app.server.httpServer.routes.persistenceProvider.persistentActor.{Errors,
 import app.shared.entity.asString.EntityAsJSON
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -23,11 +23,18 @@ private[routes] case class PersistenceModule(
     PlainFunctionInterfaceToPersistentActor()
   }
 
-  def getEntity[V <: EntityValue[V]]( ref: RefToEntityWithVersion[V] )(
+  def getEntityWithLatestVersion[V <: EntityValue[V]](ref: RefToEntityWithoutVersion[V] )(
+    implicit d: Decoder[Entity[V]]
+  ): Future[Option[Entity[V]]] = {
+    ??? //todo-now
+  }
+
+
+  def getEntityWithVersion[V <: EntityValue[V]]( ref: RefToEntityWithVersion[V] )(
       implicit d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 
-    val eventualGetStateResult: Future[Responses.GetStateResult] =
+    val eventualGetStateResult: Future[Responses.GetFullApplicationState_Command_Response] =
       simpleFunctionInterfaceToPersistentActor.getState
 
     val untypedRef: UntypedRef = UntypedRef.makeFromRefToEntity( ref )

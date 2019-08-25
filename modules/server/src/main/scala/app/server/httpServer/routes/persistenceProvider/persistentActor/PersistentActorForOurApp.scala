@@ -3,14 +3,14 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.persistenceProvider.persistentActor.Responses.{
-  GetStateResult,
-  UpdateEntityResponse
+  GetFullApplicationState_Command_Response,
+  UpdateEntity_Command_Response
 }
 import app.server.httpServer.routes.persistenceProvider.persistentActor.commands.{
-  GetAllStateCommand,
-  InsertNewEntityCommand,
-  ShutdownActor,
-  UpdateEntityCommand
+  GetFullApplicationState_Command,
+  InsertNewEntity_Command,
+  ShutdownActor_Command,
+  UpdateEntity_Command
 }
 import app.server.httpServer.routes.persistenceProvider.persistentActor.events.{
   CreateEntityEvent,
@@ -53,7 +53,7 @@ private[persistentActor] class PersistentActorForOurApp( id: String )
 
   private object CommandHandlers {
 
-    def handleUpdateEntityCommand( command: UpdateEntityCommand ): Unit = {
+    def handleUpdateEntityCommand( command: UpdateEntity_Command ): Unit = {
       val oldState = state.getState
 
       val event: events.UpdateEntityEvent = {
@@ -80,7 +80,7 @@ private[persistentActor] class PersistentActorForOurApp( id: String )
       //  so the following response is "not the best", putting it
       //  mildly
 
-      val resp: Responses.UpdateEntityResponse = UpdateEntityResponse(
+      val resp: Responses.UpdateEntity_Command_Response = UpdateEntity_Command_Response(
         (Right(stateChange))
       )
 
@@ -88,7 +88,7 @@ private[persistentActor] class PersistentActorForOurApp( id: String )
 
     }
 
-    def handleInsertEntityCommand( command: InsertNewEntityCommand ): Unit = {
+    def handleInsertEntityCommand( command: InsertNewEntity_Command ): Unit = {
       val oldState = state.getState
 
       val event: events.CreateEntityEvent = {
@@ -111,24 +111,24 @@ private[persistentActor] class PersistentActorForOurApp( id: String )
       println( stateChange.getSizeOfMapsBeforeAndAfter )
       println()
 
-      sender() ! Responses.InsertNewEntityCommandResponse( stateChange )
+      sender() ! Responses.InsertNewEntity_Command_Response( stateChange )
 
     }
   }
 
   override def receiveCommand: Receive = {
-    case ShutdownActor =>
+    case ShutdownActor_Command =>
       println( "shutting down persistent actor" )
       context.stop( self )
 
-    case command @ InsertNewEntityCommand( _ ) =>
+    case command @ InsertNewEntity_Command( _ ) =>
       CommandHandlers.handleInsertEntityCommand( command )
 
-    case command @ UpdateEntityCommand( _ ) =>
+    case command @ UpdateEntity_Command( _ ) =>
       CommandHandlers.handleUpdateEntityCommand( command )
 
-    case GetAllStateCommand => {
-      sender() ! GetStateResult( state.getState )
+    case GetFullApplicationState_Command => {
+      sender() ! GetFullApplicationState_Command_Response( state.getState )
     }
 
   }

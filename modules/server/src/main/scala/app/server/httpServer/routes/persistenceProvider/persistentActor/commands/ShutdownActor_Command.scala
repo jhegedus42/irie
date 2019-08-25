@@ -7,6 +7,6 @@ package app.server.httpServer.routes.persistenceProvider.persistentActor.command
 
 
 
-  case object ShutdownActor
+  case object ShutdownActor_Command
 
 
