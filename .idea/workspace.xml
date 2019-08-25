@@ -6,24 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/documentation/irie_module_overview_diagram.graffle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/module_overview_diagram.graffle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PersistentActorForOurApp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/PlainFunctionInterfaceToPersistentActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/Responses.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/GetAllStateCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/GetFullApplicationState_Command.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/InsertNewEntityCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/InsertNewEntity_Command.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/ShutdownActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/ShutdownActor_Command.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/UpdateEntityCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/commands/UpdateEntity_Command.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/events/Events.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/persistentActor/events/Events.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -76,12 +61,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="197">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#58#187#0" expanded="true" />
-                <element signature="e#1643#2024#0" />
-                <element signature="e#2309#2654#0" />
               </folding>
             </state>
           </provider>
@@ -235,204 +218,7 @@
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
               <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="persistenceProvider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="persistenceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="persistentActor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="persistenceProvider" type="462c0819:PsiDirectoryNode" />
-              <item name="persistentActor" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="refs" type="462c0819:PsiDirectoryNode" />
+              <item name="documentation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -725,13 +511,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00178" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).">
-      <created>1565913091799</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1565913091800</updated>
     </task>
     <task id="LOCAL-00179" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.">
       <created>1565918376781</created>
@@ -1069,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566700273676</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <task id="LOCAL-00227" summary="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.">
+      <created>1566759141559</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1566759141560</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1122,7 +908,7 @@
       <window_info id="Structure" order="0" sideWeight="0.30398324" side_tool="true" weight="0.4352597" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.3670635" side_tool="true" weight="0.27686566" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.63293654" visible="true" weight="0.37644508" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.63293654" visible="true" weight="0.36127168" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.4883721" />
@@ -1131,7 +917,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.27994013" />
-      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.36476427" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.36476427" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.50817436" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1202,7 +988,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Using POST for all communication.&#10;&#10;Hierarchical decomposition and facades." />
     <MESSAGE value="Using POST for all communication.&#10;&#10;Hierarchical decomposition and facades.&#10;&#10;Everything compiles." />
     <MESSAGE value="Bit of refactoring." />
     <MESSAGE value="Bit of refactoring.&#10;&#10;todo-now-1 and todo-now-0 has been completed" />
@@ -1227,7 +1012,8 @@
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests." />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests.&#10;&#10;----------------------------------&#10;&#10;The test passes but it seems that the &quot;architecture&quot;&#10;needs a bit of a &quot;thinking&quot;/&quot;understanding&quot;/&quot;re-thinking&quot;.&#10;&#10;Sunday, 25 August 2019 5.11.15" />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests.&#10;&#10;----------------------------------&#10;&#10;The test passes but it seems that the &quot;architecture&quot;&#10;needs a bit of a &quot;thinking&quot;/&quot;understanding&quot;/&quot;re-thinking&quot;.&#10;&#10;Creating a nicer omnigraffle diagram.&#10;&#10;Sunday, 25 August 2019 5.11.15" />
-    <option name="LAST_COMMIT_MESSAGE" value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests.&#10;&#10;----------------------------------&#10;&#10;The test passes but it seems that the &quot;architecture&quot;&#10;needs a bit of a &quot;thinking&quot;/&quot;understanding&quot;/&quot;re-thinking&quot;.&#10;&#10;Creating a nicer omnigraffle diagram.&#10;&#10;Sunday, 25 August 2019 5.11.15" />
+    <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s." />
+    <option name="LAST_COMMIT_MESSAGE" value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/state/ApplicationStateMapEntry.scala" />
@@ -1619,12 +1405,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistenceProvider/PersistenceModule.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="197">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#58#187#0" expanded="true" />
-            <element signature="e#1643#2024#0" />
-            <element signature="e#2309#2654#0" />
           </folding>
         </state>
       </provider>

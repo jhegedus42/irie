@@ -30,7 +30,7 @@ private[routes] case class PersistenceModule(
   }
 
 
-  def getEntityWithVersion[V <: EntityValue[V]]( ref: RefToEntityWithVersion[V] )(
+  private[this] def getEntityWithVersion[V <: EntityValue[V]]( ref: RefToEntityWithVersion[V] )(
       implicit d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 
