@@ -15,7 +15,7 @@ More specifically, for me, building and running the app, using `node v12.3.1`, `
 ```
 > git clone https://github.com/jhegedus42/irie
 > cd irie
-> git checkout 2719f8ecc3faf224653f6595b3236eac04b20d6d
+> git checkout 1f17c0676b3f28446b07ac6d4e4e458853b9662a 
 > ./bash_scripts_building/build_js_dep_bundle.sh
 > ./run_on_localhost.sh
 ```
