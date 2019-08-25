@@ -1,0 +1,23 @@
+{
+  "entity" :
+	{
+	  "entityValue" : {
+	    "name" : "Alice",
+	    "favoriteNumber" : 666
+	  },
+	  "refToEntity" : {
+	    "entityValueTypeAsString" : {
+	      "type_as_string" : "User"
+	    },
+	    "entityIdentity" : {
+	      "uuid" : "00000000-0000-0000-0000-000000000000"
+	    },
+	    "entityVersion" : {
+	      "versionNumberLong" : 0
+	    }
+	  },
+	  "entityDeletedFlag" : {
+	    "isDeleted" : false
+	  }
+	}
+}
