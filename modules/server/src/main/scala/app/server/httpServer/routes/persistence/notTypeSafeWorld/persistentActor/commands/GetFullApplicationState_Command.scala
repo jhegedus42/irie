@@ -1,0 +1,3 @@
+package app.server.httpServer.routes.persistence.notTypeSafeWorld.persistentActor.commands
+
+case object GetFullApplicationState_Command

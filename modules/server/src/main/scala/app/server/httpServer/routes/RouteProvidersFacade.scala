@@ -4,11 +4,26 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.persistenceProvider.PersistenceModule
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
-import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
+import app.server.httpServer.routes.persistence.TypeSafeFacadeToPersistenceService
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{
+  PostRoute,
+  PostRouteFactory
+}
+import app.server.httpServer.routes.persistence.serverLogicAsTypeClasses.instanceFactories.{
+  GetEntityLogic,
+  InsertEntityLogic,
+  UpdateEntityLogic
+}
+import app.server.httpServer.routes.routeProviders.staticRouteProviders.{
+  IndexDotHtml,
+  StaticRoutes
+}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  InsertNewEntityReq,
+  SumIntPostRequest,
+  UpdateEntityReq
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.Entity
@@ -24,7 +39,7 @@ private[httpServer] case class RouteProvidersFacade(
   private implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val persistenceModule = PersistenceModule( executionContext )
+  val persistenceModule = TypeSafeFacadeToPersistenceService( executionContext )
 
   val route: Route = allRoutes
 
@@ -35,10 +50,10 @@ private[httpServer] case class RouteProvidersFacade(
 
     val result: Route =
       crudEntityRoute[User] ~
-      PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
-      StaticRoutes.staticRootFactory( rootPageHtml )~
-      simplePostRouteHelloWorld ~
-      ping_pong
+        PostRouteFactory.createPostRoute[SumIntPostRequest]().route ~
+        StaticRoutes.staticRootFactory( rootPageHtml ) ~
+        simplePostRouteHelloWorld ~
+        ping_pong
 
     result
   }
@@ -46,10 +61,10 @@ private[httpServer] case class RouteProvidersFacade(
   private def rootPageHtml: String = IndexDotHtml.getIndexDotHTML
 
   private def crudEntityRoute[V <: EntityValue[V]: ClassTag](
-                                                              implicit unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
-                                                              encoder:                    Encoder[Entity[V]],
-                                                              decoder:                    Decoder[Entity[V]],
-                                                              dpl:                        Decoder[V]
+      implicit unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
+      encoder:                    Encoder[Entity[V]],
+      decoder:                    Decoder[Entity[V]],
+      dpl:                        Decoder[V]
   ): Route = {
 
     //  todo-next-1 update entity route
@@ -79,9 +94,7 @@ private[httpServer] case class RouteProvidersFacade(
     //    1) write a simple CURL test in a .sh script <<<<====
     //       for the update entity route
 
-
-
-      PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
+    PostRouteFactory.createPostRoute[UpdateEntityReq[V]].route ~
       PostRouteFactory.createPostRoute[InsertNewEntityReq[V]].route ~
       PostRouteFactory.createPostRoute[GetEntityReq[V]].route
   }
@@ -89,22 +102,23 @@ private[httpServer] case class RouteProvidersFacade(
   // todo-next
   //    2) write JSDOM + Scala.js + Node.js based integration test
 
-  private def simplePostRouteHelloWorld :Route ={
-    post{
-      path ("hello_world"){
-        complete("Hello world !")
+  private def simplePostRouteHelloWorld: Route = {
+    post {
+      path( "hello_world" ) {
+        complete( "Hello world !" )
       }
     }
   }
 
-  private def ping_pong :Route ={
-    post{
-      path ("ping_pong"){ ctx => {
-            ctx.complete({
-              val r1: RequestEntity =ctx.request.entity
-              val ctype: ContentType =ctx.request.entity.httpEntity.contentType
-              val res=
-                s"""
+  private def ping_pong: Route = {
+    post {
+      path( "ping_pong" ) { ctx =>
+        {
+          ctx.complete( {
+            val r1:    RequestEntity = ctx.request.entity
+            val ctype: ContentType   = ctx.request.entity.httpEntity.contentType
+            val res =
+              s"""
                    |
                    | Request Entity is :
                    | $r1
@@ -115,13 +129,13 @@ private[httpServer] case class RouteProvidersFacade(
                    |
                  """.stripMargin
 
-              println(
-                "ping pong route was called, we respond" +
-                "with the following string:\n+res")
+            println(
+              "ping pong route was called, we respond" +
+                "with the following string:\n+res"
+            )
+            res
 
-              res
-
-            })
+          } )
         }
       }
     }

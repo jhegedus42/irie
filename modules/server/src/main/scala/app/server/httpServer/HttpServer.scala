@@ -8,15 +8,13 @@ import app.server.initialization.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
+case class HttpServer( actorSystem: ActorSystem ) {
 
+  val routes = RouteProvidersFacade( actorSystem )
 
-case class  HttpServer(actorSystem: ActorSystem) {
+  implicit val actorSystemAsImplicit = actorSystem
 
-  val routes=RouteProvidersFacade(actorSystem )
-
-  implicit val actorSystemAsImplicit=actorSystem
-
-  def startServer(host:String ): Unit = {
+  def startServer( host: String ): Unit = {
 
     implicit lazy val executionContext: ExecutionContextExecutor =
       actorSystem.dispatcher
@@ -24,11 +22,9 @@ case class  HttpServer(actorSystem: ActorSystem) {
     implicit val materializer = ActorMaterializer()
 
     val bindingFuture: Future[Http.ServerBinding] =
-      Http().bindAndHandle( routes.route, host, Config.port )
+      Http().bindAndHandle( routes.route, host, Config.getDefaultConfig.port )
 
-    println( s"listening on $host:${Config.port}" )
+    println( s"listening on $host:${Config.getDefaultConfig.port}" )
   }
 
 }
-
-

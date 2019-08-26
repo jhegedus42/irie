@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.routeProviders.dynamicRouteProviders
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.serverLogicAsTypeClasses.ServerLogicTypeClass
+import app.server.httpServer.routes.persistence.serverLogicAsTypeClasses.ServerLogicTypeClass
 import app.server.utils.{GetTimeOnJVM, PrettyPrint}
 import app.shared.comm.{PostRequest, RouteName}
 
