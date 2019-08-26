@@ -1,0 +1,3 @@
+package app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.askWorld.persistentActor.commands
+
+case object GetFullApplicationState_Command

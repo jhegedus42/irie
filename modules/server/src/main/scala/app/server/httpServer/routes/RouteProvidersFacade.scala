@@ -4,26 +4,11 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.persistence.TypeSafeFacadeToPersistenceService
-import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{
-  PostRoute,
-  PostRouteFactory
-}
-import app.server.httpServer.routes.persistence.serverLogicAsTypeClasses.instanceFactories.{
-  GetEntityLogic,
-  InsertEntityLogic,
-  UpdateEntityLogic
-}
-import app.server.httpServer.routes.routeProviders.staticRouteProviders.{
-  IndexDotHtml,
-  StaticRoutes
-}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertNewEntityReq,
-  SumIntPostRequest,
-  UpdateEntityReq
-}
+import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
+import app.server.httpServer.routes.logic.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
+import app.server.httpServer.routes.persistence.typeSafeWorld.TypeSafePersistenceService
+import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.Entity
@@ -39,7 +24,7 @@ private[httpServer] case class RouteProvidersFacade(
   private implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val persistenceModule = TypeSafeFacadeToPersistenceService( executionContext )
+  val persistenceModule = TypeSafePersistenceService( executionContext )
 
   val route: Route = allRoutes
 
