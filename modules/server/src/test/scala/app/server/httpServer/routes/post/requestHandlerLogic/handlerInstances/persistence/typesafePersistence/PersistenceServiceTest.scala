@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import akka.actor.ActorSystem
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state.{StateChange, StatePrintingUtils}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.{StateChange, StatePrintingUtils}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User

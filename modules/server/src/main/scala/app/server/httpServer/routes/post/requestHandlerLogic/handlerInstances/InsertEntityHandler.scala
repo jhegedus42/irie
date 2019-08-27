@@ -2,9 +2,11 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
 import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.typelessHell.typelessHell.StateChange
 import app.shared.comm.postRequests.InsertNewEntityReq
-import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
+import app.shared.comm.postRequests.InsertNewEntityReq.{
+  InsertReqPar,
+  InsertReqRes
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
@@ -14,28 +16,27 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 case class InsertEntityHandler[V <: EntityValue[V]](
-                                                     persistenceModule: PersistenceService,
-                                                     d:                 Decoder[Entity[V]],
-                                                     e:                 Encoder[Entity[V]],
-                                                     ct: ClassTag[V],
-                                                     contextExecutor:   ExecutionContextExecutor
-) extends RequestHandlerTC[InsertNewEntityReq[V]] {
+  persistenceModule: PersistenceService,
+  d:                 Decoder[Entity[V]],
+  e:                 Encoder[Entity[V]],
+  ct:                ClassTag[V],
+  contextExecutor:   ExecutionContextExecutor)
+    extends RequestHandlerTC[InsertNewEntityReq[V]] {
 
   override def getResult(
-      param: InsertReqPar[V]
+    param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
 
     val p: V = param.value
 
+    implicit val encoder: Encoder[Entity[V]] = e
+    implicit val cti:     ClassTag[V]        = ct
 
-    implicit val encoder: Encoder[Entity[V]] =e
-    implicit val cti: ClassTag[V] =ct
-
-    val res =
+    val res: Future[Entity[V]] =
       persistenceModule.createAndStoreNewEntity[V]( p )
 
     val r2: Future[InsertReqRes[V]] =
-      res.map( (x: ( StateChange, Entity[V] )) => InsertReqRes( x._2 ) )(
+      res.map( (x: Entity[V]) => InsertReqRes( x ) )(
         contextExecutor
       )
 

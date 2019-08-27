@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state.refs.UntypedRef
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.refs.UntypedRef
 import app.server.initialization.Config
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
@@ -20,10 +20,13 @@ import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Encoder
 
-private[typelessHell] case class ApplicationStateMapContainer() {
+private[persistentActor] case class ApplicationStateMapContainer(
+) {
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting
-  val testState    = TestApplicationState.getTestState.applicationStateMap
+
+  val testState =
+    TestApplicationState.getTestState.applicationStateMap
   private var applicationState: ApplicationStateMap =
     if (!areWeTesting)
       new ApplicationStateMap()
@@ -37,7 +40,7 @@ private[typelessHell] case class ApplicationStateMapContainer() {
     * @return
     */
   def unsafeInsertStateEntry(
-      ase: ApplicationStateMapEntry
+    ase: ApplicationStateMapEntry
   ): Unit = {
     // todo-later - this can throw !!!
     assert( !getState.map.contains( ase.untypedRef ) )
@@ -53,7 +56,7 @@ private[typelessHell] case class ApplicationStateMapContainer() {
     * @return
     */
   def unsafeInsertUpdatedEntity(
-      ase: ApplicationStateMapEntry
+    ase: ApplicationStateMapEntry
   ): Unit = {
 
     // todo-later - this can throw !!!
@@ -78,10 +81,13 @@ private[typelessHell] case class ApplicationStateMapContainer() {
     assert( versionToBeInserted == latestVersion ) // this is for the occ
 
     import monocle.macros.syntax.lens._
-    val ase_new: ApplicationStateMapEntry = ase
-      .lens( _.untypedRef.entityVersion.versionNumberLong ).modify(
-        x => x + 1
-      )
+    val ase_new: ApplicationStateMapEntry =
+      ase
+        .lens(
+          _.untypedRef.entityVersion.versionNumberLong
+        ).modify(
+          x => x + 1
+        )
 
     val newMap = getState.map + (ase_new.untypedRef -> ase_new)
     applicationState = ApplicationStateMap( newMap )
@@ -89,29 +95,39 @@ private[typelessHell] case class ApplicationStateMapContainer() {
 
   def getState = applicationState
 
-  def setState( s: ApplicationStateMap ): Unit = {
+  def setState(s: ApplicationStateMap ): Unit = {
     println( "\n\nState was set to:\n" )
     StatePrintingUtils.printApplicationState( s )
     applicationState = s
   }
 
   def getLatestVersionForEntity(
-      identity: EntityIdentity
+    identity: EntityIdentity
   ): ( UntypedRef, ApplicationStateMapEntry ) =
-    filterByIdentity( identity ).maxBy( _._1.entityVersion.versionNumberLong )
+    filterByIdentity( identity ).maxBy(
+      _._1.entityVersion.versionNumberLong
+    )
 
   def filterByIdentity(
-      entityIdentity: EntityIdentity
+    entityIdentity: EntityIdentity
   ): Map[UntypedRef, ApplicationStateMapEntry] =
-    applicationState.map.filterKeys( _.entityIdentity == entityIdentity )
+    applicationState.map.filterKeys(
+      _.entityIdentity == entityIdentity
+    )
 
-  def insertEntity[V <: EntityValue[V]]( entity: Entity[V] )(
-      implicit encoder:                          Encoder[Entity[V]]
+  def insertEntity[V <: EntityValue[V]](
+    entity: Entity[V]
+  )(
+    implicit
+    encoder: Encoder[Entity[V]]
   ): ApplicationStateMap = {
 
-    val utr = UntypedRef.makeFromRefToEntity( entity.refToEntity )
-    val entityAsString: EntityAsString = entity.entityAsString()
-    val entry = ApplicationStateMapEntry( utr, entityAsString )
+    val utr =
+      UntypedRef.makeFromRefToEntity( entity.refToEntity )
+    val entityAsString: EntityAsString =
+      entity.entityAsString()
+    val entry =
+      ApplicationStateMapEntry( utr, entityAsString )
 
     val newMap
       : Map[UntypedRef, ApplicationStateMapEntry] = applicationState.map + (utr -> entry)

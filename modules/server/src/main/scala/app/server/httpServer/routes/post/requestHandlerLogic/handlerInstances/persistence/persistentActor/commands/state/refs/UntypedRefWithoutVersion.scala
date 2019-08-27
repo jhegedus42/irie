@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state.refs
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.refs
 
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.utils.UUID_Utils.EntityIdentity

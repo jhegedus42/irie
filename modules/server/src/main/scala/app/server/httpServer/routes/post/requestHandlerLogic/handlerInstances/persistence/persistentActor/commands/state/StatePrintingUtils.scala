@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.actor.state.refs.UntypedRef
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.refs.UntypedRef
 
 object StatePrintingUtils {
 
