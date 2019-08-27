@@ -1,6 +1,7 @@
 package app.server.httpServer.routes.persistence.typeSafeWorld.styx
 
 import akka.actor.ActorRef
+import app.server.httpServer.routes.persistence.typeSafeWorld.errors.AreWeHappy
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.askWorld.persistentActor.Responses.{InsertNewEntity_Command_Response, UpdateEntity_Command_Response}
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.askWorld.persistentActor.commands.{GetFullApplicationState_Command, InsertNewEntity_Command, UpdateEntity_Command}
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.askWorld.persistentActor.{Errors, PersistentActorForOurApp, Responses}
@@ -70,9 +71,8 @@ private[typeSafeWorld] case class StyxFacade(
     *         second one is the state after the insertion).
     */
   def insertEntity[V <: EntityValue[V]]( entityToInsert: Entity[V] )(
-      implicit executionContextExecutor:                 ExecutionContextExecutor,
-      encoder:                                           Encoder[Entity[V]]
-  ): Future[StateChange] = {
+      implicit encoder:                                           Encoder[Entity[V]]
+  ): Future[AreWeHappy] = {
 
     assert( entityToInsert.refToEntity.entityVersion.versionNumberLong == 0 )
 
@@ -103,7 +103,7 @@ private[typeSafeWorld] case class StyxFacade(
   def updateEntity[V <: EntityValue[V]]( entityToUpdate: Entity[V] )(
 //      implicit executionContextExecutor:                 ExecutionContextExecutor,
       implicit encoder:                                           Encoder[Entity[V]]
-  ): Future[Either[Errors.EntityUpdateVersionError, StateChange]] = {
+  ): Future[AreWeHappy] = {
 
     val updatedEntry: ApplicationStateMapEntry = {
       val utr: UntypedRef =
@@ -121,24 +121,24 @@ private[typeSafeWorld] case class StyxFacade(
       val commandToExecute = UpdateEntity_Command( updatedEntry )
 
       println( s"""
-           |
+          |
           |vvvvvvvvvvvvvvvvvvvvvvv-------------------------------
-           |
+          |
           |We are now in updateEntity, inside PlainFunctionInterfaceToPersistentActor
-           |
+          |
           |we will "ask" the persistent actor to execute the following
-           |UpdateEntityCommand :
-           |
+          |UpdateEntityCommand :
+          |
           |$commandToExecute
-           |
+          |
           |
           |or pretty printed:
-           |
+          |
           |${PrettyPrint.prettyPrint( commandToExecute )}
-           |
+          |
           |
           |^^^^^^^^^^^^^^^^^^^^^^^-------------------------------
-           |
+          |
         """.stripMargin )
 
       ask( actor, commandToExecute )(

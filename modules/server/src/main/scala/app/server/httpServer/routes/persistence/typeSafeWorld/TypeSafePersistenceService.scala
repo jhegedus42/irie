@@ -1,5 +1,6 @@
 package app.server.httpServer.routes.persistence.typeSafeWorld
 
+import app.server.httpServer.routes.persistence.typeSafeWorld.errors.AreWeHappy
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.StyxFacade
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.askWorld.persistentActor.Errors
 import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.state.StateChange
@@ -17,9 +18,8 @@ private[routes] case class TypeSafePersistenceService(
 
   implicit val context_as_implicit = context
 
-  private val simpleFunctionInterfaceToPersistentActor
-    : StyxFacade = {
-    StyxFacade(context)
+  private val simpleFunctionInterfaceToPersistentActor: StyxFacade = {
+    StyxFacade( context )
   }
 
   def getEntityWithLatestVersion[V <: EntityValue[V]](
@@ -30,40 +30,51 @@ private[routes] case class TypeSafePersistenceService(
 
   def createAndStoreNewEntity[V <: EntityValue[V]: ClassTag]( value: V )(
       implicit encoder: Encoder[Entity[V]]
-  ): Future[( StateChange, Entity[V] )] = {
+  ): Future[(AreWeHappy,Entity[V])] = {
 
     val entity: Entity[V] = Entity.makeFromValue( value )
 
-    val res: Future[StateChange] =
+    val res: Future[AreWeHappy] =
       simpleFunctionInterfaceToPersistentActor.insertEntity[V]( entity )
 
-    res.map( x => ( x, entity ) )
+    res.map( x => (x,entity) )
   }
 
   def updateEntity[V <: EntityValue[V]: ClassTag]( entity: Entity[V] )(
       implicit encoder: Encoder[Entity[V]]
-  ): Future[( StateChange, Entity[V] )] = {
+  ): Future[Entity[V]] = {
 
-    val res: Future[Either[Errors.EntityUpdateVersionError, StateChange]] =
+    val res: Future[AreWeHappy,Entity[V]] =
       simpleFunctionInterfaceToPersistentActor.updateEntity( entity )
 
-    val res2: Future[( StateChange, Entity[V] )] = res.flatMap(
-      (x: Either[Errors.EntityUpdateVersionError, StateChange]) => {
-        x match {
+    val res2: Future[Entity[V]] = res.flatMap(
+      (x: (AreWeHappy)) => {
+        x.why match {
           case Left( value ) =>
             Future.failed(
               new Exception(
-                "There was some problem with the versions or something when" +
-                  s"trying to update the entity : \n$entity "
+                s"""
+      |
+      |
+      |  We are not very happy. Something went wrong.
+      |
+      |  "There was some problem with the versions or something when" +
+      |    s"trying to update the entity : \n$entity "
+      |
+      |  Also, there is the following reason too, why we are
+      |  not so happy: $value
+      |
+      |
+    """.stripMargin
               )
             )
-          case Right( value ) => Future.successful( ( value, entity ) )
+          case Right( value ) => Future.successful( entity )
         }
 
       }
     )
+
     res2
   }
-
 
 }

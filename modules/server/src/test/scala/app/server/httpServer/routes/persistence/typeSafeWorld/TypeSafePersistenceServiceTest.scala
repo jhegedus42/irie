@@ -56,15 +56,14 @@ class TypeSafePersistenceServiceTest extends FunSuite {
 
       val pm = TypeSafePersistenceService(executionContext)
 
-      val res: Future[( StateChange, Entity[User] )] =
-        pm.createAndStoreNewEntity( cica )
+      val res: Future[  Entity[User] ] = pm.createAndStoreNewEntity( cica )
       import scala.concurrent._
       import scala.concurrent.duration._
-      val res_awaited: ( StateChange, Entity[User] ) =
+      val res_awaited: ( Entity[User] ) =
         Await.result( res, 5 seconds )
-      val stateChange = res_awaited._1
+      val stateChange = res_awaited
 
-      StatePrintingUtils.printStateChange( stateChange )
+//      StatePrintingUtils.printStateChange( stateChange )
 
       println( "--------------\n\nHere ENDS the init.\n\n" )
 

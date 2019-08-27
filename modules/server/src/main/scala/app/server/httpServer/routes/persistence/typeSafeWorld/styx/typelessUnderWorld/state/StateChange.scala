@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.state
 
-private[typeSafeWorld] case class StateChange(
+private[typelessUnderWorld] case class StateChange(
     before: ApplicationStateMap,
     after:  ApplicationStateMap
 ) {

@@ -1,10 +1,8 @@
 package app.server.httpServer.routes.logic.serverLogicAsTypeClasses.instanceFactories
 
-import app.server.httpServer.routes.persistence.typeSafeWorld.styx.typelessUnderWorld.StateChange
 import app.server.httpServer.routes.logic.serverLogicAsTypeClasses.ServerLogicTypeClass
 import app.server.httpServer.routes.persistence.typeSafeWorld.TypeSafePersistenceService
-import app.shared.comm.postRequests.{InsertNewEntityReq, UpdateEntityReq}
-import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
+import app.shared.comm.postRequests.UpdateEntityReq
 import app.shared.comm.postRequests.UpdateEntityReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -31,11 +29,11 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
     implicit val encoder: Encoder[Entity[V]] = e_ent
     implicit val cti:     ClassTag[V]        = ct
 
-    val res: Future[( StateChange, Entity[V] )] =
+    val res: Future[(  Entity[V] )] =
       persistenceModule.updateEntity[V]( e )
 
     val r2: Future[UpdateReqRes[V]] =
-      res.map( (x: ( StateChange, Entity[V] )) => UpdateReqRes( x._2 ) )(
+      res.map( (x: (Entity[V] )) => UpdateReqRes( x ) )(
         contextExecutor
       )
 
