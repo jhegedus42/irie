@@ -6,52 +6,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/RequestHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operation.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/PersistenceError.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/CommandMessageToActor.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/EventToBeSavedToTheJournal.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorErrors.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/Responses.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/CreateEntityEventToBeSavedToTheJournal.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/UpdateEntityEventToBeSavedToTheJournal.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMap.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/RequestHandlerTC.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/CommandsAndErrors.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/CommandMessageToActor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/PersistentActorErrors.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMap.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteProvidersFacade.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/serverLogicAsTypeClasses/ServerLogicTypeClass.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/serverLogicAsTypeClasses/SumIntInstance.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/SumIntHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/serverLogicAsTypeClasses/instanceFactories/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/GetEntityHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/serverLogicAsTypeClasses/instanceFactories/InsertEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/InsertEntityHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/serverLogicAsTypeClasses/instanceFactories/UpdateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/UpdateEntityHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/TypeSafePersistenceService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/TypeSafePersistenceService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/errorsInHeaven/AreWeHappyInHeaven.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/FacadeToStupidPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/FacadeToStupidPersistentActor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/errorsInHell/AreWeHappyInTheUnderWorld.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/ApplicationStateMap.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/ApplicationStateMapContainer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapContainer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/ApplicationStateMapEntry.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapEntry.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/StateChange.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StateChange.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/StatePrintingUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StatePrintingUtils.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/TestApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/TestApplicationState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/refs/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/state/refs/UntypedRefWithoutVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRefWithoutVersion.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/Errors.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/PersistentActorForOurApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorForOurApp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/Responses.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/commands/GetFullApplicationState_Command.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/commands/InsertNewEntity_Command.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/commands/ShutdownActor_Command.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/commands/UpdateEntity_Command.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/events/CreateEntityEventToBeSavedToTheJournal.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/events/EventToBeSavedToTheJournal.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/events/UpdateEntityEventToBeSavedToTheJournal.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRoute.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/dynamicRouteProviders/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/staticRouteProviders/IndexDotHtml.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/static/IndexDotHtml.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/routeProviders/staticRouteProviders/StaticRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/static/StaticRoutes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typesafePersistence/TypeSafePersistenceServiceTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/typesafePersistence/TypeSafePersistenceServiceTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/RequestHandler.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/GetEntityHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/GetEntityHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/InsertEntityHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/InsertEntityHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/SumIntHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/SumIntHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/UpdateEntityHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/UpdateEntityHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operation.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/PersistenceError.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/TypeSafePersistenceService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/CommandMessageToActor.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/EventToBeSavedToTheJournal.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/EventToBeSavedToTheJournal.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/FacadeToStupidPersistentActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/FacadeToStupidPersistentActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorErrors.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorForOurApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/PersistentActorForOurApp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/Responses.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/Responses.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMap.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapContainer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMapContainer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapEntry.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMapEntry.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StateChange.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/StateChange.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StatePrintingUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/StatePrintingUtils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/TestApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/TestApplicationState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/refs/UntypedRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRefWithoutVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/refs/UntypedRefWithoutVersion.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/typesafePersistence/TypeSafePersistenceServiceTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/typesafePersistence/PersistenceServiceTest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -102,76 +90,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/Responses.scala">
+        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/CommandsAndErrors.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/UpdateEntityHandler.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="399">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
-                <element signature="e#1145#2234#0" />
+                <element signature="e#92#123#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/FacadeToStupidPersistentActor.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/PersistenceError.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operation.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/CommandMessageToActor.scala">
+        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/FacadeToStupidPersistentActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorErrors.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="221">
+              <caret line="181" selection-start-line="181" selection-end-line="181" />
+              <folding>
+                <element signature="e#1088#1588#0" />
+                <element signature="e#1764#1843#0" />
+                <element signature="e#2443#2514#0" />
+                <element signature="e#2934#2986#0" />
+                <element signature="e#4488#4520#0" />
+                <element signature="e#6003#6062#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,9 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prett</find>
-      <find>typedrefVal</find>
-      <find>sbt</find>
       <find>file</find>
       <find>refValOf</find>
       <find>hei</find>
@@ -221,6 +160,9 @@
       <find>r3 has</find>
       <find>localhos</find>
       <find>case</find>
+      <find>align</find>
+      <find>arit</find>
+      <find>aritn</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -245,19 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/typesafePersistence/errorsInHeaven/AreWeHappyInHeaven.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/typesafePersistence/styx/StyxFacade.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/typesafePersistence/styx/persistentActor/Errors.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/typesafePersistence/typelessOtherSide/persistentActor/Errors.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/typesafePersistence/typelessHell/errors/AreWeHappyInTheUnderWorld.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistence/typesafePersistence/typelessHell/errors/AreWeHappyInTheUnderWorld.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistence/typelessHell/errors/AreWeHappyInTheUnderWorld.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/persistence/typelessHell/errors/AreWeHappyInTheUnderWorld.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/FacadeToStupidPersistentActor.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/errorsInHeaven/AreWeHappyInHeaven.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/errors/AreWeHappyInHeaven.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/errorsInHell/AreWeHappyInTheUnderWorld.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/stupidPersistentActor/errors/PersistentActorError.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/errors/Errors.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/TypeSafePersistenceService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/errors/PersistenceError.scala" />
@@ -293,9 +222,22 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/instances/GetEntityHandler.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/UpdateEntityHandler.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/PersistenceError.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/Responses.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operation.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operations.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/CommandMessageToActor.scala" />
+        <option value="$PROJECT_DIR$/.scalafmt.conf" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/TypeSafePersistenceService.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/RequestHandler.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/RequestHandlerClass.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/RequestHandlerTC.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceError.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/Operations.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/CommandsAndErrors.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/FacadeToStupidPersistentActor.scala" />
       </list>
     </option>
   </component>
@@ -315,92 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-              <item name="ui" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-              <item name="ui" type="1f31426a:PackageElementNode" />
-              <item name="caching" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-              <item name="ui" type="1f31426a:PackageElementNode" />
-              <item name="components" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-              <item name="ui" type="1f31426a:PackageElementNode" />
-              <item name="components" type="1f31426a:PackageElementNode" />
-              <item name="generalComponents" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="client" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="client" type="1f31426a:PackageElementNode" />
-              <item name="ui" type="1f31426a:PackageElementNode" />
-              <item name="components" type="1f31426a:PackageElementNode" />
-              <item name="router" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
-              <item name="app" type="1f31426a:PackageElementNode" />
-              <item name="shared" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="root-build" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="root" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -522,7 +378,7 @@
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="requestHandler" type="462c0819:PsiDirectoryNode" />
+              <item name="requestHandlerLogic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
@@ -537,8 +393,8 @@
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="requestHandler" type="462c0819:PsiDirectoryNode" />
-              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+              <item name="requestHandlerLogic" type="462c0819:PsiDirectoryNode" />
+              <item name="handlerInstances" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
@@ -553,8 +409,8 @@
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="requestHandler" type="462c0819:PsiDirectoryNode" />
-              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+              <item name="requestHandlerLogic" type="462c0819:PsiDirectoryNode" />
+              <item name="handlerInstances" type="462c0819:PsiDirectoryNode" />
               <item name="persistence" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -570,8 +426,8 @@
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="requestHandler" type="462c0819:PsiDirectoryNode" />
-              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+              <item name="requestHandlerLogic" type="462c0819:PsiDirectoryNode" />
+              <item name="handlerInstances" type="462c0819:PsiDirectoryNode" />
               <item name="persistence" type="462c0819:PsiDirectoryNode" />
               <item name="actor" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -585,70 +441,14 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="initialization" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="requestHandlerLogic" type="462c0819:PsiDirectoryNode" />
+              <item name="handlerInstances" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+              <item name="actor" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
@@ -711,7 +511,7 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="root" type="b2602c69:ProjectViewProjectNode" />
@@ -723,8 +523,94 @@
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="comm" type="462c0819:PsiDirectoryNode" />
-              <item name="postRequests" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="entityValue" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+              <item name="ui" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+              <item name="ui" type="1f31426a:PackageElementNode" />
+              <item name="caching" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+              <item name="ui" type="1f31426a:PackageElementNode" />
+              <item name="components" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+              <item name="ui" type="1f31426a:PackageElementNode" />
+              <item name="components" type="1f31426a:PackageElementNode" />
+              <item name="generalComponents" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="client" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="client" type="1f31426a:PackageElementNode" />
+              <item name="ui" type="1f31426a:PackageElementNode" />
+              <item name="components" type="1f31426a:PackageElementNode" />
+              <item name="router" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="modules-sources" type="616d4139:PackageViewModuleNode" />
+              <item name="app" type="1f31426a:PackageElementNode" />
+              <item name="shared" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="root-build" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="root" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -930,13 +816,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00184" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.&#10;   &#10;=&gt; Friday, 16 August 2019 5.42.53&#10;&#10;   Writing some more todo's and specifying how the&#10;   implementations of some functions will look.&#10;   (&quot;sort of like pseudo code&quot;)&#10;   &#10;=&gt; Friday, 16 August 2019 6.12.07&#10;   &#10;   Added lot of todo-s and sketches for the create/insert&#10;   entity related functions/logic. &#10;   &#10;   Now, the &quot;plan&quot; is ready, &quot;only&quot; the &quot;simple work&quot; remains&#10;   to be done :).&#10;   &#10;=&gt; Friday, 16 August 2019 13.59.34 &#10;&#10;   Completed a todo, in Application State Map.&#10;   &#10;=&gt; Friday, 16 August 2019 14.05.22&#10;&#10;   Completed todo in : `receiveCommand`.&#10;   &#10;=&gt; Friday, 16 August 2019 14.12.15&#10;&#10;   Working on insertEntity in PersActorWrapper, that&#10;   is still under progress.">
-      <created>1565953986918</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1565953986918</updated>
     </task>
     <task id="LOCAL-00185" summary="=&gt; Wednesday, 14 August 2019 22.47.14 &#10;&#10;   Making the entity related types of the code more&#10;   meaningful.&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.23.02&#10;&#10;   Adding simple corrections, and some simple things&#10;   for tests and pretty printing and embedding&#10;   compilation time into the final binaries (using macros).&#10;   &#10;=&gt; Wednesday, 14 August 2019 23.29.09&#10;&#10;   A bit more refining of how the test results are printed, etc...&#10;   &#10;=&gt; Thursday, 15 August 2019 7.11.22&#10;  &#10;   Lot of changes, towards creating a persistence layer into which&#10;   we can insert a simple entity.&#10;   &#10;=&gt; Friday, 16 August 2019 2.50.17&#10;&#10;   Working towards create a new entity from a value and&#10;   storing it in the &quot;database&quot; (journal + immutable map in a &#10;   persistent actor).&#10;   &#10;=&gt; Friday, 16 August 2019 4.18.38&#10;   Writing a test for creating and inserting a new Entity&#10;   into the Persistent Actor's Application State Map.&#10;   &#10;   Next step: make this test pass. It is in PersistenceModuleTest,&#10;   it is called &quot;init&quot;.&#10;   &#10;=&gt; Friday, 16 August 2019 5.42.53&#10;&#10;   Writing some more todo's and specifying how the&#10;   implementations of some functions will look.&#10;   (&quot;sort of like pseudo code&quot;)&#10;   &#10;=&gt; Friday, 16 August 2019 6.12.07&#10;   &#10;   Added lot of todo-s and sketches for the create/insert&#10;   entity related functions/logic. &#10;   &#10;   Now, the &quot;plan&quot; is ready, &quot;only&quot; the &quot;simple work&quot; remains&#10;   to be done :).&#10;   &#10;=&gt; Friday, 16 August 2019 13.59.34 &#10;&#10;   Completed a todo, in Application State Map.&#10;   &#10;=&gt; Friday, 16 August 2019 14.05.22&#10;&#10;   Completed todo in : `receiveCommand`.&#10;   &#10;=&gt; Friday, 16 August 2019 14.12.15&#10;&#10;   Working on insertEntity in PersActorWrapper, that&#10;   is still under progress.&#10;   &#10;=&gt; Friday, 16 August 2019 19.21.48&#10;&#10;   Fixing one more todo, including lots of implicit parameters&#10;   into lots of methods for circe encoding.">
       <created>1565972571991</created>
@@ -1274,7 +1153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566867822352</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="Even more refactoring ... I don't even dare to compile the code now.&#10;&#10;Tuesday, 27 August 2019 15.58.57">
+      <created>1566910745373</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1566910745374</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1327,7 +1213,7 @@
       <window_info id="Structure" order="0" sideWeight="0.35351562" side_tool="true" weight="0.49421966" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.36914062" side_tool="true" weight="0.3836705" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.6464844" visible="true" weight="0.49567723" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.6464844" visible="true" weight="0.37463978" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.4883721" />
@@ -1336,7 +1222,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.27915633" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.39334154" />
+      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.39334154" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.5080148" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1353,6 +1239,9 @@
       <window_info anchor="right" id="CodeMR" order="7" show_stripe_button="false" />
       <window_info anchor="right" x="0" y="0" width="306" height="557" id="Documentation" order="8" sideWeight="0.50075185" side_tool="true" weight="0.3299639" />
     </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -1407,7 +1296,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Get Entity Test fails.&#10;&#10;TODO-NOW: make the test pass.&#10;&#10;Adding some extra debug println-s." />
     <MESSAGE value="Get Entity Test fails.&#10;&#10;TODO-NOW: make the test pass.&#10;&#10;Adding some extra debug println-s.&#10;&#10;We need to test type-tags, because ClassTag-s are erased only.&#10;&#10;We need type tags, complete compile time information about the type.&#10;&#10;We need this for creating a route name." />
     <MESSAGE value="Get Entity POST command and related test passes." />
     <MESSAGE value="Going forward, towards a nice integration test :&#10;&#10;Create/insert Alice and then get it from the server and&#10;check that they are the same." />
@@ -1432,27 +1320,14 @@
     <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------" />
     <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------&#10;&#10;Now we have 9 compiler errors and still refactoring.&#10;&#10;Tuesday, 27 August 2019 3.13.56&#10;&#10;------------------------------------------------------" />
     <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------&#10;&#10;Now we have 9 compiler errors and still refactoring.&#10;&#10;Tuesday, 27 August 2019 3.13.56&#10;&#10;------------------------------------------------------&#10;&#10;We are still refactoring... but now it's time to stop...&#10;&#10;Tuesday, 27 August 2019 4.03.29&#10;&#10;-------------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------&#10;&#10;Now we have 9 compiler errors and still refactoring.&#10;&#10;Tuesday, 27 August 2019 3.13.56&#10;&#10;------------------------------------------------------&#10;&#10;We are still refactoring... but now it's time to stop...&#10;&#10;Tuesday, 27 August 2019 4.03.29&#10;&#10;-------------------------------------------------------" />
+    <MESSAGE value="Even more refactoring ... I don't even dare to compile the code now.&#10;&#10;Tuesday, 27 August 2019 15.58.57" />
+    <option name="LAST_COMMIT_MESSAGE" value="Even more refactoring ... I don't even dare to compile the code now.&#10;&#10;Tuesday, 27 August 2019 15.58.57" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithoutVersion.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1550,48 +1425,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRef.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/refs/UntypedRef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/refs/UntypedRefWithoutVersion.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/refs/UntypedRefWithoutVersion.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StatePrintingUtils.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/StatePrintingUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/TestApplicationState.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/TestApplicationState.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/typesafePersistence/TypeSafePersistenceServiceTest.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/typesafePersistence/PersistenceServiceTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
           <folding>
             <element signature="e#64#93#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.scalafmt.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1188">
-          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1605,93 +1473,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/StateChange.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/StateChange.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/TypeSafePersistenceService.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="e#70#186#0" expanded="true" />
-            <element signature="e#758#789#0" />
-            <element signature="e#793#983#0" />
-            <element signature="e#1378#2340#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/GetFullApplicationState_Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMap.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/GetFullApplicationState_Command.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMap.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/UpdateEntity_Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/ShutdownActor_Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/InsertNewEntity_Command.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/errors/EntityUpdateVersionError.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#96#207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapContainer.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/UpdateEntity_Command.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/ShutdownActor_Command.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/commands/InsertNewEntity_Command.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/logic/typeSafePersistenceHeaven/typelessHell/actor/errors/EntityUpdateVersionError.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMapContainer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/state/ApplicationStateMapEntry.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/state/ApplicationStateMapEntry.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/EventToBeSavedToTheJournal.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/EventToBeSavedToTheJournal.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorForOurApp.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/PersistentActorForOurApp.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-394">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
@@ -1701,27 +1523,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/SumIntHandler.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/SumIntHandler.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding>
             <element signature="e#62#87#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1732,14 +1540,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/InsertEntityHandler.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/InsertEntityHandler.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/GetEntityHandler.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/GetEntityHandler.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
@@ -1750,86 +1558,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/RequestHandler.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/CreateEntityEventToBeSavedToTheJournal.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/UpdateEntityEventToBeSavedToTheJournal.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala" />
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/UpdateEntityHandler.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        <state relative-caret-position="320">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
           <folding>
-            <element signature="e#44#135#0" expanded="true" />
+            <element signature="e#931#2022#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/UpdateEntityHandler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding>
-            <element signature="e#1145#2234#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/FacadeToStupidPersistentActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/PersistenceError.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/Operation.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/OperationType.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/PersistentActorErrors.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/Responses.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/Responses.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/CreateEntityEventToBeSavedToTheJournal.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/PersistentActorErrors.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="190">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/events/UpdateEntityEventToBeSavedToTheJournal.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/RequestHandlerTC.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="206">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandler/handlers/persistence/actor/CommandMessageToActor.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/CommandMessageToActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="171">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+          <folding>
+            <element signature="e#1958#2566#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceError.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#1097#1099#0" />
+            <element signature="e#1480#1482#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.scalafmt.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/CommandsAndErrors.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#92#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/actor/FacadeToStupidPersistentActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
+          <folding>
+            <element signature="e#1088#1588#0" />
+            <element signature="e#1764#1843#0" />
+            <element signature="e#2443#2514#0" />
+            <element signature="e#2934#2986#0" />
+            <element signature="e#4488#4520#0" />
+            <element signature="e#6003#6062#0" />
+          </folding>
         </state>
       </provider>
     </entry>

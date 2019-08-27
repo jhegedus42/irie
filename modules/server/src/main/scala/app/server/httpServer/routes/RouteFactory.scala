@@ -4,9 +4,9 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.requestHandler.handlers.persistence.TypeSafePersistenceService
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
 import app.server.httpServer.routes.post.{PostRoute, PostRouteFactory}
-import app.server.httpServer.routes.post.requestHandler.handlers.{GetEntityHandler, InsertEntityHandler, UpdateEntityHandler}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.{GetEntityHandler, InsertEntityHandler, UpdateEntityHandler}
 import app.server.httpServer.routes.static.{IndexDotHtml, StaticRoutes}
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
@@ -24,7 +24,7 @@ private[httpServer] case class RouteFactory(
   private implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val persistenceModule = TypeSafePersistenceService( executionContext )
+  val persistenceModule = PersistenceService( executionContext )
 
   val route: Route = allRoutes
 

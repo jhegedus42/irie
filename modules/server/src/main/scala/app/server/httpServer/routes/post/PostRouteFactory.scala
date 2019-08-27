@@ -10,27 +10,28 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.requestHandler.RequestHandler
+import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
-
-
 
 private[routes] object PostRouteFactory {
 
-  def createPostRoute[Req <: PostRequest]( )(
-    implicit
-    classTag:    ClassTag[Req],
-    classTag2:    ClassTag[Req#PayLoad],
-    serverLogic: RequestHandler[Req],
-    dpl:Decoder[Req#PayLoad],
-    decoder:     Decoder[Req#Par],
-    encoder:     Encoder[Req#Res]
+  def createPostRoute[Req <: PostRequest](
+  )(
+                                           implicit
+                                           classTag:    ClassTag[Req],
+                                           classTag2:   ClassTag[Req#PayLoad],
+                                           handler: RequestHandlerTC[Req],
+                                           dpl:         Decoder[Req#PayLoad],
+                                           decoder:     Decoder[Req#Par],
+                                           encoder:     Encoder[Req#Res]
   ): PostRoute[Req] = {
 
     val routeName: RouteName = RouteName.getRouteName[Req]
-    val pathName: String = routeName.name
+    val pathName:  String    = routeName.name
 
-    println(s"We set up a route with the path of :\n$pathName")
+    println(
+      s"We set up a route with the path of :\n$pathName"
+    )
 
     val res: Route = {
 
@@ -52,14 +53,10 @@ private[routes] object PostRouteFactory {
             //
             //
 
-
-
-
             val res: Future[Option[Req#Res]] =
-              serverLogic.getResult( params )
+              handler.getResult( params )
 
-            println(
-              s"""
+            println( s"""
                 |
                 | vvvvvvvvvvv------------------------------
                 |
@@ -70,7 +67,7 @@ private[routes] object PostRouteFactory {
                 |
                 | or the same, just pretty printed:
                 |
-                | ${PrettyPrint.prettyPrint(params)}
+                | ${PrettyPrint.prettyPrint( params )}
                 |
                 |
                 | Time is :
@@ -79,8 +76,7 @@ private[routes] object PostRouteFactory {
                 |
                 | ^^^^^^^^^^^------------------------------
                 |
-               """.stripMargin)
-
+               """.stripMargin )
 
             complete( res )
           }
