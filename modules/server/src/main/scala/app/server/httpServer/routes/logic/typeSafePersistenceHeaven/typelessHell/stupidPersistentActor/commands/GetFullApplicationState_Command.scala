@@ -1,0 +1,3 @@
+package app.server.httpServer.routes.logic.typeSafePersistenceHeaven.typelessHell.stupidPersistentActor.commands
+
+case object GetFullApplicationState_Command

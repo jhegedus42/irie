@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.logic.serverLogicAsTypeClasses.instanceFactories
 
+import app.server.httpServer.routes.logic.typeSafePersistenceHeaven.TypeSafePersistenceService
 import app.server.httpServer.routes.logic.serverLogicAsTypeClasses.ServerLogicTypeClass
-import app.server.httpServer.routes.persistence.typeSafeWorld.TypeSafePersistenceService
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
 import app.shared.entity.entityValue.EntityValue

@@ -4,9 +4,9 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
+import app.server.httpServer.routes.logic.typeSafePersistenceHeaven.TypeSafePersistenceService
 import app.server.httpServer.routes.routeProviders.dynamicRouteProviders.{PostRoute, PostRouteFactory}
 import app.server.httpServer.routes.logic.serverLogicAsTypeClasses.instanceFactories.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
-import app.server.httpServer.routes.persistence.typeSafeWorld.TypeSafePersistenceService
 import app.server.httpServer.routes.routeProviders.staticRouteProviders.{IndexDotHtml, StaticRoutes}
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, SumIntPostRequest, UpdateEntityReq}
 import app.shared.entity.entityValue.EntityValue
