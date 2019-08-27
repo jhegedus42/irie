@@ -1,7 +1,0 @@
-package app.server.httpServer.routes.logic.typeSafePersistenceHeaven.typelessHell.stupidPersistentActor.events
-
-import app.server.httpServer.routes.logic.typeSafePersistenceHeaven.typelessHell.stupidPersistentActor.commands.UpdateEntity_Command
-
-case class UpdateEntityEventToBeSavedToTheJournal(
-    updateEntityCommand: UpdateEntity_Command
-) extends EventToBeSavedToTheJournal

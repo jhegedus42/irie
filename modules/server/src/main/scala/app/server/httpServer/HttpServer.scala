@@ -3,14 +3,14 @@ package app.server.httpServer
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
-import app.server.httpServer.routes.RouteProvidersFacade
+import app.server.httpServer.routes.RouteFactory
 import app.server.initialization.Config
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class HttpServer( actorSystem: ActorSystem ) {
 
-  val routes = RouteProvidersFacade( actorSystem )
+  val routes = RouteFactory( actorSystem )
 
   implicit val actorSystemAsImplicit = actorSystem
 
