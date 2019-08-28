@@ -5,10 +5,10 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 
 trait Operation{
-  type OP<:Operation
   type Par<:OperatonParameter
   type Res<:OperationResult
 }
+
 
 
 

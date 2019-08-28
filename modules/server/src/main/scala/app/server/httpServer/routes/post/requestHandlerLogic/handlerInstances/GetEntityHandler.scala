@@ -25,7 +25,7 @@ case class GetEntityHandler[V <: EntityValue[V]](
     val p: RefToEntityWithoutVersion[V] = param.refToEntityWithoutVersion
 
     val res: Future[Option[Entity[V]]] =
-      persistenceModule.getEntityWithLatestVersion[V]( p )( d )
+      persistenceModule.getEntityWithLatestVersion[V]( p )( d ) //todo-right-now
 
     val r2: Future[GetEntityReqRes[V]] =
       res.map( GetEntityReqRes( _ ) )( contextExecutor )

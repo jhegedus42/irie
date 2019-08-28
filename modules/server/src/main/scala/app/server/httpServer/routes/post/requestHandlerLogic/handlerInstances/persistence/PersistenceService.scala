@@ -1,17 +1,24 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence
 
 import akka.actor.ActorRef
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get.GetOp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{
+  OpExecutor,
+  Operation
+}
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.PersistentActorImp
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.language.postfixOps
 import scala.reflect.ClassTag
-
-
 
 private[routes] case class PersistenceService(
   context: ExecutionContextExecutor) {
@@ -190,7 +197,7 @@ private[routes] case class PersistenceService(
         DummyQQQType
       ] =
 //        ask( actor, GetFullApplicationState_Command )(
-          ask( actor, DummyQQQType)(
+        ask( actor, DummyQQQType )(
           Timeout.durationToTimeout( 1 seconds )
         ).mapTo[
 //          Responses.GetFullApplicationState_Command_Response
@@ -210,14 +217,9 @@ private[routes] case class PersistenceService(
     SendAskToActor.InterfaceToActor( context )
   }
 
-  def getEntityWithLatestVersion[V <: EntityValue[V]](
-    ref: RefToEntityWithoutVersion[V]
-  )(
-    implicit
-    d: Decoder[Entity[V]]
-  ): Future[Option[Entity[V]]] = {
-    ??? //todo-now
-  }
+  def operationExecutor[OP <: Operation](
+    par: OP#Par
+  )( implicit ex: OpExecutor[OP] ): OP#Res = { ex.execute( par ) }
 
   def createAndStoreNewEntity[
     V <: EntityValue[V]: ClassTag
