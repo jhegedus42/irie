@@ -1,8 +1,8 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.types.results.errors
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.refs.UntypedRef
 
-sealed trait PersistentActorError
+
 
 case class EntityUpdateVersionError(
 //    utr:                      UntypedRef,

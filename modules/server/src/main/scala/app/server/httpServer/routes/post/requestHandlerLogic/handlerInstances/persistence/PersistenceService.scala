@@ -11,7 +11,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.language.postfixOps
 import scala.reflect.ClassTag
 
-case class DummyQQQType()
+
 
 private[routes] case class PersistenceService(
   context: ExecutionContextExecutor) {

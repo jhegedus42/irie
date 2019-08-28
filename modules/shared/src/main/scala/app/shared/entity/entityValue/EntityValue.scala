@@ -1,5 +1,4 @@
 package app.shared.entity.entityValue
-import io.circe.generic.auto._
 
 /**
   *
