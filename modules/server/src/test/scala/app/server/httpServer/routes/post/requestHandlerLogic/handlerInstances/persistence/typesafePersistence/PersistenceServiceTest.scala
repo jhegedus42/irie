@@ -2,7 +2,6 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import akka.actor.ActorSystem
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.{StateChange, StatePrintingUtils}
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -57,12 +56,13 @@ class PersistenceServiceTest extends FunSuite {
 
       val pm = PersistenceService(executionContext)
 
-      val res: Future[  Entity[User] ] = pm.createAndStoreNewEntity( cica )
-      import scala.concurrent._
-      import scala.concurrent.duration._
-      val res_awaited: ( Entity[User] ) =
-        Await.result( res, 5 seconds )
-      val stateChange = res_awaited
+//      val res: Future[  Entity[User] ] = pm.createAndStoreNewEntity( cica )
+//      import scala.concurrent._
+//      import scala.concurrent.duration._
+//      val res_awaited: ( Entity[User] ) =
+//        Await.result( res, 5 seconds )
+//      val stateChange = res_awaited
+      // todo-next
 
 //      StatePrintingUtils.printStateChange( stateChange )
 

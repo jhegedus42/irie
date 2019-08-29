@@ -24,22 +24,21 @@ private[routes] case class PersistenceService(
     context: ExecutionContextExecutor
 ) {
 
+  import akka.pattern.ask
+  import akka.util.Timeout
+
+  import scala.concurrent.duration._
+
+  val actor: ActorRef = PersistentActorImp.getActor(
+      "the_one_and_only_parsistent_actor"
+    )
+
   object SendAskToActor {
 
     private[persistence] case class InterfaceToActor(
         context: ExecutionContextExecutor
     ) {
 
-      import akka.pattern.ask
-      import akka.util.Timeout
-
-      import scala.concurrent.duration._
-      implicit val context_as_implicit = context
-
-      val actor: ActorRef =
-        PersistentActorImp.getActor(
-          "the_one_and_only_parsistent_actor"
-        )
 
       /**
         * Inserts an entity into the Map containeing the Appliacation State.
@@ -194,90 +193,94 @@ private[routes] case class PersistenceService(
         ???
       }
 
-      private def getState: Future[
-//        Responses.GetFullApplicationState_Command_Response
-        DummyQQQType
-      ] =
-//        ask( actor, GetFullApplicationState_Command )(
-        ask(actor, DummyQQQType)(
-          Timeout.durationToTimeout(1 seconds)
-        ).mapTo[
-//          Responses.GetFullApplicationState_Command_Response
-          DummyQQQType
-        ]
-
-      // todo-next - put this into some simple Pers Actor Wrapper
-      //  this level should not contain ask-s
-
-    }
+  }
   }
 
   implicit val context_as_implicit = context
 
-  private val simpleFunctionInterfaceToPersistentActor
-      : SendAskToActor.InterfaceToActor = {
-    SendAskToActor.InterfaceToActor(context)
-  }
+//  private val persActorWrapped = SendAskToActor.InterfaceToActor(context)
+
+
+  private def getState: Future[
+    //        Responses.GetFullApplicationState_Command_Response
+    DummyQQQType
+    ] =
+  //        ask( actor, GetFullApplicationState_Command )(
+    ask(actor, DummyQQQType)(
+      Timeout.durationToTimeout(1 seconds)
+    ).mapTo[
+      //          Responses.GetFullApplicationState_Command_Response
+      DummyQQQType
+      ]
+
+  // todo-next - put this into some simple Pers Actor Wrapper
+  //  this level should not contain ask-s
+
+
 
   def operationExecutor[OP <: Operation](
       par: OP#Par
   )(implicit ex: OpExecutor[OP]): Future[OP#Res] = { ex.execute(par) }
 
-  def createAndStoreNewEntity[
-      V <: EntityValue[V]: ClassTag
-  ](value: V)(
-      implicit
-      encoder: Encoder[Entity[V]]
-  ): Future[(Entity[V])] = {
-//
-//    val entity: Entity[V] = Entity.makeFromValue( value )
-//
-//    val res: Future[AreWeHappyInTheUnderWorld] =
-//      simpleFunctionInterfaceToPersistentActor.insertEntity[V]( entity )
-//
-//    res.map( x => (x,entity) )
-    ???
-  }
-
-  def updateEntity[V <: EntityValue[V]: ClassTag](
-      entity: Entity[V]
-  )(
-      implicit
-      encoder: Encoder[Entity[V]]
-  ): Future[Entity[V]] = {
-//
-//    val res: Future[Right[PersistenceError,]] =
-//      simpleFunctionInterfaceToPersistentActor.updateEntity( entity )
-//
-//    val res2: Future[Entity[V]] = res.flatMap(
-//      (x: (AreWeHappyInTheUnderWorld)) => {
-//        x.why match {
-//          case Left( value ) =>
-//            Future.failed(
-//              new Exception(
-//                s"""
-//      |
-//      |
-//      |  We are not very happy. Something went wrong.
-//      |
-//      |  "There was some problem with the versions or something when" +
-//      |    s"trying to update the entity : \n$entity "
-//      |
-//      |  Also, there is the following reason too, why we are
-//      |  not so happy: $value
-//      |
-//      |
-//    """.stripMargin
-//              )
-//            )
-//          case Right( value ) => Future.successful( entity )
-//        }
-//
-//      }
-//    )
-//
-//    res2
-    ???
-  }
-
 }
+
+
+
+//def createAndStoreNewEntity[
+//V <: EntityValue[V]: ClassTag
+//](value: V)(
+//implicit
+//encoder: Encoder[Entity[V]]
+//): Future[(Entity[V])] = {
+//  //
+//  //    val entity: Entity[V] = Entity.makeFromValue( value )
+//  //
+//  //    val res: Future[AreWeHappyInTheUnderWorld] =
+//  //      persActorWrapped.insertEntity[V]( entity )
+//  //
+//  //    res.map( x => (x,entity) )
+//  ???
+//}
+//
+//  def updateEntity[V <: EntityValue[V]: ClassTag](
+//  entity: Entity[V]
+//  )(
+//  implicit
+//  encoder: Encoder[Entity[V]]
+//  ): Future[Entity[V]] = {
+//  //
+//  //    val res: Future[Right[PersistenceError,]] =
+//  //      persActorWrapped.updateEntity( entity )
+//  //
+//  //    val res2: Future[Entity[V]] = res.flatMap(
+//  //      (x: (AreWeHappyInTheUnderWorld)) => {
+//  //        x.why match {
+//  //          case Left( value ) =>
+//  //            Future.failed(
+//  //              new Exception(
+//  //                s"""
+//  //      |
+//  //      |
+//  //      |  We are not very happy. Something went wrong.
+//  //      |
+//  //      |  "There was some problem with the versions or something when" +
+//  //      |    s"trying to update the entity : \n$entity "
+//  //      |
+//  //      |  Also, there is the following reason too, why we are
+//  //      |  not so happy: $value
+//  //      |
+//  //      |
+//  //    """.stripMargin
+//  //              )
+//  //            )
+//  //          case Right( value ) => Future.successful( entity )
+//  //        }
+//  //
+//  //      }
+//  //    )
+//  //
+//  //    res2
+//  ???
+//}
+
+

@@ -2,10 +2,8 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.ApplicationStateMapEntry
 
-trait EventToBeSavedToTheJournal
-
-
-
-
-
- //todo-now
+case class DummyCommand() //todo-now
+{
+  def newEntry:     ApplicationStateMapEntry = ???
+  def updatedEntry: ApplicationStateMapEntry = ???
+}

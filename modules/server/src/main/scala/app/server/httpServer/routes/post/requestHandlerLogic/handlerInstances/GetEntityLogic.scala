@@ -38,7 +38,7 @@ case class GetEntityLogic[V <: EntityValue[V]](
       )
 
     def convert(x: Get.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
-      ??? //todo-right-now
+      ??? //todo-right-now-1
     }
 
     def log(

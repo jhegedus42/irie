@@ -97,7 +97,7 @@ private[persistentActor] case class ApplicationStateMapContainer(
 
   def setState(s: ApplicationStateMap ): Unit = {
     println( "\n\nState was set to:\n" )
-    StatePrintingUtils.printApplicationState( s )
+//    StatePrintingUtils.printApplicationState( s )
     applicationState = s
   }
 
