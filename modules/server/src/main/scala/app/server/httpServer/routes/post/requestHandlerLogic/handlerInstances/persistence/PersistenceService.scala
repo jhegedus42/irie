@@ -21,12 +21,14 @@ import scala.language.postfixOps
 import scala.reflect.ClassTag
 
 private[routes] case class PersistenceService(
-  context: ExecutionContextExecutor) {
+    context: ExecutionContextExecutor
+) {
 
   object SendAskToActor {
 
     private[persistence] case class InterfaceToActor(
-      context: ExecutionContextExecutor) {
+        context: ExecutionContextExecutor
+    ) {
 
       import akka.pattern.ask
       import akka.util.Timeout
@@ -50,10 +52,10 @@ private[routes] case class PersistenceService(
         *         second one is the state after the insertion).
         */
       def insertEntity[V <: EntityValue[V]](
-        entityToInsert: Entity[V]
+          entityToInsert: Entity[V]
       )(
-        implicit
-        encoder: Encoder[Entity[V]]
+          implicit
+          encoder: Encoder[Entity[V]]
       ): Future[DummyQQQType] = {
 
         //    assert( entityToInsert.refToEntity.entityVersion.versionNumberLong == 0 )
@@ -84,10 +86,10 @@ private[routes] case class PersistenceService(
       //      .mapTo[UpdateEntityPAResponse]
 
       def updateEntity[V <: EntityValue[V]](
-        entityToUpdate: Entity[V]
-      )(//      implicit executionContextExecutor:                 ExecutionContextExecutor,
-        implicit
-        encoder: Encoder[Entity[V]]
+          entityToUpdate: Entity[V]
+      )( //      implicit executionContextExecutor:                 ExecutionContextExecutor,
+          implicit
+          encoder: Encoder[Entity[V]]
       ): Future[Entity[V]] = {
 
         //    val updatedEntry: ApplicationStateMapEntry = {
@@ -138,10 +140,10 @@ private[routes] case class PersistenceService(
       }
 
       def getEntityWithVersion[V <: EntityValue[V]](
-        ref: RefToEntityWithVersion[V]
+          ref: RefToEntityWithVersion[V]
       )(
-        implicit
-        d: Decoder[Entity[V]]
+          implicit
+          d: Decoder[Entity[V]]
       ): Future[Option[Entity[V]]] = {
 
         //    val eventualGetStateResult
@@ -197,8 +199,8 @@ private[routes] case class PersistenceService(
         DummyQQQType
       ] =
 //        ask( actor, GetFullApplicationState_Command )(
-        ask( actor, DummyQQQType )(
-          Timeout.durationToTimeout( 1 seconds )
+        ask(actor, DummyQQQType)(
+          Timeout.durationToTimeout(1 seconds)
         ).mapTo[
 //          Responses.GetFullApplicationState_Command_Response
           DummyQQQType
@@ -213,21 +215,20 @@ private[routes] case class PersistenceService(
   implicit val context_as_implicit = context
 
   private val simpleFunctionInterfaceToPersistentActor
-    : SendAskToActor.InterfaceToActor = {
-    SendAskToActor.InterfaceToActor( context )
+      : SendAskToActor.InterfaceToActor = {
+    SendAskToActor.InterfaceToActor(context)
   }
 
   def operationExecutor[OP <: Operation](
-    par: OP#Par
-  )( implicit ex: OpExecutor[OP] ): OP#Res = { ex.execute( par ) }
+      par: OP#Par
+  )(implicit ex: OpExecutor[OP]): Future[OP#Res] = { ex.execute(par) }
 
   def createAndStoreNewEntity[
-    V <: EntityValue[V]: ClassTag
-  ](value: V
-  )(
-    implicit
-    encoder: Encoder[Entity[V]]
-  ): Future[( Entity[V] )] = {
+      V <: EntityValue[V]: ClassTag
+  ](value: V)(
+      implicit
+      encoder: Encoder[Entity[V]]
+  ): Future[(Entity[V])] = {
 //
 //    val entity: Entity[V] = Entity.makeFromValue( value )
 //
@@ -239,10 +240,10 @@ private[routes] case class PersistenceService(
   }
 
   def updateEntity[V <: EntityValue[V]: ClassTag](
-    entity: Entity[V]
+      entity: Entity[V]
   )(
-    implicit
-    encoder: Encoder[Entity[V]]
+      implicit
+      encoder: Encoder[Entity[V]]
   ): Future[Entity[V]] = {
 //
 //    val res: Future[Right[PersistenceError,]] =
