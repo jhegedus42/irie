@@ -1,5 +1,6 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.refs
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state
 
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.UntypedRefWithoutVersion
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}

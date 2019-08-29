@@ -1,12 +1,10 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.commands.{Insert, Shutdown, Update}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.refs.UntypedRef
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.{ApplicationStateMapContainer, ApplicationStateMapEntry}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.journaledEvents.{CreateEntityEventToBeSavedToTheJournal, EventToBeSavedToTheJournal, UpdateEntityEventToBeSavedToTheJournal}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.{GetApplicationState, GetFullApplicationState_Command_Response, Insert, Shutdown, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{GetApplicationState, Insert, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{StateMapEntry, UntypedRef}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.{EventToBeSavedToTheJournal, GetFullApplicationState_Command_Response, InsertEvent, UpdateEvent}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
@@ -25,12 +23,12 @@ private[persistentActor] class PersistentActorImp(
   id: String)
     extends PersistentActor with ActorLogging {
 
-  val state          = ApplicationStateMapContainer()
-  val commandHandler = CommandHandler()
+  val state          = StateService()
+  val commandHandler = MessageHandler()
 
   def getEntity[V <: EntityValue[V]: ClassTag](
     r: UntypedRef
-  ): Option[ApplicationStateMapEntry] = {
+  ): Option[StateMapEntry] = {
     state.getState.map.get( r )
   }
 
@@ -59,21 +57,21 @@ private[persistentActor] class PersistentActorImp(
     event: EventToBeSavedToTheJournal
   ): Unit = event match {
 
-    case CreateEntityEventToBeSavedToTheJournal(
+    case InsertEvent(
         insertNewEntityCommand
         ) => {
       println(
         s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand"
       )
 
-      val newEntry: ApplicationStateMapEntry =
+      val newEntry: StateMapEntry =
         insertNewEntityCommand.newEntry //todo-now
 
       state.unsafeInsertStateEntry( newEntry )
 
     }
 
-    case UpdateEntityEventToBeSavedToTheJournal(
+    case UpdateEvent(
         updateEntityCommand
         ) => {
 
@@ -81,7 +79,7 @@ private[persistentActor] class PersistentActorImp(
         s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand"
       )
 
-      val newEntry: ApplicationStateMapEntry =
+      val newEntry: StateMapEntry =
         updateEntityCommand.updatedEntry //todo-now
 
       state.unsafeInsertUpdatedEntity( newEntry )

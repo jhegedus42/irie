@@ -1,10 +1,10 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.{Insert, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.Update
 
-case class CommandHandler() {
+case class MessageHandler() {
 
-  def handleUpdateEntityCommand( command: Update ): Unit = {
+  def handleUpdateEntityCommand(message: Update ): Unit = {
 //    val oldState = state.getState
 //
 //    val event: events.UpdateEntityEventToBeSavedToTheJournal = {

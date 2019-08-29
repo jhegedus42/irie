@@ -3,17 +3,11 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 import akka.actor.ActorRef
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get.GetOp
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{
-  OpExecutor,
-  Operation
-}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.PersistentActorImp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic.PersistentActorImp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{OpExecutor, Operation}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{
-  RefToEntityWithVersion,
-  RefToEntityWithoutVersion
-}
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
