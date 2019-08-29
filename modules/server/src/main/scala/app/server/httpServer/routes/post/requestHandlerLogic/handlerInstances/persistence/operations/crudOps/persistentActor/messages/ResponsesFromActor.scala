@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.ApplicationStateMap
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.ApplicationStateMap
 
 case class DummyResponsePayload()
 

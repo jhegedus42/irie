@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state
 
 import app.shared.initialization.testing.TestUsers
 

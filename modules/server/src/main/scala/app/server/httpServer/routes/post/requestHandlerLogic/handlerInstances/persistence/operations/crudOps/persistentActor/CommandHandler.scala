@@ -1,5 +1,6 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor
 
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.{Insert, Update}
 
 case class CommandHandler() {
 

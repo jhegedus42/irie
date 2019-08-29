@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{OpExecutor, Operation, OperationError, OperationResult, OperatonParameter}
 import app.shared.entity.Entity

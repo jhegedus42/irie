@@ -2,8 +2,8 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
 import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get.GetOp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get.GetOp
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{
   GetEntityReqPar,

@@ -1,13 +1,13 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence
 
 import akka.actor.ActorRef
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get.GetOp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get.GetOp
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{
   OpExecutor,
   Operation
 }
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.PersistentActorImp
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.PersistentActorImp
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{

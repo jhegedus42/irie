@@ -1,24 +1,12 @@
-package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor
+package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.{
-  CommandHandler,
-  GetApplicationState,
-  Insert,
-  Shutdown,
-  Update
-}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.refs.UntypedRef
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.commands.state.{
-  ApplicationStateMapContainer,
-  ApplicationStateMapEntry
-}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.persistentActor.journaledEvents.{
-  CreateEntityEventToBeSavedToTheJournal,
-  EventToBeSavedToTheJournal,
-  UpdateEntityEventToBeSavedToTheJournal
-}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.commands.{Insert, Shutdown, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.refs.UntypedRef
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.{ApplicationStateMapContainer, ApplicationStateMapEntry}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.journaledEvents.{CreateEntityEventToBeSavedToTheJournal, EventToBeSavedToTheJournal, UpdateEntityEventToBeSavedToTheJournal}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.messages.{GetApplicationState, GetFullApplicationState_Command_Response, Insert, Shutdown, Update}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
