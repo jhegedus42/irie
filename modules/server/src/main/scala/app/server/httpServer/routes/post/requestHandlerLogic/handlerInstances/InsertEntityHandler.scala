@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
-import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
+import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
 import app.shared.comm.postRequests.InsertNewEntityReq
 import app.shared.comm.postRequests.InsertNewEntityReq.{
@@ -21,7 +21,7 @@ case class InsertEntityHandler[V <: EntityValue[V]](
   e:                 Encoder[Entity[V]],
   ct:                ClassTag[V],
   contextExecutor:   ExecutionContextExecutor)
-    extends RequestHandlerTC[InsertNewEntityReq[V]] {
+    extends Logic[InsertNewEntityReq[V]] {
 
   override def getResult(
     param: InsertReqPar[V]

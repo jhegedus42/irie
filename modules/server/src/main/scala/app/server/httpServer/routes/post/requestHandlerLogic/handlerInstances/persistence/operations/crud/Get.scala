@@ -37,6 +37,6 @@ object Get {
 
     override def execute(
       par: Get.GetOpPar[V]
-    ): Get.GetOpRes[V] = ???
+    ): Future[Get.GetOpRes[V]] = ???
   }
 }

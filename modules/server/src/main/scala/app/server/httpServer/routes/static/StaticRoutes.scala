@@ -14,7 +14,7 @@ import akka.http.scaladsl.server.Route
   */
 private[routes] object StaticRoutes {
 
-  def staticRootFactory( rootPage: String ): Route = {
+  def getStaticRoute(rootPage: String ): Route = {
     val staticRoute: Route = {
       pathSingleSlash {
         import java.util.Calendar

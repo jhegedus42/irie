@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
-import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
+import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crud.Get.GetOp
@@ -20,11 +20,11 @@ import io.circe.Decoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.Try
 
-case class GetEntityHandler[V <: EntityValue[V]](
+case class GetEntityLogic[V <: EntityValue[V]](
     persistenceModule: PersistenceService,
-    d: Decoder[Entity[V]],
-    contextExecutor: ExecutionContextExecutor
-) extends RequestHandlerTC[GetEntityReq[V]] {
+    d:                 Decoder[Entity[V]],
+    contextExecutor:   ExecutionContextExecutor
+) extends Logic[GetEntityReq[V]] {
 
   implicit val ce: ExecutionContextExecutor = contextExecutor
 
@@ -32,14 +32,10 @@ case class GetEntityHandler[V <: EntityValue[V]](
 
     def getResultFromPersistenceModule(
         param: GetEntityReqPar[V]
-    ): Future[Get.GetOpRes[V]] = {
-
-      val p: RefToEntityWithoutVersion[V] =
-        param.refToEntityWithoutVersion
-
-      val par = Get.GetOpPar(p)
-      persistenceModule.operationExecutor[GetOp[V]](par)
-    }
+    ): Future[Get.GetOpRes[V]] =
+      persistenceModule.operationExecutor[GetOp[V]](
+        Get.GetOpPar(param.refToEntityWithoutVersion)
+      )
 
     def convert(x: Get.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
       ??? //todo-right-now
@@ -47,27 +43,27 @@ case class GetEntityHandler[V <: EntityValue[V]](
 
     def log(
         param: GetEntityReqPar[V],
-        x: Future[Some[GetEntityReqRes[V]]]
+        x:     Future[Some[GetEntityReqRes[V]]]
     ): Unit = {
       x.onComplete((x: Try[Some[GetEntityReqRes[V]]]) => {
         val s2 =
           s"""
-           |
-           |
-           |vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-           |
-           |
-           |r3 has completed in `GetEntityLogic`
-           |it was called with param:
-           |$param
-           |
-           |it resulted in a :
-           |$x
-           |
-           |
-           |^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
              |
-           |
+             |
+             |vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+             |
+             |
+             |r3 has completed in `GetEntityLogic`
+             |it was called with param:
+             |$param
+             |
+             |it resulted in a :
+             |$x
+             |
+             |
+             |^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             |
+             |
            """.stripMargin
         println(s2)
       })
@@ -79,9 +75,7 @@ case class GetEntityHandler[V <: EntityValue[V]](
   ): Future[Option[GetEntityReqRes[V]]] = {
     Helpers
       .getResultFromPersistenceModule(param)
-      .map(
-        Helpers.convert(_)
-      )
+      .map(Helpers.convert(_))
   }
 
 }

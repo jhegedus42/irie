@@ -12,11 +12,11 @@ import scala.concurrent.Future
   * @tparam Req
   */
 
-trait RequestHandlerTC[Req <: PostRequest] {
+trait Logic[Req <: PostRequest] {
     def getResult(param: Req#Par ): Future[Option[Req#Res]]
 }
 
-object RequestHandlerTC {
+object Logic {
   implicit val sumIntInstance=SumIntHandler
 }
 

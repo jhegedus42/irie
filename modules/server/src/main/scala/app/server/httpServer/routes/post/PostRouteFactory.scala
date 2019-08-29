@@ -10,82 +10,61 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
+import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 
 private[routes] object PostRouteFactory {
 
-  def createPostRoute[Req <: PostRequest](
-  )(
-                                           implicit
-                                           classTag:    ClassTag[Req],
-                                           classTag2:   ClassTag[Req#PayLoad],
-                                           handler: RequestHandlerTC[Req],
-                                           dpl:         Decoder[Req#PayLoad],
-                                           decoder:     Decoder[Req#Par],
-                                           encoder:     Encoder[Req#Res]
+  def getPostRoute[Req <: PostRequest](
+      )(
+      implicit
+      classTag:  ClassTag[Req],
+      classTag2: ClassTag[Req#PayLoad],
+      logic:     Logic[Req],
+      dpl:       Decoder[Req#PayLoad],
+      decoder:   Decoder[Req#Par],
+      encoder:   Encoder[Req#Res]
   ): PostRoute[Req] = {
 
-    val routeName: RouteName = RouteName.getRouteName[Req]
-    val pathName:  String    = routeName.name
-
-    println(
-      s"We set up a route with the path of :\n$pathName"
-    )
-
-    val res: Route = {
-
-      post {
-        path( pathName ) {
-
-          entity( as[Req#Par] ) { params: Req#Par =>
-            // todo-one-day
-            //  get rid of this magical entity marshalling
-            //  and do the marshalling by hand using circe's
-            //  Decoder[Req#Par] directly from json ...
-            //  this way we can debug the requests ... at all
-            //  and print out to the console the incoming JSON's.
-            //  Now, they get "lost somewhere in the translation".
-            //  => let's try to extract the json in the ping_pong
-            //     route
-            //  for example, let's look at :
-            //  https://doc.akka.io/docs/akka-http/current/routing-dsl/directives/index.html#basics
-            //
-            //
-
-            val res: Future[Option[Req#Res]] =
-              handler.getResult( params )
-
-            println( s"""
-                |
-                | vvvvvvvvvvv------------------------------
-                |
-                |
-                | ServerLogic was called with parameters:
-                | $params
-                |
-                |
-                | or the same, just pretty printed:
-                |
-                | ${PrettyPrint.prettyPrint( params )}
-                |
-                |
-                | Time is :
-                | ${GetTimeOnJVM.time.toString}
-                |
-                |
-                | ^^^^^^^^^^^------------------------------
-                |
-               """.stripMargin )
-
-            complete( res )
-          }
-
-        }
-      }
+    def log(params: Req#Par): Unit = {
+      println(s"""
+                 |
+                 | vvvvvvvvvvv------------------------------
+                 |
+                 |
+                 | ServerLogic was called with parameters:
+                 | $params
+                 |
+                 |
+                 | or the same, just pretty printed:
+                 |
+                 | ${PrettyPrint.prettyPrint(params)}
+                 |
+                 |
+                 | Time is :
+                 | ${GetTimeOnJVM.time.toString}
+                 |
+                 |
+                 |
+                 | ${RouteName.getRouteName[Req].name}
+                 |
+                 | ^^^^^^^^^^^------------------------------
+                 |
+               """.stripMargin)
     }
 
-    PostRoute[Req]( res )
+    val res: Route =
+      post {
+        path(RouteName.getRouteName[Req].name) {
+          entity(as[Req#Par]) { params: Req#Par =>
+            // todo-one-day - get rid of entity marshalling magic
+            //  https://dynalist.io/d/Qw8GJh1kUfs_QDhSIs_gixtA#z=dnrnt_Qf6boIBkkJXYdjHTmI
+            complete(logic.getResult(params))
+          }
+        }
+      }
+
+    PostRoute[Req](res)
   }
 
 }

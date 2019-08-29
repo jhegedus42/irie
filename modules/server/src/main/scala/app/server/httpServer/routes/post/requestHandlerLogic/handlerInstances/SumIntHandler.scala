@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
 import java.util.Calendar
 
-import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
+import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import app.shared.comm.postRequests.SumIntPostRequest
 import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
 
@@ -10,7 +10,7 @@ import scala.concurrent.Future
 
 
 object SumIntHandler
-  extends RequestHandlerTC[SumIntPostRequest] {
+  extends Logic[SumIntPostRequest] {
 
   override def getResult(param:SumIntPar ):
   Future[Option[SumIntRes]] = {

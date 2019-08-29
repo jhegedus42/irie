@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances
 
-import app.server.httpServer.routes.post.requestHandlerLogic.RequestHandlerTC
+import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
 import app.shared.comm.postRequests.UpdateEntityReq
 import app.shared.comm.postRequests.UpdateEntityReq.{UpdateReqPar, UpdateReqRes}
@@ -18,7 +18,7 @@ case class UpdateEntityHandler[V <: EntityValue[V]](
                                                      e_ent:             Encoder[Entity[V]],
                                                      ct:                ClassTag[V],
                                                      contextExecutor:   ExecutionContextExecutor)
-    extends RequestHandlerTC[UpdateEntityReq[V]] {
+    extends Logic[UpdateEntityReq[V]] {
 
   override def getResult(
       param: UpdateReqPar[V]
