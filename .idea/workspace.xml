@@ -6,36 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/DummyQQQType.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/Operation.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Insert.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Update.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/inspirationFromThePast.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/Logic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/Logic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/GetLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/InsertEntityHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/SumIntHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/SumIntLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/UpdateEntityHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/UpdateLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/DummyQQQType.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/OpExecutor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/OpExecutor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/Operation.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Get.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Get.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Insert.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Update.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/Messages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/Messages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapEntry.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/state/StateMapEntry.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/state/UntypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/CommandMessgeHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/logic/CommandMessgeHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/logic/StateService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/typesafePersistence/PersistenceServiceTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/logic/persistence/typesafePersistence/PersistenceServiceTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/DummyQQQType.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,57 +60,49 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49364248">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Get.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="633">
-                  <caret line="191" column="15" selection-start-line="191" selection-start-column="15" selection-end-line="191" selection-end-column="15" />
-                  <folding>
-                    <element signature="e#92#118#0" expanded="true" />
-                    <element signature="e#1052#1075#0" expanded="true" />
-                    <element signature="e#2105#2184#0" />
-                    <element signature="e#3466#3518#0" />
-                    <element signature="e#5394#5426#0" />
-                  </folding>
+                <state relative-caret-position="390">
+                  <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Get.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="313">
-                  <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
-                </state>
-              </provider>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/inspirationFromThePast.txt">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/logic/StateService.scala">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/GetLogic.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="43">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
+                <state relative-caret-position="132">
+                  <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
                   <folding>
-                    <element signature="e#133#314#0" expanded="true" />
+                    <element signature="e#49#95#0" expanded="true" />
+                    <element signature="e#1269#1666#0" />
+                    <element signature="e#1672#2341#0" />
+                    <element signature="e#2540#2609#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="248">
-                  <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+                <state relative-caret-position="315">
+                  <caret line="260" lean-forward="true" selection-start-line="260" selection-end-line="260" />
                   <folding>
-                    <element signature="e#38#67#0" expanded="true" />
+                    <element signature="e#1180#1207#0" />
                   </folding>
                 </state>
               </provider>
@@ -211,9 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/OperationError.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/OperatonParameter.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/OperationResult.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/OpExecutor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/CommandHandler.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/journaledEvents/CreateEvent.scala" />
@@ -247,7 +212,6 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Get.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestApplicationState.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestApplicationStateService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateService.scala" />
@@ -262,6 +226,10 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/SumIntLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/GetLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/DummyQQQType.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala" />
       </list>
     </option>
   </component>
@@ -280,7 +248,7 @@
       <showMembers Scope="false" ProjectPane="true" />
       <showModules PackagesPane="false" />
       <showExcludedFiles Scope="true" ProjectPane="true" />
-      <hideEmptyPackages PackagesPane="false" ProjectPane="false" />
+      <hideEmptyPackages PackagesPane="false" ProjectPane="true" />
       <compactDirectories Scope="false" />
       <abbreviatePackageNames ProjectPane="true" />
       <autoscrollFromSource ProjectPane="true" />
@@ -354,17 +322,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,7 +332,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -387,7 +343,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -400,7 +355,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -414,7 +368,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -429,7 +382,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -445,7 +397,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -462,7 +413,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="httpServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
@@ -471,45 +421,6 @@
               <item name="persistence" type="462c0819:PsiDirectoryNode" />
               <item name="operations" type="462c0819:PsiDirectoryNode" />
               <item name="crudOps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="crudOps" type="462c0819:PsiDirectoryNode" />
-              <item name="persistentActor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="root" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irie" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="operations" type="462c0819:PsiDirectoryNode" />
-              <item name="crudOps" type="462c0819:PsiDirectoryNode" />
-              <item name="persistentActor" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1064,13 +975,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00198" summary="Commit before trying to parametrize over request type.">
-      <created>1566200249867</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1566200249867</updated>
-    </task>
     <task id="LOCAL-00199" summary="Using POST for all communication.">
       <created>1566202214120</created>
       <option name="number" value="00199" />
@@ -1407,7 +1311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567177906309</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL-00247" summary="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42&#10;&#10;--------------------------------&#10;&#10;Code compiles, now 4 todo-s are left (and lot of &quot;todo-later&quot;-s).&#10;&#10;Friday, 30 August 2019 18.29.46&#10;&#10;---------------------------------">
+      <created>1567178993900</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1567178993900</updated>
+    </task>
+    <option name="localTasksCounter" value="248" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1468,7 +1379,37 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.54172367" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" visible="true" weight="0.32605729" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.34515688" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.25511596" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.5080148" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
+      <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.23760933" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286517" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.5266854" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="sbt" order="4" weight="0.17503925" />
+      <window_info anchor="right" id="CodeMR Metrics" order="5" show_stripe_button="false" />
+      <window_info anchor="right" id="CodeMR" order="6" show_stripe_button="false" />
+      <window_info anchor="right" x="0" y="0" width="306" height="557" id="Documentation" order="7" sideWeight="0.50075185" side_tool="true" weight="0.3299639" />
+      <window_info anchor="right" id="GfmBrowser" order="8" sideWeight="0.49924812" weight="0.32834706" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Structure" order="0" sideWeight="0.5538462" side_tool="true" weight="0.36383286" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Favorites" order="2" sideWeight="0.36914062" side_tool="true" weight="0.3836705" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.44615385" visible="true" weight="0.30890054" />
+      <window_info anchor="bottom" id="Tail" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.14850137" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.29945055" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.54172367" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.34515688" />
       <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" weight="0.25511596" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.5080148" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
@@ -1485,7 +1426,7 @@
       <window_info anchor="right" id="CodeMR Metrics" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="CodeMR" order="7" show_stripe_button="false" />
       <window_info anchor="right" x="0" y="0" width="306" height="557" id="Documentation" order="8" sideWeight="0.50075185" side_tool="true" weight="0.3299639" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
@@ -1543,7 +1484,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Next step: test the update entity route." />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough" />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests." />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough&#10;&#10;----------------------------------&#10;Sunday, 25 August 2019 1.59.31:&#10;&#10;The test did not pass, there was missing something&#10;from the Persistence Actor: handleUpdateEntityCommand(..),&#10;now it is there.&#10;&#10;Let's try now again the CURL tests.&#10;&#10;----------------------------------&#10;&#10;The test passes but it seems that the &quot;architecture&quot;&#10;needs a bit of a &quot;thinking&quot;/&quot;understanding&quot;/&quot;re-thinking&quot;.&#10;&#10;Sunday, 25 August 2019 5.11.15" />
@@ -1568,10 +1508,10 @@
     <MESSAGE value="Code compiles.&#10;&#10;Thievery number example on the client runs as before.&#10;&#10;It's time to get the get entity working with the new &#10;architecture." />
     <MESSAGE value="Code compiles.&#10;&#10;Todo in TestStateProvider has been implemented." />
     <MESSAGE value="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42" />
+    <MESSAGE value="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42&#10;&#10;--------------------------------&#10;&#10;Code compiles, now 4 todo-s are left (and lot of &quot;todo-later&quot;-s).&#10;&#10;Friday, 30 August 2019 18.29.46&#10;&#10;---------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42&#10;&#10;--------------------------------&#10;&#10;Code compiles, now 4 todo-s are left (and lot of &quot;todo-later&quot;-s).&#10;&#10;Friday, 30 August 2019 18.29.46&#10;&#10;---------------------------------" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/types/results/Result.scala" />
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/implementation/getOp/GetOpImp.scala" />
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/types/results/errors/PersistentActorError.scala" />
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/types/results/errors/EntityUpdateVersionError.scala" />
@@ -1690,13 +1630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/DummyQQQType.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1800,17 +1733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-          <folding>
-            <element signature="e#49#95#0" expanded="true" />
-            <element signature="e#1025#1027#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1818,35 +1740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="191" column="15" selection-start-line="191" selection-start-column="15" selection-end-line="191" selection-end-column="15" />
-          <folding>
-            <element signature="e#92#118#0" expanded="true" />
-            <element signature="e#1052#1075#0" expanded="true" />
-            <element signature="e#2105#2184#0" />
-            <element signature="e#3466#3518#0" />
-            <element signature="e#5394#5426#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/GetLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
-          <folding>
-            <element signature="e#49#95#0" expanded="true" />
-            <element signature="e#1373#2042#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1862,18 +1759,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        <state relative-caret-position="15">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="e#38#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/DummyQQQType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/InsertLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+          <folding>
+            <element signature="e#49#95#0" expanded="true" />
+            <element signature="e#929#931#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/PersistenceService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="260" lean-forward="true" selection-start-line="260" selection-end-line="260" />
+          <folding>
+            <element signature="e#1180#1207#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/inspirationFromThePast.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/GetLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+          <folding>
+            <element signature="e#49#95#0" expanded="true" />
+            <element signature="e#1269#1666#0" />
+            <element signature="e#1672#2341#0" />
+            <element signature="e#2540#2609#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/logic/persistence/operations/crudOps/Get.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+        <state relative-caret-position="390">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1917,11 +1858,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>IM root project-build</last-edited>
+          <last-edited>.js-shared_js</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.46729776" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
