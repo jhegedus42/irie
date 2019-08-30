@@ -6,10 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/MessageHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/CommandMessgeHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestApplicationState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,13 +63,37 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="23" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="24" />
+                <state relative-caret-position="90">
+                  <caret line="6" column="57" lean-forward="true" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
                   <folding>
                     <element signature="e#133#285#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1246">
+                  <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#137#168#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="316">
+                  <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#133#185#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -80,8 +106,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
                   <folding>
                     <element signature="e#133#314#0" expanded="true" />
                   </folding>
@@ -199,18 +225,18 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/MessageHandler.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/UntypedRef.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/Messages.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Get.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/PersistenceService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestApplicationState.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestApplicationStateService.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateService.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala" />
       </list>
     </option>
   </component>
@@ -999,13 +1025,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00196" summary="Bit of refactoring. Making same testing data available to both sides:&#10;client and server. Renaming a few things. Creating URI friendly &#10;encoding for JSON strings.">
-      <created>1566171890635</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1566171890636</updated>
-    </task>
     <task id="LOCAL-00197" summary="Bit of refactoring. Making same testing data available to both sides:&#10;client and server. Renaming a few things. Creating URI friendly &#10;encoding for JSON strings.">
       <created>1566171973509</created>
       <option name="number" value="00197" />
@@ -1342,7 +1361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567123691318</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="Code compiles.&#10;&#10;Todo in TestStateProvider has been implemented.">
+      <created>1567176340561</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1567176340563</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1389,13 +1415,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="23" width="1302" height="825" extended-state="0" />
+    <frame x="135" y="23" width="1302" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5538462" side_tool="true" weight="0.36383286" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.36914062" side_tool="true" weight="0.3836705" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.44615385" weight="0.29444444" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.44615385" weight="0.33809525" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.14850137" />
@@ -1404,7 +1430,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.38472033" />
-      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.25511596" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.25511596" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.5080148" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1478,7 +1504,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Update Entity &quot;feature&quot; implementation is in progress.&#10;&#10;Heavy refactoring. Moving classes to more appropriate&#10;places for increasing cohesion (from a graph theoretic&#10;point of view)." />
     <MESSAGE value="Update Entity &quot;feature&quot; implementation is in progress.&#10;&#10;Heavy refactoring. Moving classes to more appropriate&#10;places for increasing cohesion (from a graph theoretic&#10;point of view).&#10;&#10;Refactoring is &quot;done&quot;.&#10;&#10;Progress in the Update entity route implementation has been made.&#10;&#10;In principle, &quot;only&quot; one method needs to be implemented now&#10;in the PersistenceModule.&#10;&#10;Friday, 23 August 2019 6.56.37" />
     <MESSAGE value="Next step: test the update entity route." />
     <MESSAGE value="Next step: test the update entity route with simple&#10;command line CURL.&#10;&#10;The server runs. No parameter needed.&#10;&#10;sbt &quot;server/run&quot; is enough" />
@@ -1503,7 +1528,8 @@
     <MESSAGE value="After reorganizing the directories.&#10;&#10;5 compiler errors now." />
     <MESSAGE value="Refactoring.&#10;&#10;Simplified file and directory structure." />
     <MESSAGE value="Code compiles.&#10;&#10;Thievery number example on the client runs as before.&#10;&#10;It's time to get the get entity working with the new &#10;architecture." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code compiles.&#10;&#10;Thievery number example on the client runs as before.&#10;&#10;It's time to get the get entity working with the new &#10;architecture." />
+    <MESSAGE value="Code compiles.&#10;&#10;Todo in TestStateProvider has been implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code compiles.&#10;&#10;Todo in TestStateProvider has been implemented." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/types/parameters/impl/EntityValuePar.scala" />
@@ -1651,13 +1677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapEntry.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1675,16 +1694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#1639#2083#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/Get.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -1695,7 +1704,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/MessageHandler.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/CommandMessgeHandler.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
@@ -1768,32 +1777,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="6" column="57" lean-forward="true" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
           <folding>
-            <element signature="e#137#168#0" expanded="true" />
+            <element signature="e#133#285#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/StateService.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="e#133#314#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/state/TestStateProvider.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/state/StateMapSnapshot.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="1246">
+          <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
           <folding>
-            <element signature="e#133#285#0" expanded="true" />
+            <element signature="e#137#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/data/PersistedEvents.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence/operations/crudOps/persistentActor/logic/PersistentActorImp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding>
+            <element signature="e#133#185#0" expanded="true" />
           </folding>
         </state>
       </provider>

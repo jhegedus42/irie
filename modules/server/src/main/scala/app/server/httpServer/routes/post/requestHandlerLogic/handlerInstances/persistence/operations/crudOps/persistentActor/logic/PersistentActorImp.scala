@@ -2,10 +2,22 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{GetStateCommand, Insert, ShutdownActor, Update}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Responses.GetStateSnapshotActResp
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{StateMapEntry, UntypedRef}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.{JournalEntries, InsertEventEntries, UpdateEventEntries}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{
+  GetStateSnapshot,
+  Insert,
+  ShutdownActor,
+  Update
+}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Responses.GetStateResponse
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{
+  StateMapEntry,
+  UntypedRef
+}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.{
+  EventToBeSavedIntoJournal,
+  InsertEvent,
+  UpdateEvent
+}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
@@ -14,73 +26,68 @@ import scala.reflect.ClassTag
 object PersistentActorImp {
   val as: ActorSystem = ActorSystem()
 
-  def getActor(id: String ) = as.actorOf( props( id ) )
+  def getActor(id: String) = as.actorOf(props(id))
 
-  def props(id: String ): Props =
-    Props( new PersistentActorImp( id ) )
+  def props(id: String): Props =
+    Props(new PersistentActorImp(id))
 }
 
-private[persistentActor] class PersistentActorImp(
-  id: String)
-    extends PersistentActor with ActorLogging {
+private[persistentActor] class PersistentActorImp(id: String)
+    extends PersistentActor
+    with ActorLogging {
 
-  val state          = StateService()
-  val commandHandler = MessageHandler()
-
-  def getEntity[V <: EntityValue[V]: ClassTag](
-    r: UntypedRef
-  ): Option[StateMapEntry] = {
-    state.getState.map.get( r )
-  }
+  val stateService   = StateService()
+  val commandHandler = CommandMessgeHandler()
 
   override def persistenceId: String = id
 
   override def receiveCommand: Receive = {
     case ShutdownActor =>
-      println( "shutting down persistent actor" )
-      context.stop( self )
+      println("shutting down persistent actor")
+      context.stop(self)
 
-    case command @ Insert( _ ) =>
-      commandHandler.handleInsertEntityCommand( command )
+    case command @ Insert(_) =>
+      commandHandler.handleInsert(command)
 
-    case command @ Update( _ ) =>
-      commandHandler.handleUpdateEntityCommand( command )
+    case command @ Update(_) =>
+      commandHandler.handleUpdate(command)
 
-    case GetStateCommand => {
-      sender() ! GetStateSnapshotActResp(
-        state.getState
+    case GetStateSnapshot => {
+      sender() ! GetStateResponse(
+        stateService.getState
       )
     }
 
   }
 
   private def applyEvent(
-    event: JournalEntries
+      event: EventToBeSavedIntoJournal
   ): Unit = event match {
 
-    case InsertEventEntries( insertNewEntityCommand ) => {
+    case InsertEvent(insertEventPayload) => {
       println(
-        s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand"
+        s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertEventPayload"
       )
 
       val newEntry: StateMapEntry =
-        insertNewEntityCommand.newEntry //todo-now
+        insertEventPayload.newEntry
 
-      state.unsafeInsertStateEntry( newEntry )
+      val newState = stateService.getState.unsafeInsertStateEntry(newEntry)
+      stateService.setNewState(newState)
 
     }
 
-    case UpdateEventEntries( updateEntityCommand ) => {
+    case UpdateEvent(insertEventPayload) => {
 
       println(
-        s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand"
+        s"\n\nApplyEvent was called with UpdateEntityEvent:\n$insertEventPayload"
       )
 
       val newEntry: StateMapEntry =
-        updateEntityCommand.updatedEntry //todo-now
+        insertEventPayload.updatedEntry
 
-      state.unsafeInsertUpdatedEntity( newEntry )
-      // todo-one-day => handle the "unsafe-ness"
+      val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)
+      stateService.setNewState(newState)
 
     }
 
@@ -88,13 +95,13 @@ private[persistentActor] class PersistentActorImp(
 
   override def receiveRecover: Receive = {
 
-    case evt: JournalEntries => {
-      applyEvent( evt )
+    case evt: EventToBeSavedIntoJournal => {
+      applyEvent(evt)
     }
 
     case RecoveryCompleted => {
       log.info(
-        "Recovery completed \n\nState is:\n" + state.getState
+        "Recovery completed \n\nState is:\n" + stateService.getState
       )
     }
 

@@ -9,7 +9,7 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {
   sealed trait Command
-  case object GetStateCommand extends Command
+  case object GetStateSnapshot extends Command
   case class  Insert(newEntry:     StateMapEntry) extends Command
   case class  Update(updatedEntry: StateMapEntry) extends Command
   case object ShutdownActor extends Command
@@ -19,7 +19,7 @@ case class DummyResponsePayload()
 
 object Responses {
   sealed trait PersistentActorResponse
-  case class GetStateSnapshotActResp(state: StateMapSnapshot)
+  case class GetStateResponse(state: StateMapSnapshot)
       extends PersistentActorResponse
   case class InsertActResp(dummy: DummyResponsePayload)
       extends PersistentActorResponse

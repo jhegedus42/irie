@@ -2,9 +2,9 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{Insert, Update}
 
-case class MessageHandler() {
+case class CommandMessgeHandler() {
 
-  def handleUpdateEntityCommand(message: Update ): Unit = {
+  def handleUpdate(message: Update ): Unit = {
 //    val oldState = state.getState
 //
 //    val event: events.UpdateEntityEventToBeSavedToTheJournal = {
@@ -40,7 +40,7 @@ case class MessageHandler() {
 
   }
 
-  def handleInsertEntityCommand( command: Insert ): Unit = {
+  def handleInsert(command: Insert ): Unit = {
 
 //    val oldState = state.getState
 //
