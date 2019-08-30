@@ -1,0 +1,5 @@
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
+
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation
+
+trait Update extends PersistenceOperation

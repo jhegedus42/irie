@@ -2,8 +2,7 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.server.httpServer.routes.post.logic.persistence.PersistenceService
-import app.server.httpServer.routes.post.logic.{GetLogic, InsertLogic, UpdateLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.{GetRouteLogic, InsertRouteLogic, UpdateRouteLogic}
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, UpdateEntityReq}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -11,13 +10,14 @@ import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
 case class CRUDRouteFactory(
-    persistenceModule: PersistenceService,
-    executionContext:  ExecutionContextExecutor
+                             persistenceModule: PersistenceServiceFacade,
+                             executionContext:  ExecutionContextExecutor
 ) {
   def route[
       V <: EntityValue[V]: ClassTag
@@ -33,7 +33,7 @@ case class CRUDRouteFactory(
 
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic = InsertLogic(
+    implicit val insertRouteLogic = InsertRouteLogic(
       persistenceModule,
       decoder,
       encoder,
@@ -41,7 +41,7 @@ case class CRUDRouteFactory(
       executionContext
     )
 
-    implicit val updateRouteLogic = UpdateLogic(
+    implicit val updateRouteLogic = UpdateRouteLogic(
       persistenceModule,
       decoder,
       encoder,
@@ -50,7 +50,7 @@ case class CRUDRouteFactory(
     )
 
     implicit val getRouteLogic =
-      GetLogic[V](persistenceModule, decoder, executionContext)
+      GetRouteLogic[V](persistenceModule, decoder, executionContext)
 
     // todo-next :
     //    1) write a simple CURL test in a .sh script <<<<====
