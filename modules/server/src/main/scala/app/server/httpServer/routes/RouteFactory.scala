@@ -29,7 +29,7 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
     CRUDRouteFactory(persistenceModule, executionContext)
 
   private def allRoutes: Route =
-    crudRouteFactory.route[User] ~
+//    crudRouteFactory.route[User] ~ // todo-right-now
       getPostRoute[SumIntPostRequest]().route ~
       getStaticRoute(rootPageHtml)
 

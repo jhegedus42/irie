@@ -9,19 +9,22 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {
   sealed trait Command
-  case object GetApplicationState extends Command
-  case class Insert(newEntry:     StateMapEntry) extends Command
-  case class Update(updatedEntry: StateMapEntry) extends Command
-  case object Shutdown extends Command
+  case object GetStateCommand extends Command
+  case class  Insert(newEntry:     StateMapEntry) extends Command
+  case class  Update(updatedEntry: StateMapEntry) extends Command
+  case object ShutdownActor extends Command
 }
 
 case class DummyResponsePayload()
 
 object Responses {
   sealed trait PersistentActorResponse
-  case class GetFullApplicationState_Command_Response(state: StateMapSnapshot)
-  case class InsertNewEntity_Command_Response(dummy:         DummyResponsePayload)
-  case class UpdateEntity_Command_Response(areWeHappy:       DummyResponsePayload)
+  case class GetStateSnapshotActResp(state: StateMapSnapshot)
+      extends PersistentActorResponse
+  case class InsertActResp(dummy: DummyResponsePayload)
+      extends PersistentActorResponse
+  case class UpdateActResp(areWeHappy: DummyResponsePayload)
+      extends PersistentActorResponse
 }
 
 object Payloads {

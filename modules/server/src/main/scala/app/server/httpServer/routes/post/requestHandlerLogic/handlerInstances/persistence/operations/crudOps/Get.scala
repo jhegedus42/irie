@@ -1,6 +1,14 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{OpExecutor, Operation, OperationError, OperationResult, OperatonParameter}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.Operation.{
+  OperationError,
+  OperationResult,
+  OperatonParameter
+}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{
+  OpExecutor,
+  Operation
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -16,27 +24,27 @@ object Get {
   }
 
   case class GetOpPar[V <: EntityValue[V]](
-    val ref: RefToEntityWithoutVersion[V])
-      extends OperatonParameter
+      val ref: RefToEntityWithoutVersion[V]
+  ) extends OperatonParameter
 
   case class GetOpRes[V <: EntityValue[V]](
-    res: Either[OperationError[GetOp[V]], Entity[V]])
-      extends OperationResult
+      res: Either[OperationError[GetOp[V]], Entity[V]]
+  ) extends OperationResult
 
   case class GetOpExecutorImpl[V <: EntityValue[V]]()
       extends OpExecutor[GetOp[V]] {
 
     def getEntityWithLatestVersion[EV <: EntityValue[EV]](
-      ref: RefToEntityWithoutVersion[EV]
+        ref: RefToEntityWithoutVersion[EV]
     )(
-      implicit
-      d: Decoder[Entity[EV]]
+        implicit
+        d: Decoder[Entity[EV]]
     ): Future[Option[Entity[EV]]] = {
       ??? // todo-right-now-0
     }
 
     override def execute(
-      par: Get.GetOpPar[V]
-    ): Future[Get.GetOpRes[V]] = ???
+        par: Get.GetOpPar[V]
+    ): Future[Get.GetOpRes[V]] = ??? // todo-right-now
   }
 }

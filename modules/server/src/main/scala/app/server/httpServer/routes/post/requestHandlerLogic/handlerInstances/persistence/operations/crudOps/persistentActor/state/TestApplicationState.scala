@@ -8,10 +8,12 @@ case class TestApplicationState ( applicationStateMap: StateMapSnapshot)
 object TestApplicationState {
   def getTestState:TestApplicationState ={
     val init: StateMapSnapshot =StateMapSnapshot()
+
 //    val withAlice=init.insertEntity(TestUsers.aliceEntity_with_UUID0)
 //    val withBob=withAlice.insertEntity(TestUsers.bobEntity_with_UUID1)
 //    TestApplicationState(withBob)
-    ??? //todo-now
+
+    TestApplicationState(init)  // todo-right-now
   }
 
 }

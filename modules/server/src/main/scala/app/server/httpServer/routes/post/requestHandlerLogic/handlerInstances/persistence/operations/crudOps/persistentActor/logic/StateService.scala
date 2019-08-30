@@ -1,6 +1,5 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic
 
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.StateMapSnapshot
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.TestApplicationState
 import app.server.initialization.Config
@@ -39,7 +38,7 @@ private[persistentActor] case class StateService(
     // todo-later - this can throw !!!
     assert(!getState.map.contains(ase.untypedRef))
     val newMap = getState.map + (ase.untypedRef -> ase)
-    applicationState = ApplicationStateMap(newMap)
+    applicationState = StateMapSnapshot(newMap)
   }
 
   def getState = applicationState
@@ -93,7 +92,7 @@ private[persistentActor] case class StateService(
         )
 
     val newMap = getState.map + (ase_new.untypedRef -> ase_new)
-    applicationState = ApplicationStateMap(newMap)
+    applicationState = StateMapSnapshot(newMap)
   }
 
   def getLatestVersionForEntity(
@@ -126,6 +125,6 @@ private[persistentActor] case class StateService(
 
     val newMap
         : Map[UntypedRef, StateMapEntry] = applicationState.map + (utr -> entry)
-    ApplicationStateMap(newMap)
+    StateMapSnapshot(newMap)
   }
 }

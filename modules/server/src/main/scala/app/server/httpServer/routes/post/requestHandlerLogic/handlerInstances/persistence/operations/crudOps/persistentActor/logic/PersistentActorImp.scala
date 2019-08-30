@@ -2,9 +2,10 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{GetApplicationState, Insert, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Commands.{GetStateCommand, Insert, ShutdownActor, Update}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.Responses.GetStateSnapshotActResp
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{StateMapEntry, UntypedRef}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.{EventToBeSavedToTheJournal, GetFullApplicationState_Command_Response, InsertEvent, UpdateEvent}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.{JournalEntries, InsertEventEntries, UpdateEventEntries}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
@@ -35,7 +36,7 @@ private[persistentActor] class PersistentActorImp(
   override def persistenceId: String = id
 
   override def receiveCommand: Receive = {
-    case Shutdown =>
+    case ShutdownActor =>
       println( "shutting down persistent actor" )
       context.stop( self )
 
@@ -45,8 +46,8 @@ private[persistentActor] class PersistentActorImp(
     case command @ Update( _ ) =>
       commandHandler.handleUpdateEntityCommand( command )
 
-    case GetApplicationState => {
-      sender() ! GetFullApplicationState_Command_Response(
+    case GetStateCommand => {
+      sender() ! GetStateSnapshotActResp(
         state.getState
       )
     }
@@ -54,12 +55,10 @@ private[persistentActor] class PersistentActorImp(
   }
 
   private def applyEvent(
-    event: EventToBeSavedToTheJournal
+    event: JournalEntries
   ): Unit = event match {
 
-    case InsertEvent(
-        insertNewEntityCommand
-        ) => {
+    case InsertEventEntries( insertNewEntityCommand ) => {
       println(
         s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertNewEntityCommand"
       )
@@ -71,9 +70,7 @@ private[persistentActor] class PersistentActorImp(
 
     }
 
-    case UpdateEvent(
-        updateEntityCommand
-        ) => {
+    case UpdateEventEntries( updateEntityCommand ) => {
 
       println(
         s"\n\nApplyEvent was called with UpdateEntityEvent:\n$updateEntityCommand"
@@ -91,7 +88,7 @@ private[persistentActor] class PersistentActorImp(
 
   override def receiveRecover: Receive = {
 
-    case evt: EventToBeSavedToTheJournal => {
+    case evt: JournalEntries => {
       applyEvent( evt )
     }
 

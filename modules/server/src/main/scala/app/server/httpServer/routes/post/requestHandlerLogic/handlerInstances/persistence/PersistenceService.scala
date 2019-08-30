@@ -4,10 +4,16 @@ import akka.actor.ActorRef
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.Get.GetOp
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic.PersistentActorImp
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{OpExecutor, Operation}
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.{
+  OpExecutor,
+  Operation
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -24,15 +30,14 @@ private[routes] case class PersistenceService(
   import scala.concurrent.duration._
 
   val actor: ActorRef = PersistentActorImp.getActor(
-      "the_one_and_only_parsistent_actor"
-    )
+    "the_one_and_only_parsistent_actor"
+  )
 
   object SendAskToActor {
 
     private[persistence] case class InterfaceToActor(
         context: ExecutionContextExecutor
     ) {
-
 
       /**
         * Inserts an entity into the Map containeing the Appliacation State.
@@ -184,36 +189,33 @@ private[routes] case class PersistenceService(
         //    } )
         //    r4
 
-        ???
+        ??? // todo-right-now
       }
 
-  }
+    }
   }
 
   implicit val context_as_implicit = context
 
 //  private val persActorWrapped = SendAskToActor.InterfaceToActor(context)
 
-
   private def getState: Future[
     //        Responses.GetFullApplicationState_Command_Response
     DummyQQQType
-    ] =
-  //        ask( actor, GetFullApplicationState_Command )(
+  ] =
+    //        ask( actor, GetFullApplicationState_Command )(
     ask(actor, DummyQQQType)(
       Timeout.durationToTimeout(1 seconds)
     ).mapTo[
       //          Responses.GetFullApplicationState_Command_Response
       DummyQQQType
-      ]
+    ]
 
   // todo-next - put this into some simple Pers Actor Wrapper
   //  this level should not contain ask-s
 
-
-
   def operationExecutor[OP <: Operation](
-      par: OP#Par
+      par:       OP#Par
   )(implicit ex: OpExecutor[OP]): Future[OP#Res] = { ex.execute(par) }
 
 }
@@ -276,5 +278,3 @@ private[routes] case class PersistenceService(
 //  //    res2
 //  ???
 //}
-
-

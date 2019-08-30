@@ -2,14 +2,14 @@ package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.p
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.StateMapEntry
 
-trait EventToBeSavedToTheJournal
+trait JournalEntries
 
 
 
-case class InsertEvent(data: DummyEventPayload)
-  extends EventToBeSavedToTheJournal
-case class UpdateEvent(data: DummyEventPayload) // todo-later
-  extends EventToBeSavedToTheJournal
+case class InsertEventEntries(data: DummyEventPayload)
+  extends JournalEntries
+case class UpdateEventEntries(data: DummyEventPayload) // todo-later
+  extends JournalEntries
 
 case class DummyEventPayload() //todo-now
 {
