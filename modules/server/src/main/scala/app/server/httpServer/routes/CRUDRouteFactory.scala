@@ -2,8 +2,8 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.{GetEntityLogic, InsertEntityHandler, UpdateEntityHandler}
+import app.server.httpServer.routes.post.logic.persistence.PersistenceService
+import app.server.httpServer.routes.post.logic.{GetLogic, InsertLogic, UpdateLogic}
 import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, UpdateEntityReq}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -33,7 +33,7 @@ case class CRUDRouteFactory(
 
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic = InsertEntityHandler(
+    implicit val insertRouteLogic = InsertLogic(
       persistenceModule,
       decoder,
       encoder,
@@ -41,7 +41,7 @@ case class CRUDRouteFactory(
       executionContext
     )
 
-    implicit val updateRouteLogic = UpdateEntityHandler(
+    implicit val updateRouteLogic = UpdateLogic(
       persistenceModule,
       decoder,
       encoder,
@@ -50,7 +50,7 @@ case class CRUDRouteFactory(
     )
 
     implicit val getRouteLogic =
-      GetEntityLogic[V](persistenceModule, decoder, executionContext)
+      GetLogic[V](persistenceModule, decoder, executionContext)
 
     // todo-next :
     //    1) write a simple CURL test in a .sh script <<<<====

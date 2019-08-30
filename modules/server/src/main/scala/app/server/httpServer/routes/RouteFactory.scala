@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.PersistenceService
+import app.server.httpServer.routes.post.logic.persistence.PersistenceService
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.SumIntPostRequest

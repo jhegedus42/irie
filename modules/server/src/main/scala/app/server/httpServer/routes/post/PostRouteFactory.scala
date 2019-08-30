@@ -10,7 +10,6 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.requestHandlerLogic.Logic
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 
 private[routes] object PostRouteFactory {
