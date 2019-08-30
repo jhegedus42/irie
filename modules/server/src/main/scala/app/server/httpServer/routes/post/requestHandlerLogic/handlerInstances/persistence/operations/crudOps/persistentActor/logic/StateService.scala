@@ -1,13 +1,9 @@
 package app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.logic
 
 import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
-import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.TestApplicationState
+import app.server.httpServer.routes.post.requestHandlerLogic.handlerInstances.persistence.operations.crudOps.persistentActor.state.TestStateProvider
 import app.server.initialization.Config
-import app.shared.entity.Entity
-import app.shared.entity.asString.EntityAsString
-import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
-import io.circe.Encoder
 
 
 
@@ -18,12 +14,12 @@ private[persistentActor] case class StateService(
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting
 
-  val testState =
-    TestApplicationState.getTestState.applicationStateMap
   private var applicationState: StateMapSnapshot =
-    if (!areWeTesting)
+    if (areWeTesting) TestStateProvider.getTestState else
       new StateMapSnapshot()
-    else testState
+
+
+
 
   /**
     * This is unsafe because it assumes that the key not exist
@@ -109,22 +105,4 @@ private[persistentActor] case class StateService(
       _.entityIdentity == entityIdentity
     )
 
-  def insertEntity[V <: EntityValue[V]](
-      entity: Entity[V]
-  )(
-      implicit
-      encoder: Encoder[Entity[V]]
-  ): StateMapSnapshot = {
-
-    val utr =
-      UntypedRef.makeFromRefToEntity(entity.refToEntity)
-    val entityAsString: EntityAsString =
-      entity.entityAsString()
-    val entry =
-      StateMapEntry(utr, entityAsString)
-
-    val newMap
-        : Map[UntypedRef, StateMapEntry] = applicationState.map + (utr -> entry)
-    StateMapSnapshot(newMap)
-  }
 }
