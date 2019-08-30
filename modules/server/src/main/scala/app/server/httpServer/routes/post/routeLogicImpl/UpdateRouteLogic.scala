@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.shared.comm.postRequests.UpdateEntityReq
 import app.shared.comm.postRequests.UpdateEntityReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.Entity
@@ -13,7 +13,7 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 case class UpdateRouteLogic[V <: EntityValue[V]](
-                                                  persistenceModule: PersistenceServiceFacade,
+                                                  persistenceModule: PersistentServiceProvider,
                                                   d:                 Decoder[Entity[V]],
                                                   e_ent:             Encoder[Entity[V]],
                                                   ct:                ClassTag[V],

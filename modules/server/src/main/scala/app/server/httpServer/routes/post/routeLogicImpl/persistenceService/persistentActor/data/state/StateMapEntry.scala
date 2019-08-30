@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.state
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state
 
 import app.shared.entity.asString.EntityAsString
 import monocle.macros.Lenses

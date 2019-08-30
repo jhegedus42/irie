@@ -1,7 +1,14 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation.{OperationError, OperationResult, OperatonParameter}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{PersOpExecutor, PersistenceOperation}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation.{
+  OperationError,
+  OperationResult,
+  OperatonParameter
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
+  PersistenceOperationExecutorTypeClass,
+  PersistenceOperation
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -24,8 +31,8 @@ object Get {
       res: Either[OperationError[GetOp[V]], Entity[V]]
   ) extends OperationResult
 
-  case class GetPersOpExecutorImpl[V <: EntityValue[V]]()
-      extends PersOpExecutor[GetOp[V]] {
+  case class GetPersistenceOperationExecutorTypeClassImpl[V <: EntityValue[V]]()
+      extends PersistenceOperationExecutorTypeClass[GetOp[V]] {
 
     def getEntityWithLatestVersion[EV <: EntityValue[EV]](
         ref: RefToEntityWithoutVersion[EV]
@@ -34,6 +41,9 @@ object Get {
         d: Decoder[Entity[EV]]
     ): Future[Option[Entity[EV]]] = {
       ??? // todo-right-now-0
+
+
+
     }
 
     override def execute(

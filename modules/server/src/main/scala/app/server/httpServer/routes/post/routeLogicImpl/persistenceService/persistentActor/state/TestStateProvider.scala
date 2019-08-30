@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.state
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.state.StateMapSnapshot
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapSnapshot
 import app.shared.initialization.testing.TestUsers
 import io.circe.generic.auto._
 

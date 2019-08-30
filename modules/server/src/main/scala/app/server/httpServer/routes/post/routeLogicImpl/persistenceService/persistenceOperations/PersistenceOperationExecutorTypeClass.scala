@@ -5,11 +5,15 @@ import app.shared.entity.entityValue.EntityValue
 
 import scala.concurrent.Future
 
-trait PersOpExecutor[OP<:PersistenceOperation]{
+trait PersistenceOperationExecutorTypeClass[OP<:PersistenceOperation]{
   def execute(par:OP#Par):Future[OP#Res]
 }
 
-object PersOpExecutor {
+object PersistenceOperationExecutorTypeClass {
 
-  implicit def getOperationInstance[V<:EntityValue[V]]= Get.GetPersOpExecutorImpl[V]()
+  implicit def getOperationInstance[V<:EntityValue[V]]= Get.
+    GetPersistenceOperationExecutorTypeClassImpl[V]()
+
+  // ElKelKaposzTasTalanItHatatLanSagosKodAsOitokErt
+
 }

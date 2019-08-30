@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.state.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
   StateMapEntry,
   StateMapSnapshot
 }
@@ -10,8 +10,8 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 object Commands {
   sealed trait Command
   case object GetStateSnapshot extends Command
-  case class  Insert(newEntry:     StateMapEntry) extends Command
-  case class  Update(updatedEntry: StateMapEntry) extends Command
+  case class Insert(newEntry:     StateMapEntry) extends Command
+  case class Update(updatedEntry: StateMapEntry) extends Command
   case object ShutdownActor extends Command
 }
 

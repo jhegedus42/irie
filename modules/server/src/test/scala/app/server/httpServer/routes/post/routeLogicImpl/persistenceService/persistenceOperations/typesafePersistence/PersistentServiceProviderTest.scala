@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.typesafePersistence
 
 import akka.actor.ActorSystem
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -12,7 +12,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.language.postfixOps
 
 
-class PersistenceServiceFacadeTest extends FunSuite {
+class PersistentServiceProviderTest extends FunSuite {
 
   test( "testInit" ) {
     println( s"\n\nThis is where the Persistence Module will be tested.\n\n" )
@@ -54,7 +54,7 @@ class PersistenceServiceFacadeTest extends FunSuite {
       implicit val executionContext: ExecutionContextExecutor =
       actorSystem.dispatcher
 
-      val pm = PersistenceServiceFacade(executionContext)
+      val pm = PersistentServiceProvider(executionContext)
 
 //      val res: Future[  Entity[User] ] = pm.createAndStoreNewEntity( cica )
 //      import scala.concurrent._

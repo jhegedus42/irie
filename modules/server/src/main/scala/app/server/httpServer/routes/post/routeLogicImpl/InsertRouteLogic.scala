@@ -1,9 +1,12 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.shared.comm.postRequests.InsertNewEntityReq
-import app.shared.comm.postRequests.InsertNewEntityReq.{InsertReqPar, InsertReqRes}
+import app.shared.comm.postRequests.InsertNewEntityReq.{
+  InsertReqPar,
+  InsertReqRes
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
@@ -13,15 +16,15 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 case class InsertRouteLogic[V <: EntityValue[V]](
-                                                  persistenceModule: PersistenceServiceFacade,
+                                                  persistenceModule: PersistentServiceProvider,
                                                   d:                 Decoder[Entity[V]],
                                                   e:                 Encoder[Entity[V]],
                                                   ct:                ClassTag[V],
-                                                  contextExecutor:   ExecutionContextExecutor)
-    extends RouteLogic[InsertNewEntityReq[V]] {
+                                                  contextExecutor:   ExecutionContextExecutor
+) extends RouteLogic[InsertNewEntityReq[V]] {
 
   override def getResult(
-    param: InsertReqPar[V]
+      param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
 //
 //    val p: V = param.value
@@ -65,7 +68,7 @@ case class InsertRouteLogic[V <: EntityValue[V]](
 //    } )( contextExecutor )
 //
 //    r3
-  ??? // todo-later
+    ??? // todo-later
   }
 
 }

@@ -16,13 +16,13 @@ private[routes] object PostRouteFactory {
 
   def getPostRoute[Req <: PostRequest](
       )(
-                                        implicit
-                                        classTag:  ClassTag[Req],
-                                        classTag2: ClassTag[Req#PayLoad],
-                                        logic:     RouteLogic[Req],
-                                        dpl:       Decoder[Req#PayLoad],
-                                        decoder:   Decoder[Req#Par],
-                                        encoder:   Encoder[Req#Res]
+      implicit
+      classTag:  ClassTag[Req],
+      classTag2: ClassTag[Req#PayLoad],
+      logic:     RouteLogic[Req],
+      dpl:       Decoder[Req#PayLoad],
+      decoder:   Decoder[Req#Par],
+      encoder:   Encoder[Req#Res]
   ): PostRoute[Req] = {
 
     def log(params: Req#Par): Unit = {

@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.state.StateMapEntry
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapEntry
 
 trait EventToBeSavedIntoJournal
 

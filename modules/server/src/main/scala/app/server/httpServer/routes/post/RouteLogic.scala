@@ -11,15 +11,10 @@ import scala.concurrent.Future
   *
   * @tparam Req
   */
-
 trait RouteLogic[Req <: PostRequest] {
-    def getResult(param: Req#Par ): Future[Option[Req#Res]]
+  def getResult(param: Req#Par): Future[Option[Req#Res]]
 }
 
 object RouteLogic {
-  implicit val sumIntInstance=SumIntRouteLogic$
+  implicit val sumIntInstance = SumIntRouteLogic$
 }
-
-
-
-

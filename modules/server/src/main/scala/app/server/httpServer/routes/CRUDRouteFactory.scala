@@ -10,13 +10,13 @@ import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
 case class CRUDRouteFactory(
-                             persistenceModule: PersistenceServiceFacade,
+                             persistenceModule: PersistentServiceProvider,
                              executionContext:  ExecutionContextExecutor
 ) {
   def route[

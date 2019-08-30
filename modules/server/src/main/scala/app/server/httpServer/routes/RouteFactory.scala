@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistenceServiceFacade
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.SumIntPostRequest
@@ -19,7 +19,7 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
   private implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val persistenceModule = PersistenceServiceFacade(executionContext)
+  val persistenceModule = PersistentServiceProvider(executionContext)
 
   val route: Route = allRoutes
 

@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.Commands.{Insert, Update}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{Insert, Update}
 
 case class CommandMessgeHandler() {
 

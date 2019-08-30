@@ -1,19 +1,19 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.Commands.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
   GetStateSnapshot,
   Insert,
   ShutdownActor,
   Update
 }
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.state.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
   StateMapEntry,
   UntypedRef
 }
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.persistentActor.data.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.{
   EventToBeSavedIntoJournal,
   InsertEvent,
   UpdateEvent
