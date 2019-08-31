@@ -23,16 +23,16 @@ import app.shared.entity.entityValue.EntityValue
 import scala.language.postfixOps
 import scala.reflect.ClassTag
 
-object PersistentActorImp {
+object PersistentActorImpl {
   val as: ActorSystem = ActorSystem()
 
   def getActor(id: String) = as.actorOf(props(id))
 
   def props(id: String): Props =
-    Props(new PersistentActorImp(id))
+    Props(new PersistentActorImpl(id))
 }
 
-private[persistentActor] class PersistentActorImp(id: String)
+private[persistentActor] class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
 

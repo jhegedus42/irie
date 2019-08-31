@@ -5,11 +5,11 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.server.initialization.Config
 
 
+/**
+  * This is used by the PersistentActorImpl
+  */
 
-
-
-private[logic] case class StateService(
-    ) {
+private[logic] case class StateService( ) {
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting
 
@@ -25,5 +25,7 @@ private[logic] case class StateService(
     //    StatePrintingUtils.printApplicationState( s )
     applicationState = s
   }
+
+  // todo-later - this is where the OCC should come
 
 }

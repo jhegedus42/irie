@@ -1,15 +1,22 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder
+import monocle.macros.Lenses
+import monocle.macros.syntax.lens._
 
 import scala.reflect.ClassTag
 
+@Lenses
 private[persistentActor] case class StateMapSnapshot(
-    val map: Map[UntypedRef, StateMapEntry] = Map.empty
+    val map: Map[UntypedRef, StateMapEntry] = Map.empty,
+    val occVersion:OCCVersion=OCCVersion(0)
 ) {
+
+  def bumpVersion:StateMapSnapshot=this.lens(_.occVersion).modify(_.inc)
 
   def insertEntity[V <: EntityValue[V]](
       entity: Entity[V]
@@ -26,7 +33,7 @@ private[persistentActor] case class StateMapSnapshot(
       StateMapEntry(utr, entityAsString)
 
     val newMap: Map[UntypedRef, StateMapEntry] = this.map + (utr -> entry)
-    StateMapSnapshot(newMap)
+    StateMapSnapshot(newMap).bumpVersion
   }
 
   /**
@@ -42,7 +49,7 @@ private[persistentActor] case class StateMapSnapshot(
     // todo-later - this can throw !!!
     assert(!map.contains(ase.untypedRef))
     val newMap = map + (ase.untypedRef -> ase)
-    StateMapSnapshot(newMap)
+    StateMapSnapshot(newMap).bumpVersion
   }
 
   def filterByIdentity(
@@ -102,12 +109,11 @@ private[persistentActor] case class StateMapSnapshot(
         )
 
     val newMap = map + (ase_new.untypedRef -> ase_new)
-    StateMapSnapshot(newMap)
+    StateMapSnapshot(newMap).bumpVersion
   }
 
-  def getEntity[V <: EntityValue[V] ](
-      r: UntypedRef
-  ): Option[StateMapEntry] = {
+  def getEntity[V <: EntityValue[V] ]( r: UntypedRef ): Option[StateMapEntry] = {
     map.get(r)
   }
+
 }

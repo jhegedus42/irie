@@ -12,8 +12,6 @@ import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
 
-
-
 private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
 
   private implicit lazy val executionContext: ExecutionContextExecutor =
@@ -40,9 +38,6 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
   //    2) write JSDOM + Scala.js + Node.js based integration test
 
 }
-
-
-
 //  private def simplePostRouteHelloWorld: Route = {
 //    post {
 //      path( "hello_world" ) {
