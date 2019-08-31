@@ -42,7 +42,7 @@ object Get {
         implicit
         d: Decoder[Entity[EV]]
     ): Future[Option[Entity[EV]]] = {
-      ??? // todo-right-now-0
+      ??? // todo-right-now-1
 
       // get state
       // this needs an implicit to a PersistentActorWhisperer
@@ -53,7 +53,7 @@ object Get {
         par: Get.GetOpPar[V]
     )(
         implicit pa: TypeSafeAccessToPersistentActorProvider
-    ): Future[Get.GetOpRes[V]] = ??? // todo-right-now
+    ): Future[Get.GetOpRes[V]] = ??? // todo-right-now-0
     // call getEntityWithLatestVersion and massage result
     override def getOCCVersion: OCCVersion = ???
   }

@@ -25,6 +25,6 @@ case class TypeSafeAccessToPersistentActorProvider() {
   )(
       implicit
       d: Decoder[Entity[V]]
-  ): Future[Option[Entity[V]]] = ??? // todo-right-now
+  ): Future[Option[Entity[V]]] = ??? // todo-right-now 2
 
 }
