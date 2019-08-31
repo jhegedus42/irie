@@ -1,9 +1,9 @@
 package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.server.httpServer.routes.post.routeLogicImpl.{GetRouteLogic, InsertRouteLogic, UpdateRouteLogic}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityReq, UpdateEntityReq}
+import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory.getPostRoute
+import app.server.httpServer.routes.post.routeLogicImpl.{GetRouteLogicTCInst, InsertRouteLogicTCInst, UpdateRouteLogicTCInst}
+import app.shared.comm.postRequests.{GetEntityRoute, InsertNewEntityRoute, UpdateEntityRoute}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithVersion
@@ -33,7 +33,7 @@ case class CRUDRouteFactory(
 
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic = InsertRouteLogic(
+    implicit val insertRouteLogic = InsertRouteLogicTCInst(
       persistenceModule,
       decoder,
       encoder,
@@ -41,7 +41,7 @@ case class CRUDRouteFactory(
       executionContext
     )
 
-    implicit val updateRouteLogic = UpdateRouteLogic(
+    implicit val updateRouteLogic = UpdateRouteLogicTCInst(
       persistenceModule,
       decoder,
       encoder,
@@ -50,15 +50,15 @@ case class CRUDRouteFactory(
     )
 
     implicit val getRouteLogic =
-      GetRouteLogic[V](persistenceModule, decoder, executionContext)
+      GetRouteLogicTCInst[V](persistenceModule, decoder, executionContext)
 
     // todo-next :
     //    1) write a simple CURL test in a .sh script <<<<====
     //       for the update entity route
 
-    getPostRoute[UpdateEntityReq[V]].route ~
-      getPostRoute[InsertNewEntityReq[V]].route ~
-      getPostRoute[GetEntityReq[V]].route
+    getPostRoute[UpdateEntityRoute[V]].route ~
+      getPostRoute[InsertNewEntityRoute[V]].route ~
+      getPostRoute[GetEntityRoute[V]].route
   }
 
 }

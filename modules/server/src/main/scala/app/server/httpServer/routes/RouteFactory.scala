@@ -3,11 +3,11 @@ package app.server.httpServer.routes
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteFactory._
+import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory._
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.SumIntPostRequest
+import app.shared.comm.postRequests.SumIntRoute
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -28,7 +28,7 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
 
   private def allRoutes: Route =
     crudRouteFactory.route[User] ~
-      getPostRoute[SumIntPostRequest]().route ~
+      getPostRoute[SumIntRoute]().route ~
       getStaticRoute(rootPageHtml)
 
   private def rootPageHtml: String =

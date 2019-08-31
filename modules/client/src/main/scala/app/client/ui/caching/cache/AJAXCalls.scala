@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.{PostRequest, RouteName}
+import app.shared.comm.{PostRouteType, RouteName}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
@@ -9,13 +9,13 @@ import scala.reflect.ClassTag
 
 private[caching] object AJAXCalls {
 
-  case class AjaxCallPar[Req <: PostRequest](par: Req#Par )
+  case class AjaxCallPar[Req <: PostRouteType](par: Req#Par )
 
-  case class PostAJAXRequestSuccessfulResponse[Req <: PostRequest](
+  case class PostAJAXRequestSuccessfulResponse[Req <: PostRouteType](
       par: Req#Par,
       res: Req#Res)
 
-  private[cache] def sendPostAjaxRequest[Req <: PostRequest](
+  private[cache] def sendPostAjaxRequest[Req <: PostRouteType](
       requestParams: AjaxCallPar[Req]
     )(implicit ct:   ClassTag[Req],
       classTag2:    ClassTag[Req#PayLoad],

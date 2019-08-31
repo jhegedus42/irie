@@ -1,11 +1,11 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
-import app.server.httpServer.routes.post.RouteLogic
+import app.server.httpServer.routes.post.RouteLogicTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Get
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Get.GetOp
-import app.shared.comm.postRequests.GetEntityReq
-import app.shared.comm.postRequests.GetEntityReq.{
+import app.shared.comm.postRequests.GetEntityRoute
+import app.shared.comm.postRequests.GetEntityRoute.{
   GetEntityReqPar,
   GetEntityReqRes
 }
@@ -20,11 +20,11 @@ import io.circe.Decoder
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.Try
 
-case class GetRouteLogic[V <: EntityValue[V]](
-                                               persistenceModule: PersistentServiceProvider,
-                                               d:                 Decoder[Entity[V]],
-                                               contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[GetEntityReq[V]] {
+case class GetRouteLogicTCInst[V <: EntityValue[V]](
+    persistenceModule: PersistentServiceProvider,
+    d:                 Decoder[Entity[V]],
+    contextExecutor:   ExecutionContextExecutor
+) extends RouteLogicTypeClass[GetEntityRoute[V]] {
 
   implicit val ce: ExecutionContextExecutor = contextExecutor
 
@@ -40,7 +40,7 @@ case class GetRouteLogic[V <: EntityValue[V]](
     def convert(x: Get.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
 
       val opEnt: Option[Entity[V]] = x.res.toOption
-      val res: Option[Entity[V]] = opEnt
+      val res:   Option[Entity[V]] = opEnt
       Some(GetEntityReqRes(res))
       // todo-later - fix all the unsafeness in this method
       //  lot of things can throw, we should use proper

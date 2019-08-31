@@ -1,8 +1,15 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation.{OperationError, OperationResult, OperatonParameter}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation.{
+  OperationError,
+  OperationResult,
+  OperatonParameter
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{PersistenceOperation, PersistenceOperationExecutorTypeClass}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
+  PersistenceOperation,
+  PersistenceOperationExecutorTypeClass
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.TypeSafeAccessToPersistentActorProvider
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue

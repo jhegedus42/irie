@@ -1,8 +1,8 @@
 package app.client.ui.caching.cache
 
 import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
-import app.shared.comm.postRequests.SumIntPostRequest
-import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
+import app.shared.comm.postRequests.SumIntRoute
+import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
 import org.scalatest.{Assertion, AsyncFunSuite}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -19,15 +19,15 @@ class SumIntRequestAsyncTest extends AsyncFunSuite {
   test( "simple async sum request test" ) {
 
     val par: SumIntPar = SumIntPar( 4, 5 )
-    val apar: AjaxCallPar[SumIntPostRequest] =
-      AjaxCallPar[SumIntPostRequest]( par )
+    val apar: AjaxCallPar[SumIntRoute] =
+      AjaxCallPar[SumIntRoute]( par )
 
     val expectedResult: SumIntRes = SumIntRes( 9 )
 
-    val expectedCallResult: PostAJAXRequestSuccessfulResponse[SumIntPostRequest] =
-      PostAJAXRequestSuccessfulResponse[SumIntPostRequest]( par, expectedResult )
+    val expectedCallResult: PostAJAXRequestSuccessfulResponse[SumIntRoute] =
+      PostAJAXRequestSuccessfulResponse[SumIntRoute]( par, expectedResult )
 
-    val callResult: Future[PostAJAXRequestSuccessfulResponse[SumIntPostRequest]] =
+    val callResult: Future[PostAJAXRequestSuccessfulResponse[SumIntRoute]] =
       AJAXCalls.sendPostAjaxRequest( apar )
 
     val resInt: Future[Int] =

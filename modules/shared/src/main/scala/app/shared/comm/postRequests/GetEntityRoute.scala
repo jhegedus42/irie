@@ -1,7 +1,7 @@
 package app.shared.comm.postRequests
 
-import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetEntityReq.{
+import app.shared.comm.PostRouteType
+import app.shared.comm.postRequests.GetEntityRoute.{
   GetEntityReqPar,
   GetEntityReqRes
 }
@@ -12,20 +12,20 @@ import app.shared.entity.refs.{
   RefToEntityWithoutVersion
 }
 
-object GetEntityReq {
+object GetEntityRoute {
 
   case class GetEntityReqPar[V <: EntityValue[V]](
     refToEntityWithoutVersion: RefToEntityWithoutVersion[V])
-      extends PostRequest.Parameter
+      extends PostRouteType.Parameter
 
   case class GetEntityReqRes[V <: EntityValue[V]](
     optionEntity: Option[Entity[V]])
-      extends PostRequest.Result
+      extends PostRouteType.Result
 
 }
 
-class GetEntityReq[V <: EntityValue[V]]
-    extends PostRequest {
+class GetEntityRoute[V <: EntityValue[V]]
+    extends PostRouteType {
   override type Par     = GetEntityReqPar[V]
   override type Res     = GetEntityReqRes[V]
   override type PayLoad = V

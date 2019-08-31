@@ -2,15 +2,15 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import java.util.Calendar
 
-import app.server.httpServer.routes.post.RouteLogic
-import app.shared.comm.postRequests.SumIntPostRequest
-import app.shared.comm.postRequests.SumIntPostRequest.{SumIntPar, SumIntRes}
+import app.server.httpServer.routes.post.RouteLogicTypeClass
+import app.shared.comm.postRequests.SumIntRoute
+import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
 
 import scala.concurrent.Future
 
 
-object SumIntRouteLogic$
-  extends RouteLogic[SumIntPostRequest] {
+object SumIntRouteLogicTCInst
+  extends RouteLogicTypeClass[SumIntRoute] {
 
   override def getResult(param:SumIntPar ):
   Future[Option[SumIntRes]] = {

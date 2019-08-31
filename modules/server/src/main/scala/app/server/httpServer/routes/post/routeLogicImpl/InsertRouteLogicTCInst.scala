@@ -1,9 +1,9 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
-import app.server.httpServer.routes.post.RouteLogic
+import app.server.httpServer.routes.post.RouteLogicTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.shared.comm.postRequests.InsertNewEntityReq
-import app.shared.comm.postRequests.InsertNewEntityReq.{
+import app.shared.comm.postRequests.InsertNewEntityRoute
+import app.shared.comm.postRequests.InsertNewEntityRoute.{
   InsertReqPar,
   InsertReqRes
 }
@@ -15,13 +15,13 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 import scala.util.Try
 
-case class InsertRouteLogic[V <: EntityValue[V]](
+case class InsertRouteLogicTCInst[V <: EntityValue[V]](
                                                   persistenceModule: PersistentServiceProvider,
                                                   d:                 Decoder[Entity[V]],
                                                   e:                 Encoder[Entity[V]],
                                                   ct:                ClassTag[V],
                                                   contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[InsertNewEntityReq[V]] {
+) extends RouteLogicTypeClass[InsertNewEntityRoute[V]] {
 
   override def getResult(
       param: InsertReqPar[V]

@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post
 
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.utils.{GetTimeOnJVM, PrettyPrint}
-import app.shared.comm.{PostRequest, RouteName}
+import app.shared.comm.{PostRouteType, RouteName}
 
 import scala.concurrent.Future
 import io.circe.{Decoder, Encoder}
@@ -12,18 +12,18 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 
-private[routes] object PostRouteFactory {
+private[routes] object PostRouteForAkkaHttpFactory {
 
-  def getPostRoute[Req <: PostRequest](
+  def getPostRoute[Req <: PostRouteType](
       )(
       implicit
       classTag:  ClassTag[Req],
       classTag2: ClassTag[Req#PayLoad],
-      logic:     RouteLogic[Req],
+      logic:     RouteLogicTypeClass[Req],
       dpl:       Decoder[Req#PayLoad],
       decoder:   Decoder[Req#Par],
       encoder:   Encoder[Req#Res]
-  ): PostRoute[Req] = {
+  ): PostRouteForAkkaHttp[Req] = {
 
     def log(params: Req#Par): Unit = {
       println(s"""
@@ -63,7 +63,7 @@ private[routes] object PostRouteFactory {
         }
       }
 
-    PostRoute[Req](res)
+    PostRouteForAkkaHttp[Req](res)
   }
 
 }

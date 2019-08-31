@@ -1,9 +1,9 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
-import app.server.httpServer.routes.post.RouteLogic
+import app.server.httpServer.routes.post.RouteLogicTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.shared.comm.postRequests.UpdateEntityReq
-import app.shared.comm.postRequests.UpdateEntityReq.{UpdateReqPar, UpdateReqRes}
+import app.shared.comm.postRequests.UpdateEntityRoute
+import app.shared.comm.postRequests.UpdateEntityRoute.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
@@ -12,13 +12,13 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 import scala.util.Try
 
-case class UpdateRouteLogic[V <: EntityValue[V]](
+case class UpdateRouteLogicTCInst[V <: EntityValue[V]](
                                                   persistenceModule: PersistentServiceProvider,
                                                   d:                 Decoder[Entity[V]],
                                                   e_ent:             Encoder[Entity[V]],
                                                   ct:                ClassTag[V],
                                                   contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[UpdateEntityReq[V]] {
+) extends RouteLogicTypeClass[UpdateEntityRoute[V]] {
 
   override def getResult(
       param: UpdateReqPar[V]

@@ -1,6 +1,6 @@
 package app.shared.comm.postRequests.marshall
 
-import app.shared.comm.PostRequest
+import app.shared.comm.PostRouteType
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 
@@ -9,7 +9,7 @@ import io.circe.{Decoder, Error, _}
 object EncodersDecoders {
 
 
-  def decodeResult[Req <: PostRequest](
+  def decodeResult[Req <: PostRouteType](
       res: ResultOptionAsJSON
     )(
       implicit
@@ -19,7 +19,7 @@ object EncodersDecoders {
     r
   }
 
-  def decodeParameters[Req <: PostRequest](
+  def decodeParameters[Req <: PostRouteType](
       res: ParametersAsJSON
     )(
       implicit
@@ -29,7 +29,7 @@ object EncodersDecoders {
     r
   }
 
-  def encodeResult[Req <: PostRequest](
+  def encodeResult[Req <: PostRouteType](
       r: Option[Req#Res]
     )(
       implicit
@@ -38,7 +38,7 @@ object EncodersDecoders {
     ResultOptionAsJSON( e.apply( r ).spaces4 )
   }
 
-  def encodeParameters[Req <: PostRequest](r: Req#Par )(implicit e: Encoder[Req#Par] ): ParametersAsJSON = {
+  def encodeParameters[Req <: PostRouteType](r: Req#Par )(implicit e: Encoder[Req#Par] ): ParametersAsJSON = {
     ParametersAsJSON( e.apply( r ).spaces4 )
   }
 

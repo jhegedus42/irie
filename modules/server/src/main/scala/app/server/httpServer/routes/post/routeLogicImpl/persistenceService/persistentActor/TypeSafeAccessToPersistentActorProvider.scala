@@ -10,9 +10,10 @@ import io.circe.Decoder
 import scala.concurrent.Future
 
 /**
-  * This should provide a type safe access to the persistent actor
+  * This should provide a type safe access to the persistent actor.
+  * Who is using this ?
+  *  persistence Operations
   */
-
 case class TypeSafeAccessToPersistentActorProvider() {
 
   val actor: ActorRef = PersistentActorImpl.getActor(
