@@ -1,5 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor
 
+import app.shared.entity.Entity
+import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
 import org.scalatest.FunSuite
 
@@ -18,8 +20,8 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite {
     val aer=ae.refToEntity
     val tsap=TypeSafeAccessToPersistentActorProvider()
     val res=tsap.getEntityWithVersion(aer)
-    val resa=Await.result(res, 1 second )
-    assert(res===resa)
+    val resa: Option[Entity[User]] =Await.result(res, 1 second )
+    assert(ae===resa.get)
   }
 
 }
