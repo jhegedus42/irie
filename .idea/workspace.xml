@@ -5,11 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" afterDir="false" />
-    </list>
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -63,8 +59,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="39" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="274">
+                  <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
                   <folding>
                     <element signature="e#93#119#0" expanded="true" />
                     <element signature="n#!!doc;n#TypeSafeAccessToPersistentActorProvider#0;n#!!top" />
@@ -80,10 +76,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+                <state relative-caret-position="349">
+                  <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
                   <folding>
-                    <element signature="e#93#143#0" expanded="true" />
+                    <element signature="e#93#124#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -209,8 +205,8 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttp.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttpFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" />
       </list>
     </option>
   </component>
@@ -816,7 +812,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.test">
+  <component name="RunManager" selected="ScalaTest.TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion">
     <configuration name="Debug sbt shell" type="Remote" activateToolWindowBeforeRun="false" temporary="true">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -860,14 +856,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <module name="server" />
+      <setting name="path" value="app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.TypeSafeAccessToPersistentActorProviderTest" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <setting name="jrePath" value="" />
+      <envs />
+      <setting name="testKind" value="Test name" />
+      <setting name="path" value="app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.TypeSafeAccessToPersistentActorProviderTest" />
+      <setting name="testName" value="testGetEntityWithVersion" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Remote.Debug sbt shell" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.test" />
       <item itemvalue="Scala Console.Scala Console" />
+      <item itemvalue="ScalaTest.TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="ScalaTest.TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" />
         <item itemvalue="Remote.Debug sbt shell" />
         <item itemvalue="Scala Console.Scala Console" />
       </list>
@@ -949,20 +966,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00205" summary="- creating a new todo for testing 1) creating 2) getting an&#10;Entity.">
-      <created>1566240831591</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1566240831591</updated>
-    </task>
-    <task id="LOCAL-00206" summary="Get Entity Test fails.&#10;&#10;TODO-NOW: make the test pass.">
-      <created>1566252145613</created>
-      <option name="number" value="00206" />
-      <option name="presentableId" value="LOCAL-00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1566252145614</updated>
     </task>
     <task id="LOCAL-00207" summary="Get Entity Test fails.&#10;&#10;TODO-NOW: make the test pass.&#10;&#10;Adding some extra debug println-s.">
       <created>1566260860536</created>
@@ -1293,16 +1296,24 @@
       <option name="project" value="LOCAL" />
       <updated>1567288415555</updated>
     </task>
-    <option name="localTasksCounter" value="254" />
+    <task id="LOCAL-00254" summary="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------">
+      <created>1567297198044</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1567297198045</updated>
+    </task>
+    <task id="LOCAL-00255" summary="Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.22.26:&#10;&#10;TypeSafeAccessToPersistentActorProviderTest&#10;test passes with dummy implementation.&#10;&#10;Next step: make it pass with &quot;real&quot; implementation.&#10;--------------------------------------------------">
+      <created>1567297393887</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1567297393887</updated>
+    </task>
+    <option name="localTasksCounter" value="256" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test__JS_shared__module - 2019.06.24 at 08h 56m 59s.xml">
-      <configuration name="test &quot;JS shared&quot; module" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="test__JVM_shared__module_ - 2019.06.24 at 08h 57m 13s.xml">
-      <configuration name="test &quot;JVM shared&quot; module " configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
     <history-entry file="test__persistence__module - 2019.06.24 at 08h 57m 26s.xml">
       <configuration name="test &quot;persistence&quot; module" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
@@ -1327,6 +1338,12 @@
     <history-entry file="TypedRefValTest_testToJSON - 2019.08.14 at 06h 41m 47s.xml">
       <configuration name="TypedRefValTest.testToJSON" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
+    <history-entry file="TypeSafeAccessToPersistentActorProviderTest_testGetEntityWithVersion - 2019.09.01 at 03h 20m 44s.xml">
+      <configuration name="TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TypeSafeAccessToPersistentActorProviderTest_testGetEntityWithVersion - 2019.09.01 at 03h 22m 01s.xml">
+      <configuration name="TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1350,12 +1367,12 @@
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.14850137" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.29945055" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.27792916" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.54172367" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47238806" weight="0.32833788" />
-      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" visible="true" weight="0.3160763" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.5873134" weight="0.3160763" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48880598" weight="0.5080148" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51119405" side_tool="true" weight="0.41008174" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1459,8 +1476,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;------" />
-    <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------" />
     <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------&#10;&#10;Now we have 9 compiler errors and still refactoring.&#10;&#10;Tuesday, 27 August 2019 3.13.56&#10;&#10;------------------------------------------------------" />
     <MESSAGE value="Stripping the version information from the &quot;getEntity&quot; request.&#10;&#10;Todo-now : fill in a few ???-s.&#10;&#10;----&#10;&#10;Monday, 26 August 2019 1.56.23 :&#10;Adding some diagrams for documentation.&#10;&#10;----&#10;&#10;Refactoring for more meaningful &quot;Facade&quot;/&quot;Encapsulation&quot; architecture&#10;for the persistence and &quot;logic&quot; logic. Also made the .scalafmt config&#10;so that now the auto-format produces a bit more prettier code.&#10;Subjectively.&#10;&#10;Monday, 26 August 2019 3.46.13&#10;&#10;--------------------------------------------------&#10;&#10;Still in the middle of some hopefully meaningful refactoring.&#10;&#10;Monday, 26 August 2019 7.44.01&#10;&#10;Right now we have 6 compiler errors. On the server side, as&#10;far as I can tell.&#10;&#10;I introduced some more metaphorical names into the code. Fits&#10;nicely into some story, once it will be told ;) - helps&#10;understanding the code.&#10;&#10;&#10;Monday, 26 August 2019 7.46.20&#10;-------------------------------------------------------&#10;&#10;Now we have 9 compiler errors and still refactoring.&#10;&#10;Tuesday, 27 August 2019 3.13.56&#10;&#10;------------------------------------------------------&#10;&#10;We are still refactoring... but now it's time to stop...&#10;&#10;Tuesday, 27 August 2019 4.03.29&#10;&#10;-------------------------------------------------------" />
     <MESSAGE value="Even more refactoring ... I don't even dare to compile the code now.&#10;&#10;Tuesday, 27 August 2019 15.58.57" />
@@ -1484,7 +1499,9 @@
     <MESSAGE value="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------" />
+    <MESSAGE value="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------" />
+    <MESSAGE value="Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.22.26:&#10;&#10;TypeSafeAccessToPersistentActorProviderTest&#10;test passes with dummy implementation.&#10;&#10;Next step: make it pass with &quot;real&quot; implementation.&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.22.26:&#10;&#10;TypeSafeAccessToPersistentActorProviderTest&#10;test passes with dummy implementation.&#10;&#10;Next step: make it pass with &quot;real&quot; implementation.&#10;--------------------------------------------------" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala">
@@ -1836,23 +1853,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="274">
+          <caret line="32" column="41" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding>
-            <element signature="e#93#143#0" expanded="true" />
+            <element signature="e#93#119#0" expanded="true" />
+            <element signature="n#!!doc;n#TypeSafeAccessToPersistentActorProvider#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="349">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
           <folding>
-            <element signature="e#93#119#0" expanded="true" />
-            <element signature="n#!!doc;n#TypeSafeAccessToPersistentActorProvider#0;n#!!top" />
+            <element signature="e#93#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
