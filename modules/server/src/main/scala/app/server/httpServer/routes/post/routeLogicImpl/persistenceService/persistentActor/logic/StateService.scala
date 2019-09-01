@@ -18,7 +18,10 @@ private[logic] case class StateService( ) {
       new StateMapSnapshot()
 
 
-  def getState = applicationState
+  def getState = {
+    println(s"someone is asking for a snapshot state, which looks like:\n$applicationState")
+    applicationState
+  }
 
   def setNewState(s: StateMapSnapshot): Unit = {
     println("\n\nState was set to:\n")

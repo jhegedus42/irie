@@ -82,3 +82,12 @@ hello test world
 sbt:client>
 
 ```
+
+# Testing
+
+For testing a single test containing `testgetSnapshot` : 
+
+```
+server/testOnly **.TypeSafeAccessToPersistentActorProviderTest -- -z "testgetSnapshot"
+```
+See https://sgeb.io/posts/2016/11/til-sbt-testonly/ for details.

@@ -23,14 +23,6 @@ import app.shared.entity.entityValue.EntityValue
 import scala.language.postfixOps
 import scala.reflect.ClassTag
 
-object PersistentActorImpl {
-
-  def getActor(id: String,as:ActorSystem) = as.actorOf(props(id))
-
-  def props(id: String): Props =
-    Props(new PersistentActorImpl(id))
-}
-
 private[persistentActor] class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
@@ -52,6 +44,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
       commandHandler.handleUpdate(command)
 
     case GetStateSnapshot => {
+      println("handling the GetSnapshot command")
       sender() ! GetStateResponse(
         stateService.getState
       )
