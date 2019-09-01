@@ -24,4 +24,9 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite {
     assert(ae===resa.get)
   }
 
+  test("test getSnaphot"){
+    // continue-here : implement this test, and make it pass, with some test
+    //  data
+  }
+
 }

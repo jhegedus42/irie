@@ -24,9 +24,8 @@ import scala.language.postfixOps
 import scala.reflect.ClassTag
 
 object PersistentActorImpl {
-  val as: ActorSystem = ActorSystem()
 
-  def getActor(id: String) = as.actorOf(props(id))
+  def getActor(id: String,as:ActorSystem) = as.actorOf(props(id))
 
   def props(id: String): Props =
     Props(new PersistentActorImpl(id))
