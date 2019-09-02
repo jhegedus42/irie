@@ -12,12 +12,12 @@ import scala.concurrent.{Await, ExecutionContextExecutor}
 import scala.concurrent.duration._
 import io.circe.generic.auto._
 
-class TypeSafeAccessToPersistentActorProviderTest extends FunSuite with BeforeAndAfter{
+class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
 
   // todo-right-now => make this test pass
 
 
-  val tsap=TypeSafeAccessToPersistentActorProvider()
+  val tsap=PersistentActorWhisperer()
 
   implicit val ec=tsap.executionContext
 
@@ -30,7 +30,6 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite with BeforeAn
 
 //    val tsap=TypeSafeAccessToPersistentActorProvider()
     val res=tsap.getEntityWithVersion(aer)
-    println(s"we ask the 'dummy' actor, and wait for the result")
     val resa: Option[Entity[User]] =Await.result(res, 1 second )
     println(s"the result is here: $resa")
     assert(ae===resa.get)

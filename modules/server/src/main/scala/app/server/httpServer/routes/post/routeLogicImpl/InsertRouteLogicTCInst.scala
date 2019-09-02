@@ -16,16 +16,24 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 case class InsertRouteLogicTCInst[V <: EntityValue[V]](
-                                                  persistenceModule: PersistentServiceProvider,
-                                                  d:                 Decoder[Entity[V]],
-                                                  e:                 Encoder[Entity[V]],
-                                                  ct:                ClassTag[V],
-                                                  contextExecutor:   ExecutionContextExecutor
+    persistenceModule: PersistentServiceProvider,
+    d:                 Decoder[Entity[V]],
+    e:                 Encoder[Entity[V]],
+    ct:                ClassTag[V],
+    contextExecutor:   ExecutionContextExecutor
 ) extends RouteLogicTypeClass[InsertNewEntityRoute[V]] {
 
   override def getResult(
       param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
+
+
+//    persistenceModule.executePersistenceOperation()
+    ???
+  }
+
+}
+
 //
 //    val p: V = param.value
 //
@@ -68,7 +76,4 @@ case class InsertRouteLogicTCInst[V <: EntityValue[V]](
 //    } )( contextExecutor )
 //
 //    r3
-    ??? // todo-later
-  }
-
-}
+    /// ??? // todo-later

@@ -10,7 +10,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
   PersistenceOperation,
   PersistenceOperationExecutorTypeClass
 }
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.TypeSafeAccessToPersistentActorProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -40,7 +40,7 @@ object Get {
     override def execute(
         par: Get.GetOpPar[V]
     )(
-        implicit pa: TypeSafeAccessToPersistentActorProvider
+        implicit pa: PersistentActorWhisperer
     ): Future[Get.GetOpRes[V]] = {
       val in: GetOpPar[V] = par
 

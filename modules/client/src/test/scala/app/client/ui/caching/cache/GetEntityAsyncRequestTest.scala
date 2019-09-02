@@ -80,17 +80,23 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
     getUser( alice ).map(
       (u: Entity[User]) => assertUserNamesAreEqual( u, alice.entityValue )
     )
-  }
+  } //todo-now => make this pass
 
   test( "insert and then get" ) {
     val c   = TestUsers.cica
+
     val par = AjaxCallPar[InsertNewEntityRoute[User]]( InsertReqPar( c ) )
+
     val ac
       : Future[PostAJAXRequestSuccessfulResponse[InsertNewEntityRoute[User]]] =
       AJAXCalls.sendPostAjaxRequest( par )
+
     val insertResult: Future[Entity[User]] = ac.map( _.res.entity )
+
     val getResult: Future[Entity[User]] =
       insertResult.flatMap( (e: Entity[User]) => getUser( e ) )
+
+
     val futureAssertionThatEverythingIsKosher: Future[Assertion] =
       getResult.map( e => assertUserNamesAreEqual( e, c ) )
     futureAssertionThatEverythingIsKosher

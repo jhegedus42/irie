@@ -9,7 +9,7 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 object Commands {
   sealed trait Command
   case object GetStateSnapshot extends Command
-  case class Insert(newEntry:     StateMapEntry) extends Command
+  case class InsertCommand(newEntry:     StateMapEntry) extends Command
   case class Update(updatedEntry: StateMapEntry) extends Command
   case object ShutdownActor extends Command
 }

@@ -1,8 +1,11 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor
 
+import akka.pattern.ask
+
+import scala.concurrent.duration._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.GetStateSnapshot
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
@@ -16,13 +19,14 @@ import akka.actor.{ActorLogging, ActorSystem, Props}
 import io.circe.Decoder.Result
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.reflect.ClassTag
 
 /**
   * This should provide a type safe access to the persistent actor.
   * Who is using this ?
   *  persistence Operations
   */
-case class TypeSafeAccessToPersistentActorProvider() {
+case class PersistentActorWhisperer() {
 
   def getActor(id: String, as: ActorSystem) = as.actorOf(props(id))
 
@@ -40,13 +44,22 @@ case class TypeSafeAccessToPersistentActorProvider() {
     // what does this mean ?
   )
 
+  def insertNewEntity[V <: EntityValue[V]:ClassTag](
+      value: V
+  ): Future[Option[Entity[V]]] = {
+
+    val entity:Entity[V]= Entity.makeFromValue[V](value)
+
+    val ic: InsertCommand = ???
+    ask(actor,ic)(Timeout.durationToTimeout(1 seconds))
+    ???
+  } // continue-here
+
   implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystemForPersistentActor.dispatcher
 
   def getSnaphot: Future[StateMapSnapshot] = {
 
-    import akka.pattern.ask
-    import scala.concurrent.duration._
     ask(actor, GetStateSnapshot)(Timeout.durationToTimeout(1 seconds))
       .mapTo[GetStateResponse]
       .map(_.state)
@@ -72,19 +85,19 @@ case class TypeSafeAccessToPersistentActorProvider() {
     sh.map(snapshot2res(_))
   }
 
-
   def getEntityWithLatestVersion[EV <: EntityValue[EV]](
       ref: RefToEntityWithoutVersion[EV]
   )(
-      implicit pa: TypeSafeAccessToPersistentActorProvider,
-    d: Decoder[Entity[EV]]
+      implicit pa: PersistentActorWhisperer,
+      d:           Decoder[Entity[EV]]
   ): Future[Option[Entity[EV]]] = {
 
     def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[EV]] = {
 
 //      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
 //      val par2 : UntypedRef=
-      val res: Option[StateMapEntry] = stateMapSnapshot.getEntityWithLatestVersion(ref)
+      val res: Option[StateMapEntry] =
+        stateMapSnapshot.getEntityWithLatestVersion(ref)
 
       def res2entity(sme: StateMapEntry): Option[Entity[EV]] = {
         val json = sme.entityAsString.entityAsJSON.json

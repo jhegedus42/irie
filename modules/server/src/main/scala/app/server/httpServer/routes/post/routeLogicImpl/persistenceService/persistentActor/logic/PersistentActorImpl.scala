@@ -4,7 +4,7 @@ import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
   GetStateSnapshot,
-  Insert,
+  InsertCommand,
   ShutdownActor,
   Update
 }
@@ -37,7 +37,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case command @ Insert(_) =>
+    case command @ InsertCommand(_) =>
       commandHandler.handleInsert(command)
 
     case command @ Update(_) =>

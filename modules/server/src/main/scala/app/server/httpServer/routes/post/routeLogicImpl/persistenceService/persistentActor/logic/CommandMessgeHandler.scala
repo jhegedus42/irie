@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{Insert, Update}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{InsertCommand, Update}
 
 case class CommandMessgeHandler() {
 
@@ -40,7 +40,8 @@ case class CommandMessgeHandler() {
 
   }
 
-  def handleInsert(command: Insert ): Unit = {
+  def handleInsert(command: InsertCommand ): Unit = {
+      // todo-right-now
 
 //    val oldState = state.getState
 //
