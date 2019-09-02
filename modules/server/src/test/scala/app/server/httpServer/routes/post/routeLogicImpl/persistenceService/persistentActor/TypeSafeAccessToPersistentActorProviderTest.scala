@@ -34,9 +34,13 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite with BeforeAn
     val resa: Option[Entity[User]] =Await.result(res, 1 second )
     println(s"the result is here: $resa")
     assert(ae===resa.get)
+
+    //
+    // continue-here : make this test pass with the real persistent actor
+    //  using the snapshot
   }
 
-  test("test get Snapshot "){
+  test("testgetSnapshot"){
 
     val r: StateMapSnapshot =Await.result(tsap.getSnaphot , 1 second)
     assert(TestStateProvider.getTestState===r)
@@ -45,7 +49,6 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite with BeforeAn
 //  import akka.pattern.ask
 //  ask(tsap.actor,ShutdownActor)(1 second)
 
-  // continue-here
 
 
 }

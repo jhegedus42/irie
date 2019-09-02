@@ -1,6 +1,7 @@
 package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
+import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory._
@@ -23,57 +24,42 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
 
   import io.circe.generic.auto._
 
-  val crudRouteFactory: CRUDRouteFactory =
+  lazy val crudRouteFactory: CRUDRouteFactory =
     CRUDRouteFactory(persistenceModule, executionContext)
 
   private def allRoutes: Route =
     crudRouteFactory.route[User] ~
       getPostRoute[SumIntRoute]().route ~
-      getStaticRoute(rootPageHtml)
+      getStaticRoute(rootPageHtml) ~
+      simplePostRouteHelloWorld ~
+      ping_pong
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
 
+  // todo-now :
+  //  write akka-http-based, server side only test
+
   // todo-next
   //    2) write JSDOM + Scala.js + Node.js based integration test
 
+  private def simplePostRouteHelloWorld: Route = {
+    import akka.http.scaladsl.server.Directives._
+    post {
+      path("hello_world") {
+        complete("Hello world !")
+      }
+    }
+  }
+
+  private def ping_pong: Route = {
+    import akka.http.scaladsl.server.Directives._
+    post {
+      path("ping_pong") {
+        entity(as[String]) { s =>
+          complete(s)
+        }
+      }
+    }
+  }
 }
-//  private def simplePostRouteHelloWorld: Route = {
-//    post {
-//      path( "hello_world" ) {
-//        complete( "Hello world !" )
-//      }
-//    }
-//  }
-//
-//  private def ping_pong: Route = {
-//    post {
-//      path( "ping_pong" ) { ctx =>
-//        {
-//          ctx.complete( {
-//            val r1: RequestEntity = ctx.request.entity
-//            val ctype: ContentType =
-//              ctx.request.entity.httpEntity.contentType
-//            val res =
-//              s"""
-//                   |
-//                   | Request Entity is :
-//                   | $r1
-//                   |
-//                   | Content type is:
-//                   | $ctype
-//                   |
-//                   |
-//                 """.stripMargin
-//
-//            println(
-//              "ping pong route was called, we respond" +
-//                "with the following string:\n+res"
-//            )
-//            res
-//
-//          } )
-//        }
-//      }
-//    }
-//  }

@@ -4,7 +4,7 @@ import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.GetStateSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapSnapshot
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -12,8 +12,9 @@ import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.initialization.testing.TestUsers
 import io.circe.Decoder
-
 import akka.actor.{ActorLogging, ActorSystem, Props}
+import io.circe.Decoder.Result
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 /**
@@ -58,25 +59,19 @@ case class TypeSafeAccessToPersistentActorProvider() {
       implicit
       d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
-    // we need to get a not type safe entity from the actor
-    //  we need access to a persistent actor
-    //  we need to send some messages to that persistent actor
-    //  we have been doing this before
-    //  we need to find where that code is
-    //  it is somewhere in some inspiration
 
-    // we need to turn that into a type safe one
 
-    val res: Future[Some[Entity[User]]] =
-      Future.successful(Some(TestUsers.aliceEntity_with_UUID0))
-    res.asInstanceOf[Future[Option[Entity[V]]]]
+    def snapshot2res(stateMapSnapshot: StateMapSnapshot ) : Option[Entity[V]] = {
+        val res: Option[StateMapEntry] =stateMapSnapshot.getEntity(ref)
+        def res2entity(sme:StateMapEntry) : Option[Entity[V]]={
+          val json=sme.entityAsString.entityAsJSON.json
+          d.decodeJson(json).toOption
+        }
+        res.flatMap(res2entity(_))
+    }
 
-    // we need to get some snapshot from the actor
-    // ??? // todo-right-now  => fix this dummy implementation
-    //         use getSnapshot and extract the entity from there ...
-    //  de hogyan ?
-    //  mi kell hozza ?
-    //  mit akarok csinalni ?
-    //
+
+    val sh: Future[StateMapSnapshot] =getSnaphot
+    sh.map(snapshot2res(_))
   }
 }

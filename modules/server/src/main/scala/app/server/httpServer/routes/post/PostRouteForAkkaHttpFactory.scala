@@ -1,16 +1,23 @@
 package app.server.httpServer.routes.post
 
+import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.utils.{GetTimeOnJVM, PrettyPrint}
 import app.shared.comm.{PostRouteType, RouteName}
 
-import scala.concurrent.Future
-import io.circe.{Decoder, Encoder}
+import scala.concurrent.{ExecutionContext, Future}
+import io.circe.{Decoder, Encoder, Json}
 
 import scala.reflect.ClassTag
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+import app.shared.comm.postRequests.marshall.{
+  EncodersDecoders,
+  ParametersAsJSON,
+  ResultOptionAsJSON
+}
+//import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+import io.circe.Decoder.Result
 
 private[routes] object PostRouteForAkkaHttpFactory {
 
@@ -22,7 +29,8 @@ private[routes] object PostRouteForAkkaHttpFactory {
       logic:     RouteLogicTypeClass[Req],
       dpl:       Decoder[Req#PayLoad],
       decoder:   Decoder[Req#Par],
-      encoder:   Encoder[Req#Res]
+      encoder:   Encoder[Req#Res],
+      e:         ExecutionContext
   ): PostRouteForAkkaHttp[Req] = {
 
     def log(params: Req#Par): Unit = {
@@ -55,10 +63,33 @@ private[routes] object PostRouteForAkkaHttpFactory {
     val res: Route =
       post {
         path(RouteName.getRouteName[Req].name) {
-          entity(as[Req#Par]) { params: Req#Par =>
+//          entity(as[Req#Par]) { params: Req#Par =>
+          entity(as[String]) { s: String =>
+            val encdec= EncodersDecoders
+//               val res: Result[Req#Par] =decoder.decodeJson(Json(s))
+//               val res2: Option[Req#Par] =res.toOption
+
+            import io.circe.parser._
+            import io.circe.{Decoder, Error, _}
+
+            val params: Req#Par = //todo fix this unsafeness
+              encdec.decodeParameters(ParametersAsJSON(s)).toOption.get
+
+//               val params: Req#Par = res2.get //todo fix this unsafeness
+
+            // WE NEED TO REWRITE THIS TO JSON => todo-continue-here
+
             // todo-one-day - get rid of entity marshalling magic
             //  https://dynalist.io/d/Qw8GJh1kUfs_QDhSIs_gixtA#z=dnrnt_Qf6boIBkkJXYdjHTmI
-            complete(logic.getResult(params))
+
+            implicit val ec=encdec
+
+            val res: Future[Option[Req#Res]] = logic.getResult(params)
+
+            val res2: Future[String] = res.map(encdec.encodeResult(_).string)
+            val res3 = res2.map(HttpResponse().withEntity(_))
+//            val resp=HttpResponse().withEntity()
+            complete(res2)
           }
         }
       }

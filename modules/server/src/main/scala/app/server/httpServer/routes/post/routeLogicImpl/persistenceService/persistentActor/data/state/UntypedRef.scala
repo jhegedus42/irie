@@ -26,7 +26,7 @@ case class UntypedRef(
 
 object UntypedRef {
 
-  def makeFromRefToEntity[T <: EntityValue[T]](
+  implicit def makeFromRefToEntity[T <: EntityValue[T]](
       refToEntity: RefToEntityWithVersion[T]
   ): UntypedRef = {
     UntypedRef(

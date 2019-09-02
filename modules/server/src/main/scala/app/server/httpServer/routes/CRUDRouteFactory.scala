@@ -2,8 +2,16 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory.getPostRoute
-import app.server.httpServer.routes.post.routeLogicImpl.{GetRouteLogicTCInst, InsertRouteLogicTCInst, UpdateRouteLogicTCInst}
-import app.shared.comm.postRequests.{GetEntityRoute, InsertNewEntityRoute, UpdateEntityRoute}
+import app.server.httpServer.routes.post.routeLogicImpl.{
+  GetRouteLogicTCInst,
+  InsertRouteLogicTCInst,
+  UpdateRouteLogicTCInst
+}
+import app.shared.comm.postRequests.{
+  GetEntityRoute,
+  InsertNewEntityRoute,
+  UpdateEntityRoute
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithVersion
@@ -16,9 +24,10 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
 case class CRUDRouteFactory(
-                             persistenceModule: PersistentServiceProvider,
-                             executionContext:  ExecutionContextExecutor
+    persistenceModule: PersistentServiceProvider,
+    executionContext:  ExecutionContextExecutor
 ) {
+  implicit val ec=executionContext:  ExecutionContextExecutor
   def route[
       V <: EntityValue[V]: ClassTag
   ](
