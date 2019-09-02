@@ -2,6 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogicTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperationExecutorTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Get
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Get.GetOp
 import app.shared.comm.postRequests.GetEntityRoute
@@ -23,7 +24,7 @@ import scala.util.Try
 case class GetRouteLogicTCInst[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
     d:                 Decoder[Entity[V]],
-    contextExecutor:   ExecutionContextExecutor
+    contextExecutor:   ExecutionContextExecutor,
 ) extends RouteLogicTypeClass[GetEntityRoute[V]] {
 
   implicit val ce: ExecutionContextExecutor = contextExecutor
@@ -32,10 +33,16 @@ case class GetRouteLogicTCInst[V <: EntityValue[V]](
 
     def getResultFromPersistenceModule(
         param: GetEntityReqPar[V]
-    ): Future[Get.GetOpRes[V]] =
+    ): Future[Get.GetOpRes[V]] = {
+      implicit val di: Decoder[Entity[V]] =d
+      implicit val i: Get.GetPersistenceOperationExecutorTypeClassImpl[V] =
+        PersistenceOperationExecutorTypeClass.getOperationInstance[V]
+
       persistenceModule.executePersistenceOperation[GetOp[V]](
         Get.GetOpPar(param.refToEntityWithoutVersion)
       )
+    }
+    // continue-here ^^^ fix this error
 
     def convert(x: Get.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
 

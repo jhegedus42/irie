@@ -1,10 +1,9 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  StateMapEntry,
-  StateMapSnapshot
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot}
 import app.shared.entity.asString.EntityValueTypeAsString
+import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {
@@ -32,4 +31,17 @@ object Payloads {
       entityValueTypeAsString: EntityValueTypeAsString,
       entityIdentity:          EntityIdentity = EntityIdentity()
   )
+
+  object UntypedRefWithoutVersion {
+    implicit def makeFromRefToEntity[T <: EntityValue[T]](
+        refToEntity: RefToEntityWithoutVersion[T]
+    ): UntypedRefWithoutVersion = {
+      UntypedRefWithoutVersion(
+        entityValueTypeAsString = refToEntity.entityValueTypeAsString,
+        entityIdentity          = refToEntity.entityIdentity
+      )
+    }
+
+  }
+
 }

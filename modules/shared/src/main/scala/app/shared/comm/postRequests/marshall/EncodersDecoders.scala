@@ -12,7 +12,7 @@ object EncodersDecoders {
       implicit
       e: Decoder[Req#Res]
   ): Either[Error, Req#Res] = {
-    val r: Either[Error, Req#Res] = decode(res.string)
+    val r: Either[Error, Req#Res] = decode(res.resultOptionAsJSON)
     r
   }
 
@@ -22,7 +22,7 @@ object EncodersDecoders {
       implicit
       e: Decoder[Req#Par]
   ): Either[Error, Req#Par] = {
-    val r: Either[Error, Req#Par] = decode(res.string)
+    val r: Either[Error, Req#Par] = decode(res.parameters_as_json)
     r
   }
 

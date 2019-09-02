@@ -4,12 +4,12 @@ import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.GetStateSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import app.shared.initialization.testing.TestUsers
 import io.circe.Decoder
 import akka.actor.{ActorLogging, ActorSystem, Props}
@@ -24,11 +24,10 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   */
 case class TypeSafeAccessToPersistentActorProvider() {
 
+  def getActor(id: String, as: ActorSystem) = as.actorOf(props(id))
 
-    def getActor(id: String,as:ActorSystem) = as.actorOf(props(id))
-
-    def props(id: String): Props =
-      Props(new PersistentActorImpl(id))
+  def props(id: String): Props =
+    Props(new PersistentActorImpl(id))
 
   val actorSystemForPersistentActor: ActorSystem = ActorSystem()
 
@@ -60,18 +59,41 @@ case class TypeSafeAccessToPersistentActorProvider() {
       d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 
-
-    def snapshot2res(stateMapSnapshot: StateMapSnapshot ) : Option[Entity[V]] = {
-        val res: Option[StateMapEntry] =stateMapSnapshot.getEntity(ref)
-        def res2entity(sme:StateMapEntry) : Option[Entity[V]]={
-          val json=sme.entityAsString.entityAsJSON.json
-          d.decodeJson(json).toOption
-        }
-        res.flatMap(res2entity(_))
+    def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[V]] = {
+      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
+      def res2entity(sme: StateMapEntry): Option[Entity[V]] = {
+        val json = sme.entityAsString.entityAsJSON.json
+        d.decodeJson(json).toOption
+      }
+      res.flatMap(res2entity(_))
     }
 
+    val sh: Future[StateMapSnapshot] = getSnaphot
+    sh.map(snapshot2res(_))
+  }
 
-    val sh: Future[StateMapSnapshot] =getSnaphot
+
+  def getEntityWithLatestVersion[EV <: EntityValue[EV]](
+      ref: RefToEntityWithoutVersion[EV]
+  )(
+      implicit pa: TypeSafeAccessToPersistentActorProvider,
+    d: Decoder[Entity[EV]]
+  ): Future[Option[Entity[EV]]] = {
+
+    def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[EV]] = {
+
+//      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
+//      val par2 : UntypedRef=
+      val res: Option[StateMapEntry] = stateMapSnapshot.getEntityWithLatestVersion(ref)
+
+      def res2entity(sme: StateMapEntry): Option[Entity[EV]] = {
+        val json = sme.entityAsString.entityAsJSON.json
+        d.decodeJson(json).toOption
+      }
+      res.flatMap(res2entity(_))
+    }
+
+    val sh: Future[StateMapSnapshot] = getSnaphot
     sh.map(snapshot2res(_))
   }
 }

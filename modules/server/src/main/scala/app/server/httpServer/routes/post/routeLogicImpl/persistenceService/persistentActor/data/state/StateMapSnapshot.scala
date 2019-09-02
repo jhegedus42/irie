@@ -1,5 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
@@ -114,6 +115,12 @@ private[persistentActor] case class StateMapSnapshot(
 
   def getEntity[V <: EntityValue[V] ]( r: UntypedRef ): Option[StateMapEntry] = {
     map.get(r)
+  }
+
+  def getEntityWithLatestVersion[V <: EntityValue[V] ]( r: UntypedRefWithoutVersion ): Option[StateMapEntry] = {
+//    map.get(r)
+    // continue-here
+    ???
   }
 
 }
