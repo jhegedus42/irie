@@ -36,6 +36,8 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
     }
 
   }
+
+
   test("test crudRouteFactory.route[User]") {
     // continue-here - make this pass
 

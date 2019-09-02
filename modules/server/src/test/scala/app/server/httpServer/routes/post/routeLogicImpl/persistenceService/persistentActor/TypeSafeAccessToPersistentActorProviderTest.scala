@@ -44,6 +44,8 @@ class TypeSafeAccessToPersistentActorProviderTest extends FunSuite with BeforeAn
 
     val r: StateMapSnapshot =Await.result(tsap.getSnaphot , 1 second)
     assert(TestStateProvider.getTestState===r)
+
+    // continue-here => make this pass, this fails too
   }
 
 //  import akka.pattern.ask

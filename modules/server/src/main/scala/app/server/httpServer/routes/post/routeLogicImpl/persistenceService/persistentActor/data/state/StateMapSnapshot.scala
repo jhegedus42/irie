@@ -13,11 +13,11 @@ import scala.reflect.ClassTag
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
-    val map: Map[UntypedRef, StateMapEntry] = Map.empty,
-    val occVersion:OCCVersion=OCCVersion(0)
+    val map:        Map[UntypedRef, StateMapEntry] = Map.empty,
+    val occVersion: OCCVersion                     = OCCVersion(0)
 ) {
 
-  def bumpVersion:StateMapSnapshot=this.lens(_.occVersion).modify(_.inc)
+  def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)
 
   def insertEntity[V <: EntityValue[V]](
       entity: Entity[V]
@@ -113,14 +113,25 @@ private[persistentActor] case class StateMapSnapshot(
     StateMapSnapshot(newMap).bumpVersion
   }
 
-  def getEntity[V <: EntityValue[V] ]( r: UntypedRef ): Option[StateMapEntry] = {
+  def getEntity[V <: EntityValue[V]](r: UntypedRef): Option[StateMapEntry] = {
     map.get(r)
   }
 
-  def getEntityWithLatestVersion[V <: EntityValue[V] ]( r: UntypedRefWithoutVersion ): Option[StateMapEntry] = {
+  def getEntityWithLatestVersion[V <: EntityValue[V]](
+      r: UntypedRefWithoutVersion
+  ): Option[StateMapEntry] = {
 //    map.get(r)
-    // continue-here
-    ???
+
+    def getRes: StateMapEntry =
+      map
+        .filterKeys(utr => utr.entityIdentity.uuid == r.entityIdentity.uuid)
+        .values
+        .toSet
+        .maxBy(
+          (b: StateMapEntry) => b.untypedRef.entityVersion.versionNumberLong
+        )
+    Some(getRes)
+    // todo-one-day : fix this possible exception here, that getRes is empty
   }
 
 }

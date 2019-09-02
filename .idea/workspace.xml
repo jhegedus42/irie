@@ -7,16 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttpFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttpFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ParametersAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ParametersAsJSON.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ResultOptionAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ResultOptionAsJSON.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,12 +60,12 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+                <state relative-caret-position="1050">
+                  <caret line="86" column="82" selection-start-line="86" selection-start-column="82" selection-end-line="86" selection-end-column="82" />
                   <folding>
                     <element signature="e#93#134#0" expanded="true" />
                   </folding>
@@ -81,10 +74,16 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+                <state relative-caret-position="281">
+                  <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#103#214#0" expanded="true" />
+                    <element signature="e#923#1386#0" />
+                    <element signature="e#1390#1522#0" />
+                    <element signature="e#2134#3365#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -92,12 +91,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="445">
-                  <caret line="36" selection-start-line="36" selection-end-line="36" />
+                <state relative-caret-position="218">
+                  <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
                   <folding>
                     <element signature="e#93#211#0" expanded="true" />
                   </folding>
@@ -108,20 +107,22 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+                <state relative-caret-position="241">
+                  <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
                   <folding>
                     <element signature="e#38#67#0" expanded="true" />
+                    <element signature="e#1331#2497#0" />
+                    <element signature="e#2519#2646#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+                <state relative-caret-position="226">
+                  <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
                   <folding>
                     <element signature="e#104#233#0" expanded="true" />
                   </folding>
@@ -200,7 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistence/PersistenceOperation.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistence/OpExecutor.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistence/crudOps/Get.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistence/PersistenceService.scala" />
@@ -216,7 +216,6 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/actorWhisperer.txt" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/occ/OCCVersion.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogicTypeClass.scala" />
@@ -237,7 +236,6 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/StateService.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/state/TestStateProvider.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/SimpleDemoTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
@@ -246,11 +244,14 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ParametersAsJSON.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ResultOptionAsJSON.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttpFactory.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" />
       </list>
     </option>
   </component>
@@ -545,7 +546,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.RouteFactoryTest.test crudRouteFactory.route[User]">
+  <component name="RunManager" selected="ScalaTest.RouteFactoryTest">
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task">
       <setting name="tasks" value="fastOptJS" />
       <setting name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
@@ -671,11 +672,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="ScalaTest.RouteFactoryTest" />
+        <item itemvalue="ScalaTest.RouteFactoryTest.test crudRouteFactory.route[User]" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test crudRouteFactory.route[User]" />
         <item itemvalue="ScalaTest.TypeSafeAccessToPersistentActorProviderTest.testGetEntityWithVersion" />
         <item itemvalue="ScalaTest.RouteFactoryTest.ping_pong" />
-        <item itemvalue="ScalaTest.RouteFactoryTest" />
-        <item itemvalue="ScalaTest.FullTestKitExampleSpec" />
       </list>
     </recent_temporary>
   </component>
@@ -755,13 +756,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00211" summary="Going forward, towards a nice integration test :&#10;&#10;Create/insert Alice and then get it from the server and&#10;check that they are the same.&#10;&#10;Curl based tests pass.">
-      <created>1566351528181</created>
-      <option name="number" value="00211" />
-      <option name="presentableId" value="LOCAL-00211" />
-      <option name="project" value="LOCAL" />
-      <updated>1566351528181</updated>
     </task>
     <task id="LOCAL-00212" summary="Going forward, towards a nice integration test :&#10;&#10;Create/insert Alice and then get it from the server and&#10;check that they are the same.&#10;&#10;Curl based tests pass.&#10;&#10;Wednesday, 21 August 2019 5.56.57 : after some heavy &#10;renaming based refactoring.">
       <created>1566356232909</created>
@@ -1099,7 +1093,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567388803144</updated>
     </task>
-    <option name="localTasksCounter" value="260" />
+    <task id="LOCAL-00260" summary="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass.&#10;&#10;------&#10;&#10;Monday, 2 September 2019 13.33.49 :&#10;&#10;On the way towards implementing &quot;get&quot; route.">
+      <created>1567420454529</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1567420454529</updated>
+    </task>
+    <option name="localTasksCounter" value="261" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1156,12 +1157,12 @@
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.14850137" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.711731" visible="true" weight="0.3814714" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.711731" weight="0.3814714" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5408719" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47711015" weight="0.27247956" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" weight="0.40463215" />
+      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" visible="true" weight="0.40463215" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48783976" weight="0.506812" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52288985" side_tool="true" weight="0.27247956" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1265,7 +1266,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Even more refactoring ... I don't even dare to compile the code now.&#10;&#10;Tuesday, 27 August 2019 15.58.57&#10;&#10;-----&#10;&#10;Refactoring goes on.&#10;&#10;Tuesday, 27 August 2019 22.58.41&#10;&#10;------" />
     <MESSAGE value="Still refactoring.&#10;&#10;One compiler error &quot;left&quot;, not trivial to fix.&#10;&#10;Need to think about this one a bit.&#10;&#10;It relates to the &quot;type architecture&quot;.&#10;&#10;Also there are many ??? and holes and Dummy types that&#10;need to be made meaningful.&#10;&#10;Wednesday, 28 August 2019 2.45.30" />
     <MESSAGE value="Still refactoring. Trying to make things simpler. Less code." />
     <MESSAGE value="Still refactoring. Trying to make things simpler. Less code.&#10;&#10;--------------&#10;Wednesday, 28 August 2019 22.06.59&#10;&#10;Code compiles. Was simplified.&#10;&#10;Next step: make &quot;Get&quot; route work &quot;again&quot;." />
@@ -1290,23 +1290,10 @@
     <MESSAGE value="Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.22.26:&#10;&#10;TypeSafeAccessToPersistentActorProviderTest&#10;test passes with dummy implementation.&#10;&#10;Next step: make it pass with &quot;real&quot; implementation.&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 4.59.48:&#10;&#10;implemented getSnapshot&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.22.26:&#10;&#10;TypeSafeAccessToPersistentActorProviderTest&#10;test passes with dummy implementation.&#10;&#10;Next step: make it pass with &quot;real&quot; implementation.&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 4.59.48:&#10;&#10;implemented getSnapshot&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 10.15.06:&#10;&#10;Two tests pass : server/testOnly **.TypeSafeAccessToPersistentActorProviderTest &#10;&#10;1-2 day and the get route should work...&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 10.15.55:&#10;&#10;maybe in 7 days full crud will work (without GUI)" />
     <MESSAGE value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass." />
-    <option name="LAST_COMMIT_MESSAGE" value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass." />
+    <MESSAGE value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass.&#10;&#10;------&#10;&#10;Monday, 2 September 2019 13.33.49 :&#10;&#10;On the way towards implementing &quot;get&quot; route." />
+    <option name="LAST_COMMIT_MESSAGE" value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass.&#10;&#10;------&#10;&#10;Monday, 2 September 2019 13.33.49 :&#10;&#10;On the way towards implementing &quot;get&quot; route." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/concurrent/duration/Duration.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5550">
-          <caret line="562" column="12" selection-start-line="562" selection-start-column="12" selection-end-line="562" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/concurrent/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2898">
-          <caret line="213" column="54" selection-start-line="213" selection-start-column="54" selection-end-line="213" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/actorWhisperer.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1642,30 +1629,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="243">
+          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
           <folding>
-            <element signature="e#93#211#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding>
-            <element signature="e#38#67#0" expanded="true" />
+            <element signature="e#98#233#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+        <state relative-caret-position="1050">
+          <caret line="86" column="82" selection-start-line="86" selection-start-column="82" selection-end-line="86" selection-end-column="82" />
           <folding>
             <element signature="e#93#134#0" expanded="true" />
           </folding>
@@ -1674,18 +1651,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        <state relative-caret-position="226">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
           <folding>
             <element signature="e#104#233#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/collection/TraversableOnce.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="137">
+          <caret line="233" column="6" selection-start-line="233" selection-start-column="6" selection-end-line="233" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#38#67#0" expanded="true" />
+            <element signature="e#1331#2497#0" />
+            <element signature="e#2519#2646#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
+          <folding>
+            <element signature="e#103#214#0" expanded="true" />
+            <element signature="e#923#1386#0" />
+            <element signature="e#1390#1522#0" />
+            <element signature="e#2134#3365#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+          <folding>
+            <element signature="e#93#211#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
