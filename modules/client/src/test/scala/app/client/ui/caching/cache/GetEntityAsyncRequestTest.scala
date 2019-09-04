@@ -82,7 +82,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
     )
   }
 
-  //todo-now-3 => make this pass
+  //todo-now-1 => make this pass
 
   test( "insert and then get" ) {
     val c   = TestUsers.cica

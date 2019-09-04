@@ -37,7 +37,7 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
     }
   }
 
-  test("test insert route[User]") { //todo-now-4 make this pass
+  test("test insert route[User]") {
 
     val rn: String = "/" + RouteName
       .getRouteName[InsertNewEntityRoute[User]]()
@@ -70,7 +70,7 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
 
       val ent: Entity[User] = EncodersDecoders
         .decodeResult[InsertNewEntityRoute[User]](
-          ResultOptionAsJSON(resp) //todo-now-5 - continue here
+          ResultOptionAsJSON(resp)
         )
         .right
         .get.entity

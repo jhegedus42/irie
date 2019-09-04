@@ -37,9 +37,6 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
 
-  // todo-now-2 :
-  //  write akka-http-based, server side only tests
-
 
   private def simplePostRouteHelloWorld: Route = {
     import akka.http.scaladsl.server.Directives._
