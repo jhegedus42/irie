@@ -80,7 +80,9 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
     getUser( alice ).map(
       (u: Entity[User]) => assertUserNamesAreEqual( u, alice.entityValue )
     )
-  } //todo-now => make this pass
+  }
+
+  //todo-now-2 => make this pass
 
   test( "insert and then get" ) {
     val c   = TestUsers.cica

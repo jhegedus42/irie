@@ -37,14 +37,9 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
 
   }
 
-
   test("test crudRouteFactory.route[User]") {
-    // continue-here - make this pass
 
-    val rn: String = "/"+RouteName.getRouteName[GetEntityRoute[User]]().name
-
-
-
+    val rn: String = "/" + RouteName.getRouteName[GetEntityRoute[User]]().name
 
 //    val
     import io.circe.parser._

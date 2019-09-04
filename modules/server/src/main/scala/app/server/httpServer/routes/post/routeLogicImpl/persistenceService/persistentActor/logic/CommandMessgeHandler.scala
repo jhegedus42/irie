@@ -41,7 +41,8 @@ case class CommandMessgeHandler() {
   }
 
   def handleInsert(command: InsertCommand ): Unit = {
-      // todo-right-now
+      // todo-now-4
+      // continue-here
 
 //    val oldState = state.getState
 //

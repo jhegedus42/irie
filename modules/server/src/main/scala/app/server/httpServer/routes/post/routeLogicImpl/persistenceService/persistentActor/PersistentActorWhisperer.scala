@@ -53,7 +53,7 @@ case class PersistentActorWhisperer() {
     val ic: InsertCommand = ???
     ask(actor,ic)(Timeout.durationToTimeout(1 seconds))
     ???
-  } // continue-here
+  } // todo-now-3
 
   implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystemForPersistentActor.dispatcher

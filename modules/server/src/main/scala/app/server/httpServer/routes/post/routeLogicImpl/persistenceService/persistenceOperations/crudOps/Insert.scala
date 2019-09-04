@@ -43,9 +43,6 @@ object Insert {
       implicit val d: Decoder[Entity[V]] =decoder
       implicit val cti: ClassTag[V] =ct
 
-//      val res0: Future[Option[Entity[V]]] =
-//        pa.getEntityWithLatestVersion(par.ref)
-      //todo-right-now : change this to "insert"
             val res0: Future[Option[Entity[V]]] =
               pa.insertNewEntity(par.value)
 
