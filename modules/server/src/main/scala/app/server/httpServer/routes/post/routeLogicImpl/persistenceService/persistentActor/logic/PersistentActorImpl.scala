@@ -37,8 +37,10 @@ private[persistentActor] class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case command @ InsertNewEntityCommand(_) =>
-      commandHandler.handleInsert(command)
+    case command @ InsertNewEntityCommand(_) =>{
+      val res=commandHandler.handleInsert(command)
+      sender() ! res
+    }
 
     case command @ Update(_) =>
       commandHandler.handleUpdate(command)

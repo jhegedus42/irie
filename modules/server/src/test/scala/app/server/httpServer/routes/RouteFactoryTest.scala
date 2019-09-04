@@ -10,8 +10,9 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
 import app.shared.comm.RouteName
-import app.shared.comm.postRequests.GetEntityRoute
+import app.shared.comm.postRequests.{GetEntityRoute, InsertNewEntityRoute}
 import app.shared.comm.postRequests.GetEntityRoute.GetEntityReqRes
+import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqRes
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
   ParametersAsJSON,
@@ -34,19 +35,56 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
     Post("/hello_world") ~> routes.route ~> check {
       responseAs[String] shouldEqual "Hello world !"
     }
-
   }
 
-  test("test crudRouteFactory.route[User]") {
+  test("test insert route[User]") { //todo-now-4 make this pass
 
-    val rn: String = "/" + RouteName.getRouteName[GetEntityRoute[User]]().name
+    val rn: String = "/" + RouteName
+      .getRouteName[InsertNewEntityRoute[User]]()
+      .name
 
 //    val
     import io.circe.parser._
     import io.circe.{Decoder, Encoder, Error, _}
 
-    val alice = TestUsers.aliceEntity_with_UUID0
-    val refToAlice_withVersion: RefToEntityWithVersion[User] = alice.refToEntity
+    val mhb = TestUsers.meresiHiba
+    val par: InsertNewEntityRoute.InsertReqPar[User] =
+      InsertNewEntityRoute.InsertReqPar(mhb)
+
+    val json: ParametersAsJSON =
+      EncodersDecoders.encodeParameters[InsertNewEntityRoute[User]](par)
+
+    val json_par_as_string: String = json.parameters_as_json
+
+    val req = Post(rn).withEntity(json_par_as_string)
+
+    // get User route
+    val expected: String = {
+      val res:  String                     = mhb.name
+//      val res2: Option[InsertReqRes[User]] = Some(InsertReqRes(res))
+//      val asJSON: ResultOptionAsJSON =
+//        EncodersDecoders.encodeResult[InsertNewEntityRoute[User]](res2)
+//      asJSON.resultOptionAsJSON
+      ???
+    }
+
+    req ~> routes.route ~> { ctx =>
+      val resp = ctx.response.asInstanceOf[String]
+      println(resp)
+      EncodersDecoders.decodeResult[InsertNewEntityRoute[User]](
+        ResultOptionAsJSON(resp) //todo-now-5 - continue here
+      )
+    }
+
+//    testGetEntity(meresiHiba)
+    ???
+
+  }
+
+  def testGetEntity(entity: Entity[User]): Unit = {
+    val rn: String = "/" + RouteName.getRouteName[GetEntityRoute[User]]().name
+    val refToAlice_withVersion: RefToEntityWithVersion[User] =
+      entity.refToEntity
 
     val refToAlice_withoutVersion: RefToEntityWithoutVersion[User] =
       refToAlice_withVersion.stripVersion()
@@ -61,7 +99,7 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
 
     // get User route
     val expected: String = {
-      val res:  Option[Entity[User]]          = Some(alice)
+      val res:  Option[Entity[User]]          = Some(entity)
       val res2: Option[GetEntityReqRes[User]] = Some(GetEntityReqRes(res))
       val asJSON: ResultOptionAsJSON =
         EncodersDecoders.encodeResult[GetEntityRoute[User]](res2)
@@ -71,6 +109,17 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
     req ~> routes.route ~> check {
       responseAs[String] shouldEqual expected
     }
+
+  }
+
+  test("test get route[User]") {
+
+//    val
+    import io.circe.parser._
+    import io.circe.{Decoder, Encoder, Error, _}
+
+    val alice = TestUsers.aliceEntity_with_UUID0
+    testGetEntity(alice)
   }
 
   test("ping_pong") {

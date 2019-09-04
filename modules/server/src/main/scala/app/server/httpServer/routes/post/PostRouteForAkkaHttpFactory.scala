@@ -73,7 +73,7 @@ private[routes] object PostRouteForAkkaHttpFactory {
             import io.circe.parser._
             import io.circe.{Decoder, Encoder, Error, _}
 
-            val params: Req#Par = //todo fix this unsafeness
+            val params: Req#Par =
               encdec.decodeParameters(ParametersAsJSON(s)).toOption.get
 
             implicit val ec=encdec
