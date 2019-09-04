@@ -1,10 +1,12 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{UntypedEntity, StateMapSnapshot, UntypedRef}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
 import app.server.initialization.Config
 
-
+sealed trait DidOperationSucceed
+case class StateServiceOperationSucceeded(m:String) extends DidOperationSucceed
+case class StateServiceOperationFailed(m:String) extends DidOperationSucceed
 /**
   * This is used by the PersistentActorImpl
   */
@@ -27,6 +29,13 @@ private[logic] case class StateService( ) {
     println("\n\nState was set to:\n")
     //    StatePrintingUtils.printApplicationState( s )
     applicationState = s
+  }
+
+  def insertNewEntity(se:UntypedEntity): DidOperationSucceed ={
+    val oldState=getState
+    val newState=oldState.unsafeInsertNewUntypedEntity(se)
+    setNewState(newState)
+    StateServiceOperationSucceeded("insertNewEntity inserted : $se")
   }
 
   // todo-later - this is where the OCC should come

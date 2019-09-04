@@ -1,24 +1,30 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+  UntypedEntity,
+  StateMapSnapshot
+}
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {
   sealed trait Command
   case object GetStateSnapshot extends Command
-  case class InsertCommand(newEntry:     StateMapEntry) extends Command
+  case class InsertNewEntityCommand(newEntity: UntypedEntity) extends Command
 
-  object InsertCommand {
-    def makeFromValue[V<:EntityValue[V]] : InsertCommand = {
-
-     ???
-    }
+  object InsertNewEntityCommand {
+//    def makeFromValue[V <: EntityValue[V]]: InsertNewEntityCommand = {
+//
+//      ???
+//    }
   }
 
-  case class Update(updatedEntry: StateMapEntry) extends Command
+  case class Update(updatedEntry: UntypedEntity) extends Command
   case object ShutdownActor extends Command
 }
 

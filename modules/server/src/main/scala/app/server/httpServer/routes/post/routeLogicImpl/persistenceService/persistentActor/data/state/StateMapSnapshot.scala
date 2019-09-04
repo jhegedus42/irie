@@ -13,8 +13,8 @@ import scala.reflect.ClassTag
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
-    val map:        Map[UntypedRef, StateMapEntry] = Map.empty,
-    val occVersion: OCCVersion                     = OCCVersion(0)
+                                                      val map:        Map[UntypedRef, UntypedEntity] = Map.empty,
+                                                      val occVersion: OCCVersion                     = OCCVersion(0)
 ) {
 
   def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)
@@ -31,9 +31,9 @@ private[persistentActor] case class StateMapSnapshot(
     val entityAsString: EntityAsString =
       entity.entityAsString()
     val entry =
-      StateMapEntry(utr, entityAsString)
+      UntypedEntity(utr, entityAsString)
 
-    val newMap: Map[UntypedRef, StateMapEntry] = this.map + (utr -> entry)
+    val newMap: Map[UntypedRef, UntypedEntity] = this.map + (utr -> entry)
     StateMapSnapshot(newMap).bumpVersion
   }
 
@@ -44,8 +44,8 @@ private[persistentActor] case class StateMapSnapshot(
     * @param ase
     * @return
     */
-  def unsafeInsertStateEntry(
-      ase: StateMapEntry
+  def unsafeInsertNewUntypedEntity(
+      ase: UntypedEntity
   ): StateMapSnapshot = {
     // todo-later - this can throw !!!
     assert(!map.contains(ase.untypedRef))
@@ -55,14 +55,14 @@ private[persistentActor] case class StateMapSnapshot(
 
   def filterByIdentity(
       entityIdentity: EntityIdentity
-  ): Map[UntypedRef, StateMapEntry] =
+  ): Map[UntypedRef, UntypedEntity] =
     map.filterKeys(
       _.entityIdentity == entityIdentity
     )
 
   def getLatestVersionForEntity(
       identity: EntityIdentity
-  ): (UntypedRef, StateMapEntry) =
+  ): (UntypedRef, UntypedEntity) =
     filterByIdentity(identity).maxBy(
       _._1.entityVersion.versionNumberLong
     )
@@ -75,7 +75,7 @@ private[persistentActor] case class StateMapSnapshot(
     * @return
     */
   def unsafeInsertUpdatedEntity(
-      ase: StateMapEntry
+      ase: UntypedEntity
   ) = {
 
     // todo-later - this can throw !!!
@@ -100,7 +100,7 @@ private[persistentActor] case class StateMapSnapshot(
     assert(versionToBeInserted == latestVersion) // this is for the occ
 
     import monocle.macros.syntax.lens._
-    val ase_new: StateMapEntry =
+    val ase_new: UntypedEntity =
       ase
         .lens(
           _.untypedRef.entityVersion.versionNumberLong
@@ -113,22 +113,22 @@ private[persistentActor] case class StateMapSnapshot(
     StateMapSnapshot(newMap).bumpVersion
   }
 
-  def getEntity[V <: EntityValue[V]](r: UntypedRef): Option[StateMapEntry] = {
+  def getEntity[V <: EntityValue[V]](r: UntypedRef): Option[UntypedEntity] = {
     map.get(r)
   }
 
   def getEntityWithLatestVersion[V <: EntityValue[V]](
       r: UntypedRefWithoutVersion
-  ): Option[StateMapEntry] = {
+  ): Option[UntypedEntity] = {
 //    map.get(r)
 
-    def getRes: StateMapEntry =
+    def getRes: UntypedEntity =
       map
         .filterKeys(utr => utr.entityIdentity.uuid == r.entityIdentity.uuid)
         .values
         .toSet
         .maxBy(
-          (b: StateMapEntry) => b.untypedRef.entityVersion.versionNumberLong
+          (b: UntypedEntity) => b.untypedRef.entityVersion.versionNumberLong
         )
     Some(getRes)
     // todo-one-day : fix this possible exception here, that getRes is empty

@@ -8,7 +8,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithoutVersion
-import io.circe.Decoder
+import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -29,8 +29,12 @@ object Insert {
       res: Either[OperationError[InsertOp[V]], Entity[V]]
   ) extends OperationResult
 
-  case class InsertPersistenceOperationExecutorTypeClassImpl[V <: EntityValue[V]](
-      decoder: Decoder[Entity[V]],ct:ClassTag[V]
+  case class InsertPersistenceOperationExecutorTypeClassImpl[V <: EntityValue[
+    V
+  ]](
+      decoder: Decoder[Entity[V]],
+      encoder: Encoder[Entity[V]],
+      ct:      ClassTag[V]
   ) extends PersistenceOperationExecutorTypeClass[InsertOp[V]] {
 
     override def execute(
@@ -40,11 +44,12 @@ object Insert {
     ): Future[Insert.InsertOpRes[V]] = {
       val in: InsertOpPar[V] = par
 
-      implicit val d: Decoder[Entity[V]] =decoder
-      implicit val cti: ClassTag[V] =ct
+      implicit val d:   Decoder[Entity[V]] = decoder
+      implicit val e:   Encoder[Entity[V]] = encoder
+      implicit val cti: ClassTag[V]        = ct
 
-            val res0: Future[Option[Entity[V]]] =
-              pa.insertNewEntity(par.value)
+      val res0: Future[Option[Entity[V]]] =
+        pa.insertNewEntity(par.value)
 
       implicit val ec: ExecutionContextExecutor = pa.executionContext
       val res1:        Future[Entity[V]]        = res0.map(_.get)

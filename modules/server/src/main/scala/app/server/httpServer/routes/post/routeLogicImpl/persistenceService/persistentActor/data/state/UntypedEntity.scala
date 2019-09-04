@@ -3,10 +3,11 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 import app.shared.entity.Entity
 import app.shared.entity.asString.EntityAsString
 import app.shared.entity.entityValue.EntityValue
+import io.circe.Encoder
 import monocle.macros.Lenses
 
 @Lenses
-private[persistentActor] case class StateMapEntry(
+private[persistentActor] case class UntypedEntity(
     untypedRef:     UntypedRef,
     entityAsString: EntityAsString
 ) {
@@ -17,8 +18,15 @@ private[persistentActor] case class StateMapEntry(
       entityAsString.entityValueAsToString.toStringResult
     s"$s1 ----- $s2"
   }
-  def makeFromEntity[V<:EntityValue[V]](e:Entity[V]):StateMapEntry ={
-     val utr:UntypedRef = e.refToEntity
-    ???
+}
+
+object UntypedEntity {
+
+  def makeFromEntity[V <: EntityValue[V]](e: Entity[V])(
+      implicit encoder: Encoder[Entity[V]]
+  ): UntypedEntity = {
+    val utr: UntypedRef = e.refToEntity
+    val entityAsString = e.entityAsString()
+    UntypedEntity(utr, entityAsString)
   }
 }

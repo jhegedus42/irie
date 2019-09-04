@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapEntry
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.UntypedEntity
 
 trait EventToBeSavedIntoJournal
 
@@ -13,6 +13,6 @@ case class UpdateEvent(data: DummyEventPayload)
 
 case class DummyEventPayload()
 {
-  def newEntry:     StateMapEntry = ??? // todo-next
-  def updatedEntry: StateMapEntry = ???
+  def newEntry:     UntypedEntity = ??? // todo-next
+  def updatedEntry: UntypedEntity = ???
 }

@@ -5,16 +5,16 @@ import akka.pattern.ask
 import scala.concurrent.duration._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapEntry, StateMapSnapshot, UntypedRef}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import app.shared.initialization.testing.TestUsers
-import io.circe.Decoder
+import io.circe.{Decoder, Encoder}
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import io.circe.Decoder.Result
 
@@ -44,16 +44,24 @@ case class PersistentActorWhisperer() {
     // what does this mean ?
   )
 
-  def insertNewEntity[V <: EntityValue[V]:ClassTag](
+  def insertNewEntity[V <: EntityValue[V]: ClassTag](
       value: V
+  )(
+      implicit encoder: Encoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 
-    val entity:Entity[V]= Entity.makeFromValue[V](value)
+    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
-    val ic: InsertCommand = ???
-    ask(actor,ic)(Timeout.durationToTimeout(1 seconds))
-    ???
-  } // todo-now-3
+    val ute: UntypedEntity          = UntypedEntity.makeFromEntity(entity)
+    val ic:  InsertNewEntityCommand = InsertNewEntityCommand(ute)
+
+    val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
+      .mapTo[DidOperationSucceed]
+      .map(x => Some(entity))
+    // let's assume it did :) // fix-this-later
+    // todo-one-day - fix this unsafeness
+    res
+  }
 
   implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystemForPersistentActor.dispatcher
@@ -73,8 +81,8 @@ case class PersistentActorWhisperer() {
   ): Future[Option[Entity[V]]] = {
 
     def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[V]] = {
-      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
-      def res2entity(sme: StateMapEntry): Option[Entity[V]] = {
+      val res: Option[UntypedEntity] = stateMapSnapshot.getEntity(ref)
+      def res2entity(sme: UntypedEntity): Option[Entity[V]] = {
         val json = sme.entityAsString.entityAsJSON.json
         d.decodeJson(json).toOption
       }
@@ -96,10 +104,10 @@ case class PersistentActorWhisperer() {
 
 //      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
 //      val par2 : UntypedRef=
-      val res: Option[StateMapEntry] =
+      val res: Option[UntypedEntity] =
         stateMapSnapshot.getEntityWithLatestVersion(ref)
 
-      def res2entity(sme: StateMapEntry): Option[Entity[EV]] = {
+      def res2entity(sme: UntypedEntity): Option[Entity[EV]] = {
         val json = sme.entityAsString.entityAsJSON.json
         d.decodeJson(json).toOption
       }

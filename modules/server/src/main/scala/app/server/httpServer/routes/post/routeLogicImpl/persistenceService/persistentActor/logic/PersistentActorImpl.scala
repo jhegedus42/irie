@@ -4,13 +4,13 @@ import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
   GetStateSnapshot,
-  InsertCommand,
+  InsertNewEntityCommand,
   ShutdownActor,
   Update
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  StateMapEntry,
+  UntypedEntity,
   UntypedRef
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.{
@@ -27,8 +27,8 @@ private[persistentActor] class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
 
-  val stateService   = StateService()
-  val commandHandler = CommandMessgeHandler()
+  lazy val stateService   = StateService()
+  val commandHandler = CommandMessgeHandler(stateService)
 
   override def persistenceId: String = id
 
@@ -37,7 +37,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case command @ InsertCommand(_) =>
+    case command @ InsertNewEntityCommand(_) =>
       commandHandler.handleInsert(command)
 
     case command @ Update(_) =>
@@ -61,10 +61,10 @@ private[persistentActor] class PersistentActorImpl(id: String)
         s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertEventPayload"
       )
 
-      val newEntry: StateMapEntry =
+      val newEntry: UntypedEntity =
         insertEventPayload.newEntry
 
-      val newState = stateService.getState.unsafeInsertStateEntry(newEntry)
+      val newState = stateService.getState.unsafeInsertNewUntypedEntity(newEntry)
       stateService.setNewState(newState)
 
     }
@@ -75,7 +75,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
         s"\n\nApplyEvent was called with UpdateEntityEvent:\n$insertEventPayload"
       )
 
-      val newEntry: StateMapEntry =
+      val newEntry: UntypedEntity =
         insertEventPayload.updatedEntry
 
       val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)

@@ -30,7 +30,7 @@ case class InsertRouteLogicTCInst[V <: EntityValue[V]](
   ): Future[Option[InsertReqRes[V]]] = {
 
     implicit val i1: Insert.InsertPersistenceOperationExecutorTypeClassImpl[V] =
-      Insert.InsertPersistenceOperationExecutorTypeClassImpl(d, ct)
+      Insert.InsertPersistenceOperationExecutorTypeClassImpl(d, e,ct)
     val iop: Insert.InsertOpPar[V] = Insert.InsertOpPar(param.value)
     val res: Future[Insert.InsertOpRes[V]] =
       persistenceModule.executePersistenceOperation[Insert.InsertOp[V]](iop)

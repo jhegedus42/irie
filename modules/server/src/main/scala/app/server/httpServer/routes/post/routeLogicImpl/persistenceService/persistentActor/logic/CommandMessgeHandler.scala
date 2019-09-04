@@ -1,10 +1,10 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{InsertCommand, Update}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{InsertNewEntityCommand, Update}
 
-case class CommandMessgeHandler() {
+case class CommandMessgeHandler(val stateService: StateService) {
 
-  def handleUpdate(message: Update ): Unit = {
+  def handleUpdate(message: Update ): DidOperationSucceed = {
 //    val oldState = state.getState
 //
 //    val event: events.UpdateEntityEventToBeSavedToTheJournal = {
@@ -37,37 +37,11 @@ case class CommandMessgeHandler() {
 //      )
 //
 //    sender() ! resp
-
+   ???
   }
 
-  def handleInsert(command: InsertCommand ): Unit = {
-      // todo-now-4
-      // continue-here
-
-//    val oldState = state.getState
-//
-//    val event: events.CreateEntityEventToBeSavedToTheJournal = {
-//      events.CreateEntityEventToBeSavedToTheJournal( command )
-//    }
-//
-//    persist( event ) { evt: events.CreateEntityEventToBeSavedToTheJournal =>
-//      applyEvent( evt )
-//    }
-//
-//    val stateChange =
-//      StateChange( oldState, state.getState )
-//
-//    println(
-//      "\n\n" +
-//        "ReceiveCommand was called\n" +
-//        "and matched the case 'InsertNewEntityCommand',\n" +
-//        "size of maps in StateChange:\n"
-//    )
-//    println( stateChange.getSizeOfMapsBeforeAndAfter )
-//    println()
-//
-//    sender() ! Responses.InsertNewEntity_Command_Response( stateChange )
-
+  def handleInsert(command: InsertNewEntityCommand ): DidOperationSucceed = {
+      stateService.insertNewEntity(command.newEntity)
   }
 
 }
