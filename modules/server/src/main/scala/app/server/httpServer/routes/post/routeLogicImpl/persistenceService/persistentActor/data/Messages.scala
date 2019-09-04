@@ -10,6 +10,14 @@ object Commands {
   sealed trait Command
   case object GetStateSnapshot extends Command
   case class InsertCommand(newEntry:     StateMapEntry) extends Command
+
+  object InsertCommand {
+    def makeFromValue[V<:EntityValue[V]] : InsertCommand = {
+
+     ???
+    }
+  }
+
   case class Update(updatedEntry: StateMapEntry) extends Command
   case object ShutdownActor extends Command
 }

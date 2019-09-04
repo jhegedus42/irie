@@ -2,6 +2,8 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogicTypeClass
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Insert
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Insert.InsertOp
 import app.shared.comm.postRequests.InsertNewEntityRoute
 import app.shared.comm.postRequests.InsertNewEntityRoute.{
   InsertReqPar,
@@ -27,9 +29,18 @@ case class InsertRouteLogicTCInst[V <: EntityValue[V]](
       param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
 
+    implicit val i1: Insert.InsertPersistenceOperationExecutorTypeClassImpl[V] =
+      Insert.InsertPersistenceOperationExecutorTypeClassImpl(d, ct)
+    val iop: Insert.InsertOpPar[V] = Insert.InsertOpPar(param.value)
+    val res: Future[Insert.InsertOpRes[V]] =
+      persistenceModule.executePersistenceOperation[Insert.InsertOp[V]](iop)
 
-//    persistenceModule.executePersistenceOperation()
-    ???
+    def convert(ior: Insert.InsertOpRes[V]): Option[InsertReqRes[V]] =
+       ior.res.toOption.map(InsertReqRes(_))
+
+    val toReturn: Future[Option[InsertReqRes[V]]] =
+      res.map(convert(_))(contextExecutor)
+    toReturn
   }
 
 }
@@ -76,4 +87,4 @@ case class InsertRouteLogicTCInst[V <: EntityValue[V]](
 //    } )( contextExecutor )
 //
 //    r3
-    /// ??? // todo-later
+/// ??? // todo-later

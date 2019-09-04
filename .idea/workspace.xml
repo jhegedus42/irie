@@ -7,18 +7,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/CommandMessgeHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/CommandMessgeHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhispererTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapEntry.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapEntry.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,76 +62,17 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48426324">
+    <splitter split-orientation="horizontal" split-proportion="0.5139912">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#93#116#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-262">
-                  <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#103#214#0" expanded="true" />
-                    <element signature="e#923#1386#0" />
-                    <element signature="e#1390#1522#0" />
-                    <element signature="e#2134#3365#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="121">
-                  <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-                  <folding>
-                    <element signature="e#38#67#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+                <state relative-caret-position="447">
+                  <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
                   <folding>
-                    <element signature="e#1094#1096#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#107#224#0" expanded="true" />
+                    <element signature="e#58#118#0" expanded="true" />
+                    <element signature="e#1376#1378#0" />
                   </folding>
                 </state>
               </provider>
@@ -145,101 +81,85 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="218">
-                  <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#813#1405#0" />
-                    <element signature="e#1409#2121#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#77#103#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperation.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-200">
-                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="e#107#285#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="177">
-                  <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#99#151#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="308">
-                  <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/AJAXCalls.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="367">
-                  <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#37#86#0" expanded="true" />
-                    <element signature="e#1011#1040#0" expanded="true" />
-                    <element signature="e#1294#1788#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="226">
-                  <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#104#233#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.5">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="54">
+                      <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+                      <folding>
+                        <element signature="e#99#207#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="139">
+                      <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+                      <folding>
+                        <element signature="e#77#103#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperation.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="60">
+                      <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="179">
+                      <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+                      <folding>
+                        <element signature="e#58#118#0" expanded="true" />
+                        <element signature="e#1805#2225#0" />
+                        <element signature="e#2231#2900#0" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/InsertNewEntityRoute.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="95">
+                      <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="166">
+                      <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+                      <folding>
+                        <element signature="e#107#224#0" expanded="true" />
+                        <element signature="e#1672#2728#0" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
@@ -311,8 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persOperations/persistence/PersistenceServiceFacade.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persOperations/PersistenceServiceFacade.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/inspirationFromThePast.txt" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistenceServiceFacade.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentOperationExecutor.scala" />
@@ -349,19 +267,21 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ResultOptionAsJSON.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteForAkkaHttpFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProviderTest.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/TypeSafeAccessToPersistentActorProvider.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/CommandMessgeHandler.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapEntry.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala" />
       </list>
     </option>
   </component>
@@ -369,12 +289,13 @@
     <scope name="routes" pattern="file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic//*||file[server]:src/main/scala/app/server/httpServer/routes/post//*" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="826" />
+    <option name="x" value="19" />
+    <option name="y" value="47" />
+    <option name="width" value="1400" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'routes'; set:file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic//*||file[server]:src/main/scala/app/server/httpServer/routes/post//*; class com.intellij.psi.search.scope.packageSet.NamedScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages Scope="false" ProjectPane="false" />
       <showMembers Scope="false" ProjectPane="true" />
       <showModules PackagesPane="false" />
@@ -387,6 +308,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -405,293 +328,89 @@
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'routes'; set:file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic//*||file[server]:src/main/scala/app/server/httpServer/routes/post//*; class com.intellij.psi.search.scope.packageSet.NamedScope">
-          <expand>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes.post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes.post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes.post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes.post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceOperations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="post" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules/server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src/main/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes.post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceOperations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="crudOps" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistentActor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistentActor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="httpServer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistentActor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="state" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl.persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="root" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/dev/im/irie" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="server" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test/scala" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="app.server.httpServer.routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="post" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="routeLogicImpl.persistenceService" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="persistenceOperations.typesafePersistence" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="root" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irie" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="httpServer" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="routeLogicImpl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -975,13 +694,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00213" summary="Going forward, towards a nice integration test :&#10;&#10;Create/insert Alice and then get it from the server and&#10;check that they are the same.&#10;&#10;Curl based tests pass.&#10;&#10;Wednesday, 21 August 2019 5.56.57 : after some heavy &#10;renaming based refactoring.&#10;&#10;Wednesday, 21 August 2019 6.01.32: All tests still pass (at least &#10;the one launched from the client side + CURL based tests).">
-      <created>1566356524463</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1566356524463</updated>
     </task>
     <task id="LOCAL-00214" summary="Going forward, towards a nice integration test :&#10;&#10;Create/insert Alice and then get it from the server and&#10;check that they are the same.&#10;&#10;Curl based tests pass.&#10;&#10;Wednesday, 21 August 2019 5.56.57 : after some heavy &#10;renaming based refactoring.&#10;&#10;Wednesday, 21 August 2019 6.01.32: All tests still pass (at least &#10;the one launched from the client side + CURL based tests).&#10;&#10;Wednesday, 21 August 2019 6.09.43 : added dummy &quot;InsertEntityLogic&quot;&#10;which is just a copy of &quot;GetEntityLogic&quot; for now and needs to &#10;be changed to actually implement the logic that inserts an entity&#10;and can be used to create an &quot;insert entity route&quot;.">
       <created>1566357071856</created>
@@ -1319,7 +1031,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567445871425</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.&#10;&#10;--------------------------------------------------&#10;&#10;Safety commit.">
+      <created>1567456641179</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1567456641179</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1366,13 +1085,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="826" extended-state="0" />
+    <frame x="19" y="47" width="1400" height="795" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.5538462" side_tool="true" weight="0.36337626" />
+      <window_info id="Structure" order="0" sideWeight="0.5538462" side_tool="true" weight="0.20471281" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.36914062" side_tool="true" weight="0.3836705" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.44615385" weight="0.27110156" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.44615385" weight="0.27098674" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.14850137" />
@@ -1381,7 +1100,7 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47711015" weight="0.27247956" />
-      <window_info active="true" anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" visible="true" weight="0.27247956" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" weight="0.39687055" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48783976" weight="0.506812" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52288985" side_tool="true" weight="0.27247956" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
@@ -1485,7 +1204,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Still refactoring. Trying to make things simpler. Less code." />
     <MESSAGE value="Still refactoring. Trying to make things simpler. Less code.&#10;&#10;--------------&#10;Wednesday, 28 August 2019 22.06.59&#10;&#10;Code compiles. Was simplified.&#10;&#10;Next step: make &quot;Get&quot; route work &quot;again&quot;." />
     <MESSAGE value="Taking the typeclass route.&#10;&#10;We have now one compiler error." />
     <MESSAGE value="Formatting ... went a bit better.&#10;&#10;Working on making the get route working.&#10;&#10;We have compiler errors." />
@@ -1510,51 +1228,10 @@
     <MESSAGE value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass." />
     <MESSAGE value="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass.&#10;&#10;------&#10;&#10;Monday, 2 September 2019 13.33.49 :&#10;&#10;On the way towards implementing &quot;get&quot; route." />
     <MESSAGE value="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass." />
-    <option name="LAST_COMMIT_MESSAGE" value="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass." />
+    <MESSAGE value="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.&#10;&#10;--------------------------------------------------&#10;&#10;Safety commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.&#10;&#10;--------------------------------------------------&#10;&#10;Safety commit." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="151">
-            <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="Gfm" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#31#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.1.9-sources.jar!/akka/http/javadsl/model/MediaType.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.1.9-sources.jar!/akka/http/javadsl/model/ContentType.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-http-core_2.12/srcs/akka-http-core_2.12-10.1.9-sources.jar!/akka/http/scaladsl/model/HttpEntity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="189" column="49" selection-start-line="189" selection-start-column="49" selection-end-line="189" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-http_2.12/srcs/akka-http_2.12-10.1.9-sources.jar!/akka/http/scaladsl/server/directives/MarshallingDirectives.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1618,13 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRouteType.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1653,16 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-          <folding>
-            <element signature="e#38#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1695,16 +1355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#58#118#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1743,57 +1393,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-          <folding>
-            <element signature="e#104#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="e#119#148#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-262">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding>
-            <element signature="e#103#214#0" expanded="true" />
-            <element signature="e#923#1386#0" />
-            <element signature="e#1390#1522#0" />
-            <element signature="e#2134#3365#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#38#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/AJAXCalls.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding>
-            <element signature="e#37#86#0" expanded="true" />
-            <element signature="e#1011#1040#0" expanded="true" />
-            <element signature="e#1294#1788#0" />
           </folding>
         </state>
       </provider>
@@ -1815,9 +1420,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/CommandMessgeHandler.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/refs/EntityTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapSnapshot.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding>
+            <element signature="e#103#214#0" expanded="true" />
+            <element signature="e#923#1386#0" />
+            <element signature="e#1390#1522#0" />
+            <element signature="e#2134#3365#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-344">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <folding>
+            <element signature="e#38#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <element signature="e#99#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/GetEntityAsyncRequestTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
+        <state relative-caret-position="390">
           <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
           <folding>
             <element signature="e#813#1405#0" />
@@ -1826,19 +1485,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/InsertNewEntityRoute.scala">
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/AJAXCalls.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="436">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding>
+            <element signature="e#37#86#0" expanded="true" />
+            <element signature="e#1011#1040#0" expanded="true" />
+            <element signature="e#1294#1788#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        <state relative-caret-position="-114">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding>
-            <element signature="e#77#103#0" expanded="true" />
+            <element signature="e#38#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAsString.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityValueTypeAsString.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/UntypedRef.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+          <folding>
+            <element signature="e#104#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding>
+            <element signature="e#98#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/state/StateMapEntry.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#104#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+          <folding>
+            <element signature="e#93#116#0" expanded="true" />
+            <element signature="e#1619#1924#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="e#107#285#0" expanded="true" />
+            <element signature="e#1479#2349#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRouteLogicTCInst.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+          <folding>
+            <element signature="e#58#118#0" expanded="true" />
+            <element signature="e#1805#2225#0" />
+            <element signature="e#2231#2900#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#99#207#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1850,97 +1623,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        <state relative-caret-position="139">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
-            <element signature="e#1094#1096#0" />
+            <element signature="e#77#103#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Get.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#107#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/data/Messages.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding>
-            <element signature="e#98#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/CommandMessgeHandler.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/PersistentActorImpl.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-          <folding>
-            <element signature="e#99#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/refs/EntityTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/PersistentActorWhisperer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-          <folding>
-            <element signature="e#93#116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/PersistenceOperationExecutorTypeClass.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/Insert.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        <state relative-caret-position="166">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="e#107#224#0" expanded="true" />
+            <element signature="e#1672#2728#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/InsertNewEntityRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogicTypeClass.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRouteLogicTCInst.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding>
+            <element signature="e#58#118#0" expanded="true" />
+            <element signature="e#1376#1378#0" />
           </folding>
         </state>
       </provider>

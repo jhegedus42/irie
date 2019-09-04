@@ -38,6 +38,11 @@ case class Entity[E <: EntityValue[E]](
 
 object Entity {
 
+  /**
+    * @param v
+    * @tparam V
+    * @return Entity with random UUID and Version 0.
+    */
   def makeFromValue[V <: EntityValue[V]: ClassTag]( v: V ): Entity[V] = {
     val tr = RefToEntityWithVersion[V]( EntityValueTypeAsString.make[V] )
     Entity( v, tr )

@@ -30,18 +30,18 @@ object Insert {
   ) extends OperationResult
 
   case class InsertPersistenceOperationExecutorTypeClassImpl[V <: EntityValue[V]](
-      decoder: Decoder[Entity[V]]
+      decoder: Decoder[Entity[V]],ct:ClassTag[V]
   ) extends PersistenceOperationExecutorTypeClass[InsertOp[V]] {
 
     override def execute(
         par: Insert.InsertOpPar[V]
     )(
-        implicit pa: PersistentActorWhisperer,
-        ct:ClassTag[V]
+        implicit pa: PersistentActorWhisperer
     ): Future[Insert.InsertOpRes[V]] = {
       val in: InsertOpPar[V] = par
 
       implicit val d: Decoder[Entity[V]] =decoder
+      implicit val cti: ClassTag[V] =ct
 
 //      val res0: Future[Option[Entity[V]]] =
 //        pa.getEntityWithLatestVersion(par.ref)

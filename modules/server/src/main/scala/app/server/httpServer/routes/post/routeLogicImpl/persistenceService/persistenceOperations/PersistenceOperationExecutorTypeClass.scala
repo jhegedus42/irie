@@ -8,6 +8,7 @@ import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
 
 import scala.concurrent.Future
+import scala.reflect.ClassTag
 
 trait PersistenceOperationExecutorTypeClass[OP <: PersistenceOperation] {
   def execute(par: OP#Par)(

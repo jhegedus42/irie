@@ -42,7 +42,6 @@ case class GetRouteLogicTCInst[V <: EntityValue[V]](
         Get.GetOpPar(param.refToEntityWithoutVersion)
       )
     }
-    // continue-here ^^^ fix this error
 
     def convert(x: Get.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
 
@@ -90,8 +89,6 @@ case class GetRouteLogicTCInst[V <: EntityValue[V]](
     Helpers
       .getResultFromPersistenceModule(param)
       .map(Helpers.convert(_))
-    // todo-later - fix this return type - it makes absolutely zero sense
-    //  there is too much "Option", it is "too" "safe" :)
   }
 
 }
