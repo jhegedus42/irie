@@ -13,8 +13,8 @@ import scala.reflect.ClassTag
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
-                                                      val map:        Map[UntypedRef, UntypedEntity] = Map.empty,
-                                                      val occVersion: OCCVersion                     = OCCVersion(0)
+    val map:        Map[UntypedRef, UntypedEntity] = Map.empty,
+    val occVersion: OCCVersion                     = OCCVersion(0)
 ) {
 
   def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)

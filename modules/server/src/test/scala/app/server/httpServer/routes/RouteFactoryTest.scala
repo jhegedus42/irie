@@ -58,28 +58,29 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
 
     val req = Post(rn).withEntity(json_par_as_string)
 
-    // get User route
-    val expected: String = {
-      val res:  String                     = mhb.name
-//      val res2: Option[InsertReqRes[User]] = Some(InsertReqRes(res))
-//      val asJSON: ResultOptionAsJSON =
-//        EncodersDecoders.encodeResult[InsertNewEntityRoute[User]](res2)
-//      asJSON.resultOptionAsJSON
-      ???
+    var resp: String = null
+
+    req ~> routes.route ~> check {
+      val r=responseAs[String]
+      resp=r
+      true
     }
 
-    req ~> routes.route ~> { ctx =>
-      val resp = ctx.response.asInstanceOf[String]
       println(resp)
-      EncodersDecoders.decodeResult[InsertNewEntityRoute[User]](
-        ResultOptionAsJSON(resp) //todo-now-5 - continue here
-      )
+
+      val ent: Entity[User] = EncodersDecoders
+        .decodeResult[InsertNewEntityRoute[User]](
+          ResultOptionAsJSON(resp) //todo-now-5 - continue here
+        )
+        .right
+        .get.entity
+
+
+    testGetEntity(ent)
     }
 
-//    testGetEntity(meresiHiba)
-    ???
 
-  }
+
 
   def testGetEntity(entity: Entity[User]): Unit = {
     val rn: String = "/" + RouteName.getRouteName[GetEntityRoute[User]]().name
