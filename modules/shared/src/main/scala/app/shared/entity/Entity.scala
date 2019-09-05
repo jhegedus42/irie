@@ -2,8 +2,8 @@ package app.shared.entity
 
 import app.shared.entity.asString.{
   EntityAsJSON,
-  EntityAsString,
-  EntityValueAsToString,
+  EntityAndItsValueAsJSON,
+  EntityValueAsJSON,
   EntityValueTypeAsString
 }
 import app.shared.entity.entityValue.EntityValue
@@ -17,21 +17,15 @@ import scala.reflect.ClassTag
 case class Entity[E <: EntityValue[E]](
     entityValue:       E,
     refToEntity:       RefToEntityWithVersion[E],
-    entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag( false )
+    entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag(false)
 ) {
 
-  def entityAsString()( implicit e: Encoder[Entity[E]] ): EntityAsString = {
-    EntityAsString( this.toJSON, this.valueAsToString() )
-  }
-
-  private def toJSON( implicit e: Encoder[Entity[E]] ): EntityAsJSON = {
-    val jsonAsString: String = e.apply( this ).spaces4
-    val res:          Json   = e.apply( this )
-    EntityAsJSON( res )
-  }
-
-  private def valueAsToString(): EntityValueAsToString = {
-    EntityValueAsToString( this.entityValue.toString )
+  def entityAsJSON()(
+      implicit e: Encoder[Entity[E]],
+      ee:         Encoder[E]
+  ): EntityAndItsValueAsJSON = {
+    EntityAndItsValueAsJSON(EntityAsJSON(e.apply(this)),
+                            EntityValue.getAsJson(entityValue))
   }
 
 }
@@ -43,9 +37,9 @@ object Entity {
     * @tparam V
     * @return Entity with random UUID and Version 0.
     */
-  def makeFromValue[V <: EntityValue[V]: ClassTag]( v: V ): Entity[V] = {
-    val tr = RefToEntityWithVersion[V]( EntityValueTypeAsString.make[V] )
-    Entity( v, tr )
+  def makeFromValue[V <: EntityValue[V]: ClassTag](v: V): Entity[V] = {
+    val tr = RefToEntityWithVersion[V](EntityValueTypeAsString.make[V])
+    Entity(v, tr)
   }
 
 }

@@ -1,10 +1,20 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation.{OperationError, OperationResult, OperatonParameter}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO.{InsertPOPar, InsertPORes}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation.{
+  OperationError,
+  OperationResult,
+  OperatonParameter
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO.{
+  InsertPOPar,
+  InsertPORes
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{POExecutor, ElementaryPersistenceOperation}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
+  POExecutor,
+  ElementaryPersistenceOperation
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -19,8 +29,6 @@ import scala.reflect.ClassTag
   * Persistence Operation which creates a new Entity.
   *
   */
-
-
 trait InsertPO[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
   override type Res = InsertPORes[V]
   override type Par = InsertPOPar[V]
@@ -42,16 +50,17 @@ object InsertPO {
     *
     * @param decoder
     * @param encoder
-    * @param ct
+    * @param classTag
     * @tparam V
     */
   case class Executor[V <: EntityValue[
     V
   ]](
-      decoder: Decoder[Entity[V]],
-      encoder: Encoder[Entity[V]],
-      ct:      ClassTag[V]
-  ) extends POExecutor[V,InsertPO[V]] {
+      decoder:  Decoder[Entity[V]],
+      encoder:  Encoder[Entity[V]],
+      encoderV: Encoder[V],
+      classTag: ClassTag[V]
+  ) extends POExecutor[V, InsertPO[V]] {
 
     override def execute(
         par: InsertPO.InsertPOPar[V]
@@ -61,15 +70,16 @@ object InsertPO {
 
       val in: InsertPOPar[V] = par
 
-      implicit val d:   Decoder[Entity[V]] = decoder
-      implicit val e:   Encoder[Entity[V]] = encoder
-      implicit val cti: ClassTag[V]        = ct
-      implicit val ec: ExecutionContextExecutor = pa.executionContext
+      implicit val d:   Decoder[Entity[V]]       = decoder
+      implicit val e:   Encoder[Entity[V]]       = encoder
+      implicit val ve:  Encoder[V]               = encoderV
+      implicit val cti: ClassTag[V]              = classTag
+      implicit val ec:  ExecutionContextExecutor = pa.executionContext
 
       val res0: Future[Option[Entity[V]]] =
         pa.insertNewEntity(par.value)
 
-      val res1:        Future[Entity[V]]        = res0.map(_.get)
+      val res1: Future[Entity[V]] = res0.map(_.get)
 
       def f(in: Entity[V]): Either[OperationError, Entity[V]] =
         Right(in)

@@ -5,14 +5,28 @@ import akka.pattern.ask
 import scala.concurrent.duration._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
+  GetStateSnapshot,
+  InsertNewEntityCommand,
+  UpdateEntityCommand
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+  StateMapSnapshot,
+  UntypedEntity,
+  UntypedRef
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{
+  DidOperationSucceed,
+  PersistentActorImpl
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import app.shared.initialization.testing.TestUsers
 import io.circe.{Decoder, Encoder}
 import akka.actor.{ActorLogging, ActorSystem, Props}
@@ -48,13 +62,15 @@ case class PersistentActorWhisperer() {
       currentEntity: Entity[V],
       newValue:      V
   )(
-      implicit encoder: Encoder[Entity[V]]
+      implicit encoder: Encoder[Entity[V]],
+      eencoder:         Encoder[V]
   ): Future[Option[Entity[V]]] = {
 
 //    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
-    val ute: UntypedEntity          = UntypedEntity.makeFromEntity(currentEntity)
-    val ic:  UpdateEntityCommand = UpdateEntityCommand(ute) //todo-now-6 make this compile
+    val ute: UntypedEntity = UntypedEntity.makeFromEntity(currentEntity)
+
+    val ic: UpdateEntityCommand = ??? // UpdateEntityCommand(ute) //todo-now-6 make this compile
 
     val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
       .mapTo[DidOperationSucceed]
@@ -69,7 +85,8 @@ case class PersistentActorWhisperer() {
   def insertNewEntity[V <: EntityValue[V]: ClassTag](
       value: V
   )(
-      implicit encoder: Encoder[Entity[V]]
+      implicit encoder: Encoder[Entity[V]],
+      eencoder:         Encoder[V]
   ): Future[Option[Entity[V]]] = {
 
     val entity: Entity[V] = Entity.makeFromValue[V](value)
@@ -105,7 +122,7 @@ case class PersistentActorWhisperer() {
     def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[V]] = {
       val res: Option[UntypedEntity] = stateMapSnapshot.getEntity(ref)
       def res2entity(sme: UntypedEntity): Option[Entity[V]] = {
-        val json = sme.entityAsString.entityAsJSON.json
+        val json = sme.entityAndItsValueAsJSON.entityAsJSON.json
         d.decodeJson(json).toOption
       }
       res.flatMap(res2entity(_))
@@ -130,7 +147,7 @@ case class PersistentActorWhisperer() {
         stateMapSnapshot.getEntityWithLatestVersion(ref)
 
       def res2entity(sme: UntypedEntity): Option[Entity[EV]] = {
-        val json = sme.entityAsString.entityAsJSON.json
+        val json = sme.entityAndItsValueAsJSON.entityAsJSON.json
         d.decodeJson(json).toOption
       }
       res.flatMap(res2entity(_))

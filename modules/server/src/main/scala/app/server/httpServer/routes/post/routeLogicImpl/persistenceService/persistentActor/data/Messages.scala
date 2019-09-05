@@ -1,15 +1,9 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  UntypedEntity,
-  StateMapSnapshot
-}
-import app.shared.entity.asString.EntityValueTypeAsString
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity}
+import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{
-  RefToEntityWithVersion,
-  RefToEntityWithoutVersion
-}
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {
@@ -17,7 +11,7 @@ object Commands {
   case object GetStateSnapshot extends Command
   case class InsertNewEntityCommand(newEntity: UntypedEntity) extends Command
 
-  case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newValueForEntity) extends Command
+  case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newValueForEntity:EntityValueAsJSON) extends Command
   // todo-now-7 ^^^ fix this compiler error here
   // todo-now-5 implement handling for this command
 

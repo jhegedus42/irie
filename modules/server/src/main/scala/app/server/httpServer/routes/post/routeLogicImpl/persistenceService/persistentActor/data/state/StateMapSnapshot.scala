@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
-import app.shared.entity.asString.EntityAsString
+import app.shared.entity.asString.EntityAndItsValueAsJSON
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder
@@ -21,7 +21,7 @@ private[persistentActor] case class StateMapSnapshot(
 
   def getSimpleFormat: List[String] = {
     val res: Iterable[String] =map.values.map(x => {
-      s" ${x.entityAsString.entityValueAsToString} ${x.untypedRef.entityIdentity.uuid}"
+      s" ${x.entityAndItsValueAsJSON.entityValueAsJSON} ${x.untypedRef.entityIdentity.uuid}"
     })
     res.toList
   }
@@ -30,13 +30,14 @@ private[persistentActor] case class StateMapSnapshot(
       entity: Entity[V]
   )(
       implicit
-      encoder: Encoder[Entity[V]]
+      encoder: Encoder[Entity[V]],
+        entEncoder: Encoder[V]
   ): StateMapSnapshot = {
 
     val utr =
       UntypedRef.makeFromRefToEntity(entity.refToEntity)
-    val entityAsString: EntityAsString =
-      entity.entityAsString()
+    val entityAsString: EntityAndItsValueAsJSON =
+      entity.entityAsJSON()
     val entry =
       UntypedEntity(utr, entityAsString)
 

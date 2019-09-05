@@ -18,9 +18,10 @@ import scala.util.Try
 
 case class InsertRL[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
-    d:                 Decoder[Entity[V]],
-    e:                 Encoder[Entity[V]],
-    ct:                ClassTag[V],
+    decoderEntityV:    Decoder[Entity[V]],
+    encoderEntityV:    Encoder[Entity[V]],
+    encoderV:          Encoder[V],
+    classTag:          ClassTag[V],
     contextExecutor:   ExecutionContextExecutor
 ) extends RouteLogic[InsertNewEntityRoute[V]] {
 
@@ -29,19 +30,21 @@ case class InsertRL[V <: EntityValue[V]](
   ): Future[Option[InsertReqRes[V]]] = {
 
     implicit val executer: InsertPO.Executor[V] =
-      InsertPO.Executor(d, e,ct)
+      InsertPO.Executor(decoder  = decoderEntityV,
+                        encoder  = encoderEntityV,
+                        encoderV = encoderV,
+                        classTag = classTag)
 
     val poPar: InsertPO.InsertPOPar[V] = InsertPO.InsertPOPar(param.value)
 
     val poRes: Future[InsertPO.InsertPORes[V]] =
-      persistenceModule.executePO[V,InsertPO[V]](poPar)
+      persistenceModule.executePO[V, InsertPO[V]](poPar)
 
-    def poRes2ReqRes : InsertPO.InsertPORes[V] => Option[InsertReqRes[V]] =
-       poRes => poRes.res.toOption.map(InsertReqRes(_))
+    def poRes2ReqRes: InsertPO.InsertPORes[V] => Option[InsertReqRes[V]] =
+      poRes => poRes.res.toOption.map(InsertReqRes(_))
 
-      poRes.map(poRes2ReqRes(_))(contextExecutor)
+    poRes.map(poRes2ReqRes(_))(contextExecutor)
 
   }
 
 }
-

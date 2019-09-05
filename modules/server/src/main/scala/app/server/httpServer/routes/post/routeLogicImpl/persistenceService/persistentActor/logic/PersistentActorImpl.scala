@@ -42,8 +42,8 @@ private[persistentActor] class PersistentActorImpl(id: String)
       sender() ! res
     }
 
-    case command @ UpdateEntityCommand(_) =>
-      commandHandler.handleUpdate(command)
+//    case command @ UpdateEntityCommand(_) => //todo-now-8 implement this
+//      commandHandler.handleUpdate(command)
 
     case GetStateSnapshot => {
       println("handling the GetSnapshot command")

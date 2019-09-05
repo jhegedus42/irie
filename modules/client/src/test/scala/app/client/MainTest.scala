@@ -27,7 +27,7 @@ class MainTest extends FunSuite {
     import scala.scalajs.js._
 
     val alice_as_json: String =
-      aliceEntity.entityAsString().entityAsJSON.json.noSpaces
+      aliceEntity.entityAsJSON().entityAsJSON.json.noSpaces
 
     val encoded: String = URIUtils.encodeURIComponent( alice_as_json )
 

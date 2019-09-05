@@ -62,9 +62,10 @@ object UpdatePO {
   case class Executor[V <: EntityValue[
     V
   ]](
-      decoder: Decoder[Entity[V]],
-      encoder: Encoder[Entity[V]],
-      ct:      ClassTag[V]
+      decoder:  Decoder[Entity[V]],
+      encoder:  Encoder[Entity[V]],
+      eencoder: Encoder[V],
+      ct:       ClassTag[V]
   ) extends POExecutor[V, UpdatePO[V]] {
 
 //    override def execute(par: UpdatePO[V]#Par)(
@@ -82,6 +83,7 @@ object UpdatePO {
 
       implicit val d:   Decoder[Entity[V]]       = decoder
       implicit val e:   Encoder[Entity[V]]       = encoder
+      implicit val ee:  Encoder[V]               = eencoder
       implicit val cti: ClassTag[V]              = ct
       implicit val ec:  ExecutionContextExecutor = pa.executionContext
 
