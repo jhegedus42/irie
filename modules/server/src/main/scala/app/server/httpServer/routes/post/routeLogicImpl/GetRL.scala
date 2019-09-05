@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.OperationExecutor
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.POExecutor
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO.GetOp
 import app.shared.comm.postRequests.GetEntityRoute
@@ -35,10 +35,10 @@ case class GetRL[V <: EntityValue[V]](
         param: GetEntityReqPar[V]
     ): Future[GetPO.GetOpRes[V]] = {
       implicit val di: Decoder[Entity[V]] =d
-      implicit val i: GetPO.GetOperationExecutorImpl[V] =
-        OperationExecutor.getOperationInstance[V]
+      implicit val i: GetPO.GetPOExecutorImpl[V] =
+        POExecutor.getOperationInstance[V]
 
-      persistenceModule.executePO[GetOp[V]](
+      persistenceModule.executePO[V,GetOp[V]](
         GetPO.GetOpPar(param.refToEntityWithoutVersion)
       )
     }
@@ -83,7 +83,7 @@ case class GetRL[V <: EntityValue[V]](
     }
   }
 
-  override def getResult(
+  override def getHttpReqResult(
       param: GetEntityReqPar[V]
   ): Future[Option[GetEntityReqRes[V]]] = {
     Helpers

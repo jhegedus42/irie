@@ -52,7 +52,7 @@ private[routes] object PostRouteForAkkaHttpFactory {
 
             implicit val ec = encdec
 
-            val res: Future[Option[Req#Res]] = logic.getResult(params)
+            val res: Future[Option[Req#Res]] = logic.getHttpReqResult(params)
 
             val res2: Future[String] =
               res.map(encdec.encodeResult(_).resultOptionAsJSON)

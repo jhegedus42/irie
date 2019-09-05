@@ -34,7 +34,7 @@ trait RouteLogic[Req <: PostRouteType] {
     * @param param
     * @return
     */
-  def getResult(param: Req#Par): Future[Option[Req#Res]]
+  def getHttpReqResult(param: Req#Par): Future[Option[Req#Res]]
 
 }
 

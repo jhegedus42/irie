@@ -2,8 +2,9 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService
 
 import akka.actor.ActorRef
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{PersistenceOperation, OperationExecutor}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{ElementaryPersistenceOperation, POExecutor}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
+import app.shared.entity.entityValue.EntityValue
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -28,9 +29,9 @@ private[routes] case class PersistentServiceProvider(
   implicit val context_as_implicit = context
   implicit val paw=PersistentActorWhisperer()
 
-  def executePO[OP <: PersistenceOperation](
+  def executePO[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]](
       par:       OP#Par
-  )(implicit ex: OperationExecutor[OP]): Future[OP#Res] = {
+  )(implicit ex: POExecutor[V,OP]): Future[OP#Res] = {
     // todo-later this is where we put the OCC
     ex.execute(par)
   }

@@ -16,7 +16,7 @@ import scala.concurrent.Future
 
 object SumIntRL extends RouteLogic[SumIntRoute] {
 
-  override def getResult(param: SumIntPar): Future[Option[SumIntRes]] = {
+  override def getHttpReqResult(param: SumIntPar): Future[Option[SumIntRes]] = {
     def time = Calendar.getInstance.getTime
     println(s"serverside - sum int view typeclass was executed - $time")
     Future.successful(Some(SumIntRes(param.x + param.y)))

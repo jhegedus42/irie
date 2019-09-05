@@ -10,15 +10,23 @@ import io.circe.Decoder
 import scala.concurrent.Future
 import scala.reflect.ClassTag
 
+
+// todo-later, please see the doc below:
+
 /**
   *
   * Type class that contains the logic on how
   * to execute a persistence operation.
   *
+  *
+  * todo-later :
+  * Perhaps this should be merged with
+  * [[app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation]]
+  *
   * @tparam OP
   */
 
-trait OperationExecutor[OP <: PersistenceOperation] {
+trait POExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
   def execute(par: OP#Par)(
       implicit
       typeSafeAccessToPersistentActorProvider: PersistentActorWhisperer
@@ -27,11 +35,11 @@ trait OperationExecutor[OP <: PersistenceOperation] {
   def getOCCVersion: OCCVersion
 }
 
-object OperationExecutor {
+object POExecutor {
 
   def getOperationInstance[V <: EntityValue[V]](
       implicit d: Decoder[Entity[V]]
   ) =
-    GetPO.GetOperationExecutorImpl[V](d)
+    GetPO.GetPOExecutorImpl[V](d)
 
 }

@@ -3,7 +3,6 @@ package app.server.httpServer.routes.post.routeLogicImpl
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO.InsertOp
 import app.shared.comm.postRequests.InsertNewEntityRoute
 import app.shared.comm.postRequests.InsertNewEntityRoute.{
   InsertReqPar,
@@ -25,7 +24,7 @@ case class InsertRL[V <: EntityValue[V]](
     contextExecutor:   ExecutionContextExecutor
 ) extends RouteLogic[InsertNewEntityRoute[V]] {
 
-  override def getResult(
+  override def getHttpReqResult(
       param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
 
@@ -35,7 +34,7 @@ case class InsertRL[V <: EntityValue[V]](
     val poPar: InsertPO.InsertPOPar[V] = InsertPO.InsertPOPar(param.value)
 
     val poRes: Future[InsertPO.InsertPORes[V]] =
-      persistenceModule.executePO[InsertPO.InsertOp[V]](poPar)
+      persistenceModule.executePO[V,InsertPO[V]](poPar)
 
     def poRes2ReqRes : InsertPO.InsertPORes[V] => Option[InsertReqRes[V]] =
        poRes => poRes.res.toOption.map(InsertReqRes(_))

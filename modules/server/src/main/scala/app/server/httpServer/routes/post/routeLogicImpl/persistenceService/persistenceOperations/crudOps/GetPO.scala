@@ -1,14 +1,14 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.PersistenceOperation.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation.{
   OperationError,
   OperationResult,
   OperatonParameter
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
-  PersistenceOperation,
-  OperationExecutor
+  ElementaryPersistenceOperation,
+  POExecutor
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
@@ -20,7 +20,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 object GetPO {
 
-  trait GetOp[V <: EntityValue[V]] extends PersistenceOperation {
+  trait GetOp[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
     override type Res = GetOpRes[V]
     override type Par = GetOpPar[V]
   }
@@ -30,12 +30,12 @@ object GetPO {
   ) extends OperatonParameter
 
   case class GetOpRes[V <: EntityValue[V]](
-      res: Either[OperationError[GetOp[V]], Entity[V]]
+      res: Either[OperationError,Entity[V]]
   ) extends OperationResult
 
-  case class GetOperationExecutorImpl[V <: EntityValue[V]](
+  case class GetPOExecutorImpl[V <: EntityValue[V]](
       decoder: Decoder[Entity[V]]
-  ) extends OperationExecutor[GetOp[V]] {
+  ) extends POExecutor[V,GetOp[V]] {
 
     override def execute(
         par: GetPO.GetOpPar[V]
@@ -53,10 +53,10 @@ object GetPO {
       implicit val ec: ExecutionContextExecutor = pa.executionContext
       val res1:        Future[Entity[V]]        = res0.map(_.get)
 
-      def f(in: Entity[V]): Either[OperationError[GetOp[V]], Entity[V]] =
+      def f(in: Entity[V]): Either[OperationError, Entity[V]] =
         Right(in)
 
-      val res2: Future[Either[OperationError[GetOp[V]], Entity[V]]] =
+      val res2: Future[Either[OperationError, Entity[V]]] =
         res1.map(f(_))
 
       val res: Future[GetPO.GetOpRes[V]] = res2.map(GetOpRes[V](_))

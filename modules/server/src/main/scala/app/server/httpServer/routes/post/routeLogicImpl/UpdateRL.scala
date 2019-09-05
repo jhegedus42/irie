@@ -16,7 +16,10 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 /**
+  *
+  *
   * Type class instance.
+  * Calculates / executes what should happen when the update "REST endpoint" is "called".
   *
   *
   * @param persistenceModule
@@ -26,7 +29,6 @@ import scala.util.Try
   * @param contextExecutor
   * @tparam V
   */
-
 case class UpdateRL[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
     d:                 Decoder[Entity[V]],
@@ -35,15 +37,14 @@ case class UpdateRL[V <: EntityValue[V]](
     contextExecutor:   ExecutionContextExecutor
 ) extends RouteLogic[UpdateEntityRoute[V]] {
 
-  override def getResult(
+  override def getHttpReqResult(
       param: UpdateReqPar[V]
   ): Future[Option[UpdateReqRes[V]]] = {
 
     //todo-now-1 implement this
     // get inspiration from : InsertRL[]().getResult(...)
 
-
-  // which goes like this:
+    // which goes like this:
 
     /*
        implicit val i1: Insert.InsertPersistenceOperationExecutorTypeClassImpl[V] =
@@ -61,7 +62,6 @@ case class UpdateRL[V <: EntityValue[V]](
 
     toReturn
      */
-
 
 //
 //    val e: Entity[V] = param.entity
@@ -107,7 +107,5 @@ case class UpdateRL[V <: EntityValue[V]](
 //    r3
     ???
   }
-
-
 
 }
