@@ -2,10 +2,24 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService
 
 import akka.actor.ActorRef
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{PersistenceOperation, PersistenceOperationExecutorTypeClass}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{PersistenceOperation, OperationExecutor}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+
+/**
+  *
+  * One layer of "abstraction" ... maybe this can be factored out.
+  * Or maybe this will be good for OCC. We keep this here for now,
+  * but at this point it seems that it does not do anything at all.
+  *
+  * The only thing it does is that it provides a Facade to a
+  * PersistentActorWhisperer() but it is likely that this layer
+  * is not needed. But let's wait until implementing OCC and see
+  * if we still need it.
+  *
+  * @param context
+  */
 
 private[routes] case class PersistentServiceProvider(
     context: ExecutionContextExecutor
@@ -14,9 +28,9 @@ private[routes] case class PersistentServiceProvider(
   implicit val context_as_implicit = context
   implicit val paw=PersistentActorWhisperer()
 
-  def executePersistenceOperation[OP <: PersistenceOperation](
+  def executePO[OP <: PersistenceOperation](
       par:       OP#Par
-  )(implicit ex: PersistenceOperationExecutorTypeClass[OP]): Future[OP#Res] = {
+  )(implicit ex: OperationExecutor[OP]): Future[OP#Res] = {
     // todo-later this is where we put the OCC
     ex.execute(par)
   }

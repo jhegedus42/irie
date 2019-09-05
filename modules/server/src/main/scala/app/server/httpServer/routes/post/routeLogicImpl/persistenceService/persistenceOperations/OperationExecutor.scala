@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.Get
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
@@ -10,7 +10,15 @@ import io.circe.Decoder
 import scala.concurrent.Future
 import scala.reflect.ClassTag
 
-trait PersistenceOperationExecutorTypeClass[OP <: PersistenceOperation] {
+/**
+  *
+  * Type class that contains the logic on how
+  * to execute a persistence operation.
+  *
+  * @tparam OP
+  */
+
+trait OperationExecutor[OP <: PersistenceOperation] {
   def execute(par: OP#Par)(
       implicit
       typeSafeAccessToPersistentActorProvider: PersistentActorWhisperer
@@ -19,11 +27,11 @@ trait PersistenceOperationExecutorTypeClass[OP <: PersistenceOperation] {
   def getOCCVersion: OCCVersion
 }
 
-object PersistenceOperationExecutorTypeClass {
+object OperationExecutor {
 
   def getOperationInstance[V <: EntityValue[V]](
       implicit d: Decoder[Entity[V]]
   ) =
-    Get.GetPersistenceOperationExecutorTypeClassImpl[V](d)
+    GetPO.GetOperationExecutorImpl[V](d)
 
 }

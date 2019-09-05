@@ -21,7 +21,20 @@ private[logic] case class StateService( ) {
 
 
   def getState = {
-    println(s"someone is asking for a snapshot state, which looks like:\n$applicationState")
+    println(s"""
+         |StateService
+         |StateService . getState :
+         |StateService
+         |StateService Someone is asking for a snapshot state, which looks like:
+         |StateService ${applicationState}
+         |StateService
+         |StateService
+         |StateService
+         |StateService
+         |StateService
+         |StateService """.stripMargin)
+    println("Simple format is:")
+    applicationState.getSimpleFormat.foreach(println(_))
     applicationState
   }
 

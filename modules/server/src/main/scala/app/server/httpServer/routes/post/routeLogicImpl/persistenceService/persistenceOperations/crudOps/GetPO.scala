@@ -8,7 +8,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
   PersistenceOperation,
-  PersistenceOperationExecutorTypeClass
+  OperationExecutor
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
@@ -18,7 +18,7 @@ import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-object Get {
+object GetPO {
 
   trait GetOp[V <: EntityValue[V]] extends PersistenceOperation {
     override type Res = GetOpRes[V]
@@ -33,15 +33,15 @@ object Get {
       res: Either[OperationError[GetOp[V]], Entity[V]]
   ) extends OperationResult
 
-  case class GetPersistenceOperationExecutorTypeClassImpl[V <: EntityValue[V]](
+  case class GetOperationExecutorImpl[V <: EntityValue[V]](
       decoder: Decoder[Entity[V]]
-  ) extends PersistenceOperationExecutorTypeClass[GetOp[V]] {
+  ) extends OperationExecutor[GetOp[V]] {
 
     override def execute(
-        par: Get.GetOpPar[V]
+        par: GetPO.GetOpPar[V]
     )(
         implicit pa: PersistentActorWhisperer
-    ): Future[Get.GetOpRes[V]] = {
+    ): Future[GetPO.GetOpRes[V]] = {
       val in: GetOpPar[V] = par
 
       implicit val d: Decoder[Entity[V]] =decoder
@@ -59,7 +59,7 @@ object Get {
       val res2: Future[Either[OperationError[GetOp[V]], Entity[V]]] =
         res1.map(f(_))
 
-      val res: Future[Get.GetOpRes[V]] = res2.map(GetOpRes[V](_))
+      val res: Future[GetPO.GetOpRes[V]] = res2.map(GetOpRes[V](_))
       res
     }
 

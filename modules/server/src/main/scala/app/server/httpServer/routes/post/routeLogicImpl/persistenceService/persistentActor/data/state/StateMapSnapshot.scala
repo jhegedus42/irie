@@ -19,6 +19,13 @@ private[persistentActor] case class StateMapSnapshot(
 
   def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)
 
+  def getSimpleFormat: List[String] = {
+    val res: Iterable[String] =map.values.map(x => {
+      s" ${x.entityAsString.entityValueAsToString} ${x.untypedRef.entityIdentity.uuid}"
+    })
+    res.toList
+  }
+
   def insertEntity[V <: EntityValue[V]](
       entity: Entity[V]
   )(

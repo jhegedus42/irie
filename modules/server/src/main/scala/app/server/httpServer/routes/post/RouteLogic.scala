@@ -1,17 +1,19 @@
 package app.server.httpServer.routes.post
 
-import app.server.httpServer.routes.post.routeLogicImpl.SumIntRouteLogicTCInst
+import app.server.httpServer.routes.post.routeLogicImpl.SumIntRL
 import app.shared.comm.PostRouteType
 
 import scala.concurrent.Future
 
+
 /**
   *
-  * TC at the end symbolizes : TypeClass
+  * This is a typeclass.
   *
   * @tparam Req
   */
-trait RouteLogicTypeClass[Req <: PostRouteType] {
+trait RouteLogic[Req <: PostRouteType] {
+
   // todo-later
   //   this is where we should put the OCC
   //   because this is a composite operation
@@ -20,9 +22,22 @@ trait RouteLogicTypeClass[Req <: PostRouteType] {
   //   two atomic parts : read and write
   //   they are two atomic persistente Operations
   //
+
+
+  /**
+    *
+    * Calculates/executes what calling a REST endpoint should do.
+    *
+    * It is used by, for example :
+    * app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory#getPostRoute(...) : Route
+    *
+    * @param param
+    * @return
+    */
   def getResult(param: Req#Par): Future[Option[Req#Res]]
+
 }
 
-object RouteLogicTypeClass {
-  implicit val sumIntInstance = SumIntRouteLogicTCInst
+object RouteLogic {
+  implicit val sumIntInstance = SumIntRL
 }
