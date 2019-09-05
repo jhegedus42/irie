@@ -1,10 +1,10 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{InsertNewEntityCommand, Update}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{InsertNewEntityCommand, UpdateEntityCommand}
 
 case class CommandMessgeHandler(val stateService: StateService) {
 
-  def handleUpdate(message: Update ): DidOperationSucceed = {
+  def handleUpdate(message: UpdateEntityCommand ): DidOperationSucceed = {
 //    val oldState = state.getState
 //
 //    val event: events.UpdateEntityEventToBeSavedToTheJournal = {

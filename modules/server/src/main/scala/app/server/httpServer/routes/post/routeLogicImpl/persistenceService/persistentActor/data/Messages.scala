@@ -17,14 +17,10 @@ object Commands {
   case object GetStateSnapshot extends Command
   case class InsertNewEntityCommand(newEntity: UntypedEntity) extends Command
 
-  object InsertNewEntityCommand {
-//    def makeFromValue[V <: EntityValue[V]]: InsertNewEntityCommand = {
-//
-//      ???
-//    }
-  }
+  case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newValueForEntity) extends Command
+  // todo-now-7 ^^^ fix this compiler error here
+  // todo-now-5 implement handling for this command
 
-  case class Update(updatedEntry: UntypedEntity) extends Command
   case object ShutdownActor extends Command
 }
 

@@ -5,7 +5,7 @@ import akka.pattern.ask
 import scala.concurrent.duration._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, UpdateEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
@@ -43,6 +43,28 @@ case class PersistentActorWhisperer() {
     // todo-later - anser question : is this a problem ?
     // what does this mean ?
   )
+
+  def updateEntity[V <: EntityValue[V]: ClassTag](
+      currentEntity: Entity[V],
+      newValue:      V
+  )(
+      implicit encoder: Encoder[Entity[V]]
+  ): Future[Option[Entity[V]]] = {
+
+//    val entity: Entity[V] = Entity.makeFromValue[V](value)
+
+    val ute: UntypedEntity          = UntypedEntity.makeFromEntity(currentEntity)
+    val ic:  UpdateEntityCommand = UpdateEntityCommand(ute) //todo-now-6 make this compile
+
+    val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
+      .mapTo[DidOperationSucceed]
+//      .map(x => Some(entity))
+    // let's assume it did :) // fix-this-later
+    // todo-one-day - fix this unsafeness
+//    res
+
+    ??? //todo-now-3 implement this
+  }
 
   def insertNewEntity[V <: EntityValue[V]: ClassTag](
       value: V

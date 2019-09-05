@@ -6,7 +6,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
   GetStateSnapshot,
   InsertNewEntityCommand,
   ShutdownActor,
-  Update
+  UpdateEntityCommand
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
@@ -42,7 +42,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
       sender() ! res
     }
 
-    case command @ Update(_) =>
+    case command @ UpdateEntityCommand(_) =>
       commandHandler.handleUpdate(command)
 
     case GetStateSnapshot => {
