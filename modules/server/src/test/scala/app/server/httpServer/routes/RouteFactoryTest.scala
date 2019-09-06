@@ -80,6 +80,12 @@ class RouteFactoryTest extends FunSuite with Matchers with ScalatestRouteTest {
     }
 
 
+  test("test update route"){
+    // todo-now-0 write an akka-http-test for the update route
+
+
+
+  }
 
 
   def testGetEntity(entity: Entity[User]): Unit = {
