@@ -26,6 +26,17 @@ object EncodersDecoders {
     r
   }
 
+  /**
+    *
+    * This is meant to be used by the server to
+    * encode the result into JSON so that it can
+    * be sent over the wire easily.
+    *
+    * @param r
+    * @param e
+    * @tparam Req
+    * @return
+    */
   def encodeResult[Req <: PostRouteType](
       r: Option[Req#Res]
   )(
