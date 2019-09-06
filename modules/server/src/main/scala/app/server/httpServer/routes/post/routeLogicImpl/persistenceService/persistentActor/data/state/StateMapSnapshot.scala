@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
-import app.shared.entity.asString.EntityAndItsValueAsJSON
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder
@@ -28,8 +28,31 @@ private[persistentActor] case class StateMapSnapshot(
 
   def updateExistingEntity(
       currentVersion: UntypedEntity,
-      newValue:       EntityAndItsValueAsJSON
-  ) = ??? // todo-now-11 implement this
+      newValue:     UntypedEntity
+  ): Option[StateMapSnapshot] = {
+
+    assert(map.contains(currentVersion.untypedRef))
+
+    val latestVersion: (UntypedRef, UntypedEntity) = getLatestVersionForEntity(
+      currentVersion.untypedRef.entityIdentity
+    )
+
+    assert(
+      latestVersion._1.entityVersion.versionNumberLong == currentVersion.untypedRef.entityVersion.versionNumberLong
+    )
+
+    assert(
+      latestVersion._1.entityIdentity.uuid == currentVersion.untypedRef.entityIdentity.uuid
+    )
+
+    // create updated entity with bumped version number
+    val newUntypedRef: UntypedRef = currentVersion.untypedRef
+      .lens(_.entityVersion.versionNumberLong)
+      .modify(_ + 1)
+
+    // todo-later: turn the exception for assertions into a None result
+    ???
+  }
 
   /**
     * This is unsafe because it assumes that the key not exist

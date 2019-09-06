@@ -71,11 +71,14 @@ case class PersistentActorWhisperer() {
 
     val currentEntityUntyped: UntypedEntity =
       UntypedEntity.makeFromEntity(currentEntity)
+
     val newValueAsJSON: EntityValueAsJSON = EntityValue.getAsJson(newValue)
+
+
 
     val ic: UpdateEntityCommand = UpdateEntityCommand(
       currentEntityUntyped,
-      newValueAsJSON
+      newValueAsJSON // todo-now-11
     )
 
     val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))

@@ -11,7 +11,7 @@ object Commands {
   case object GetStateSnapshot extends Command
   case class InsertNewEntityCommand(newEntity: UntypedEntity) extends Command
 
-  case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newValueForEntity:EntityValueAsJSON) extends Command
+  case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newEntity:UntypedEntity) extends Command
   // todo-now-5 implement handling for this command
 
   case object ShutdownActor extends Command

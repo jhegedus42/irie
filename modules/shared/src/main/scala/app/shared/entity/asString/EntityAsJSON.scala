@@ -7,6 +7,8 @@ import io.circe.{Decoder, Json}
 
 case class EntityAsJSON(json: Json)
 
+
+
 object EntityAsJSON {
   def getEntity[V <: EntityValue[V]](
       entityAsJSON: EntityAsJSON
