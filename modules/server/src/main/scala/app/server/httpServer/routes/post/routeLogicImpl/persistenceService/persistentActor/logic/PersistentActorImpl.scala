@@ -27,8 +27,8 @@ private[persistentActor] class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
 
-  lazy val stateService   = StateService()
-  val commandHandler = CommandMessgeHandler(stateService)
+  lazy val stateService = StateService()
+  val commandHandler    = CommandMessgeHandler(stateService)
 
   override def persistenceId: String = id
 
@@ -37,13 +37,14 @@ private[persistentActor] class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case command @ InsertNewEntityCommand(_) =>{
-      val res=commandHandler.handleInsert(command)
+    case command @ InsertNewEntityCommand(_) => {
+      val res = commandHandler.handleInsert(command)
       sender() ! res
     }
 
-//    case command @ UpdateEntityCommand(_) => //todo-now-8 implement this
-//      commandHandler.handleUpdate(command)
+    case command @ UpdateEntityCommand(_, _) =>
+      val res: DidOperationSucceed = commandHandler.handleUpdate(command)
+      sender() ! res
 
     case GetStateSnapshot => {
       println("handling the GetSnapshot command")
@@ -66,7 +67,8 @@ private[persistentActor] class PersistentActorImpl(id: String)
       val newEntry: UntypedEntity =
         insertEventPayload.newEntry
 
-      val newState = stateService.getState.unsafeInsertNewUntypedEntity(newEntry)
+      val newState =
+        stateService.getState.insertVirginEntity(newEntry)
       stateService.setNewState(newState)
 
     }

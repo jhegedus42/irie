@@ -30,6 +30,7 @@ import app.shared.entity.refs.{
 import app.shared.initialization.testing.TestUsers
 import io.circe.{Decoder, Encoder}
 import akka.actor.{ActorLogging, ActorSystem, Props}
+import app.shared.entity.asString.EntityValueAsJSON
 import io.circe.Decoder.Result
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -68,11 +69,17 @@ case class PersistentActorWhisperer() {
 
 //    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
-    val ute: UntypedEntity = UntypedEntity.makeFromEntity(currentEntity)
+    val currentEntityUntyped: UntypedEntity =
+      UntypedEntity.makeFromEntity(currentEntity)
+    val newValueAsJSON: EntityValueAsJSON = EntityValue.getAsJson(newValue)
 
-    val ic: UpdateEntityCommand = ??? // UpdateEntityCommand(ute) //todo-now-6 make this compile
+    val ic: UpdateEntityCommand = UpdateEntityCommand(
+      currentEntityUntyped,
+      newValueAsJSON
+    )
 
     val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
+
       .mapTo[DidOperationSucceed]
 //      .map(x => Some(entity))
     // let's assume it did :) // fix-this-later

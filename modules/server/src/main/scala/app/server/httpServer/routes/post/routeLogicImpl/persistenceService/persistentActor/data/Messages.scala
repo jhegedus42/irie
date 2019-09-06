@@ -12,7 +12,6 @@ object Commands {
   case class InsertNewEntityCommand(newEntity: UntypedEntity) extends Command
 
   case class UpdateEntityCommand(updatedCurrentEntity: UntypedEntity, newValueForEntity:EntityValueAsJSON) extends Command
-  // todo-now-7 ^^^ fix this compiler error here
   // todo-now-5 implement handling for this command
 
   case object ShutdownActor extends Command

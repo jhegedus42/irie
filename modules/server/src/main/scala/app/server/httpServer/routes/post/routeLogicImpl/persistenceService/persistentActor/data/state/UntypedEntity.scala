@@ -14,7 +14,7 @@ private[persistentActor] case class UntypedEntity(
 
 object UntypedEntity {
 
-  def makeFromEntity[V <: EntityValue[V]](e: Entity[V])(
+  implicit def makeFromEntity[V <: EntityValue[V]](e: Entity[V])(
       implicit encoder: Encoder[Entity[V]],
       ee:Encoder[V]
   ): UntypedEntity = {

@@ -20,30 +20,16 @@ private[persistentActor] case class StateMapSnapshot(
   def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)
 
   def getSimpleFormat: List[String] = {
-    val res: Iterable[String] =map.values.map(x => {
+    val res: Iterable[String] = map.values.map(x => {
       s" ${x.entityAndItsValueAsJSON.entityValueAsJSON} ${x.untypedRef.entityIdentity.uuid}"
     })
     res.toList
   }
 
-  def insertEntity[V <: EntityValue[V]](
-      entity: Entity[V]
-  )(
-      implicit
-      encoder: Encoder[Entity[V]],
-        entEncoder: Encoder[V]
-  ): StateMapSnapshot = {
-
-    val utr =
-      UntypedRef.makeFromRefToEntity(entity.refToEntity)
-    val entityAsString: EntityAndItsValueAsJSON =
-      entity.entityAsJSON()
-    val entry =
-      UntypedEntity(utr, entityAsString)
-
-    val newMap: Map[UntypedRef, UntypedEntity] = this.map + (utr -> entry)
-    StateMapSnapshot(newMap).bumpVersion
-  }
+  def updateExistingEntity(
+      currentVersion: UntypedEntity,
+      newValue:       EntityAndItsValueAsJSON
+  ) = ??? // todo-now-11 implement this
 
   /**
     * This is unsafe because it assumes that the key not exist
@@ -52,7 +38,7 @@ private[persistentActor] case class StateMapSnapshot(
     * @param ase
     * @return
     */
-  def unsafeInsertNewUntypedEntity(
+  def insertVirginEntity(
       ase: UntypedEntity
   ): StateMapSnapshot = {
     // todo-later - this can throw !!!

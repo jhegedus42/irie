@@ -34,7 +34,7 @@ case class CRUDRouteFactory(
       implicit
       unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
       encoder:           Encoder[Entity[V]],
-      valueEncoder:           Encoder[V],
+      valueEncoder:      Encoder[V],
       decoder:           Decoder[Entity[V]],
       dpl:               Decoder[V]
   ): Route = {
