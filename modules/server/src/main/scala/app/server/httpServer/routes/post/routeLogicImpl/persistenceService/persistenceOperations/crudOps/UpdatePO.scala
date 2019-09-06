@@ -26,12 +26,6 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-// todo-now-2 implement this
-/**
-  * To be implemented, get inspiration from
-  * [[app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.UpdatePO]]
-  *
-  */
 trait UpdatePO[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
   override type Res = UpdatePORes[V]
   override type Par = UpdatePOPar[V]

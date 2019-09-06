@@ -9,7 +9,7 @@ case class CommandMessgeHandler(val stateService: StateService) {
 
   def handleUpdate(message: UpdateEntityCommand): DidOperationSucceed = {
     stateService.updateEntity(message.updatedCurrentEntity,
-                              message.newValueForEntity)
+                              message.newEntity)
   }
 
   def handleInsert(command: InsertNewEntityCommand): DidOperationSucceed = {

@@ -18,18 +18,16 @@ case class StateServiceOperationFailed(m:    String) extends DidOperationSucceed
   */
 private[logic] case class StateService() {
   def updateEntity(currentEntity: UntypedEntity, newValue: UntypedEntity) : DidOperationSucceed={
-  /*
 
-  1) if current version is newever in the map than that of the current entities then
-     we return a StateServiceOperationFailed result
+  val currentState=getState
+  val newState: Option[StateMapSnapshot] =currentState.updateExistingEntity(currentEntity,newValue)
 
-  2) if the version is OK, then we insert the new entity
-     -
-   */
-    ???
+  // let's assume things went well => todo-later : add error handling
+  // 1) if current version is newever in the map than that of the current entities then
+  //    we return a StateServiceOperationFailed result
 
-
-  } // todo-now-10 implement this
+   StateServiceOperationSucceeded("this is lie :) ... or not")
+  }
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting
 

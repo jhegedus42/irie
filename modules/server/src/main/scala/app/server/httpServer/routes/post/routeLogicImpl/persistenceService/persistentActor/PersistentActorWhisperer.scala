@@ -74,22 +74,24 @@ case class PersistentActorWhisperer() {
 
     val newValueAsJSON: EntityValueAsJSON = EntityValue.getAsJson(newValue)
 
-
+    import monocle.macros.syntax.lens._
+    val newValueAsEntity = currentEntity
+      .lens(_.entityValue)
+      .set(newValue)
+      .lens(_.refToEntity.entityVersion)
+      .modify(_.inc())
 
     val ic: UpdateEntityCommand = UpdateEntityCommand(
       currentEntityUntyped,
-      newValueAsJSON // todo-now-11
+      newValueAsEntity
     )
 
     val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
-
       .mapTo[DidOperationSucceed]
-//      .map(x => Some(entity))
+      .map(x => Some(newValueAsEntity))
     // let's assume it did :) // fix-this-later
     // todo-one-day - fix this unsafeness
-//    res
-
-    ??? //todo-now-3 implement this
+    res
   }
 
   def insertNewEntity[V <: EntityValue[V]: ClassTag](

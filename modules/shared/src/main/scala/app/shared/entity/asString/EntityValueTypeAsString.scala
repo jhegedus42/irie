@@ -8,7 +8,6 @@ import scala.reflect.ClassTag
 @Lenses
 case class EntityValueTypeAsString(type_as_string: String)
 
-
 object EntityValueTypeAsString {
 
   def make[T <: EntityValue[T]](implicit t: ClassTag[T]) =

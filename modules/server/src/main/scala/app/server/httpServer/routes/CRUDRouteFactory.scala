@@ -56,9 +56,9 @@ case class CRUDRouteFactory(
       persistenceModule,
       decoder,
       encoder,
+      valueEncoder,
       implicitly[ClassTag[V]],
-      executionContext
-    )
+      executionContext)
 
     implicit val getRouteLogic =
       GetRL[V](persistenceModule, decoder, executionContext)
