@@ -5,8 +5,8 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.Persi
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.POExecutor
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO.GetOp
-import app.shared.comm.postRequests.GetEntityRoute
-import app.shared.comm.postRequests.GetEntityRoute.{
+import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.GetEntityReq.{
   GetEntityReqPar,
   GetEntityReqRes
 }
@@ -25,7 +25,7 @@ case class GetRL[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
     d:                 Decoder[Entity[V]],
     contextExecutor:   ExecutionContextExecutor,
-) extends RouteLogic[GetEntityRoute[V]] {
+) extends RouteLogic[GetEntityReq[V]] {
 
   implicit val ce: ExecutionContextExecutor = contextExecutor
 

@@ -6,13 +6,13 @@ import app.shared.utils.UUID_Utils
 
 object TestUsers {
 
-  val alice       = User("Alice", 38)
-  val bob         = User("Bob", 45)
-  val kutya       = User("Kutya", 42)
-  val cica        = User("Cica", 137)
-  val meresiHiba  = User("MeresiHiba", 369)
-  val terezAnya   = User("TerezAnya", 666)
-  val jetiLabnyom = User("JetiLabnyom", 46)
+  val alice       = User(name = "Alice", favoriteNumber       = 38)
+  val bob         = User(name = "Bob", favoriteNumber         = 45)
+  val kutya       = User(name = "Kutya", favoriteNumber       = 42)
+  val cica        = User(name = "Cica", favoriteNumber        = 137)
+  val meresiHiba  = User(name = "MeresiHiba", favoriteNumber  = 369)
+  val terezAnya   = User(name = "TerezAnya", favoriteNumber   = 666)
+  val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
   val aliceEntity:      Entity[User] = Entity.makeFromValue(alice)
   val bobEntity:        Entity[User] = Entity.makeFromValue(bob)

@@ -4,8 +4,8 @@ import app.client.ui.caching.cache.AJAXCalls.{
   AjaxCallPar,
   PostAJAXRequestSuccessfulResponse
 }
-import app.shared.comm.postRequests.{GetEntityRoute, InsertNewEntityRoute}
-import app.shared.comm.postRequests.GetEntityRoute.GetEntityReqPar
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityRoute}
+import app.shared.comm.postRequests.GetEntityReq.GetEntityReqPar
 import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqPar
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -53,7 +53,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
     val requestPar: GetEntityReqPar[User] =
       GetEntityReqPar( entity.refToEntity.stripVersion() )
 
-    val ajaxCallPar = AjaxCallPar[GetEntityRoute[User]]( requestPar )
+    val ajaxCallPar = AjaxCallPar[GetEntityReq[User]]( requestPar )
 
     println( s"""
          |vvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -68,7 +68,7 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
       """.stripMargin )
 
     val res: Future[
-      AJAXCalls.PostAJAXRequestSuccessfulResponse[GetEntityRoute[User]]
+      AJAXCalls.PostAJAXRequestSuccessfulResponse[GetEntityReq[User]]
     ] =
       AJAXCalls.sendPostAjaxRequest( ajaxCallPar )
     res.map( _.res.optionEntity.get )

@@ -8,7 +8,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.{
   UpdateRL
 }
 import app.shared.comm.postRequests.{
-  GetEntityRoute,
+  GetEntityReq,
   InsertNewEntityRoute,
   UpdateEntityRoute
 }
@@ -64,7 +64,7 @@ case class CRUDRouteFactory(
 
     getPostRoute[UpdateEntityRoute[V]].route ~
       getPostRoute[InsertNewEntityRoute[V]].route ~
-      getPostRoute[GetEntityRoute[V]].route
+      getPostRoute[GetEntityReq[V]].route
   }
 
 }

@@ -1,15 +1,15 @@
 package app.shared.comm
 
-import app.shared.comm.PostRouteType.{Parameter, Result}
+import app.shared.comm.PostRequest.{Parameter, Result}
 
 
-abstract class PostRouteType {
+abstract class PostRequest {
   type Par <: Parameter
   type Res <: Result
   type PayLoad
 }
 
-object PostRouteType {
+object PostRequest {
   trait Result
   trait Parameter
 }

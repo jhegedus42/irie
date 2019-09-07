@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.SumIntRL
-import app.shared.comm.PostRouteType
+import app.shared.comm.PostRequest
 
 import scala.concurrent.Future
 
@@ -12,7 +12,7 @@ import scala.concurrent.Future
   *
   * @tparam Req
   */
-trait RouteLogic[Req <: PostRouteType] {
+trait RouteLogic[Req <: PostRequest] {
 
   // todo-later
   //   this is where we should put the OCC

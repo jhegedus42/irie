@@ -6,8 +6,8 @@ case class RouteName(name: String)
 
 object RouteName {
 
-  def getRouteName[Req <: PostRouteType]()
-                                        (
+  def getRouteName[Req <: PostRequest]()
+                                      (
     implicit ct_pl: ClassTag[Req#PayLoad],
     ct_req: ClassTag[Req]
   ) : RouteName = {

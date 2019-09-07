@@ -3,7 +3,7 @@ package app.server.httpServer.routes.post
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.utils.{GetTimeOnJVM, PrettyPrint}
-import app.shared.comm.{PostRouteType, RouteName}
+import app.shared.comm.{PostRequest, RouteName}
 
 import scala.concurrent.{ExecutionContext, Future}
 import io.circe.{Decoder, Encoder, Json}
@@ -22,7 +22,7 @@ import io.circe.Decoder.Result
 
 private[routes] object PostRouteForAkkaHttpFactory {
 
-  def getPostRoute[Req <: PostRouteType](
+  def getPostRoute[Req <: PostRequest](
       )(
                                           implicit
                                           classTag:  ClassTag[Req],
