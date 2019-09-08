@@ -56,24 +56,18 @@ case class UpdateRL_old[V <: EntityValue[V]](
 
 }
 
-trait RouteLogicImplicits[V<:EntityValue[V]]{
-  implicit lazy val persistenceModule: PersistentServiceProvider
+trait EntityMarshallers[V<:EntityValue[V]]{
   implicit lazy val decoderEntityV:    Decoder[Entity[V]]
   implicit lazy val encoderEntityV:    Encoder[Entity[V]]
   implicit lazy val _encoderV:         Encoder[V]
   implicit lazy val classTag:          ClassTag[V]
-  implicit lazy val contextExecutor:   ExecutionContextExecutor
 
 }
 
-case class UpdateRL[V <: EntityValue[V]](
-    persistenceModule: PersistentServiceProvider,
-    decoderEntityV:    Decoder[Entity[V]],
-    encoderEntityV:    Encoder[Entity[V]],
-    _encoderV:         Encoder[V],
-    classTag:          ClassTag[V],
-    contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[UpdateReq[V]] {
+trait UpdateRL[V <: EntityValue[V]]
+ extends RouteLogic[UpdateReq[V]] with EntityMarshallers [V]{
+  val persistenceModule: PersistentServiceProvider
+  val contextExecutor:   ExecutionContextExecutor
 
   override def getHttpReqResult(
       param: UpdateReqPar[V]
