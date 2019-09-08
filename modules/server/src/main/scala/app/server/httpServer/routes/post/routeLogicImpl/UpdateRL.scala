@@ -56,6 +56,16 @@ case class UpdateRL_old[V <: EntityValue[V]](
 
 }
 
+trait RouteLogicImplicits[V<:EntityValue[V]]{
+  implicit lazy val persistenceModule: PersistentServiceProvider
+  implicit lazy val decoderEntityV:    Decoder[Entity[V]]
+  implicit lazy val encoderEntityV:    Encoder[Entity[V]]
+  implicit lazy val _encoderV:         Encoder[V]
+  implicit lazy val classTag:          ClassTag[V]
+  implicit lazy val contextExecutor:   ExecutionContextExecutor
+
+}
+
 case class UpdateRL[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
     decoderEntityV:    Decoder[Entity[V]],

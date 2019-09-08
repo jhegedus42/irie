@@ -5,4 +5,9 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 object ResetStateEPOP {
   trait ResetStateEPOP
       extends ElementaryPersistenceOperation[Nothing] {}
+
+  object ResetStateEPOP {
+
+  }
+
 }

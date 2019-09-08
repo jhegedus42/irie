@@ -40,9 +40,13 @@ object UpdateEPOP {
       val newValue:  V
   ) extends OperatonParameter
 
+
+
   case class UpdatePORes[V <: EntityValue[V]](
       res: Either[OperationError, Entity[V]]
   ) extends OperationResult
+
+
 
   /**
     *

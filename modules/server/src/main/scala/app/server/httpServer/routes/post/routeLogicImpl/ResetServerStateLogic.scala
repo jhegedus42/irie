@@ -3,6 +3,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP.ResetStateEPOP
 import app.shared.comm.postRequests.ResetServerReq
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
