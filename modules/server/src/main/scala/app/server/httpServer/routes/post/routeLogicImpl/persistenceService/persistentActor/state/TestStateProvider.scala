@@ -11,7 +11,8 @@ object TestStateProvider {
     val init: StateMapSnapshot = StateMapSnapshot()
     val withAlice = init.insertVirginEntity(UntypedEntity.makeFromEntity(TestUsers.aliceEntity_with_UUID0))
     val withBob   = withAlice.insertVirginEntity(TestUsers.bobEntity_with_UUID1)
-    withBob
+    val withMeresiHiba   = withBob.insertVirginEntity(TestUsers.meresiHiba_with_UUID2)
+    withMeresiHiba
   }
 
 }

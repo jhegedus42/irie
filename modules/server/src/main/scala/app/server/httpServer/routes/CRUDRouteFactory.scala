@@ -9,8 +9,8 @@ import app.server.httpServer.routes.post.routeLogicImpl.{
 }
 import app.shared.comm.postRequests.{
   GetEntityReq,
-  InsertNewEntityRoute,
-  UpdateEntityRoute
+  InsertReq,
+  UpdateReq
 }
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -62,8 +62,8 @@ case class CRUDRouteFactory(
     implicit val getRouteLogic =
       GetRL[V](persistenceModule, dpl, executionContext)
 
-    getPostRoute[UpdateEntityRoute[V]].route ~
-      getPostRoute[InsertNewEntityRoute[V]].route ~
+    getPostRoute[UpdateReq[V]].route ~
+      getPostRoute[InsertReq[V]].route ~
       getPostRoute[GetEntityReq[V]].route
   }
 

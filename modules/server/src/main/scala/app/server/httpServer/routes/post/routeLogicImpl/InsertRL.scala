@@ -3,8 +3,8 @@ package app.server.httpServer.routes.post.routeLogicImpl
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO
-import app.shared.comm.postRequests.InsertNewEntityRoute
-import app.shared.comm.postRequests.InsertNewEntityRoute.{
+import app.shared.comm.postRequests.InsertReq
+import app.shared.comm.postRequests.InsertReq.{
   InsertReqPar,
   InsertReqRes
 }
@@ -23,7 +23,7 @@ case class InsertRL[V <: EntityValue[V]](
     encoderV:          Encoder[V],
     classTag:          ClassTag[V],
     contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[InsertNewEntityRoute[V]] {
+) extends RouteLogic[InsertReq[V]] {
 
   override def getHttpReqResult(
       param: InsertReqPar[V]

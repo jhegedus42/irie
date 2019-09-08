@@ -1,12 +1,10 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.AJAXCalls.{
-  AjaxCallPar,
-  PostAJAXRequestSuccessfulResponse
-}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityRoute}
+import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
+import app.shared.comm.postRequests.{GetEntityReq, InsertReq, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq.GetEntityReqPar
-import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqPar
+import app.shared.comm.postRequests.InsertReq.InsertReqPar
+import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
@@ -15,7 +13,7 @@ import io.circe.generic.auto._
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-class GetEntityAsyncRequestTest extends AsyncFunSuite {
+class AsyncRequestTest extends AsyncFunSuite {
   override implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
@@ -85,10 +83,10 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   test( "insert and then get" ) {
     val c   = TestUsers.cica
 
-    val par = AjaxCallPar[InsertNewEntityRoute[User]]( InsertReqPar( c ) )
+    val par = AjaxCallPar[InsertReq[User]]( InsertReqPar( c ) )
 
     val ac
-      : Future[PostAJAXRequestSuccessfulResponse[InsertNewEntityRoute[User]]] =
+      : Future[PostAJAXRequestSuccessfulResponse[InsertReq[User]]] =
       AJAXCalls.sendPostAjaxRequest( par )
 
     val insertResult: Future[Entity[User]] = ac.map( _.res.entity )
@@ -103,23 +101,36 @@ class GetEntityAsyncRequestTest extends AsyncFunSuite {
   }
 
   test( "update and then get" ) {
-    val c   = TestUsers.cica
+    val ent   = TestUsers.meresiHiba_with_UUID2
+    import monocle.macros.syntax.lens._
 
-    val par = AjaxCallPar[InsertNewEntityRoute[User]]( InsertReqPar( c ) )
+    val e2: Entity[User] = ent.lens(_.entityValue.favoriteNumber).set(66)
+
+    val e2u: User =e2.entityValue
+
+
+    val p: UpdateReqPar[User] = UpdateReqPar[User]( ent,e2u )
+    val par = AjaxCallPar[UpdateReq[User]](p )
 
     val ac
-    : Future[PostAJAXRequestSuccessfulResponse[InsertNewEntityRoute[User]]] =
+    : Future[PostAJAXRequestSuccessfulResponse[UpdateReq[User]]] =
       AJAXCalls.sendPostAjaxRequest( par )
 
-    val insertResult: Future[Entity[User]] = ac.map( _.res.entity )
-
-    val getResult: Future[Entity[User]] =
-      insertResult.flatMap( (e: Entity[User]) => getUser( e ) )
+    val res: Future[Entity[User]] = ac.map( _.res.entity )
 
 
-    val futureAssertionThatEverythingIsKosher: Future[Assertion] =
-      getResult.map((e: Entity[User]) => assertUserNamesAreEqual( e, c ) )
-    futureAssertionThatEverythingIsKosher
+
+    val res2: Future[Entity[User]] =res.flatMap(e=>getUser( e ))
+
+    res2.onComplete(x=>println(s"getUser in update test completed with :\n$x"))
+
+    val to_return=   for {
+        r1<-res
+        r2<-res2
+        a=r2.entityValue.favoriteNumber==66
+        b=r1.entityValue.favoriteNumber==66
+        c=r2.refToEntity.entityVersion.versionNumberLong==1
+      } yield (assert(a&&b&&c))
+    to_return
   }
-
 }

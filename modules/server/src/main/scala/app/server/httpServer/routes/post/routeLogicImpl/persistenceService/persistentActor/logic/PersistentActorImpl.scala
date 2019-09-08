@@ -42,7 +42,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
 
       val res = commandHandler.handleInsert(command)
 
-      // todo-now => handle Insert ??? EVENT VS COMMAND ???
+      // todo-next  => handle Insert ??? EVENT VS COMMAND ???
       // make the journal work ... for real / stop / start
       // make it really persist data
 

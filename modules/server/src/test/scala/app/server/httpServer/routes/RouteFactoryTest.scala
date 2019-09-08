@@ -12,11 +12,11 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
-  InsertNewEntityRoute,
-  UpdateEntityRoute
+  InsertReq,
+  UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._
-import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqRes
+import app.shared.comm.postRequests.InsertReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,

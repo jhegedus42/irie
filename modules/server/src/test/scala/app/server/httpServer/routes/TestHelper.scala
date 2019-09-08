@@ -12,11 +12,11 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
-  InsertNewEntityRoute,
-  UpdateEntityRoute
+  InsertReq,
+  UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._
-import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqRes
+import app.shared.comm.postRequests.InsertReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
@@ -28,7 +28,7 @@ import akka.http.scaladsl.testkit.ScalatestRouteTest
 import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
 import app.shared.comm.postRequests.marshall.EncodersDecoders.{decodeResult, encodeParameters, encodeResult}
 import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
-import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityRoute, UpdateEntityRoute}
+import app.shared.comm.postRequests.{GetEntityReq, InsertReq, UpdateReq}
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -95,15 +95,15 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
   ): Entity[User] = {
 
     val rn: String = "/" + RouteName
-      .getRouteName[UpdateEntityRoute[User]]()
+      .getRouteName[UpdateReq[User]]()
       .name
 
-    val par: UpdateEntityRoute.UpdateReqPar[User] =
-      UpdateEntityRoute
+    val par: UpdateReq.UpdateReqPar[User] =
+      UpdateReq
         .UpdateReqPar[User](currentEntity, newValue)
 
     val json: ParametersAsJSON =
-      encodeParameters[UpdateEntityRoute[User]](par)
+      encodeParameters[UpdateReq[User]](par)
 
     val json_par_as_string: String = json.parameters_as_json
 
@@ -121,13 +121,13 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
 
     val resDecoded: Either[
       circe.Error,
-      UpdateEntityRoute.UpdateReqRes[User]
+      UpdateReq.UpdateReqRes[User]
     ] =
-      decodeResult[UpdateEntityRoute[User]](
+      decodeResult[UpdateReq[User]](
         ResultOptionAsJSON(resp)
       )
 
-    val resUnsafeExtracted: UpdateEntityRoute.UpdateReqRes[User] =
+    val resUnsafeExtracted: UpdateReq.UpdateReqRes[User] =
       resDecoded.right.get
 
     val returnedEntity = resUnsafeExtracted.entity
@@ -139,16 +139,16 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
   def executeInsertUserRequest(u: User): Entity[User] = {
 
     val rn: String = "/" + RouteName
-      .getRouteName[InsertNewEntityRoute[User]]()
+      .getRouteName[InsertReq[User]]()
       .name
 
     val mhb: User = u
 
-    val par: InsertNewEntityRoute.InsertReqPar[User] =
-      InsertNewEntityRoute.InsertReqPar(mhb)
+    val par: InsertReq.InsertReqPar[User] =
+      InsertReq.InsertReqPar(mhb)
 
     val json: ParametersAsJSON =
-      encodeParameters[InsertNewEntityRoute[User]](par)
+      encodeParameters[InsertReq[User]](par)
 
     val json_par_as_string: String = json.parameters_as_json
 
@@ -167,7 +167,7 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
     println(resp)
 
     val ent: Entity[User] =
-      decodeResult[InsertNewEntityRoute[User]](
+      decodeResult[InsertReq[User]](
         ResultOptionAsJSON(resp)
       ).right.get.entity
 

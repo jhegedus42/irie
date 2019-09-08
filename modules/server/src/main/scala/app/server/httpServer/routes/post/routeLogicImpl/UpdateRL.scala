@@ -12,8 +12,8 @@ import scala.util.Try
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.shared.comm.postRequests.UpdateEntityRoute
-import app.shared.comm.postRequests.UpdateEntityRoute.{
+import app.shared.comm.postRequests.UpdateReq
+import app.shared.comm.postRequests.UpdateReq.{
   UpdateReqPar,
   UpdateReqRes
 }
@@ -45,7 +45,7 @@ case class UpdateRL_old[V <: EntityValue[V]](
     e_ent:             Encoder[Entity[V]],
     ct:                ClassTag[V],
     contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[UpdateEntityRoute[V]] {
+) extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(
       param: UpdateReqPar[V]
@@ -63,7 +63,7 @@ case class UpdateRL[V <: EntityValue[V]](
     _encoderV:         Encoder[V],
     classTag:          ClassTag[V],
     contextExecutor:   ExecutionContextExecutor
-) extends RouteLogic[UpdateEntityRoute[V]] {
+) extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(
       param: UpdateReqPar[V]

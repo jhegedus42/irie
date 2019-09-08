@@ -1,14 +1,15 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.UpdateEntityRoute.{
+import app.shared.comm.postRequests.UpdateReq.{
   UpdateReqPar,
   UpdateReqRes
 }
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 
-object UpdateEntityRoute {
+object UpdateReq {
+
   case class UpdateReqPar[V <: EntityValue[V]](
       currentEntity: Entity[V],
       newValue:      V
@@ -18,7 +19,7 @@ object UpdateEntityRoute {
       extends PostRequest.Result
 }
 
-class UpdateEntityRoute[V <: EntityValue[V]] extends PostRequest {
+class UpdateReq[V <: EntityValue[V]] extends PostRequest {
   override type Par     = UpdateReqPar[V]
   override type Res     = UpdateReqRes[V]
   override type PayLoad = V
