@@ -8,6 +8,7 @@ object ResetStateEPOP {
 
   object ResetStateEPOP {
 
+    val impl : ResetStateEPOP = ???
   }
 
 }

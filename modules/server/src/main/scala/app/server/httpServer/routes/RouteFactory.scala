@@ -8,7 +8,7 @@ import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory._
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.{ResetServerReq, SumIntRoute}
+import app.shared.comm.postRequests.{ResetServerHTTPReq, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -59,8 +59,8 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
   }
 
   private def resetStateRoute : Route ={
-    getPostRoute[ResetServerReq]().route
-    ???
+//    getPostRoute[ResetServerReq]().route
+    ??? //todo-now
   }
 
 }

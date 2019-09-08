@@ -2,6 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP.ResetStateEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -39,7 +40,9 @@ object EPOPExecutor {
 
   def getOperationInstance[V <: EntityValue[V]](
       implicit d: Decoder[V]
-  ) =
+  ): GetEPOP.GetEPOPExecutorImpl[V] =
     GetEPOP.GetEPOPExecutorImpl[V](d)
+
+  implicit val instResetState : EPOPExecutor[Nothing,ResetStateEPOP]= ???
 
 }

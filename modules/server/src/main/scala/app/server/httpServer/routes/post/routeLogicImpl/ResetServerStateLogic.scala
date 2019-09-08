@@ -4,14 +4,14 @@ import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP.ResetStateEPOP
-import app.shared.comm.postRequests.ResetServerReq
+import app.shared.comm.postRequests.ResetServerHTTPReq
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class ResetServerStateLogic(
     persistentServiceProvider: PersistentServiceProvider,
     contextExecutor:           ExecutionContextExecutor
-) extends RouteLogic[ResetServerReq] {
+) extends RouteLogic[ResetServerHTTPReq] {
   implicit val ce: ExecutionContextExecutor = contextExecutor
 
   /**
@@ -25,7 +25,26 @@ case class ResetServerStateLogic(
     * @return
     */
   override def getHttpReqResult(
-      param: ResetServerReq.ResetServerReqPar
-  ): Future[Option[ResetServerReq.ResetServerReqRes]] =
-    persistentServiceProvider.executePO[Nothing,ResetStateEPOP](param)
+      param: ResetServerHTTPReq.Par
+  ): Future[Option[ResetServerHTTPReq.Res]] = {
+
+    val to: ResetServerHTTPReq.Par => ResetStateEPOP#Par =
+      ??? //todo-now
+
+    val executeOp: ResetStateEPOP#Par => Future[ResetStateEPOP#Res] =
+      (par: ResetStateEPOP#Par) =>
+        persistentServiceProvider
+          .executePO[Nothing, ResetStateEPOP](par)
+
+    val h: ResetServerHTTPReq.Par => Future[
+      ResetStateEPOP#Res
+    ] = to.andThen(executeOp)
+
+    val back: ResetStateEPOP#Res => Option[ResetServerHTTPReq.Res] =
+      ???
+    // todo-now
+
+    h(param).map(back)
+
+  }
 }

@@ -56,18 +56,14 @@ case class UpdateRL_old[V <: EntityValue[V]](
 
 }
 
-trait EntityMarshallers[V<:EntityValue[V]]{
-  implicit lazy val decoderEntityV:    Decoder[Entity[V]]
-  implicit lazy val encoderEntityV:    Encoder[Entity[V]]
-  implicit lazy val _encoderV:         Encoder[V]
-  implicit lazy val classTag:          ClassTag[V]
-
-}
-
-trait UpdateRL[V <: EntityValue[V]]
- extends RouteLogic[UpdateReq[V]] with EntityMarshallers [V]{
-  val persistenceModule: PersistentServiceProvider
-  val contextExecutor:   ExecutionContextExecutor
+case class UpdateRL[V <: EntityValue[V]](
+    persistenceModule: PersistentServiceProvider,
+    decoderEntityV:    Decoder[Entity[V]],
+    encoderEntityV:    Encoder[Entity[V]],
+    _encoderV:         Encoder[V],
+    classTag:          ClassTag[V],
+    contextExecutor:   ExecutionContextExecutor
+) extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(
       param: UpdateReqPar[V]
@@ -75,9 +71,9 @@ trait UpdateRL[V <: EntityValue[V]]
 
     implicit val executer: UpdateEPOP.Executor[V] =
       UpdateEPOP.Executor(decoder  = decoderEntityV,
-                        encoder  = encoderEntityV,
-                        eencoder = _encoderV,
-                        ct       = classTag)
+                          encoder  = encoderEntityV,
+                          eencoder = _encoderV,
+                          ct       = classTag)
 
     val poPar: UpdateEPOP.UpdatePOPar[V] =
       UpdateEPOP.UpdatePOPar(param.currentEntity, param.newValue)
@@ -85,7 +81,8 @@ trait UpdateRL[V <: EntityValue[V]]
     val poRes: Future[UpdateEPOP.UpdatePORes[V]] =
       persistenceModule.executePO[V, UpdateEPOP[V]](poPar)
 
-    def poRes2ReqRes: UpdateEPOP.UpdatePORes[V] => Option[UpdateReqRes[V]] =
+    def poRes2ReqRes
+        : UpdateEPOP.UpdatePORes[V] => Option[UpdateReqRes[V]] =
       poRes => poRes.res.toOption.map(UpdateReqRes(_))
 
     poRes.map(poRes2ReqRes(_))(contextExecutor)
