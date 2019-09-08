@@ -51,7 +51,7 @@ private[persistentActor] case class StateMapSnapshot(
       .modify(_ + 1)
 
     // todo-later: turn the exception for assertions into a None result
-    ???
+    ??? //todo-now implement this
   }
 
   /**

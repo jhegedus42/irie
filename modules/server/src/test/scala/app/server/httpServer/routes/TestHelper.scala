@@ -1,0 +1,244 @@
+package app.server.httpServer.routes
+
+import akka.actor.ActorSystem
+import akka.http.scaladsl.testkit.ScalatestRouteTest
+import org.scalatest.FunSuite
+import org.scalatest.{Matchers, WordSpec}
+import akka.http.scaladsl.model.{HttpMessage, StatusCodes}
+import akka.http.scaladsl.testkit.ScalatestRouteTest
+import akka.http.scaladsl.server._
+import Directives._
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
+import app.shared.comm.{PostRequest, RouteName}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  InsertNewEntityRoute,
+  UpdateEntityRoute
+}
+import app.shared.comm.postRequests.GetEntityReq._
+import app.shared.comm.postRequests.InsertNewEntityRoute.InsertReqRes
+import app.shared.comm.postRequests.marshall.EncodersDecoders._
+import app.shared.comm.postRequests.marshall.{
+  EncodersDecoders,
+  ParametersAsJSON,
+  ResultOptionAsJSON
+}
+
+import akka.http.scaladsl.testkit.ScalatestRouteTest
+import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
+import app.shared.comm.postRequests.marshall.EncodersDecoders.{decodeResult, encodeParameters, encodeResult}
+import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
+import app.shared.comm.postRequests.{GetEntityReq, InsertNewEntityRoute, UpdateEntityRoute}
+import app.shared.comm.{PostRequest, RouteName}
+import app.shared.entity.Entity
+import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.values.User
+import app.shared.entity.refs.RefToEntityWithoutVersion
+import io.circe
+import io.circe.{Decoder, Encoder}
+import org.scalatest.{FunSuite, Matchers}
+
+import scala.reflect.ClassTag
+
+import io.circe.generic.auto._
+
+case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with ScalatestRouteTest {
+
+  def getPostRequestResult[Req <: PostRequest, V <: EntityValue[
+    V
+  ]](
+      par: Req#Par
+  )(
+      implicit
+      encoder: Encoder[Req#Res],
+      decoder: Decoder[Req#Res],
+      enc_par: Encoder[Req#Par],
+      e2:      Encoder[Entity[V]],
+      ct1:     ClassTag[Req#PayLoad],
+      ct2:     ClassTag[Req]
+  ): Req#Res = {
+
+    val rn: String = "/" + RouteName
+      .getRouteName[Req]()
+      .name
+
+    val encodedPars: ParametersAsJSON = encodeParameters(par)
+
+    val req = Post(rn).withEntity(
+      encodedPars.parameters_as_json
+    )
+
+    var resp: String = null
+
+    req ~> routes.route ~> check {
+      val r = responseAs[String]
+      resp = r
+      true
+    }
+
+    println(resp)
+
+    val res: Req#Res =
+      decodeResult[Req](
+        ResultOptionAsJSON(resp)
+      ).toOption.get
+
+    res
+
+  }
+
+  // todo-later guzsba kotni az impliciteket itt, felhasznalva a Macska pattern-t
+
+  def executeUpdateUserRequest(
+      currentEntity: Entity[User],
+      newValue:      User
+  ): Entity[User] = {
+
+    val rn: String = "/" + RouteName
+      .getRouteName[UpdateEntityRoute[User]]()
+      .name
+
+    val par: UpdateEntityRoute.UpdateReqPar[User] =
+      UpdateEntityRoute
+        .UpdateReqPar[User](currentEntity, newValue)
+
+    val json: ParametersAsJSON =
+      encodeParameters[UpdateEntityRoute[User]](par)
+
+    val json_par_as_string: String = json.parameters_as_json
+
+    val req = Post(rn).withEntity(json_par_as_string)
+
+    var resp: String = null
+
+    req ~> routes.route ~> check {
+      val r = responseAs[String]
+      resp = r
+      true
+    }
+
+    println(resp)
+
+    val resDecoded: Either[
+      circe.Error,
+      UpdateEntityRoute.UpdateReqRes[User]
+    ] =
+      decodeResult[UpdateEntityRoute[User]](
+        ResultOptionAsJSON(resp)
+      )
+
+    val resUnsafeExtracted: UpdateEntityRoute.UpdateReqRes[User] =
+      resDecoded.right.get
+
+    val returnedEntity = resUnsafeExtracted.entity
+
+    returnedEntity
+
+  }
+
+  def executeInsertUserRequest(u: User): Entity[User] = {
+
+    val rn: String = "/" + RouteName
+      .getRouteName[InsertNewEntityRoute[User]]()
+      .name
+
+    val mhb: User = u
+
+    val par: InsertNewEntityRoute.InsertReqPar[User] =
+      InsertNewEntityRoute.InsertReqPar(mhb)
+
+    val json: ParametersAsJSON =
+      encodeParameters[InsertNewEntityRoute[User]](par)
+
+    val json_par_as_string: String = json.parameters_as_json
+
+    val req = Post(rn).withEntity(json_par_as_string)
+
+    //    req
+
+    var resp: String = null
+
+    req ~> routes.route ~> check {
+      val r = responseAs[String]
+      resp = r
+      true
+    }
+
+    println(resp)
+
+    val ent: Entity[User] =
+      decodeResult[InsertNewEntityRoute[User]](
+        ResultOptionAsJSON(resp)
+      ).right.get.entity
+
+    ent
+
+  }
+
+  def getLatestEntity[V <: EntityValue[V]](
+      ref: RefToEntityWithoutVersion[V]
+  )(
+      implicit
+      encoder:      Encoder[GetEntityReq[V]#Res],
+      decoder:      Decoder[GetEntityReq[V]#Res],
+      enc_ent:      Encoder[Entity[V]],
+      ct1:          ClassTag[GetEntityReq[V]#PayLoad]
+  ): Entity[V] = {
+
+
+    val rn: String = "/" + RouteName
+      .getRouteName[GetEntityReq[User]]()
+      .name
+
+    val par: GetEntityReqPar[V] =
+      GetEntityReqPar(ref)
+
+    val res: GetEntityReqRes[V] =
+      getPostRequestResult[GetEntityReq[V], V](par)
+
+    val entity = res.optionEntity.get
+    entity
+  }
+
+
+  def assertLatestEntityValueIs[V <: EntityValue[V]](
+      ref: RefToEntityWithoutVersion[V],
+      ev:  EntityValue[V]
+  ): Unit = {
+    ??? // todo-later maybe
+
+  }
+
+  /**
+    * Assert that given entity is in the servers database and
+    * the newest version that the server has is the same
+    * that we have.
+    *
+    * @param entity
+    */
+  def assertLatestEntityIs(
+      entity: Entity[User]
+  ): Unit = {
+    val rn: String = "/" + RouteName
+      .getRouteName[GetEntityReq[User]]()
+      .name
+
+    val req = Post(rn).withEntity(
+      encodeParameters[GetEntityReq[User]](
+        GetEntityReqPar(entity.refToEntity.stripVersion())
+      ).parameters_as_json
+    )
+
+    val expectedResponse: String = {
+      val r: Option[GetEntityReqRes[User]] = Some(
+        GetEntityReqRes(Some(entity))
+      )
+      encodeResult[GetEntityReq[User]](r).resultOptionAsJSON
+    }
+
+    req ~> routes.route ~> check {
+      responseAs[String] shouldEqual expectedResponse
+    }
+
+  }
+}
