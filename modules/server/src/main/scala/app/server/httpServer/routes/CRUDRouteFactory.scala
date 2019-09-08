@@ -60,7 +60,7 @@ case class CRUDRouteFactory(
                                              executionContext)
 
     implicit val getRouteLogic =
-      GetRL[V](persistenceModule, decoder, executionContext)
+      GetRL[V](persistenceModule, dpl, executionContext)
 
     getPostRoute[UpdateEntityRoute[V]].route ~
       getPostRoute[InsertNewEntityRoute[V]].route ~

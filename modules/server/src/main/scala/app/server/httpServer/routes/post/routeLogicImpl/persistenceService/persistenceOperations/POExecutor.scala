@@ -38,7 +38,7 @@ trait POExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
 object POExecutor {
 
   def getOperationInstance[V <: EntityValue[V]](
-      implicit d: Decoder[Entity[V]]
+      implicit d: Decoder[V]
   ) =
     GetPO.GetPOExecutorImpl[V](d)
 

@@ -34,7 +34,7 @@ object GetPO {
   ) extends OperationResult
 
   case class GetPOExecutorImpl[V <: EntityValue[V]](
-      decoder: Decoder[Entity[V]]
+      decoder: Decoder[V]
   ) extends POExecutor[V, GetOp[V]] {
 
     override def execute(
@@ -44,13 +44,16 @@ object GetPO {
     ): Future[GetPO.GetOpRes[V]] = {
       val in: GetOpPar[V] = par
 
-      implicit val d: Decoder[Entity[V]] = decoder
+      implicit val d: Decoder[V] = decoder
 
       val res0: Future[Option[Entity[V]]] =
         pa.getEntityWithLatestVersion(par.ref)
+
+
       // todo later fix this :
 
       implicit val ec: ExecutionContextExecutor = pa.executionContext
+
       val res1:        Future[Entity[V]]        = res0.map(_.get)
 
       def f(in: Entity[V]): Either[OperationError, Entity[V]] =

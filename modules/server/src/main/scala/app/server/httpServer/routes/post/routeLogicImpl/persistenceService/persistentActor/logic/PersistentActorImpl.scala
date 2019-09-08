@@ -38,7 +38,16 @@ private[persistentActor] class PersistentActorImpl(id: String)
       context.stop(self)
 
     case command @ InsertNewEntityCommand(_) => {
+
+
       val res = commandHandler.handleInsert(command)
+
+      // todo-now => handle Insert ??? EVENT VS COMMAND ???
+      // make the journal work ... for real / stop / start
+      // make it really persist data
+
+
+
       sender() ! res
     }
 
@@ -67,9 +76,11 @@ private[persistentActor] class PersistentActorImpl(id: String)
       val newEntry: UntypedEntity =
         insertEventPayload.newEntry
 
-      val newState =
-        stateService.getState.insertVirginEntity(newEntry)
-      stateService.setNewState(newState)
+//      val newState =
+      // todo-later ... use some common handler , the one that handles the command too
+
+//        stateService.getState.insertVirginEntity(newEntry)
+//      stateService.setNewState(newState)
 
     }
 
@@ -79,11 +90,14 @@ private[persistentActor] class PersistentActorImpl(id: String)
         s"\n\nApplyEvent was called with UpdateEntityEvent:\n$insertEventPayload"
       )
 
+      // todo-later ... use some common handler , the one that handles the command too
+
+
       val newEntry: UntypedEntity =
         insertEventPayload.updatedEntry
 
-      val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)
-      stateService.setNewState(newState)
+//      val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)
+//      stateService.setNewState(newState)
 
     }
 

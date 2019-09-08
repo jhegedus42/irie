@@ -23,7 +23,8 @@ import scala.util.Try
 
 case class GetRL[V <: EntityValue[V]](
     persistenceModule: PersistentServiceProvider,
-    d:                 Decoder[Entity[V]],
+//    d:                 Decoder[Entity[V]],
+    dv:                 Decoder[V],
     contextExecutor:   ExecutionContextExecutor,
 ) extends RouteLogic[GetEntityReq[V]] {
 
@@ -34,7 +35,7 @@ case class GetRL[V <: EntityValue[V]](
     def getResultFromPersistenceModule(
         param: GetEntityReqPar[V]
     ): Future[GetPO.GetOpRes[V]] = {
-      implicit val di: Decoder[Entity[V]] =d
+      implicit val di: Decoder[V] =dv
       implicit val i: GetPO.GetPOExecutorImpl[V] =
         POExecutor.getOperationInstance[V]
 

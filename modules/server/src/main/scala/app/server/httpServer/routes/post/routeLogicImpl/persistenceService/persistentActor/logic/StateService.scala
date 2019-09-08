@@ -10,23 +10,33 @@ import app.server.initialization.Config
 import app.shared.entity.asString.EntityValueAsJSON
 
 sealed trait DidOperationSucceed
-case class StateServiceOperationSucceeded(m: String) extends DidOperationSucceed
-case class StateServiceOperationFailed(m:    String) extends DidOperationSucceed
+case class StateServiceOperationSucceeded(m: String)
+    extends DidOperationSucceed
+case class StateServiceOperationFailed(m: String)
+    extends DidOperationSucceed
 
 /**
   * This is used by the PersistentActorImpl
   */
 private[logic] case class StateService() {
-  def updateEntity(currentEntity: UntypedEntity, newValue: UntypedEntity) : DidOperationSucceed={
+  def updateEntity(
+      refToLatestVersion: UntypedRef,
+      newValue:           EntityValueAsJSON
+  ): DidOperationSucceed = {
 
-  val currentState=getState
-  val newState: Option[StateMapSnapshot] =currentState.updateExistingEntity(currentEntity,newValue)
+    val currentState = getState
+//  val newState: Option[StateMapSnapshot] =currentState.updateExistingEntity(currentEntity,newValue)
+    val newState: Option[StateMapSnapshot] =
+      currentState.unsafeInsertUpdatedEntity(refToLatestVersion,newValue)
 
-  // let's assume things went well => todo-later : add error handling
-  // 1) if current version is newever in the map than that of the current entities then
-  //    we return a StateServiceOperationFailed result
+    // let's assume things went well => todo-later : add error handling
 
-   StateServiceOperationSucceeded("this is lie :) ... or not")
+    // 1) if current version is newever in the map than that of the current entities then
+    //    we return a StateServiceOperationFailed result
+
+    setNewState(newState.get)
+
+    StateServiceOperationSucceeded("this is lie :) ... or not")
   }
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting

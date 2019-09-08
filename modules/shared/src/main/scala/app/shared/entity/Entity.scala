@@ -28,6 +28,8 @@ case class Entity[E <: EntityValue[E]](
                             EntityValue.getAsJson(entityValue))
   }
 
+
+
 }
 
 object Entity {

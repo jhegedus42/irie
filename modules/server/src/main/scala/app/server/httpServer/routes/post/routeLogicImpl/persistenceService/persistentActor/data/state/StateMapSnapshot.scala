@@ -2,7 +2,10 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
+import app.shared.entity.asString.{
+  EntityAndItsValueAsJSON,
+  EntityValueAsJSON
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder
@@ -17,42 +20,44 @@ private[persistentActor] case class StateMapSnapshot(
     val occVersion: OCCVersion                     = OCCVersion(0)
 ) {
 
-  def bumpVersion: StateMapSnapshot = this.lens(_.occVersion).modify(_.inc)
+  def bumpVersion: StateMapSnapshot =
+    this.lens(_.occVersion).modify(_.inc)
 
   def getSimpleFormat: List[String] = {
     val res: Iterable[String] = map.values.map(x => {
-      s" ${x.entityAndItsValueAsJSON.entityValueAsJSON} ${x.untypedRef.entityIdentity.uuid}"
+      s" ${x.entityValueAsJSON} ${x.untypedRef.entityIdentity.uuid}"
     })
     res.toList
   }
 
-  def updateExistingEntity(
-      currentVersion: UntypedEntity,
-      newValue:     UntypedEntity
-  ): Option[StateMapSnapshot] = {
-
-    assert(map.contains(currentVersion.untypedRef))
-
-    val latestVersion: (UntypedRef, UntypedEntity) = getLatestVersionForEntity(
-      currentVersion.untypedRef.entityIdentity
-    )
-
-    assert(
-      latestVersion._1.entityVersion.versionNumberLong == currentVersion.untypedRef.entityVersion.versionNumberLong
-    )
-
-    assert(
-      latestVersion._1.entityIdentity.uuid == currentVersion.untypedRef.entityIdentity.uuid
-    )
-
-    // create updated entity with bumped version number
-    val newUntypedRef: UntypedRef = currentVersion.untypedRef
-      .lens(_.entityVersion.versionNumberLong)
-      .modify(_ + 1)
-
-    // todo-later: turn the exception for assertions into a None result
-    ??? //todo-now implement this
-  }
+//  def updateExistingEntity(
+//      currentVersion: UntypedEntity,
+//      newValue:       UntypedEntity
+//  ): Option[StateMapSnapshot] = {
+//
+//    assert(map.contains(currentVersion.untypedRef))
+//
+//    val latestVersion: (UntypedRef, UntypedEntity) =
+//      getLatestVersionForEntity(
+//        currentVersion.untypedRef.entityIdentity
+//      )
+//
+//    assert(
+//      latestVersion._1.entityVersion.versionNumberLong == currentVersion.untypedRef.entityVersion.versionNumberLong
+//    )
+//
+//    assert(
+//      latestVersion._1.entityIdentity.uuid == currentVersion.untypedRef.entityIdentity.uuid
+//    )
+//
+//    // create updated entity with bumped version number
+//    val newUntypedRef: UntypedRef = currentVersion.untypedRef
+//      .lens(_.entityVersion.versionNumberLong)
+//      .modify(_ + 1)
+//
+//    // todo-later: turn the exception for assertions into a None result
+//
+//  }
 
   /**
     * This is unsafe because it assumes that the key not exist
@@ -88,49 +93,45 @@ private[persistentActor] case class StateMapSnapshot(
     *
     * Increases the verison number and inserts the new version.
     *
-    * @param ase
     * @return
     */
   def unsafeInsertUpdatedEntity(
-      ase: UntypedEntity
-  ) = {
+      refToLatestVersion: UntypedRef,
+      value:              EntityValueAsJSON
+  ) : Option[StateMapSnapshot]= {
 
     // todo-later - this can throw !!!
     //  wrap it into try/catch and return the error to the caller in an Either
     //  so that it can handle it, "some way", (possibly some OCC related "way")
 
-    assert(map.contains(ase.untypedRef))
-
-    val before =
-      map.get(ase.untypedRef).get
-    val versionBefore: Long =
-      before.untypedRef.entityVersion.versionNumberLong
-    val versionToBeInserted: Long =
-      ase.untypedRef.entityVersion.versionNumberLong
-    assert(versionToBeInserted == versionBefore)
+    assert(map.contains(refToLatestVersion))
 
     val latestVersion: Long =
       getLatestVersionForEntity(
-        ase.untypedRef.entityIdentity
+        refToLatestVersion.entityIdentity
       )._1.entityVersion.versionNumberLong
 
-    assert(versionToBeInserted == latestVersion) // this is for the occ
+    assert(
+      refToLatestVersion.entityVersion.versionNumberLong == latestVersion
+    ) // this is for the occ
 
     import monocle.macros.syntax.lens._
-    val ase_new: UntypedEntity =
-      ase
+    val ref_new: UntypedRef =
+      refToLatestVersion
         .lens(
-          _.untypedRef.entityVersion.versionNumberLong
+          _.entityVersion.versionNumberLong
         )
         .modify(
           x => x + 1
         )
 
-    val newMap = map + (ase_new.untypedRef -> ase_new)
-    StateMapSnapshot(newMap).bumpVersion
+    val newMap = map + (ref_new -> UntypedEntity(ref_new,value))
+    Some(StateMapSnapshot(newMap).bumpVersion)
   }
 
-  def getEntity[V <: EntityValue[V]](r: UntypedRef): Option[UntypedEntity] = {
+  def getEntity[V <: EntityValue[V]](
+      r: UntypedRef
+  ): Option[UntypedEntity] = {
     map.get(r)
   }
 
@@ -141,12 +142,16 @@ private[persistentActor] case class StateMapSnapshot(
 
     def getRes: UntypedEntity =
       map
-        .filterKeys(utr => utr.entityIdentity.uuid == r.entityIdentity.uuid)
+        .filterKeys(
+          utr => utr.entityIdentity.uuid == r.entityIdentity.uuid
+        )
         .values
         .toSet
         .maxBy(
-          (b: UntypedEntity) => b.untypedRef.entityVersion.versionNumberLong
+          (b: UntypedEntity) =>
+            b.untypedRef.entityVersion.versionNumberLong
         )
+
     Some(getRes)
     // todo-one-day : fix this possible exception here, that getRes is empty
   }

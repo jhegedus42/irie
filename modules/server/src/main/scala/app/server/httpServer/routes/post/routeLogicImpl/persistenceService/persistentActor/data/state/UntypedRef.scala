@@ -21,7 +21,7 @@ case class UntypedRef(
   }
 
   def stripVersion(): UntypedRefWithoutVersion =
-    UntypedRefWithoutVersion( entityValueTypeAsString, entityIdentity )
+    UntypedRefWithoutVersion(entityValueTypeAsString, entityIdentity)
 }
 
 object UntypedRef {
@@ -34,6 +34,14 @@ object UntypedRef {
       entityIdentity          = refToEntity.entityIdentity,
       entityVersion           = refToEntity.entityVersion
     )
+  }
+
+  def getTypedRef[T <: EntityValue[T]](
+      untypedRef: UntypedRef
+  ): RefToEntityWithVersion[T] = {
+    RefToEntityWithVersion(untypedRef.entityValueTypeAsString,
+                           untypedRef.entityIdentity,
+                           untypedRef.entityVersion)
   }
 
 }

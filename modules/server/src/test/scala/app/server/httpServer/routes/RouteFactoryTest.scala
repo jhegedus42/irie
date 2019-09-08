@@ -116,8 +116,6 @@ class RouteFactoryTest
       newFavoriteNumber === latestEntity.entityValue.favoriteNumber
     )
 
-    // todo-now - run this test and make it pass :)
-
     // todo-later - do some more updates, and maybe version checks, etc:
     //   update it
     //   read it
