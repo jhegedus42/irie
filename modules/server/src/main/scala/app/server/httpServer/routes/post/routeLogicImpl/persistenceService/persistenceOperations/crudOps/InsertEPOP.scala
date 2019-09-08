@@ -1,21 +1,19 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation
-import app.shared.entity.entityValue.EntityValue
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.ElementaryPersistenceOperation.{
   OperationError,
   OperationResult,
   OperatonParameter
 }
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.UpdatePO.{
-  UpdatePOPar,
-  UpdatePORes
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertEPOP.{
+  InsertPOPar,
+  InsertPORes
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
-  ElementaryPersistenceOperation,
-  POExecutor
+  EPOPExecutor,
+  ElementaryPersistenceOperation
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
@@ -26,21 +24,23 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-trait UpdatePO[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
-  override type Res = UpdatePORes[V]
-  override type Par = UpdatePOPar[V]
-
+/**
+  *
+  * Persistence Operation which creates a new Entity.
+  *
+  */
+trait InsertEPOP[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
+  override type Res = InsertPORes[V]
+  override type Par = InsertPOPar[V]
 }
 
-object UpdatePO {
+object InsertEPOP {
 
-  case class UpdatePOPar[V <: EntityValue[V]](
-      val
-      currentEntity: Entity[V],
-      val newValue:  V
+  case class InsertPOPar[V <: EntityValue[V]](
+      val value: V
   ) extends OperatonParameter
 
-  case class UpdatePORes[V <: EntityValue[V]](
+  case class InsertPORes[V <: EntityValue[V]](
       res: Either[OperationError, Entity[V]]
   ) extends OperationResult
 
@@ -50,7 +50,7 @@ object UpdatePO {
     *
     * @param decoder
     * @param encoder
-    * @param ct
+    * @param classTag
     * @tparam V
     */
   case class Executor[V <: EntityValue[
@@ -58,32 +58,26 @@ object UpdatePO {
   ]](
       decoder:  Decoder[Entity[V]],
       encoder:  Encoder[Entity[V]],
-      eencoder: Encoder[V],
-      ct:       ClassTag[V]
-  ) extends POExecutor[V, UpdatePO[V]] {
-
-//    override def execute(par: UpdatePO[V]#Par)(
-//        implicit typeSafeAccessToPersistentActorProvider: PersistentActorWhisperer
-//        implicit pa: PersistentActorWhisperer
-//    ): Future[UpdatePO[V]#Res] = {
+      encoderV: Encoder[V],
+      classTag: ClassTag[V]
+  ) extends EPOPExecutor[V, InsertEPOP[V]] {
 
     override def execute(
-        par: UpdatePO.UpdatePOPar[V]
+        par: InsertEPOP.InsertPOPar[V]
     )(
         implicit pa: PersistentActorWhisperer
-    ): Future[UpdatePO.UpdatePORes[V]] = {
+    ): Future[InsertEPOP.InsertPORes[V]] = {
 
-      val in: UpdatePOPar[V] = par
+      val in: InsertPOPar[V] = par
 
       implicit val d:   Decoder[Entity[V]]       = decoder
       implicit val e:   Encoder[Entity[V]]       = encoder
-      implicit val ee:  Encoder[V]               = eencoder
-      implicit val cti: ClassTag[V]              = ct
+      implicit val ve:  Encoder[V]               = encoderV
+      implicit val cti: ClassTag[V]              = classTag
       implicit val ec:  ExecutionContextExecutor = pa.executionContext
 
       val res0: Future[Option[Entity[V]]] =
-//        pa.insertNewEntity(par.value)
-        pa.updateEntity[V](par.currentEntity, par.newValue)
+        pa.insertNewEntity(par.value)
 
       val res1: Future[Entity[V]] = res0.map(_.get)
 
@@ -93,7 +87,7 @@ object UpdatePO {
       val res2: Future[Either[OperationError, Entity[V]]] =
         res1.map(f(_))
 
-      val res: Future[UpdatePO.UpdatePORes[V]] = res2.map(UpdatePORes[V](_))
+      val res: Future[InsertEPOP.InsertPORes[V]] = res2.map(InsertPORes[V](_))
       res
     }
 

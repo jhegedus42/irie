@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
@@ -26,7 +26,7 @@ import scala.reflect.ClassTag
   * @tparam OP
   */
 
-trait POExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
+trait EPOPExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
   def execute(par: OP#Par)(
       implicit
       typeSafeAccessToPersistentActorProvider: PersistentActorWhisperer
@@ -35,11 +35,11 @@ trait POExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
   def getOCCVersion: OCCVersion
 }
 
-object POExecutor {
+object EPOPExecutor {
 
   def getOperationInstance[V <: EntityValue[V]](
       implicit d: Decoder[V]
   ) =
-    GetPO.GetPOExecutorImpl[V](d)
+    GetEPOP.GetEPOPExecutorImpl[V](d)
 
 }

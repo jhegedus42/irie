@@ -2,9 +2,9 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.POExecutor
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetPO.GetOp
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.EPOPExecutor
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetEPOP
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetEPOP.GetOp
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{
   GetEntityReqPar,
@@ -34,17 +34,17 @@ case class GetRL[V <: EntityValue[V]](
 
     def getResultFromPersistenceModule(
         param: GetEntityReqPar[V]
-    ): Future[GetPO.GetOpRes[V]] = {
+    ): Future[GetEPOP.GetOpRes[V]] = {
       implicit val di: Decoder[V] =dv
-      implicit val i: GetPO.GetPOExecutorImpl[V] =
-        POExecutor.getOperationInstance[V]
+      implicit val i: GetEPOP.GetEPOPExecutorImpl[V] =
+        EPOPExecutor.getOperationInstance[V]
 
       persistenceModule.executePO[V,GetOp[V]](
-        GetPO.GetOpPar(param.refToEntityWithoutVersion)
+        GetEPOP.GetOpPar(param.refToEntityWithoutVersion)
       )
     }
 
-    def convert(x: GetPO.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
+    def convert(x: GetEPOP.GetOpRes[V]): Option[GetEntityReqRes[V]] = {
 
       val opEnt: Option[Entity[V]] = x.res.toOption
       val res:   Option[Entity[V]] = opEnt

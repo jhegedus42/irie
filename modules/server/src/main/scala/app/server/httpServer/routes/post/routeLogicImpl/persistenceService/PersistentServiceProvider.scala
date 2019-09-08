@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService
 
 import akka.actor.ActorRef
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{ElementaryPersistenceOperation, POExecutor}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{ElementaryPersistenceOperation, EPOPExecutor}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.entityValue.EntityValue
 
@@ -31,7 +31,7 @@ private[routes] case class PersistentServiceProvider(
 
   def executePO[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]](
       par:       OP#Par
-  )(implicit ex: POExecutor[V,OP]): Future[OP#Res] = {
+  )(implicit ex: EPOPExecutor[V,OP]): Future[OP#Res] = {
     // todo-later this is where we put the OCC
     ex.execute(par)
   }

@@ -35,8 +35,9 @@ Intermittently, I am running the server on my laptop, <br>
 
 ---
 # Some videos - from the past :
-  2019 Aug 12 - https://www.youtube.com/watch?v=oZXtshCqNeM
-
+ -  2019 Aug  12  -  https://www.youtube.com/watch?v=oZXtshCqNeM
+  
+ -  2019 Sept 09  -  https://www.youtube.com/watch?v=wQSYeSaLxvg
 
 ---
 # Setting the node path, for testing the client in `sbt`:

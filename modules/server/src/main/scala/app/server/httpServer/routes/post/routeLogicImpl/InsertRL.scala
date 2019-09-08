@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertPO
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertEPOP
 import app.shared.comm.postRequests.InsertReq
 import app.shared.comm.postRequests.InsertReq.{
   InsertReqPar,
@@ -29,18 +29,18 @@ case class InsertRL[V <: EntityValue[V]](
       param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
 
-    implicit val executer: InsertPO.Executor[V] =
-      InsertPO.Executor(decoder  = decoderEntityV,
+    implicit val executer: InsertEPOP.Executor[V] =
+      InsertEPOP.Executor(decoder  = decoderEntityV,
                         encoder  = encoderEntityV,
                         encoderV = encoderV,
                         classTag = classTag)
 
-    val poPar: InsertPO.InsertPOPar[V] = InsertPO.InsertPOPar(param.value)
+    val poPar: InsertEPOP.InsertPOPar[V] = InsertEPOP.InsertPOPar(param.value)
 
-    val poRes: Future[InsertPO.InsertPORes[V]] =
-      persistenceModule.executePO[V, InsertPO[V]](poPar)
+    val poRes: Future[InsertEPOP.InsertPORes[V]] =
+      persistenceModule.executePO[V, InsertEPOP[V]](poPar)
 
-    def poRes2ReqRes: InsertPO.InsertPORes[V] => Option[InsertReqRes[V]] =
+    def poRes2ReqRes: InsertEPOP.InsertPORes[V] => Option[InsertReqRes[V]] =
       poRes => poRes.res.toOption.map(InsertReqRes(_))
 
     poRes.map(poRes2ReqRes(_))(contextExecutor)

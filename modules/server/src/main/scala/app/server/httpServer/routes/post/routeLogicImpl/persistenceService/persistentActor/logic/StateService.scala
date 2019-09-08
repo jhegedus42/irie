@@ -27,7 +27,8 @@ private[logic] case class StateService() {
     val currentState = getState
 //  val newState: Option[StateMapSnapshot] =currentState.updateExistingEntity(currentEntity,newValue)
     val newState: Option[StateMapSnapshot] =
-      currentState.unsafeInsertUpdatedEntity(refToLatestVersion,newValue)
+      currentState.unsafeInsertUpdatedEntity(refToLatestVersion,
+                                             newValue)
 
     // let's assume things went well => todo-later : add error handling
 

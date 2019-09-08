@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.UpdatePO
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.UpdateEPOP
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
@@ -69,19 +69,19 @@ case class UpdateRL[V <: EntityValue[V]](
       param: UpdateReqPar[V]
   ): Future[Option[UpdateReqRes[V]]] = {
 
-    implicit val executer: UpdatePO.Executor[V] =
-      UpdatePO.Executor(decoder  = decoderEntityV,
+    implicit val executer: UpdateEPOP.Executor[V] =
+      UpdateEPOP.Executor(decoder  = decoderEntityV,
                         encoder  = encoderEntityV,
                         eencoder = _encoderV,
                         ct       = classTag)
 
-    val poPar: UpdatePO.UpdatePOPar[V] =
-      UpdatePO.UpdatePOPar(param.currentEntity, param.newValue)
+    val poPar: UpdateEPOP.UpdatePOPar[V] =
+      UpdateEPOP.UpdatePOPar(param.currentEntity, param.newValue)
 
-    val poRes: Future[UpdatePO.UpdatePORes[V]] =
-      persistenceModule.executePO[V, UpdatePO[V]](poPar)
+    val poRes: Future[UpdateEPOP.UpdatePORes[V]] =
+      persistenceModule.executePO[V, UpdateEPOP[V]](poPar)
 
-    def poRes2ReqRes: UpdatePO.UpdatePORes[V] => Option[UpdateReqRes[V]] =
+    def poRes2ReqRes: UpdateEPOP.UpdatePORes[V] => Option[UpdateReqRes[V]] =
       poRes => poRes.res.toOption.map(UpdateReqRes(_))
 
     poRes.map(poRes2ReqRes(_))(contextExecutor)
