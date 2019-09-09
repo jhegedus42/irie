@@ -1,7 +1,7 @@
 package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory.getPostRoute
+import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
 import app.server.httpServer.routes.post.routeLogicImpl.{
   GetRL,
   InsertRL,
@@ -23,11 +23,11 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.Persi
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
-case class CRUDRouteFactory(
-    persistenceModule: PersistentServiceProvider,
+case class CRUDRouteFactory()(
+    implicit persistenceModule: PersistentServiceProvider,
     executionContext:  ExecutionContextExecutor
 ) {
-  implicit val ec = executionContext: ExecutionContextExecutor
+//  implicit val ec = executionContext: ExecutionContextExecutor
   def route[
       V <: EntityValue[V]: ClassTag
   ](
@@ -39,25 +39,11 @@ case class CRUDRouteFactory(
       dpl:               Decoder[V]
   ): Route = {
 
-    //  todo-next-1 update entity route
-
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic = InsertRL(
-      persistenceModule,
-      decoder,
-      encoder,
-      valueEncoder,
-      implicitly[ClassTag[V]],
-      executionContext
-    )
+    implicit val insertRouteLogic = InsertRL()
 
-    implicit val updateRouteLogic = UpdateRL(persistenceModule,
-                                             decoder,
-                                             encoder,
-                                             valueEncoder,
-                                             implicitly[ClassTag[V]],
-                                             executionContext)
+    implicit val updateRouteLogic = UpdateRL()
 
     implicit val getRouteLogic =
       GetRL[V](persistenceModule, dpl, executionContext)

@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.GetEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.ResetStateEPOP.ResetStateEPOP
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.Reset.ResetStateEPOP
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -10,7 +10,6 @@ import io.circe.Decoder
 
 import scala.concurrent.Future
 import scala.reflect.ClassTag
-
 
 // todo-later, please see the doc below:
 
@@ -26,13 +25,18 @@ import scala.reflect.ClassTag
   *
   * @tparam OP
   */
-
-trait EPOPExecutor[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]] {
+trait EPOPExecutor[V <: EntityValue[V], OP <: ElementaryPersistenceOperation[
+  V
+]] {
   def execute(par: OP#Par)(
       implicit
       typeSafeAccessToPersistentActorProvider: PersistentActorWhisperer
       // ElKelKaposzTasTalanItHatatLanSagosKodAsAitokErt
-  ):                 Future[OP#Res]
+  ): Future[OP#Res]
+  //todo-later - move this method into
+  //  app.server.httpServer.routes.post.
+  //  routeLogicImpl.persistenceService.
+  //  persistenceOperations.ElementaryPersistenceOperation
   def getOCCVersion: OCCVersion
 }
 
@@ -43,6 +47,7 @@ object EPOPExecutor {
   ): GetEPOP.GetEPOPExecutorImpl[V] =
     GetEPOP.GetEPOPExecutorImpl[V](d)
 
-  implicit val instResetState : EPOPExecutor[Nothing,ResetStateEPOP]= ???
+//  implicit val instResetState: EPOPExecutor[Nothing, ResetStateEPOP] =
+//    ResetStateEPOP.ResetEPOPSt
 
 }

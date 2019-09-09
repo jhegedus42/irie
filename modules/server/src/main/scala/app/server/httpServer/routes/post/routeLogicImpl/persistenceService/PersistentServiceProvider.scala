@@ -2,7 +2,10 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService
 
 import akka.actor.ActorRef
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.PersistentActorImpl
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{ElementaryPersistenceOperation, EPOPExecutor}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.{
+  ElementaryPersistenceOperation,
+  EPOPExecutor
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.PersistentActorWhisperer
 import app.shared.entity.entityValue.EntityValue
 
@@ -21,17 +24,19 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   *
   * @param context
   */
-
-private[routes] case class PersistentServiceProvider(
+private[routes] case class PersistentServiceProvider()(
+    implicit
     context: ExecutionContextExecutor
 ) {
 
-  implicit val context_as_implicit = context
-  implicit val paw=PersistentActorWhisperer()
+//  implicit val context_as_implicit = context
+  implicit val paw = PersistentActorWhisperer()
 
-  def executePO[V<:EntityValue[V],OP <: ElementaryPersistenceOperation[V]](
+  def executePO[V <: EntityValue[V], OP <: ElementaryPersistenceOperation[
+    V
+  ]](
       par:       OP#Par
-  )(implicit ex: EPOPExecutor[V,OP]): Future[OP#Res] = {
+  )(implicit ex: EPOPExecutor[V, OP]): Future[OP#Res] = {
     // todo-later this is where we put the OCC
     ex.execute(par)
   }

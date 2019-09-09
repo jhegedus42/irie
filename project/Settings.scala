@@ -18,7 +18,13 @@ object Settings {
     "-unchecked",
     "-deprecation",
     "-feature",
-    "-Yrangepos" //,
+        "-Yrangepos",
+    "-nowarn"
+    // https://docs.scala-lang.org/overviews/compiler-options/index.html
+    //,
+//  "-Xfatal-warnings"  // New lines for each options
+
+  //
 //    "-Ylog-classpath"
 //    "-Xlog-implicits"
   )

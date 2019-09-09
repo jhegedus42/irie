@@ -29,6 +29,7 @@
       </plugins>
     </profile>
     <profile name="sbt 6" modules="server">
+      <option name="warnings" value="false" />
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <option name="featureWarnings" value="true" />

@@ -29,66 +29,45 @@ import scala.reflect.ClassTag
   * Persistence Operation which creates a new Entity.
   *
   */
-trait InsertEPOP[V <: EntityValue[V]] extends ElementaryPersistenceOperation[V] {
+trait InsertEPOP[V <: EntityValue[V]]
+    extends ElementaryPersistenceOperation[V] {
   override type Res = InsertPORes[V]
   override type Par = InsertPOPar[V]
 }
 
 object InsertEPOP {
 
-  case class InsertPOPar[V <: EntityValue[V]](
-      val value: V
-  ) extends OperatonParameter
+  case class InsertPOPar[V <: EntityValue[V]](val value: V)
+      extends OperatonParameter
 
   case class InsertPORes[V <: EntityValue[V]](
-      res: Either[OperationError, Entity[V]]
-  ) extends OperationResult
+    res: Either[OperationError, Entity[V]])
+      extends OperationResult
 
   /**
-    *
     * Typeclass Instance.
-    *
-    * @param decoder
-    * @param encoder
-    * @param classTag
-    * @tparam V
     */
-  case class Executor[V <: EntityValue[
-    V
-  ]](
-      decoder:  Decoder[Entity[V]],
-      encoder:  Encoder[Entity[V]],
-      encoderV: Encoder[V],
-      classTag: ClassTag[V]
-  ) extends EPOPExecutor[V, InsertEPOP[V]] {
+  case class Executor[V <: EntityValue[V]](
+  )(
+    implicit
+    decoder:  Decoder[Entity[V]],
+    encoder:  Encoder[Entity[V]],
+    encoderV: Encoder[V],
+    classTag: ClassTag[V],
+    ec:       ExecutionContextExecutor)
+      extends EPOPExecutor[V, InsertEPOP[V]] {
 
     override def execute(
-        par: InsertEPOP.InsertPOPar[V]
+      par: InsertEPOP.InsertPOPar[V]
     )(
-        implicit pa: PersistentActorWhisperer
+      implicit pa: PersistentActorWhisperer
     ): Future[InsertEPOP.InsertPORes[V]] = {
 
-      val in: InsertPOPar[V] = par
+      pa.insertNewEntity(par.value)
+        .map(_.get)
+        .map(Right(_))
+        .map(InsertPORes[V](_))
 
-      implicit val d:   Decoder[Entity[V]]       = decoder
-      implicit val e:   Encoder[Entity[V]]       = encoder
-      implicit val ve:  Encoder[V]               = encoderV
-      implicit val cti: ClassTag[V]              = classTag
-      implicit val ec:  ExecutionContextExecutor = pa.executionContext
-
-      val res0: Future[Option[Entity[V]]] =
-        pa.insertNewEntity(par.value)
-
-      val res1: Future[Entity[V]] = res0.map(_.get)
-
-      def f(in: Entity[V]): Either[OperationError, Entity[V]] =
-        Right(in)
-
-      val res2: Future[Either[OperationError, Entity[V]]] =
-        res1.map(f(_))
-
-      val res: Future[InsertEPOP.InsertPORes[V]] = res2.map(InsertPORes[V](_))
-      res
     }
 
     // call getEntityWithLatestVersion and massage result

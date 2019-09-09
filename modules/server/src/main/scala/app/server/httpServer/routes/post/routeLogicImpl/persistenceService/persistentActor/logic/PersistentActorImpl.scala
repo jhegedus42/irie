@@ -2,22 +2,10 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
-  GetStateSnapshot,
-  InsertNewEntityCommand,
-  ShutdownActor,
-  UpdateEntityCommand
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, ShutdownActor, UpdateEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  UntypedEntity,
-  UntypedRef
-}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.{
-  EventToBeSavedIntoJournal,
-  InsertEvent,
-  UpdateEvent
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{UntypedEntity, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.{EventToBeSavedIntoJournal, InsertEvent, UpdateEvent}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
@@ -37,17 +25,16 @@ private[persistentActor] class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
+    case command @ ResetStateCommand => {
+      stateService.resetState()
+      sender() ! "Minden kiraly!"
+    }
+
     case command @ InsertNewEntityCommand(_) => {
-
-
       val res = commandHandler.handleInsert(command)
-
       // todo-next  => handle Insert ??? EVENT VS COMMAND ???
       // make the journal work ... for real / stop / start
       // make it really persist data
-
-
-
       sender() ! res
     }
 

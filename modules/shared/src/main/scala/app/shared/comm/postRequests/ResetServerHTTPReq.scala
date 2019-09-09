@@ -15,12 +15,12 @@ object ResetServerHTTPReq {
 
   case class Par() extends PostRequest.Parameter
 
-  case class Res(numberOfEntries: Int ) extends PostRequest.Result
+  case class Res(message:String ) extends PostRequest.Result
 
 }
 
 class ResetServerHTTPReq extends PostRequest {
   override type Par     = ResetServerHTTPReq.Par
   override type Res     = ResetServerHTTPReq.Res
-//  override type PayLoad = V
+  override type PayLoad = String // dummy payload
 }

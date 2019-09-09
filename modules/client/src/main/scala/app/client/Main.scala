@@ -14,7 +14,8 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport( "Main" )
 object Main extends js.JSApp {
 
-  // todo-now - make page for updating Bob's favorite number
+  // todo-now - after ResetServerStateReq is done
+  //  make page for updating Bob's favorite number
   //  and printing the latest Bob value
 
 

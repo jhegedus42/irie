@@ -4,7 +4,8 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteForAkkaHttpFactory._
+import app.server.httpServer.routes.post.PostRouteFactory._
+import app.server.httpServer.routes.post.routeLogicImpl.ResetServerStateLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
@@ -13,19 +14,20 @@ import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
 
-private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
+private[httpServer] case class RouteFactory(
+  actorSystem: ActorSystem) {
 
-  private implicit lazy val executionContext: ExecutionContextExecutor =
+  private implicit lazy val executionContext
+    : ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val persistenceModule = PersistentServiceProvider(executionContext)
+  implicit val persistenceModule = PersistentServiceProvider()
 
   val route: Route = allRoutes
 
   import io.circe.generic.auto._
 
-  lazy val crudRouteFactory: CRUDRouteFactory =
-    CRUDRouteFactory(persistenceModule, executionContext)
+  lazy val crudRouteFactory: CRUDRouteFactory = CRUDRouteFactory()
 
   private def allRoutes: Route =
     crudRouteFactory.route[User] ~
@@ -36,7 +38,6 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
-
 
   private def simplePostRouteHelloWorld: Route = {
     import akka.http.scaladsl.server.Directives._
@@ -58,9 +59,10 @@ private[httpServer] case class RouteFactory(actorSystem: ActorSystem) {
     }
   }
 
-  private def resetStateRoute : Route ={
-//    getPostRoute[ResetServerReq]().route
-    ??? //todo-now
-  }
+  private implicit val resetRouteLogic = ResetServerStateLogic()
+  private def resetStateRoute: Route =
+    getPostRoute[ResetServerHTTPReq]().route
+  // todo-now - write akka-http-testkit based, server only test
+  //  for this route
 
 }

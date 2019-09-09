@@ -20,19 +20,19 @@ import app.shared.comm.postRequests.marshall.{
 //import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
 import io.circe.Decoder.Result
 
-private[routes] object PostRouteForAkkaHttpFactory {
+private[routes] object PostRouteFactory {
 
   def getPostRoute[Req <: PostRequest](
-      )(
-                                          implicit
-                                          classTag:  ClassTag[Req],
-                                          classTag2: ClassTag[Req#PayLoad],
-                                          logic:     RouteLogic[Req],
-                                          dpl:       Decoder[Req#PayLoad],
-                                          decoder:   Decoder[Req#Par],
-                                          encoder:   Encoder[Req#Res],
-                                          e:         ExecutionContext
-  ): PostRouteForAkkaHttp[Req] = {
+  )(
+    implicit
+    classTag:  ClassTag[Req],
+    classTag2: ClassTag[Req#PayLoad],
+    logic:     RouteLogic[Req],
+    dpl:       Decoder[Req#PayLoad],
+    decoder:   Decoder[Req#Par],
+    encoder:   Encoder[Req#Res],
+    e:         ExecutionContext
+  ): PostRoute[Req] = {
 
     val res: Route =
       post {
@@ -48,11 +48,15 @@ private[routes] object PostRouteForAkkaHttpFactory {
             import io.circe.{Decoder, Encoder, Error, _}
 
             val params: Req#Par =
-              encdec.decodeParameters(ParametersAsJSON(s)).toOption.get
+              encdec
+                .decodeParameters(ParametersAsJSON(s))
+                .toOption
+                .get
 
             implicit val ec = encdec
 
-            val res: Future[Option[Req#Res]] = logic.getHttpReqResult(params)
+            val res: Future[Option[Req#Res]] =
+              logic.getHttpReqResult(params)
 
             val res2: Future[String] =
               res.map(encdec.encodeResult(_).resultOptionAsJSON)
@@ -89,7 +93,7 @@ private[routes] object PostRouteForAkkaHttpFactory {
                """.stripMargin)
     }
 
-    PostRouteForAkkaHttp[Req](res)
+    PostRoute[Req](res)
   }
 
 }

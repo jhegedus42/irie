@@ -56,7 +56,8 @@ case class UpdateRL_old[V <: EntityValue[V]](
 
 }
 
-case class UpdateRL[V <: EntityValue[V]](
+case class UpdateRL[V <: EntityValue[V]]()(
+    implicit
     persistenceModule: PersistentServiceProvider,
     decoderEntityV:    Decoder[Entity[V]],
     encoderEntityV:    Encoder[Entity[V]],

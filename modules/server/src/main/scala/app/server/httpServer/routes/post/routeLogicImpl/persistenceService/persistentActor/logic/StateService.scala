@@ -1,10 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntity,
-  UntypedRef
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.UpdateEntityCommand
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
 import app.server.initialization.Config
 import app.shared.entity.asString.EntityValueAsJSON
@@ -19,6 +16,8 @@ case class StateServiceOperationFailed(m: String)
   * This is used by the PersistentActorImpl
   */
 private[logic] case class StateService() {
+  def resetState(): Unit = setNewState(TestStateProvider.getTestState)
+
   def updateEntity(
       refToLatestVersion: UntypedRef,
       newValue:           EntityValueAsJSON

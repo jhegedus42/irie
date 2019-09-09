@@ -27,6 +27,7 @@ object Commands {
   ) extends Command
 
   case object ShutdownActor extends Command
+  case object ResetStateCommand extends Command
 }
 
 case class DummyResponsePayload()

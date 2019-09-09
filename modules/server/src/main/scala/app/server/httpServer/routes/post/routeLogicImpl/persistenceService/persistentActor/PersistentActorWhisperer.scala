@@ -5,17 +5,34 @@ import akka.pattern.ask
 import scala.concurrent.duration._
 import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
+  GetStateSnapshot,
+  InsertNewEntityCommand,
+  ResetStateCommand,
+  UpdateEntityCommand
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+  StateMapSnapshot,
+  UntypedEntity,
+  UntypedRef
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{
+  DidOperationSucceed,
+  PersistentActorImpl
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  EntityDeletedFlag,
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import app.shared.initialization.testing.TestUsers
 import io.circe.{Decoder, Encoder}
 import akka.actor.{ActorLogging, ActorSystem, Props}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.Reset.ResetStateEPOP
 import app.shared.entity.asString.EntityValueAsJSON
 import io.circe.Decoder.Result
 
@@ -28,6 +45,20 @@ import scala.reflect.ClassTag
   *  persistence Operations
   */
 case class PersistentActorWhisperer() {
+
+  def resetTheState(): Future[ResetStateEPOP.ResetEPOPRes] = {
+
+    val ic = ResetStateCommand
+
+    val res: Future[ResetStateEPOP.ResetEPOPRes] =
+      ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
+        .mapTo[String]
+        .map(s => ResetStateEPOP.ResetEPOPRes(Right(s)))
+
+    //todo-one-day ^ error handling - maybe
+
+    res
+  }
 
   def getActor(id: String, as: ActorSystem) = as.actorOf(props(id))
 
@@ -58,7 +89,8 @@ case class PersistentActorWhisperer() {
     val currentEntityUntyped: UntypedEntity =
       UntypedEntity.makeFromEntity(currentEntity)
 
-    val newValueAsJSON: EntityValueAsJSON = EntityValue.getAsJson(newValue)
+    val newValueAsJSON: EntityValueAsJSON =
+      EntityValue.getAsJson(newValue)
 
     import monocle.macros.syntax.lens._
     val newValueAsEntity = currentEntity
@@ -117,7 +149,9 @@ case class PersistentActorWhisperer() {
       d: Decoder[Entity[V]]
   ): Future[Option[Entity[V]]] = {
 
-    def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[V]] = {
+    def snapshot2res(
+        stateMapSnapshot: StateMapSnapshot
+    ): Option[Entity[V]] = {
       val res: Option[UntypedEntity] = stateMapSnapshot.getEntity(ref)
       def res2entity(sme: UntypedEntity): Option[Entity[V]] = {
         val json = sme.entityValueAsJSON.json
@@ -137,7 +171,9 @@ case class PersistentActorWhisperer() {
       d:           Decoder[EV]
   ): Future[Option[Entity[EV]]] = {
 
-    def snapshot2res(stateMapSnapshot: StateMapSnapshot): Option[Entity[EV]] = {
+    def snapshot2res(
+        stateMapSnapshot: StateMapSnapshot
+    ): Option[Entity[EV]] = {
 
 //      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
 //      val par2 : UntypedRef=
@@ -147,13 +183,15 @@ case class PersistentActorWhisperer() {
 
       def res2entity(sme: UntypedEntity): Option[EV] = {
         val json = sme.entityValueAsJSON.json
-        val res: Option[EV] =d.decodeJson(json).toOption
+        val res: Option[EV] = d.decodeJson(json).toOption
         res
       }
 
-      val value: Option[EV] =res.flatMap(res2entity(_))
-      val r2: Option[RefToEntityWithVersion[EV]] =res.map(x=> UntypedRef.getTypedRef[EV](x.untypedRef))
-      val entity: Entity[EV] =Entity[EV](value.get,r2.get,EntityDeletedFlag(false))
+      val value: Option[EV] = res.flatMap(res2entity(_))
+      val r2: Option[RefToEntityWithVersion[EV]] =
+        res.map(x => UntypedRef.getTypedRef[EV](x.untypedRef))
+      val entity: Entity[EV] =
+        Entity[EV](value.get, r2.get, EntityDeletedFlag(false))
       Some(entity) // todo-next ^^^ fix this "not nice" error handling
     }
 
