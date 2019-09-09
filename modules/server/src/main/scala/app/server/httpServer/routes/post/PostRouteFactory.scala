@@ -53,7 +53,17 @@ private[routes] object PostRouteFactory {
                 .toOption
                 .get
 
-            implicit val ec = encdec
+            val par_debug=params
+
+            println(s"debug A310F8F2 - $par_debug")
+
+//            implicit val ec = encdec
+
+            val l: RouteLogic[Req] = logic
+
+            val name=l.getRouteName
+
+            println(s"debug 76FB201E : $name")
 
             val res: Future[Option[Req#Res]] =
               logic.getHttpReqResult(params)

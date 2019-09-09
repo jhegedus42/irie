@@ -24,21 +24,23 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   *
   * @param context
   */
-private[routes] case class PersistentServiceProvider()(
-    implicit
-    context: ExecutionContextExecutor
-) {
+private[routes] case class PersistentServiceProvider(
+)(
+  implicit
+  context: ExecutionContextExecutor) {
 
-//  implicit val context_as_implicit = context
   implicit val paw = PersistentActorWhisperer()
 
-  def executePO[V <: EntityValue[V], OP <: ElementaryPersistenceOperation[
-    V
-  ]](
-      par:       OP#Par
-  )(implicit ex: EPOPExecutor[V, OP]): Future[OP#Res] = {
-    // todo-later this is where we put the OCC
+  def executePO[
+    V  <: EntityValue[V],
+    OP <: ElementaryPersistenceOperation[ V ] ]
+  ( par        : OP#Par )
+  (
+    implicit ex: EPOPExecutor[V, OP]
+  ): Future[OP#Res] = {
     ex.execute(par)
   }
+
+  // todo-later this is where we put the OCC - maybe
 
 }

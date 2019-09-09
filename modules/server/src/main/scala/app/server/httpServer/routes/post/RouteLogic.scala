@@ -36,6 +36,12 @@ trait RouteLogic[Req <: PostRequest] {
     */
   def getHttpReqResult(param: Req#Par): Future[Option[Req#Res]]
 
+  /**
+    * This is used for debugging.
+    * @return
+    */
+  def getRouteName:String
+
 }
 
 object RouteLogic {

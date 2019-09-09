@@ -48,4 +48,7 @@ case class ResetServerStateLogic(
     h(param).map(back)
 
   }
+
+  override def getRouteName: String =
+    "debug 319CCAEA2DE4 - reset server logic"
 }

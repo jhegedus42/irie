@@ -92,4 +92,6 @@ case class GetRL[V <: EntityValue[V]](
       .map(Helpers.convert(_))
   }
 
+  override def getRouteName: String = "debug 319CCAEA2DE4 - get route logic"
+
 }

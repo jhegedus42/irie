@@ -42,5 +42,6 @@ case class InsertRL[V <: EntityValue[V]]()(
       )
 
   }
+  override def getRouteName: String = "debug 319CCAEA2DE4 - insert logic"
 
 }

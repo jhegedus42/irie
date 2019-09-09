@@ -13,9 +13,9 @@ import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
   InsertReq,
+  ResetServerHTTPReq,
   UpdateReq
 }
-import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.InsertReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
@@ -23,12 +23,25 @@ import app.shared.comm.postRequests.marshall.{
   ParametersAsJSON,
   ResultOptionAsJSON
 }
-
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
-import app.shared.comm.postRequests.marshall.EncodersDecoders.{decodeResult, encodeParameters, encodeResult}
-import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
-import app.shared.comm.postRequests.{GetEntityReq, InsertReq, UpdateReq}
+import app.shared.comm.postRequests.GetEntityReq.{
+  GetEntityReqPar,
+  GetEntityReqRes
+}
+import app.shared.comm.postRequests.marshall.EncodersDecoders.{
+  decodeResult,
+  encodeParameters,
+  encodeResult
+}
+import app.shared.comm.postRequests.marshall.{
+  ParametersAsJSON,
+  ResultOptionAsJSON
+}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  InsertReq,
+  UpdateReq
+}
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -39,23 +52,73 @@ import io.circe.{Decoder, Encoder}
 import org.scalatest.{FunSuite, Matchers}
 
 import scala.reflect.ClassTag
-
 import io.circe.generic.auto._
+import monocle.macros.syntax.lens._
 
-case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with ScalatestRouteTest {
+case class TestHelper(routes: RouteFactory)
+    extends FunSuite
+    with Matchers
+    with ScalatestRouteTest {
 
-  def getPostRequestResult[Req <: PostRequest, V <: EntityValue[
-    V
-  ]](
-      par: Req#Par
+  def updateUsersFavoriteNumer(
+    user:              Entity[User],
+    newFavoriteNumber: Int
+  ): Unit = {
+
+    val updatedUserValue =
+      user.entityValue.lens(_.favoriteNumber).set(newFavoriteNumber)
+
+    val updateRes: UpdateReq.UpdateReqRes[User] =
+      getPostRequestResult[UpdateReq[User], User](
+        UpdateReq.UpdateReqPar(
+          user,
+          updatedUserValue
+        )
+      )
+
+  }
+
+  def assertUserFavoriteNumber(
+    user:           Entity[User],
+    favoriteNumber: Int
+  ): Unit = {
+
+    val resFromServer: Entity[User] = getLatestEntity(
+      user.refToEntity.stripVersion()
+    )
+
+    assert(
+      resFromServer.entityValue.favoriteNumber === favoriteNumber
+    )
+
+    resFromServer.entityValue.favoriteNumber shouldNot equal(
+      favoriteNumber + 1
+    )
+
+  }
+
+  def resetServerState(): Unit = {
+    case class DummyVal(s: String) extends EntityValue[DummyVal]
+    val resetRes1: ResetServerHTTPReq.Res =
+      getPostRequestResult[ResetServerHTTPReq, DummyVal](
+        ResetServerHTTPReq.Par()
+      )
+  }
+
+  def getPostRequestResult[
+    Req <: PostRequest,
+    V <: EntityValue[
+      V
+    ]
+  ](par: Req#Par
   )(
-      implicit
-      encoder: Encoder[Req#Res],
-      decoder: Decoder[Req#Res],
-      enc_par: Encoder[Req#Par],
-      e2:      Encoder[Entity[V]],
-      ct1:     ClassTag[Req#PayLoad],
-      ct2:     ClassTag[Req]
+    implicit
+    encoder: Encoder[Req#Res],
+    decoder: Decoder[Req#Res],
+    enc_par: Encoder[Req#Par],
+    e2:      Encoder[Entity[V]],
+    ct1:     ClassTag[Req#PayLoad],
+    ct2:     ClassTag[Req]
   ): Req#Res = {
 
     val rn: String = "/" + RouteName
@@ -90,8 +153,8 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
   // todo-later guzsba kotni az impliciteket itt, felhasznalva a Macska pattern-t
 
   def executeUpdateUserRequest(
-      currentEntity: Entity[User],
-      newValue:      User
+    currentEntity: Entity[User],
+    newValue:      User
   ): Entity[User] = {
 
     val rn: String = "/" + RouteName
@@ -176,15 +239,14 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
   }
 
   def getLatestEntity[V <: EntityValue[V]](
-      ref: RefToEntityWithoutVersion[V]
+    ref: RefToEntityWithoutVersion[V]
   )(
-      implicit
-      encoder:      Encoder[GetEntityReq[V]#Res],
-      decoder:      Decoder[GetEntityReq[V]#Res],
-      enc_ent:      Encoder[Entity[V]],
-      ct1:          ClassTag[GetEntityReq[V]#PayLoad]
+    implicit
+    encoder: Encoder[GetEntityReq[V]#Res],
+    decoder: Decoder[GetEntityReq[V]#Res],
+    enc_ent: Encoder[Entity[V]],
+    ct1:     ClassTag[GetEntityReq[V]#PayLoad]
   ): Entity[V] = {
-
 
     val rn: String = "/" + RouteName
       .getRouteName[GetEntityReq[User]]()
@@ -200,10 +262,9 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
     entity
   }
 
-
   def assertLatestEntityValueIs[V <: EntityValue[V]](
-      ref: RefToEntityWithoutVersion[V],
-      ev:  EntityValue[V]
+    ref: RefToEntityWithoutVersion[V],
+    ev:  EntityValue[V]
   ): Unit = {
     ??? // todo-later maybe
 
@@ -216,9 +277,7 @@ case class TestHelper(routes: RouteFactory) extends FunSuite with  Matchers with
     *
     * @param entity
     */
-  def assertLatestEntityIs(
-      entity: Entity[User]
-  ): Unit = {
+  def assertLatestEntityIs(entity: Entity[User]): Unit = {
     val rn: String = "/" + RouteName
       .getRouteName[GetEntityReq[User]]()
       .name

@@ -20,7 +20,7 @@ private[httpServer] case class RouteFactory(
     : ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  implicit val persistenceModule = PersistentServiceProvider()
+  lazy implicit val persistenceModule = PersistentServiceProvider()
 
   val route: Route = allRoutes
 
@@ -33,7 +33,8 @@ private[httpServer] case class RouteFactory(
       getPostRoute[SumIntRoute]().route ~
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~
-      ping_pong
+      ping_pong ~
+      resetStateRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
@@ -58,10 +59,11 @@ private[httpServer] case class RouteFactory(
     }
   }
 
-  private implicit val resetRouteLogic = ResetServerStateLogic()
+  private implicit def resetRouteLogic = ResetServerStateLogic()
+
   private def resetStateRoute: Route =
     getPostRoute[ResetServerHTTPReq]().route
-  // todo-now-0 - write akka-http-testkit based, server only test
-  //  for this route
+
+  // todo-now - integration test on this - using Node.js + JSDOM
 
 }

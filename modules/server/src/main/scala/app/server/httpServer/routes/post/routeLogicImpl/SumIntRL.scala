@@ -21,4 +21,5 @@ object SumIntRL extends RouteLogic[SumIntRoute] {
     println(s"serverside - sum int view typeclass was executed - $time")
     Future.successful(Some(SumIntRes(param.x + param.y)))
   }
+  override def getRouteName: String = "debug 319CCAEA2DE4 - sum int logic"
 }

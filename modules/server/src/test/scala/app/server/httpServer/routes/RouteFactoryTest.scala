@@ -13,6 +13,7 @@ import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
   InsertReq,
+  ResetServerHTTPReq,
   UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._
@@ -24,6 +25,7 @@ import app.shared.comm.postRequests.marshall.{
   ResultOptionAsJSON
 }
 import app.shared.entity.Entity
+import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
 import app.shared.initialization.testing.TestUsers
@@ -64,6 +66,7 @@ class RouteFactoryTest
 
   test("test insert route[User]") {
 
+    resetServerState()
     val mhb = TestUsers.jetiLabnyom
 
     val insertedEntity = executeInsertUserRequest(mhb)
@@ -76,6 +79,7 @@ class RouteFactoryTest
 
     // we insert a new Terez Anya
 
+    resetServerState()
     val terezAnyaValue = TestUsers.terezAnya
 
     val originalTA =
@@ -109,6 +113,7 @@ class RouteFactoryTest
 
 //    val
 
+    resetServerState()
     val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
     val refToEntityWithoutVersion = alice.refToEntity.stripVersion()
 
@@ -126,14 +131,20 @@ class RouteFactoryTest
   test("test reset route") {
     // todo-now-1 - implement this
 
-    // do a reset
+    resetServerState()
 
-    // do an update favorite Number of meresiHiba
-    // check update worked
+    val mhb: Entity[User] = TestUsers.meresiHiba_with_UUID2
 
-    // do a reset
+    assertUserFavoriteNumber(mhb,369)
 
-    // check that state has been resetted
+    updateUsersFavoriteNumer(mhb,69)
+
+    assertUserFavoriteNumber(mhb,69)
+
+    resetServerState()
+
+    assertUserFavoriteNumber(mhb,369)
+
 
   }
 
