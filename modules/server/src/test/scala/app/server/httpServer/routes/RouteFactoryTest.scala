@@ -8,7 +8,7 @@ import akka.http.scaladsl.model.{HttpMessage, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.http.scaladsl.server._
 import Directives._
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
@@ -44,8 +44,6 @@ import monocle.macros.syntax.lens._
 //  }
 //}
 
-
-
 class RouteFactoryTest
     extends FunSuite
     with Matchers
@@ -66,7 +64,7 @@ class RouteFactoryTest
 
   test("test insert route[User]") {
 
-    val mhb = TestUsers.meresiHiba
+    val mhb = TestUsers.jetiLabnyom
 
     val insertedEntity = executeInsertUserRequest(mhb)
 
@@ -79,47 +77,31 @@ class RouteFactoryTest
     // we insert a new Terez Anya
 
     val terezAnyaValue = TestUsers.terezAnya
-    val insertedTerezAnyaEntity =
+
+    val originalTA =
       executeInsertUserRequest(terezAnyaValue)
 
     // we check that she is inserted:
 
-    assertLatestEntityIs(insertedTerezAnyaEntity)
+    assertLatestEntityIs(originalTA)
 
     // we update her favorite number:
 
-    val currentEntity: Entity[User] = insertedTerezAnyaEntity
-    val currentEntityiValue: User =
-      currentEntity.entityValue
-    val newEntityValue: User =
-      currentEntityiValue.lens(_.favoriteNumber).set(7)
-    val res: Entity[User] =
-      executeUpdateUserRequest(currentEntity, newEntityValue)
+    val updatedTAValue: User =
+      originalTA.entityValue
+        .lens(_.favoriteNumber)
+        .set(7)
 
-    // we check that the latest, updated Terez Anya
-    // has the latest favorite number, this means
-    // that the result of the update request
-    // should agree with the latest version of Terez Anya
-    // that was received from the server
-    // this is done in the following line :
+    val updatedTA: Entity[User] =
+      executeUpdateUserRequest(originalTA, updatedTAValue)
 
-    assertLatestEntityIs(res)
-
-    // we do again the same thing manually :
-
-    val refWOVersion: RefToEntityWithoutVersion[User] =
-      insertedTerezAnyaEntity.refToEntity.stripVersion()
-    val latestEntity: Entity[User] = getLatestEntity(refWOVersion)
-    val newFavoriteNumber = res.entityValue.favoriteNumber
+    assertLatestEntityIs(updatedTA)
 
     assert(
-      newFavoriteNumber === latestEntity.entityValue.favoriteNumber
+      updatedTA.entityValue.favoriteNumber === getLatestEntity(
+        originalTA.refToEntity.stripVersion()
+      ).entityValue.favoriteNumber
     )
-
-    // todo-later - do some more updates, and maybe version checks, etc:
-    //   update it
-    //   read it
-    //   assert it
 
   }
 
@@ -138,6 +120,20 @@ class RouteFactoryTest
     Post("/ping_pong").withEntity("hello") ~> routes.route ~> check {
       responseAs[String] shouldEqual "hello"
     }
+
+  }
+
+  test("test reset route") {
+    // todo-now-1 - implement this
+
+    // do a reset
+
+    // do an update favorite Number of meresiHiba
+    // check update worked
+
+    // do a reset
+
+    // check that state has been resetted
 
   }
 

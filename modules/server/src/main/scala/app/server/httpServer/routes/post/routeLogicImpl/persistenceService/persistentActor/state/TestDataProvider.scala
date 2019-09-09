@@ -7,9 +7,9 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persi
 import app.shared.initialization.testing.TestUsers
 import io.circe.generic.auto._
 
-case class TestStateProvider(applicationStateMap: StateMapSnapshot)
+case class TestDataProvider(applicationStateMap: StateMapSnapshot)
 
-object TestStateProvider {
+object TestDataProvider {
   def getTestState: StateMapSnapshot = {
     val init: StateMapSnapshot = StateMapSnapshot()
     val withAlice = init.insertVirginEntity(
@@ -17,6 +17,7 @@ object TestStateProvider {
     )
     val withBob =
       withAlice.insertVirginEntity(TestUsers.bobEntity_with_UUID1)
+
     val withMeresiHiba =
       withBob.insertVirginEntity(TestUsers.meresiHiba_with_UUID2)
     withMeresiHiba

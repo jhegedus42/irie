@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.ShutdownActor
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapSnapshot
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
@@ -36,7 +36,7 @@ class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
   test("testgetSnapshot"){
 
     val r: StateMapSnapshot =Await.result(tsap.getSnaphot , 1 second)
-    assert(TestStateProvider.getTestState===r)
+    assert(TestDataProvider.getTestState===r)
 
   }
 

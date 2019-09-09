@@ -1,7 +1,6 @@
 package app.server.httpServer.routes
 
 import akka.actor.ActorSystem
-import akka.http.scaladsl.model.{ContentType, RequestEntity}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
@@ -62,7 +61,7 @@ private[httpServer] case class RouteFactory(
   private implicit val resetRouteLogic = ResetServerStateLogic()
   private def resetStateRoute: Route =
     getPostRoute[ResetServerHTTPReq]().route
-  // todo-now - write akka-http-testkit based, server only test
+  // todo-now-0 - write akka-http-testkit based, server only test
   //  for this route
 
 }

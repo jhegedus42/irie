@@ -8,7 +8,7 @@ import akka.http.scaladsl.model.{HttpMessage, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.http.scaladsl.server._
 import Directives._
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestStateProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
