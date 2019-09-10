@@ -47,13 +47,25 @@ private[routes] object PostRouteFactory {
             import io.circe.parser._
             import io.circe.{Decoder, Encoder, Error, _}
 
+            println(s"""
+                       |
+                       |--------------------------------------------------
+                       | Route
+                       | $rn
+                       | was called
+                       | with :
+                       | $s
+                       |--------------------------------------------------
+                       |
+               """.stripMargin)
+
             val params: Req#Par =
               encdec
                 .decodeParameters(ParametersAsJSON(s))
                 .toOption
                 .get
 
-            val par_debug=params
+            val par_debug = params
 
             println(s"debug A310F8F2 - $par_debug")
 
@@ -61,7 +73,7 @@ private[routes] object PostRouteFactory {
 
             val l: RouteLogic[Req] = logic
 
-            val name=l.getRouteName
+            val name = l.getRouteName
 
             println(s"debug 76FB201E : $name")
 
@@ -69,7 +81,16 @@ private[routes] object PostRouteFactory {
               logic.getHttpReqResult(params)
 
             val res2: Future[String] =
-              res.map(encdec.encodeResult(_).resultOptionAsJSON)
+              res.map((o: Option[Req#Res]) => {
+                val encoded: ResultOptionAsJSON =
+                  encdec.encodeResult(o)
+                val optionAsString: String =
+                  encoded.resultOptionAsJSON
+                println(
+                  s"debug : 0547B2B6 - we return :\n $optionAsString"
+                )
+                optionAsString
+              })
 
             complete(res2)
           }

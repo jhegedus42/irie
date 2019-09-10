@@ -1,7 +1,11 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.UpdateEntityCommand
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+  StateMapSnapshot,
+  UntypedEntity,
+  UntypedRef
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
 import app.server.initialization.Config
 import app.shared.entity.asString.EntityValueAsJSON
@@ -16,11 +20,16 @@ case class StateServiceOperationFailed(m: String)
   * This is used by the PersistentActorImpl
   */
 private[logic] case class StateService() {
-  def resetState(): Unit = setNewState(TestDataProvider.getTestState)
+
+  def resetState(): Unit = {
+    println("1C6C8F45 - we reset the state now")
+    val newState: StateMapSnapshot = TestDataProvider.getTestState
+    setNewState(newState)
+  }
 
   def updateEntity(
-      refToLatestVersion: UntypedRef,
-      newValue:           EntityValueAsJSON
+    refToLatestVersion: UntypedRef,
+    newValue:           EntityValueAsJSON
   ): DidOperationSucceed = {
 
     val currentState = getState
@@ -47,27 +56,35 @@ private[logic] case class StateService() {
       new StateMapSnapshot()
 
   def getState = {
-    println(s"""
-               |StateService
-               |StateService . getState :
-               |StateService
-               |StateService Someone is asking for a snapshot state, which looks like:
-               |StateService ${applicationState}
-               |StateService
-               |StateService
-               |StateService
-               |StateService
-               |StateService
-               |StateService """.stripMargin)
-    println("Simple format is:")
-    applicationState.getSimpleFormat.foreach(println(_))
+
+//    println(s"""
+//               |StateService
+//               |StateService . getState :
+//               |StateService
+//               |StateService Someone is asking for a snapshot state, which looks like:
+//               |StateService ${applicationState}
+//               |StateService
+//               |StateService
+//               |StateService
+//               |StateService
+//               |StateService
+//               |StateService """.stripMargin)
+
+    println("def getState is called in StateService.")
+    println("State in simple format is:")
+    printStateInSimpleFormat()
     applicationState
+  }
+
+  def printStateInSimpleFormat():Unit={
+    applicationState.getSimpleFormat.foreach(println(_))
   }
 
   def setNewState(s: StateMapSnapshot): Unit = {
     println("\n\nState was set to:\n")
-    //    StatePrintingUtils.printApplicationState( s )
+//        StatePrintingUtils.printApplicationState( s )
     applicationState = s
+    printStateInSimpleFormat()
   }
 
   def insertNewEntity(se: UntypedEntity): DidOperationSucceed = {

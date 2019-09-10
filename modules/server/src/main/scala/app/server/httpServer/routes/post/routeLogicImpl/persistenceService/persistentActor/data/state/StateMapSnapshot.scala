@@ -25,7 +25,7 @@ private[persistentActor] case class StateMapSnapshot(
 
   def getSimpleFormat: List[String] = {
     val res: Iterable[String] = map.values.map(x => {
-      s" ${x.entityValueAsJSON} ${x.untypedRef.entityIdentity.uuid}"
+      s" $occVersion ${x.entityValueAsJSON.json.noSpaces} ${x.untypedRef.entityVersion} ${x.untypedRef.entityIdentity.uuid}"
     })
     res.toList
   }

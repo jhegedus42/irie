@@ -4,8 +4,8 @@ import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.Reset
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.Reset.ResetStateEPOP
-import app.shared.comm.postRequests.ResetServerHTTPReq
-import app.shared.comm.postRequests.ResetServerHTTPReq.Res
+import app.shared.comm.postRequests.ResetRequest
+import app.shared.comm.postRequests.ResetRequest.Res
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -14,7 +14,7 @@ case class ResetServerStateLogic(
   implicit
   persistentServiceProvider: PersistentServiceProvider,
   contextExecutor:           ExecutionContextExecutor)
-    extends RouteLogic[ResetServerHTTPReq] {
+    extends RouteLogic[ResetRequest] {
 //  implicit val ce: ExecutionContextExecutor = contextExecutor
 
   /**
@@ -28,10 +28,10 @@ case class ResetServerStateLogic(
     * @return
     */
   override def getHttpReqResult(
-    param: ResetServerHTTPReq.Par
-  ): Future[Option[ResetServerHTTPReq.Res]] = {
+    param: ResetRequest.Par
+  ): Future[Option[ResetRequest.Res]] = {
 
-    val to = (x: ResetServerHTTPReq.Par) =>
+    val to = (x: ResetRequest.Par) =>
       Reset.ResetStateEPOP.ResetEPOPPar()
 
     val executeOp =
@@ -43,7 +43,7 @@ case class ResetServerStateLogic(
 
     val back =
       (x: ResetStateEPOP.ResetEPOPRes) =>
-        Option(Res("greetings from getHttpReqResult"))
+        Option(Res("minden shiraly!"))
 
     h(param).map(back)
 

@@ -13,7 +13,7 @@ import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
   InsertReq,
-  ResetServerHTTPReq,
+  ResetRequest,
   UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._

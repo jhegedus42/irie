@@ -6,7 +6,11 @@ import app.client.ui.caching.cache.comm.AJAXCalls.{
 }
 import app.shared.comm.postRequests.InsertReq.InsertReqPar
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
-import app.shared.comm.postRequests.{InsertReq, UpdateReq}
+import app.shared.comm.postRequests.{
+  InsertReq,
+  ResetRequest,
+  UpdateReq
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers
@@ -14,25 +18,36 @@ import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.util.Try
 
 class AsyncRequestTest extends AsyncFunSuite {
   override implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  val helper = AsyncRequestTestHelper(executionContext)
+  val helper = AsyncRequestTestHelper()
 
-  test("get entity test") {
+  test("getentity test") {
+    println("now starting get test...")
     val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
 
-    helper
+    val r1: Future[Entity[User]] = helper
       .getUser(alice)
-      .map(
+
+//    r1.onComplete(
+//      (x: Try[Entity[User]]) =>
+//        s"get user has returned with:${x.get.entityValue}"
+//    )
+
+    val res: Future[Assertion] =
+      r1.map(
         (u: Entity[User]) =>
           helper.assertUserNamesAreEqual(u, alice.entityValue)
       )
+    res
   }
 
   test("insert and then get") {
+    println("now starting insert test...")
     val c = TestUsers.cica
 
     val par = AjaxCallPar[InsertReq[User]](InsertReqPar(c))
@@ -54,6 +69,8 @@ class AsyncRequestTest extends AsyncFunSuite {
   }
 
   test("update and then get") {
+    println("now starting update test...")
+
     import monocle.macros.syntax.lens._
 
     val userEntity = TestUsers.meresiHiba_with_UUID2
@@ -85,10 +102,12 @@ class AsyncRequestTest extends AsyncFunSuite {
     to_return
   }
 
-  test(" basic test for reset state route ") {
+  test("basic test for reset state route ") {
     // just test that it executes "fine" and returns some meaningful
     // result
-    ???
+    println("now starting reset test...")
+    val res: Future[ResetRequest.Res] = helper.resetServer()
+    res.map(r => assert(r.message === "minden shiraly!"))
   }
 
 }

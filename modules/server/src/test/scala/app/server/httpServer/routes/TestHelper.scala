@@ -13,7 +13,7 @@ import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
   InsertReq,
-  ResetServerHTTPReq,
+  ResetRequest,
   UpdateReq
 }
 import app.shared.comm.postRequests.InsertReq.InsertReqRes
@@ -99,9 +99,9 @@ case class TestHelper(routes: RouteFactory)
 
   def resetServerState(): Unit = {
     case class DummyVal(s: String) extends EntityValue[DummyVal]
-    val resetRes1: ResetServerHTTPReq.Res =
-      getPostRequestResult[ResetServerHTTPReq, DummyVal](
-        ResetServerHTTPReq.Par()
+    val resetRes1: ResetRequest.Res =
+      getPostRequestResult[ResetRequest, DummyVal](
+        ResetRequest.Par()
       )
   }
 

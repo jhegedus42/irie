@@ -8,7 +8,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.ResetServerStateLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.{ResetServerHTTPReq, SumIntRoute}
+import app.shared.comm.postRequests.{ResetRequest, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -62,7 +62,7 @@ private[httpServer] case class RouteFactory(
   private implicit def resetRouteLogic = ResetServerStateLogic()
 
   private def resetStateRoute: Route =
-    getPostRoute[ResetServerHTTPReq]().route
+    getPostRoute[ResetRequest]().route
 
   // todo-now - integration test on this - using Node.js + JSDOM
 

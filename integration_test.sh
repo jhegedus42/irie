@@ -1,2 +1,2 @@
 export NODE_PATH=./node/node_modules
-sbt "testOnly *AsyncRequestTest"
+sbt "testOnly *AsyncRequestTest  -- -z getentity"
