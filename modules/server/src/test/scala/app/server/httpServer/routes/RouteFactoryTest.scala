@@ -129,7 +129,6 @@ class RouteFactoryTest
   }
 
   test("test reset route") {
-    // todo-now-1 - implement this
 
     resetServerState()
 

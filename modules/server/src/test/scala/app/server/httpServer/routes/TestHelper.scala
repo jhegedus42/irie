@@ -107,9 +107,7 @@ case class TestHelper(routes: RouteFactory)
 
   def getPostRequestResult[
     Req <: PostRequest,
-    V <: EntityValue[
-      V
-    ]
+    V <: EntityValue[ V ]
   ](par: Req#Par
   )(
     implicit
@@ -244,7 +242,7 @@ case class TestHelper(routes: RouteFactory)
     implicit
     encoder: Encoder[GetEntityReq[V]#Res],
     decoder: Decoder[GetEntityReq[V]#Res],
-    enc_ent: Encoder[Entity[V]],
+    enc_ent: Encoder[Entity[V]] ,
     ct1:     ClassTag[GetEntityReq[V]#PayLoad]
   ): Entity[V] = {
 

@@ -64,6 +64,5 @@ private[httpServer] case class RouteFactory(
   private def resetStateRoute: Route =
     getPostRoute[ResetRequest]().route
 
-  // todo-now - integration test on this - using Node.js + JSDOM
 
 }

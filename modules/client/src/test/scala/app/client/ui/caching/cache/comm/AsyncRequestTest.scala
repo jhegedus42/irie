@@ -117,7 +117,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("reset, get, update, reset and get") {
 
-    println("this test is to be implemented") // todo-now
+    println("this test is to be implemented")
     val alicesOriginalFavNumber = TestUsers.alice.favoriteNumber
 
     // reset the server
