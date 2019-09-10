@@ -1,6 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.postRequests.ResetRequest
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -8,10 +9,9 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 case class ResetServerStateLogic(
 )(
   implicit
-//  persistentServiceProvider: PersistentServiceProvider,
+  paw: PersistentActorWhisperer,
   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[ResetRequest] {
-//  implicit val ce: ExecutionContextExecutor = contextExecutor
 
   /**
     *
@@ -26,7 +26,8 @@ case class ResetServerStateLogic(
   override def getHttpReqResult(
     param: ResetRequest.Par
   ): Future[ResetRequest.Res] = {
-    ??? //todo-now
+    val r: Future[String] = paw.resetTheState()
+    r.map(x => ResetRequest.Res(x))
   }
 
   override def getRouteName: String =

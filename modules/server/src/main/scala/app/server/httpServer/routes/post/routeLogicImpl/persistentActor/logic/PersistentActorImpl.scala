@@ -2,10 +2,23 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, ShutdownActor, UpdateEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
+  GetStateSnapshot,
+  InsertNewEntityCommand,
+  ResetStateCommand,
+  ShutdownActor,
+  UpdateEntityCommand
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{UntypedEntity, UntypedRef}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.{EventToBeSavedIntoJournal, InsertEvent, UpdateEvent}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
+  UntypedEntity,
+  UntypedRef
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.{
+  EventToBeSavedIntoJournal,
+  InsertEvent,
+  UpdateEvent
+}
 import app.shared.entity.entityValue.EntityValue
 
 import scala.language.postfixOps
@@ -39,7 +52,8 @@ private[persistentActor] class PersistentActorImpl(id: String)
     }
 
     case command @ UpdateEntityCommand(_, _) =>
-      val res: DidOperationSucceed = commandHandler.handleUpdate(command)
+      val res: DidOperationSucceed =
+        commandHandler.handleUpdate(command)
       sender() ! res
 
     case GetStateSnapshot => {
@@ -51,44 +65,42 @@ private[persistentActor] class PersistentActorImpl(id: String)
 
   }
 
-  private def applyEvent(
-      event: EventToBeSavedIntoJournal
-  ): Unit = event match {
+  private def applyEvent(event: EventToBeSavedIntoJournal): Unit =
+    event match {
 
-    case InsertEvent(insertEventPayload) => {
-      println(
-        s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertEventPayload"
-      )
+      case InsertEvent(insertEventPayload) => {
+        println(
+          s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertEventPayload"
+        )
 
-      val newEntry: UntypedEntity =
-        insertEventPayload.newEntry
+        val newEntry: UntypedEntity =
+          insertEventPayload.newEntry
 
 //      val newState =
-      // todo-later ... use some common handler , the one that handles the command too
+        // todo-later ... use some common handler , the one that handles the command too
 
 //        stateService.getState.insertVirginEntity(newEntry)
 //      stateService.setNewState(newState)
 
-    }
+      }
 
-    case UpdateEvent(insertEventPayload) => {
+      case UpdateEvent(insertEventPayload) => {
 
-      println(
-        s"\n\nApplyEvent was called with UpdateEntityEvent:\n$insertEventPayload"
-      )
+        println(
+          s"\n\nApplyEvent was called with UpdateEntityEvent:\n$insertEventPayload"
+        )
 
-      // todo-later ... use some common handler , the one that handles the command too
+        // todo-later ... use some common handler , the one that handles the command too
 
-
-      val newEntry: UntypedEntity =
-        insertEventPayload.updatedEntry
+        val newEntry: UntypedEntity =
+          insertEventPayload.updatedEntry
 
 //      val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)
 //      stateService.setNewState(newState)
 
-    }
+      }
 
-  }
+    }
 
   override def receiveRecover: Receive = {
 

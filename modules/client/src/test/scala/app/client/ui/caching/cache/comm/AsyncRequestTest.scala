@@ -71,7 +71,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     futureAssertionThatEverythingIsKosher
   }
 
-  test("update and then get") {
+  test("updateEntity and then get") {
     println("now starting update test...")
 
     import monocle.macros.syntax.lens._
@@ -112,7 +112,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     // result
     println("now starting reset test...")
     val res: Future[ResetRequest.Res] = helper.resetServer()
-    res.map(r => assert(r.message === "minden shiraly!"))
+    res.map(r => assert(r.message === "Minden kiraly!"))
   }
 
   test("reset, get, update, reset and get") {
