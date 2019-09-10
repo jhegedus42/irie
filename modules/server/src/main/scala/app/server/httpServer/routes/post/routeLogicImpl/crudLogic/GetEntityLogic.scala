@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl
+package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.shared.comm.postRequests.GetEntityReq
@@ -8,7 +8,7 @@ import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class GetRL[V <: EntityValue[V]](
+case class GetEntityLogic[V <: EntityValue[V]](
 //    persistenceModule: PersistentServiceProvider,
 //    d:                 Decoder[Entity[V]],
     dv:                 Decoder[V],

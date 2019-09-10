@@ -14,7 +14,7 @@ import scala.concurrent.Future
   *
   */
 
-object SumIntRL extends RouteLogic[SumIntRoute] {
+object SumIntLogic extends RouteLogic[SumIntRoute] {
 
   override def getHttpReqResult(param: SumIntPar): Future[Option[SumIntRes]] = {
     def time = Calendar.getInstance.getTime

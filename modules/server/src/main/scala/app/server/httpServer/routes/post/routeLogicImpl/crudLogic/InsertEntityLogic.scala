@@ -1,20 +1,16 @@
-package app.server.httpServer.routes.post.routeLogicImpl
+package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.shared.comm.postRequests.InsertReq
-import app.shared.comm.postRequests.InsertReq.{
-  InsertReqPar,
-  InsertReqRes
-}
+import app.shared.comm.postRequests.InsertReq.{InsertReqPar, InsertReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
-import scala.util.Try
 
-case class InsertRL[V <: EntityValue[V]]()(
+case class InsertEntityLogic[V <: EntityValue[V]]()(
     implicit
 //    persistenceModule: PersistentServiceProvider,
     decoderEntityV:    Decoder[Entity[V]],

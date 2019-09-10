@@ -1,5 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
+import akka.actor.ActorSystem
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.ShutdownActor
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
@@ -14,10 +15,11 @@ import io.circe.generic.auto._
 
 class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
 
+    val as : ActorSystem = ActorSystem()
 
-  val tsap=PersistentActorWhisperer()
+  implicit val ec=as.dispatcher
+  val tsap=PersistentActorWhisperer(as)
 
-  implicit val ec=tsap.executionContext
 
 
   test("testGetEntityWithVersion") {

@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post
 
-import app.server.httpServer.routes.post.routeLogicImpl.SumIntRL
+import app.server.httpServer.routes.post.routeLogicImpl.SumIntLogic
 import app.shared.comm.PostRequest
 
 import scala.concurrent.Future
@@ -45,5 +45,5 @@ trait RouteLogic[Req <: PostRequest] {
 }
 
 object RouteLogic {
-  implicit val sumIntInstance = SumIntRL
+  implicit val sumIntInstance = SumIntLogic
 }
