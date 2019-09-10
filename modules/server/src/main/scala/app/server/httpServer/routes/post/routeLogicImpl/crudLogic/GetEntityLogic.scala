@@ -16,14 +16,10 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 case class GetEntityLogic[V <: EntityValue[V]](
 )(
   implicit
-//    persistenceModule: PersistentServiceProvider,
-//    d:                 Decoder[Entity[V]],
   paw:             PersistentActorWhisperer,
   dv:              Decoder[V],
   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[GetEntityReq[V]] {
-
-//  implicit val ce: ExecutionContextExecutor = contextExecutor
 
   override def getHttpReqResult(
     param: GetEntityReqPar[V]
