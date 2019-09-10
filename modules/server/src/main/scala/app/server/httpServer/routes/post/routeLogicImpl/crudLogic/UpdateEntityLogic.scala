@@ -22,7 +22,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]]()(
 
   override def getHttpReqResult(
       param: UpdateReqPar[V]
-  ): Future[Option[UpdateReqRes[V]]] = {
+  ): Future[UpdateReqRes[V]] = {
 
     ??? //todo-now
   }

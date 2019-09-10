@@ -6,16 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntRL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/UpdateRL.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,14 +73,44 @@
     <splitter split-orientation="horizontal" split-proportion="0.47697842">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+                <state relative-caret-position="193">
+                  <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
                   <folding>
                     <element signature="e#38#67#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="285">
+                  <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="280">
+                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+                  <folding>
+                    <element signature="e#58#109#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="257">
+                  <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
                 </state>
               </provider>
             </entry>
@@ -88,27 +119,15 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="239">
-                  <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+                <state relative-caret-position="295">
+                  <caret line="166" column="62" selection-start-line="166" selection-start-column="62" selection-end-line="166" selection-end-column="62" />
                   <folding>
                     <element signature="e#74#122#0" expanded="true" />
                     <element signature="e#4643#5748#0" />
                     <element signature="e#4780#5598#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-                  <folding>
-                    <element signature="e#74#103#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -193,7 +212,6 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetServerHTTPReq.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/state/TestStateProvider.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/state/TestDataProvider.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntRL.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/PersistentServiceProvider.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/AsyncRequestTest.scala" />
@@ -209,7 +227,6 @@
         <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/AJAXCalls.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/RouteName.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" />
@@ -224,20 +241,22 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/PersistentActorWhisperer.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/UpdateRL.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertRL.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRL.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetEntityLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertEntityLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/UpdateEntityLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" />
-        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" />
+        <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala" />
       </list>
     </option>
   </component>
@@ -703,13 +722,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00246" summary="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42">
-      <created>1567177906309</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1567177906309</updated>
-    </task>
     <task id="LOCAL-00247" summary="Code compiles. 6 todos are left until a hopefully working&#10;get request :).&#10;&#10;Friday, 30 August 2019 18.11.42&#10;&#10;--------------------------------&#10;&#10;Code compiles, now 4 todo-s are left (and lot of &quot;todo-later&quot;-s).&#10;&#10;Friday, 30 August 2019 18.29.46&#10;&#10;---------------------------------">
       <created>1567178993900</created>
       <option name="number" value="00247" />
@@ -1046,7 +1058,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568151091774</updated>
     </task>
-    <option name="localTasksCounter" value="295" />
+    <task id="LOCAL-00295" summary="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory.">
+      <created>1568154164565</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1568154164565</updated>
+    </task>
+    <option name="localTasksCounter" value="296" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1093,7 +1112,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1432" height="792" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.555773" side_tool="true" weight="0.2496361" />
       <window_info id="Designer" order="1" />
@@ -1211,7 +1229,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass." />
     <MESSAGE value="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.01.07:&#10;&#10;Yes, integration tests do pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.46.05:&#10;&#10;Some progress, currently code does not compile.&#10;We have 7 TODO-s now.&#10;&#10;This is a &quot;safety&quot; commit.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.01.07:&#10;&#10;Yes, integration tests do pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.46.05:&#10;&#10;Some progress, currently code does not compile.&#10;We have 7 TODO-s now.&#10;&#10;This is a &quot;safety&quot; commit.&#10;&#10;--------------------------------------------------&#10;Friday, 6 September 2019 1.31.18:&#10;&#10;A bit of refactoring. Code compiles.&#10;Safety commit." />
     <MESSAGE value="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.01.07:&#10;&#10;Yes, integration tests do pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.46.05:&#10;&#10;Some progress, currently code does not compile.&#10;We have 7 TODO-s now.&#10;&#10;This is a &quot;safety&quot; commit.&#10;&#10;--------------------------------------------------&#10;Friday, 6 September 2019 1.31.18:&#10;&#10;A bit of refactoring. Code compiles.&#10;Safety commit.&#10;&#10;--------------------------------------------------&#10;Friday, 6 September 2019 3.10.18:&#10;Code compiles.&#10;Created lot of new little function implementations and&#10;then new ???-s and todos." />
@@ -1236,16 +1253,10 @@
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work.&#10;&#10;--------------------------------------------------&#10;&#10;Now we are going to simplify the code a bit.&#10;&#10;This is a &quot;safety&quot; backup before that." />
     <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------" />
+    <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ParametersAsJSON.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.6-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1415,16 +1426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <element signature="e#38#72#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3269">
@@ -1531,13 +1532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/resources/test.conf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1559,16 +1553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="e#277#290#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1596,67 +1580,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#68#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="67" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#68#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="e#58#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
-            <element signature="e#68#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <element signature="e#38#76#0" expanded="true" />
+            <element signature="e#74#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="64" column="45" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+        <state relative-caret-position="295">
+          <caret line="166" column="62" selection-start-line="166" selection-start-column="62" selection-end-line="166" selection-end-column="62" />
           <folding>
             <element signature="e#74#122#0" expanded="true" />
             <element signature="e#4643#5748#0" />
@@ -1665,22 +1602,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala">
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="271">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
-            <element signature="e#74#103#0" expanded="true" />
+            <element signature="e#38#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+          <folding>
+            <element signature="e#1232#1256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding>
+            <element signature="e#68#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="e#68#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#68#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+          <folding>
+            <element signature="e#38#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        <state relative-caret-position="193">
+          <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
           <folding>
             <element signature="e#38#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#58#109#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -22,7 +22,7 @@ case class InsertEntityLogic[V <: EntityValue[V]]()(
 
   override def getHttpReqResult(
       param: InsertReqPar[V]
-  ): Future[Option[InsertReqRes[V]]] = {
+  ): Future[InsertReqRes[V]] = {
     ??? // todo-now
 
   }

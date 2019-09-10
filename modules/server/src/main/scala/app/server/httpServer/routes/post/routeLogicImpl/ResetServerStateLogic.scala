@@ -9,7 +9,7 @@ case class ResetServerStateLogic(
 )(
   implicit
 //  persistentServiceProvider: PersistentServiceProvider,
-  contextExecutor:           ExecutionContextExecutor)
+  contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[ResetRequest] {
 //  implicit val ce: ExecutionContextExecutor = contextExecutor
 
@@ -25,7 +25,7 @@ case class ResetServerStateLogic(
     */
   override def getHttpReqResult(
     param: ResetRequest.Par
-  ): Future[Option[ResetRequest.Res]] = {
+  ): Future[ResetRequest.Res] = {
     ??? //todo-now
   }
 

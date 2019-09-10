@@ -29,9 +29,9 @@ private[routes] object PostRouteFactory {
     classTag2: ClassTag[Req#PayLoad],
     logic:     RouteLogic[Req],
 //    dpl:       Decoder[Req#PayLoad],
-    decoder:   Decoder[Req#Par],
-    encoder:   Encoder[Req#Res],
-    e:         ExecutionContext
+    decoder: Decoder[Req#Par],
+    encoder: Encoder[Req#Res],
+    e:       ExecutionContext
   ): PostRoute[Req] = {
 
     val res: Route =
@@ -77,13 +77,15 @@ private[routes] object PostRouteFactory {
 
             println(s"debug 76FB201E : $name")
 
-            val res: Future[Option[Req#Res]] =
+            val res: Future[Req#Res] =
               logic.getHttpReqResult(params)
 
-            val res2: Future[String] =
-              res.map((o: Option[Req#Res]) => {
+            val res2 =
+              res.map((r: Req#Res) => {
+
                 val encoded: ResultOptionAsJSON =
-                  encdec.encodeResult(o)
+                  encdec.encodeResult(Some(r))
+
                 val optionAsString: String =
                   encoded.resultOptionAsJSON
                 println(

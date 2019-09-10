@@ -7,20 +7,20 @@ import io.circe.{Decoder, Error, _}
 object EncodersDecoders {
 
   def decodeResult[Req <: PostRequest](
-      res: ResultOptionAsJSON
+    res: ResultOptionAsJSON
   )(
-      implicit
-      e: Decoder[Req#Res]
+    implicit
+    e: Decoder[Req#Res]
   ): Either[Error, Req#Res] = {
     val r: Either[Error, Req#Res] = decode(res.resultOptionAsJSON)
     r
   }
 
   def decodeParameters[Req <: PostRequest](
-      res: ParametersAsJSON
+    res: ParametersAsJSON
   )(
-      implicit
-      e: Decoder[Req#Par]
+    implicit
+    e: Decoder[Req#Par]
   ): Either[Error, Req#Par] = {
     val r: Either[Error, Req#Par] = decode(res.parameters_as_json)
     r
@@ -38,17 +38,19 @@ object EncodersDecoders {
     * @return
     */
   def encodeResult[Req <: PostRequest](
-      r: Option[Req#Res]
+    r: Option[Req#Res]
   )(
-      implicit
-      e: Encoder[Option[Req#Res]]
+    implicit
+    e: Encoder[Option[Req#Res]]
   ): ResultOptionAsJSON = {
     ResultOptionAsJSON(e.apply(r).spaces4)
   }
 
   def encodeParameters[Req <: PostRequest](
-      r:        Req#Par
-  )(implicit e: Encoder[Req#Par]): ParametersAsJSON = {
+    r: Req#Par
+  )(
+    implicit e: Encoder[Req#Par]
+  ): ParametersAsJSON = {
     ParametersAsJSON(e.apply(r).spaces4)
   }
 

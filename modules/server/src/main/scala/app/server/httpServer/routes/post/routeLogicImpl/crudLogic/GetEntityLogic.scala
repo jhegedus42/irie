@@ -1,29 +1,43 @@
 package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.postRequests.GetEntityReq
-import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
+import app.shared.comm.postRequests.GetEntityReq.{
+  GetEntityReqPar,
+  GetEntityReqRes
+}
+import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class GetEntityLogic[V <: EntityValue[V]](
+)(
+  implicit
 //    persistenceModule: PersistentServiceProvider,
 //    d:                 Decoder[Entity[V]],
-    dv:                 Decoder[V],
-    contextExecutor:   ExecutionContextExecutor,
-) extends RouteLogic[GetEntityReq[V]] {
+  paw:             PersistentActorWhisperer,
+  dv:              Decoder[V],
+  contextExecutor: ExecutionContextExecutor)
+    extends RouteLogic[GetEntityReq[V]] {
 
-  implicit val ce: ExecutionContextExecutor = contextExecutor
-
+//  implicit val ce: ExecutionContextExecutor = contextExecutor
 
   override def getHttpReqResult(
-      param: GetEntityReqPar[V]
-  ): Future[Option[GetEntityReqRes[V]]] = {
-    ??? // todo-now
+    param: GetEntityReqPar[V]
+  ): Future[GetEntityReqRes[V]] = {
+
+    val res: Future[Option[Entity[V]]] =
+      paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
+
+    val res2: Future[GetEntityReqRes[V]] =
+      res.map(r => GetEntityReqRes(r))
+    res2
   }
 
-  override def getRouteName: String = "debug 319CCAEA2DE4 - get route logic"
+  override def getRouteName: String =
+    "debug 319CCAEA2DE4 - get route logic"
 
 }

@@ -20,7 +20,7 @@ private[httpServer] case class RouteFactory(
     : ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val paw = PersistentActorWhisperer(actorSystem)
+  implicit val paw = PersistentActorWhisperer(actorSystem)
 
 //  lazy implicit val persistenceModule = PersistentServiceProvider() // todo-now - put something here
 

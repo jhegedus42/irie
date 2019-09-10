@@ -164,6 +164,7 @@ case class PersistentActorWhisperer(
   def getEntityWithLatestVersion[EV <: EntityValue[EV]](
     ref: RefToEntityWithoutVersion[EV]
   )(//      implicit pa: PersistentActorWhisperer,
+                                                       implicit
     d: Decoder[EV]
   ): Future[Option[Entity[EV]]] = {
 
