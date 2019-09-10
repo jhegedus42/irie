@@ -1,4 +1,4 @@
-package app.client.ui.caching.cache
+package app.client.ui.caching.cache.comm
 
 import app.shared.comm.{PostRequest, RouteName}
 import io.circe.{Decoder, Encoder}

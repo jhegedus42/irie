@@ -1,6 +1,6 @@
-package app.client.ui.caching.cache
+package app.client.ui.caching.cache.comm
 
-import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.PostRequest

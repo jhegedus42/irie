@@ -1,12 +1,12 @@
-package app.client.ui.caching.cache
+package app.client.ui.caching.cache.comm
 
-import app.client.ui.caching.cache.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
+import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
-import io.circe.generic.auto._
 
 class SumIntRequestAsyncTest extends AsyncFunSuite {
   override implicit def executionContext: ExecutionContextExecutor =
