@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
   InsertNewEntityCommand,
   UpdateEntityCommand
 }

@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
 case class OCCVersion(version:Long){
 

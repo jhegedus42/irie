@@ -1,7 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.typesafePersistence
 
 import akka.actor.ActorSystem
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.utils.PrettyPrint
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -55,7 +54,7 @@ class PersistentServiceProviderTest extends FunSuite {
       implicit val executionContext: ExecutionContextExecutor =
         actorSystem.dispatcher
 
-      val pm = PersistentServiceProvider()
+//      val pm = PersistentServiceProvider()
 
 //      val res: Future[  Entity[User] ] = pm.createAndStoreNewEntity( cica )
 //      import scala.concurrent._

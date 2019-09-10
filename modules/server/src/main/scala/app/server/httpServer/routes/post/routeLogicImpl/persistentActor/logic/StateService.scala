@@ -1,12 +1,12 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.UpdateEntityCommand
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.UpdateEntityCommand
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
   UntypedEntity,
   UntypedRef
 }
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.server.initialization.Config
 import app.shared.entity.asString.EntityValueAsJSON
 

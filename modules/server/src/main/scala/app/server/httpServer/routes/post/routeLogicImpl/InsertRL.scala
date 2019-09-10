@@ -1,8 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.InsertEPOP
 import app.shared.comm.postRequests.InsertReq
 import app.shared.comm.postRequests.InsertReq.{
   InsertReqPar,
@@ -18,7 +16,7 @@ import scala.util.Try
 
 case class InsertRL[V <: EntityValue[V]]()(
     implicit
-    persistenceModule: PersistentServiceProvider,
+//    persistenceModule: PersistentServiceProvider,
     decoderEntityV:    Decoder[Entity[V]],
     encoderEntityV:    Encoder[Entity[V]],
     encoderV:          Encoder[V],
@@ -29,17 +27,7 @@ case class InsertRL[V <: EntityValue[V]]()(
   override def getHttpReqResult(
       param: InsertReqPar[V]
   ): Future[Option[InsertReqRes[V]]] = {
-
-    implicit val executor: InsertEPOP.Executor[V] =
-      InsertEPOP.Executor()
-
-    persistenceModule
-      .executePO[V, InsertEPOP[V]](
-        InsertEPOP.InsertPOPar(param.value)
-      )
-      .map(poRes => poRes.res.toOption.map(InsertReqRes(_)))(
-        executor = contextExecutor
-      )
+    ??? // todo-now
 
   }
   override def getRouteName: String = "debug 319CCAEA2DE4 - insert logic"

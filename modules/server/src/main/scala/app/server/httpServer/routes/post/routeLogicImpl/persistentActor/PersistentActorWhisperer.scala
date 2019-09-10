@@ -1,40 +1,21 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
+import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
-
-import scala.concurrent.duration._
-import akka.actor.{ActorRef, ActorSystem}
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.{
-  GetStateSnapshot,
-  InsertNewEntityCommand,
-  ResetStateCommand,
-  UpdateEntityCommand
-}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntity,
-  UntypedRef
-}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.logic.{
-  DidOperationSucceed,
-  PersistentActorImpl
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{
-  EntityDeletedFlag,
-  RefToEntityWithVersion,
-  RefToEntityWithoutVersion
-}
-import app.shared.initialization.testing.TestUsers
+import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.{Decoder, Encoder}
-import akka.actor.{ActorLogging, ActorSystem, Props}
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.testRelatedOperations.Reset.ResetStateEPOP
+
+import scala.concurrent.duration._
+
+
 import app.shared.entity.asString.EntityValueAsJSON
-import io.circe.Decoder.Result
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -46,18 +27,12 @@ import scala.reflect.ClassTag
   */
 case class PersistentActorWhisperer() {
 
-  def resetTheState(): Future[ResetStateEPOP.ResetEPOPRes] = {
+  def resetTheState(): Future[String] = {
 
     val ic = ResetStateCommand
 
-    val res: Future[ResetStateEPOP.ResetEPOPRes] =
       ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
         .mapTo[String]
-        .map(s => ResetStateEPOP.ResetEPOPRes(Right(s)))
-
-    //todo-one-day ^ error handling - maybe
-
-    res
   }
 
   def getActor(id: String, as: ActorSystem) = as.actorOf(props(id))

@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.UntypedEntity
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.UntypedEntity
 
 trait EventToBeSavedIntoJournal
 

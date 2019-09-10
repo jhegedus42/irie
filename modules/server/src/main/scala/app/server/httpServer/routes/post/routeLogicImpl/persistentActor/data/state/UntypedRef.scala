@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}

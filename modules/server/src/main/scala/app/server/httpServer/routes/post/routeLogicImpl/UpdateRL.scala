@@ -1,7 +1,5 @@
 package app.server.httpServer.routes.post.routeLogicImpl
 import app.server.httpServer.routes.post.RouteLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.crudOps.UpdateEPOP
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.Entity
@@ -13,7 +11,7 @@ import scala.reflect.ClassTag
 
 case class UpdateRL[V <: EntityValue[V]]()(
     implicit
-    persistenceModule: PersistentServiceProvider,
+//    persistenceModule: PersistentServiceProvider,
     decoderEntityV:    Decoder[Entity[V]],
     encoderEntityV:    Encoder[Entity[V]],
     _encoderV:         Encoder[V],
@@ -25,24 +23,7 @@ case class UpdateRL[V <: EntityValue[V]]()(
       param: UpdateReqPar[V]
   ): Future[Option[UpdateReqRes[V]]] = {
 
-    implicit val executer: UpdateEPOP.Executor[V] =
-      UpdateEPOP.Executor(decoder  = decoderEntityV,
-                          encoder  = encoderEntityV,
-                          eencoder = _encoderV,
-                          ct       = classTag)
-
-    val poPar: UpdateEPOP.UpdatePOPar[V] =
-      UpdateEPOP.UpdatePOPar(param.currentEntity, param.newValue)
-
-    val poRes: Future[UpdateEPOP.UpdatePORes[V]] =
-      persistenceModule.executePO[V, UpdateEPOP[V]](poPar)
-
-    def poRes2ReqRes
-        : UpdateEPOP.UpdatePORes[V] => Option[UpdateReqRes[V]] =
-      poRes => poRes.res.toOption.map(UpdateReqRes(_))
-
-    poRes.map(poRes2ReqRes(_))(contextExecutor)
-
+    ??? //todo-now
   }
 
   /**

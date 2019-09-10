@@ -1,11 +1,8 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistenceOperations.occ.OCCVersion
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Payloads.UntypedRefWithoutVersion
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
-import app.shared.entity.asString.{
-  EntityAndItsValueAsJSON,
-  EntityValueAsJSON
-}
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder

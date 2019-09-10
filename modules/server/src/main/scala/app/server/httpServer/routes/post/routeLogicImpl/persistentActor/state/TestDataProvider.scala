@@ -1,6 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.{
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
   UntypedEntity
 }

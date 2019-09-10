@@ -1,8 +1,8 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.Commands.ShutdownActor
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.data.state.StateMapSnapshot
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor.state.TestDataProvider
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.ShutdownActor
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestUsers

@@ -5,7 +5,6 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
 import app.server.httpServer.routes.post.routeLogicImpl.ResetServerStateLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.{ResetRequest, SumIntRoute}
@@ -20,7 +19,7 @@ private[httpServer] case class RouteFactory(
     : ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  lazy implicit val persistenceModule = PersistentServiceProvider()
+//  lazy implicit val persistenceModule = PersistentServiceProvider() // todo-now - put something here
 
   val route: Route = allRoutes
 

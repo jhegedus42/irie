@@ -18,13 +18,13 @@ import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.persistenceService.PersistentServiceProvider
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
 case class CRUDRouteFactory()(
-    implicit persistenceModule: PersistentServiceProvider,
+//    implicit persistenceModule: PersistentServiceProvider, // todo-now - put something here
+                           implicit
     executionContext:  ExecutionContextExecutor
 ) {
 //  implicit val ec = executionContext: ExecutionContextExecutor
@@ -46,7 +46,7 @@ case class CRUDRouteFactory()(
     implicit val updateRouteLogic = UpdateRL()
 
     implicit val getRouteLogic =
-      GetRL[V](persistenceModule, dpl, executionContext)
+      GetRL[V]( dpl, executionContext)
 
     getPostRoute[UpdateReq[V]].route ~
       getPostRoute[InsertReq[V]].route ~
