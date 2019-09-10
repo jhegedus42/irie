@@ -22,9 +22,12 @@ case class StateServiceOperationFailed(m: String)
 private[logic] case class StateService() {
 
   def resetState(): Unit = {
-    println("1C6C8F45 - we reset the state now")
+    println("1C6C8F45 - we reset the state now - its value before reset is:")
+    printStateInSimpleFormat()
+
     val newState: StateMapSnapshot = TestDataProvider.getTestState
     setNewState(newState)
+
   }
 
   def updateEntity(

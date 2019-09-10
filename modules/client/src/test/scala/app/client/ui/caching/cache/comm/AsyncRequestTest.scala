@@ -31,7 +31,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
 
     val r1: Future[Entity[User]] = helper
-      .getUser(alice)
+      .getUser(alice.refToEntity.stripVersion())
 
 //    r1.onComplete(
 //      (x: Try[Entity[User]]) =>
@@ -59,7 +59,10 @@ class AsyncRequestTest extends AsyncFunSuite {
     val insertResult: Future[Entity[User]] = ac.map(_.res.entity)
 
     val getResult: Future[Entity[User]] =
-      insertResult.flatMap((e: Entity[User]) => helper.getUser(e))
+      insertResult.flatMap(
+        (e: Entity[User]) =>
+          helper.getUser(e.refToEntity.stripVersion())
+      )
 
     val futureAssertionThatEverythingIsKosher: Future[Assertion] =
       getResult.map(
@@ -82,7 +85,9 @@ class AsyncRequestTest extends AsyncFunSuite {
       helper.updateUser(userEntity, newValue)
 
     val getRequestResult: Future[Entity[User]] =
-      updateReqResult.flatMap(e => helper.getUser(e))
+      updateReqResult.flatMap(
+        e => helper.getUser(e.refToEntity.stripVersion())
+      )
     // here we are waiting first for the update request to return
     // and only after that we launch the getRequest
 
@@ -108,6 +113,67 @@ class AsyncRequestTest extends AsyncFunSuite {
     println("now starting reset test...")
     val res: Future[ResetRequest.Res] = helper.resetServer()
     res.map(r => assert(r.message === "minden shiraly!"))
+  }
+
+  test("reset, get, update, reset and get") {
+
+    println("this test is to be implemented") // todo-now
+    val alicesOriginalFavNumber = TestUsers.alice.favoriteNumber
+
+    // reset the server
+
+    val reset: Future[ResetRequest.Res] = helper.resetServer()
+
+    // get alice and check that her state is resetted
+
+    val refToAlice =
+      TestUsers.aliceEntity_with_UUID0.refToEntity.stripVersion()
+
+    val alice: Future[Entity[User]] = helper.waitFor(reset) {
+      helper.getUser(refToAlice)
+    }
+
+    val test1: Future[Boolean] = alice.map(
+      a => a.entityValue.favoriteNumber == alicesOriginalFavNumber
+    )
+
+    // now we update Alice
+
+    val newAlice = alice.flatMap(a => helper.setUsersFavNumber(a, 66))
+
+    val fetchedNewAlice: Future[Entity[User]] = newAlice.flatMap(
+      na => helper.getUser(na.refToEntity.stripVersion())
+    )
+
+    // now we check that her state has been updated
+
+    val test2: Future[Boolean] =
+      fetchedNewAlice.map(fna => fna.entityValue.favoriteNumber == 66)
+
+    // now we reset the server
+
+    val reset2: Future[ResetRequest.Res] = helper.waitFor(test2) {
+      helper.resetServer()
+    }
+
+    // now we check that alice has a resetted favorite number
+
+    val aliceAfterUpdateAndReset: Future[Entity[User]] =
+      helper.waitFor(reset) {
+        helper.getUser(refToAlice)
+      }
+
+    val test3: Future[Boolean] = aliceAfterUpdateAndReset.map(
+      a => a.entityValue.favoriteNumber == alicesOriginalFavNumber
+    )
+
+    // now we combine the 3 tests into one single assert
+    val res: Future[Assertion] = for {
+      a <- test1
+      b <- test2
+      c <- test3
+    } yield (assert(a && b && c))
+    res
   }
 
 }
