@@ -172,7 +172,9 @@ class AsyncRequestTest extends AsyncFunSuite {
       a <- test1
       b <- test2
       c <- test3
-    } yield (assert(a && b && c))
+      fna <- fetchedNewAlice
+      d = fna.entityValue.favoriteNumber != 67
+    } yield (assert(a && b && c && d))
     res
   }
 
