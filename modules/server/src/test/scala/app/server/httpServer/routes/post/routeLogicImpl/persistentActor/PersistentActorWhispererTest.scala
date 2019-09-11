@@ -35,12 +35,12 @@ class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
 
   }
 
-  test("testgetSnapshot"){
-
-    val r: StateMapSnapshot =Await.result(tsap.getSnaphot , 1 second)
-    assert(TestDataProvider.getTestState===r)
-
-  }
+//  test("testgetSnapshot"){
+//
+//    val r: StateMapSnapshot =Await.result(tsap.getSnaphot , 1 second)
+//    assert(TestDataProvider.getTestState===r)
+//
+//  }
 
 
 

@@ -26,7 +26,7 @@ case class ResetServerStateLogic(
   override def getHttpReqResult(
     param: ResetRequest.Par
   ): Future[ResetRequest.Res] = {
-    val r: Future[String] = paw.resetTheState()
+    val r: Future[String] = paw.WriteOps.resetTheState()
     r.map(x => ResetRequest.Res(x))
   }
 

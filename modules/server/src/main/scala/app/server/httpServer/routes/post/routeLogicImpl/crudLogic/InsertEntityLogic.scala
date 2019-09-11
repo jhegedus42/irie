@@ -29,7 +29,7 @@ case class InsertEntityLogic[V <: EntityValue[V]](
     param: InsertReqPar[V]
   ): Future[InsertReqRes[V]] = {
     val r: Future[Option[Entity[V]]] =
-      paw.insertNewEntity(param.value)
+      paw.WriteOps.insertNewEntity(param.value)
     r.map((o: Option[Entity[V]]) => InsertReqRes(o.get)) // todo-later - some error handling
   }
   override def getRouteName: String =

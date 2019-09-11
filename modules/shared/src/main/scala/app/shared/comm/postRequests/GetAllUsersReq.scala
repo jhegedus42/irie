@@ -4,11 +4,13 @@ import app.shared.comm.PostRequest
 import app.shared.comm.postRequests.GetAllUsersReq.Password
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
+import app.shared.entity.refs.{
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 
 class GetAllUsersReq extends PostRequest {
 
-  // todo-now - implement this
-  // this has a "password"
 
   override type Par     = GetAllUsersReq.Password
   override type PayLoad = Unit // has no payload
@@ -16,11 +18,14 @@ class GetAllUsersReq extends PostRequest {
 
 }
 
+case class AdminPassword(pwd: String)
+
 object GetAllUsersReq {
 
-  case class Password(pwd: String) extends PostRequest.Parameter
+  case class Password(adminPassword: AdminPassword)
+      extends PostRequest.Parameter
 
-  case class AllUsers(allUsers: List[Entity[User]])
+  case class AllUsers(allUserRefs: List[RefToEntityWithoutVersion[User]])
       extends PostRequest.Result
 
 }

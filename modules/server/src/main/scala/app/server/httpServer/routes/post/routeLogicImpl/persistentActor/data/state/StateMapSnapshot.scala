@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.st
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.Entity
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Encoder
@@ -151,6 +151,13 @@ private[persistentActor] case class StateMapSnapshot(
 
     Some(getRes)
     // todo-one-day : fix this possible exception here, that getRes is empty
+  }
+
+
+  def getAllRefsWithGivenEntityType(entityType:EntityValueTypeAsString): List[UntypedRef] =
+  {
+
+    ??? // todo-now
   }
 
 }

@@ -30,7 +30,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
   ): Future[UpdateReqRes[V]] = {
 
     val r: Future[Option[Entity[V]]] =
-      paw.updateEntity(param.currentEntity, param.newValue)
+      paw.WriteOps.updateEntity(param.currentEntity, param.newValue)
     r.map((x: Option[Entity[V]]) => UpdateReqRes(x.get))
 
   }
