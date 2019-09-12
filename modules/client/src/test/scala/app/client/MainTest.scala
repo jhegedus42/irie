@@ -22,7 +22,7 @@ class MainTest extends FunSuite {
 
   test( "url_encoding_decoding" ) {
 
-    import app.shared.initialization.testing.TestUsers._
+    import app.shared.initialization.testing.TestEntities._
 
     import scala.scalajs.js._
 

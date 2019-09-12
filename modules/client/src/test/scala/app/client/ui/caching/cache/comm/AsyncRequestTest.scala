@@ -15,7 +15,7 @@ import app.shared.comm.postRequests.{
 }
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
-import app.shared.initialization.testing.TestUsers
+import app.shared.initialization.testing.TestEntities
 import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}
 
@@ -30,7 +30,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("getentity test") {
     println("now starting get test...")
-    val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
+    val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
 
     val r1: Future[Entity[User]] = helper
       .getUser(alice.refToEntity.stripVersion())
@@ -50,7 +50,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("insert and then get") {
     println("now starting insert test...")
-    val c = TestUsers.cica
+    val c = TestEntities.cica
 
     val par = AjaxCallPar[InsertReq[User]](InsertReqPar(c))
 
@@ -78,7 +78,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     import monocle.macros.syntax.lens._
 
-    val userEntity = TestUsers.meresiHiba_with_UUID2
+    val userEntity = TestEntities.meresiHiba_with_UUID2
 
     val newValue: User =
       userEntity.entityValue.lens(_.favoriteNumber).set(66)
@@ -120,7 +120,7 @@ class AsyncRequestTest extends AsyncFunSuite {
   test("reset, get, update, reset and get") {
 
     println("this test is to be implemented")
-    val alicesOriginalFavNumber = TestUsers.alice.favoriteNumber
+    val alicesOriginalFavNumber = TestEntities.alice.favoriteNumber
 
     // reset the server
 
@@ -129,7 +129,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     // get alice and check that her state is resetted
 
     val refToAlice =
-      TestUsers.aliceEntity_with_UUID0.refToEntity.stripVersion()
+      TestEntities.aliceEntity_with_UUID0.refToEntity.stripVersion()
 
     val alice: Future[Entity[User]] = helper.waitFor(reset) {
       helper.getUser(refToAlice)

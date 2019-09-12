@@ -1,15 +1,21 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{CacheInterface, ReactCompWrapper}
+import app.client.ui.caching.cacheInjector.{
+  CacheInterface,
+  ReactCompWrapper
+}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
-import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.components.generalComponents.{
+  FooterComp,
+  TopNavComp
+}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
-import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumbersProps
 import app.client.ui.components.router.mainPageComponents.sumNumbers.{
   SumNumbersComponent,
-  SumNumbersType
+  SumNumbersPage
 }
 import app.client.ui.components.router.mainPageComponents._
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumbersProps
 import japgolly.scalajs.react.extra.router.{
   Resolution,
   RouterConfigDsl,
@@ -25,42 +31,46 @@ case class RouterComp() {
 
   lazy val cache = new CacheInterface()
 
+
+  def getWrappedReactCompConstructor = ???
+
   val config = RouterConfigDsl[MainPage].buildConfig { dsl =>
     import dsl._
 
-    val homeRoute: dsl.Rule = staticRoute( root, HomePage ) ~> render(
+    val homeRoute: dsl.Rule = staticRoute(root, HomePage) ~> render(
       StaticPageExample.apply()
     )
 
     val sumNumberCompRoute: dsl.Rule = {
 
-      val wc2 = ReactCompWrapper[SumNumbersType](
+      val reactCompWrapper = ReactCompWrapper[SumNumbersPage](
         cache         = cache,
-        propsProvider = () => SumNumbersProps( "hello world" ),
+        propsProvider = () => SumNumbersProps("hello world"),
         comp          = SumNumbersComponent.component
       )
 
-      staticRoute( "#cacheTest", SumIntDemo ) ~>
-        render( {
-          wc2.wr
-        } )
+      staticRoute("#cacheTest", SumIntDemo) ~>
+        render({
+          reactCompWrapper.wrappedConstructor
+        })
 
     }
 
-    val adminPage: dsl.Rule = staticRoute( "#admin", AdminPage ) ~> render(
+    val adminPage
+      : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
       StaticAdminPage.apply()
     )
 
     val itemPage: dsl.Rule = {
 
       val itemPage = japgolly.scalajs.react.ScalaComponent
-        .builder[ItemPage]( "Item page" )
-        .render( p => <.div( s"Info for item #${p.props.id}" ) )
+        .builder[ItemPage]("Item page")
+        .render(p => <.div(s"Info for item #${p.props.id}"))
         .build
 
-      dynamicRouteCT( "item" / int.caseClass[ItemPage] ) ~> (dynRender(
-        itemPage( _: ItemPage )
-      ) )
+      dynamicRouteCT("item" / int.caseClass[ItemPage]) ~> (dynRender(
+        itemPage(_: ItemPage)
+      ))
 
     }
 
@@ -70,29 +80,29 @@ case class RouterComp() {
       | itemPage
       | adminPage)
       .notFound(
-        redirectToPage( HomePage )( Redirect.Replace )
+        redirectToPage(HomePage)(Redirect.Replace)
       )
-      .renderWith( f = layout )
+      .renderWith(f = layout)
   }
 
   val mainMenu = Vector.apply(
-    Menu.apply( "Home", HomePage ),
-    Menu.apply( "SumIntDemo", SumIntDemo ),
-    Menu.apply( "ItemPage 4", ItemPage( 4 ) ),
-    Menu.apply( "ItemPage 42", ItemPage( 42 ) ),
-    Menu.apply( "Admin Page", AdminPage )
+    Menu.apply("Home", HomePage),
+    Menu.apply("SumIntDemo", SumIntDemo),
+    Menu.apply("ItemPage 4", ItemPage(4)),
+    Menu.apply("ItemPage 42", ItemPage(42)),
+    Menu.apply("Admin Page", AdminPage)
   )
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
   val router =
-    Router.apply( baseUrl, config )
+    Router.apply(baseUrl, config)
 
   def layout(
-      c: RouterCtl[MainPage],
-      r: Resolution[MainPage]
+    c: RouterCtl[MainPage],
+    r: Resolution[MainPage]
   ) = {
     <.div.apply(
-      TopNavComp.apply( TopNavComp.Props.apply( mainMenu, r.page, c ) ),
+      TopNavComp.apply(TopNavComp.Props.apply(mainMenu, r.page, c)),
       r.render.apply(),
       FooterComp()
     )

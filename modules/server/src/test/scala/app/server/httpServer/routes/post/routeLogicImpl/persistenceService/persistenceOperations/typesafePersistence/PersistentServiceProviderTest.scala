@@ -43,7 +43,7 @@ class PersistentServiceProviderTest extends FunSuite {
   test("init") {
 
     def init(): Unit = {
-      import app.shared.initialization.testing.TestUsers._
+      import app.shared.initialization.testing.TestEntities._
       import io.circe.generic.auto._
 
       println("--------------\n\nHere STARTS the init:\n\n")

@@ -6,7 +6,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.sta
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
-import app.shared.initialization.testing.TestUsers
+import app.shared.initialization.testing.TestEntities
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 import scala.concurrent.{Await, ExecutionContextExecutor}
@@ -25,7 +25,7 @@ class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
   test("testGetEntityWithVersion") {
 
 
-    val ae=TestUsers.aliceEntity_with_UUID0
+    val ae=TestEntities.aliceEntity_with_UUID0
     val aer=ae.refToEntity
 
     val res=tsap.getEntityWithVersion(aer)

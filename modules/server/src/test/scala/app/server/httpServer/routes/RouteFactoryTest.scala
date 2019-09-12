@@ -28,7 +28,7 @@ import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
-import app.shared.initialization.testing.TestUsers
+import app.shared.initialization.testing.TestEntities
 import io.circe.generic.auto._
 import monocle.macros.syntax.lens._
 
@@ -67,7 +67,7 @@ class RouteFactoryTest
   test("test insert route[User]") {
 
     resetServerState()
-    val mhb = TestUsers.jetiLabnyom
+    val mhb = TestEntities.jetiLabnyom
 
     val insertedEntity = executeInsertUserRequest(mhb)
 
@@ -80,7 +80,7 @@ class RouteFactoryTest
     // we insert a new Terez Anya
 
     resetServerState()
-    val terezAnyaValue = TestUsers.terezAnya
+    val terezAnyaValue = TestEntities.terezAnya
 
     val originalTA =
       executeInsertUserRequest(terezAnyaValue)
@@ -114,7 +114,7 @@ class RouteFactoryTest
 //    val
 
     resetServerState()
-    val alice: Entity[User] = TestUsers.aliceEntity_with_UUID0
+    val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
     val refToEntityWithoutVersion = alice.refToEntity.stripVersion()
 
     assertLatestEntityIs(alice)
@@ -132,7 +132,7 @@ class RouteFactoryTest
 
     resetServerState()
 
-    val mhb: Entity[User] = TestUsers.meresiHiba_with_UUID2
+    val mhb: Entity[User] = TestEntities.meresiHiba_with_UUID2
 
     assertUserFavoriteNumber(mhb,369)
 

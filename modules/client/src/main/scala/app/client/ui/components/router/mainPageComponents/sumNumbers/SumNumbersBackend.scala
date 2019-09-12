@@ -2,7 +2,7 @@ package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
-import app.client.ui.components.router.mainPageComponents.sumNumbers.data.SumNumberState
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
@@ -180,4 +180,5 @@ class SumNumbersBackend[Props](
       ^.onClick --> StateChangers.refreshState()
     )
   }
+
 }

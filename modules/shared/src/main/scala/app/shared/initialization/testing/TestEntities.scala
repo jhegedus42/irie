@@ -4,7 +4,7 @@ import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils
 
-object TestUsers {
+object TestEntities {
 
   val alice       = User(name = "Alice", favoriteNumber       = 38)
   val bob         = User(name = "Bob", favoriteNumber         = 45)

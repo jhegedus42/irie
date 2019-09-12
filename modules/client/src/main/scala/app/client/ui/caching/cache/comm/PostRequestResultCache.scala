@@ -4,7 +4,8 @@ import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.SumIntRoute
+import app.shared.comm.postRequests.{GetEntityReq, SumIntRoute}
+import app.shared.entity.entityValue.values.User
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -17,12 +18,14 @@ private[caching] class PostRequestResultCache[Req <: PostRequest]() {
 
   private[this] var map: Map[Req#Par, CacheEntryState[Req]] = Map()
 
-  private[caching] def getPostRequestResultCacheState(par: Req#Par)(
+  private[caching] def getPostRequestResultCacheState(
+    par: Req#Par
+  )(
     implicit
     decoder: Decoder[Req#Res],
     encoder: Encoder[Req#Par],
-    ct: ClassTag[Req],
-    ct2:    ClassTag[Req#PayLoad]
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoad]
   ): CacheEntryState[Req] =
     if (!map.contains(par)) {
       val loading = Loading(par)
@@ -45,5 +48,9 @@ private[caching] class PostRequestResultCache[Req <: PostRequest]() {
 }
 
 object PostRequestResultCache {
-  implicit val sumIntPostRequestResultCache = new PostRequestResultCache[SumIntRoute]()
+  implicit val sumIntPostRequestResultCache =
+    new PostRequestResultCache[SumIntRoute]()
+
+  implicit val getUserCache =
+    new PostRequestResultCache[GetEntityReq[User]]()
 }
