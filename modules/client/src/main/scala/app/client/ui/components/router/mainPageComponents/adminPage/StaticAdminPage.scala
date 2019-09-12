@@ -21,6 +21,11 @@ object StaticAdminPage {
                 (
                 <.h1("Admin page"),
                 <.p(C.lead, "User CRUD comes here")
+
+                  // todo-now-0 - CRUD user GUI
+                  // todo-now-1 - list user names
+                  // todo-now-2 - list user refs
+
                 )
             )
           )

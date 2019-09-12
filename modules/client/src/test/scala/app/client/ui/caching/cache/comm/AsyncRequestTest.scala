@@ -182,7 +182,6 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("getAllUserRefs") {
 
-    // todo-now implement this
 
     helper.resetServer()
 

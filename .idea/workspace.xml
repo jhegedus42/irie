@@ -7,13 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration_test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/integration_test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetAllUsersLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetAllUsersLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,14 +78,41 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="278">
-                  <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+                <state relative-caret-position="68">
+                  <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
                   <folding>
                     <element signature="e#43#139#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="142">
+                  <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -98,15 +121,36 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="407">
-                  <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+                <state relative-caret-position="272">
+                  <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
                   <folding>
                     <element signature="e#1451#1640#0" />
                     <element signature="e#1644#1847#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="184" selection-start-line="184" selection-end-line="184" />
+                  <folding>
+                    <element signature="e#42#146#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="42" selection-start-line="42" selection-end-line="42" />
                 </state>
               </provider>
             </entry>
@@ -184,7 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetServerHTTPReq.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/state/TestStateProvider.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/state/TestDataProvider.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntRL.scala" />
@@ -200,7 +243,6 @@
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistentActor/logic/StateService.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTestHelper.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/AJAXCalls.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/RouteName.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" />
@@ -230,11 +272,13 @@
         <option value="$PROJECT_DIR$/project/Settings.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetAllUsersLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" />
       </list>
     </option>
   </component>
@@ -540,13 +584,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00253" summary="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------">
-      <created>1567288415555</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1567288415555</updated>
     </task>
     <task id="LOCAL-00254" summary="--------------------------------------------------&#10;Saturday, 31 August 2019 2.01.51 :&#10;&#10;Code compiles.&#10;&#10;Introduced the &quot;PersistentActorWhisperer&quot; case class-t.&#10;&#10;After implementing the &quot;Get&quot; part &quot;there&quot;, then we&#10;might be able to start to see the light at the end of the &#10;Get tunnel. :)&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.32.55:&#10;&#10;Added basic &quot;foundation&quot; for OCC.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 0.51.54:&#10;&#10;Making the names a bit more explicit.&#10;&#10;--------------------------------------------------&#10;&#10;Sunday, 1 September 2019 0.53.17:&#10;&#10;Setting priorities for todo-s.&#10;&#10;--------------------------------------------------&#10;Sunday, 1 September 2019 3.19.50:&#10;&#10;Adding dummy implementation for a get Entity unit test&#10;--------------------------------------------------">
       <created>1567297198044</created>
@@ -884,7 +921,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568274508114</updated>
     </task>
-    <option name="localTasksCounter" value="302" />
+    <task id="LOCAL-00302" summary="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 11.42.38:&#10;&#10;Integration test passes for getAllUserRefs route.&#10;&#10;It is time to add some user management page&#10;for the client.&#10;&#10;--------------------------------------------------">
+      <created>1568277812334</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1568277812334</updated>
+    </task>
+    <option name="localTasksCounter" value="303" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -944,7 +988,7 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5408719" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="7" sideWeight="0.47711015" visible="true" weight="0.14428571" />
+      <window_info active="true" anchor="bottom" id="TODO" order="7" sideWeight="0.47711015" visible="true" weight="0.42" />
       <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" weight="0.35857144" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48783976" weight="0.506812" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52288985" side_tool="true" weight="0.27247956" />
@@ -1049,7 +1093,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.&#10;--------------------------------------------------&#10;Friday, 6 September 2019 21.53.26:&#10;&#10;Created `executeUpdateUserRequest` helper method for testing&#10;the update request.&#10;&#10;Code compiles, integration tests pass, writing the integration&#10;test for the update request is still in progress." />
     <MESSAGE value="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.&#10;--------------------------------------------------&#10;Friday, 6 September 2019 21.53.26:&#10;&#10;Created `executeUpdateUserRequest` helper method for testing&#10;the update request.&#10;&#10;Code compiles, integration tests pass, writing the integration&#10;test for the update request is still in progress.&#10;--------------------------------------------------&#10;Saturday, 7 September 2019 16.53.41:&#10;&#10;akka-http route-test for update route is written.&#10;&#10;TODO : run it and make it pass." />
     <MESSAGE value="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.&#10;--------------------------------------------------&#10;Friday, 6 September 2019 21.53.26:&#10;&#10;Created `executeUpdateUserRequest` helper method for testing&#10;the update request.&#10;&#10;Code compiles, integration tests pass, writing the integration&#10;test for the update request is still in progress.&#10;--------------------------------------------------&#10;Saturday, 7 September 2019 16.53.41:&#10;&#10;akka-http route-test for update route is written.&#10;&#10;TODO : run it and make it pass.&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 3.41.44:&#10;Test fails because of an ??? implementation.&#10;Todo : ??? needs to be implemented." />
     <MESSAGE value="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.&#10;--------------------------------------------------&#10;Friday, 6 September 2019 21.53.26:&#10;&#10;Created `executeUpdateUserRequest` helper method for testing&#10;the update request.&#10;&#10;Code compiles, integration tests pass, writing the integration&#10;test for the update request is still in progress.&#10;--------------------------------------------------&#10;Saturday, 7 September 2019 16.53.41:&#10;&#10;akka-http route-test for update route is written.&#10;&#10;TODO : run it and make it pass.&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 3.41.44:&#10;Test fails because of an ??? implementation.&#10;Todo : ??? needs to be implemented.&#10;&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 8.25.21:&#10;&#10;akka-http-test based route tests pass : CRU &#10;&#10;(delete not yet implemented, that is a form of update )&#10;&#10;--------------------------------------------------&#10;&#10;todo : make the persistence work for real&#10;&#10;showdown restart actor ...&#10;&#10;make it persist the state, for real...&#10;&#10;write test for this ...&#10;&#10;--------------------------------------------------" />
@@ -1074,33 +1117,10 @@
     <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === ." />
     <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route." />
-    <option name="LAST_COMMIT_MESSAGE" value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route." />
+    <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 11.42.38:&#10;&#10;Integration test passes for getAllUserRefs route.&#10;&#10;It is time to add some user management page&#10;for the client.&#10;&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 11.42.38:&#10;&#10;Integration test passes for getAllUserRefs route.&#10;&#10;It is time to add some user management page&#10;for the client.&#10;&#10;--------------------------------------------------" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.8-sources.jar!/org/scalatest/Assertions.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6220">
-          <caret line="474" column="19" selection-start-line="474" selection-start-column="19" selection-end-line="474" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding>
-            <element signature="e#38#72#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/ResultOptionAsJSON.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.julien-truffaut/monocle-macro_2.12/jars/monocle-macro_2.12-1.5.0.jar!/monocle/macros/syntax/GenApplyLensOps.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1146,13 +1166,6 @@
           <folding>
             <element signature="e#38#67#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -1400,16 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
-          <folding>
-            <element signature="e#42#146#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1432,8 +1435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        <state relative-caret-position="272">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding>
             <element signature="e#1451#1640#0" />
             <element signature="e#1644#1847#0" />
@@ -1441,13 +1444,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+          <folding>
+            <element signature="e#42#146#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+        <state relative-caret-position="68">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding>
             <element signature="e#43#139#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
         </state>
       </provider>
     </entry>
