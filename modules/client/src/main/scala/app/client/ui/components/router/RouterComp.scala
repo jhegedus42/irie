@@ -93,6 +93,17 @@ case class RouterComp() {
       // this is a little "trick" here ... we want to see if we can pass
       //  some props into the "cache injected component" from the URL
 
+      //  todo-now-7 : misuse SumNumbersPage to display user info.
+      //
+      //   Details :
+      //
+      //   Use the props from the URL to provide an uuid to an user
+      //   so that it can be fetched ... and it's name and favorite
+      //   number can be displayed.
+      //
+      //
+      //
+
     }
 
     val itemPage: dsl.Rule = {
