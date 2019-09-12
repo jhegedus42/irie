@@ -22,7 +22,6 @@ private[httpServer] case class RouteFactory(
 
   implicit val paw = PersistentActorWhisperer(actorSystem)
 
-//  lazy implicit val persistenceModule = PersistentServiceProvider() // todo-now - put something here
 
   val route: Route = allRoutes
 

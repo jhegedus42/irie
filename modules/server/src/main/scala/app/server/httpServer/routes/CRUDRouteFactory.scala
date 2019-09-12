@@ -24,7 +24,7 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
 case class CRUDRouteFactory(
-)(//    implicit persistenceModule: PersistentServiceProvider, // todo-now - put something here
+)(
   implicit
   paw:              PersistentActorWhisperer,
   executionContext: ExecutionContextExecutor) {

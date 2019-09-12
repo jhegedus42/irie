@@ -1,7 +1,7 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetAllUsersReq.Password
+import app.shared.comm.postRequests.GetAllUsersReq.Par
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{
@@ -11,10 +11,9 @@ import app.shared.entity.refs.{
 
 class GetAllUsersReq extends PostRequest {
 
-
-  override type Par     = GetAllUsersReq.Password
+  override type Par     = GetAllUsersReq.Par
   override type PayLoad = Unit // has no payload
-  override type Res     = GetAllUsersReq.AllUsers
+  override type Res     = GetAllUsersReq.Res
 
 }
 
@@ -22,10 +21,10 @@ case class AdminPassword(pwd: String)
 
 object GetAllUsersReq {
 
-  case class Password(adminPassword: AdminPassword)
+  case class Par(adminPassword: AdminPassword)
       extends PostRequest.Parameter
 
-  case class AllUsers(allUserRefs: List[RefToEntityWithoutVersion[User]])
+  case class Res(allUserRefs: List[RefToEntityWithoutVersion[User]])
       extends PostRequest.Result
 
 }

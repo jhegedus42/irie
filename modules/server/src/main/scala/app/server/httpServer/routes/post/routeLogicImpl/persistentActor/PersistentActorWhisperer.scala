@@ -3,17 +3,36 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
+  GetStateSnapshot,
+  InsertNewEntityCommand,
+  ResetStateCommand,
+  UpdateEntityCommand
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
+  StateMapSnapshot,
+  UntypedEntity,
+  UntypedRef
+}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{
+  DidOperationSucceed,
+  PersistentActorImpl
+}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{
+  EntityDeletedFlag,
+  RefToEntityWithVersion,
+  RefToEntityWithoutVersion
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.duration._
-import app.shared.entity.asString.EntityValueAsJSON
+import app.shared.entity.asString.{
+  EntityValueAsJSON,
+  EntityValueTypeAsString
+}
 import app.shared.entity.entityValue.values.User
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
 
@@ -106,15 +125,27 @@ case class PersistentActorWhisperer(
     }
 
   }
-//  implicit lazy val executionContext: ExecutionContextExecutor =
-//    actorSystemForPersistentActor.dispatcher
 
-  def getAllUserRefs: List[RefToEntityWithoutVersion[User]] ={
+  def getAllUserRefs
+    : Future[List[RefToEntityWithoutVersion[User]]] = {
 
-    ??? // todo-now
+    val snapshot: Future[StateMapSnapshot] = getSnaphot
 
-    val allUsers : List[UntypedRef] = ???
-    ???
+    val entityValueTypeAsString: EntityValueTypeAsString =
+      EntityValueTypeAsString.make[User]
+
+    val refs: Future[List[UntypedRef]] = snapshot.map(x => {
+      x.getAllRefsWithGivenEntityType(entityValueTypeAsString)
+    })
+
+    val allUserRefsUntyped
+      : Future[List[UntypedRef]] = refs
+
+    val refsTyped: Future[List[RefToEntityWithoutVersion[User]]] =
+      allUserRefsUntyped.map(
+        x => x.map(UntypedRef.getTypedRef[User](_).stripVersion())
+      )
+    refsTyped
   }
 
   def getEntityWithVersion[V <: EntityValue[V]](

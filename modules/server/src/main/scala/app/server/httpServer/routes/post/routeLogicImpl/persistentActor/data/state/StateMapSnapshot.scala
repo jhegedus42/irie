@@ -1,21 +1,29 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
-import app.shared.entity.Entity
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
+import app.shared.entity.asString.{
+  EntityValueAsJSON,
+  EntityValueTypeAsString
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
-import io.circe.Encoder
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
 
-import scala.reflect.ClassTag
+//import scalaz._
+
+//import Scalaz._
+
+import org.scalactic._
+import TripleEquals._
+import StringNormalizations._
+import Explicitly._
+
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
-    val map:        Map[UntypedRef, UntypedEntity] = Map.empty,
-    val occVersion: OCCVersion                     = OCCVersion(0)
-) {
+  val map:        Map[UntypedRef, UntypedEntity] = Map.empty,
+  val occVersion: OCCVersion                     = OCCVersion(0)) {
 
   def bumpVersion: StateMapSnapshot =
     this.lens(_.occVersion).modify(_.inc)
@@ -63,9 +71,7 @@ private[persistentActor] case class StateMapSnapshot(
     * @param ase
     * @return
     */
-  def insertVirginEntity(
-      ase: UntypedEntity
-  ): StateMapSnapshot = {
+  def insertVirginEntity(ase: UntypedEntity): StateMapSnapshot = {
     // todo-later - this can throw !!!
     assert(!map.contains(ase.untypedRef))
     val newMap = map + (ase.untypedRef -> ase)
@@ -73,14 +79,14 @@ private[persistentActor] case class StateMapSnapshot(
   }
 
   def filterByIdentity(
-      entityIdentity: EntityIdentity
+    entityIdentity: EntityIdentity
   ): Map[UntypedRef, UntypedEntity] =
     map.filterKeys(
       _.entityIdentity == entityIdentity
     )
 
   def getLatestVersionForEntity(
-      identity: EntityIdentity
+    identity: EntityIdentity
   ): (UntypedRef, UntypedEntity) =
     filterByIdentity(identity).maxBy(
       _._1.entityVersion.versionNumberLong
@@ -93,9 +99,9 @@ private[persistentActor] case class StateMapSnapshot(
     * @return
     */
   def unsafeInsertUpdatedEntity(
-      refToLatestVersion: UntypedRef,
-      value:              EntityValueAsJSON
-  ) : Option[StateMapSnapshot]= {
+    refToLatestVersion: UntypedRef,
+    value:              EntityValueAsJSON
+  ): Option[StateMapSnapshot] = {
 
     // todo-later - this can throw !!!
     //  wrap it into try/catch and return the error to the caller in an Either
@@ -122,18 +128,18 @@ private[persistentActor] case class StateMapSnapshot(
           x => x + 1
         )
 
-    val newMap = map + (ref_new -> UntypedEntity(ref_new,value))
+    val newMap = map + (ref_new -> UntypedEntity(ref_new, value))
     Some(StateMapSnapshot(newMap).bumpVersion)
   }
 
   def getEntity[V <: EntityValue[V]](
-      r: UntypedRef
+    r: UntypedRef
   ): Option[UntypedEntity] = {
     map.get(r)
   }
 
   def getEntityWithLatestVersion[V <: EntityValue[V]](
-      r: UntypedRefWithoutVersion
+    r: UntypedRefWithoutVersion
   ): Option[UntypedEntity] = {
 //    map.get(r)
 
@@ -153,11 +159,14 @@ private[persistentActor] case class StateMapSnapshot(
     // todo-one-day : fix this possible exception here, that getRes is empty
   }
 
+  def getAllRefsWithGivenEntityType(
+    entityType: EntityValueTypeAsString
+  ): List[UntypedRef] = {
 
-  def getAllRefsWithGivenEntityType(entityType:EntityValueTypeAsString): List[UntypedRef] =
-  {
+    val keys =
+      map.keySet.filter(r => r.entityValueTypeAsString === entityType)
+    keys.toList
 
-    ??? // todo-now
   }
 
 }
