@@ -14,10 +14,6 @@ import monocle.macros.syntax.lens._
 
 //import Scalaz._
 
-import org.scalactic._
-import TripleEquals._
-import StringNormalizations._
-import Explicitly._
 
 
 @Lenses
@@ -164,7 +160,14 @@ private[persistentActor] case class StateMapSnapshot(
   ): List[UntypedRef] = {
 
     val keys =
-      map.keySet.filter(r => r.entityValueTypeAsString === entityType)
+      map.keySet.filter(r => r.entityValueTypeAsString == entityType)
+    // todo-one-day , use scalaZ's or cat's triple equals + deriving ^^^
+    //  for things like this ^^^
+    //  see : https://github.com/scalaz/scalaz-deriving/tree/v1.0.0
+    //  and : http://eed3si9n.com/learning-scalaz/Equal.html
+    //  and : http://eed3si9n.com/learning-scalaz/Equal.html
+
+
     keys.toList
 
   }
