@@ -31,7 +31,6 @@ case class RouterComp() {
 
   lazy val cache = new CacheInterface()
 
-  def getWrappedReactCompConstructor = ???
   // todo-later factor out the wrapping , as a start for
   //   "sumNumberCompRoute" below
 
@@ -43,18 +42,13 @@ case class RouterComp() {
     )
 
     val sumNumberCompRoute: dsl.Rule = {
-
-      val reactCompWrapper = ReactCompWrapper[SumNumbersPage](
-        cache         = cache,
-        propsProvider = () => SumNumbersProps("hello world"),
-        comp          = SumNumbersComponent.component
-      )
-
       staticRoute("#cacheTest", SumIntDemo) ~>
         render({
-          reactCompWrapper.wrappedConstructor
+          SumNumbersPage.getWrappedReactCompConstructor(
+            cache,
+            () => SumNumbersProps("hello world 42")
+          )
         })
-
     }
 
     val adminPage
@@ -69,18 +63,35 @@ case class RouterComp() {
         .render(p => <.div(s"Info for user #${p.props.uuid}"))
         .build
 
-        // todo-now-5 factor this out and use it to get info on user
+      // todo-now-5 factor this out and use it to get info on user
 
+      // todo-now-6 "inject da cache",
+      //  see "sumNumberCompRoute" above - for inspiration
 
-        // todo-now-6 "inject da cache",
-        //  see "sumNumberCompRoute" above - for inspiration
+//      dynamicRouteCT(
+//        "#app" / "user" / string("[a-zA-Z]+")
+//          .caseClass[UserEditorPage]
+//      ) ~> (dynRender(
+//        _userEditorPage(_: UserEditorPage)
+//      ))
 
       dynamicRouteCT(
         "#app" / "user" / string("[a-zA-Z]+")
           .caseClass[UserEditorPage]
-      ) ~> (dynRender(
-        _userEditorPage(_: UserEditorPage)
-      ))
+      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
+//        _userEditorPage(paramForUserEditorPage)
+
+        SumNumbersPage.getWrappedReactCompConstructor(
+          cache,
+          () =>
+            SumNumbersProps(
+              s"hello world 42 + ${paramForUserEditorPage.uuid}"
+            )
+        )
+
+      }))
+      // this is a little "trick" here ... we want to see if we can pass
+      //  some props into the "cache injected component" from the URL
 
     }
 

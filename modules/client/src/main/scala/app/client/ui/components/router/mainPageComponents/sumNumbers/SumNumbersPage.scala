@@ -1,6 +1,10 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.cacheInjector.ToBeWrappedComponent
+import app.client.ui.caching.cacheInjector.{
+  CacheInterface,
+  ReactCompWrapper,
+  ToBeWrappedComponent
+}
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{
   SumNumberState,
   SumNumbersProps
@@ -29,4 +33,17 @@ object SumNumbersPage {
 
 //  case class SumNumbersURLPayload(string: String)
   case class SumNumbersProps(string: String)
+
+  def getWrappedReactCompConstructor(
+    cacheInterface:       CacheInterface,
+    propsProvderFunction: () => SumNumbersProps
+  ) = {
+    val reactCompWrapper = ReactCompWrapper[SumNumbersPage](
+      cache         = cacheInterface,
+      propsProvider = propsProvderFunction,
+      comp          = SumNumbersComponent.component
+    )
+    reactCompWrapper.wrappedConstructor
+  }
+
 }
