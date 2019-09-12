@@ -1,4 +1,5 @@
 package app.client.ui.components.router
+
 /**
 
   The list of components that can appear as the
@@ -6,8 +7,7 @@ package app.client.ui.components.router
   direct and at a given time one and only child of
   the router `app.client.ui.components.router.RouterComp` .
 
-*/
-
+  */
 package object mainPageComponents {
 
   /**
@@ -25,7 +25,8 @@ package object mainPageComponents {
 
   case object AdminPage extends MainPage
 
-  case class ItemPage(id: Int)  extends MainPage
+  case class ItemPage(id: Int) extends MainPage
 
+  case class UserEditorPage(uuid: String) extends MainPage
 
 }

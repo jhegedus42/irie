@@ -31,8 +31,9 @@ case class RouterComp() {
 
   lazy val cache = new CacheInterface()
 
-
   def getWrappedReactCompConstructor = ???
+  // todo-later factor out the wrapping , as a start for
+  //   "sumNumberCompRoute" below
 
   val config = RouterConfigDsl[MainPage].buildConfig { dsl =>
     import dsl._
@@ -61,15 +62,37 @@ case class RouterComp() {
       StaticAdminPage.apply()
     )
 
+    val userEditorPage: dsl.Rule = {
+
+      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
+        .builder[UserEditorPage]("User editor page")
+        .render(p => <.div(s"Info for user #${p.props.uuid}"))
+        .build
+
+        // todo-now-5 factor this out and use it to get info on user
+
+
+        // todo-now-6 "inject da cache",
+        //  see "sumNumberCompRoute" above - for inspiration
+
+      dynamicRouteCT(
+        "#app" / "user" / string("[a-zA-Z]+")
+          .caseClass[UserEditorPage]
+      ) ~> (dynRender(
+        _userEditorPage(_: UserEditorPage)
+      ))
+
+    }
+
     val itemPage: dsl.Rule = {
 
-      val itemPage = japgolly.scalajs.react.ScalaComponent
+      val _itemPage = japgolly.scalajs.react.ScalaComponent
         .builder[ItemPage]("Item page")
         .render(p => <.div(s"Info for item #${p.props.id}"))
         .build
 
       dynamicRouteCT("item" / int.caseClass[ItemPage]) ~> (dynRender(
-        itemPage(_: ItemPage)
+        _itemPage(_: ItemPage)
       ))
 
     }
@@ -78,6 +101,7 @@ case class RouterComp() {
       | homeRoute
       | sumNumberCompRoute
       | itemPage
+      | userEditorPage
       | adminPage)
       .notFound(
         redirectToPage(HomePage)(Redirect.Replace)
@@ -89,6 +113,7 @@ case class RouterComp() {
     Menu.apply("Home", HomePage),
     Menu.apply("SumIntDemo", SumIntDemo),
     Menu.apply("ItemPage 4", ItemPage(4)),
+    Menu.apply("User Editor Page Geza", UserEditorPage("Geza")),
     Menu.apply("ItemPage 42", ItemPage(42)),
     Menu.apply("Admin Page", AdminPage)
   )
@@ -107,4 +132,5 @@ case class RouterComp() {
       FooterComp()
     )
   }
+
 }

@@ -1,7 +1,10 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedComponent
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{SumNumberState, SumNumbersProps}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{
+  SumNumberState,
+  SumNumbersProps
+}
 
 trait SumNumbersPage extends ToBeWrappedComponent[SumNumbersPage] {
   override type Props   = SumNumbersProps
@@ -24,6 +27,6 @@ object SumNumbersPage {
     firstNumber:  Int,
     secondNumber: Int)
 
-  case class SumNumbersURLPayload(string: String)
-  case class SumNumbersProps(string:      String)
+//  case class SumNumbersURLPayload(string: String)
+  case class SumNumbersProps(string: String)
 }
