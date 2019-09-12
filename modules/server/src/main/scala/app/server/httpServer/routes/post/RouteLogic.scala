@@ -1,10 +1,14 @@
 package app.server.httpServer.routes.post
 
-import app.server.httpServer.routes.post.routeLogicImpl.SumIntLogic
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.server.httpServer.routes.post.routeLogicImpl.{
+  GetAllUsersLogic,
+  ResetServerStateLogic,
+  SumIntLogic
+}
 import app.shared.comm.PostRequest
 
-import scala.concurrent.Future
-
+import scala.concurrent.{ExecutionContextExecutor, Future}
 
 /**
   *
@@ -23,7 +27,6 @@ trait RouteLogic[Req <: PostRequest] {
   //   they are two atomic persistente Operations
   //
 
-
   /**
     *
     * Calculates/executes what calling a REST endpoint should do.
@@ -40,10 +43,21 @@ trait RouteLogic[Req <: PostRequest] {
     * This is used for debugging.
     * @return
     */
-  def getRouteName:String
+  def getRouteName: String
 
 }
 
 object RouteLogic {
   implicit val sumIntInstance = SumIntLogic
+
+  implicit def getResetLogic(
+    implicit paw:    PersistentActorWhisperer,
+    contextExecutor: ExecutionContextExecutor
+  ): ResetServerStateLogic = ResetServerStateLogic()
+
+  implicit def getAllUsersLogic(
+    implicit paw:    PersistentActorWhisperer,
+    contextExecutor: ExecutionContextExecutor
+  ): GetAllUsersLogic = GetAllUsersLogic()
+
 }

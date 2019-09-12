@@ -7,6 +7,8 @@ import app.client.ui.caching.cache.comm.AJAXCalls.{
 import app.shared.comm.postRequests.InsertReq.InsertReqPar
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.comm.postRequests.{
+  AdminPassword,
+  GetAllUsersReq,
   InsertReq,
   ResetRequest,
   UpdateReq
@@ -178,11 +180,30 @@ class AsyncRequestTest extends AsyncFunSuite {
     res
   }
 
-  test("getAllUserRefs"){
+  test("getAllUserRefs") {
 
     // todo-now implement this
 
-    ???
+    helper.resetServer()
+
+    // call it
+
+    val users = helper.getPostReqResult[GetAllUsersReq](
+      GetAllUsersReq.Par(AdminPassword("titoknyitja"))
+    )
+
+    val length: Future[Int] = users.map(res => res.allUserRefs.length)
+
+//    val testDataLength=TestD
+
+    length.map(l => assert(l === 3))
+
+    // todo-later
+    //  move app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
+    //  to shared module
+    //  and calculate from that directly that number 3 ^^^
+    //  which is in this test ^^^
+
   }
 
 }

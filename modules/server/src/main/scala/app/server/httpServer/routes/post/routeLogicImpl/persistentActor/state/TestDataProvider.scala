@@ -12,6 +12,7 @@ case class TestDataProvider(applicationStateMap: StateMapSnapshot)
 object TestDataProvider {
   def getTestState: StateMapSnapshot = {
     val init: StateMapSnapshot = StateMapSnapshot()
+
     val withAlice = init.insertVirginEntity(
       UntypedEntity.makeFromEntity(TestUsers.aliceEntity_with_UUID0)
     )

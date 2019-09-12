@@ -21,6 +21,7 @@ case class AdminPassword(pwd: String)
 
 object GetAllUsersReq {
 
+
   case class Par(adminPassword: AdminPassword)
       extends PostRequest.Parameter
 

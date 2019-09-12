@@ -26,3 +26,9 @@ case class GetAllUsersLogic(
     "debug 319CCAEA2DE4 - get route logic"
 
 }
+
+object GetAllUsersLogic {
+
+//  implicit def getLogic : GetAllUsersLogic = ???
+
+}

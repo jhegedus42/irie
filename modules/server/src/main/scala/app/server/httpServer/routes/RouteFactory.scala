@@ -4,11 +4,18 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
-import app.server.httpServer.routes.post.routeLogicImpl.ResetServerStateLogic
+import app.server.httpServer.routes.post.routeLogicImpl.{
+  GetAllUsersLogic,
+  ResetServerStateLogic
+}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.{ResetRequest, SumIntRoute}
+import app.shared.comm.postRequests.{
+  GetAllUsersReq,
+  ResetRequest,
+  SumIntRoute
+}
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -22,7 +29,6 @@ private[httpServer] case class RouteFactory(
 
   implicit val paw = PersistentActorWhisperer(actorSystem)
 
-
   val route: Route = allRoutes
 
   import io.circe.generic.auto._
@@ -35,7 +41,8 @@ private[httpServer] case class RouteFactory(
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~
       ping_pong ~
-      resetStateRoute
+      getPostRoute[ResetRequest]().route ~
+      getPostRoute[GetAllUsersReq]().route
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
@@ -59,11 +66,5 @@ private[httpServer] case class RouteFactory(
       }
     }
   }
-
-  private implicit def resetRouteLogic = ResetServerStateLogic()
-
-  private def resetStateRoute: Route =
-    getPostRoute[ResetRequest]().route
-
 
 }
