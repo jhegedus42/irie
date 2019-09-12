@@ -34,7 +34,18 @@ case class RouterComp() {
   // todo-later factor out the wrapping , as a start for
   //   "sumNumberCompRoute" below
 
-  val config = RouterConfigDsl[MainPage].buildConfig { dsl =>
+  def getAdminPage = {
+    dsl: RouterConfigDsl[MainPage] =>
+
+      import dsl._
+      val adminPage
+      : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
+        StaticAdminPage.apply()
+      )
+      adminPage
+  }
+
+  val config = RouterConfigDsl[MainPage].buildConfig { dsl: RouterConfigDsl[MainPage] =>
     import dsl._
 
     val homeRoute: dsl.Rule = staticRoute(root, HomePage) ~> render(
@@ -51,7 +62,7 @@ case class RouterComp() {
         })
     }
 
-    val adminPage
+    val adminPage_old
       : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
       StaticAdminPage.apply()
     )
@@ -104,6 +115,15 @@ case class RouterComp() {
       //
       //
 
+      //
+      //
+      //
+      // todo-now-8 : display all user Refs, somewhere ...
+      //
+      //
+      //
+      //
+
     }
 
     val itemPage: dsl.Rule = {
@@ -124,7 +144,8 @@ case class RouterComp() {
       | sumNumberCompRoute
       | itemPage
       | userEditorPage
-      | adminPage)
+//      | adminPage)
+      | getAdminPage(dsl))
       .notFound(
         redirectToPage(HomePage)(Redirect.Replace)
       )

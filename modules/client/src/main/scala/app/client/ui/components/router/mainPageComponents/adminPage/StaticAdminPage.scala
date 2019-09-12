@@ -25,7 +25,7 @@ object StaticAdminPage {
                   // todo-now-0 - CRUD user GUI
                   // todo-now-1 - list user names
                   // todo-now-2 - list user refs
-
+                  // todo-now-8 : display all user Refs, here
                 )
             )
           )
@@ -34,3 +34,4 @@ object StaticAdminPage {
 
   def apply(): Unmounted[Unit, Unit, Unit] = component()
 }
+
