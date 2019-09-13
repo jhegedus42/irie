@@ -27,14 +27,23 @@ import japgolly.scalajs.react.vdom.html_<^._
 // this wrapper is needed so that we can "re render the react tree below this"
 // it gets the re render triggerer so that it can update-it
 
-case class RouterComp() {
+object Pages{
+  def itemPage = {
+    dsl: RouterConfigDsl[MainPage] =>
+      import dsl._
 
-  lazy val cache = new CacheInterface()
+      val _itemPage = japgolly.scalajs.react.ScalaComponent
+        .builder[ItemPage]("Item page")
+        .render(p => <.div(s"Info for item #${p.props.id}"))
+        .build
 
-  // todo-later factor out the wrapping , as a start for
-  //   "sumNumberCompRoute" below
+      dynamicRouteCT("item" / int.caseClass[ItemPage]) ~> (dynRender(
+        _itemPage(_: ItemPage)
+      ))
 
-  def getAdminPage = {
+  }
+
+  def adminPage = {
     dsl: RouterConfigDsl[MainPage] =>
 
       import dsl._
@@ -44,6 +53,80 @@ case class RouterComp() {
       )
       adminPage
   }
+
+  def userEditorPage(cacheInterface: CacheInterface) = {
+    dsl: RouterConfigDsl[MainPage] =>
+      import dsl._
+
+      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
+        .builder[UserEditorPage]("User editor page")
+        .render(p => <.div(s"Info for user #${p.props.uuid}"))
+        .build
+
+      // todo-now-5 factor this out and use it to get info on user
+
+      // todo-now-6 "inject da cache",
+      //  see "sumNumberCompRoute" above - for inspiration
+
+      //      dynamicRouteCT(
+      //        "#app" / "user" / string("[a-zA-Z]+")
+      //          .caseClass[UserEditorPage]
+      //      ) ~> (dynRender(
+      //        _userEditorPage(_: UserEditorPage)
+      //      ))
+
+      dynamicRouteCT(
+        "#app" / "user" / string("[a-zA-Z]+")
+          .caseClass[UserEditorPage]
+      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
+        //        _userEditorPage(paramForUserEditorPage)
+
+        SumNumbersPage.getWrappedReactCompConstructor(
+          cacheInterface,
+          () =>
+            SumNumbersProps(
+              s"hello world 42 + ${paramForUserEditorPage.uuid}"
+            )
+        )
+
+      }))
+    // this is a little "trick" here ... we want to see if we can pass
+    //  some props into the "cache injected component" from the URL
+
+    //  todo-now-7 : misuse SumNumbersPage to display user info.
+    //
+    //   Details :
+    //
+    //   Use the props from the URL to provide an uuid to an user
+    //   so that it can be fetched ... and it's name and favorite
+    //   number can be displayed.
+    //
+    //
+    //
+
+    //
+    //
+    //
+    // todo-now-8 : display all user Refs, somewhere ...
+    //
+    //
+    //
+    //
+
+  }
+
+
+
+}
+
+case class RouterComp() {
+
+  lazy val cache = new CacheInterface()
+
+  // todo-later factor out the wrapping , as a start for
+  //   "sumNumberCompRoute" below
+
+
 
   val config = RouterConfigDsl[MainPage].buildConfig { dsl: RouterConfigDsl[MainPage] =>
     import dsl._
@@ -62,90 +145,19 @@ case class RouterComp() {
         })
     }
 
-    val adminPage_old
-      : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
-      StaticAdminPage.apply()
-    )
+//    val adminPage_old
+//      : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
+//      StaticAdminPage.apply()
+//    )
 
-    val userEditorPage: dsl.Rule = {
 
-      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
-        .builder[UserEditorPage]("User editor page")
-        .render(p => <.div(s"Info for user #${p.props.uuid}"))
-        .build
-
-      // todo-now-5 factor this out and use it to get info on user
-
-      // todo-now-6 "inject da cache",
-      //  see "sumNumberCompRoute" above - for inspiration
-
-//      dynamicRouteCT(
-//        "#app" / "user" / string("[a-zA-Z]+")
-//          .caseClass[UserEditorPage]
-//      ) ~> (dynRender(
-//        _userEditorPage(_: UserEditorPage)
-//      ))
-
-      dynamicRouteCT(
-        "#app" / "user" / string("[a-zA-Z]+")
-          .caseClass[UserEditorPage]
-      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
-//        _userEditorPage(paramForUserEditorPage)
-
-        SumNumbersPage.getWrappedReactCompConstructor(
-          cache,
-          () =>
-            SumNumbersProps(
-              s"hello world 42 + ${paramForUserEditorPage.uuid}"
-            )
-        )
-
-      }))
-      // this is a little "trick" here ... we want to see if we can pass
-      //  some props into the "cache injected component" from the URL
-
-      //  todo-now-7 : misuse SumNumbersPage to display user info.
-      //
-      //   Details :
-      //
-      //   Use the props from the URL to provide an uuid to an user
-      //   so that it can be fetched ... and it's name and favorite
-      //   number can be displayed.
-      //
-      //
-      //
-
-      //
-      //
-      //
-      // todo-now-8 : display all user Refs, somewhere ...
-      //
-      //
-      //
-      //
-
-    }
-
-    val itemPage: dsl.Rule = {
-
-      val _itemPage = japgolly.scalajs.react.ScalaComponent
-        .builder[ItemPage]("Item page")
-        .render(p => <.div(s"Info for item #${p.props.id}"))
-        .build
-
-      dynamicRouteCT("item" / int.caseClass[ItemPage]) ~> (dynRender(
-        _itemPage(_: ItemPage)
-      ))
-
-    }
 
     (trimSlashes
       | homeRoute
       | sumNumberCompRoute
-      | itemPage
-      | userEditorPage
-//      | adminPage)
-      | getAdminPage(dsl))
+      | Pages.itemPage(dsl)
+      | Pages.userEditorPage(cache)(dsl)
+      | Pages.adminPage(dsl))
       .notFound(
         redirectToPage(HomePage)(Redirect.Replace)
       )
@@ -160,6 +172,7 @@ case class RouterComp() {
     Menu.apply("ItemPage 42", ItemPage(42)),
     Menu.apply("Admin Page", AdminPage)
   )
+
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
   val router =

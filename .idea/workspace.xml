@@ -6,15 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,13 +65,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+            <state relative-caret-position="480">
+              <caret line="163" column="22" lean-forward="true" selection-start-line="163" selection-start-column="22" selection-end-line="163" selection-end-column="22" />
               <folding>
                 <element signature="e#41#124#0" expanded="true" />
-                <element signature="e#1676#3131#0" />
-                <element signature="e#1883#1943#0" />
-                <element signature="e#2682#2748#0" />
+                <element signature="e#924#930#1" />
+                <element signature="e#928#1294#0" />
+                <element signature="e#1298#1516#0" />
+                <element signature="e#1521#3179#0" />
+                <element signature="e#1826#1865#0" />
+                <element signature="e#1906#2128#0" />
+                <element signature="e#2027#2111#0" />
+                <element signature="e#2130#2153#0" />
+                <element signature="e#3721#3995#0" />
+                <element signature="e#4092#4306#0" />
               </folding>
             </state>
           </provider>
@@ -1122,13 +1122,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00260" summary="Monday, 2 September 2019 4.45.54:&#10;&#10;Testing routes.&#10;&#10;Taking out some &quot;magic&quot; for JSON marshalling.&#10;&#10;Code compiles but tests needs to be written and&#10;make them pass.&#10;&#10;------&#10;&#10;Monday, 2 September 2019 13.33.49 :&#10;&#10;On the way towards implementing &quot;get&quot; route.">
-      <created>1567420454529</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1567420454529</updated>
-    </task>
     <task id="LOCAL-00261" summary="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.">
       <created>1567445871418</created>
       <option name="number" value="00261" />
@@ -1465,7 +1458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568325119095</updated>
     </task>
-    <option name="localTasksCounter" value="309" />
+    <task id="LOCAL-00309" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------">
+      <created>1568332373250</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1568332373253</updated>
+    </task>
+    <option name="localTasksCounter" value="310" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1512,11 +1512,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="31" width="1413" height="817" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.555773" side_tool="true" weight="0.2496361" />
       <window_info id="Designer" order="1" />
       <window_info id="Favorites" order="2" sideWeight="0.36914062" side_tool="true" weight="0.3836705" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.444227" weight="0.25309992" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.444227" visible="true" weight="0.25309992" />
       <window_info anchor="bottom" id="Tail" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.37857142" />
@@ -1525,8 +1526,8 @@
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.47711015" weight="0.3737931" />
-      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" weight="0.7613793" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48783976" weight="0.50620687" />
+      <window_info anchor="bottom" x="73" y="211" width="1367" height="393" id="sbt-shell-toolwindow" order="8" sideWeight="0.63447785" visible="true" weight="0.45655173" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48783976" weight="0.50482756" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52288985" side_tool="true" weight="0.27247956" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49812454" weight="0.39671683" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.23760933" />
@@ -1629,7 +1630,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Writing a ResetServerState Route is in progress.&#10;&#10;Sunday, 8 September 2019 20.35.41:&#10;&#10;Exploring the cake pattern.&#10;&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 20.47.40:&#10;&#10;Abstract value used in trait may cause problems during&#10;initialization =&gt; ask on SOF.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Writing a ResetServerState Route is in progress.&#10;&#10;Sunday, 8 September 2019 20.35.41:&#10;&#10;Exploring the cake pattern.&#10;&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 20.47.40:&#10;&#10;Abstract value used in trait may cause problems during&#10;initialization =&gt; ask on SOF.&#10;&#10;--------------------------------------------------&#10;Monday, 9 September 2019 1.24.15:&#10;Partial implementation of getHttpReqResult() in&#10;ResetServerStateLogic." />
     <MESSAGE value="Writing a ResetServerState Route is in progress.&#10;&#10;Sunday, 8 September 2019 20.35.41:&#10;&#10;Exploring the cake pattern.&#10;&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 20.47.40:&#10;&#10;Abstract value used in trait may cause problems during&#10;initialization =&gt; ask on SOF.&#10;&#10;--------------------------------------------------&#10;Monday, 9 September 2019 1.24.15:&#10;Partial implementation of getHttpReqResult() in&#10;ResetServerStateLogic.&#10;--------------------------------------------------&#10;Monday, 9 September 2019 3.11.38:&#10;&#10;We have now 3 TODO-s left.&#10;&#10;--------------------------------------------------&#10;Monday, 9 September 2019 11.28.52:&#10;&#10;Reset state route is implemented.&#10;&#10;todo next : write server side, akka-http-testkit based&#10;unit test for it" />
     <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------" />
@@ -1654,7 +1654,8 @@
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------" />
+    <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala">
@@ -2056,13 +2057,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="480">
+          <caret line="163" column="22" lean-forward="true" selection-start-line="163" selection-start-column="22" selection-end-line="163" selection-end-column="22" />
           <folding>
             <element signature="e#41#124#0" expanded="true" />
-            <element signature="e#1676#3131#0" />
-            <element signature="e#1883#1943#0" />
-            <element signature="e#2682#2748#0" />
+            <element signature="e#924#930#1" />
+            <element signature="e#928#1294#0" />
+            <element signature="e#1298#1516#0" />
+            <element signature="e#1521#3179#0" />
+            <element signature="e#1826#1865#0" />
+            <element signature="e#1906#2128#0" />
+            <element signature="e#2027#2111#0" />
+            <element signature="e#2130#2153#0" />
+            <element signature="e#3721#3995#0" />
+            <element signature="e#4092#4306#0" />
           </folding>
         </state>
       </provider>
