@@ -37,7 +37,7 @@ trait RouteLogic[Req <: PostRequest] {
     * @param param
     * @return
     */
-  def getHttpReqResult(param: Req#Par): Future[Req#Res]
+  def getHttpReqResult(param: Req#ParT): Future[Req#ResT]
 
   /**
     * This is used for debugging.

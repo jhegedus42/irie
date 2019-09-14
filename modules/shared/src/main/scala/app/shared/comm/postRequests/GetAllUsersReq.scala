@@ -12,9 +12,9 @@ import io.circe.generic.JsonCodec
 
 class GetAllUsersReq extends PostRequest {
 
-  override type Par     = GetAllUsersReq.Par
-  override type PayLoad = Unit // has no payload
-  override type Res     = GetAllUsersReq.Res
+  override type ParT     = GetAllUsersReq.Par
+  override type PayLoadT = Unit // has no payload
+  override type ResT     = GetAllUsersReq.Res
 
 }
 

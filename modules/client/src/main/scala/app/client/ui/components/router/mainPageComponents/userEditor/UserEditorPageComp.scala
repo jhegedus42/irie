@@ -1,9 +1,22 @@
 package app.client.ui.components.router.mainPageComponents.userEditor
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{CacheInterface, CacheInterfaceWrapper, ReactCompWrapper, ToBeWrappedComponent}
-import app.client.ui.components.router.mainPageComponents.{MainPage, UserEditorPage}
-import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq, SumIntRoute}
+import app.client.ui.caching.cacheInjector.{
+  CacheInterface,
+  CacheInterfaceWrapper,
+  ReactCompWrapper,
+  ToBeWrappedComponent
+}
+import app.client.ui.components.router.mainPageComponents.{
+  MainPage,
+  UserEditorPage
+}
+import app.shared.comm.postRequests.{
+  AdminPassword,
+  GetAllUsersReq,
+  GetEntityReq,
+  SumIntRoute
+}
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
@@ -60,6 +73,7 @@ object UserEditorPageComp {
       cacheInterfaceWrapper: CacheInterfaceWrapper[Props],
       s:                     State
     ): VdomElement = {
+
       val res = cacheInterfaceWrapper.cacheInterface
         .getPostReqResult[SumIntRoute](SumIntPar(13, 42))
 
@@ -79,11 +93,14 @@ object UserEditorPageComp {
           .toVdomArray
       )
 
-      def userRef2UserOption(r:RefToEntityWithoutVersion[User])={
-        val par: GetEntityReq.Par[User] = GetEntityReq.Par(r)
-        val res= cacheInterfaceWrapper.cacheInterface.getPostReqResult()
-        ???
+      def userRef2UserOption(r: RefToEntityWithoutVersion[User]) : Int = {
+        val par = GetEntityReq.Par(r)
 
+        val res = cacheInterfaceWrapper.cacheInterface
+          .getPostReqResult[GetEntityReq[User]](par)
+//
+//        ???
+          ???
       }
 
 //      val res2_1=res2.toOption.map()

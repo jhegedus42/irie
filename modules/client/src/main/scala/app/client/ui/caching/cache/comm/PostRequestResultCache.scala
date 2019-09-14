@@ -16,16 +16,16 @@ private[caching] class PostRequestResultCache[Req <: PostRequest]() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  private[this] var map: Map[Req#Par, CacheEntryState[Req]] = Map()
+  private[this] var map: Map[Req#ParT, CacheEntryState[Req]] = Map()
 
   private[caching] def getPostRequestResultCacheState(
-    par: Req#Par
+    par: Req#ParT
   )(
-    implicit
-    decoder: Decoder[Req#Res],
-    encoder: Encoder[Req#Par],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoad]
+                                                       implicit
+                                                       decoder: Decoder[Req#ResT],
+                                                       encoder: Encoder[Req#ParT],
+                                                       ct:      ClassTag[Req],
+                                                       ct2:     ClassTag[Req#PayLoadT]
   ): CacheEntryState[Req] =
     if (!map.contains(par)) {
       val loading = Loading(par)

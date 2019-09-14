@@ -26,7 +26,7 @@ import app.shared.comm.postRequests.marshall.{
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import app.shared.comm.postRequests.GetEntityReq.{
   Par,
-  GetEntityReqRes
+  Res
 }
 import app.shared.comm.postRequests.marshall.EncodersDecoders.{
   decodeResult,
@@ -108,16 +108,16 @@ case class TestHelper(routes: RouteFactory)
   def getPostRequestResult[
     Req <: PostRequest,
     V <: EntityValue[ V ]
-  ](par: Req#Par
+  ](par: Req#ParT
   )(
-    implicit
-    encoder: Encoder[Req#Res],
-    decoder: Decoder[Req#Res],
-    enc_par: Encoder[Req#Par],
-    e2:      Encoder[Entity[V]],
-    ct1:     ClassTag[Req#PayLoad],
-    ct2:     ClassTag[Req]
-  ): Req#Res = {
+     implicit
+     encoder: Encoder[Req#ResT],
+     decoder: Decoder[Req#ResT],
+     enc_par: Encoder[Req#ParT],
+     e2:      Encoder[Entity[V]],
+     ct1:     ClassTag[Req#PayLoadT],
+     ct2:     ClassTag[Req]
+  ): Req#ResT = {
 
     val rn: String = "/" + RouteName
       .getRouteName[Req]()
@@ -139,7 +139,7 @@ case class TestHelper(routes: RouteFactory)
 
     println(resp)
 
-    val res: Req#Res =
+    val res: Req#ResT =
       decodeResult[Req](
         ResultOptionAsJSON(resp)
       ).toOption.get
@@ -239,11 +239,11 @@ case class TestHelper(routes: RouteFactory)
   def getLatestEntity[V <: EntityValue[V]](
     ref: RefToEntityWithoutVersion[V]
   )(
-    implicit
-    encoder: Encoder[GetEntityReq[V]#Res],
-    decoder: Decoder[GetEntityReq[V]#Res],
-    enc_ent: Encoder[Entity[V]] ,
-    ct1:     ClassTag[GetEntityReq[V]#PayLoad]
+                                            implicit
+                                            encoder: Encoder[GetEntityReq[V]#ResT],
+                                            decoder: Decoder[GetEntityReq[V]#ResT],
+                                            enc_ent: Encoder[Entity[V]],
+                                            ct1:     ClassTag[GetEntityReq[V]#PayLoadT]
   ): Entity[V] = {
 
     val rn: String = "/" + RouteName
@@ -253,7 +253,7 @@ case class TestHelper(routes: RouteFactory)
     val par: Par[V] =
       Par(ref)
 
-    val res: GetEntityReqRes[V] =
+    val res: Res[V] =
       getPostRequestResult[GetEntityReq[V], V](par)
 
     val entity = res.optionEntity.get
@@ -287,8 +287,8 @@ case class TestHelper(routes: RouteFactory)
     )
 
     val expectedResponse: String = {
-      val r: Option[GetEntityReqRes[User]] = Some(
-        GetEntityReqRes(Some(entity))
+      val r: Option[Res[User]] = Some(
+        Res(Some(entity))
       )
       encodeResult[GetEntityReq[User]](r).resultOptionAsJSON
     }

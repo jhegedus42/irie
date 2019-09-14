@@ -8,10 +8,10 @@ object RouteName {
 
   def getRouteName[Req <: PostRequest]()
                                       (
-    implicit
-    ct_pl: ClassTag[Req#PayLoad],
-//    ct_pl: ClassTag[V],
-    ct_req: ClassTag[Req]
+                                        implicit
+                                        ct_pl: ClassTag[Req#PayLoadT],
+                                        //    ct_pl: ClassTag[V],
+                                        ct_req: ClassTag[Req]
   ) : RouteName = {
 
     val name_req = ct_req.runtimeClass.getSimpleName

@@ -17,8 +17,8 @@ object InsertReq {
 }
 
 class InsertReq[V <: EntityValue[V]] extends PostRequest {
-  override type Par     = InsertReqPar[V]
-  override type Res     = InsertReqRes[V]
-  override type PayLoad = V
+  override type ParT     = InsertReqPar[V]
+  override type ResT     = InsertReqRes[V]
+  override type PayLoadT = V
 
 }

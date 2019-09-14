@@ -4,9 +4,9 @@ import app.shared.comm.PostRequest.{Parameter, Result}
 
 
 abstract class PostRequest {
-  type Par <: Parameter
-  type Res <: Result
-  type PayLoad
+  type ParT <: Parameter
+  type ResT <: Result
+  type PayLoadT
 }
 
 object PostRequest {

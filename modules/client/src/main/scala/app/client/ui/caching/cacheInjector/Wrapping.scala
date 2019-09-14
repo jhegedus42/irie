@@ -14,13 +14,13 @@ case class CacheInterfaceWrapper[Props](
 class CacheInterface() {
 
   def getPostReqResult[Req <: PostRequest](
-    par: Req#Par
+    par: Req#ParT
   )(
-    implicit c: PostRequestResultCache[Req],
-    decoder:    Decoder[Req#Res],
-    encoder:    Encoder[Req#Par],
-    ct:         ClassTag[Req],
-    ct2:        ClassTag[Req#PayLoad]
+                                            implicit c: PostRequestResultCache[Req],
+                                            decoder:    Decoder[Req#ResT],
+                                            encoder:    Encoder[Req#ParT],
+                                            ct:         ClassTag[Req],
+                                            ct2:        ClassTag[Req#PayLoadT]
   ): CacheEntryState[Req] = c.getPostRequestResultCacheState(par)
 }
 

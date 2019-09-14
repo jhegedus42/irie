@@ -20,8 +20,8 @@ object UpdateReq {
 }
 
 class UpdateReq[V <: EntityValue[V]] extends PostRequest {
-  override type Par     = UpdateReqPar[V]
-  override type Res     = UpdateReqRes[V]
-  override type PayLoad = V
+  override type ParT     = UpdateReqPar[V]
+  override type ResT     = UpdateReqRes[V]
+  override type PayLoadT = V
 
 }

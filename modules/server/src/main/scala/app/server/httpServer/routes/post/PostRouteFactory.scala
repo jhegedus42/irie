@@ -24,14 +24,14 @@ private[routes] object PostRouteFactory {
 
   def getPostRoute[Req <: PostRequest](
   )(
-    implicit
-    classTag:  ClassTag[Req],
-    classTag2: ClassTag[Req#PayLoad],
-    logic:     RouteLogic[Req],
-//    dpl:       Decoder[Req#PayLoad],
-    decoder: Decoder[Req#Par],
-    encoder: Encoder[Req#Res],
-    e:       ExecutionContext
+                                        implicit
+                                        classTag:  ClassTag[Req],
+                                        classTag2: ClassTag[Req#PayLoadT],
+                                        logic:     RouteLogic[Req],
+                                        //    dpl:       Decoder[Req#PayLoad],
+                                        decoder: Decoder[Req#ParT],
+                                        encoder: Encoder[Req#ResT],
+                                        e:       ExecutionContext
   ): PostRoute[Req] = {
 
     val res: Route =
@@ -59,7 +59,7 @@ private[routes] object PostRouteFactory {
                        |
                """.stripMargin)
 
-            val params: Req#Par =
+            val params: Req#ParT =
               encdec
                 .decodeParameters(ParametersAsJSON(s))
                 .toOption
@@ -77,11 +77,11 @@ private[routes] object PostRouteFactory {
 
             println(s"debug 76FB201E : $name")
 
-            val res: Future[Req#Res] =
+            val res: Future[Req#ResT] =
               logic.getHttpReqResult(params)
 
             val res2 =
-              res.map((r: Req#Res) => {
+              res.map((r: Req#ResT) => {
 
                 val encoded: ResultOptionAsJSON =
                   encdec.encodeResult(Some(r))
@@ -99,7 +99,7 @@ private[routes] object PostRouteFactory {
         }
       }
 
-    def log(params: Req#Par): Unit = {
+    def log(params: Req#ParT): Unit = {
       println(s"""
                  |
                  | vvvvvvvvvvv------------------------------

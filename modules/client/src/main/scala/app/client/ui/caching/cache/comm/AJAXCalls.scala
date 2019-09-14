@@ -9,22 +9,22 @@ import scala.reflect.ClassTag
 
 private[caching] object AJAXCalls {
 
-  case class AjaxCallPar[Req <: PostRequest](par: Req#Par)
+  case class AjaxCallPar[Req <: PostRequest](par: Req#ParT)
 
   case class PostAJAXRequestSuccessfulResponse[Req <: PostRequest](
-    par: Req#Par,
-    res: Req#Res
+                                                                    par: Req#ParT,
+                                                                    res: Req#ResT
   )
 
   private[cache] def sendPostAjaxRequest[Req <: PostRequest](
     requestParams: AjaxCallPar[Req]
   )(
-    implicit
-    ct:        ClassTag[Req],
-    classTag2: ClassTag[Req#PayLoad],
-    encoder:   Encoder[Req#Par],
-    decoder:   Decoder[Req#Res],
-    executionContextExecutor: ExecutionContextExecutor
+                                                              implicit
+                                                              ct:        ClassTag[Req],
+                                                              classTag2: ClassTag[Req#PayLoadT],
+                                                              encoder:   Encoder[Req#ParT],
+                                                              decoder:   Decoder[Req#ResT],
+                                                              executionContextExecutor: ExecutionContextExecutor
 
   ): Future[PostAJAXRequestSuccessfulResponse[Req]] = {
 
@@ -39,7 +39,7 @@ private[caching] object AJAXCalls {
     import io.circe.parser.decode
     import io.circe.syntax._
 
-    val plain_params: Req#Par = requestParams.par
+    val plain_params: Req#ParT = requestParams.par
 
     val json_line: String = plain_params.asJson.spaces2 // encode
 
@@ -73,12 +73,12 @@ private[caching] object AJAXCalls {
                |
        """.stripMargin)
 
-    val res1: Future[Req#Res] =
+    val res1: Future[Req#ResT] =
       Ajax
         .post(url, json_line, headers = headers)
         .map(_.responseText)
         .map((x: String) => {
-          decode[Req#Res](x)
+          decode[Req#ResT](x)
         })
         .map(x => x.right.get)
 

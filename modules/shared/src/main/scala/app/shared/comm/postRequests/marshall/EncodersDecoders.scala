@@ -10,9 +10,9 @@ object EncodersDecoders {
     res: ResultOptionAsJSON
   )(
     implicit
-    e: Decoder[Req#Res]
-  ): Either[Error, Req#Res] = {
-    val r: Either[Error, Req#Res] = decode(res.resultOptionAsJSON)
+    e: Decoder[Req#ResT]
+  ): Either[Error, Req#ResT] = {
+    val r: Either[Error, Req#ResT] = decode(res.resultOptionAsJSON)
     r
   }
 
@@ -20,9 +20,9 @@ object EncodersDecoders {
     res: ParametersAsJSON
   )(
     implicit
-    e: Decoder[Req#Par]
-  ): Either[Error, Req#Par] = {
-    val r: Either[Error, Req#Par] = decode(res.parameters_as_json)
+    e: Decoder[Req#ParT]
+  ): Either[Error, Req#ParT] = {
+    val r: Either[Error, Req#ParT] = decode(res.parameters_as_json)
     r
   }
 
@@ -38,18 +38,18 @@ object EncodersDecoders {
     * @return
     */
   def encodeResult[Req <: PostRequest](
-    r: Option[Req#Res]
+    r: Option[Req#ResT]
   )(
     implicit
-    e: Encoder[Option[Req#Res]]
+    e: Encoder[Option[Req#ResT]]
   ): ResultOptionAsJSON = {
     ResultOptionAsJSON(e.apply(r).spaces4)
   }
 
   def encodeParameters[Req <: PostRequest](
-    r: Req#Par
+    r: Req#ParT
   )(
-    implicit e: Encoder[Req#Par]
+    implicit e: Encoder[Req#ParT]
   ): ParametersAsJSON = {
     ParametersAsJSON(e.apply(r).spaces4)
   }

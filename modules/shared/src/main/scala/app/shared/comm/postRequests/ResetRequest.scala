@@ -1,10 +1,10 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetEntityReq.{Par, GetEntityReqRes}
+import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetEntityReq.{Par, GetEntityReqRes}
+import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.comm.postRequests.ResetRequest.{Par, Res}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
@@ -30,7 +30,7 @@ object ResetRequest {
 }
 
 class ResetRequest extends PostRequest {
-  override type Par     = ResetRequest.Par
-  override type Res     = ResetRequest.Res
-  override type PayLoad = String // dummy payload
+  override type ParT     = ResetRequest.Par
+  override type ResT     = ResetRequest.Res
+  override type PayLoadT = String // dummy payload
 }

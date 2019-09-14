@@ -5,7 +5,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Persiste
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{
   Par,
-  GetEntityReqRes
+  Res
 }
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -23,13 +23,13 @@ case class GetEntityLogic[V <: EntityValue[V]](
 
   override def getHttpReqResult(
     param: Par[V]
-  ): Future[GetEntityReqRes[V]] = {
+  ): Future[Res[V]] = {
 
     val res: Future[Option[Entity[V]]] =
       paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
 
-    val res2: Future[GetEntityReqRes[V]] =
-      res.map(r => GetEntityReqRes(r))
+    val res2: Future[Res[V]] =
+      res.map(r => Res(r))
     res2
   }
 

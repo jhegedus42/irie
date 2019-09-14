@@ -10,18 +10,18 @@ object CacheEntryStates {
         case Loaded( _, _ ) => false
       }
 
-    def toOption: Option[Req#Res] =
+    def toOption: Option[Req#ResT] =
       this match {
         case Loading( _ )     => Option.empty
         case Loaded( _, res ) => Some(res)
       }
   }
-  case class Loading[V <: PostRequest](param: V#Par ) extends CacheEntryState[V]
+  case class Loading[V <: PostRequest](param: V#ParT ) extends CacheEntryState[V]
 
-  case class Loaded[V <: PostRequest](param:  V#Par, result: V#Res )
+  case class Loaded[V <: PostRequest](param:  V#ParT, result: V#ResT )
       extends CacheEntryState[V]
 
-  case class Stale[V <: PostRequest](param:  V#Par, result: V#Res )
+  case class Stale[V <: PostRequest](param:  V#ParT, result: V#ResT )
     extends CacheEntryState[V]
 
 }

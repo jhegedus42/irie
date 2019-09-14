@@ -4,6 +4,11 @@ import app.shared.entity.entityValue.EntityValue
 
 import io.circe._
 
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+
+@JsonCodec
 case class User( name: String, favoriteNumber:Int ) extends EntityValue[User]
 
 
