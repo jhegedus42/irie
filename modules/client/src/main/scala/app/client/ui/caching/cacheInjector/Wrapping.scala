@@ -13,7 +13,7 @@ case class CacheInterfaceWrapper[Props](
 
 class CacheInterface() {
 
-  def readView[Req <: PostRequest](
+  def getPostReqResult[Req <: PostRequest](
     par: Req#Par
   )(
     implicit c: PostRequestResultCache[Req],

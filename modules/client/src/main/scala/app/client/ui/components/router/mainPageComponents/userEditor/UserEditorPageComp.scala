@@ -61,11 +61,11 @@ object UserEditorPageComp {
       s:                     State
     ): VdomElement = {
       val res = cacheInterfaceWrapper.cacheInterface
-        .readView[SumIntRoute](SumIntPar(13, 42))
+        .getPostReqResult[SumIntRoute](SumIntPar(13, 42))
 
       val res2: CacheEntryStates.CacheEntryState[GetAllUsersReq] =
         cacheInterfaceWrapper.cacheInterface
-          .readView[GetAllUsersReq](
+          .getPostReqResult[GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
 
@@ -80,7 +80,9 @@ object UserEditorPageComp {
       )
 
       def userRef2UserOption(r:RefToEntityWithoutVersion[User])={
-        val par = GetEntityReq.Par
+        val par: GetEntityReq.Par[User] = GetEntityReq.Par(r)
+        val res= cacheInterfaceWrapper.cacheInterface.getPostReqResult()
+        ???
 
       }
 

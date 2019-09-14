@@ -68,7 +68,7 @@ class SumNumbersBackend[Props](
     params: SumIntPar
   ): CacheEntryStates.CacheEntryState[SumIntRoute] = {
 
-    props.cacheInterface.readView[SumIntRoute](params)
+    props.cacheInterface.getPostReqResult[SumIntRoute](params)
   }
 
   object StateChangers {
