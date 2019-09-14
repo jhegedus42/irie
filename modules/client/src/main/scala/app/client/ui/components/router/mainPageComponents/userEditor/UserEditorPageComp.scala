@@ -83,27 +83,39 @@ object UserEditorPageComp {
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
 
-      val res3: GetAllUsersReq.Res =
-        res2.toOption.getOrElse(GetAllUsersReq.Res(List()))
+      val res3: Option[GetAllUsersReq.Res] =
+        res2.toOption
 
-      val res4: TagMod = TagMod(
-        res3.allUserRefs
-          .map(_.entityIdentity.uuid)
-          .map(<.div(<.br, _))
-          .toVdomArray
-      )
+//      val Some(x) = res3 // this is a pattern match that can fail :)
+      // as an eduactional comment
 
-      def userRef2UserOption(r: RefToEntityWithoutVersion[User]) : Int = {
-        val par = GetEntityReq.Par(r)
+      def listOfOptions2OptionOfList[A](
+        listOfOptions: List[Option[A]]
+      ): Option[List[A]] = {
 
-        val res = cacheInterfaceWrapper.cacheInterface
-          .getPostReqResult[GetEntityReq[User]](par)
-//
-//        ???
-          ???
+        ???
       }
 
-//      val res2_1=res2.toOption.map()
+      val res4 = for {
+        res <- res3
+        res2 = res.allUserRefs
+        res3 = res2.map(userRef2UserOption(_))
+//        res4=res3.foldLeft()
+      } yield (1)
+
+      def listOfStrings2TagMod(l: List[String]): TagMod =
+        TagMod(l.map(<.div(<.br, _)).toVdomArray)
+
+      def userRef2UserOption(
+        r: RefToEntityWithoutVersion[User]
+      ): Option[GetEntityReq.Res[User]] = {
+        val par = GetEntityReq.Par(r)
+        val res =
+          cacheInterfaceWrapper.cacheInterface
+            .getPostReqResult[GetEntityReq[User]](par)
+            .toOption
+        res
+      }
 
       <.div(
         s"hello , 13+42 is :",

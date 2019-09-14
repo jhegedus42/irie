@@ -19,6 +19,7 @@ object Settings {
     "-deprecation",
     "-feature",
     "-Yrangepos",
+    "-Ypartial-unification",
     "-nowarn"
     // https://docs.scala-lang.org/overviews/compiler-options/index.html
     //,
@@ -31,7 +32,7 @@ object Settings {
 
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
-    val scala        = "2.12.6"
+    val scala        = "2.12.8"
     val scalaDom     = "0.9.6"
     val scalajsReact = "1.3.1"
     val scalaCSS     = "0.5.5"
@@ -100,7 +101,8 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "org.scalatest" %%% "scalatest"                 % "3.0.8" % "test"
+      "org.scalatest" %%% "scalatest"                 % "3.0.8" % "test",
+      "org.typelevel" %%% "cats-core"                 % "2.0.0"
     )
   )
 
