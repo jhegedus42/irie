@@ -28,6 +28,7 @@ import java.io
 
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
+import japgolly.scalajs.react.vdom.html_<^
 
 trait UserEditorPageComp
     extends ToBeWrappedComponent[UserEditorPageComp] {
@@ -74,58 +75,68 @@ object UserEditorPageComp {
       s:                     State
     ): VdomElement = {
 
-      val res = cacheInterfaceWrapper.cacheInterface
+      val sumOf13And42 = cacheInterfaceWrapper.cacheInterface
         .getPostReqResult[SumIntRoute](SumIntPar(13, 42))
 
-      val res2: CacheEntryStates.CacheEntryState[GetAllUsersReq] =
+      val requestResultForRefToAllUsers
+        : CacheEntryStates.CacheEntryState[GetAllUsersReq] =
         cacheInterfaceWrapper.cacheInterface
           .getPostReqResult[GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
 
-      val res3: Option[GetAllUsersReq.Res] =
-        res2.toOption
+      val refToAllUsersOption: Option[GetAllUsersReq.Res] =
+        requestResultForRefToAllUsers.toOption
 
 //      val Some(x) = res3 // this is a pattern match that can fail :)
       // as an eduactional comment
 
-      def listOfOptions2OptionOfList[A](
-        listOfOptions: List[Option[A]]
-      ): Option[List[A]] = {
-
-        ???
-      }
-
-      val res4 = for {
-        res <- res3
-        res2 = res.allUserRefs
-        res3 = res2.map(userRef2UserOption(_))
-//        res4=res3.foldLeft()
-      } yield (1)
+//      def listOfOptions2OptionOfList[A](
+//        listOfOptions: List[Option[A]]
+//      ): Option[List[A]] = {
+//
+//        ???
+//      }
 
       def listOfStrings2TagMod(l: List[String]): TagMod =
         TagMod(l.map(<.div(<.br, _)).toVdomArray)
 
       def userRef2UserOption(
         r: RefToEntityWithoutVersion[User]
-      ): Option[GetEntityReq.Res[User]] = {
-        val par = GetEntityReq.Par(r)
-        val res =
+      ): GetEntityReq.Res[User] = {
+        val par_ = GetEntityReq.Par(r)
+        val res_ =
           cacheInterfaceWrapper.cacheInterface
-            .getPostReqResult[GetEntityReq[User]](par)
+            .getPostReqResult[GetEntityReq[User]](par_)
             .toOption
-        res
+        val emptyResult: GetEntityReq.Res[User] =
+          GetEntityReq.Res[User](None)
+
+        res_.getOrElse(emptyResult)
       }
+
+      val resToDisplay: Option[html_<^.TagMod] = for {
+        res <- refToAllUsersOption
+        res2 = res.allUserRefs
+        res3 = res2.map(userRef2UserOption(_))
+        res4 = res3.map(
+          x =>
+            x.optionEntity
+              .map(_.entityValue.name)
+              .getOrElse("name not loaded yet ...")
+        )
+        res5 = listOfStrings2TagMod(res4)
+      } yield (res5)
 
       <.div(
         s"hello , 13+42 is :",
         <.br,
-        s"${res}",
+        s"${sumOf13And42}",
         <.br,
         <.hr,
         s"result for the GetAllUsersReq is:",
         <.br,
-        res4
+        resToDisplay.getOrElse(TagMod("List of users is loading ..."))
       )
     }
 
