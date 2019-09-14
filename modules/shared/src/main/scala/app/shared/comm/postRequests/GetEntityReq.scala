@@ -2,7 +2,7 @@ package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
 import app.shared.comm.postRequests.GetEntityReq.{
-  GetEntityReqPar,
+  Par,
   GetEntityReqRes
 }
 import app.shared.entity.entityValue.EntityValue
@@ -14,7 +14,7 @@ import app.shared.entity.refs.{
 
 object GetEntityReq {
 
-  case class GetEntityReqPar[V <: EntityValue[V]](
+  case class Par[V <: EntityValue[V]](
     refToEntityWithoutVersion: RefToEntityWithoutVersion[V])
       extends PostRequest.Parameter
 
@@ -26,7 +26,7 @@ object GetEntityReq {
 
 class GetEntityReq[V <: EntityValue[V]]
     extends PostRequest {
-  override type Par     = GetEntityReqPar[V]
+  override type Par     = Par[V]
   override type Res     = GetEntityReqRes[V]
   override type PayLoad = V
 }

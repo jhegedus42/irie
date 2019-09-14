@@ -25,7 +25,7 @@ import app.shared.comm.postRequests.marshall.{
 }
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import app.shared.comm.postRequests.GetEntityReq.{
-  GetEntityReqPar,
+  Par,
   GetEntityReqRes
 }
 import app.shared.comm.postRequests.marshall.EncodersDecoders.{
@@ -250,8 +250,8 @@ case class TestHelper(routes: RouteFactory)
       .getRouteName[GetEntityReq[User]]()
       .name
 
-    val par: GetEntityReqPar[V] =
-      GetEntityReqPar(ref)
+    val par: Par[V] =
+      Par(ref)
 
     val res: GetEntityReqRes[V] =
       getPostRequestResult[GetEntityReq[V], V](par)
@@ -282,7 +282,7 @@ case class TestHelper(routes: RouteFactory)
 
     val req = Post(rn).withEntity(
       encodeParameters[GetEntityReq[User]](
-        GetEntityReqPar(entity.refToEntity.stripVersion())
+        Par(entity.refToEntity.stripVersion())
       ).parameters_as_json
     )
 

@@ -10,7 +10,7 @@ import app.shared.comm.postRequests.{
   ResetRequest,
   UpdateReq
 }
-import app.shared.comm.postRequests.GetEntityReq.GetEntityReqPar
+import app.shared.comm.postRequests.GetEntityReq.Par
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
@@ -62,8 +62,8 @@ case class AsyncRequestTestHelper(
     ref: RefToEntityWithoutVersion[User]
   ): Future[Entity[User]] = {
 
-    val requestPar: GetEntityReqPar[User] =
-      GetEntityReqPar(ref)
+    val requestPar: Par[User] =
+      Par(ref)
 
     val ajaxCallPar: AjaxCallPar[GetEntityReq[User]] =
       AjaxCallPar[GetEntityReq[User]](requestPar)

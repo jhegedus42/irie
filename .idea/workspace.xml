@@ -12,10 +12,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,16 +69,16 @@
     <favorites_list name="IM root project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.53245807">
+    <splitter split-orientation="horizontal" split-proportion="0.5594457">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="332">
-                  <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+                <state relative-caret-position="313">
+                  <caret line="93" column="64" lean-forward="true" selection-start-line="93" selection-start-column="64" selection-end-line="93" selection-end-column="64" />
                   <folding>
-                    <element signature="e#71#203#0" expanded="true" />
+                    <element signature="e#71#122#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -87,41 +87,70 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+                <state relative-caret-position="161">
+                  <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#71#122#0" expanded="true" />
+                    <element signature="e#2110#2384#0" />
+                    <element signature="e#2428#2582#0" />
+                    <element signature="e#2501#2573#0" />
+                    <element signature="e#2588#3100#0" />
+                    <element signature="e#3106#3601#0" />
+                    <element signature="e#3631#3908#0" />
+                    <element signature="e#3823#3890#0" />
+                    <element signature="e#4644#5508#0" />
+                    <element signature="e#5512#5796#0" />
+                    <element signature="e#5660#5792#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala">
+            <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+                <state relative-caret-position="150">
+                  <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
                   <folding>
-                    <element signature="e#823#5799#1" />
-                    <element signature="e#4644#5508#0" />
+                    <element signature="e#38#72#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
+            <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="503">
-                  <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="4" />
+                <state relative-caret-position="242">
+                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
                   <folding>
-                    <element signature="e#41#118#0" expanded="true" />
-                    <element signature="e#772#850#0" />
-                    <element signature="e#930#1276#0" />
-                    <element signature="e#1546#1609#0" />
-                    <element signature="e#3535#3578#0" />
-                    <element signature="e#3621#3859#0" />
+                    <element signature="e#38#72#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-221">
+                  <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#71#178#0" expanded="true" />
+                    <element signature="e#536#593#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -161,7 +190,6 @@
       <find>PostRouteForAkkaHttpFactory.</find>
       <find>occversion</find>
       <find>handling</find>
-      <find>json</find>
       <find>Insert</find>
       <find>fmt</find>
       <find>mono</find>
@@ -174,6 +202,7 @@
       <find>scalati</find>
       <find>test</find>
       <find>user</find>
+      <find>json</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -200,7 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetRL.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetEntityLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/InsertEntityLogic.scala" />
@@ -217,7 +245,6 @@
         <option value="$PROJECT_DIR$/project/Settings.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" />
-        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetAllUsersLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" />
         <option value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" />
@@ -229,7 +256,6 @@
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/readyOrNot/CacheReadyOrNot.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestUsers.scala" />
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestEntities.scala" />
-        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersType.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPageDescr.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/data/SumNumbersProps.scala" />
@@ -250,6 +276,9 @@
         <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" />
+        <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala" />
+        <option value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" />
         <option value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" />
       </list>
     </option>
@@ -258,8 +287,8 @@
     <scope name="routes" pattern="file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic//*||file[server]:src/main/scala/app/server/httpServer/routes/post//*" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="27" />
-    <option name="y" value="31" />
+    <option name="x" value="1" />
+    <option name="y" value="60" />
     <option name="width" value="1413" />
     <option name="height" value="817" />
   </component>
@@ -278,6 +307,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -924,7 +954,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -943,7 +972,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.46729776" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="Bytecode Indices" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1142,6 +1171,10 @@
           <value>
             <list>
               <ExternalProjectPojo>
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
@@ -1150,16 +1183,12 @@
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -1204,13 +1233,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00262" summary="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.&#10;&#10;--------------------------------------------------&#10;&#10;Safety commit.">
-      <created>1567456641179</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1567456641179</updated>
     </task>
     <task id="LOCAL-00263" summary="Get Route &quot;works&quot;, at least a related test passes, but now&#10;we have two tests that do not pass.&#10;&#10;We need to make them pass.&#10;&#10;--------------------------------------------------&#10;&#10;Safety commit.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 5.17.46:&#10;&#10;Code compiles.&#10;&#10;InsertRouteLogicTCInst.getResult() is implemented without&#10;???-s.&#10;&#10;--------------------------------------------------">
       <created>1567563526149</created>
@@ -1548,7 +1570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568332990166</updated>
     </task>
-    <option name="localTasksCounter" value="311" />
+    <task id="LOCAL-00311" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 0.37.53:&#10;&#10;Static, simple, but encapsulated UserEditorPage&#10;works. It prints &quot;hello&quot;.">
+      <created>1568410698320</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1568410698320</updated>
+    </task>
+    <option name="localTasksCounter" value="312" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1594,7 +1623,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="31" width="1413" height="817" extended-state="0" />
+    <frame x="1" y="60" width="1413" height="817" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.555773" side_tool="true" weight="0.2496361" />
@@ -1618,7 +1647,7 @@
       <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.5266854" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.29912663" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2990518" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="sbt" order="4" weight="0.17448117" />
       <window_info anchor="right" id="CodeMR Metrics" order="5" show_stripe_button="false" />
@@ -1713,7 +1742,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Writing a ResetServerState Route is in progress.&#10;&#10;Sunday, 8 September 2019 20.35.41:&#10;&#10;Exploring the cake pattern.&#10;&#10;--------------------------------------------------&#10;Sunday, 8 September 2019 20.47.40:&#10;&#10;Abstract value used in trait may cause problems during&#10;initialization =&gt; ask on SOF.&#10;&#10;--------------------------------------------------&#10;Monday, 9 September 2019 1.24.15:&#10;Partial implementation of getHttpReqResult() in&#10;ResetServerStateLogic.&#10;--------------------------------------------------&#10;Monday, 9 September 2019 3.11.38:&#10;&#10;We have now 3 TODO-s left.&#10;&#10;--------------------------------------------------&#10;Monday, 9 September 2019 11.28.52:&#10;&#10;Reset state route is implemented.&#10;&#10;todo next : write server side, akka-http-testkit based&#10;unit test for it" />
     <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass." />
     <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------" />
@@ -1738,49 +1766,10 @@
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------" />
+    <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 0.37.53:&#10;&#10;Static, simple, but encapsulated UserEditorPage&#10;works. It prints &quot;hello&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 0.37.53:&#10;&#10;Static, simple, but encapsulated UserEditorPage&#10;works. It prints &quot;hello&quot;." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#74#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="e#68#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding>
-            <element signature="e#58#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="e#68#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1862,13 +1851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1954,35 +1936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="e#1451#1640#0" />
-            <element signature="e#1644#1847#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheEntryStates.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
-          <folding>
-            <element signature="e#42#93#0" expanded="true" />
-            <element signature="e#978#1460#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/data/SumNumbersProps.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/data/SumNumbersURLPayload.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/data/TheThieveryNumber.scala" />
@@ -1991,17 +1944,6 @@
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/CacheInterface.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/ReRenderer.scala" />
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/ReactCompWrapper.scala" />
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/injector/CacheInjectorHOC.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding>
-            <element signature="e#675#848#0" />
-            <element signature="e#945#1045#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/AJAXCalls.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -2054,51 +1996,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#38#72#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-          <folding>
-            <element signature="e#44#111#0" expanded="true" />
-            <element signature="n#!!doc;n#ReactCompWrapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersComponent.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding>
             <element signature="e#71#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#71#178#0" expanded="true" />
-            <element signature="e#536#593#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2110,28 +2013,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding>
-            <element signature="e#823#5799#1" />
-            <element signature="e#4644#5508#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="4" />
+        <state relative-caret-position="224">
+          <caret line="106" column="16" lean-forward="true" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
           <folding>
             <element signature="e#41#118#0" expanded="true" />
             <element signature="e#772#850#0" />
@@ -2143,12 +2028,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala">
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="e#1451#1640#0" />
+            <element signature="e#1644#1847#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/injector/CacheInjectorHOC.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#675#848#0" />
+            <element signature="e#945#1045#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding>
-            <element signature="e#71#203#0" expanded="true" />
+            <element signature="e#42#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding>
+            <element signature="e#44#111#0" expanded="true" />
+            <element signature="n#!!doc;n#ReactCompWrapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#38#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding>
+            <element signature="e#43#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.github.japgolly.scalajs-react/core_sjs0.6_2.12/srcs/core_sjs0.6_2.12-1.4.0-sources.jar!/japgolly/scalajs/react/vdom/TagMod.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheEntryStates.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/SumIntRoute.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <element signature="e#38#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="e#71#178#0" expanded="true" />
+            <element signature="e#536#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+          <folding>
+            <element signature="e#71#122#0" expanded="true" />
+            <element signature="e#2110#2384#0" />
+            <element signature="e#2428#2582#0" />
+            <element signature="e#2501#2573#0" />
+            <element signature="e#2588#3100#0" />
+            <element signature="e#3106#3601#0" />
+            <element signature="e#3631#3908#0" />
+            <element signature="e#3823#3890#0" />
+            <element signature="e#4644#5508#0" />
+            <element signature="e#5512#5796#0" />
+            <element signature="e#5660#5792#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="93" column="64" lean-forward="true" selection-start-line="93" selection-start-column="64" selection-end-line="93" selection-end-column="64" />
+          <folding>
+            <element signature="e#71#122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#38#72#0" expanded="true" />
           </folding>
         </state>
       </provider>

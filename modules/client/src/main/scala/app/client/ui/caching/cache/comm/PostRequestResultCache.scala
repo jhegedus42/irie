@@ -4,7 +4,7 @@ import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.{GetEntityReq, SumIntRoute}
+import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 import io.circe.{Decoder, Encoder}
 
@@ -53,4 +53,7 @@ object PostRequestResultCache {
 
   implicit val getUserCache =
     new PostRequestResultCache[GetEntityReq[User]]()
+
+  implicit val getAllUsersReqCache =
+    new PostRequestResultCache[GetAllUsersReq]()
 }

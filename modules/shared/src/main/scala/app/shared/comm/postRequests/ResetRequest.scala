@@ -1,14 +1,16 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
+import app.shared.comm.postRequests.GetEntityReq.{Par, GetEntityReqRes}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.GetEntityReq.{GetEntityReqPar, GetEntityReqRes}
+import app.shared.comm.postRequests.GetEntityReq.{Par, GetEntityReqRes}
 import app.shared.comm.postRequests.ResetRequest.{Par, Res}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
 import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+
+import io.circe.generic.JsonCodec, io.circe.syntax._
 
 /**
   *
@@ -19,8 +21,10 @@ import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion
 
 object ResetRequest {
 
+  @JsonCodec
   case class Par() extends PostRequest.Parameter
 
+  @JsonCodec
   case class Res(message:String ) extends PostRequest.Result
 
 }

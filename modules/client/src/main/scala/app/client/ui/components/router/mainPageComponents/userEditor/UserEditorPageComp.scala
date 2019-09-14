@@ -1,21 +1,20 @@
 package app.client.ui.components.router.mainPageComponents.userEditor
 
-import app.client.ui.caching.cacheInjector.{
-  CacheInterface,
-  CacheInterfaceWrapper,
-  ReactCompWrapper,
-  ToBeWrappedComponent
-}
-import app.client.ui.components.router.mainPageComponents.{
-  MainPage,
-  UserEditorPage
-}
+import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cacheInjector.{CacheInterface, CacheInterfaceWrapper, ReactCompWrapper, ToBeWrappedComponent}
+import app.client.ui.components.router.mainPageComponents.{MainPage, UserEditorPage}
+import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq, SumIntRoute}
+import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
-//import io.circe.generic._
+import io.circe.generic._
+import java.io
+
+import app.shared.entity.entityValue.values.User
+import app.shared.entity.refs.RefToEntityWithoutVersion
 
 trait UserEditorPageComp
     extends ToBeWrappedComponent[UserEditorPageComp] {
@@ -39,7 +38,6 @@ object UserEditorPageComp {
   //  such as: name + favorite number
   //
 
-
   val component: Component[
     CacheInterfaceWrapper[Props],
     State,
@@ -62,7 +60,42 @@ object UserEditorPageComp {
       cacheInterfaceWrapper: CacheInterfaceWrapper[Props],
       s:                     State
     ): VdomElement = {
-      <.div("hello")
+      val res = cacheInterfaceWrapper.cacheInterface
+        .readView[SumIntRoute](SumIntPar(13, 42))
+
+      val res2: CacheEntryStates.CacheEntryState[GetAllUsersReq] =
+        cacheInterfaceWrapper.cacheInterface
+          .readView[GetAllUsersReq](
+            GetAllUsersReq.Par(AdminPassword("titok"))
+          )
+
+      val res3: GetAllUsersReq.Res =
+        res2.toOption.getOrElse(GetAllUsersReq.Res(List()))
+
+      val res4: TagMod = TagMod(
+        res3.allUserRefs
+          .map(_.entityIdentity.uuid)
+          .map(<.div(<.br, _))
+          .toVdomArray
+      )
+
+      def userRef2UserOption(r:RefToEntityWithoutVersion[User])={
+        val par = GetEntityReq.Par
+
+      }
+
+//      val res2_1=res2.toOption.map()
+
+      <.div(
+        s"hello , 13+42 is :",
+        <.br,
+        s"${res}",
+        <.br,
+        <.hr,
+        s"result for the GetAllUsersReq is:",
+        <.br,
+        res4
+      )
     }
 
   }
@@ -90,6 +123,9 @@ object UserEditorPageComp {
 
       staticRoute("#userEditorPage", UserEditorPage) ~> render({
         wrappedComponent
-      }) // todo-now => make this dynamic and pass props from the URL
+      })
+
+    // todo-now => make this dynamic and pass props from the URL
+
   }
 }
