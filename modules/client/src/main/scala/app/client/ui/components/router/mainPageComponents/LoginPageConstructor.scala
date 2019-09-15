@@ -24,7 +24,25 @@ object LoginPageConstructor {
     def handleLoginButton() = {
       State.setUserLoggedIn()
       $.setState(State.IsUserLoggedIn(true))
-      // maybe we should click here programatically to some "logged in" page
+
+      // todo-later :
+      //  maybe we should also click here programatically to redirect the app to
+      //  some "logged in" page
+
+
+      // todo-later
+      //  we can also use here the "Re-render Callback" from
+      //  RouterWrapper.ReRendering to change the Router's
+      //  menu-bar, and its contents, since naturally, an application
+      //  into which the user has already logged in has normally
+      //  a new set of menus available in its menu-bar
+      //  normally an app only gives the option to log-in, first,
+      //  and only after successful login, will the app provide menu items
+      //  which can be used to access the actual functionality of the app
+      //  in other words, the app, without logging in, should be "useless"
+      //  and the presented menus/menu-bar should be also consistent with this
+      //  "principle"/"expected UI behaviour"
+
     }
 
     def render(

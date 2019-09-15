@@ -44,8 +44,27 @@ object RouterWrapper {
       }
     }
 
-  }
 
+    // todo-later - make the re-renderer here to be the "only" re-render
+    //
+    //   and replace the current, complicated re-rendering logic by a simpler
+    //   one, which is based on this re-renderer
+    //
+    //   The problem is, that I tried this one, instead of the other one, and it
+    //   "did not work", meaning, the returning AJAX calls were not able to trigger
+    //   re-renders. WHY ? I don't know. This is something that might be worth
+    //   looking into, after MVP-2 is "ready", or if the
+    //   current re-rendering solution will be prohibitively cumbersome to
+    //   use (due to too much unneccessary confusing extra logic/boilerplate).
+    //
+    //  and use it instead of the curent "re-renderer"
+    //  this is also needed to change the menu-bar
+    //  based on if the user is logged in or some other
+    //  state ... perhaps the app can have several "sub apps"
+    //  which have different functionalities and hence different
+    //  top menus
+
+  }
 
 
   def reRenderApp() : Unit = ReRendering.reRenderApp()
@@ -74,7 +93,9 @@ object RouterWrapper {
         <.br,
         <.hr,
         <.br,
-        s"Debug Info: $compilationTime, $s"
+        "Debug Info:",
+        <.br,
+        s"$compilationTime, $s"
       )
 
     }
@@ -97,14 +118,4 @@ object RouterWrapper {
           }
       )
       .build
-
-  // todo-now-1 - add here some kind of "re render triggerer"
-  //
-  //  and use it instead of the curent "re-renderer"
-  //  this is also needed to change the menu-bar
-  //  based on if the user is logged in or some other
-  //  state ... perhaps the app can have several "sub apps"
-  //  which have different functionalities and hence different
-  //  top menus
-
 }
