@@ -33,8 +33,11 @@ object LoginPageConstructor {
     ): VdomElement = {
 
       <.div(
-        <.main(C.container, ^.role := "container")(
+        <.main(C.justifyContentCenter ,C.container, ^.role := "container")(
           <.div(C.jumbotron)(
+            C.justifyContentCenter,
+            C.justifyContentCenter,
+            C.textCenter,
             <.h1("Login page"),
             <.p(C.lead, "Login Status:"),
             <.br,

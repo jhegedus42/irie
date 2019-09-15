@@ -34,7 +34,7 @@ object Pages {
     import dsl._
     val adminPage
       : dsl.Rule = staticRoute("#admin", AdminPage) ~> render(
-      StaticAdminPage.apply()
+      StaticAdminPage.component()
     )
 
     adminPage

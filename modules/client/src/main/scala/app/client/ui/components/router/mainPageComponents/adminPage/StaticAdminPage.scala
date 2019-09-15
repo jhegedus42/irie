@@ -32,6 +32,6 @@ object StaticAdminPage {
         )
       .build
 
-  def apply(): Unmounted[Unit, Unit, Unit] = component()
+//  def apply(): Unmounted[Unit, Unit, Unit] = component()
 }
 

@@ -6,15 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/AdminUser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_12_7_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/StaticPageExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersComponent.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +42,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="root" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="root" type="f1a62948:ProjectNode" />
-                <item name="server" type="2d1252cf:ModuleNode" />
               </path>
             </expand>
             <select />
@@ -77,6 +75,20 @@
       <GitPushTagMode />
     </option>
   </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="NamedScopeManager">
     <scope name="routes" pattern="file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances/persistence//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic/handlerInstances//*||file[server]:src/main/scala/app/server/httpServer/routes/post/requestHandlerLogic//*||file[server]:src/main/scala/app/server/httpServer/routes/post//*" />
   </component>
@@ -96,11 +108,11 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.46729776" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="Scala Compiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -155,7 +167,7 @@
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="fastOptJS" />
-      <option name="useSbtShell" value="true" />
+      <option name="useSbtShell" value="false" />
       <option name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
       <option name="workingDir" value="$PROJECT_DIR$" />
       <method v="2">
@@ -279,6 +291,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="sbt Task.fastOptJS" />
+      <item itemvalue="sbt Task.test" />
+      <item itemvalue="ScalaTest.RouteFactoryTest" />
+      <item itemvalue="ScalaTest.RouteFactoryTest.ping_pong" />
+      <item itemvalue="ScalaTest.RouteFactoryTest.test insert route[User]" />
+      <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
+      <item itemvalue="ScalaTest.RouteFactoryTest.testsimplePostRouteHelloWorldRoute" />
+    </list>
   </component>
   <component name="SbtLocalSettings">
     <option name="availableProjects">
@@ -293,16 +314,8 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
@@ -311,6 +324,14 @@
               <ExternalProjectPojo>
                 <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -327,7 +348,6 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7826549479913" />
         <entry key="$PROJECT_DIR$/build.sbt" value="2845546456" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -356,13 +376,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00266" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 19.21.47:&#10;Trying to get the test &quot; test(&quot;test insert route[User]&quot;)&quot;&#10;pass. Hopefully it is not too far away.">
-      <created>1567614157708</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1567614157710</updated>
     </task>
     <task id="LOCAL-00267" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 19.21.47:&#10;Trying to get the test &quot; test(&quot;test insert route[User]&quot;)&quot;&#10;pass. Hopefully it is not too far away.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 23.48.56:&#10;&#10;insert akka-http test seems to pass (server only)">
       <created>1567630158743</created>
@@ -700,7 +713,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568486990822</updated>
     </task>
-    <option name="localTasksCounter" value="315" />
+    <task id="LOCAL-00315" summary="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test.">
+      <created>1568506691787</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1568506691788</updated>
+    </task>
+    <option name="localTasksCounter" value="316" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -734,16 +754,6 @@
     <history-entry file="RouteFactoryTest - 2019.09.09 at 21h 47m 05s.xml">
       <configuration name="RouteFactoryTest" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-      <todo-filter name="todo-now" />
-    </todo-panel>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
@@ -788,7 +798,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 19.23.04:&#10;&#10;It seems that the integration test for simple reset &#10;request does pass.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work.&#10;&#10;--------------------------------------------------&#10;&#10;Now we are going to simplify the code a bit.&#10;&#10;This is a &quot;safety&quot; backup before that." />
@@ -813,6 +822,7 @@
     <MESSAGE value="Little progress has been made on userRef2UserOption." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s ." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
-    <option name="LAST_COMMIT_MESSAGE" value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
+    <MESSAGE value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
   </component>
 </project>
