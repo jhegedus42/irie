@@ -45,7 +45,6 @@ object UserEditorPageComp {
   case class State(stateString: String)
   case class Props(propsString: String)
 
-
   val component: Component[
     CacheInterfaceWrapper[Props],
     State,
@@ -151,49 +150,65 @@ object UserEditorPageComp {
         wrappedComponent
       })
 
-
-    // todo-now-2 - get a string from the URL and display it
-    //
-    //   use these comments for inspiration :
-    //
-    //   make this dynamic and pass props from the URL
-    //   this should take a uuid and edit the user
-    //   and write here the name of selected user
-    //   use the comments below for inspiration
-    //
-    //  def _tmp_userEditorPage(cacheInterface: CacheInterface) = {
-    //    dsl: RouterConfigDsl[MainPage] =>
-    //      import dsl._
-    //
-    //      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
-    //        .builder[UserEditorPage]("User editor page")
-    //        .render(p => <.div(s"Info for user #${p.props.uuid}"))
-    //        .build
-    //
-    //      //      dynamicRouteCT(
-    //      //        "#app" / "user" / string("[a-zA-Z]+")
-    //      //          .caseClass[UserEditorPage]
-    //      //      ) ~> (dynRender(
-    //      //        _userEditorPage(_: UserEditorPage)
-    //      //      ))
-    //
-    //      dynamicRouteCT(
-    //        "#app" / "user" / string("[a-zA-Z]+")
-    //          .caseClass[UserEditorPage]
-    //      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
-    //        //        _userEditorPage(paramForUserEditorPage)
-    //
-    //        SumNumbersPage.getWrappedReactCompConstructor(
-    //          cacheInterface,
-    //          () =>
-    //            SumNumbersProps(
-    //              s"hello world 42 + ${paramForUserEditorPage.uuid}"
-    //            )
-    //        )
-    //
-    //      }))
-    //
-
-
   }
+
+  // todo-now-2 - get a string from the URL and display it
+  //
+  //   why ?
+
+  //   this is needed for creating pages for editing user
+  //   fields, the uuid for the to be edited user, will be
+  //   passed in to the component via the URL,
+  //   in other words, it will be the URL that contains
+  //   this piece of state and this data will be passed via
+  //   URL and not via some internal state passing mechanism,
+  //   props, or whatnot, if needed, the two approaches
+  //   can be interchanged, where appropriate, but since we
+  //   are writing an SPA, holding state in the URL is more
+  //   "natural", after all, this is the main reason why
+  //   we are using a router in the first place
+  //
+
+  //   how ?
+  //
+  //   use these comments for inspiration :
+  //
+  //   make this dynamic and pass props from the URL
+  //   this should take a uuid and edit the user
+  //   and write here the name of selected user
+  //   use the comments below for inspiration
+  //
+  //  def _tmp_userEditorPage(cacheInterface: CacheInterface) = {
+  //    dsl: RouterConfigDsl[MainPage] =>
+  //      import dsl._
+  //
+  //      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
+  //        .builder[UserEditorPage]("User editor page")
+  //        .render(p => <.div(s"Info for user #${p.props.uuid}"))
+  //        .build
+  //
+  //      //      dynamicRouteCT(
+  //      //        "#app" / "user" / string("[a-zA-Z]+")
+  //      //          .caseClass[UserEditorPage]
+  //      //      ) ~> (dynRender(
+  //      //        _userEditorPage(_: UserEditorPage)
+  //      //      ))
+  //
+  //      dynamicRouteCT(
+  //        "#app" / "user" / string("[a-zA-Z]+")
+  //          .caseClass[UserEditorPage]
+  //      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
+  //        //        _userEditorPage(paramForUserEditorPage)
+  //
+  //        SumNumbersPage.getWrappedReactCompConstructor(
+  //          cacheInterface,
+  //          () =>
+  //            SumNumbersProps(
+  //              s"hello world 42 + ${paramForUserEditorPage.uuid}"
+  //            )
+  //        )
+  //
+  //      }))
+  //
+
 }
