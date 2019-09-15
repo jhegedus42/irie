@@ -6,18 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_12_7_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/.js-shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/injector/CacheInjectorHOC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/injector/CacheInjectorHOC.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -377,13 +373,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00267" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 19.21.47:&#10;Trying to get the test &quot; test(&quot;test insert route[User]&quot;)&quot;&#10;pass. Hopefully it is not too far away.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 23.48.56:&#10;&#10;insert akka-http test seems to pass (server only)">
-      <created>1567630158743</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1567630158744</updated>
-    </task>
     <task id="LOCAL-00268" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 19.21.47:&#10;Trying to get the test &quot; test(&quot;test insert route[User]&quot;)&quot;&#10;pass. Hopefully it is not too far away.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 23.48.56:&#10;&#10;insert akka-http test seems to pass (server only)&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 23.50.22:&#10;&#10;We are only left with one todo for the insert operation,&#10;it is the integration test.">
       <created>1567630244407</created>
       <option name="number" value="00268" />
@@ -720,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568506691788</updated>
     </task>
-    <option name="localTasksCounter" value="316" />
+    <task id="LOCAL-00316" summary="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.">
+      <created>1568564204452</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1568564204452</updated>
+    </task>
+    <option name="localTasksCounter" value="317" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -798,7 +794,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work.&#10;&#10;--------------------------------------------------&#10;&#10;Now we are going to simplify the code a bit.&#10;&#10;This is a &quot;safety&quot; backup before that." />
     <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------" />
@@ -823,6 +818,7 @@
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s ." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
     <MESSAGE value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
+    <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component." />
   </component>
 </project>

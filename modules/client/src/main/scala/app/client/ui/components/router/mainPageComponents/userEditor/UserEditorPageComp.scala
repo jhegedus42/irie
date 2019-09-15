@@ -45,12 +45,6 @@ object UserEditorPageComp {
   case class State(stateString: String)
   case class Props(propsString: String)
 
-  // this should take a uuid and edit the user
-
-  // todo-now-3
-  //  take uuid from URL and print user info
-  //  such as: name + favorite number
-  //
 
   val component: Component[
     CacheInterfaceWrapper[Props],
@@ -87,16 +81,6 @@ object UserEditorPageComp {
 
       val refToAllUsersOption: Option[GetAllUsersReq.Res] =
         requestResultForRefToAllUsers.toOption
-
-//      val Some(x) = res3 // this is a pattern match that can fail :)
-      // as an eduactional comment
-
-//      def listOfOptions2OptionOfList[A](
-//        listOfOptions: List[Option[A]]
-//      ): Option[List[A]] = {
-//
-//        ???
-//      }
 
       def listOfStrings2TagMod(l: List[String]): TagMod =
         TagMod(l.map(<.div(<.br, _)).toVdomArray)
@@ -167,7 +151,49 @@ object UserEditorPageComp {
         wrappedComponent
       })
 
-    // todo-now => make this dynamic and pass props from the URL
+
+    // todo-now-2 - get a string from the URL and display it
+    //
+    //   use these comments for inspiration :
+    //
+    //   make this dynamic and pass props from the URL
+    //   this should take a uuid and edit the user
+    //   and write here the name of selected user
+    //   use the comments below for inspiration
+    //
+    //  def _tmp_userEditorPage(cacheInterface: CacheInterface) = {
+    //    dsl: RouterConfigDsl[MainPage] =>
+    //      import dsl._
+    //
+    //      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
+    //        .builder[UserEditorPage]("User editor page")
+    //        .render(p => <.div(s"Info for user #${p.props.uuid}"))
+    //        .build
+    //
+    //      //      dynamicRouteCT(
+    //      //        "#app" / "user" / string("[a-zA-Z]+")
+    //      //          .caseClass[UserEditorPage]
+    //      //      ) ~> (dynRender(
+    //      //        _userEditorPage(_: UserEditorPage)
+    //      //      ))
+    //
+    //      dynamicRouteCT(
+    //        "#app" / "user" / string("[a-zA-Z]+")
+    //          .caseClass[UserEditorPage]
+    //      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
+    //        //        _userEditorPage(paramForUserEditorPage)
+    //
+    //        SumNumbersPage.getWrappedReactCompConstructor(
+    //          cacheInterface,
+    //          () =>
+    //            SumNumbersProps(
+    //              s"hello world 42 + ${paramForUserEditorPage.uuid}"
+    //            )
+    //        )
+    //
+    //      }))
+    //
+
 
   }
 }
