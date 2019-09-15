@@ -5,10 +5,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Proceeding with User CRUD client side logic.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
@@ -368,20 +367,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00270" summary="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.">
-      <created>1567708340667</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1567708340667</updated>
-    </task>
-    <task id="LOCAL-00271" summary="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.01.07:&#10;&#10;Yes, integration tests do pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.46.05:&#10;&#10;Some progress, currently code does not compile.&#10;We have 7 TODO-s now.&#10;&#10;This is a &quot;safety&quot; commit.&#10;&#10;--------------------------------------------------">
-      <created>1567712812583</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1567712812583</updated>
-    </task>
     <task id="LOCAL-00272" summary="Thursday, 5 September 2019 20.37.53:&#10;&#10;Starting to implement update route:&#10;&#10;- Created a few changes to naming some classes/methods/traits.&#10;- Added comments for some classes.&#10;- Created a 3 todo-s, a simple plan (partial plan), on how to&#10;implement the update route.&#10;&#10;--------------------------------------------------&#10;&#10;Thursday, 5 September 2019 21.31.51:&#10;&#10;Refactoring some type parameters.&#10;&#10;Code compiles.&#10;&#10;Need to see if tests still pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.01.07:&#10;&#10;Yes, integration tests do pass.&#10;--------------------------------------------------&#10;Thursday, 5 September 2019 22.46.05:&#10;&#10;Some progress, currently code does not compile.&#10;We have 7 TODO-s now.&#10;&#10;This is a &quot;safety&quot; commit.&#10;&#10;--------------------------------------------------&#10;Friday, 6 September 2019 1.31.18:&#10;&#10;A bit of refactoring. Code compiles.&#10;Safety commit.">
       <created>1567722697894</created>
       <option name="number" value="00272" />
@@ -711,7 +696,21 @@
       <option name="project" value="LOCAL" />
       <updated>1568582803116</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.45.45:&#10;&#10;Cleaned up some todo-s.&#10;&quot;Closed&quot; the &quot;refactor the re-rendering logic project&quot;&#10;for now.&#10;--------------------------------------------------">
+      <created>1568583982275</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1568583982276</updated>
+    </task>
+    <task id="LOCAL-00320" summary="Monday, 16 September 2019 0.52.28:&#10;&#10;Proceeding with User CRUD client side logic.&#10;Wrote a bit more detailed todo/explanation for&#10;the to be implemented functionality.">
+      <created>1568584448350</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1568584448351</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -789,8 +788,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------" />
-    <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory." />
     <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory.&#10;&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.02.22:&#10;&#10;GetEntity route integration test passes." />
     <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory.&#10;&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.02.22:&#10;&#10;GetEntity route integration test passes.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.08.15:&#10;&#10;Insert route integration test passes.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory.&#10;&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.02.22:&#10;&#10;GetEntity route integration test passes.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.08.15:&#10;&#10;Insert route integration test passes.&#10;&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 2.31.51:&#10;&#10;All integration tests pass.&#10;--------------------------------------------------" />
@@ -814,6 +811,8 @@
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component." />
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------" />
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------" />
+    <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.45.45:&#10;&#10;Cleaned up some todo-s.&#10;&quot;Closed&quot; the &quot;refactor the re-rendering logic project&quot;&#10;for now.&#10;--------------------------------------------------" />
+    <MESSAGE value="Monday, 16 September 2019 0.52.28:&#10;&#10;Proceeding with User CRUD client side logic.&#10;Wrote a bit more detailed todo/explanation for&#10;the to be implemented functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Monday, 16 September 2019 0.52.28:&#10;&#10;Proceeding with User CRUD client side logic.&#10;Wrote a bit more detailed todo/explanation for&#10;the to be implemented functionality." />
   </component>
 </project>
