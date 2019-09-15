@@ -17,7 +17,7 @@ package object mainPageComponents {
     */
   sealed trait MainPage
 
-  case object HomePage extends MainPage
+  case object LoginPage extends MainPage
 
   case object SumIntDemo extends MainPage
 

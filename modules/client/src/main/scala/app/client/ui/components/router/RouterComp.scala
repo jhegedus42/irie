@@ -115,8 +115,8 @@ case class RouterComp() {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
 
-      val homeRoute: dsl.Rule = staticRoute(root, HomePage) ~> render(
-        StaticPageExample.apply()
+      val loginRoute: dsl.Rule = staticRoute(root, LoginPage) ~> render(
+        LoginPageConstructor.component()
       )
 
       val sumNumberCompRoute: dsl.Rule = {
@@ -131,19 +131,19 @@ case class RouterComp() {
 
 
       (trimSlashes
-        | homeRoute
+        | loginRoute
         | sumNumberCompRoute
         | Pages.itemPage(dsl)
         | UserEditorPageComp.getRoute(cache)(dsl)
         | Pages.adminPage(dsl))
         .notFound(
-          redirectToPage(HomePage)(Redirect.Replace)
+          redirectToPage(LoginPage)(Redirect.Replace)
         )
         .renderWith(f = layout)
   }
 
   val mainMenu = Vector.apply(
-    Menu.apply("Home", HomePage),
+    Menu.apply("Home", LoginPage),
     Menu.apply("SumIntDemo", SumIntDemo),
     Menu.apply("User Editor", UserEditorPage),
     Menu.apply("ItemPage 4", ItemPage(4)),
@@ -154,6 +154,12 @@ case class RouterComp() {
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
   val router = Router.apply(baseUrl, config)
+
+  // todo-soon ^^^ this router should be wrapped into something
+  //  "stateful", so that we can trigger a re-render on it
+  //  then we do not need these stupid wrappers for our pages
+  //  with cache... just to re-render them...
+  //  whatever needs the cache will either get it as prop
 
   def layout(
     c: RouterCtl[MainPage],

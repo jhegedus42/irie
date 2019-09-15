@@ -6,11 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_core_sjs0_6_2_12_2_0_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_kernel_sjs0_6_2_12_2_0_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_typelevel_cats_macros_sjs0_6_2_12_2_0_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/AdminUser.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserEditorPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/StaticPageExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersBackend.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersComponent.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,50 +65,6 @@
         <option value="Scala Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>durat</find>
-      <find>getent</find>
-      <find>getstatesna</find>
-      <find>executioncon</find>
-      <find>execut</find>
-      <find>arewe</find>
-      <find>getsna</find>
-      <find>testda</find>
-      <find>data</find>
-      <find>testing</find>
-      <find>route</find>
-      <find>testget</find>
-      <find>async</find>
-      <find>Get</find>
-      <find>PostRouteForAkkaHttpFactory.</find>
-      <find>occversion</find>
-      <find>handling</find>
-      <find>Insert</find>
-      <find>fmt</find>
-      <find>mono</find>
-      <find>meres</find>
-      <find>Kiraly</find>
-      <find>state was</find>
-      <find>greet</find>
-      <find>lens</find>
-      <find>shiraly</find>
-      <find>scalati</find>
-      <find>test</find>
-      <find>user</find>
-      <find>json</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>ViewCacheState[</replace>
-      <replace>Insert</replace>
-      <replace>Update</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/caching/localState/localEntities</dir>
-      <dir>$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/dynamic/serverLogicTypeClass/instances</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -367,6 +327,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7826549479913" />
         <entry key="$PROJECT_DIR$/build.sbt" value="2845546456" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -395,13 +356,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00265" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------">
-      <created>1567607102143</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1567607102145</updated>
     </task>
     <task id="LOCAL-00266" summary="Wednesday, 4 September 2019 17.24.55:&#10;&#10;Insert route seems to be implemented.&#10;Code compiles.&#10;Integration test for insert fails.&#10;&#10;--------------------------------------------------&#10;Wednesday, 4 September 2019 19.21.47:&#10;Trying to get the test &quot; test(&quot;test insert route[User]&quot;)&quot;&#10;pass. Hopefully it is not too far away.">
       <created>1567614157708</created>
@@ -739,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568485551923</updated>
     </task>
-    <option name="localTasksCounter" value="314" />
+    <task id="LOCAL-00314" summary="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users.">
+      <created>1568486990821</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1568486990822</updated>
+    </task>
+    <option name="localTasksCounter" value="315" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -827,7 +788,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 19.23.04:&#10;&#10;It seems that the integration test for simple reset &#10;request does pass.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;." />
     <MESSAGE value="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 22.13.17:&#10;&#10;I did an &quot;anti assertion&quot; and the test failed/passed. &#10;So the integration tests seem to work." />
@@ -852,6 +812,7 @@
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 3.02.36:&#10;&#10;3 Page routes have been factored out from the Router&#10;object.&#10;&#10;Code looks less crowded now.&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 0.37.53:&#10;&#10;Static, simple, but encapsulated UserEditorPage&#10;works. It prints &quot;hello&quot;." />
     <MESSAGE value="Little progress has been made on userRef2UserOption." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s ." />
-    <option name="LAST_COMMIT_MESSAGE" value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s ." />
+    <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
   </component>
 </project>
