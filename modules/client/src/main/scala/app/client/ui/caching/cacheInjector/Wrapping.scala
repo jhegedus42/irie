@@ -8,7 +8,12 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{
@@ -20,7 +25,7 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
 
 private[cacheInjector] class CacheInjectorHOC[Backend, Props, State](
-                                                                      toBeWrapped: Component[CacheInterfaceWrapper[Props], State, Backend, CtorType.Props]) {
+  toBeWrapped: Component[CacheInterfaceWrapper[Props], State, Backend, CtorType.Props]) {
 
   lazy val wrapperConstructor =
     ScalaComponent
@@ -37,7 +42,7 @@ private[cacheInjector] class CacheInjectorHOC[Backend, Props, State](
       .build
 
   class WrapperBackend(
-                        $ : BackendScope[CacheInterfaceWrapper[Props], Unit]) {
+    $ : BackendScope[CacheInterfaceWrapper[Props], Unit]) {
 
     def render(props: CacheInterfaceWrapper[Props]) = {
       <.div(toBeWrapped(props))
@@ -60,7 +65,7 @@ class CacheInterface() {
     encoder:    Encoder[Req#ParT],
     ct:         ClassTag[Req],
     ct2:        ClassTag[Req#PayLoadT]
-  ): CacheEntryState[Req] = c.getPostRequestResultCacheState(par)
+  ): CacheEntryState[Req] = c.getPostRequestResult(par)
 }
 
 trait ToBeWrappedComponent[Comp] {

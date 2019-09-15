@@ -7,7 +7,10 @@ package app.client.ui.components
   * component, just so that we can re-render them.
   *
   */
-import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
+import app.client.ui.caching.cacheInjector.{
+  CacheInterfaceWrapper,
+  ReRenderer
+}
 import app.client.ui.components.router.RouterComp
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
@@ -17,9 +20,38 @@ import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object RouterWrapper {
-  val router=RouterComp().router()
 
-  @AppendCompilationTimeToString val compilationTime: String = "Compilation time was : "
+  val router = RouterComp().router()
+
+  private object ReRendering {
+
+    case class ReRenderTriggerer(triggerReRender: () => Unit)
+
+    private var reRenderer: Option[ReRenderTriggerer] = None
+
+    def setReRenderer(triggerer: ReRenderTriggerer): Unit = {
+      reRenderer = Some(triggerer)
+    }
+
+    def reRenderApp(): Unit = {
+      if (reRenderer.nonEmpty) reRenderer.get.triggerReRender()
+      else {
+        println(
+          "BIMMMM ! Long time inna rock it inna dance but still," +
+            "we cannot re render stuff without having a re-renderer, so plz. come" +
+            "back later and bring a nice re-renderer, chala lala lala laaa. BIMM !"
+        )
+      }
+    }
+
+  }
+
+
+
+  def reRenderApp() : Unit = ReRendering.reRenderApp()
+
+  @AppendCompilationTimeToString val compilationTime: String =
+    "Compilation time was : "
 
   object State {
     case class NumberOfTimesReRenderHasBeenCalled(nr: Long) {
@@ -42,7 +74,7 @@ object RouterWrapper {
         <.br,
         <.hr,
         <.br,
-        s"Debug Info: $compilationTime, $s",
+        s"Debug Info: $compilationTime, $s"
       )
 
     }
@@ -55,6 +87,15 @@ object RouterWrapper {
       .builder[Unit]("Router Wrapper")
       .initialState(State.NumberOfTimesReRenderHasBeenCalled(0))
       .renderBackend[RouterWrapperBackend[Unit]]
+      .componentWillMount(
+        $ =>
+          Callback {
+            ReRendering
+              .setReRenderer(ReRendering.ReRenderTriggerer(() => {
+                $.modState(_.inc()).runNow()
+              }))
+          }
+      )
       .build
 
   // todo-now-1 - add here some kind of "re render triggerer"
@@ -65,6 +106,5 @@ object RouterWrapper {
   //  state ... perhaps the app can have several "sub apps"
   //  which have different functionalities and hence different
   //  top menus
-
 
 }
