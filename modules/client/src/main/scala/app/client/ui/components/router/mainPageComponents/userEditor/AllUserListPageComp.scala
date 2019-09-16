@@ -19,7 +19,10 @@ import app.shared.comm.postRequests.{
 }
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
-import japgolly.scalajs.react.extra.router.RouterConfigDsl
+import japgolly.scalajs.react.extra.router.{
+  RouterConfigDsl,
+  StaticDsl
+}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
@@ -31,8 +34,10 @@ import app.shared.entity.refs.RefToEntityWithoutVersion
 import japgolly.scalajs.react.vdom.html_<^
 
 trait AllUserListPageComp
-    extends ToBeWrappedMainPageComponent[AllUserListPage.type,
-                                         AllUserListPageComp] {
+    extends ToBeWrappedMainPageComponent[
+      AllUserListPageComp,
+      AllUserListPage
+    ] {
 
   override type Props = AllUserListPageComp.Props
   override type Backend =
@@ -142,7 +147,7 @@ object AllUserListPageComp {
     val reactCompWrapper =
       MainPageReactCompWrapper[
         AllUserListPageComp,
-        AllUserListPage.type
+        AllUserListPage
       ](
         cache         = cacheInterface,
         propsProvider = propsProviderFunction,
@@ -161,7 +166,12 @@ object AllUserListPageComp {
           () => Props(p)
         )
 
-      staticRoute("#userEditorPage", AllUserListPage) ~> render({
+
+
+      val sr: StaticDsl.StaticRouteB[MainPage, dsl.Rule] =
+        staticRoute("#userEditorPage", AllUserListPage("dummy string parameter"))
+
+      sr ~> render({
         wrappedComponent("this is the prop")
       })
 

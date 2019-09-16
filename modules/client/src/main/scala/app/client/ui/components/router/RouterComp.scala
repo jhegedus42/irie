@@ -57,7 +57,7 @@ case class RouterComp() {
       )
 
       val sumNumberCompRoute: dsl.Rule = {
-        staticRoute("#cacheTest", SumIntDemo) ~>
+        staticRoute("#cacheTest", SumIntDemo("dummy string parameter")) ~>
           render({
             SumNumbersPage.getWrappedReactCompConstructor(
               cache,
@@ -81,8 +81,8 @@ case class RouterComp() {
 
   val mainMenu = Vector.apply(
     Menu.apply("Home", LoginPage),
-    Menu.apply("SumIntDemo", SumIntDemo),
-    Menu.apply("User Editor", AllUserListPage),
+//    Menu.apply("SumIntDemo", SumIntDemo("init string")), // todo-now make this "work"
+//    Menu.apply("User Editor", AllUserListPage("init string")),
     Menu.apply("ItemPage 4", ItemPage(4)),
     Menu.apply("ItemPage 42", ItemPage(42)),
     Menu.apply("Admin Page", AdminPage)

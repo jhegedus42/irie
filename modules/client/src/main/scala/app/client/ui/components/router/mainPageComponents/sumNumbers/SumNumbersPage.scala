@@ -22,7 +22,7 @@ import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
 trait SumNumbersPage
-    extends ToBeWrappedMainPageComponent[SumNumbersPage,SumIntDemo.type] {
+    extends ToBeWrappedMainPageComponent[SumNumbersPage,SumIntDemo] {
   override type Props   = SumNumbersProps
   override type Backend = SumNumbersBackend[Props]
   override type State   = SumNumberState
@@ -50,7 +50,7 @@ object SumNumbersPage {
     cacheInterface:       Cache,
     propsProvderFunction: () => SumNumbersProps
   ) = {
-    val reactCompWrapper = MainPageReactCompWrapper[ SumNumbersPage, SumIntDemo.type](
+    val reactCompWrapper = MainPageReactCompWrapper[ SumNumbersPage, SumIntDemo](
       cache         = cacheInterface,
       propsProvider = propsProvderFunction,
       comp          = SumNumbersComponent.component
@@ -73,6 +73,8 @@ class SumNumbersBackend[Props](
   private def saveStateIntoInitState(s: SumNumberState): Unit = {
     SumNumbersComponent.initialState = s
   }
+
+
   private def isThieveryNumber(st: SumNumberState): Boolean = {
     (st.tn.firstNumber == 38 && st.tn.secondNumber == 45)
   }
