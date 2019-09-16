@@ -1,49 +1,28 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  ReactCompWrapper,
-  ToBeWrappedComponent
-}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{
-  SumNumberState,
-  SumNumbersProps
-}
+import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{SumNumberState, SumNumbersProps}
 import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{
-  SumNumberState,
-  SumNumbersProps,
-  TheThieveryNumber
-}
-
-
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{SumNumberState, SumNumbersProps, TheThieveryNumber}
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.components.router.mainPageComponents.SumIntDemo
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
 import io.circe.generic.auto._
-import japgolly.scalajs.react.vdom.html_<^.{
-  <,
-  TagMod,
-  VdomElement,
-  ^,
-  _
-}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  ReactEventFromInput
-}
+import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactEventFromInput}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
-trait SumNumbersPage extends ToBeWrappedComponent[SumNumbersPage] {
+
+trait SumNumbersPage
+    extends ToBeWrappedMainPageComponent[SumNumbersPage,SumIntDemo.type] {
   override type Props   = SumNumbersProps
   override type Backend = SumNumbersBackend[Props]
   override type State   = SumNumberState
@@ -68,10 +47,10 @@ object SumNumbersPage {
   case class SumNumbersProps(string: String)
 
   def getWrappedReactCompConstructor(
-                                      cacheInterface:       Cache,
-                                      propsProvderFunction: () => SumNumbersProps
+    cacheInterface:       Cache,
+    propsProvderFunction: () => SumNumbersProps
   ) = {
-    val reactCompWrapper = ReactCompWrapper[SumNumbersPage](
+    val reactCompWrapper = MainPageReactCompWrapper[ SumNumbersPage, SumIntDemo.type](
       cache         = cacheInterface,
       propsProvider = propsProvderFunction,
       comp          = SumNumbersComponent.component
@@ -121,8 +100,8 @@ class SumNumbersBackend[Props](
     * @return the sum as String
     */
   private def calculateSumOnServer(
-                                    props:  CacheAndProps[Props],
-                                    params: SumIntPar
+    props:  CacheAndProps[Props],
+    params: SumIntPar
   ): CacheEntryStates.CacheEntryState[SumIntRoute] = {
 
     props.cache.getPostReqResult[SumIntRoute](params)
@@ -223,8 +202,8 @@ class SumNumbersBackend[Props](
     )
 
   def render(
-              props: CacheAndProps[Props],
-              s:     SumNumberState
+    props: CacheAndProps[Props],
+    s:     SumNumberState
   ): VdomElement = {
     <.div(
       C.textCenter,

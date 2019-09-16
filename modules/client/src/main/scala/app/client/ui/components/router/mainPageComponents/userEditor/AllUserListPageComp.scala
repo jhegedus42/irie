@@ -4,12 +4,12 @@ import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{
   Cache,
   CacheAndProps,
-  ReactCompWrapper,
-  ToBeWrappedComponent
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
 }
 import app.client.ui.components.router.mainPageComponents.{
-  MainPage,
-  UserEditorPage
+  AllUserListPage,
+  MainPage
 }
 import app.shared.comm.postRequests.{
   AdminPassword,
@@ -30,19 +30,27 @@ import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
 import japgolly.scalajs.react.vdom.html_<^
 
-trait AllUserListPage extends ToBeWrappedComponent[AllUserListPage] {
+trait AllUserListPageComp
+    extends ToBeWrappedMainPageComponent[AllUserListPage.type,
+                                         AllUserListPageComp] {
 
-  override type Props = AllUserListPage.Props
+  override type Props = AllUserListPageComp.Props
   override type Backend =
-    AllUserListPage.Backend[AllUserListPage.Props]
-  override type State = AllUserListPage.State
+    AllUserListPageComp.Backend[AllUserListPageComp.Props]
+  override type State = AllUserListPageComp.State
 
 }
 
-object AllUserListPage {
+// todo-later
+//  perhaps one could later give a bit more structure to pages like this
+//  and formalize/enforce that structure in the ToBeWrappedComponent
+//  trait, for example
 
-  case class State(stateString: String)
-  case class Props(propsString: String)
+object AllUserListPageComp {
+
+  case class State(someString: String)
+
+  case class Props(someString: String)
 
   val component: Component[
     CacheAndProps[Props],
@@ -128,14 +136,18 @@ object AllUserListPage {
   }
 
   def getWrappedReactCompConstructor(
-    cacheInterface:       Cache,
-    propsProvderFunction: () => Props
+    cacheInterface:        Cache,
+    propsProviderFunction: () => Props
   ) = {
-    val reactCompWrapper = ReactCompWrapper[AllUserListPage](
-      cache         = cacheInterface,
-      propsProvider = propsProvderFunction,
-      comp          = component
-    )
+    val reactCompWrapper =
+      MainPageReactCompWrapper[
+        AllUserListPageComp,
+        AllUserListPage.type
+      ](
+        cache         = cacheInterface,
+        propsProvider = propsProviderFunction,
+        comp          = component
+      )
     reactCompWrapper.wrappedConstructor
   }
 
@@ -143,13 +155,14 @@ object AllUserListPage {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
 
-      val wrappedComponent = getWrappedReactCompConstructor(
-        cacheInterface,
-        () => Props("hello user editor page")
-      )
+      def wrappedComponent(p: String) =
+        getWrappedReactCompConstructor(
+          cacheInterface,
+          () => Props(p)
+        )
 
-      staticRoute("#userEditorPage", UserEditorPage) ~> render({
-        wrappedComponent
+      staticRoute("#userEditorPage", AllUserListPage) ~> render({
+        wrappedComponent("this is the prop")
       })
 
   }

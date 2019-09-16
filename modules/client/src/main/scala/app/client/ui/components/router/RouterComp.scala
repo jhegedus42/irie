@@ -1,13 +1,13 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{Cache, ReactCompWrapper}
+import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
 import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersPage}
 import app.client.ui.components.router.mainPageComponents._
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumbersProps
-import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPage
+import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPageComp
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
@@ -71,7 +71,7 @@ case class RouterComp() {
         | loginRoute
         | sumNumberCompRoute
         | Pages.itemPage(dsl)
-        | AllUserListPage.getRoute(cache)(dsl)
+        | AllUserListPageComp.getRoute(cache)(dsl)
         | Pages.adminPage(dsl))
         .notFound(
           redirectToPage(LoginPage)(Redirect.Replace)
@@ -82,7 +82,7 @@ case class RouterComp() {
   val mainMenu = Vector.apply(
     Menu.apply("Home", LoginPage),
     Menu.apply("SumIntDemo", SumIntDemo),
-    Menu.apply("User Editor", UserEditorPage),
+    Menu.apply("User Editor", AllUserListPage),
     Menu.apply("ItemPage 4", ItemPage(4)),
     Menu.apply("ItemPage 42", ItemPage(42)),
     Menu.apply("Admin Page", AdminPage)

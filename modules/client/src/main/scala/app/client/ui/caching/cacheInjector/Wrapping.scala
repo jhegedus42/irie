@@ -14,9 +14,9 @@ import japgolly.scalajs.react.{
   CtorType,
   ScalaComponent
 }
-
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
+import app.client.ui.components.router.mainPageComponents.MainPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
@@ -65,7 +65,7 @@ class Cache() {
   ): CacheEntryState[Req] = c.getPostRequestResult(par)
 }
 
-trait ToBeWrappedComponent[Comp] {
+trait ToBeWrappedMainPageComponent[Comp<:ToBeWrappedMainPageComponent[Comp,P],P <: MainPage] {
   type Props
   type State
   type Backend
@@ -81,8 +81,10 @@ trait ToBeWrappedComponent[Comp] {
   * @param comp
   * @tparam Comp
   */
-case class ReactCompWrapper[Comp <: ToBeWrappedComponent[Comp]](
-  cache:         Cache,
+case class MainPageReactCompWrapper[
+  Comp <: ToBeWrappedMainPageComponent[Comp, Page],
+    Page <: MainPage
+](cache:         Cache,
   propsProvider: () => Comp#Props,
   comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
 
@@ -113,7 +115,6 @@ case class ReactCompWrapper[Comp <: ToBeWrappedComponent[Comp]](
   * [[app.client.ui.components.router.mainPageComponents.MainPage]]
   *
   */
-
 private[caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
 

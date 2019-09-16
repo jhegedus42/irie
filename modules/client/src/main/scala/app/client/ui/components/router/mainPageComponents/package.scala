@@ -28,7 +28,7 @@ package object mainPageComponents {
   case class ItemPage(id: Int) extends MainPage
 
 //  case class UserEditorPage(uuid: String) extends MainPage
-  case object UserEditorPage extends MainPage
+  case object AllUserListPage extends MainPage
 
 //  case class StaticEditorPage(uuid: String) extends MainPage
 
