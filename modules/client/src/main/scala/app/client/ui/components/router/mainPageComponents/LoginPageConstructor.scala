@@ -1,6 +1,6 @@
 package app.client.ui.components.router.mainPageComponents
 
-import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
+import app.client.ui.caching.cacheInjector.CacheAndProps
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
 import bootstrap4.TB.C
 import japgolly.scalajs.react._

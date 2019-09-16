@@ -45,6 +45,7 @@ lazy val client: Project = (project in file("modules/client"))
     name := "client",
     version := Settings.version,
     scalaVersion := Settings.versions.scala,
+    scalacOptions ++= Settings.scalacOptions,
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible

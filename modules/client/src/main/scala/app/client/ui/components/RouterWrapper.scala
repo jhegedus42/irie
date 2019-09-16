@@ -8,7 +8,7 @@ package app.client.ui.components
   *
   */
 import app.client.ui.caching.cacheInjector.{
-  CacheInterfaceWrapper,
+  CacheAndProps,
   ReRenderer
 }
 import app.client.ui.components.router.RouterComp

@@ -1,7 +1,7 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
 import app.client.ui.caching.cacheInjector.{
-  CacheInterface,
+  Cache,
   ReactCompWrapper,
   ToBeWrappedComponent
 }
@@ -9,7 +9,7 @@ import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersP
   SumNumberState,
   SumNumbersProps
 }
-import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
+import app.client.ui.caching.cacheInjector.CacheAndProps
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{
   SumNumberState,
   SumNumbersProps,
@@ -21,7 +21,7 @@ import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.CacheInterfaceWrapper
+import app.client.ui.caching.cacheInjector.CacheAndProps
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
@@ -68,8 +68,8 @@ object SumNumbersPage {
   case class SumNumbersProps(string: String)
 
   def getWrappedReactCompConstructor(
-    cacheInterface:       CacheInterface,
-    propsProvderFunction: () => SumNumbersProps
+                                      cacheInterface:       Cache,
+                                      propsProvderFunction: () => SumNumbersProps
   ) = {
     val reactCompWrapper = ReactCompWrapper[SumNumbersPage](
       cache         = cacheInterface,
@@ -82,7 +82,7 @@ object SumNumbersPage {
 }
 
 class SumNumbersBackend[Props](
-  $ : BackendScope[CacheInterfaceWrapper[Props], SumNumberState]) {
+  $ : BackendScope[CacheAndProps[Props], SumNumberState]) {
 
   /**
     * This makes sure that the next time this component will be "created"/"instantiated
@@ -121,11 +121,11 @@ class SumNumbersBackend[Props](
     * @return the sum as String
     */
   private def calculateSumOnServer(
-    props:  CacheInterfaceWrapper[Props],
-    params: SumIntPar
+                                    props:  CacheAndProps[Props],
+                                    params: SumIntPar
   ): CacheEntryStates.CacheEntryState[SumIntRoute] = {
 
-    props.cacheInterface.getPostReqResult[SumIntRoute](params)
+    props.cache.getPostReqResult[SumIntRoute](params)
   }
 
   object StateChangers {
@@ -152,7 +152,7 @@ class SumNumbersBackend[Props](
       })
 
     def onChangeSecondNumber(
-      bs: BackendScope[CacheInterfaceWrapper[Props], SumNumberState]
+      bs: BackendScope[CacheAndProps[Props], SumNumberState]
     )(e:  ReactEventFromInput
     ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
@@ -166,7 +166,7 @@ class SumNumbersBackend[Props](
     }
 
     def onChangeFirstNumber(
-      bs: BackendScope[CacheInterfaceWrapper[Props], SumNumberState]
+      bs: BackendScope[CacheAndProps[Props], SumNumberState]
     )(e:  ReactEventFromInput
     ): CallbackTo[Unit] = {
       val event: _root_.japgolly.scalajs.react.ReactEventFromInput = e
@@ -223,8 +223,8 @@ class SumNumbersBackend[Props](
     )
 
   def render(
-    props: CacheInterfaceWrapper[Props],
-    s:     SumNumberState
+              props: CacheAndProps[Props],
+              s:     SumNumberState
   ): VdomElement = {
     <.div(
       C.textCenter,
@@ -278,13 +278,13 @@ object SumNumbersComponent {
   }
 
   val component: Component[
-    CacheInterfaceWrapper[SumNumbersProps],
+    CacheAndProps[SumNumbersProps],
     SumNumberState,
     SumNumbersBackend[SumNumbersProps],
     CtorType.Props
   ] = {
     ScalaComponent
-      .builder[CacheInterfaceWrapper[SumNumbersProps]](
+      .builder[CacheAndProps[SumNumbersProps]](
         "TheCorporation"
       )
       .initialState(initialState)

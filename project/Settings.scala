@@ -14,13 +14,13 @@ object Settings {
 
   /** Options for the scala compiler */
   val scalacOptions = Seq(
-    "-Xlint",
-    "-unchecked",
-    "-deprecation",
-    "-feature",
+//    "-Xlint",
+//    "-unchecked",
+   // "-deprecation",
+ //   "-feature",
     "-Yrangepos",
     "-Ypartial-unification",
-    "-nowarn"
+    "-nowarn" //,
     // https://docs.scala-lang.org/overviews/compiler-options/index.html
     //,
 //  "-Xfatal-warnings"  // New lines for each options
@@ -44,6 +44,7 @@ object Settings {
     val akkaHttp = "10.1.9"
 
     val monocleVersion = "1.5.0"
+    val scalaTestVersion = "3.0.8"
 
   }
 
@@ -61,8 +62,9 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
-      "org.scalatest" %%% "scalatest"                  % "3.0.8" % "test"
-    ) ++
+      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
+      "org.typelevel" %%% "cats-core"                 % "2.0.0"
+  ) ++
       Seq(
         "io.circe" %%% "circe-core",
         "io.circe" %%% "circe-generic",
@@ -87,7 +89,7 @@ object Settings {
       "org.iq80.leveldb"          % "leveldb"        % "0.10",
       "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
       // test:
-      "org.scalatest" %%% "scalatest" % "3.0.8" % "test"
+      "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
     )
   )
 
@@ -101,8 +103,7 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "org.scalatest" %%% "scalatest"                 % "3.0.8" % "test",
-      "org.typelevel" %%% "cats-core"                 % "2.0.0"
+      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test"
     )
   )
 

@@ -1,13 +1,13 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{CacheInterface, ReactCompWrapper}
+import app.client.ui.caching.cacheInjector.{Cache, ReactCompWrapper}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
 import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
 import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersPage}
 import app.client.ui.components.router.mainPageComponents._
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumbersProps
-import app.client.ui.components.router.mainPageComponents.userEditor.UserEditorPageComp
+import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPage
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
@@ -43,7 +43,7 @@ object Pages {
 
 case class RouterComp() {
 
-  lazy val cache = new CacheInterface()
+  lazy val cache = new Cache()
 
   // todo-later factor out the wrapping , as a start for
   //   "sumNumberCompRoute" below
@@ -71,7 +71,7 @@ case class RouterComp() {
         | loginRoute
         | sumNumberCompRoute
         | Pages.itemPage(dsl)
-        | UserEditorPageComp.getRoute(cache)(dsl)
+        | AllUserListPage.getRoute(cache)(dsl)
         | Pages.adminPage(dsl))
         .notFound(
           redirectToPage(LoginPage)(Redirect.Replace)
@@ -91,12 +91,6 @@ case class RouterComp() {
   val baseUrl = BaseUrl.fromWindowOrigin_/
 
   val router = Router.apply(baseUrl, config)
-
-  // todo-soon ^^^ this router should be wrapped into something
-  //  "stateful", so that we can trigger a re-render on it
-  //  then we do not need these stupid wrappers for our pages
-  //  with cache... just to re-render them...
-  //  whatever needs the cache will either get it as prop
 
   def layout(
     c: RouterCtl[MainPage],

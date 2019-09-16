@@ -16,20 +16,17 @@ import japgolly.scalajs.react.{
 }
 
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.client.ui.caching.cacheInjector.{
-  CacheInterfaceWrapper,
-  ReRenderer
-}
+import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
 
 private[cacheInjector] class CacheInjectorHOC[Backend, Props, State](
-  toBeWrapped: Component[CacheInterfaceWrapper[Props], State, Backend, CtorType.Props]) {
+  toBeWrapped: Component[CacheAndProps[Props], State, Backend, CtorType.Props]) {
 
   lazy val wrapperConstructor =
     ScalaComponent
-      .builder[CacheInterfaceWrapper[Props]]("Wrapper")
+      .builder[CacheAndProps[Props]]("Wrapper")
       .renderBackend[WrapperBackend]
       .componentWillMount(
         $ =>
@@ -41,30 +38,30 @@ private[cacheInjector] class CacheInjectorHOC[Backend, Props, State](
       )
       .build
 
-  class WrapperBackend(
-    $ : BackendScope[CacheInterfaceWrapper[Props], Unit]) {
+  class WrapperBackend($ : BackendScope[CacheAndProps[Props], Unit]) {
 
-    def render(props: CacheInterfaceWrapper[Props]) = {
+    def render(props: CacheAndProps[Props]) = {
       <.div(toBeWrapped(props))
     }
   }
 
 }
 
-case class CacheInterfaceWrapper[Props](
-  cacheInterface: CacheInterface,
-  props:          Props)
+case class CacheAndProps[Props](
+  cache: Cache,
+  props: Props)
 
-class CacheInterface() {
+class Cache() {
 
   def getPostReqResult[Req <: PostRequest](
     par: Req#ParT
   )(
-    implicit c: PostRequestResultCache[Req],
-    decoder:    Decoder[Req#ResT],
-    encoder:    Encoder[Req#ParT],
-    ct:         ClassTag[Req],
-    ct2:        ClassTag[Req#PayLoadT]
+    implicit
+    c:       PostRequestResultCache[Req],
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
   ): CacheEntryState[Req] = c.getPostRequestResult(par)
 }
 
@@ -85,20 +82,37 @@ trait ToBeWrappedComponent[Comp] {
   * @tparam Comp
   */
 case class ReactCompWrapper[Comp <: ToBeWrappedComponent[Comp]](
-  cache:         CacheInterface,
+  cache:         Cache,
   propsProvider: () => Comp#Props,
-  comp:          ScalaComponent[CacheInterfaceWrapper[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
+  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
 
   val wrappedConstructor =
     new CacheInjectorHOC[Comp#Backend, Comp#Props, Comp#State](comp)
       .wrapperConstructor(
-        CacheInterfaceWrapper[Comp#Props](
-          cacheInterface = cache,
-          props          = propsProvider()
+        CacheAndProps[Comp#Props](
+          cache = cache,
+          props = propsProvider()
         )
       )
 
 }
+
+/**
+  *
+  * Re rendering the "currently routed main page".
+  *
+  * "currently routed main page" = the child of the router
+  * react component in the VDOM, this normally changes if
+  * we change the URL, this is the whole point of the router,
+  * hence the name "currently routed main page", the page to
+  * which we are currently routed to - by the router - and
+  * which corresponds to the route designated by the URL in
+  * the browser.
+  *
+  * By main page I mean :
+  * [[app.client.ui.components.router.mainPageComponents.MainPage]]
+  *
+  */
 
 private[caching] object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
