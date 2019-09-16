@@ -6,16 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageConstructor.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumNumbersPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumIntComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/AllUserListPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/AllUserListPageComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -382,13 +380,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00276" summary="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.">
-      <created>1567735726448</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1567735726448</updated>
-    </task>
     <task id="LOCAL-00277" summary="Friday, 6 September 2019 5.08.15:&#10;&#10;Current main task: test the update route, using akka-http-testkit.&#10;--------------------------------------------------&#10;Friday, 6 September 2019 21.53.26:&#10;&#10;Created `executeUpdateUserRequest` helper method for testing&#10;the update request.&#10;&#10;Code compiles, integration tests pass, writing the integration&#10;test for the update request is still in progress.">
       <created>1567796095141</created>
       <option name="number" value="00277" />
@@ -725,7 +716,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568651341060</updated>
     </task>
-    <option name="localTasksCounter" value="325" />
+    <task id="LOCAL-00325" summary="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 23.18.36:&#10;&#10;Code compiles but router complains about &#10;some &quot;unspecified path&quot;.&#10;&#10;Need to fix this runtime error.&#10;It is marked in the source as &quot;todo-now&quot;.&#10;--------------------------------------------------">
+      <created>1568665225485</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1568665225486</updated>
+    </task>
+    <option name="localTasksCounter" value="326" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -803,7 +801,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === ." />
     <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route." />
     <MESSAGE value="Wednesday, 11 September 2019 17.53.02:&#10;&#10;&quot;Get all user refs&quot; route implementation is in progress.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 10.42.10:&#10;&#10;Route implemented, added scalatic for === .&#10;&#10;--------------------------------------------------&#10;Started writing integration test for getAllUserRefs route.&#10;&#10;--------------------------------------------------&#10;Thursday, 12 September 2019 11.42.38:&#10;&#10;Integration test passes for getAllUserRefs route.&#10;&#10;It is time to add some user management page&#10;for the client.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 11.47.01:&#10;&#10;CRUD User GUI implementation started." />
@@ -828,6 +825,7 @@
     <MESSAGE value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder." />
     <MESSAGE value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------" />
     <MESSAGE value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related." />
-    <option name="LAST_COMMIT_MESSAGE" value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related." />
+    <MESSAGE value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 23.18.36:&#10;&#10;Code compiles but router complains about &#10;some &quot;unspecified path&quot;.&#10;&#10;Need to fix this runtime error.&#10;It is marked in the source as &quot;todo-now&quot;.&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 23.18.36:&#10;&#10;Code compiles but router complains about &#10;some &quot;unspecified path&quot;.&#10;&#10;Need to fix this runtime error.&#10;It is marked in the source as &quot;todo-now&quot;.&#10;--------------------------------------------------" />
   </component>
 </project>

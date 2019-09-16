@@ -12,7 +12,7 @@ import app.client.ui.caching.cacheInjector.{
   ReRenderer
 }
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumberState
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import bootstrap4.TB.C
 import japgolly.scalajs.react._

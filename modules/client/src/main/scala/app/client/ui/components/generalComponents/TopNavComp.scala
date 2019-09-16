@@ -19,8 +19,8 @@ object TopNavComp {
       ctrl:         RouterCtl[MainPage]
   )
 
-  implicit val currentPageReuse = Reusability.by_==[MainPage]
-  implicit val propsReuse       = Reusability.by( (_: Props).selectedPage )
+//  implicit val currentPageReuse = Reusability.by_==[MainPage]
+//  implicit val propsReuse       = Reusability.by( (_: Props).selectedPage )
 
   val buttonInNavbar = {
 
@@ -30,7 +30,10 @@ object TopNavComp {
 
   private def pagesInNavbar( P: Props ) = {
     P.menus.toTagMod { item: Menu =>
-      <.li(
+
+      println(s" Start $item, ${item.route}")
+
+      val res = <.li(
         C.navItem,
         C.navLink,
         C.pb1,C.pt0,
@@ -41,6 +44,11 @@ object TopNavComp {
           else C.navLink
         },
       )
+
+
+      println(s" End: $item, ${item.route}")
+
+      res
     }
   }
 
@@ -79,7 +87,7 @@ object TopNavComp {
     .render_P { P: Props =>
       navigatorOriginal( P )
     }
-    .configure( Reusability.shouldComponentUpdate )
+//    .configure( Reusability.shouldComponentUpdate )
     .build
 
   def apply( props: Props ) = component( props )

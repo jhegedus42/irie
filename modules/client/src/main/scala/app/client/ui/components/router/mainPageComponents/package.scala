@@ -1,7 +1,7 @@
 package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
 import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPageComp
 
 /**
@@ -21,28 +21,29 @@ package object mainPageComponents {
     */
   trait MainPage
 
-  trait WrappedMainPage[
+  trait MainPageWithCache[
     Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-    Page <: WrappedMainPage[Comp, Page]]
+    Page <: MainPageWithCache[Comp, Page]]
       extends MainPage
 
   case object LoginPage extends MainPage
 
-  case class SumIntDemo(string: String)
-      extends WrappedMainPage[SumNumbersPage, SumIntDemo]
+  case class SumIntPage(number: Int)
+      extends MainPageWithCache[SumIntComp, SumIntPage]
+
+  /**
+    *
+    */
+  case class AllUserListPageWithCache(string: String)
+      extends MainPageWithCache[AllUserListPageComp, AllUserListPageWithCache]
+
+  //  case class UserEditorPage(uuid: String) extends MainPage
 
   case object NoteListPage extends MainPage
 
   case object AdminPage extends MainPage
 
   case class ItemPage(id: Int) extends MainPage
-
-  /**
-    *
-    */
-  //  case class UserEditorPage(uuid: String) extends MainPage
-  case class AllUserListPage(string: String)
-      extends WrappedMainPage[AllUserListPageComp, AllUserListPage]
 
 //  case class StaticEditorPage(uuid: String) extends MainPage
 

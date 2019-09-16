@@ -1,7 +1,7 @@
 package app.client.ui.components.router.mainPageComponents
 
 import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumberState
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted

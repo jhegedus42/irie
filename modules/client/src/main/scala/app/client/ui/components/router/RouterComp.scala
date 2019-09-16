@@ -1,14 +1,28 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  MainPageReactCompWrapper
+}
 import app.client.ui.components.generalComponents.TopNavComp.Menu
-import app.client.ui.components.generalComponents.{FooterComp, TopNavComp}
+import app.client.ui.components.generalComponents.{
+  FooterComp,
+  TopNavComp
+}
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{SumNumbersComponent, SumNumbersPage}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.{
+  SumNumbersComponent,
+  SumIntComp
+}
 import app.client.ui.components.router.mainPageComponents._
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumbersProps
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumbersProps
 import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPageComp
-import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
+import japgolly.scalajs.react.extra.router.{
+  Resolution,
+  RouterConfigDsl,
+  RouterCtl,
+  _
+}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
@@ -30,6 +44,26 @@ object Pages {
 
   }
 
+  def sumIntRoute(cache: Cache) = {
+//    dsl: RouterConfigDsl[MainPageWithCache[SumIntComp, SumIntPage]] =>
+    dsl: RouterConfigDsl[MainPage] =>
+      import dsl._
+
+      def wrappedComp(page: SumIntPage) =
+        SumIntComp.getWrappedReactCompConstructor(
+          cache,
+          () =>
+            SumNumbersProps(
+              s"hello world 42 and also, hello ${page.number}!"
+            )
+        )
+
+      dynamicRouteCT("#item" / int.caseClass[SumIntPage]) ~> (dynRender(
+        wrappedComp(_: SumIntPage)
+      ))
+
+  }
+
   def adminPage = { dsl: RouterConfigDsl[MainPage] =>
     import dsl._
     val adminPage
@@ -45,31 +79,18 @@ case class RouterComp() {
 
   lazy val cache = new Cache()
 
-  // todo-later factor out the wrapping , as a start for
-  //   "sumNumberCompRoute" below
-
   val config = RouterConfigDsl[MainPage].buildConfig {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
 
-      val loginRoute: dsl.Rule = staticRoute(root, LoginPage) ~> render(
+      val loginRoute
+        : dsl.Rule = staticRoute(root, LoginPage) ~> render(
         LoginPageConstructor.component()
       )
 
-      val sumNumberCompRoute: dsl.Rule = {
-        staticRoute("#cacheTest", SumIntDemo("dummy string parameter")) ~>
-          render({
-            SumNumbersPage.getWrappedReactCompConstructor(
-              cache,
-              () => SumNumbersProps("hello world 42")
-            )
-          })
-      }
-
-
       (trimSlashes
         | loginRoute
-        | sumNumberCompRoute
+        | Pages.sumIntRoute(cache)(dsl)
         | Pages.itemPage(dsl)
         | AllUserListPageComp.getRoute(cache)(dsl)
         | Pages.adminPage(dsl))
@@ -81,7 +102,19 @@ case class RouterComp() {
 
   val mainMenu = Vector.apply(
     Menu.apply("Home", LoginPage),
-//    Menu.apply("SumIntDemo", SumIntDemo("init string")), // todo-now make this "work"
+    Menu.apply("SumIntDemo", SumIntPage(137)),
+    // todo-now
+    //  => fix this page, the adding of "thievery numbers"
+    //  does not work.
+    //  => see the screenshots on to-do-next folder on the
+    //     Desktop for details
+    //  it uses the wrong "path" for the post AJAX call
+    //  why ? and how is that possible ? is beyond me...
+    //  why and how does the path for an ajax call
+    //  depend on the route ???
+    //  maybe I need to use # ?
+
+
 //    Menu.apply("User Editor", AllUserListPage("init string")),
     Menu.apply("ItemPage 4", ItemPage(4)),
     Menu.apply("ItemPage 42", ItemPage(42)),

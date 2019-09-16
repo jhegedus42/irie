@@ -1,35 +1,57 @@
 package app.client.ui.components.router.mainPageComponents.sumNumbers
 
-import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{SumNumberState, SumNumbersProps}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.{
+  SumNumberState,
+  SumNumbersProps
+}
 import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.{SumNumberState, SumNumbersProps, TheThieveryNumber}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.{
+  SumNumberState,
+  SumNumbersProps,
+  TheThieveryNumber
+}
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.client.ui.components.router.mainPageComponents.SumIntDemo
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumNumbersPage.SumNumberState
+import app.client.ui.components.router.mainPageComponents.SumIntPage
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumberState
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
 import io.circe.generic.auto._
-import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactEventFromInput}
+import japgolly.scalajs.react.vdom.html_<^.{
+  <,
+  TagMod,
+  VdomElement,
+  ^,
+  _
+}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CallbackTo,
+  ReactEventFromInput
+}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
-trait SumNumbersPage
-    extends ToBeWrappedMainPageComponent[SumNumbersPage,SumIntDemo] {
+trait SumIntComp
+    extends ToBeWrappedMainPageComponent[SumIntComp, SumIntPage] {
   override type Props   = SumNumbersProps
   override type Backend = SumNumbersBackend[Props]
   override type State   = SumNumberState
 
 }
 
-object SumNumbersPage {
+object SumIntComp {
   import app.shared.comm.postRequests.SumIntRoute.SumIntPar
   import monocle.macros.Lenses
 
@@ -50,11 +72,12 @@ object SumNumbersPage {
     cacheInterface:       Cache,
     propsProvderFunction: () => SumNumbersProps
   ) = {
-    val reactCompWrapper = MainPageReactCompWrapper[ SumNumbersPage, SumIntDemo](
-      cache         = cacheInterface,
-      propsProvider = propsProvderFunction,
-      comp          = SumNumbersComponent.component
-    )
+    val reactCompWrapper =
+      MainPageReactCompWrapper[SumIntComp, SumIntPage](
+        cache         = cacheInterface,
+        propsProvider = propsProvderFunction,
+        comp          = SumNumbersComponent.component
+      )
     reactCompWrapper.wrappedConstructor
   }
 
@@ -73,7 +96,6 @@ class SumNumbersBackend[Props](
   private def saveStateIntoInitState(s: SumNumberState): Unit = {
     SumNumbersComponent.initialState = s
   }
-
 
   private def isThieveryNumber(st: SumNumberState): Boolean = {
     (st.tn.firstNumber == 38 && st.tn.secondNumber == 45)

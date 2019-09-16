@@ -11,12 +11,12 @@ import japgolly.scalajs.react.vdom.html_<^.<
 import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
-import app.client.ui.components.router.mainPageComponents.{MainPage, WrappedMainPage}
+import app.client.ui.components.router.mainPageComponents.{MainPage, MainPageWithCache}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
 
-private[cacheInjector] class CacheInjectorHOC[Backend, Props, State](
+private[cacheInjector] class WrapperHOC[Backend, Props, State](
   toBeWrapped: Component[CacheAndProps[Props], State, Backend, CtorType.Props]) {
 
   lazy val wrapperConstructor =
@@ -62,7 +62,7 @@ class Cache() {
 
 trait ToBeWrappedMainPageComponent[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-  Page    <: WrappedMainPage[Comp,Page]] {
+  Page    <: MainPageWithCache[Comp,Page]] {
   type Props
   type State
   type Backend
@@ -81,13 +81,13 @@ trait ToBeWrappedMainPageComponent[
 case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
 //  Page <: MainPage
-    Page    <: WrappedMainPage[Comp,Page]]
+    Page    <: MainPageWithCache[Comp,Page]]
 (cache:         Cache,
   propsProvider: () => Comp#Props,
   comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
 
   val wrappedConstructor =
-    new CacheInjectorHOC[Comp#Backend, Comp#Props, Comp#State](comp)
+    new WrapperHOC[Comp#Backend, Comp#Props, Comp#State](comp)
       .wrapperConstructor(
         CacheAndProps[Comp#Props](
           cache = cache,

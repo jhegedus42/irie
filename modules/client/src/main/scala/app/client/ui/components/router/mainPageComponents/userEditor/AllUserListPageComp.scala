@@ -8,7 +8,7 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 import app.client.ui.components.router.mainPageComponents.{
-  AllUserListPage,
+  AllUserListPageWithCache,
   MainPage
 }
 import app.shared.comm.postRequests.{
@@ -36,7 +36,7 @@ import japgolly.scalajs.react.vdom.html_<^
 trait AllUserListPageComp
     extends ToBeWrappedMainPageComponent[
       AllUserListPageComp,
-      AllUserListPage
+      AllUserListPageWithCache
     ] {
 
   override type Props = AllUserListPageComp.Props
@@ -147,7 +147,7 @@ object AllUserListPageComp {
     val reactCompWrapper =
       MainPageReactCompWrapper[
         AllUserListPageComp,
-        AllUserListPage
+        AllUserListPageWithCache
       ](
         cache         = cacheInterface,
         propsProvider = propsProviderFunction,
@@ -166,10 +166,11 @@ object AllUserListPageComp {
           () => Props(p)
         )
 
-
-
       val sr: StaticDsl.StaticRouteB[MainPage, dsl.Rule] =
-        staticRoute("#userEditorPage", AllUserListPage("dummy string parameter"))
+        staticRoute(
+          "#userEditorPage",
+          AllUserListPageWithCache("dummy string parameter")
+        )
 
       sr ~> render({
         wrappedComponent("this is the prop")
