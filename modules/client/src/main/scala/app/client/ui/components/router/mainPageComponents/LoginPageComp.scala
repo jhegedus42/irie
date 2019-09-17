@@ -1,13 +1,14 @@
 package app.client.ui.components.router.mainPageComponents
 
 import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.components.RouterWrapper
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumberState
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
-object LoginPageConstructor {
+object LoginPageComp {
 
   object State {
     case class IsUserLoggedIn(yesOrNo: Boolean)
@@ -15,8 +16,10 @@ object LoginPageConstructor {
 
     def setUserLoggedIn(): Unit = {
       isUserLoggedIn = IsUserLoggedIn(true)
+      RouterWrapper.reRenderApp()
     }
   }
+  def isUserLoggedIn =State.isUserLoggedIn
 
   class LoginPageBackend[Unit](
     $ : BackendScope[Unit, State.IsUserLoggedIn]) {
@@ -24,25 +27,6 @@ object LoginPageConstructor {
     def handleLoginButton() = {
       State.setUserLoggedIn()
       $.setState(State.IsUserLoggedIn(true))
-
-      // todo-later :
-      //  maybe we should also click here programatically to redirect the app to
-      //  some "logged in" page
-
-
-      // todo-later
-      //  we can also use here the "Re-render Callback" from
-      //  RouterWrapper.ReRendering to change the Router's
-      //  menu-bar, and its contents, since naturally, an application
-      //  into which the user has already logged in has normally
-      //  a new set of menus available in its menu-bar
-      //  normally an app only gives the option to log-in, first,
-      //  and only after successful login, will the app provide menu items
-      //  which can be used to access the actual functionality of the app
-      //  in other words, the app, without logging in, should be "useless"
-      //  and the presented menus/menu-bar should be also consistent with this
-      //  "principle"/"expected UI behaviour"
-
     }
 
     def render(
@@ -79,7 +63,7 @@ object LoginPageConstructor {
   val component =
     ScalaComponent
       .builder[Unit]("Login Page")
-      .initialState(State.isUserLoggedIn)
+      .initialState(isUserLoggedIn)
       .renderBackend[LoginPageBackend[Unit]]
       .build
 

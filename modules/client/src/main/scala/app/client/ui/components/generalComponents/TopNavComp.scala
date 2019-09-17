@@ -11,13 +11,14 @@ import bootstrap4.TB.C
 object TopNavComp {
 
   // this is used in the props
-  case class Menu( name: String, route: MainPage )
+  case class Menu(
+    name:  String,
+    route: MainPage)
 
   case class Props(
-      menus:        Vector[Menu],
-      selectedPage: MainPage,
-      ctrl:         RouterCtl[MainPage]
-  )
+    menus:        () => Vector[Menu],
+    selectedPage: MainPage,
+    ctrl:         RouterCtl[MainPage])
 
 //  implicit val currentPageReuse = Reusability.by_==[MainPage]
 //  implicit val propsReuse       = Reusability.by( (_: Props).selectedPage )
@@ -28,31 +29,34 @@ object TopNavComp {
 
   }
 
-  private def pagesInNavbar( P: Props ) = {
-    P.menus.toTagMod { item: Menu =>
-
-      println(s" Start $item, ${item.route}")
+  private def pagesInNavbar(P: Props) = {
+    P.menus().toTagMod { item: Menu =>
+//      println(s" Start $item, ${item.route}")
 
       val res = <.li(
         C.navItem,
         C.navLink,
-        C.pb1,C.pt0,
-        <.a(C.pb1,C.pt0, C.navLink, item.name, ^.href := P.ctrl.urlFor(item.route).value),
+        C.pb1,
+        C.pt0,
+        <.a(C.pb1,
+            C.pt0,
+            C.navLink,
+            item.name,
+            ^.href := P.ctrl.urlFor(item.route).value),
         P.ctrl.setOnLinkClick(item.route),
         ^.key := item.name, {
           if (P.selectedPage == item.route) C.active
           else C.navLink
-        },
+        }
       )
 
-
-      println(s" End: $item, ${item.route}")
+//      println(s" End: $item, ${item.route}")
 
       res
     }
   }
 
-  private def navigatorOriginal( P: Props ) = {
+  private def navigatorOriginal(P: Props) = {
     import bootstrap4.TB._
     <.header(
       <.nav(
@@ -61,35 +65,35 @@ object TopNavComp {
         C.navbarExpandSm,
         C.mb4,
         C.bgDark,
-          <.button.btn(
-            C.navbarToggler,
-            ^.`type` := "button",
-            VdomAttr( "data-toggle" ) := "collapse",
-            VdomAttr( "data-target" ) := "#navbarCollapse",
-            ^.aria.controls := "navbarCollapse",
-            ^.aria.expanded := "false",
-            ^.aria.label := "toggle navigation",
-            <.span( C.navbarTogglerIcon )
-          ),
-          <.div(
-            C.collapse,
-            C.navbarCollapse,
-            ^.id := "navbarCollapse",
-            <.ul(C.pt2, C.mrAuto, C.navbarNav,   pagesInNavbar( P ) )
+        <.button.btn(
+          C.navbarToggler,
+          ^.`type` := "button",
+          VdomAttr("data-toggle") := "collapse",
+          VdomAttr("data-target") := "#navbarCollapse",
+          ^.aria.controls := "navbarCollapse",
+          ^.aria.expanded := "false",
+          ^.aria.label := "toggle navigation",
+          <.span(C.navbarTogglerIcon)
+        ),
+        <.div(
+          C.collapse,
+          C.navbarCollapse,
+          ^.id := "navbarCollapse",
+          <.ul(C.pt2, C.mrAuto, C.navbarNav, pagesInNavbar(P))
         )
       )
     )
   }
 
-
   val component = ScalaComponent
-    .builder[Props]( "TopNav" )
+    .builder[Props]("TopNav")
     .render_P { P: Props =>
-      navigatorOriginal( P )
+      navigatorOriginal(P)
     }
 //    .configure( Reusability.shouldComponentUpdate )
     .build
 
-  def apply( props: Props ) = component( props )
+  def apply(props: Props) = component(props)
+
 
 }
