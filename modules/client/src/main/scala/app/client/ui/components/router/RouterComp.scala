@@ -124,6 +124,10 @@ case class RouterComp() {
     // this is a huge hack ... todo-later - "fix it"
     // this is here so that we can re-render the router when a user logs in
 
+    // todo-now-on-hold
+    //  wait for gitter channal to try to answer a question on
+    //  how to implement the "login" use case - using this router
+
     val tnc=TopNavComp.apply(TopNavComp.Props.apply(mainMenu, r.page, c))
 
     <.div.apply(

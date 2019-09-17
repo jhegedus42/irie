@@ -178,7 +178,7 @@ object AllUserListPageComp {
 
   }
 
-  // todo-now - get a string from the URL and display it
+  // todo-now-active - get a string from the URL and display it
 
   //
   //  def _tmp_userEditorPage(cacheInterface: CacheInterface) = {
