@@ -102,19 +102,7 @@ case class RouterComp() {
 
   val mainMenu = Vector.apply(
     Menu.apply("Home", LoginPage),
-    Menu.apply("SumIntDemo", SumIntPage(137)),
-    // todo-now
-    //  => fix this page, the adding of "thievery numbers"
-    //  does not work.
-    //  => see the screenshots on to-do-next folder on the
-    //     Desktop for details
-    //  it uses the wrong "path" for the post AJAX call
-    //  why ? and how is that possible ? is beyond me...
-    //  why and how does the path for an ajax call
-    //  depend on the route ???
-    //  maybe I need to use # ?
-
-
+    Menu.apply("SumIntDemo - 137", SumIntPage(137)),
 //    Menu.apply("User Editor", AllUserListPage("init string")),
     Menu.apply("ItemPage 4", ItemPage(4)),
     Menu.apply("ItemPage 42", ItemPage(42)),
