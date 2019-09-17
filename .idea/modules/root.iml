@@ -9,9 +9,10 @@
       <sourceFolder url="file://$MODULE_DIR$/../../target/scala-2.12/src_managed/test" isTestSource="true" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/.." />
       <excludeFolder url="file://$MODULE_DIR$/../../documentation" />
-      <excludeFolder url="file://$MODULE_DIR$/../../node" />
+      <excludeFolder url="file://$MODULE_DIR$/../../node/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/../../project/project" />
+      <excludeFolder url="file://$MODULE_DIR$/../../project/target" />
       <excludeFolder url="file://$MODULE_DIR$/../../target" />
-      <excludeFolder url="file://$MODULE_DIR$/../../www" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
