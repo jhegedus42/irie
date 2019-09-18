@@ -87,8 +87,8 @@ case class RouterComp() {
             Menu.apply("Home", LoginPage),
             Menu.apply("SumIntDemo - 3845", SumIntPage(3845)),
             Menu.apply("User List and Editor", UserListPage("MezgaGeza")),
-            Menu.apply("ItemPage 4", ItemPage(4)),
-            Menu.apply("ItemPage 42", ItemPage(42)),
+//            Menu.apply("ItemPage 4", ItemPage(4)),
+//            Menu.apply("ItemPage 42", ItemPage(42)),
             Menu.apply("Admin Page", AdminPage)
           )
         case IsUserLoggedIn(false) =>
