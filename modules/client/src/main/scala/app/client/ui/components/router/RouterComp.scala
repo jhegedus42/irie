@@ -11,10 +11,10 @@ import app.client.ui.components.generalComponents.{
 }
 import app.client.ui.components.router.mainPageComponents.LoginPageComp.State.IsUserLoggedIn
 import app.client.ui.components.router.mainPageComponents.adminPage.StaticAdminPage
-import app.client.ui.components.router.mainPageComponents.sumNumbers.{
-  SumIntComp
-}
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
 import app.client.ui.components.router.mainPageComponents._
+import app.client.ui.components.router.mainPageComponents.template.TemplateComp
+import app.client.ui.components.router.mainPageComponents.template.TemplateComp.TemplatePage
 import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import japgolly.scalajs.react.extra.{OnUnmount, router}
@@ -71,6 +71,7 @@ case class RouterComp() {
           | loginRoute
           | SumIntComp.getRoute(cache)(dsl)
           | Pages.itemPageRoute(dsl)
+          | TemplateComp.getRoute(cache)(dsl)
           | UserListComp.getRoute(cache)(dsl)
           | StaticAdminPage.getRoute(dsl))
           .notFound(
@@ -86,10 +87,12 @@ case class RouterComp() {
           Vector.apply(
             Menu.apply("Home", LoginPage),
             Menu.apply("SumIntDemo - 3845", SumIntPage(3845)),
-            Menu.apply("User List and Editor", UserListPage("MezgaGeza")),
-//            Menu.apply("ItemPage 4", ItemPage(4)),
-//            Menu.apply("ItemPage 42", ItemPage(42)),
-            Menu.apply("Admin Page", AdminPage)
+            Menu.apply("User List", UserListPage("MezgaGeza")),
+            Menu.apply("ItemPage 4", ItemPage(4)),
+            Menu.apply("ItemPage 42", ItemPage(42)),
+            Menu.apply("Admin Page", AdminPage),
+            Menu.apply("Template Page",
+                       TemplatePage("CopyMeAndThenChangeMe"))
           )
         case IsUserLoggedIn(false) =>
           Vector.apply(
