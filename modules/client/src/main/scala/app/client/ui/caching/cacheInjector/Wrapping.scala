@@ -8,32 +8,22 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
 import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
-import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp.{
-  Props,
-  component
-}
-import app.client.ui.components.router.mainPageComponents.{
-  MainPage,
-  MainPageWithCache,
-  UserListPage
-}
+import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp.{Props, component}
+import app.client.ui.components.router.mainPageComponents.{MainPage, MainPageWithCache, UserListPage}
 import japgolly.scalajs.react._
+import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
+import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^._
 
-private[cacheInjector] class WrapperHOC[Backend, Props, State](
+class WrapperHOC[Backend, Props, State](
   toBeWrapped: Component[CacheAndProps[Props], State, Backend, CtorType.Props]) {
 
-  lazy val wrapperConstructor =
+  def wrapperConstructor =
     ScalaComponent
       .builder[CacheAndProps[Props]]("Wrapper")
       .renderBackend[WrapperBackend]
@@ -98,9 +88,10 @@ case class MainPageReactCompWrapper[
   Page <: MainPageWithCache[Comp, Page]
 ](cache:         Cache,
   propsProvider: () => Comp#Props,
-  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
+  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]
+  ) {
 
-  val wrappedConstructor =
+  def wrappedConstructor=
     new WrapperHOC[Comp#Backend, Comp#Props, Comp#State](comp)
       .wrapperConstructor(
         CacheAndProps[Comp#Props](

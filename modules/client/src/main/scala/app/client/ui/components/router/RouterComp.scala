@@ -94,13 +94,14 @@ case class RouterComp() {
         case IsUserLoggedIn(false) =>
           Vector.apply(
             Menu.apply("Home", LoginPage)
+//            Menu.apply("SumIntDemo - 3845", SumIntPage(3845)),
           )
       }
 
   val baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
 
-  val routerComp
-    : ScalaComponent[Unit, Resolution[MainPage], OnUnmount.Backend, CtorType.Nullary] =
+  val routerComp =
+//    : ScalaComponent[Unit, Resolution[MainPage], OnUnmount.Backend, CtorType.Nullary] =
     Router.apply(baseUrl, routerConfig)
 
   def layout(
