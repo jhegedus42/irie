@@ -8,10 +8,24 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
-import app.client.ui.components.router.mainPageComponents.{MainPage, MainPageWithCache}
+import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
+import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp.{
+  Props,
+  component
+}
+import app.client.ui.components.router.mainPageComponents.{
+  MainPage,
+  MainPageWithCache,
+  UserListPage
+}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^._
@@ -62,10 +76,11 @@ class Cache() {
 
 trait ToBeWrappedMainPageComponent[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-  Page    <: MainPageWithCache[Comp,Page]] {
+  Page <: MainPageWithCache[Comp, Page]] {
   type Props
   type State
   type Backend
+
 }
 
 /**
@@ -80,9 +95,8 @@ trait ToBeWrappedMainPageComponent[
   */
 case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-//  Page <: MainPage
-    Page    <: MainPageWithCache[Comp,Page]]
-(cache:         Cache,
+  Page <: MainPageWithCache[Comp, Page]
+](cache:         Cache,
   propsProvider: () => Comp#Props,
   comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
 

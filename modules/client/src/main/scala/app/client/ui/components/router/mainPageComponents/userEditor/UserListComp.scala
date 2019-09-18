@@ -8,8 +8,9 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 import app.client.ui.components.router.mainPageComponents.{
-  AllUserListPageWithCache,
-  MainPage
+  MainPage,
+  SumIntPage,
+  UserListPage
 }
 import app.shared.comm.postRequests.{
   AdminPassword,
@@ -29,20 +30,23 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import io.circe.generic._
 import java.io
 
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
+import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.StateAndProps.SumNumbersProps
+import app.client.ui.components.router.{Pages, RouterComp}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
 import japgolly.scalajs.react.vdom.html_<^
 
-trait AllUserListPageComp
+trait UserListComp
     extends ToBeWrappedMainPageComponent[
-      AllUserListPageComp,
-      AllUserListPageWithCache
+      UserListComp,
+      UserListPage
     ] {
 
-  override type Props = AllUserListPageComp.Props
+  override type Props = UserListComp.Props
   override type Backend =
-    AllUserListPageComp.Backend[AllUserListPageComp.Props]
-  override type State = AllUserListPageComp.State
+    UserListComp.Backend[UserListComp.Props]
+  override type State = UserListComp.State
 
 }
 
@@ -51,7 +55,7 @@ trait AllUserListPageComp
 //  and formalize/enforce that structure in the ToBeWrappedComponent
 //  trait, for example
 
-object AllUserListPageComp {
+object UserListComp {
 
   case class State(someString: String)
 
@@ -121,11 +125,11 @@ object AllUserListPageComp {
     $ : BackendScope[CacheAndProps[Properties], State]) {
 
     def render(
-      cacheInterfaceWrapper: CacheAndProps[Props],
-      s:                     State
+      cacheAndProps: CacheAndProps[Props],
+      s:             State
     ): VdomElement = {
 
-      val renderLogic = RenderLogic(cacheInterfaceWrapper)
+      val renderLogic = RenderLogic(cacheAndProps)
 
       <.div(
         <.br,
@@ -134,84 +138,40 @@ object AllUserListPageComp {
         <.br,
         renderLogic.listOfUsers.getOrElse(
           TagMod("List of users is loading ...")
+        ),
+        <.br,
+        <.p(
+          s"This is what we got from the " +
+            s"URL : ${cacheAndProps.props.someString}"
         )
       )
+
+      // todo-now
+      //  add some button here, which, when clicked will redirect/navigate
+      //  to a given UserListPage, with some given urlParam ( which will be
+      //  an UUID for an User, ultimately, once we get to the end of this
+      //  but for now some arbitrary random string will do - as proof of
+      //  concept )
     }
 
   }
 
-  def getWrappedReactCompConstructor(
-    cacheInterface:        Cache,
-    propsProviderFunction: () => Props
-  ) = {
-    val reactCompWrapper =
-      MainPageReactCompWrapper[
-        AllUserListPageComp,
-        AllUserListPageWithCache
-      ](
-        cache         = cacheInterface,
-        propsProvider = propsProviderFunction,
-        comp          = component
-      )
-    reactCompWrapper.wrappedConstructor
-  }
+  def getRoute(cacheInterface: Cache): RouterComp.RoutingRule = {
 
-  def getRoute(cacheInterface: Cache) = {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
-
-      def wrappedComponent(p: String) =
-        getWrappedReactCompConstructor(
-          cacheInterface,
-          () => Props(p)
-        )
-
-      val sr: StaticDsl.StaticRouteB[MainPage, dsl.Rule] =
-        staticRoute(
-          "#userEditorPage",
-          AllUserListPageWithCache("dummy string parameter")
-        )
-
-      sr ~> render({
-        wrappedComponent("this is the prop")
-      })
+      dynamicRouteCT(
+        "#userList" / string("[a-zA-Z]+").caseClass[UserListPage]
+      ) ~> dynRender { page: UserListPage =>
+        {
+          MainPageReactCompWrapper[UserListComp, UserListPage](
+            cache = cacheInterface,
+            propsProvider =
+              () => UserListComp.Props(page.paramFromURL),
+            comp = UserListComp.component
+          ).wrappedConstructor
+        }
+      }
 
   }
-
-  // todo-now-active - get a string from the URL and display it
-
-  //
-  //  def _tmp_userEditorPage(cacheInterface: CacheInterface) = {
-  //    dsl: RouterConfigDsl[MainPage] =>
-  //      import dsl._
-  //
-  //      val _userEditorPage = japgolly.scalajs.react.ScalaComponent
-  //        .builder[UserEditorPage]("User editor page")
-  //        .render(p => <.div(s"Info for user #${p.props.uuid}"))
-  //        .build
-  //
-  //      //      dynamicRouteCT(
-  //      //        "#app" / "user" / string("[a-zA-Z]+")
-  //      //          .caseClass[UserEditorPage]
-  //      //      ) ~> (dynRender(
-  //      //        _userEditorPage(_: UserEditorPage)
-  //      //      ))
-  //
-  //      dynamicRouteCT(
-  //        "#app" / "user" / string("[a-zA-Z]+")
-  //          .caseClass[UserEditorPage]
-  //      ) ~> (dynRender({ paramForUserEditorPage: UserEditorPage =>
-  //        //        _userEditorPage(paramForUserEditorPage)
-  //
-  //        SumNumbersPage.getWrappedReactCompConstructor(
-  //          cacheInterface,
-  //          () =>
-  //            SumNumbersProps(
-  //              s"hello world 42 + ${paramForUserEditorPage.uuid}"
-  //            )
-  //        )
-  //
-  //      }))
-  //
-
 }

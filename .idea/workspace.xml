@@ -7,7 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumIntComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumIntComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/AllUserListPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserListComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +169,7 @@
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="fastOptJS" />
-      <option name="useSbtShell" value="false" />
+      <option name="useSbtShell" value="true" />
       <option name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
       <option name="workingDir" value="$PROJECT_DIR$" />
       <method v="2">
@@ -372,13 +379,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00282" summary="Writing a ResetServerState Route is in progress.">
-      <created>1567945477680</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1567945477681</updated>
     </task>
     <task id="LOCAL-00283" summary="Writing a ResetServerState Route is in progress.&#10;&#10;Sunday, 8 September 2019 20.35.41:&#10;&#10;Exploring the cake pattern.">
       <created>1567964153917</created>
@@ -716,40 +716,15 @@
       <option name="project" value="LOCAL" />
       <updated>1568756629720</updated>
     </task>
-    <option name="localTasksCounter" value="331" />
+    <task id="LOCAL-00331" summary="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 1.41.23:&#10;&#10;Added some &quot;workaround text&quot;, as a &quot;hack&quot;, the router&#10;is not really refreshing when its parents state changes.&#10;&#10;Which is weird/unexpected. ATM, I have no good ideas on&#10;how to implement the login page functionality without&#10;terrible hacks involving dreaded VARs crawling all over&#10;my skin... :) ... LOL ... I mean, in the code... which&#10;after coding 5 million hours... starts to feel like my&#10;skin :).">
+      <created>1568760250146</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1568760250146</updated>
+    </task>
+    <option name="localTasksCounter" value="332" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="RouteFactoryTest - 2019.09.09 at 20h 46m 44s.xml">
-      <configuration name="RouteFactoryTest" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 20h 48m 18s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 14m 54s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 17m 50s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 25m 33s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 27m 27s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 32m 49s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 44m 09s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest_test_reset_route - 2019.09.09 at 21h 46m 19s.xml">
-      <configuration name="RouteFactoryTest.test reset route" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="RouteFactoryTest - 2019.09.09 at 21h 47m 05s.xml">
-      <configuration name="RouteFactoryTest" configurationId="ScalaTestRunConfiguration" />
-    </history-entry>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
@@ -794,7 +769,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------" />
@@ -819,6 +793,7 @@
     <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;." />
     <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------" />
+    <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 1.41.23:&#10;&#10;Added some &quot;workaround text&quot;, as a &quot;hack&quot;, the router&#10;is not really refreshing when its parents state changes.&#10;&#10;Which is weird/unexpected. ATM, I have no good ideas on&#10;how to implement the login page functionality without&#10;terrible hacks involving dreaded VARs crawling all over&#10;my skin... :) ... LOL ... I mean, in the code... which&#10;after coding 5 million hours... starts to feel like my&#10;skin :)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 1.41.23:&#10;&#10;Added some &quot;workaround text&quot;, as a &quot;hack&quot;, the router&#10;is not really refreshing when its parents state changes.&#10;&#10;Which is weird/unexpected. ATM, I have no good ideas on&#10;how to implement the login page functionality without&#10;terrible hacks involving dreaded VARs crawling all over&#10;my skin... :) ... LOL ... I mean, in the code... which&#10;after coding 5 million hours... starts to feel like my&#10;skin :)." />
   </component>
 </project>

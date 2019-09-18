@@ -12,7 +12,6 @@ import app.client.ui.caching.cacheInjector.{
   ReRenderer
 }
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.SumNumberState
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
@@ -21,7 +20,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object RouterWrapper {
 
-  val router = RouterComp().router()
+  val router = RouterComp().routerComp()
 
   private object ReRendering {
 
@@ -70,7 +69,7 @@ object RouterWrapper {
   def reRenderApp() : Unit = ReRendering.reRenderApp()
 
   @AppendCompilationTimeToString val compilationTime: String =
-    "Compilation time was : "
+    "Compilation time - of RouterWrapper - was : "
 
   object State {
     case class NumberOfTimesReRenderHasBeenCalled(nr: Long) {

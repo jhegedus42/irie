@@ -2,7 +2,7 @@ package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
 import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
-import app.client.ui.components.router.mainPageComponents.userEditor.AllUserListPageComp
+import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
 
 /**
   **
@@ -48,8 +48,8 @@ package object mainPageComponents {
   /**
     *
     */
-  case class AllUserListPageWithCache(string: String)
-      extends MainPageWithCache[AllUserListPageComp, AllUserListPageWithCache]
+  case class UserListPage(paramFromURL: String)
+      extends MainPageWithCache[UserListComp, UserListPage]
 
   //  case class UserEditorPage(uuid: String) extends MainPage
 
