@@ -1,46 +1,16 @@
-package app.client.ui.components.router.mainPageComponents.userEditor
+package app.client.ui.components.mainPages.userHandling
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndProps,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent,
-  WrapperHOC
-}
-import app.client.ui.components.router.mainPageComponents.{
-  AdminPage,
-  MainPage,
-  MainPageWithCache,
-  SumIntPage,
-  UserListPage
-}
-import app.shared.comm.postRequests.{
-  AdminPassword,
-  GetAllUsersReq,
-  GetEntityReq,
-  SumIntRoute
-}
-import app.shared.comm.postRequests.SumIntRoute.SumIntPar
-import bootstrap4.TB.C
-import japgolly.scalajs.react.extra.router.{
-  Renderer,
-  RouterConfigDsl,
-  RouterCtl,
-  StaticDsl
-}
-import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
-import japgolly.scalajs.react.component.Scala.{Component, Unmounted}
-import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
-import io.circe.generic._
-import java.io
-
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.StateAndProps.SumNumbersProps
-import app.client.ui.components.router.{Pages, RouterComp}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.{AdminPage, MainPage, UserListPage}
+import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
+import japgolly.scalajs.react.component.Scala.Component
+import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 
 trait UserListComp
     extends ToBeWrappedMainPageComponent[

@@ -1,7 +1,7 @@
-package app.client.ui.components.router.mainPageComponents
+package app.client.ui.components.mainPages
 
 import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.client.ui.components.RouterWrapper
+import app.client.ui.components.router.RouterWrapper
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted

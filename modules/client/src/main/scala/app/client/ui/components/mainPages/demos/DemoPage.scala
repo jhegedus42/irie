@@ -1,27 +1,23 @@
-package app.client.ui.components.router.mainPageComponents.adminPage
+package app.client.ui.components.mainPages.demos
 
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.router.mainPageComponents.{
-  AdminPage,
-  MainPage
-}
+import app.client.ui.components.{AdminPage, MainPage}
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.vdom.html_<^._
 
-object StaticAdminPage {
+object DemoPage {
 
   import bootstrap4.TB.C
 
   val component =
     ScalaComponent.builder
-      .static("Admin page")(
+      .static("Static Demo Page")(
         //        <.div( Style.content, "Scala js react template, SBT 1.2.8" )
         <.div(
           <.main(C.container, ^.role := "container")(
             <.div(C.jumbotron)(
-              <.h1("Admin page"),
+              <.h1("Static Demo Page"),
               <.p(C.lead, "This is just a demo for a static page.")
             )
           )
@@ -34,7 +30,7 @@ object StaticAdminPage {
       import dsl._
       val adminPage: dsl.Rule = staticRoute("#admin", AdminPage) ~>
         render(
-          StaticAdminPage.component()
+          DemoPage.component()
         )
 
       adminPage

@@ -6,7 +6,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserListComp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserEditorComp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterLayout.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/PostRequestResultCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/RouterWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterWrapper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/FooterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/FooterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/generalComponents/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/adminPage/StaticAdminPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/DemoPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/sumNumbers/SumIntComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/SumIntComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template/TemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserListComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,10 +66,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Package Object" />
-        <option value="Scala Object" />
         <option value="ScalaTest Class" />
         <option value="Scala Trait" />
         <option value="Scala Class" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -100,8 +115,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
@@ -119,17 +134,19 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/assets/js" />
+      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
+      <recent name="$PROJECT_DIR$/bash_scripts/running" />
+      <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
+      <recent name="$PROJECT_DIR$/utils" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.client.ui.components.router" />
       <recent name="app.server.httpServer.routes.post.routeLogicImpl.persistentActor" />
       <recent name="app.server.httpServer.routes.post.routeLogicImpl" />
       <recent name="app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor" />
       <recent name="app.client.ui.caching.cache.comm" />
-      <recent name="app.client.ui.caching.cache" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -138,12 +155,11 @@
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/www/assets/js" />
-      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
-      <recent name="$PROJECT_DIR$/bash_scripts/running" />
-      <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
-      <recent name="$PROJECT_DIR$/utils" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -372,13 +388,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00288" summary="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.">
-      <created>1568054905999</created>
-      <option name="number" value="00288" />
-      <option name="presentableId" value="LOCAL-00288" />
-      <option name="project" value="LOCAL" />
-      <updated>1568054905999</updated>
     </task>
     <task id="LOCAL-00289" summary="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------">
       <created>1568075422739</created>
@@ -716,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568847332422</updated>
     </task>
-    <option name="localTasksCounter" value="337" />
+    <task id="LOCAL-00337" summary="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------">
+      <created>1568848928763</created>
+      <option name="number" value="00337" />
+      <option name="presentableId" value="LOCAL-00337" />
+      <option name="project" value="LOCAL" />
+      <updated>1568848928763</updated>
+    </task>
+    <option name="localTasksCounter" value="338" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -762,7 +778,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Little progress has been made on userRef2UserOption." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s ." />
     <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
     <MESSAGE value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
@@ -787,6 +802,7 @@
     <MESSAGE value="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s." />
     <MESSAGE value="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 11.26.06:&#10;&#10;Clicking page works." />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------" />
+    <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------" />
   </component>
 </project>

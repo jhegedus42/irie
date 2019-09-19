@@ -1,6 +1,5 @@
 package app.client
-import app.client.ui.components.RouterWrapper
-import app.client.ui.components.router.RouterComp
+import app.client.ui.components.router.{RouterComp, RouterWrapper}
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element

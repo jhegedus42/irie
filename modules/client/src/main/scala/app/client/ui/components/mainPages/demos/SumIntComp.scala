@@ -1,44 +1,16 @@
-package app.client.ui.components.router.mainPageComponents.sumNumbers
+package app.client.ui.components.mainPages.demos
 
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.caching.cacheInjector.CacheAndProps
-import app.shared.comm.postRequests.SumIntRoute.SumIntPar
-import japgolly.scalajs.react.component.Scala.Component
-import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.demos.SumIntComp.StateAndProps.{SumNumberState, SumNumbersProps}
 import app.client.ui.components.router.RouterComp.RoutingRule
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp.StateAndProps.{
-  SumNumberState,
-  SumNumbersProps,
-  TheThieveryNumber
-}
-import app.client.ui.components.router.mainPageComponents.{
-  MainPage,
-  SumIntPage
-}
+import app.client.ui.components.{MainPage, SumIntPage}
 import app.shared.comm.postRequests.SumIntRoute
-import app.shared.comm.postRequests.SumIntRoute.SumIntPar
 import bootstrap4.TB.C
-import io.circe.generic.auto._
+import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
-import japgolly.scalajs.react.vdom.html_<^.{
-  <,
-  TagMod,
-  VdomElement,
-  ^,
-  _
-}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  ReactEventFromInput
-}
+import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ReactEventFromInput, ScalaComponent}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
@@ -65,12 +37,12 @@ object SumIntComp {
     case class SumNumbersProps(string: String)
 
     @Lenses
-    private[sumNumbers] case class TheThieveryNumber(
+    case class TheThieveryNumber(
       firstNumber:  Int,
       secondNumber: Int
     )
 
-    private[sumNumbers] var initialState = {
+    var initialState = {
       val tn = TheThieveryNumber(38, 45)
       val siwp: SumIntPar = SumIntPar(38, 45)
       SumNumberState(tn, siwp)

@@ -11,9 +11,7 @@ import japgolly.scalajs.react.vdom.html_<^.<
 import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
-import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
-import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp.{Props, component}
-import app.client.ui.components.router.mainPageComponents.{MainPage, MainPageWithCache, UserListPage}
+import app.client.ui.components.{MainPage, MainPageWithCache}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
@@ -115,7 +113,7 @@ case class MainPageReactCompWrapper[
   * the browser.
   *
   * By main page I mean :
-  * [[app.client.ui.components.router.mainPageComponents.MainPage]]
+  * [[MainPage]]
   *
   */
 private[caching] object ReRenderer {

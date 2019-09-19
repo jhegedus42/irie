@@ -1,4 +1,4 @@
-package app.client.ui.components
+package app.client.ui.components.router
 
 /**
   *
@@ -7,15 +7,8 @@ package app.client.ui.components
   * component, just so that we can re-render them.
   *
   */
-import app.client.ui.caching.cacheInjector.{
-  CacheAndProps,
-  ReRenderer
-}
-import app.client.ui.components.router.RouterComp
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
-import bootstrap4.TB.C
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object RouterWrapper {
@@ -99,8 +92,6 @@ object RouterWrapper {
 
     }
   }
-
-  import bootstrap4.TB.C
 
   val component =
     ScalaComponent

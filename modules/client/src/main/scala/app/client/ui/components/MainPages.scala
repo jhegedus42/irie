@@ -1,8 +1,8 @@
-package app.client.ui.components.router
+package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
-import app.client.ui.components.router.mainPageComponents.sumNumbers.SumIntComp
-import app.client.ui.components.router.mainPageComponents.userEditor.UserListComp
+import app.client.ui.components.mainPages.demos.SumIntComp
+import app.client.ui.components.mainPages.userHandling.UserListComp
 
 /**
   **
@@ -12,7 +12,6 @@ import app.client.ui.components.router.mainPageComponents.userEditor.UserListCom
   *the router `app.client.ui.components.router.RouterComp` .
   *
   */
-package object mainPageComponents {
 
   /**
     * This denotes that a subclass can be a single, direct child of Router,
@@ -61,4 +60,3 @@ package object mainPageComponents {
 
 //  case class StaticEditorPage(uuid: String) extends MainPage
 
-}

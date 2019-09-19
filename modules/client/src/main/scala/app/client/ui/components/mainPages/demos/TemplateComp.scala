@@ -1,24 +1,10 @@
-package app.client.ui.components.router.mainPageComponents.template
+package app.client.ui.components.mainPages.demos
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndProps,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.router.mainPageComponents.template.TemplateComp.TemplatePage
-import app.client.ui.components.router.mainPageComponents.{
-  AdminPage,
-  ItemPage,
-  MainPage,
-  MainPageWithCache
-}
-import app.shared.comm.postRequests.{
-  AdminPassword,
-  GetAllUsersReq,
-  GetEntityReq
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
+import app.client.ui.components.{AdminPage, ItemPage, MainPage, MainPageWithCache}
+import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
 import japgolly.scalajs.react.component.Scala.Component
@@ -243,7 +229,7 @@ object TemplateComp {
         p => Renderer(rc => g2((p, rc)))
 
       def f =
-        "#templatePageRoute" / string("[a-zA-Z]+").caseClass[TemplatePage]
+        "#templatePageRoute" / string("""[\d\w-]+""").caseClass[TemplatePage]
 
       dynamicRouteCT[TemplatePage](f).~>(h2)
 

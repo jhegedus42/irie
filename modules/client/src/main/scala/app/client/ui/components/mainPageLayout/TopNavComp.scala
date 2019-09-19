@@ -1,5 +1,15 @@
-package app.client.ui.components.generalComponents
-import app.client.ui.components.router.mainPageComponents.MainPage
+package app.client.ui.components.mainPageLayout
+import app.client.ui.components.{
+  LoginPage,
+  MainPage,
+  SumIntPage,
+  UserListPage
+}
+import app.client.ui.components.mainPageLayout.TopNavComp.Menu
+import app.client.ui.components.mainPages.LoginPageComp
+import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
+import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
+import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -7,6 +17,31 @@ import japgolly.scalajs.react.vdom.html_<^._
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 import bootstrap4.TB.C
+
+object MenuItems {
+
+  def mainMenu: () => Vector[Menu] =
+    () =>
+      LoginPageComp.isUserLoggedIn match {
+        case IsUserLoggedIn(true) =>
+          Vector.apply(
+            Menu.apply("Home", LoginPage),
+            Menu.apply("List of Users", UserListPage("MezgaGeza")),
+            Menu.apply("User Editor",
+                       UserEditorPage(
+                         "this-is-the-uuid-of-the-to-be-edited-user"
+                       )),
+//            Menu.apply("SumIntDemo", SumIntPage(3845)),
+//            Menu.apply("Template Page",
+//                       TemplatePage("CopyMeAndThenChangeMe"))
+          )
+        case IsUserLoggedIn(false) =>
+          Vector.apply(
+            Menu.apply("Home", LoginPage)
+          )
+      }
+
+}
 
 object TopNavComp {
 
@@ -16,21 +51,11 @@ object TopNavComp {
     route: MainPage)
 
   case class Props(
-    menus:        () => Vector[Menu],
     selectedPage: MainPage,
     ctrl:         RouterCtl[MainPage])
 
-//  implicit val currentPageReuse = Reusability.by_==[MainPage]
-//  implicit val propsReuse       = Reusability.by( (_: Props).selectedPage )
-
-  val buttonInNavbar = {
-
-    import bootstrap4.TB._
-
-  }
-
   private def pagesInNavbar(P: Props) = {
-    P.menus().toTagMod { item: Menu =>
+    MenuItems.mainMenu().toTagMod { item: Menu =>
 //      println(s" Start $item, ${item.route}")
 
       val res = <.li(
@@ -56,7 +81,7 @@ object TopNavComp {
     }
   }
 
-  private def navigatorOriginal(P: Props) = {
+  private def navBar(P: Props) = {
     import bootstrap4.TB._
     <.header(
       <.nav(
@@ -88,12 +113,10 @@ object TopNavComp {
   val component = ScalaComponent
     .builder[Props]("TopNav")
     .render_P { P: Props =>
-      navigatorOriginal(P)
+      navBar(P)
     }
-//    .configure( Reusability.shouldComponentUpdate )
     .build
 
   def apply(props: Props) = component(props)
-
 
 }

@@ -1,4 +1,4 @@
-package app.client.ui.components.generalComponents
+package app.client.ui.components.mainPageLayout
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
