@@ -94,6 +94,11 @@ object UserListComp {
           x.optionEntity
             .map(_.entityValue.name)
             .getOrElse("name not loaded yet ...")
+        // todo-now -
+        //  add here a link to UserEditorPage with the corresponding
+        //  uuid in its parameter, the uuid for the user
+        //  so that the type of res4 contains the uuid to the
+        //  user and not only the users name, is it does now
       )
       res5 = listOfStrings2TagMod(res4)
     } yield (res5)
