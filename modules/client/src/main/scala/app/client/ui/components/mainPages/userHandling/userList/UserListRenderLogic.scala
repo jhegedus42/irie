@@ -1,9 +1,9 @@
-package app.client.ui.components.mainPages.userHandling.userListComp
+package app.client.ui.components.mainPages.userHandling.userList
 
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
-import app.client.ui.components.mainPages.userHandling.userListComp.UserListComp.Props
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
 import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.Entity
@@ -17,7 +17,7 @@ import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 import org.scalajs.dom.html.{Anchor, Div}
 
-case class RenderUserListLogic(
+case class UserListRenderLogic(
   cacheInterfaceWrapper: CacheAndProps[Props]) {
 
   def userListAsVDOM: Option[html_<^.TagMod] = {

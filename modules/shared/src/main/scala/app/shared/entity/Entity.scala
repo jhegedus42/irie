@@ -13,6 +13,14 @@ import monocle.macros.Lenses
 
 import scala.reflect.ClassTag
 
+
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+
+
+
+//@JsonCodec
 @Lenses
 case class Entity[E <: EntityValue[E]](
     entityValue:       E,

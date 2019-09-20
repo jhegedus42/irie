@@ -1,15 +1,10 @@
 package app.client.ui.components.mainPageLayout
-import app.client.ui.components.{
-  LoginPage,
-  MainPage,
-  CacheDemoPage,
-  UserListPage
-}
+import app.client.ui.components.{LoginPage, MainPage, ThieveryDemo, UserListPage}
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
 import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
-import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -31,7 +26,7 @@ object MenuItems {
 //                       UserEditorPage(
 //                         "this-is-the-uuid-of-the-to-be-edited-user"
 //                       )),
-//            Menu.apply("SumIntDemo", SumIntPage(3845)),
+            Menu.apply("Thievery Demo", ThieveryDemo(3845)),
 //            Menu.apply("Template Page",
 //                       TemplatePage("CopyMeAndThenChangeMe"))
           )

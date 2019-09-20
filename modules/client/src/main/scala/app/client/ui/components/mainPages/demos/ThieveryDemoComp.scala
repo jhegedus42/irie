@@ -1,67 +1,89 @@
 package app.client.ui.components.mainPages.demos
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.mainPages.demos.CacheDemoComp.StateAndProps.{SumNumberState, SumNumbersProps}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndProps,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
+import app.client.ui.components.mainPages.demos.ThieveryDemoComp.StateAndProps.{
+  State,
+  Props
+}
 import app.client.ui.components.router.RouterComp.RoutingRule
-import app.client.ui.components.{MainPage, CacheDemoPage}
+import app.client.ui.components.{MainPage, ThieveryDemo}
 import app.shared.comm.postRequests.SumIntRoute
 import bootstrap4.TB.C
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
-import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ReactEventFromInput, ScalaComponent}
+import japgolly.scalajs.react.vdom.html_<^.{
+  <,
+  TagMod,
+  VdomElement,
+  ^,
+  _
+}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CallbackTo,
+  CtorType,
+  ReactEventFromInput,
+  ScalaComponent
+}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
-trait CacheDemoComp
-    extends ToBeWrappedMainPageComponent[CacheDemoComp, CacheDemoPage] {
-  override type Props   = SumNumbersProps
-  override type Backend = CacheDemoComp.Backend[Props]
-  override type State   = SumNumberState
+trait ThieveryDemoComp
+    extends ToBeWrappedMainPageComponent[ThieveryDemoComp,
+                                         ThieveryDemo] {
+  override type Props   = ThieveryDemoComp.StateAndProps.Props
+  override type Backend = ThieveryDemoComp.Backend[Props]
+  override type State   = ThieveryDemoComp.StateAndProps.State
 
 }
 
-object CacheDemoComp {
+object ThieveryDemoComp {
   import app.shared.comm.postRequests.SumIntRoute.SumIntPar
   import monocle.macros.Lenses
 
   object StateAndProps {
 
     @Lenses
-    case class SumNumberState(
+    case class State(
+      thieveryText:   String,
       tn:             TheThieveryNumber,
       sumIntViewPars: SumIntPar) {}
 
-    case class SumNumbersProps(string: String)
+    case class Props(string: String)
 
     @Lenses
     case class TheThieveryNumber(
       firstNumber:  Int,
-      secondNumber: Int
-    )
+      secondNumber: Int)
 
     var initialState = {
       val tn = TheThieveryNumber(38, 45)
       val siwp: SumIntPar = SumIntPar(38, 45)
-      SumNumberState(tn, siwp)
+      State(".38 .45 the corporation", tn, siwp)
     }
   }
 
   def getRoute(cache: Cache): RoutingRule = {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
-      dynamicRouteCT("#sumInt" / int.caseClass[CacheDemoPage]) ~> dynRender {
-        sip: CacheDemoPage =>
+      dynamicRouteCT("#sumInt" / int.caseClass[ThieveryDemo]) ~> dynRender {
+        sip: ThieveryDemo =>
           {
-            MainPageReactCompWrapper[CacheDemoComp, CacheDemoPage](
+            MainPageReactCompWrapper[ThieveryDemoComp, ThieveryDemo](
               cache = cache,
               propsProvider = () =>
-                SumNumbersProps(
+                Props(
                   s"hello world 42 and also, hello ${sip.number}!"
                 ),
-              comp = CacheDemoComp.component
+              comp = ThieveryDemoComp.component
             ).wrappedConstructor
           }
       }
@@ -71,22 +93,22 @@ object CacheDemoComp {
   //  private type State = OurState
 
   val component: Component[
-    CacheAndProps[SumNumbersProps],
-    SumNumberState,
-    Backend[SumNumbersProps],
+    CacheAndProps[Props],
+    State,
+    Backend[Props],
     CtorType.Props
   ] = {
     ScalaComponent
-      .builder[CacheAndProps[SumNumbersProps]](
+      .builder[CacheAndProps[Props]](
         "TheCorporation"
       )
       .initialState(StateAndProps.initialState)
-      .renderBackend[Backend[SumNumbersProps]] // ← Use Backend class and backend.render
+      .renderBackend[Backend[Props]] // ← Use Backend class and backend.render
       .build
   }
 
   class Backend[Props](
-    $ : BackendScope[CacheAndProps[Props], SumNumberState]) {
+    $ : BackendScope[CacheAndProps[Props], State]) {
 
     /**
       * This makes sure that the next time this component will be "created"/"instantiated
@@ -95,11 +117,11 @@ object CacheDemoComp {
       *
       * @param s
       */
-    private def saveStateIntoInitState(s: SumNumberState): Unit = {
-      CacheDemoComp.StateAndProps.initialState = s
+    private def saveStateIntoInitState(s: State): Unit = {
+      ThieveryDemoComp.StateAndProps.initialState = s
     }
 
-    private def isThieveryNumber(st: SumNumberState): Boolean = {
+    private def isThieveryNumber(st: State): Boolean = {
       (st.tn.firstNumber == 38 && st.tn.secondNumber == 45)
     }
 
@@ -135,12 +157,10 @@ object CacheDemoComp {
 
     object StateChangers {
 
-      def updateState(
-        s2s: SumNumberState => SumNumberState
-      ): CallbackTo[Unit] = {
+      def updateState(s2s: State => State): CallbackTo[Unit] = {
         $.modState(
-          (s: SumNumberState) => {
-            val newState: SumNumberState = s2s(s)
+          (s: State) => {
+            val newState: State = s2s(s)
             saveStateIntoInitState(newState)
             newState
           }
@@ -149,7 +169,7 @@ object CacheDemoComp {
       }
 
       def refreshState() =
-        updateState((s: SumNumberState) => {
+        updateState((s: State) => {
           s.lens(_.sumIntViewPars)
             .set(
               SumIntPar(s.tn.firstNumber, s.tn.secondNumber)
@@ -157,7 +177,7 @@ object CacheDemoComp {
         })
 
       def onChangeSecondNumber(
-        bs: BackendScope[CacheAndProps[Props], SumNumberState]
+        bs: BackendScope[CacheAndProps[Props], State]
       )(e:  ReactEventFromInput
       ): CallbackTo[Unit] = {
         val event: _root_.japgolly.scalajs.react.ReactEventFromInput =
@@ -171,8 +191,18 @@ object CacheDemoComp {
         )
       }
 
+      def onChangeText(
+        bs: BackendScope[CacheAndProps[Props], State]
+      )(e:  ReactEventFromInput
+      ): CallbackTo[Unit] = {
+        val event: _root_.japgolly.scalajs.react.ReactEventFromInput =e
+        val target: Input = event.target
+        val text: String = target.value
+        updateState(s=>s.copy(thieveryText = text))
+      }
+
       def onChangeFirstNumber(
-        bs: BackendScope[CacheAndProps[Props], SumNumberState]
+        bs: BackendScope[CacheAndProps[Props], State]
       )(e:  ReactEventFromInput
       ): CallbackTo[Unit] = {
         val event: _root_.japgolly.scalajs.react.ReactEventFromInput =
@@ -204,8 +234,17 @@ object CacheDemoComp {
         <.br
       )
 
-    def numberFields(s: SumNumberState): VdomElement =
+    def inputFields(s: State): VdomElement =
       <.div(
+        <.hr,
+        <.br,
+        <.h1("Textfield Demo:"),
+        <.input.text(^.onChange ==> StateChangers.onChangeText($),
+                     ^.value := s.thieveryText),
+        <.br,
+        <.br,
+        s"text: ${s.thieveryText}",
+        <.br,
         <.hr,
         <.h1("Thievery Number Sum Calculator"),
         <.br,
@@ -233,12 +272,12 @@ object CacheDemoComp {
 
     def render(
       props: CacheAndProps[Props],
-      s:     SumNumberState
+      s:     State
     ): VdomElement = {
       <.div(
         C.textCenter,
         intro,
-        numberFields(s),
+        inputFields(s),
         br(2),
         "Here is the sum of the Thievery Numbers (as Integers), " +
           "calculated on the server:",
@@ -265,7 +304,7 @@ object CacheDemoComp {
 
     }
 
-    private def addNumbersBootStrapButton(s: SumNumberState) = {
+    private def addNumbersBootStrapButton(s: State) = {
       import bootstrap4.TB.convertableToTagOfExtensionMethods
       <.button.btn.btnPrimary(
         "Add two Thievery Numbers",

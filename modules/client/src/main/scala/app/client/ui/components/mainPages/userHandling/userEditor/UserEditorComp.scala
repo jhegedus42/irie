@@ -1,31 +1,25 @@
-package app.client.ui.components.mainPages.userHandling
+package app.client.ui.components.mainPages.userHandling.userEditor
 
-import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cache.CacheConvenienceFunctions
 import app.client.ui.caching.cacheInjector.{
   Cache,
   CacheAndProps,
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
-import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
-import app.client.ui.components.{
-  ItemPage,
-  MainPage,
-  MainPageWithCache,
-  StaticTemplatePage
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.{
+  Props,
+  UserEditorPage
 }
-import app.shared.comm.postRequests.{
-  AdminPassword,
-  GetAllUsersReq,
-  GetEntityReq
-}
+import app.client.ui.components.{MainPage, MainPageWithCache}
+import app.shared.comm.postRequests.GetEntityReq
+import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
-import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+import japgolly.scalajs.react.vdom.VdomElement
+import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 
 trait UserEditorComp
@@ -74,63 +68,44 @@ object UserEditorComp {
       cacheAndProps: CacheAndProps[Props],
       s:             State
     ): VdomElement = {
-
-      def link(
-        mainPage: MainPage,
-        linkText: String = "click me"
-      ) =
-        <.div(
-          <.a(linkText,
-              ^.href := cacheAndProps.props.routerCtl
-                .urlFor(mainPage).value),
-          cacheAndProps.props.routerCtl.setOnLinkClick(mainPage)
+      val ent: Option[Entity[User]] =
+        CacheConvenienceFunctions.getEntity[User](
+          cacheAndProps.props.userIdentity,
+          cacheAndProps.cache
         )
+
+      import org.scalajs.dom.html.{Anchor, Div}
+
+      def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
+        if (ent.isEmpty) <.div(<.p("loading ..."))
+        else f(v.get)
 
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
         <.p(
-            s"User's uuid : ${cacheAndProps.props.userIdentity}",
+          s"User's uuid : ${cacheAndProps.props.userIdentity}"
         ),
-        <.br
+        <.br,
+        g(ent) { e =>
+          <.div(
+            <.br,
+            <.p(s"User's name: ${e.entityValue.name}"),
+
+            TextField.textFieldComp(
+              TextField.Props(
+                s"${e.entityValue.name}"
+              )
+            )
+
+          )
+        }
       )
 
     }
 
   }
 
-  def getRoute(cacheInterface: Cache) = {
-
-    import japgolly.scalajs.react.extra.router._
-
-    dsl: RouterConfigDsl[MainPage] =>
-      import dsl._
-
-      def c(
-        page: UserEditorPage,
-        ctl:  RouterCtl[MainPage]
-      ): MainPageReactCompWrapper[UserEditorComp, UserEditorPage] =
-        MainPageReactCompWrapper[UserEditorComp, UserEditorPage](
-          cache = cacheInterface,
-          propsProvider = () =>
-            UserEditorComp.Props(EntityIdentity(page.paramFromURL),
-                                 ctl),
-          comp = UserEditorComp.component
-        )
-
-      def g2(t2: (UserEditorPage, RouterCtl[MainPage])) =
-        c(t2._1, t2._2).wrappedConstructor
-
-      def h2: UserEditorPage => dsl.Renderer =
-        p => Renderer(rc => g2((p, rc)))
-
-      def f: StaticDsl.RouteB[UserEditorPage] =
-        "#userEditorPageRoute" / string("[a-z-A-Z0-9]+")
-          .caseClass[UserEditorPage]
-
-      dynamicRouteCT[UserEditorPage](f).~>(h2)
-
-  }
 }
 // todo-now
 //

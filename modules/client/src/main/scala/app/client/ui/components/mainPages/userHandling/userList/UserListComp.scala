@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.userHandling.userListComp
+package app.client.ui.components.mainPages.userHandling.userList
 
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{
@@ -7,8 +7,8 @@ import app.client.ui.caching.cacheInjector.{
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
-import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
-import app.client.ui.components.mainPages.userHandling.userListComp.UserListComp.Props
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
 import app.client.ui.components.{
   MainPage,
   StaticTemplatePage,
@@ -71,7 +71,7 @@ object UserListComp {
       s:             State
     ): VdomElement = {
 
-      val renderLogic = RenderUserListLogic(cacheAndProps)
+      val renderLogic = UserListRenderLogic(cacheAndProps)
       val route       = StaticTemplatePage
 
       <.div(
