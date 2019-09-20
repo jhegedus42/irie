@@ -6,19 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheConvenienceFunctions.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/TextField.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/CacheDemoComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/ThieveryDemoComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userListComp/RenderUserListLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userListComp/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/Entity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/TextField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/TextField.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -386,13 +376,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00294" summary="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------">
-      <created>1568151091773</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1568151091774</updated>
-    </task>
     <task id="LOCAL-00295" summary="Wednesday, 11 September 2019 0.30.44:&#10;&#10;Started a refactoring on the server side, related to the&#10;data storage. Aim : simplify the code.&#10;--------------------------------------------------&#10;Wednesday, 11 September 2019 1.22.11:&#10;&#10;Added Persistent Actor Whisperer to Route Factory.">
       <created>1568154164565</created>
       <option name="number" value="00295" />
@@ -729,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568976632727</updated>
     </task>
-    <option name="localTasksCounter" value="343" />
+    <task id="LOCAL-00343" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component.">
+      <created>1569011889613</created>
+      <option name="number" value="00343" />
+      <option name="presentableId" value="LOCAL-00343" />
+      <option name="project" value="LOCAL" />
+      <updated>1569011889614</updated>
+    </task>
+    <option name="localTasksCounter" value="344" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -775,7 +765,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.23.53:&#10;&#10;The &quot;new&quot; re-render trigger-er did not work.&#10;Switched back to the old one. Need to look into &#10;this later a bit more.&#10;&#10;For now, I put this &quot;project&quot;/&quot;refactoring&quot; on hold&#10;and proceed with implementing logic for User CRUD&#10;functionality.&#10;&#10;If the current architecture for re-rendering will become&#10;exponentially annoyingly cumbersome then we will need&#10;to come back to this possible solution to reduce &#10;complexity - for the re-rendering and &quot;cache injection&quot;&#10;&quot;logic&quot;. &#10;&#10;--------------------------------------------------&#10;Monday, 16 September 2019 0.45.45:&#10;&#10;Cleaned up some todo-s.&#10;&quot;Closed&quot; the &quot;refactor the re-rendering logic project&quot;&#10;for now.&#10;--------------------------------------------------" />
     <MESSAGE value="Monday, 16 September 2019 0.52.28:&#10;&#10;Proceeding with User CRUD client side logic.&#10;Wrote a bit more detailed todo/explanation for&#10;the to be implemented functionality." />
     <MESSAGE value="Proceeding with User CRUD client side logic." />
@@ -800,6 +789,7 @@
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------&#10;Friday, 20 September 2019 11.15.15:&#10;&#10;A bit of progress towards the User Editor Page.&#10;Cleaning up the code : removing not-needed lines \ &quot;features&quot;.&#10;&#10;Fixing the login page." />
     <MESSAGE value="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value." />
     <MESSAGE value="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page." />
+    <MESSAGE value="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component." />
   </component>
 </project>

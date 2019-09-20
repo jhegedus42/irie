@@ -1,39 +1,51 @@
 package app.client.ui.components.mainPages.userHandling.userEditor
-import japgolly.scalajs.react.vdom.Attr.Event
-import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
+import app.client.ui.caching.cacheInjector.CacheAndProps
+import japgolly.scalajs.react.vdom.html_<^.{
+  <,
+  TagMod,
+  VdomElement,
+  ^,
+  _
+}
 import japgolly.scalajs.react.{
   BackendScope,
   Callback,
   CallbackTo,
   CtorType,
+  ReactEventFromInput,
   ScalaComponent
 }
-import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+import monocle.macros.syntax.lens._
+import org.scalajs.dom
+import org.scalajs.dom.html.Input
 
 object TextField {
-  case class Props(text: String)
   case class State(text: String)
 
-  class Backend($ : BackendScope[Props, State]) {
-
-    def render(
-      p: Props,
-      s: State
-    ): VdomElement = <.div(<.p(s"State: ${s.text}"),
-          <.p(s"Props: ${p.text}"),
-          <.p(s"State: ${s.text}"),
-      <.input.text(^.value := "bla", ^.onChange ==> {
-            e => Callback(println(s"this is the event : $e"))
-          }))
+  def onChangeText(
+    bs: BackendScope[Unit, State]
+  )(e:  ReactEventFromInput
+  ): CallbackTo[Unit] = {
+    val event:  _root_.japgolly.scalajs.react.ReactEventFromInput = e
+    val target: Input                                             = event.target
+    val text:   String                                            = target.value
+    bs.setState(State(text))
   }
 
-  val textFieldComp = ScalaComponent
-    .builder[TextField.Props](
-      "This is a userEditor page. It demonstrates all crucial functionality."
-    )
-    .initialState(State("initial state"))
-    .renderBackend[TextField.Backend]
-    .build
+  class Backend($ : BackendScope[Unit, State]) {
+
+    def render(s: State): VdomElement =
+      <.input.text(^.onChange ==> onChangeText($), ^.value := s.text)
+
+  }
+
+  def textFieldComp(initString: String) =
+    ScalaComponent
+      .builder[Unit](
+        "This is a userEditor page. It demonstrates all crucial functionality."
+      )
+      .initialState(State(initString))
+      .renderBackend[TextField.Backend]
+      .build
 
 }

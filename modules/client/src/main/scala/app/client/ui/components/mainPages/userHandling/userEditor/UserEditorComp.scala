@@ -68,6 +68,7 @@ object UserEditorComp {
       cacheAndProps: CacheAndProps[Props],
       s:             State
     ): VdomElement = {
+
       val ent: Option[Entity[User]] =
         CacheConvenienceFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
@@ -80,26 +81,22 @@ object UserEditorComp {
         if (ent.isEmpty) <.div(<.p("loading ..."))
         else f(v.get)
 
-      <.div(
-        <.h1("This is the UserEditor Page"),
-        <.br,
-        <.p(
-          s"User's uuid : ${cacheAndProps.props.userIdentity}"
-        ),
-        <.br,
+      def nameField=
         g(ent) { e =>
+          val name=e.entityValue.name
           <.div(
             <.br,
-            <.p(s"User's name: ${e.entityValue.name}"),
-
-            TextField.textFieldComp(
-              TextField.Props(
-                s"${e.entityValue.name}"
-              )
-            )
+            "Name: ",
+            TextField.textFieldComp(name)()
 
           )
         }
+
+      <.div(
+        <.h1("This is the UserEditor Page"),
+        <.br,
+        nameField
+
       )
 
     }
@@ -107,46 +104,10 @@ object UserEditorComp {
   }
 
 }
-// todo-now
-//
-// - create a page which takes an UUID from the URL
-//   and edits the corresponding User's name and
-//   favorite number
-//
-// - it will have a save button to call the Update
-//   request, which will also trigger a cache invalidation
-//   and also a page refresh,
-//
-// - for now, we use a simple, hand written form of
-//   cache invalidation :
-//
-//   a single, simple, plain update request will invalidate
-//   the entry in the local client cache for the entity
-//   which has been updated on the server (due to the
-//   execution of the update request by the server)
-//
-//   the update AJAX request will also trigger a
-//   re-render when it comes back and the cache
-//   will need to-re-fetch the invalidated/stale
-//   entity by launching an AJAX call
-//
-//   the entity cache should have a "State" that
-//   the entity is being in the process of being
-//   updated ...
-//
-//   so the update request should update the cache
-//   and make it "valid again", by updating the result
-//   so, an updateEntity request should be also a
-//   getEntity request, simulataniously, if it returns
-//   it should return with the updated entity, updated
-//   version number, etc, and insert that into the
-//   cache which had a stale entry until now, but with the
-//   return of the update AJAX request, the stale entry
-//   will become "fresh" again, by inserting the fresh value
-//   brough back by the returning update request into
-//   the place of the stale entry
-//
-//   or ...
+
+
+
+
 //
 //   when the update returns, it simply triggers a re-render
 //   and at that point the cache launches a get entity request
