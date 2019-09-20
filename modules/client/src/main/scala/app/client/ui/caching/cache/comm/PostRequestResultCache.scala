@@ -3,7 +3,6 @@ package app.client.ui.caching.cache.comm
 import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{CacheEntryState, Loaded, Loading}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.client.ui.components.router.RouterWrapper
 import app.shared.comm.PostRequest
 import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
 import app.shared.entity.entityValue.values.User

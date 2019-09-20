@@ -1,12 +1,27 @@
 package app.client.ui.components.mainPages.userHandling
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndProps,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
-import app.client.ui.components.{StaticTemplatePage, ItemPage, MainPage, MainPageWithCache}
-import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
+import app.client.ui.components.{
+  ItemPage,
+  MainPage,
+  MainPageWithCache,
+  StaticTemplatePage
+}
+import app.shared.comm.postRequests.{
+  AdminPassword,
+  GetAllUsersReq,
+  GetEntityReq
+}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
@@ -34,8 +49,8 @@ object UserEditorComp {
   case class State(someString: String)
 
   case class Props(
-    someString: String,
-    routerCtl:  RouterCtl[MainPage])
+    userIdentity: EntityIdentity,
+    routerCtl:    RouterCtl[MainPage])
 
   val component: Component[
     CacheAndProps[Props],
@@ -51,7 +66,6 @@ object UserEditorComp {
       .renderBackend[Backend[Props]]
       .build
   }
-
 
   class Backend[Properties](
     $ : BackendScope[CacheAndProps[Properties], State]) {
@@ -72,14 +86,11 @@ object UserEditorComp {
           cacheAndProps.props.routerCtl.setOnLinkClick(mainPage)
         )
 
-
       <.div(
-        <.p("This is the UserEditor Page"),
+        <.h1("This is the UserEditor Page"),
+        <.br,
         <.p(
-          s"This is what we got from the " +
-            s"URL : ${cacheAndProps.props.someString}",
-          "We will use this page to edit the name and favorite number" +
-            " of the user who has this UUID on the server."
+            s"User's uuid : ${cacheAndProps.props.userIdentity}",
         ),
         <.br
       )
@@ -101,8 +112,9 @@ object UserEditorComp {
       ): MainPageReactCompWrapper[UserEditorComp, UserEditorPage] =
         MainPageReactCompWrapper[UserEditorComp, UserEditorPage](
           cache = cacheInterface,
-          propsProvider =
-            () => UserEditorComp.Props(page.paramFromURL, ctl),
+          propsProvider = () =>
+            UserEditorComp.Props(EntityIdentity(page.paramFromURL),
+                                 ctl),
           comp = UserEditorComp.component
         )
 
@@ -112,15 +124,14 @@ object UserEditorComp {
       def h2: UserEditorPage => dsl.Renderer =
         p => Renderer(rc => g2((p, rc)))
 
-      def f = "#userEditorPageRoute" / string("[a-z-A-Z0-9]+")
+      def f: StaticDsl.RouteB[UserEditorPage] =
+        "#userEditorPageRoute" / string("[a-z-A-Z0-9]+")
           .caseClass[UserEditorPage]
 
       dynamicRouteCT[UserEditorPage](f).~>(h2)
 
   }
 }
-
-
 // todo-now
 //
 // - create a page which takes an UUID from the URL

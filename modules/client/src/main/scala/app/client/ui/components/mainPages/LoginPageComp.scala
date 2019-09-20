@@ -2,7 +2,6 @@ package app.client.ui.components.mainPages
 
 import app.client.ui.caching.cacheInjector.CacheAndProps
 import app.client.ui.components.MainPage
-import app.client.ui.components.router.RouterWrapper
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted
@@ -19,7 +18,7 @@ object LoginPageComp {
 
     def setUserLoggedIn(): Unit = {
       isUserLoggedIn = IsUserLoggedIn(true)
-      RouterWrapper.reRenderApp()
+//      RouterWrapper.reRenderApp()
     }
   }
   def isUserLoggedIn = State.isUserLoggedIn

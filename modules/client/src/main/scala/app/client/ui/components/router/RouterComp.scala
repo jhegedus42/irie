@@ -6,8 +6,9 @@ import app.client.ui.components.mainPageLayout.TopNavComp.Menu
 import app.client.ui.components.mainPageLayout.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
-import app.client.ui.components.mainPages.demos.{StaticTemplateComp, CacheDemoComp, TemplateComp}
-import app.client.ui.components.mainPages.userHandling.{UserEditorComp, UserListComp}
+import app.client.ui.components.mainPages.demos.{CacheDemoComp, StaticTemplateComp, TemplateComp}
+import app.client.ui.components.mainPages.userHandling.UserEditorComp
+import app.client.ui.components.mainPages.userHandling.userListComp.UserListComp
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import japgolly.scalajs.react.extra.{OnUnmount, router}
 import japgolly.scalajs.react.extra.router.StaticDsl.Rule

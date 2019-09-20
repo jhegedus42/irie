@@ -26,11 +26,11 @@ object MenuItems {
         case IsUserLoggedIn(true) =>
           Vector.apply(
             Menu.apply("Home", LoginPage),
-            Menu.apply("List of Users", UserListPage()),
-            Menu.apply("User Editor",
-                       UserEditorPage(
-                         "this-is-the-uuid-of-the-to-be-edited-user"
-                       )),
+            Menu.apply("Users", UserListPage()),
+//            Menu.apply("User Editor",
+//                       UserEditorPage(
+//                         "this-is-the-uuid-of-the-to-be-edited-user"
+//                       )),
 //            Menu.apply("SumIntDemo", SumIntPage(3845)),
 //            Menu.apply("Template Page",
 //                       TemplatePage("CopyMeAndThenChangeMe"))

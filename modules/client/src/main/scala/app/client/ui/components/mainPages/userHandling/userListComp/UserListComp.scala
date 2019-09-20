@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.userHandling
+package app.client.ui.components.mainPages.userHandling.userListComp
 
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{
@@ -8,9 +8,10 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.userHandling.userListComp.UserListComp.Props
 import app.client.ui.components.{
-  StaticTemplatePage,
   MainPage,
+  StaticTemplatePage,
   UserListPage
 }
 import app.shared.comm.postRequests.{
@@ -26,6 +27,7 @@ import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
+import org.scalajs.dom.html.Div
 
 trait UserListComp
     extends ToBeWrappedMainPageComponent[
@@ -61,63 +63,6 @@ object UserListComp {
       .build
   }
 
-  case class RenderLogic(
-    cacheInterfaceWrapper: CacheAndProps[Props]) {
-
-    val requestResultForRefToAllUsers
-      : CacheEntryStates.CacheEntryState[GetAllUsersReq] =
-      cacheInterfaceWrapper.cache
-        .getPostReqResult[GetAllUsersReq](
-          GetAllUsersReq.Par(AdminPassword("titok"))
-        )
-
-    val refToAllUsersOption: Option[GetAllUsersReq.Res] =
-      requestResultForRefToAllUsers.toOption
-
-    def optUserEntity2VDOM(
-      user: Option[Entity[User]]
-    ): VdomElement = {
-      if (user.isDefined)
-        <.div("user into :", user.toString())
-      else <.div("user info not loaded yet ...")
-    }
-
-    def getUserListAsVDOM(l: List[Option[Entity[User]]]): TagMod =
-      TagMod(l.map(optUserEntity2VDOM(_)).toVdomArray)
-
-    def userRef2UserOption(
-      r: RefToEntityWithoutVersion[User]
-    ): GetEntityReq.Res[User] = {
-      val par_ = GetEntityReq.Par(r)
-      val res_ =
-        cacheInterfaceWrapper.cache
-          .getPostReqResult[GetEntityReq[User]](par_)
-          .toOption
-      val emptyResult: GetEntityReq.Res[User] =
-        GetEntityReq.Res[User](None)
-
-      res_.getOrElse(emptyResult)
-    }
-
-    def linkToUserEditorPage(
-      ctl:  RouterCtl[MainPage],
-      uuid: String
-    ) =
-      <.div(
-        <.a("edit", ^.href := ctl.urlFor(StaticTemplatePage).value),
-        ctl.setOnLinkClick(UserEditorPage(uuid))
-      )
-
-    val userListAsVDOM: Option[html_<^.TagMod] = for {
-      res <- refToAllUsersOption
-      res2 = res.allUserRefs
-      res3 = res2.map(userRef2UserOption(_))
-      res4 = res3.map(x => x.optionEntity)
-      res5 = getUserListAsVDOM(res4)
-    } yield (res5)
-
-  }
-
   class Backend[Properties](
     $ : BackendScope[CacheAndProps[Properties], State]) {
 
@@ -126,13 +71,11 @@ object UserListComp {
       s:             State
     ): VdomElement = {
 
-      val renderLogic = RenderLogic(cacheAndProps)
+      val renderLogic = RenderUserListLogic(cacheAndProps)
       val route       = StaticTemplatePage
 
       <.div(
-        <.br,
-        <.hr,
-        s"result for the GetAllUsersReq is:",
+        s"Users:",
         <.br,
         renderLogic.userListAsVDOM.getOrElse(
           TagMod("List of users is loading ...")
@@ -161,15 +104,15 @@ object UserListComp {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
 
-      def r  =
+      def r =
         staticRoute("#userList", UserListPage())
 
       def page2render: dsl.Renderer =
-          Renderer(rc => getWrappedComp(rc, cache).wrappedConstructor)
+        Renderer(rc => getWrappedComp(rc, cache).wrappedConstructor)
 
       def res: dsl.Rule = (r).~>(page2render)
 
-
       res
   }
+
 }

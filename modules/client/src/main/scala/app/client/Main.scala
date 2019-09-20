@@ -1,5 +1,5 @@
 package app.client
-import app.client.ui.components.router.{RouterComp, RouterWrapper}
+import app.client.ui.components.router.RouterComp
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalajs.dom.document
 import org.scalajs.dom.raw.Element
@@ -26,7 +26,10 @@ object Main extends js.JSApp {
       s"Main.routedApp() : Router is just about to be mounted into a DIV."
     )
 
-    RouterWrapper.component().renderIntoDOM( e )
+    val router = RouterComp().routerComp()
+
+//    RouterWrapper.component().renderIntoDOM( e )
+    router.renderIntoDOM(e)
 
   }
 
