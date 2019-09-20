@@ -2,9 +2,9 @@ package app.client.ui.components.mainPages.demos
 
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.mainPages.demos.SumIntComp.StateAndProps.{SumNumberState, SumNumbersProps}
+import app.client.ui.components.mainPages.demos.CacheDemoComp.StateAndProps.{SumNumberState, SumNumbersProps}
 import app.client.ui.components.router.RouterComp.RoutingRule
-import app.client.ui.components.{MainPage, SumIntPage}
+import app.client.ui.components.{MainPage, CacheDemoPage}
 import app.shared.comm.postRequests.SumIntRoute
 import bootstrap4.TB.C
 import japgolly.scalajs.react.component.Scala.Component
@@ -15,15 +15,15 @@ import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
 
-trait SumIntComp
-    extends ToBeWrappedMainPageComponent[SumIntComp, SumIntPage] {
+trait CacheDemoComp
+    extends ToBeWrappedMainPageComponent[CacheDemoComp, CacheDemoPage] {
   override type Props   = SumNumbersProps
-  override type Backend = SumIntComp.Backend[Props]
+  override type Backend = CacheDemoComp.Backend[Props]
   override type State   = SumNumberState
 
 }
 
-object SumIntComp {
+object CacheDemoComp {
   import app.shared.comm.postRequests.SumIntRoute.SumIntPar
   import monocle.macros.Lenses
 
@@ -52,16 +52,16 @@ object SumIntComp {
   def getRoute(cache: Cache): RoutingRule = {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
-      dynamicRouteCT("#sumInt" / int.caseClass[SumIntPage]) ~> dynRender {
-        sip: SumIntPage =>
+      dynamicRouteCT("#sumInt" / int.caseClass[CacheDemoPage]) ~> dynRender {
+        sip: CacheDemoPage =>
           {
-            MainPageReactCompWrapper[SumIntComp, SumIntPage](
+            MainPageReactCompWrapper[CacheDemoComp, CacheDemoPage](
               cache = cache,
               propsProvider = () =>
                 SumNumbersProps(
                   s"hello world 42 and also, hello ${sip.number}!"
                 ),
-              comp = SumIntComp.component
+              comp = CacheDemoComp.component
             ).wrappedConstructor
           }
       }
@@ -96,7 +96,7 @@ object SumIntComp {
       * @param s
       */
     private def saveStateIntoInitState(s: SumNumberState): Unit = {
-      SumIntComp.StateAndProps.initialState = s
+      CacheDemoComp.StateAndProps.initialState = s
     }
 
     private def isThieveryNumber(st: SumNumberState): Boolean = {

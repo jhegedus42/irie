@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.userHandling
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
-import app.client.ui.components.{AdminPage, ItemPage, MainPage, MainPageWithCache}
+import app.client.ui.components.{StaticTemplatePage, ItemPage, MainPage, MainPageWithCache}
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -119,3 +119,57 @@ object UserEditorComp {
 
   }
 }
+
+
+// todo-now
+//
+// - create a page which takes an UUID from the URL
+//   and edits the corresponding User's name and
+//   favorite number
+//
+// - it will have a save button to call the Update
+//   request, which will also trigger a cache invalidation
+//   and also a page refresh,
+//
+// - for now, we use a simple, hand written form of
+//   cache invalidation :
+//
+//   a single, simple, plain update request will invalidate
+//   the entry in the local client cache for the entity
+//   which has been updated on the server (due to the
+//   execution of the update request by the server)
+//
+//   the update AJAX request will also trigger a
+//   re-render when it comes back and the cache
+//   will need to-re-fetch the invalidated/stale
+//   entity by launching an AJAX call
+//
+//   the entity cache should have a "State" that
+//   the entity is being in the process of being
+//   updated ...
+//
+//   so the update request should update the cache
+//   and make it "valid again", by updating the result
+//   so, an updateEntity request should be also a
+//   getEntity request, simulataniously, if it returns
+//   it should return with the updated entity, updated
+//   version number, etc, and insert that into the
+//   cache which had a stale entry until now, but with the
+//   return of the update AJAX request, the stale entry
+//   will become "fresh" again, by inserting the fresh value
+//   brough back by the returning update request into
+//   the place of the stale entry
+//
+//   or ...
+//
+//   when the update returns, it simply triggers a re-render
+//   and at that point the cache launches a get entity request
+//   to make its stale entity fresh again
+//
+//   so it can go like this - as well (I think I prefer this way):
+//
+//   up-to-date => update-request-sent => update-request-returned =>
+//   getEntity-AKA-refresh-request-sent => getEntity-returned-entry-is-
+//   refreshed (not-stale-any-longer)
+//
+//

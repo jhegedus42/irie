@@ -1,12 +1,12 @@
 package app.client.ui.components.mainPages.demos
 
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.{AdminPage, MainPage}
+import app.client.ui.components.{StaticTemplatePage, MainPage}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.vdom.html_<^._
 
-object DemoPage {
+object StaticTemplateComp {
 
   import bootstrap4.TB.C
 
@@ -28,9 +28,9 @@ object DemoPage {
   def getRoute: RouterComp.RoutingRule = {
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
-      val adminPage: dsl.Rule = staticRoute("#admin", AdminPage) ~>
+      val adminPage: dsl.Rule = staticRoute("#admin", StaticTemplatePage) ~>
         render(
-          DemoPage.component()
+          StaticTemplateComp.component()
         )
 
       adminPage

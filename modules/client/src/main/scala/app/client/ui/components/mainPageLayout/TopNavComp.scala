@@ -2,7 +2,7 @@ package app.client.ui.components.mainPageLayout
 import app.client.ui.components.{
   LoginPage,
   MainPage,
-  SumIntPage,
+  CacheDemoPage,
   UserListPage
 }
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
@@ -26,7 +26,7 @@ object MenuItems {
         case IsUserLoggedIn(true) =>
           Vector.apply(
             Menu.apply("Home", LoginPage),
-            Menu.apply("List of Users", UserListPage("MezgaGeza")),
+            Menu.apply("List of Users", UserListPage()),
             Menu.apply("User Editor",
                        UserEditorPage(
                          "this-is-the-uuid-of-the-to-be-edited-user"

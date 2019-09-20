@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.demos
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
-import app.client.ui.components.{AdminPage, ItemPage, MainPage, MainPageWithCache}
+import app.client.ui.components.{StaticTemplatePage, ItemPage, MainPage, MainPageWithCache}
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -174,7 +174,7 @@ object TemplateComp {
         )
 
       val renderLogic = RenderLogicForGettingAllUsers(cacheAndProps)
-      val route       = AdminPage
+      val route       = StaticTemplatePage
 
       <.div(
         <.p("This is the Template Page"),
@@ -190,7 +190,7 @@ object TemplateComp {
         ),
         <.br,
         <.hr,
-        link(AdminPage, "link to AdminPage"),
+        link(StaticTemplatePage, "link to AdminPage"),
         <.hr,
         <.br,
         <.p(
@@ -222,16 +222,14 @@ object TemplateComp {
           comp = TemplateComp.component
         )
 
-      def g2(t2: (TemplatePage, RouterCtl[MainPage])) =
-        c(t2._1, t2._2).wrappedConstructor
+      def page2renderer: TemplatePage => dsl.Renderer =
+        p => Renderer(rc => c(p, rc).wrappedConstructor)
 
-      def h2: TemplatePage => dsl.Renderer =
-        p => Renderer(rc => g2((p, rc)))
-
-      def f =
+      def f: StaticDsl.RouteB[TemplatePage] =
         "#templatePageRoute" / string("""[\d\w-]+""").caseClass[TemplatePage]
 
-      dynamicRouteCT[TemplatePage](f).~>(h2)
+      val res: dsl.Rule =dynamicRouteCT[TemplatePage](f).~>(page2renderer)
+      res
 
   }
 }

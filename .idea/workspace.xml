@@ -5,8 +5,18 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/DemoPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/StaticTemplateComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/SumIntComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/CacheDemoComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserEditorComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -374,13 +384,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00290" summary="Monday, 9 September 2019 18.23.13:&#10;Testing reset route.&#10;&#10;Writing TODOs.&#10;&#10;--------------------------------------------------&#10;&#10;Server side only mock route based tests pass.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 3.29.58:&#10;&#10;Started integration testing for reset server state route.&#10;&#10;--------------------------------------------------&#10;Tuesday, 10 September 2019 19.23.04:&#10;&#10;It seems that the integration test for simple reset &#10;request does pass.&#10;&#10;--------------------------------------------------">
-      <created>1568132617260</created>
-      <option name="number" value="00290" />
-      <option name="presentableId" value="LOCAL-00290" />
-      <option name="project" value="LOCAL" />
-      <updated>1568132617260</updated>
-    </task>
     <task id="LOCAL-00291" summary="All integration tests seem to pass, even the most complex one.&#10;Need to double check if this is not an &quot;artifact&quot; and make it &#10;fail by doing an &quot;anti-assertion&quot;.">
       <created>1568142441635</created>
       <option name="number" value="00291" />
@@ -717,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568917766735</updated>
     </task>
-    <option name="localTasksCounter" value="339" />
+    <task id="LOCAL-00339" summary="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------">
+      <created>1568918065876</created>
+      <option name="number" value="00339" />
+      <option name="presentableId" value="LOCAL-00339" />
+      <option name="project" value="LOCAL" />
+      <updated>1568918065877</updated>
+    </task>
+    <option name="localTasksCounter" value="340" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -763,7 +773,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.49.42:&#10;&#10;I can print all Users." />
     <MESSAGE value="Now we have the most basic login functionality. &#10;&#10;A &quot;place holder&quot; for that - on which future logged in&#10;yes/no behaviour can be test." />
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component." />
     <MESSAGE value="Now we try to get rid of some boilerplate code,&#10;related to triggering re-fresh / re-render of the&#10;react component.&#10;--------------------------------------------------&#10;Sunday, 15 September 2019 23.30.41:&#10;&#10;Simplified the &quot;cache injector&quot; &quot;logic&quot;.&#10;--------------------------------------------------" />
@@ -788,6 +797,7 @@
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------" />
+    <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------" />
   </component>
 </project>

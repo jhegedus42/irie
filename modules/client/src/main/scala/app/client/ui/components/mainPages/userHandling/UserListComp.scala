@@ -1,9 +1,24 @@
 package app.client.ui.components.mainPages.userHandling
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.{AdminPage, MainPage, UserListPage}
-import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndProps,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
+import app.client.ui.components.mainPages.userHandling.UserEditorComp.UserEditorPage
+import app.client.ui.components.{
+  StaticTemplatePage,
+  MainPage,
+  UserListPage
+}
+import app.shared.comm.postRequests.{
+  AdminPassword,
+  GetAllUsersReq,
+  GetEntityReq
+}
+import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
 import japgolly.scalajs.react.component.Scala.Component
@@ -25,20 +40,11 @@ trait UserListComp
 
 }
 
-// todo-later
-//  perhaps one could later give a bit more structure to pages like this
-//  and formalize/enforce that structure in the ToBeWrappedComponent
-//  trait, for example
-
 object UserListComp {
-
-
 
   case class State(someString: String)
 
-  case class Props(
-    someString: String,
-    routerCtl:  RouterCtl[MainPage])
+  case class Props(routerCtl: RouterCtl[MainPage])
 
   val component: Component[
     CacheAndProps[Props],
@@ -68,8 +74,16 @@ object UserListComp {
     val refToAllUsersOption: Option[GetAllUsersReq.Res] =
       requestResultForRefToAllUsers.toOption
 
-    def listOfStrings2TagMod(l: List[String]): TagMod =
-      TagMod(l.map(<.div(<.br, _)).toVdomArray)
+    def optUserEntity2VDOM(
+      user: Option[Entity[User]]
+    ): VdomElement = {
+      if (user.isDefined)
+        <.div("user into :", user.toString())
+      else <.div("user info not loaded yet ...")
+    }
+
+    def getUserListAsVDOM(l: List[Option[Entity[User]]]): TagMod =
+      TagMod(l.map(optUserEntity2VDOM(_)).toVdomArray)
 
     def userRef2UserOption(
       r: RefToEntityWithoutVersion[User]
@@ -85,22 +99,21 @@ object UserListComp {
       res_.getOrElse(emptyResult)
     }
 
-    val listOfUsers: Option[html_<^.TagMod] = for {
+    def linkToUserEditorPage(
+      ctl:  RouterCtl[MainPage],
+      uuid: String
+    ) =
+      <.div(
+        <.a("edit", ^.href := ctl.urlFor(StaticTemplatePage).value),
+        ctl.setOnLinkClick(UserEditorPage(uuid))
+      )
+
+    val userListAsVDOM: Option[html_<^.TagMod] = for {
       res <- refToAllUsersOption
       res2 = res.allUserRefs
       res3 = res2.map(userRef2UserOption(_))
-      res4 = res3.map(
-        x =>
-          x.optionEntity
-            .map(_.entityValue.name)
-            .getOrElse("name not loaded yet ...")
-        // todo-now -
-        //  add here a link to UserEditorPage with the corresponding
-        //  uuid in its parameter, the uuid for the user
-        //  so that the type of res4 contains the uuid to the
-        //  user and not only the users name, is it does now
-      )
-      res5 = listOfStrings2TagMod(res4)
+      res4 = res3.map(x => x.optionEntity)
+      res5 = getUserListAsVDOM(res4)
     } yield (res5)
 
   }
@@ -114,154 +127,49 @@ object UserListComp {
     ): VdomElement = {
 
       val renderLogic = RenderLogic(cacheAndProps)
-      val route       = AdminPage
+      val route       = StaticTemplatePage
 
       <.div(
         <.br,
         <.hr,
         s"result for the GetAllUsersReq is:",
         <.br,
-        renderLogic.listOfUsers.getOrElse(
+        renderLogic.userListAsVDOM.getOrElse(
           TagMod("List of users is loading ...")
         ),
-        <.br,
-        <.p(
-          s"This is what we got from the " +
-            s"URL : ${cacheAndProps.props.someString}"
-        ),
-        <.div(
-        <.a("click this",
-            ^.href := cacheAndProps.props.routerCtl
-              .urlFor(AdminPage).value),
-          cacheAndProps.props.routerCtl.setOnLinkClick(AdminPage)
-        )
+        <.br
       )
-
-      // todo-now
-      //
-      // - create a page which takes an UUID from the URL
-      //   and edits the corresponding User's name and
-      //   favorite number
-      //
-      // - it will have a save button to call the Update
-      //   request, which will also trigger a cache invalidation
-      //   and also a page refresh,
-      //
-      // - for now, we use a simple, hand written form of
-      //   cache invalidation :
-      //
-      //   a single, simple, plain update request will invalidate
-      //   the entry in the local client cache for the entity
-      //   which has been updated on the server (due to the
-      //   execution of the update request by the server)
-      //
-      //   the update AJAX request will also trigger a
-      //   re-render when it comes back and the cache
-      //   will need to-re-fetch the invalidated/stale
-      //   entity by launching an AJAX call
-      //
-      //   the entity cache should have a "State" that
-      //   the entity is being in the process of being
-      //   updated ...
-      //
-      //   so the update request should update the cache
-      //   and make it "valid again", by updating the result
-      //   so, an updateEntity request should be also a
-      //   getEntity request, simulataniously, if it returns
-      //   it should return with the updated entity, updated
-      //   version number, etc, and insert that into the
-      //   cache which had a stale entry until now, but with the
-      //   return of the update AJAX request, the stale entry
-      //   will become "fresh" again, by inserting the fresh value
-      //   brough back by the returning update request into
-      //   the place of the stale entry
-      //
-      //   or ...
-      //
-      //   when the update returns, it simply triggers a re-render
-      //   and at that point the cache launches a get entity request
-      //   to make its stale entity fresh again
-      //
-      //   so it can go like this - as well (I think I prefer this way):
-      //
-      //   up-to-date => update-request-sent => update-request-returned =>
-      //   getEntity-AKA-refresh-request-sent => getEntity-returned-entry-is-
-      //   refreshed (not-stale-any-longer)
-      //
-      //
 
     }
 
   }
 
-  def getRoute(cacheInterface: Cache) = {
+  private def getWrappedComp(
+    ctl:   RouterCtl[MainPage],
+    cache: Cache
+  ): MainPageReactCompWrapper[UserListComp, UserListPage] =
+    MainPageReactCompWrapper[UserListComp, UserListPage](
+      cache         = cache,
+      propsProvider = () => UserListComp.Props(ctl),
+      comp          = UserListComp.component
+    )
+
+  def getRoute(cache: Cache) = {
 
     import japgolly.scalajs.react.extra.router._
-//    def dynRenderRJ[A <% VdomElement](
-//      g: (UserListPage, RouterCtl[MainPage]) => A
-//    ): UserListPage => Renderer[MainPage] =
-//      p => Renderer(r => g(p, r))
 
     dsl: RouterConfigDsl[MainPage] =>
       import dsl._
 
-//      dynamicRouteCT[UserListPage](
-//        "#userList" / string("[a-zA-Z]+").caseClass[UserListPage]
-//      ) ~> dynRender {
-//          page: UserListPage =>
-//        MainPageReactCompWrapper[UserListComp, UserListPage](
-//          cache = cacheInterface,
-//          propsProvider =
-//            () => UserListComp.Props(page.paramFromURL),
-//          comp = UserListComp.component
-//        ).wrappedConstructor
-//
-//    }
+      def r  =
+        staticRoute("#userList", UserListPage())
 
-//      def g = { page: UserListPage =>
-//        MainPageReactCompWrapper[UserListComp, UserListPage] (
-//          cache         = cacheInterface,
-//          propsProvider = () => UserListComp.Props(page.paramFromURL),
-//          comp          = UserListComp.component
-//        ).wrappedConstructor
-//      }
-//
-//      def h=dynRender { g }
-//
-//      def f= "#userList" / string("[a-zA-Z]+").caseClass[UserListPage]
-//
-//      dynamicRouteCT[UserListPage](f).~>(h)
-//
-      def c(
-        page: UserListPage,
-        ctl:  RouterCtl[MainPage]
-      ): MainPageReactCompWrapper[UserListComp, UserListPage] =
-        MainPageReactCompWrapper[UserListComp, UserListPage](
-          cache = cacheInterface,
-          propsProvider =
-            () => UserListComp.Props(page.paramFromURL, ctl),
-          comp = UserListComp.component
-        )
+      def page2render: dsl.Renderer =
+          Renderer(rc => getWrappedComp(rc, cache).wrappedConstructor)
 
-//      def g(page: UserListPage) = c(page).wrappedConstructor
+      def res: dsl.Rule = (r).~>(page2render)
 
-      def g2(t2: (UserListPage, RouterCtl[MainPage])) =
-        c(t2._1, t2._2).wrappedConstructor
 
-//      def h: UserListPage => dsl.Renderer = dynRender(g)
-      def h2: UserListPage => dsl.Renderer =
-        p => Renderer(rc => g2((p, rc)))
-
-//      def h2= dynRenderRJ(g2)
-
-      def f =
-        "#userList" / string("[a-zA-Z]+").caseClass[UserListPage]
-
-      dynamicRouteCT[UserListPage](f).~>(h2)
-
-//      def pf: MainPage => Option[UserListPage] = ???
-
-//      dynamicRouteF[UserListPage](f)(pf).~>(h)
-
+      res
   }
 }

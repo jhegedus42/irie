@@ -1,24 +1,47 @@
 package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
-import app.client.ui.components.mainPages.demos.SumIntComp
+import app.client.ui.components.mainPages.demos.CacheDemoComp
 import app.client.ui.components.mainPages.userHandling.UserListComp
 
+
 /**
-  **
- The list of components that can appear as the
-  *"main pages" of the app. In other words, as a
-  *direct and at a given time one and only child of
-  *the router `app.client.ui.components.router.RouterComp` .
+  *
+  * The scalajs-react-router needs this trait.
+  *
+  * Subclasses of this trait correspond to "pages"
+  * to which the router can navigate "us".
+  *
+  * Basically a subclass of this trait corresponds to a
+  * "type of URL" / "type of webpage" (as if we were navigating
+  * a traditional website - with optional URL parameters).
+  *
+  * The router will decide what to do with a given URL, for that
+  * it uses based the subclasses of this trait - which define the
+  * "pages" to which URLs can be "resolved to".
+  *
+  * A page is an abstract concept. An URL is a string representation
+  * of a "page".
+  *
+  * Subclasses of this trait correspond to these "pages" - these abstract
+  * concepts.
+  *
+  * It is called MainPage because it is the direct and only child of the
+  * router. So it is a page, that corresponds to a react component which
+  * "sits" at the root of the render VDOM hierarchy, just below the router.
+  *
+  * So these are the most important react components, hence they are called
+  * "Main" components, hence the name for these pages - "Main" pages.
+  *
+  * A bit of a misnomer because there are no such things as not main pages,
+  * but there are components which are not "main" components (that is, they
+  * do not correspond/belong to pages) - they are components which can be
+  * children of anything - BUT a MainPageComponent can be only a child of
+  * the Router. That's it. PUNKTUM.
   *
   */
 
-  /**
-    * This denotes that a subclass can be a single, direct child of Router,
-    * representing the only single page that is at a given time is displayed
-    * in the browser.
-    */
-  trait MainPage
+trait MainPage
 
   /**
     *
@@ -41,22 +64,20 @@ import app.client.ui.components.mainPages.userHandling.UserListComp
 
   case object LoginPage extends MainPage
 
-  case class SumIntPage(number: Int)
-      extends MainPageWithCache[SumIntComp, SumIntPage]
+/**
+  *
+  * Add two "thievery" numbers.
+  *
+  * @param number
+  */
+case class CacheDemoPage(number: Int)
+      extends MainPageWithCache[CacheDemoComp, CacheDemoPage]
 
-  /**
-    *
-    */
-  case class UserListPage(paramFromURL: String)
+  case class UserListPage()
       extends MainPageWithCache[UserListComp, UserListPage]
 
-  //  case class UserEditorPage(uuid: String) extends MainPage
-
-  case object NoteListPage extends MainPage
-
-  case object AdminPage extends MainPage
+  case object StaticTemplatePage extends MainPage
 
   case class ItemPage(id: Int) extends MainPage
 
-//  case class StaticEditorPage(uuid: String) extends MainPage
 

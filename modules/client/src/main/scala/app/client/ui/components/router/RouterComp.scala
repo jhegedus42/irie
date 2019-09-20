@@ -6,7 +6,7 @@ import app.client.ui.components.mainPageLayout.TopNavComp.Menu
 import app.client.ui.components.mainPageLayout.{FooterComp, TopNavComp}
 import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
-import app.client.ui.components.mainPages.demos.{DemoPage, SumIntComp, TemplateComp}
+import app.client.ui.components.mainPages.demos.{StaticTemplateComp, CacheDemoComp, TemplateComp}
 import app.client.ui.components.mainPages.userHandling.{UserEditorComp, UserListComp}
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import japgolly.scalajs.react.extra.{OnUnmount, router}
@@ -46,19 +46,19 @@ case class RouterComp() {
         import dsl._
 
         val loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
-          render(
-            LoginPageComp.component()
-          )
+          renderR{
+            x=>LoginPageComp.component(LoginPageComp.Props(x))
+          }
         )
 
         (trimSlashes
           | loginRoute
-          | SumIntComp.getRoute(cache)(dsl)
+          | CacheDemoComp.getRoute(cache)(dsl)
           | Pages.itemPageRoute(dsl)
           | UserEditorComp.getRoute(cache)(dsl)
           | TemplateComp.getRoute(cache)(dsl)
           | UserListComp.getRoute(cache)(dsl)
-          | DemoPage.getRoute(dsl))
+          | StaticTemplateComp.getRoute(dsl))
           .notFound(
             redirectToPage(LoginPage)(Redirect.Replace)
           )

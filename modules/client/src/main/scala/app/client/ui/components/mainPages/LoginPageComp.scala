@@ -1,13 +1,17 @@
 package app.client.ui.components.mainPages
 
 import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.components.MainPage
 import app.client.ui.components.router.RouterWrapper
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala.Unmounted
+import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object LoginPageComp {
+
+  case class Props(routerCtl: RouterCtl[MainPage])
 
   object State {
     case class IsUserLoggedIn(yesOrNo: Boolean)
@@ -20,16 +24,17 @@ object LoginPageComp {
   }
   def isUserLoggedIn = State.isUserLoggedIn
 
-  class LoginPageBackend[Unit](
-    $ : BackendScope[Unit, State.IsUserLoggedIn]) {
+  class LoginPageBackend[P](
+    $ : BackendScope[Props, State.IsUserLoggedIn]) {
 
-    def handleLoginButton() = {
+    def handleLoginButton(p:Props): CallbackTo[Unit] = {
       State.setUserLoggedIn()
-      $.setState(State.IsUserLoggedIn(true))
+      val refresh: Callback =p.routerCtl.refresh
+      $.setState(State.IsUserLoggedIn(true)) >> refresh
     }
 
     def render(
-      p: Unit,
+      p: Props,
       s: State.IsUserLoggedIn
     ): VdomElement = {
 
@@ -38,31 +43,12 @@ object LoginPageComp {
           <.div(
             <.p(
               "You are now logged in ! Yey !!! Welcome ! To the world, of tomorrow !!! :)"
-            ),
-            <.br,
-            <.p(
-              " In order to proceed to Nirvana, Zion, Valhalla, Enlightement, or call it whatever" +
-                " you wanna call it, " +
-                "please click  - on the top left - the " +
-                "Menu called 'Home', i.e. " +
-                "to see more functionality (to refresh the page). "
-            ),
-            <.br,
-            <.p(
-              "This is " +
-                "needed because the router cannot be re-freshed programmatically, " +
-                "or maybe it can but I have just yet not figured out how to do so. " +
-                "So this text here is a 'hack', so that 'users can use the app'. " +
-                "Welcome to da app :). I hope it will help you to learn a bit of " +
-                "scalajs-react, or Scala, or Scala.js, or whatever floats your boat " +
-                "or job, or both."
-            )
-          )
+            ))
         else {
           import bootstrap4.TB.convertableToTagOfExtensionMethods
           <.button.btn.btnPrimary(
             "Press this button to log in.",
-            ^.onClick --> handleLoginButton()
+            ^.onClick --> handleLoginButton(p)
           )
         }
 
@@ -75,9 +61,6 @@ object LoginPageComp {
             C.justifyContentCenter,
             C.textCenter,
             <.h1("Login page"),
-            <.p(C.lead, "Login Status:"),
-            <.br,
-            s"${s.yesOrNo}",
             <.br,
             login
           )
@@ -91,9 +74,9 @@ object LoginPageComp {
 
   val component =
     ScalaComponent
-      .builder[Unit]("Login Page")
+      .builder[Props]("Login Page")
       .initialState(isUserLoggedIn)
-      .renderBackend[LoginPageBackend[Unit]]
+      .renderBackend[LoginPageBackend[Props]]
       .build
 
 }
