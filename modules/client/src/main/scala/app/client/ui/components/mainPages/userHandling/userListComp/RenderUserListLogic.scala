@@ -51,8 +51,10 @@ case class RenderUserListLogic(
             ctl.setOnLinkClick(UserEditorPage(id.uuid)))
 
         if (user.isDefined) {
+          val name=user.get.entityValue.name
+          val n=user.get.entityValue.favoriteNumber
           <.p(
-            user.get.entityValue.name," ",
+            s"Name : $name , favorite number: $n " ,
             linkToUserEditorPage(user.get.refToEntity.entityIdentity),
             <.br
           )
