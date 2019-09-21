@@ -151,8 +151,7 @@ object ThieveryDemoComp {
       props:  CacheAndProps[Props],
       params: SumIntPar
     ): CacheEntryStates.CacheEntryState[SumIntRoute] = {
-
-      props.cache.getPostReqResult[SumIntRoute](params)
+      props.cache.getResultOfCachedPostRequest[SumIntRoute](params)
     }
 
     object StateChangers {

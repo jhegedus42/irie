@@ -26,7 +26,7 @@ case class UserListRenderLogic(
       def requestResultForRefToAllUsers
         : CacheEntryStates.CacheEntryState[GetAllUsersReq] =
         cacheInterfaceWrapper.cache
-          .getPostReqResult[GetAllUsersReq](
+          .getResultOfCachedPostRequest[GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
       requestResultForRefToAllUsers.toOption
@@ -70,7 +70,7 @@ case class UserListRenderLogic(
       val par_ = GetEntityReq.Par(r)
       val res_ =
         cacheInterfaceWrapper.cache
-          .getPostReqResult[GetEntityReq[User]](par_)
+          .getResultOfCachedPostRequest[GetEntityReq[User]](par_)
           .toOption
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)

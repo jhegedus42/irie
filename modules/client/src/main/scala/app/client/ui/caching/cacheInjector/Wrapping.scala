@@ -50,15 +50,15 @@ case class CacheAndProps[Props](
 
 class Cache() {
 
-  def getPostReqResult[Req <: PostRequest](
+  def getResultOfCachedPostRequest[Req <: PostRequest](
     par: Req#ParT
   )(
-    implicit
-    c:       PostRequestResultCache[Req],
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
+                                                        implicit
+                                                        c:       PostRequestResultCache[Req],
+                                                        decoder: Decoder[Req#ResT],
+                                                        encoder: Encoder[Req#ParT],
+                                                        ct:      ClassTag[Req],
+                                                        ct2:     ClassTag[Req#PayLoadT]
   ): CacheEntryState[Req] = c.getPostRequestResult(par)
 }
 

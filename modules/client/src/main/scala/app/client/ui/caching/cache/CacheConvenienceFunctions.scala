@@ -20,20 +20,20 @@ object CacheConvenienceFunctions {
     identity: EntityIdentity,
     cache:    Cache
   )(
-    implicit postRequestResultCache: PostRequestResultCache[
+                                        implicit postRequestResultCache: PostRequestResultCache[
       GetEntityReq[EV]
     ],
-    decoder: Decoder[GetEntityReq[EV]#ResT],
-    encoder: Encoder[GetEntityReq[EV]#ParT],
-    ct:      ClassTag[GetEntityReq[EV]],
-    ct2:     ClassTag[GetEntityReq[EV]#PayLoadT]
+                                        decoder: Decoder[GetEntityReq[EV]#ResT],
+                                        encoder: Encoder[GetEntityReq[EV]#ParT],
+                                        ct:      ClassTag[GetEntityReq[EV]],
+                                        ct2:     ClassTag[GetEntityReq[EV]#PayLoadT]
   ): Option[Entity[EV]] = {
     val par: GetEntityReq.Par[EV] = GetEntityReq.Par[EV](
       RefToEntityWithoutVersion(EntityValueTypeAsString.make[EV],
                                 entityIdentity = identity)
     )
     val res: CacheEntryStates.CacheEntryState[GetEntityReq[EV]] =
-      cache.getPostReqResult[GetEntityReq[EV]](par)
+      cache.getResultOfCachedPostRequest[GetEntityReq[EV]](par)
 
     val res2: Option[Entity[EV]] =
       res.toOption.flatMap(x => x.optionEntity)

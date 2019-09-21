@@ -26,7 +26,7 @@ object MenuItems {
 //                       UserEditorPage(
 //                         "this-is-the-uuid-of-the-to-be-edited-user"
 //                       )),
-            Menu.apply("Thievery Demo", ThieveryDemo(3845)),
+//            Menu.apply("Thievery Demo", ThieveryDemo(3845)),
 //            Menu.apply("Template Page",
 //                       TemplatePage("CopyMeAndThenChangeMe"))
           )
