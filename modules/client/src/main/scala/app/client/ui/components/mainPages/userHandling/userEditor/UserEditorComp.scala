@@ -32,6 +32,7 @@ import japgolly.scalajs.react.{
   ScalaComponent
 }
 import org.scalajs.dom
+import org.scalajs.dom.html.Div
 
 trait UserEditorComp
     extends ToBeWrappedMainPageComponent[
@@ -51,8 +52,8 @@ object UserEditorComp {
   case class UserEditorPage(paramFromURL: String)
       extends MainPageWithCache[UserEditorComp, UserEditorPage]
 
-  case class State(entity: Option[Entity[User]])
-
+  case class UpdatedUser(optEnt: Option[Entity[User]])
+  case class State(updatedUser:  UpdatedUser)
 
   case class Props(
     userIdentity: EntityIdentity,
@@ -68,9 +69,35 @@ object UserEditorComp {
       .builder[CacheAndProps[Props]](
         "This is a userEditor page. It demonstrates all crucial functionality."
       )
-      .initialState(State("initial state"))
+      .initialState(State(UpdatedUser(None)))
       .renderBackend[Backend[Props]]
       .build
+  }
+
+  object Helpers {
+
+    def nameField(
+      optEnt:        Option[Entity[User]],
+      updateHandler: CallbackTo[Unit]
+    ) = {
+
+      def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
+        if (optEnt.isEmpty) <.div(<.p("loading ..."))
+        else f(v.get)
+
+      g(optEnt) { e =>
+        val name = e.entityValue.name
+        <.div(
+          <.br,
+          "Name: ",
+          TextField.textFieldComp(name)(
+            TextField.Props(updateHandler)
+          )
+        )
+      }
+
+    }
+
   }
 
   class Backend[Properties](
@@ -89,23 +116,18 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
-      def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
-        if (ent.isEmpty) <.div(<.p("loading ..."))
-        else f(v.get)
+      def updateUserName(
+        currentEntity: Entity[User],
+        newName:       String
+      ): Option[Entity[User]] = {
 
-      def nameField =
-        g(ent) { e =>
-          val name = e.entityValue.name
-          <.div(
-            <.br,
-            "Name: ",
-            TextField.textFieldComp(name)()
-          )
-        }
+        import monocle.macros.syntax.lens._
 
-      def updateUserName(currentEntity:Entity[User],newName: String): Option[Entity[User]] = {
+        val newEntityVal =
+          currentEntity.entityValue.lens(_.name).set(newName)
 
-        val par: UpdateReq[User]#ParT = UpdateReq.UpdateReqPar()
+        val par: UpdateReq[User]#ParT =
+          UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
 
         val res: CacheEntryStates.CacheEntryState[UpdateReq[User]] =
           cacheAndProps.cache
@@ -123,26 +145,20 @@ object UserEditorComp {
       def handleUpdateUserButon(): CallbackTo[Unit] = {
         Callback({
 
-          println("Megnyomtak a gombot.")
+          dom.window.alert(
+            s"mi ezt az usert-t fogjuk update-elni : $ent"
+          )
+
         })
+
         // call update user request
       }
 
-      def saveButton = {
-        import bootstrap4.TB.convertableToTagOfExtensionMethods
-
-        <.button.btn.btnPrimary(
-          "Save changes.",
-          ^.onClick --> handleUpdateUserButon()
-        )
-      }
 
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
-        nameField,
-        <.br,
-        saveButton
+        Helpers.nameField(ent,handleUpdateUserButon()),
       )
 
     }
