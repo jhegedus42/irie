@@ -2,6 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.ResetRequest
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -11,7 +12,7 @@ case class ResetServerStateLogic(
   implicit
   paw: PersistentActorWhisperer,
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[ResetRequest] {
+    extends RouteLogic[WriteRequest, ResetRequest] {
 
   /**
     *

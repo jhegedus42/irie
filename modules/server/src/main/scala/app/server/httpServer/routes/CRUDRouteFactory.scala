@@ -2,23 +2,16 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertReq,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{GetEntityReq, InsertReq, UpdateReq}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.crudLogic.{
-  GetEntityLogic,
-  InsertEntityLogic,
-  UpdateEntityLogic
-}
+import app.server.httpServer.routes.post.routeLogicImpl.crudLogic.{GetEntityLogic, InsertEntityLogic, UpdateEntityLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.{ReadRequest, WriteRequest}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
@@ -48,9 +41,9 @@ case class CRUDRouteFactory(
     implicit val getRouteLogic =
       GetEntityLogic[V]()
 
-    getPostRoute[UpdateReq[V]].route ~
-      getPostRoute[InsertReq[V]].route ~
-      getPostRoute[GetEntityReq[V]].route
+    getPostRoute[WriteRequest, UpdateReq[V]].route ~
+      getPostRoute[WriteRequest, InsertReq[V]].route ~
+      getPostRoute[ReadRequest, GetEntityReq[V]].route
   }
 
 }

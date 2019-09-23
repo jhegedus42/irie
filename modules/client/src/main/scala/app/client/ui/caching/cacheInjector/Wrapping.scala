@@ -2,7 +2,7 @@ package app.client.ui.caching.cacheInjector
 import app.client.ui.caching.cache.CacheEntryStates.CacheEntryState
 import app.client.ui.caching.cache.comm.PostRequestResultCache
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.shared.comm.PostRequest
+import app.shared.comm.{PostRequest, PostRequestType}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
@@ -50,16 +50,16 @@ case class CacheAndProps[Props](
 
 class Cache() {
 
-  def getResultOfCachedPostRequest[Req <: PostRequest](
+  def getResultOfCachedPostRequest[RT<:PostRequestType, Req<: PostRequest[RT]](
     par: Req#ParT
   )(
-                                                        implicit
-                                                        c:       PostRequestResultCache[Req],
-                                                        decoder: Decoder[Req#ResT],
-                                                        encoder: Encoder[Req#ParT],
-                                                        ct:      ClassTag[Req],
-                                                        ct2:     ClassTag[Req#PayLoadT]
-  ): CacheEntryState[Req] = c.getPostRequestResult(par)
+    implicit
+    c:       PostRequestResultCache[RT,Req],
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
+  ): CacheEntryState[RT,Req] = c.getPostRequestResult(par)
 }
 
 trait ToBeWrappedMainPageComponent[
@@ -86,10 +86,9 @@ case class MainPageReactCompWrapper[
   Page <: MainPageWithCache[Comp, Page]
 ](cache:         Cache,
   propsProvider: () => Comp#Props,
-  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]
-  ) {
+  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
 
-  def wrappedConstructor=
+  def wrappedConstructor =
     new WrapperHOC[Comp#Backend, Comp#Props, Comp#State](comp)
       .wrapperConstructor(
         CacheAndProps[Comp#Props](

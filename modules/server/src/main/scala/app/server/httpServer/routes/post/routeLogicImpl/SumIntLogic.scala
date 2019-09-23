@@ -3,6 +3,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 import java.util.Calendar
 
 import app.server.httpServer.routes.post.RouteLogic
+import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
 
@@ -14,7 +15,7 @@ import scala.concurrent.Future
   *
   */
 
-object SumIntLogic extends RouteLogic[SumIntRoute] {
+object SumIntLogic extends RouteLogic[ReadRequest, SumIntRoute] {
 
   override def getHttpReqResult(
     param: SumIntPar

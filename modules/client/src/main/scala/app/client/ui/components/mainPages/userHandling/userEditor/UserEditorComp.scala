@@ -1,21 +1,11 @@
 package app.client.ui.components.mainPages.userHandling.userEditor
 
-import app.client.ui.caching.cache.{
-  CacheConvenienceFunctions,
-  CacheEntryStates
-}
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndProps,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cache.{CacheConvenienceFunctions, CacheEntryStates}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.LoginPageComp.{Props, State}
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.{
-  Props,
-  UserEditorPage
-}
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.{Props, UserEditorPage}
 import app.client.ui.components.{MainPage, MainPageWithCache}
+import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -24,13 +14,7 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ScalaComponent}
 import org.scalajs.dom
 import org.scalajs.dom.html.Div
 
@@ -52,8 +36,9 @@ object UserEditorComp {
   case class UserEditorPage(paramFromURL: String)
       extends MainPageWithCache[UserEditorComp, UserEditorPage]
 
-  case class UpdatedUser(optEnt: Option[Entity[User]])
-  case class State(updatedUser:  UpdatedUser)
+  case class UpdatedUser(
+    resultOfUserUpdateRequest:  Option[Entity[User]])
+  case class State(updatedUser: UpdatedUser)
 
   case class Props(
     userIdentity: EntityIdentity,
@@ -78,7 +63,7 @@ object UserEditorComp {
 
     def nameField(
       optEnt:        Option[Entity[User]],
-      updateHandler: CallbackTo[Unit]
+      updateHandler: String => CallbackTo[Unit]
     ) = {
 
       def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
@@ -89,7 +74,9 @@ object UserEditorComp {
         val name = e.entityValue.name
         <.div(
           <.br,
-          "Name: ",
+          s"Original name: $name",
+          <.br,
+          "Updater: ",
           TextField.textFieldComp(name)(
             TextField.Props(updateHandler)
           )
@@ -129,9 +116,9 @@ object UserEditorComp {
         val par: UpdateReq[User]#ParT =
           UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
 
-        val res: CacheEntryStates.CacheEntryState[UpdateReq[User]] =
+        val res: CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[User]] =
           cacheAndProps.cache
-            .getResultOfCachedPostRequest[UpdateReq[User]](par)(???,
+            .getResultOfCachedPostRequest[WriteRequest, UpdateReq[User]](par)(???,
                                                                 ???,
                                                                 ???,
                                                                 ???,
@@ -139,26 +126,28 @@ object UserEditorComp {
 
         val res2: Option[Entity[User]] =
           res.toOption.map(x => x.entity)
+
         res2
       }
 
-      def handleUpdateUserButon(): CallbackTo[Unit] = {
-        Callback({
+      def handleUpdateUserButon: String => CallbackTo[Unit] = {
+        newValue: String =>
+          Callback({
 
-          dom.window.alert(
-            s"mi ezt az usert-t fogjuk update-elni : $ent"
-          )
+            dom.window.alert(
+              s"mi ezt az usert-t fogjuk update-elni : $ent \n" +
+                s"ez lesz az uj neve: $newValue"
+            )
 
-        })
+          })
 
         // call update user request
       }
 
-
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
-        Helpers.nameField(ent,handleUpdateUserButon()),
+        Helpers.nameField(ent, handleUpdateUserButon)
       )
 
     }

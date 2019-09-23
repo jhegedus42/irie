@@ -2,11 +2,9 @@ package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.GetEntityReq
-import app.shared.comm.postRequests.GetEntityReq.{
-  Par,
-  Res
-}
+import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
@@ -19,7 +17,7 @@ case class GetEntityLogic[V <: EntityValue[V]](
   paw:             PersistentActorWhisperer,
   dv:              Decoder[V],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[GetEntityReq[V]] {
+    extends RouteLogic[ReadRequest, GetEntityReq[V]] {
 
   override def getHttpReqResult(
     param: Par[V]

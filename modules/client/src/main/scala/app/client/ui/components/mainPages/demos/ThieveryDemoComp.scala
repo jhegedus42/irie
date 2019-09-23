@@ -1,37 +1,17 @@
 package app.client.ui.components.mainPages.demos
 
 import app.client.ui.caching.cache.CacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndProps,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.mainPages.demos.ThieveryDemoComp.StateAndProps.{
-  State,
-  Props
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.demos.ThieveryDemoComp.StateAndProps.{Props, State}
 import app.client.ui.components.router.RouterComp.RoutingRule
 import app.client.ui.components.{MainPage, ThieveryDemo}
+import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.SumIntRoute
 import bootstrap4.TB.C
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
-import japgolly.scalajs.react.vdom.html_<^.{
-  <,
-  TagMod,
-  VdomElement,
-  ^,
-  _
-}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  CtorType,
-  ReactEventFromInput,
-  ScalaComponent
-}
+import japgolly.scalajs.react.vdom.html_<^.{<, TagMod, VdomElement, ^, _}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ReactEventFromInput, ScalaComponent}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
@@ -150,8 +130,8 @@ object ThieveryDemoComp {
     private def calculateSumOnServer(
       props:  CacheAndProps[Props],
       params: SumIntPar
-    ): CacheEntryStates.CacheEntryState[SumIntRoute] = {
-      props.cache.getResultOfCachedPostRequest[SumIntRoute](params)
+    ): CacheEntryStates.CacheEntryState[ReadRequest, SumIntRoute] = {
+      props.cache.getResultOfCachedPostRequest[ReadRequest, SumIntRoute](params)
     }
 
     object StateChangers {

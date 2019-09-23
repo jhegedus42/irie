@@ -5,6 +5,7 @@ import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactC
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
 import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
+import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -24,9 +25,9 @@ case class UserListRenderLogic(
 
     def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
       def requestResultForRefToAllUsers
-        : CacheEntryStates.CacheEntryState[GetAllUsersReq] =
+        : CacheEntryStates.CacheEntryState[ReadRequest, GetAllUsersReq] =
         cacheInterfaceWrapper.cache
-          .getResultOfCachedPostRequest[GetAllUsersReq](
+          .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
       requestResultForRefToAllUsers.toOption
@@ -70,7 +71,7 @@ case class UserListRenderLogic(
       val par_ = GetEntityReq.Par(r)
       val res_ =
         cacheInterfaceWrapper.cache
-          .getResultOfCachedPostRequest[GetEntityReq[User]](par_)
+          .getResultOfCachedPostRequest[ReadRequest, GetEntityReq[User]](par_)
           .toOption
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)

@@ -3,7 +3,8 @@ package app.client.ui.components.mainPages.demos
 import app.client.ui.caching.cache.CacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
-import app.client.ui.components.{StaticTemplatePage, ItemPage, MainPage, MainPageWithCache}
+import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTemplatePage}
+import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithoutVersion
@@ -113,9 +114,9 @@ object TemplateComp {
     cacheInterfaceWrapper: CacheAndProps[Props]) {
 
     val requestResultForRefToAllUsers
-      : CacheEntryStates.CacheEntryState[GetAllUsersReq] =
+      : CacheEntryStates.CacheEntryState[ReadRequest, GetAllUsersReq] =
       cacheInterfaceWrapper.cache
-        .getResultOfCachedPostRequest[GetAllUsersReq](
+        .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
           GetAllUsersReq.Par(AdminPassword("titok"))
         )
 
@@ -131,7 +132,7 @@ object TemplateComp {
       val par_ = GetEntityReq.Par(r)
       val res_ =
         cacheInterfaceWrapper.cache
-          .getResultOfCachedPostRequest[GetEntityReq[User]](par_)
+          .getResultOfCachedPostRequest[ReadRequest,  GetEntityReq[User]](par_)
           .toOption
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)

@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache.comm
 
-import app.shared.comm.{PostRequest, RouteName}
+import app.shared.comm.{PostRequest, PostRequestType, RouteName}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
@@ -9,30 +9,35 @@ import scala.reflect.ClassTag
 
 private[caching] object AJAXCalls {
 
-  case class AjaxCallPar[Req <: PostRequest](par: Req#ParT)
+  case class AjaxCallPar[
+    RT  <: PostRequestType,
+    Req <: PostRequest[RT]
+  ](par: Req#ParT)
 
-  case class PostAJAXRequestSuccessfulResponse[Req <: PostRequest](
-                                                                    par: Req#ParT,
-                                                                    res: Req#ResT
-  )
+  case class PostAJAXRequestSuccessfulResponse[
+    RT  <: PostRequestType,
+    Req <: PostRequest[RT]
+  ](par: Req#ParT,
+    res: Req#ResT)
 
-  private[cache] def sendPostAjaxRequest[Req <: PostRequest](
-    requestParams: AjaxCallPar[Req]
+  private[cache] def sendPostAjaxRequest[
+    RT  <: PostRequestType,
+    Req <: PostRequest[RT]
+  ](requestParams: AjaxCallPar[RT, Req]
   )(
-                                                              implicit
-                                                              ct:        ClassTag[Req],
-                                                              classTag2: ClassTag[Req#PayLoadT],
-                                                              encoder:   Encoder[Req#ParT],
-                                                              decoder:   Decoder[Req#ResT],
-                                                              executionContextExecutor: ExecutionContextExecutor
-
-  ): Future[PostAJAXRequestSuccessfulResponse[Req]] = {
+    implicit
+    ct:                       ClassTag[Req],
+    classTag2:                ClassTag[Req#PayLoadT],
+    encoder:                  Encoder[Req#ParT],
+    decoder:                  Decoder[Req#ResT],
+    executionContextExecutor: ExecutionContextExecutor
+  ): Future[PostAJAXRequestSuccessfulResponse[RT,Req]] = {
 
 //    implicit def executionContext: ExecutionContextExecutor =
 //      scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
     val routeName: RouteName =
-      RouteName.getRouteName[Req]
+      RouteName.getRouteName[RT,Req]
 
     val url: String = routeName.name
 
@@ -82,7 +87,7 @@ private[caching] object AJAXCalls {
         })
         .map(x => x.right.get)
 
-    val res2: Future[PostAJAXRequestSuccessfulResponse[Req]] =
+    val res2: Future[PostAJAXRequestSuccessfulResponse[RT,Req]] =
       res1.map(
         PostAJAXRequestSuccessfulResponse(plain_params, _)
       )

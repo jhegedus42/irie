@@ -3,7 +3,7 @@ package app.server.httpServer.routes.post
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import app.server.utils.{GetTimeOnJVM, PrettyPrint}
-import app.shared.comm.{PostRequest, RouteName}
+import app.shared.comm.{PostRequest, PostRequestType, RouteName}
 
 import scala.concurrent.{ExecutionContext, Future}
 import io.circe.{Decoder, Encoder, Json}
@@ -22,21 +22,21 @@ import io.circe.Decoder.Result
 
 private[routes] object PostRouteFactory {
 
-  def getPostRoute[Req <: PostRequest](
+  def getPostRoute[RT <: PostRequestType, Req <: PostRequest[RT]](
   )(
-                                        implicit
-                                        classTag:  ClassTag[Req],
-                                        classTag2: ClassTag[Req#PayLoadT],
-                                        logic:     RouteLogic[Req],
-                                        //    dpl:       Decoder[Req#PayLoad],
-                                        decoder: Decoder[Req#ParT],
-                                        encoder: Encoder[Req#ResT],
-                                        e:       ExecutionContext
-  ): PostRoute[Req] = {
+    implicit
+    classTag:  ClassTag[Req],
+    classTag2: ClassTag[Req#PayLoadT],
+    logic:     RouteLogic[RT,Req],
+    //    dpl:       Decoder[Req#PayLoad],
+    decoder: Decoder[Req#ParT],
+    encoder: Encoder[Req#ResT],
+    e:       ExecutionContext
+  ): PostRoute[RT,Req] = {
 
     val res: Route =
       post {
-        val rn = RouteName.getRouteName[Req].name
+        val rn = RouteName.getRouteName[RT, Req].name
         path(rn) {
           entity(as[String]) { s: String =>
             val encdec = EncodersDecoders
@@ -71,7 +71,7 @@ private[routes] object PostRouteFactory {
 
 //            implicit val ec = encdec
 
-            val l: RouteLogic[Req] = logic
+            val l: RouteLogic[RT, Req] = logic
 
             val name = l.getRouteName
 
@@ -119,14 +119,14 @@ private[routes] object PostRouteFactory {
                  |
                  |
                  |
-                 | ${RouteName.getRouteName[Req].name}
+                 | ${RouteName.getRouteName[RT, Req].name}
                  |
                  | ^^^^^^^^^^^------------------------------
                  |
                """.stripMargin)
     }
 
-    PostRoute[Req](res)
+    PostRoute[RT,Req](res)
   }
 
 }

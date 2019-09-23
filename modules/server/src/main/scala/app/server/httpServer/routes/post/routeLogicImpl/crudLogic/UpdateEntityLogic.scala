@@ -2,11 +2,9 @@ package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.UpdateReq
-import app.shared.comm.postRequests.UpdateReq.{
-  UpdateReqPar,
-  UpdateReqRes
-}
+import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
@@ -23,7 +21,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
   _encoderV:       Encoder[V],
   classTag:        ClassTag[V],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[UpdateReq[V]] {
+    extends RouteLogic[WriteRequest, UpdateReq[V]] {
 
   override def getHttpReqResult(
     param: UpdateReqPar[V]

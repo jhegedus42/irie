@@ -1,12 +1,8 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.{
-  GetAllUsersLogic,
-  ResetServerStateLogic,
-  SumIntLogic
-}
-import app.shared.comm.PostRequest
+import app.server.httpServer.routes.post.routeLogicImpl.{GetAllUsersLogic, ResetServerStateLogic, SumIntLogic}
+import app.shared.comm.{PostRequest, PostRequestType}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -16,7 +12,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   *
   * @tparam Req
   */
-trait RouteLogic[Req <: PostRequest] {
+trait RouteLogic[RT<:PostRequestType, Req<: PostRequest[RT]] {
 
   // todo-later
   //   this is where we should put the OCC

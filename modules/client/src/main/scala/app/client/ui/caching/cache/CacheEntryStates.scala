@@ -1,9 +1,9 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.PostRequest
+import app.shared.comm.{PostRequest, PostRequestType}
 
 object CacheEntryStates {
-  sealed trait CacheEntryState[Req <: PostRequest] {
+  sealed trait CacheEntryState[RT<:PostRequestType, Req<: PostRequest[RT]] {
     def isLoading: Boolean =
       this match {
         case Loading( _ )   => true
@@ -16,12 +16,12 @@ object CacheEntryStates {
         case Loaded( _, res ) => Some(res)
       }
   }
-  case class Loading[V <: PostRequest](param: V#ParT ) extends CacheEntryState[V]
+  case class Loading[RT<:PostRequestType, Req<: PostRequest[RT]](param: Req#ParT ) extends CacheEntryState[RT,Req]
 
-  case class Loaded[V <: PostRequest](param:  V#ParT, result: V#ResT )
-      extends CacheEntryState[V]
+  case class Loaded[RT<:PostRequestType, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
+      extends CacheEntryState[RT,Req]
 
-  case class Stale[V <: PostRequest](param:  V#ParT, result: V#ResT )
-    extends CacheEntryState[V]
+  case class Stale[RT<:PostRequestType, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
+    extends CacheEntryState[RT,Req]
 
 }

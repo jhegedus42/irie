@@ -2,6 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetAllUsersReq
 import app.shared.entity.entityValue.EntityValue
 
@@ -14,7 +15,7 @@ case class GetAllUsersLogic(
   paw:             PersistentActorWhisperer,
   contextExecutor: ExecutionContextExecutor
 )
-    extends RouteLogic[GetAllUsersReq] {
+    extends RouteLogic[ReadRequest, GetAllUsersReq] {
 
   override def getHttpReqResult(
     param: GetAllUsersReq.Par

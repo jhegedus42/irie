@@ -8,7 +8,7 @@ import org.scalajs.dom.html.{Button, Input}
 
 object TextField {
   case class State(text: String)
-  case class Props(updateHandler:CallbackTo[Unit])
+  case class Props(updateHandler:String => CallbackTo[Unit])
 
   def onChangeText(
     bs: BackendScope[Props, State]
@@ -22,7 +22,7 @@ object TextField {
 
   class Backend($ : BackendScope[Props, State]) {
 
-    def saveButton(handler:CallbackTo[Unit]): VdomTagOf[Button] = {
+    def saveButton(handler: CallbackTo[Unit]): VdomTagOf[Button] = {
       import bootstrap4.TB.convertableToTagOfExtensionMethods
 
       <.button.btn.btnPrimary(
@@ -34,7 +34,7 @@ object TextField {
     def render(p:Props,s: State): VdomElement = {
       <.div(
         <.input.text(^.onChange ==> onChangeText($), ^.value := s.text),
-        saveButton(p.updateHandler)
+        saveButton(p.updateHandler(s.text))
       )
 
     }

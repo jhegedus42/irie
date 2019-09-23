@@ -1,6 +1,6 @@
 package app.shared.comm.postRequests
 
-import app.shared.comm.PostRequest
+import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.comm.postRequests.GetAllUsersReq.Par
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
@@ -10,7 +10,7 @@ import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 
 
-class GetAllUsersReq extends PostRequest {
+class GetAllUsersReq extends PostRequest[ReadRequest] {
 
   override type ParT     = GetAllUsersReq.Par
   override type PayLoadT = Unit // has no payload
