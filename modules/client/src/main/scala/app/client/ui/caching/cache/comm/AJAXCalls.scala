@@ -10,20 +10,17 @@ import scala.reflect.ClassTag
 private[caching] object AJAXCalls {
 
   case class AjaxCallPar[
-    RT  <: PostRequestType,
-    Req <: PostRequest[RT]
+    Req <: PostRequest[_]
   ](par: Req#ParT)
 
   case class PostAJAXRequestSuccessfulResponse[
-    RT  <: PostRequestType,
-    Req <: PostRequest[RT]
+    Req <: PostRequest[_]
   ](par: Req#ParT,
     res: Req#ResT)
 
   private[cache] def sendPostAjaxRequest[
-    RT  <: PostRequestType,
-    Req <: PostRequest[RT]
-  ](requestParams: AjaxCallPar[RT, Req]
+    Req <: PostRequest[_]
+  ](requestParams: AjaxCallPar[Req]
   )(
     implicit
     ct:                       ClassTag[Req],
@@ -31,13 +28,13 @@ private[caching] object AJAXCalls {
     encoder:                  Encoder[Req#ParT],
     decoder:                  Decoder[Req#ResT],
     executionContextExecutor: ExecutionContextExecutor
-  ): Future[PostAJAXRequestSuccessfulResponse[RT,Req]] = {
+  ): Future[PostAJAXRequestSuccessfulResponse[Req]] = {
 
 //    implicit def executionContext: ExecutionContextExecutor =
 //      scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
     val routeName: RouteName =
-      RouteName.getRouteName[RT,Req]
+      RouteName.getRouteName[Req]
 
     val url: String = routeName.name
 
@@ -87,7 +84,7 @@ private[caching] object AJAXCalls {
         })
         .map(x => x.right.get)
 
-    val res2: Future[PostAJAXRequestSuccessfulResponse[RT,Req]] =
+    val res2: Future[PostAJAXRequestSuccessfulResponse[Req]] =
       res1.map(
         PostAJAXRequestSuccessfulResponse(plain_params, _)
       )

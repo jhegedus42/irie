@@ -12,7 +12,7 @@ case class ResetServerStateLogic(
   implicit
   paw: PersistentActorWhisperer,
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[WriteRequest, ResetRequest] {
+    extends RouteLogic[ResetRequest] {
 
   /**
     *

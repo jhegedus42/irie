@@ -21,7 +21,7 @@ case class InsertEntityLogic[V <: EntityValue[V]](
   encoderV:        Encoder[V],
   classTag:        ClassTag[V],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[WriteRequest, InsertReq[V]] {
+    extends RouteLogic[InsertReq[V]] {
 
   override def getHttpReqResult(
     param: InsertReqPar[V]

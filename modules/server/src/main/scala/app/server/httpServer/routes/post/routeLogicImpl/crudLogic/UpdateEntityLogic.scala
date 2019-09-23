@@ -21,7 +21,7 @@ case class UpdateEntityLogic[V <: EntityValue[V]](
   _encoderV:       Encoder[V],
   classTag:        ClassTag[V],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[WriteRequest, UpdateReq[V]] {
+    extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(
     param: UpdateReqPar[V]

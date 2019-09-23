@@ -9,13 +9,7 @@ import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
-import app.shared.comm.{PostRequest, RouteName}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.{PostRequest, RouteName, WriteRequest}
 import app.shared.comm.postRequests.InsertReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
@@ -24,10 +18,8 @@ import app.shared.comm.postRequests.marshall.{
   ResultOptionAsJSON
 }
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import app.shared.comm.postRequests.GetEntityReq.{
-  Par,
-  Res
-}
+import akka.io.dns.DnsProtocol.RequestType
+import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.comm.postRequests.marshall.EncodersDecoders.{
   decodeResult,
   encodeParameters,
@@ -40,6 +32,7 @@ import app.shared.comm.postRequests.marshall.{
 import app.shared.comm.postRequests.{
   GetEntityReq,
   InsertReq,
+  ResetRequest,
   UpdateReq
 }
 import app.shared.comm.{PostRequest, RouteName}
@@ -106,17 +99,17 @@ case class TestHelper(routes: RouteFactory)
   }
 
   def getPostRequestResult[
-    Req <: PostRequest,
-    V <: EntityValue[ V ]
+    Req <: PostRequest[_],
+    V   <: EntityValue[V]
   ](par: Req#ParT
   )(
-     implicit
-     encoder: Encoder[Req#ResT],
-     decoder: Decoder[Req#ResT],
-     enc_par: Encoder[Req#ParT],
-     e2:      Encoder[Entity[V]],
-     ct1:     ClassTag[Req#PayLoadT],
-     ct2:     ClassTag[Req]
+    implicit
+    encoder: Encoder[Req#ResT],
+    decoder: Decoder[Req#ResT],
+    enc_par: Encoder[Req#ParT],
+    e2:      Encoder[Entity[V]],
+    ct1:     ClassTag[Req#PayLoadT],
+    ct2:     ClassTag[Req]
   ): Req#ResT = {
 
     val rn: String = "/" + RouteName
@@ -228,7 +221,7 @@ case class TestHelper(routes: RouteFactory)
     println(resp)
 
     val ent: Entity[User] =
-      decodeResult[InsertReq[User]](
+      decodeResult[ InsertReq[User]](
         ResultOptionAsJSON(resp)
       ).right.get.entity
 
@@ -239,11 +232,11 @@ case class TestHelper(routes: RouteFactory)
   def getLatestEntity[V <: EntityValue[V]](
     ref: RefToEntityWithoutVersion[V]
   )(
-                                            implicit
-                                            encoder: Encoder[GetEntityReq[V]#ResT],
-                                            decoder: Decoder[GetEntityReq[V]#ResT],
-                                            enc_ent: Encoder[Entity[V]],
-                                            ct1:     ClassTag[GetEntityReq[V]#PayLoadT]
+    implicit
+    encoder: Encoder[GetEntityReq[V]#ResT],
+    decoder: Decoder[GetEntityReq[V]#ResT],
+    enc_ent: Encoder[Entity[V]],
+    ct1:     ClassTag[GetEntityReq[V]#PayLoadT]
   ): Entity[V] = {
 
     val rn: String = "/" + RouteName

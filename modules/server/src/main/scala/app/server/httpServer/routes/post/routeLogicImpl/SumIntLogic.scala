@@ -15,7 +15,7 @@ import scala.concurrent.Future
   *
   */
 
-object SumIntLogic extends RouteLogic[ReadRequest, SumIntRoute] {
+object SumIntLogic extends RouteLogic[SumIntRoute] {
 
   override def getHttpReqResult(
     param: SumIntPar

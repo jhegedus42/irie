@@ -34,16 +34,20 @@ case class CRUDRouteFactory(
 
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic = InsertEntityLogic()
+    implicit val insertRouteLogic: InsertEntityLogic[V] = InsertEntityLogic()
 
-    implicit val updateRouteLogic = UpdateEntityLogic()
+    implicit val updateRouteLogic: UpdateEntityLogic[V] = UpdateEntityLogic()
 
-    implicit val getRouteLogic =
+    implicit val getRouteLogic: GetEntityLogic[V] =
       GetEntityLogic[V]()
 
-    getPostRoute[WriteRequest, UpdateReq[V]].route ~
-      getPostRoute[WriteRequest, InsertReq[V]].route ~
-      getPostRoute[ReadRequest, GetEntityReq[V]].route
+    val r1=
+      getPostRoute[UpdateReq[V]].route
+
+//      r1 ~ // todo-now - fix this
+//      getPostRoute[WriteRequest, InsertReq[V]].route ~
+//      getPostRoute[ReadRequest, GetEntityReq[V]].route
+    r1
   }
 
 }

@@ -95,14 +95,14 @@ case class AsyncRequestTestHelper(
     res
   }
 
-  def getPostReqResult[Req <: PostRequest](
+  def getPostReqResult[Req <: PostRequest[_]](
     par: Req#ParT
   )(
-                                            implicit
-                                            ct:        ClassTag[Req],
-                                            classTag2: ClassTag[Req#PayLoadT],
-                                            encoder:   Encoder[Req#ParT],
-                                            decoder:   Decoder[Req#ResT]
+    implicit
+    ct:        ClassTag[Req],
+    classTag2: ClassTag[Req#PayLoadT],
+    encoder:   Encoder[Req#ParT],
+    decoder:   Decoder[Req#ResT]
   ): Future[Req#ResT] = {
     val ajaxPar = AjaxCallPar(par)
     val res: Future[PostAJAXRequestSuccessfulResponse[Req]] =

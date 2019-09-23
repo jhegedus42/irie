@@ -6,7 +6,7 @@ import io.circe.{Decoder, Error, _}
 
 object EncodersDecoders {
 
-  def decodeResult[RT<:PostRequestType, Req<: PostRequest[RT]](
+  def decodeResult[Req<: PostRequest[_]](
     res: ResultOptionAsJSON
   )(
     implicit
@@ -37,7 +37,7 @@ object EncodersDecoders {
     * @tparam Req
     * @return
     */
-  def encodeResult[RT<:PostRequestType, Req<: PostRequest[RT]](
+  def encodeResult[Req<: PostRequest[_]](
     r: Option[Req#ResT]
   )(
     implicit
@@ -46,7 +46,7 @@ object EncodersDecoders {
     ResultOptionAsJSON(e.apply(r).spaces4)
   }
 
-  def encodeParameters[RT<:PostRequestType, Req<: PostRequest[RT]](
+  def encodeParameters[Req<: PostRequest[_]](
     r: Req#ParT
   )(
     implicit e: Encoder[Req#ParT]

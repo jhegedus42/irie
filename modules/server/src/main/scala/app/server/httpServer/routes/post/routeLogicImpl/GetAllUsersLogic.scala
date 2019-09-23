@@ -15,7 +15,7 @@ case class GetAllUsersLogic(
   paw:             PersistentActorWhisperer,
   contextExecutor: ExecutionContextExecutor
 )
-    extends RouteLogic[ReadRequest, GetAllUsersReq] {
+    extends RouteLogic[GetAllUsersReq] {
 
   override def getHttpReqResult(
     param: GetAllUsersReq.Par

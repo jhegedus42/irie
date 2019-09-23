@@ -17,7 +17,7 @@ case class GetEntityLogic[V <: EntityValue[V]](
   paw:             PersistentActorWhisperer,
   dv:              Decoder[V],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[ReadRequest, GetEntityReq[V]] {
+    extends RouteLogic[GetEntityReq[V]] {
 
   override def getHttpReqResult(
     param: Par[V]

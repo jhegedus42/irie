@@ -12,16 +12,8 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   *
   * @tparam Req
   */
-trait RouteLogic[RT<:PostRequestType, Req<: PostRequest[RT]] {
+trait RouteLogic[Req<: PostRequest[_]] {
 
-  // todo-later
-  //   this is where we should put the OCC
-  //   because this is a composite operation
-  //   for example the transaction example (Alice
-  //   to Bob and then Alice to Cica) consists of
-  //   two atomic parts : read and write
-  //   they are two atomic persistente Operations
-  //
 
   /**
     *

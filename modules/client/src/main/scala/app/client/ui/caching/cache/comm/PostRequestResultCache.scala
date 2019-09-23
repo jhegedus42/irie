@@ -28,9 +28,9 @@ private[caching] class PostRequestResultCache[RT<:PostRequestType, Req<: PostReq
     ct2:     ClassTag[Req#PayLoadT]
   ): CacheEntryState[RT,Req] =
     if (!map.contains(par)) {
-      val loading = Loading(par)
-      this.map = map + (par -> loading)
-      sendPostAjaxRequest[RT,Req](AjaxCallPar(par))
+      val loading = Loading[RT,Req](par)
+//      this.map = map + (par -> loading) todo-now "fix this"
+      sendPostAjaxRequest[Req](AjaxCallPar(par))
         .onComplete(
           r => {
             r.foreach(decoded => {
@@ -41,26 +41,6 @@ private[caching] class PostRequestResultCache[RT<:PostRequestType, Req<: PostReq
             })
             if (!map.valuesIterator.exists(_.isLoading))
               ReRenderer.triggerReRender()
-//            RouterWrapper.reRenderApp()
-            // todo-later : try to simplify the app by uncommenting the line
-            //  above and commenting out the line above the line above
-            //  - problem : I tried it already and the "cache" "does not work"
-            //    this mean : it does not refreshes the page when the AJAX comes
-            //      back, so possibly the  `RouterWrapper.reRenderApp()` call
-            //      does not actually triggers the child of the router to be
-            //      be re-rendered
-            //      - apparently only the current `ReRenderer.triggerReRender()`
-            //        based solution works for that, which is perhaps overly
-            //        complicated and not neccessary ...
-            //        => need to think about how to throw out
-            //           `ReRenderer.triggerReRender()`
-            //           and replace it with `RouterWrapper.reRenderApp()`
-            //           but this is not super high priority, but the
-            //           unneccessary extra complexity due to
-            //           `ReRenderer.triggerReRender()`
-            //           starts to be more and more annoying ...
-            //           say, exponentially more and
-            //           more
 
           }
         )

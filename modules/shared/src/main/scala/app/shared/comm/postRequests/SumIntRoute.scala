@@ -1,6 +1,6 @@
 package app.shared.comm.postRequests
 
-import app.shared.comm.PostRequest
+import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
 import io.circe.generic.auto._
 import io.circe.syntax._
@@ -20,7 +20,7 @@ object SumIntRoute {
   case class SumIntRes(sum: Int) extends PostRequest.Result
 }
 
-class SumIntRoute extends PostRequest {
+class SumIntRoute extends PostRequest[ReadRequest] {
   override type ParT     = SumIntPar
   override type ResT     = SumIntRes
   override type PayLoadT = Unit

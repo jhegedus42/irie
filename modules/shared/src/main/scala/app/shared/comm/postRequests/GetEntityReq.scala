@@ -1,6 +1,6 @@
 package app.shared.comm.postRequests
 
-import app.shared.comm.PostRequest
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
 import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
@@ -25,7 +25,7 @@ object GetEntityReq {
 }
 
 //@JsonCodec
-class GetEntityReq[V <: EntityValue[V]] extends PostRequest {
+class GetEntityReq[V <: EntityValue[V]] extends PostRequest[ReadRequest] {
   override type ParT     = GetEntityReq.Par[V]
   override type ResT     = GetEntityReq.Res[V]
   override type PayLoadT = V

@@ -31,12 +31,12 @@ private[httpServer] case class RouteFactory(
 
   private def allRoutes: Route =
     crudRouteFactory.route[User] ~
-      getPostRoute[ReadRequest, SumIntRoute]().route ~
+//      getPostRoute[ReadRequest, SumIntRoute]().route ~ //todo-now - fix this
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~
       ping_pong ~
-      getPostRoute[WriteRequest, ResetRequest]().route ~
-      getPostRoute[ReadRequest, GetAllUsersReq]().route
+//      getPostRoute[WriteRequest, ResetRequest]().route ~ //todo-now fix this
+      getPostRoute[GetAllUsersReq]().route
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
