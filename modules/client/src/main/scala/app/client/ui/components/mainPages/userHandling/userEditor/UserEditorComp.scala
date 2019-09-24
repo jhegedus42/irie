@@ -332,6 +332,19 @@ object UserEditorComp {
       // button to set S1 from false to true
       //    - button
       //    - handler
+      //
+      //
+      // we need a separate type of "Caching" logic for
+      // update requests
+      //   => - but what should be that "new" caching logice ?
+      //      - what is the simplest "caching logic" that would
+      //        "work" for update/write requests ?
+      //      - what are sensible "RULES" that should be obeyed by
+      //        "update requests" ?
+      //            - at ANY GIVEN TIME, there can be only one
+      //              single update request "in-flight"
+      //
+      //
 
       <.div(
         <.h1("This is the UserEditor Page"),

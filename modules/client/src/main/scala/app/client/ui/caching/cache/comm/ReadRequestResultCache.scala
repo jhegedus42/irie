@@ -3,8 +3,8 @@ package app.client.ui.caching.cache.comm
 import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cache.CacheEntryStates.{
   CacheEntryState,
-  Loaded,
-  Loading
+  Returned,
+  InFlight
 }
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.{
@@ -71,13 +71,13 @@ private[caching] class ReadRequestResultCacheImpl[
     ct2:     ClassTag[Req#PayLoadT]
   ): CacheEntryState[RT, Req] =
     if (!map.contains(par)) {
-      val loading = Loading[RT, Req](par)
+      val loading = InFlight[RT, Req](par)
       this.map = map + (par -> loading)
       sendPostAjaxRequest[Req](AjaxCallPar(par))
         .onComplete(
           r => {
             r.foreach(decoded => {
-              this.map = map + (decoded.par -> Loaded(
+              this.map = map + (decoded.par -> Returned(
                 decoded.par,
                 decoded.res
               ))
