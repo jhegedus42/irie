@@ -245,13 +245,51 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
+      // current name                           - tikk
+      //
+      // intended new name                      - tikk
+      //
+      //
+      //
+      // refresh button (increase counter) :
+      //
+      //    - react state `SCounter` of type `Int`
+      //
+      //    - button handler that increases this state
+      //      by one when pressed (this will trigger
+      //      a re-render, hopefully)
+      //
+      //    - a field showing the value of `S_Counter`
+      //
+      //
+      // invalidate kess button
+      //  - invalidate kess function in kess
+      //
+      //
+      // react state `S_UpdateRequest` :
+      //          - have we pressed the update
+      //            button already ? YES/NO
+      //
+      //          - the starting (initial) value
+      //            of this state is NO
+      //
+      //
+      // field showing `S_UpdateRequest`
+      //
+      //
+      // if field `S_UpdateRequest` is true
+      //   then show the result of the update request
+      //     which can be
+      //       1) pending
+      //       2) ready with
+      //           2.1) success
+      //           2.2) OCC failure
+      //
+      //
+      // button to set S1 from false to true
+
       <.div(
         <.h1("This is the UserEditor Page"),
-        <.br,
-        Helpers.intendedNewNameTextField(
-          entityOption,
-          Helpers.handleUpdateUserButon(entityOption.toString)
-        ),
         <.br,
         "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(
