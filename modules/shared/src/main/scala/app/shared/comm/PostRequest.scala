@@ -7,6 +7,14 @@ trait ReadRequest extends PostRequestType
 trait WriteRequest extends PostRequestType
 
 abstract class PostRequest[RT<:PostRequestType] {
+
+  // todo later => "szabvanyositani" az error-handlingot itt
+  //   szetszedni request tipusokra :
+  //      Read
+  //      Write
+  //      mindket tipusnak mas az error handling-je
+  //
+
   type ParT <: Parameter
   type ResT <: Result
   type PayLoadT

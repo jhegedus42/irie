@@ -30,7 +30,7 @@ case class UserListRenderLogic(
           .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
-      requestResultForRefToAllUsers.toOptionEither
+      requestResultForRefToAllUsers.toOption
     }
 
     def getUserListAsVDOM(l: List[Option[Entity[User]]]): TagMod = {
@@ -69,10 +69,10 @@ case class UserListRenderLogic(
       r: RefToEntityWithoutVersion[User]
     ): GetEntityReq.Res[User] = {
       val par_ = GetEntityReq.Par(r)
-      val res_ : Option[Either[GetEntityReq.Res[User], GetEntityReq.Res[User]]] =
+      val res_ : Option[GetEntityReq.Res[User]] =
         cacheInterfaceWrapper.cache
           .getResultOfCachedPostRequest[ReadRequest, GetEntityReq[User]](par_)
-          .toOptionEither
+          .toOption
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)
 

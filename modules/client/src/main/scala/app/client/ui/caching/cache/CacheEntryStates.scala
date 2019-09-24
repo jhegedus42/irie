@@ -9,7 +9,23 @@ object CacheEntryStates {
     def isLoading: Boolean =
       this match {
         case Loading( _ )   => true
-        case Loaded( _, _ ) => false
+        case _ => false
+      }
+
+    def isFresh: Boolean =
+      this match {
+        case Loaded( _, _ ) => true
+        case _  => false
+      }
+
+    /**
+      * @return None if loading, Some if Stale or Loaded.
+      */
+    def toOption: Option[Req#ResT] =
+      this match {
+        case Loading( _ )     => Option.empty
+        case Loaded( _, res ) => Some(res)
+        case Stale( _, res )  => Some(res)
       }
 
     def toOptionEither: Option[Either[Req#ResT,Req#ResT]] =
