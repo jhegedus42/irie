@@ -59,11 +59,11 @@ private[routes] object PostRouteFactory {
                        |
                """.stripMargin)
 
-            val params: Req#ParT = ??? // todo-now - fix this
-//              encdec
-//                .decodeParameters(ParametersAsJSON(s))
-//                .toOption
-//                .get
+            val params: Req#ParT =
+              encdec
+                .decodeParameters(ParametersAsJSON(s))
+                .toOption
+                .get
 
             val par_debug = params
 
@@ -83,8 +83,8 @@ private[routes] object PostRouteFactory {
             val res2 =
               res.map((r: Req#ResT) => {
 
-                val encoded: ResultOptionAsJSON = ??? //todo-now - fix this
-//                  encdec.encodeResult(Some(r))
+                val encoded: ResultOptionAsJSON =
+                  encdec.encodeResult(Some(r))
 
                 val optionAsString: String =
                   encoded.resultOptionAsJSON

@@ -20,10 +20,10 @@ trait TemplateComp
       TemplatePage
     ] {
 
-  override type Props = TemplateComp.Props
-  override type Backend =
+  override type PropsT = TemplateComp.Props
+  override type BackendT =
     TemplateComp.Backend[TemplateComp.Props]
-  override type State = TemplateComp.State
+  override type StateT = TemplateComp.State
 
 }
 

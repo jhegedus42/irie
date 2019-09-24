@@ -35,10 +35,10 @@ trait UserListComp
       UserListPage
     ] {
 
-  override type Props = UserListComp.Props
-  override type Backend =
+  override type PropsT = UserListComp.Props
+  override type BackendT =
     UserListComp.Backend[UserListComp.Props]
-  override type State = UserListComp.State
+  override type StateT = UserListComp.State
 
 }
 

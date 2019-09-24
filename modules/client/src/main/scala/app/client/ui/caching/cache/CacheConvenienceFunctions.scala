@@ -33,10 +33,9 @@ object CacheConvenienceFunctions {
       RefToEntityWithoutVersion(EntityValueTypeAsString.make[EV],
                                 entityIdentity = identity)
     )
-//    val res: CacheEntryStates.CacheEntryState[ReadRequest, GetEntityReq[EV]] =
-//      cache.getResultOfCachedPostRequest[ReadRequest, GetEntityReq[EV]](par) //todo-now fix this
+    val res: CacheEntryStates.CacheEntryState[ReadRequest, GetEntityReq[EV]] =
+      cache.getResultOfCachedPostRequest[ReadRequest, GetEntityReq[EV]](par)
 
-    val res: CacheEntryStates.CacheEntryState[ReadRequest, GetEntityReq[EV]] = ???
 
     val res2: Option[Entity[EV]] =
       res.toOption.flatMap(x => x.optionEntity)

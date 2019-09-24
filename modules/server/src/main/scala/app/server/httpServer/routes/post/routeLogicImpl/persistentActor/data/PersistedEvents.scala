@@ -13,6 +13,9 @@ case class UpdateEvent(data: DummyEventPayload)
 
 case class DummyEventPayload()
 {
-  def newEntry:     UntypedEntity = ??? // todo-next
+  def newEntry:     UntypedEntity = ???
+  // todo-next => ??? what is this here ^^^ ???
+  //  maybe this is needed to make
+  //  actual persistence work ?
   def updatedEntry: UntypedEntity = ???
 }

@@ -41,13 +41,9 @@ case class CRUDRouteFactory(
     implicit val getRouteLogic: GetEntityLogic[V] =
       GetEntityLogic[V]()
 
-    val r1=
-      getPostRoute[UpdateReq[V]].route
-
-//      r1 ~ // todo-now - fix this
-//      getPostRoute[WriteRequest, InsertReq[V]].route ~
-//      getPostRoute[ReadRequest, GetEntityReq[V]].route
-    r1
+      getPostRoute[UpdateReq[V]].route ~
+      getPostRoute[InsertReq[V]].route ~
+      getPostRoute[GetEntityReq[V]].route
   }
 
 }

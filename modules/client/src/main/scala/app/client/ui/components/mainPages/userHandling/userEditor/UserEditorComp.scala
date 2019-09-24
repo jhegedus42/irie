@@ -1,9 +1,23 @@
 package app.client.ui.components.mainPages.userHandling.userEditor
 
-import app.client.ui.caching.cache.{CacheConvenienceFunctions, CacheEntryStates}
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cache.{
+  CacheConvenienceFunctions,
+  CacheEntryStates
+}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndProps,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.LoginPageComp.{Props, State}
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.{Props, UserEditorPage}
+import app.client.ui.components.mainPages.userHandling.userEditor.{
+  TextFieldWithButtonAndHandler => TBH
+}
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.{
+  Props,
+  UserEditorPage
+}
 import app.client.ui.components.{MainPage, MainPageWithCache}
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
@@ -12,11 +26,18 @@ import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
-import japgolly.scalajs.react.vdom.VdomElement
+import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CallbackTo,
+  CtorType,
+  ScalaComponent
+}
+import monocle.macros.syntax.lens._
 import org.scalajs.dom
-import org.scalajs.dom.html.Div
+import org.scalajs.dom.html.{Button, Div, Input}
 
 trait UserEditorComp
     extends ToBeWrappedMainPageComponent[
@@ -24,10 +45,16 @@ trait UserEditorComp
       UserEditorPage
     ] {
 
-  override type Props = UserEditorComp.Props
-  override type Backend =
+  /**
+    *
+    * We use the T at the end to indicate that this is
+    * an abstract type to be overriden.
+    *
+    */
+  override type PropsT = UserEditorComp.Props
+  override type BackendT =
     UserEditorComp.Backend[UserEditorComp.Props]
-  override type State = UserEditorComp.State
+  override type StateT = UserEditorComp.State
 
 }
 
@@ -37,8 +64,25 @@ object UserEditorComp {
       extends MainPageWithCache[UserEditorComp, UserEditorPage]
 
   case class UpdatedUser(
-    resultOfUserUpdateRequest:  Option[Entity[User]])
-  case class State(updatedUser: UpdatedUser)
+    resultOfUserUpdateRequest: Option[Entity[User]])
+
+  /**
+    *
+    * This should be used by the textfield
+    *
+    * @param value this is the name to which the User's name
+    *              should change after the update request has
+    *              completed (so this stores our "intention")
+    */
+  case class IntendedNewName(value: Option[String] = None)
+
+  /**
+    * @param updatedUser
+    * @param intendedNewName
+    */
+  case class State(
+    updatedUser:     UpdatedUser,
+    intendedNewName: IntendedNewName = IntendedNewName())
 
   case class Props(
     userIdentity: EntityIdentity,
@@ -60,42 +104,140 @@ object UserEditorComp {
   }
 
   object Helpers {
+    import app.client.ui.caching.cacheInjector.CacheAndProps
+    import japgolly.scalajs.react.vdom.html_<^.{
+      <,
+      TagMod,
+      VdomElement,
+      ^,
+      _
+    }
+    import japgolly.scalajs.react.{
+      BackendScope,
+      Callback,
+      CallbackTo,
+      CtorType,
+      ReactEventFromInput,
+      ScalaComponent
+    }
+    import monocle.macros.syntax.lens._
+    import org.scalajs.dom
+    import org.scalajs.dom.html.{Button, Input}
 
-    def nameField(
-      optEnt:        Option[Entity[User]],
+    def saveButton(handler: CallbackTo[Unit]): VdomTagOf[Button] = {
+      import bootstrap4.TB.convertableToTagOfExtensionMethods
+
+      <.button.btn.btnPrimary(
+        "Save changes.",
+        ^.onClick --> handler
+      )
+    }
+
+    def onChangeIntendedNewName(
+      bs: BackendScope[CacheAndProps[Props], State]
+    )(e:  ReactEventFromInput
+    ): CallbackTo[Unit] = {
+      val event:  ReactEventFromInput = e
+      val target: Input               = event.target
+      val text:   String              = target.value
+      bs.modState(
+        s => s.lens(_.intendedNewName.value).set(Some(text))
+      )
+    }
+
+    /**
+      *
+      * If the option is None, this displays some "default" text,
+      * otherwise, it displays the
+      * @param entityOption
+      * @param updateHandler
+      * @return
+      */
+    def intendedNewNameTextField(
+      entityOption:  Option[Entity[User]],
       updateHandler: String => CallbackTo[Unit]
     ) = {
 
       def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
-        if (optEnt.isEmpty) <.div(<.p("loading ..."))
+        if (entityOption.isEmpty) <.div(<.p("loading ..."))
         else f(v.get)
 
-      g(optEnt) { e =>
-        val name = e.entityValue.name
-        <.div(
-          <.br,
-          s"Original name: $name",
-          <.br,
-          "Updater: ",
-          TextField.textFieldComp(name)(
-            TextField.Props(updateHandler)
+      val res: html_<^.VdomTagOf[Div] = g(entityOption) {
+        userEntity: Entity[User] =>
+          val userName = userEntity.entityValue.name
+          <.div(
+            <.br,
+            s"Original name: $userName",
+            <.br,
+            <.hr,
+            <.br,
+            TBH.textFieldComp(userName)(
+              TBH.Props(
+                updateHandler,
+                "Save Changes",
+                "Intended new name for the user (TextField implementation): "
+              )
+            )
           )
-        )
       }
 
+      res
+
+    }
+
+    def updateUserName(
+      currentEntity: Entity[User],
+      newName:       String,
+      cacheAndProps: CacheAndProps[Props]
+    ): Option[Entity[User]] = {
+
+      val newEntityVal =
+        currentEntity.entityValue.lens(_.name).set(newName)
+
+      val par: UpdateReq[User]#ParT =
+        UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
+
+      val res
+        : CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[
+          User
+        ]] =
+        cacheAndProps.cache
+          .getResultOfCachedPostRequest[WriteRequest, UpdateReq[
+            User
+          ]](par)(???, ???, ???, ???, ???)
+
+      val res2: Option[Entity[User]] =
+        res.toOption.map(x => x.entity)
+
+      res2
+    }
+
+    def handleUpdateUserButon(
+      message: String
+    ): String => CallbackTo[Unit] = { newValue: String =>
+      Callback({
+
+        dom.window.alert(
+          s"mi ezt az usert-t fogjuk update-elni : $message\n" +
+            s"ez lesz az uj neve: $newValue"
+        )
+
+      })
+
+    // call update user request
     }
 
   }
 
   class Backend[Properties](
-    $ : BackendScope[CacheAndProps[Properties], State]) {
+    $ : BackendScope[CacheAndProps[Props], State]) {
 
     def render(
       cacheAndProps: CacheAndProps[Props],
       s:             State
     ): VdomElement = {
 
-      val ent: Option[Entity[User]] =
+      val entityOption: Option[Entity[User]] =
         CacheConvenienceFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
           cacheAndProps.cache
@@ -103,51 +245,19 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
-      def updateUserName(
-        currentEntity: Entity[User],
-        newName:       String
-      ): Option[Entity[User]] = {
-
-        import monocle.macros.syntax.lens._
-
-        val newEntityVal =
-          currentEntity.entityValue.lens(_.name).set(newName)
-
-        val par: UpdateReq[User]#ParT =
-          UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
-
-        val res: CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[User]] =
-          cacheAndProps.cache
-            .getResultOfCachedPostRequest[WriteRequest, UpdateReq[User]](par)(???,
-                                                                ???,
-                                                                ???,
-                                                                ???,
-                                                                ???)
-
-        val res2: Option[Entity[User]] =
-          res.toOption.map(x => x.entity)
-
-        res2
-      }
-
-      def handleUpdateUserButon: String => CallbackTo[Unit] = {
-        newValue: String =>
-          Callback({
-
-            dom.window.alert(
-              s"mi ezt az usert-t fogjuk update-elni : $ent \n" +
-                s"ez lesz az uj neve: $newValue"
-            )
-
-          })
-
-        // call update user request
-      }
-
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
-        Helpers.nameField(ent, handleUpdateUserButon)
+        Helpers.intendedNewNameTextField(
+          entityOption,
+          Helpers.handleUpdateUserButon(entityOption.toString)
+        ),
+        <.br,
+        "Intended new name for the user (UserEditorComp implementation): ",
+        <.input.text(
+          ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
+          ^.value.:=(s.intendedNewName.value.getOrElse("None"))
+        )
       )
 
     }
@@ -155,15 +265,3 @@ object UserEditorComp {
   }
 
 }
-//
-//   when the update returns, it simply triggers a re-render
-//   and at that point the cache launches a get entity request
-//   to make its stale entity fresh again
-//
-//   so it can go like this - as well (I think I prefer this way):
-//
-//   up-to-date => update-request-sent => update-request-returned =>
-//   getEntity-AKA-refresh-request-sent => getEntity-returned-entry-is-
-//   refreshed (not-stale-any-longer)
-//
-//

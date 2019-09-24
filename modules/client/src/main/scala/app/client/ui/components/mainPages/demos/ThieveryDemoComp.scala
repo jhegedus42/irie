@@ -19,9 +19,9 @@ import org.scalajs.dom.html.Input
 trait ThieveryDemoComp
     extends ToBeWrappedMainPageComponent[ThieveryDemoComp,
                                          ThieveryDemo] {
-  override type Props   = ThieveryDemoComp.StateAndProps.Props
-  override type Backend = ThieveryDemoComp.Backend[Props]
-  override type State   = ThieveryDemoComp.StateAndProps.State
+  override type PropsT   = ThieveryDemoComp.StateAndProps.Props
+  override type BackendT = ThieveryDemoComp.Backend[PropsT]
+  override type StateT   = ThieveryDemoComp.StateAndProps.State
 
 }
 

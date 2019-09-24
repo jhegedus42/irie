@@ -65,9 +65,9 @@ class Cache() {
 trait ToBeWrappedMainPageComponent[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
   Page <: MainPageWithCache[Comp, Page]] {
-  type Props
-  type State
-  type Backend
+  type PropsT
+  type StateT
+  type BackendT
 
 }
 
@@ -85,13 +85,13 @@ case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
   Page <: MainPageWithCache[Comp, Page]
 ](cache:         Cache,
-  propsProvider: () => Comp#Props,
-  comp:          ScalaComponent[CacheAndProps[Comp#Props], Comp#State, Comp#Backend, CtorType.Props]) {
+  propsProvider: () => Comp#PropsT,
+  comp:          ScalaComponent[CacheAndProps[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
 
   def wrappedConstructor =
-    new WrapperHOC[Comp#Backend, Comp#Props, Comp#State](comp)
+    new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
       .wrapperConstructor(
-        CacheAndProps[Comp#Props](
+        CacheAndProps[Comp#PropsT](
           cache = cache,
           props = propsProvider()
         )

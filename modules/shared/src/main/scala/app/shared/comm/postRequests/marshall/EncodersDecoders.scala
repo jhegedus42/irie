@@ -16,7 +16,7 @@ object EncodersDecoders {
     r
   }
 
-  def decodeParameters[RT<:PostRequestType, Req<: PostRequest[RT]](
+  def decodeParameters[Req<: PostRequest[_]](
     res: ParametersAsJSON
   )(
     implicit
