@@ -1,6 +1,6 @@
 package app.client.ui.caching.cacheInjector
-import app.client.ui.caching.cache.CacheEntryStates.CacheEntryState
-import app.client.ui.caching.cache.comm.ReadRequestResultCache
+import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
+import app.client.ui.caching.cache.comm.ReadCache
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
 import io.circe.{Decoder, Encoder}
@@ -60,13 +60,13 @@ class Cache() {
     Req <: PostRequest[RT]
   ](par: Req#ParT
   )(
-    implicit
-    c:       ReadRequestResultCache[RT, Req],
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
-  ): CacheEntryState[RT,Req] = c.getRequestResult(par)
+     implicit
+     c:       ReadCache[RT, Req],
+     decoder: Decoder[Req#ResT],
+     encoder: Encoder[Req#ParT],
+     ct:      ClassTag[Req],
+     ct2:     ClassTag[Req#PayLoadT]
+  ): ReadCacheEntryState[RT,Req] = c.getRequestResult(par)
 }
 
 trait ToBeWrappedMainPageComponent[

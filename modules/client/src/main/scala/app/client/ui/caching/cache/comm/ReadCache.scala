@@ -1,8 +1,8 @@
 package app.client.ui.caching.cache.comm
 
 import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import app.client.ui.caching.cache.CacheEntryStates.{
-  CacheEntryState,
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  ReadCacheEntryState,
   Returned,
   InFlight
 }
@@ -24,7 +24,7 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
-trait ReadRequestResultCache[
+trait ReadCache[
   RT  <: ReadRequest,
   Req <: PostRequest[RT]] {
   private[caching] def getRequestResult(
@@ -35,7 +35,7 @@ trait ReadRequestResultCache[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): CacheEntryState[RT, Req]
+  ): ReadCacheEntryState[RT, Req]
 
 }
 
@@ -50,15 +50,15 @@ trait ReadRequestResultCache[
 //
 //  => this should be a trait and not a class
 
-private[caching] class ReadRequestResultCacheImpl[
+private[caching] class ReadCacheImpl[
   RT  <: ReadRequest,
   Req <: PostRequest[RT]
-]() extends ReadRequestResultCache[RT, Req] {
+]() extends ReadCache[RT, Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  private[this] var map: Map[Req#ParT, CacheEntryState[RT, Req]] =
+  private[this] var map: Map[Req#ParT, ReadCacheEntryState[RT, Req]] =
     Map()
 
   override def getRequestResult(
@@ -69,7 +69,7 @@ private[caching] class ReadRequestResultCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): CacheEntryState[RT, Req] =
+  ): ReadCacheEntryState[RT, Req] =
     if (!map.contains(par)) {
       val loading = InFlight[RT, Req](par)
       this.map = map + (par -> loading)
@@ -91,13 +91,13 @@ private[caching] class ReadRequestResultCacheImpl[
     } else map(par)
 }
 
-object ReadRequestResultCache {
+object ReadCache {
   implicit val sumIntPostRequestResultCache =
-    new ReadRequestResultCacheImpl[ReadRequest, SumIntRoute]()
+    new ReadCacheImpl[ReadRequest, SumIntRoute]()
 
   implicit val getUserCache =
-    new ReadRequestResultCacheImpl[ReadRequest, GetEntityReq[User]]()
+    new ReadCacheImpl[ReadRequest, GetEntityReq[User]]()
 
   implicit val getAllUsersReqCache =
-    new ReadRequestResultCacheImpl[ReadRequest, GetAllUsersReq]()
+    new ReadCacheImpl[ReadRequest, GetAllUsersReq]()
 }

@@ -2,8 +2,8 @@ package app.client.ui.caching.cache
 
 import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
 
-object CacheEntryStates {
-  sealed trait CacheEntryState[
+object ReadCacheEntryStates {
+  sealed trait ReadCacheEntryState[
     RT  <: ReadRequest,
     Req <: PostRequest[RT]] {
 
@@ -51,21 +51,21 @@ object CacheEntryStates {
     */
   case class InFlight[RT <: ReadRequest, Req <: PostRequest[RT]](
     param: Req#ParT)
-      extends CacheEntryState[RT, Req]
+      extends ReadCacheEntryState[RT, Req]
 
   case class Returned[RT <: ReadRequest, Req <: PostRequest[RT]](
     param:  Req#ParT,
     result: Req#ResT)
-      extends CacheEntryState[RT, Req]
+      extends ReadCacheEntryState[RT, Req]
 
   case class Stale[RT <: ReadRequest, Req <: PostRequest[RT]](
     param:  Req#ParT,
     result: Req#ResT)
-      extends CacheEntryState[RT, Req]
+      extends ReadCacheEntryState[RT, Req]
 
   case class TimedOut[RT <: ReadRequest, Req <: PostRequest[RT]](
     param: Req#ParT)
-      extends CacheEntryState[RT, Req]
+      extends ReadCacheEntryState[RT, Req]
 
   /**
     *
@@ -88,6 +88,6 @@ object CacheEntryStates {
     */
   case class ReturnedWithError[RT <: ReadRequest, Req <: PostRequest[RT]](
     param: Req#ParT, descriptionOfError: String)
-      extends CacheEntryState[RT, Req]
+      extends ReadCacheEntryState[RT, Req]
 
 }

@@ -10,6 +10,14 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object LoginPageComp {
 
+  // todo-later - when refreshing the app (any page)
+  //  and the user is logged in, then it should be "kept"
+  //  logged in, currently the login status is stored here
+  //  it should be stored somewhere elsewhere ...
+  //  perhaps in cookies, or whereever such information is
+  //  usually stored in web apps, we need to,
+  //  look into this issue later
+
   case class Props(routerCtl: RouterCtl[MainPage])
 
   object State {

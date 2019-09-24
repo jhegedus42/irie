@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages.demos
 
-import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
 import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTemplatePage}
@@ -114,7 +114,7 @@ object TemplateComp {
     cacheInterfaceWrapper: CacheAndProps[Props]) {
 
     val requestResultForRefToAllUsers
-      : CacheEntryStates.CacheEntryState[ReadRequest, GetAllUsersReq] =
+      : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetAllUsersReq] =
       cacheInterfaceWrapper.cache
         .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
           GetAllUsersReq.Par(AdminPassword("titok"))

@@ -2,7 +2,7 @@ package app.client.ui.components.mainPages.userHandling.userEditor
 
 import app.client.ui.caching.cache.{
   CacheConvenienceFunctions,
-  CacheEntryStates
+  ReadCacheEntryStates
 }
 import app.client.ui.caching.cacheInjector.{
   Cache,

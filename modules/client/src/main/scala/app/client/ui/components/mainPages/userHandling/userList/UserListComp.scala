@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
-import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{
   Cache,
   CacheAndProps,

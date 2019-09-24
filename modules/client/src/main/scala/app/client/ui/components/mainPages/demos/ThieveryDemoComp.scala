@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages.demos
 
-import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.ThieveryDemoComp.StateAndProps.{Props, State}
 import app.client.ui.components.router.RouterComp.RoutingRule
@@ -130,7 +130,7 @@ object ThieveryDemoComp {
     private def calculateSumOnServer(
       props:  CacheAndProps[Props],
       params: SumIntPar
-    ): CacheEntryStates.CacheEntryState[ReadRequest, SumIntRoute] = {
+    ): ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, SumIntRoute] = {
       props.cache.getResultOfCachedPostRequest[ReadRequest, SumIntRoute](params)
     }
 

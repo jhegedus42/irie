@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
-import app.client.ui.caching.cache.CacheEntryStates
+import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
@@ -25,7 +25,7 @@ case class UserListRenderLogic(
 
     def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
       def requestResultForRefToAllUsers
-        : CacheEntryStates.CacheEntryState[ReadRequest, GetAllUsersReq] =
+        : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetAllUsersReq] =
         cacheInterfaceWrapper.cache
           .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))

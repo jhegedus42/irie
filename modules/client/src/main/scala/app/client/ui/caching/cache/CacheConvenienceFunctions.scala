@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.comm.ReadRequestResultCache
+import app.client.ui.caching.cache.comm.ReadCache
 import app.client.ui.caching.cacheInjector.Cache
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
@@ -21,7 +21,7 @@ object CacheConvenienceFunctions {
     identity: EntityIdentity,
     cache:    Cache
   )(
-    implicit postRequestResultCache: ReadRequestResultCache[ReadRequest,
+    implicit postRequestResultCache: ReadCache[ReadRequest,
       GetEntityReq[EV]
     ],
     decoder: Decoder[GetEntityReq[EV]#ResT],
@@ -33,7 +33,7 @@ object CacheConvenienceFunctions {
       RefToEntityWithoutVersion(EntityValueTypeAsString.make[EV],
                                 entityIdentity = identity)
     )
-    val res: CacheEntryStates.CacheEntryState[ReadRequest, GetEntityReq[EV]] =
+    val res: ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetEntityReq[EV]] =
       cache.getResultOfCachedPostRequest[ReadRequest, GetEntityReq[EV]](par)
 
 
