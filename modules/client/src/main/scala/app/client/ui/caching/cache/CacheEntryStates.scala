@@ -1,27 +1,32 @@
 package app.client.ui.caching.cache
 
-import app.shared.comm.{PostRequest, PostRequestType}
+import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
+
+
 
 object CacheEntryStates {
-  sealed trait CacheEntryState[RT<:PostRequestType, Req<: PostRequest[RT]] {
+  sealed trait CacheEntryState[RT<:ReadRequest, Req<: PostRequest[RT]] {
     def isLoading: Boolean =
       this match {
         case Loading( _ )   => true
         case Loaded( _, _ ) => false
       }
 
-    def toOption: Option[Req#ResT] =
+    def toOptionEither: Option[Either[Req#ResT,Req#ResT]] =
       this match {
         case Loading( _ )     => Option.empty
-        case Loaded( _, res ) => Some(res)
+        case Loaded( _, res ) => Some(Right(res))
+        case Stale( _, res )  => Some(Left(res))
       }
-  }
-  case class Loading[RT<:PostRequestType, Req<: PostRequest[RT]](param: Req#ParT ) extends CacheEntryState[RT,Req]
 
-  case class Loaded[RT<:PostRequestType, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
+  }
+  case class Loading[RT<:ReadRequest, Req<: PostRequest[RT]](param: Req#ParT ) extends CacheEntryState[RT,Req]
+
+  case class Loaded[RT<:ReadRequest, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
       extends CacheEntryState[RT,Req]
 
-  case class Stale[RT<:PostRequestType, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
+  case class Stale[RT<:ReadRequest, Req<: PostRequest[RT]](param:  Req#ParT, result: Req#ResT )
     extends CacheEntryState[RT,Req]
+
 
 }

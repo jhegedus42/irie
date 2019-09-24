@@ -7,7 +7,12 @@ import app.client.ui.caching.cache.CacheEntryStates.{
   Loading
 }
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
+import app.shared.comm.{
+  PostRequest,
+  PostRequestType,
+  ReadRequest,
+  WriteRequest
+}
 import app.shared.comm.postRequests.{
   GetAllUsersReq,
   GetEntityReq,
@@ -19,10 +24,10 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
-trait PostRequestResultCache[
-  RT  <: PostRequestType,
+trait ReadRequestResultCache[
+  RT  <: ReadRequest,
   Req <: PostRequest[RT]] {
-  private[caching] def getPostRequestResult(
+  private[caching] def getRequestResult(
     par: Req#ParT
   )(
     implicit
@@ -45,11 +50,10 @@ trait PostRequestResultCache[
 //
 //  => this should be a trait and not a class
 
-private[caching] class PostRequestResultCacheImpl[
-  RT  <: PostRequestType,
+private[caching] class ReadRequestResultCacheImpl[
+  RT  <: ReadRequest,
   Req <: PostRequest[RT]
-]() extends PostRequestResultCache [RT,Req] {
-
+]() extends ReadRequestResultCache[RT, Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -57,7 +61,7 @@ private[caching] class PostRequestResultCacheImpl[
   private[this] var map: Map[Req#ParT, CacheEntryState[RT, Req]] =
     Map()
 
-  override def getPostRequestResult(
+  override def getRequestResult(
     par: Req#ParT
   )(
     implicit
@@ -87,13 +91,13 @@ private[caching] class PostRequestResultCacheImpl[
     } else map(par)
 }
 
-object PostRequestResultCache {
+object ReadRequestResultCache {
   implicit val sumIntPostRequestResultCache =
-    new PostRequestResultCacheImpl[ReadRequest, SumIntRoute]()
+    new ReadRequestResultCacheImpl[ReadRequest, SumIntRoute]()
 
   implicit val getUserCache =
-    new PostRequestResultCacheImpl[ReadRequest, GetEntityReq[User]]()
+    new ReadRequestResultCacheImpl[ReadRequest, GetEntityReq[User]]()
 
   implicit val getAllUsersReqCache =
-    new PostRequestResultCacheImpl[ReadRequest, GetAllUsersReq]()
+    new ReadRequestResultCacheImpl[ReadRequest, GetAllUsersReq]()
 }

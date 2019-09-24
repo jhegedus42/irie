@@ -197,19 +197,20 @@ object UserEditorComp {
       val par: UpdateReq[User]#ParT =
         UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
 
-      val res
-        : CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[
-          User
-        ]] =
-        cacheAndProps.cache
-          .getResultOfCachedPostRequest[WriteRequest, UpdateReq[
-            User
-          ]](par)(???, ???, ???, ???, ???)
+//      val res
+//        : CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[
+//          User
+//        ]] =
+//        cacheAndProps.cache
+//          .getResultOfCachedPostRequest[WriteRequest, UpdateReq[
+//            User
+//          ]](par)(???, ???, ???, ???, ???)
 
-      val res2: Option[Entity[User]] =
-        res.toOption.map(x => x.entity)
+//      val res2: Option[Entity[User]] =
+//        res.toOption.map(x => x.entity)
 
-      res2
+//      res2
+      ???
     }
 
     def handleUpdateUserButon(
@@ -245,9 +246,27 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
-      // current name                           - tikk
+      //
+      //
+      // react props:
+      //    - user identity
+      //    - router controller
+      //
+      //
+      // current state of cache displayed in a textfield
+      //    - (raw/crud/unprocessed), simply display whatever
+      //       the cache returns, as it is, usint a .toString
+      //
+      //    -  for this, we use "get entity from server"
+      //       request
+      //
+      //
+      //
       //
       // intended new name                      - tikk
+      //    - state of type : `IntendedNewName`
+      //    - textfield for editing showing and editing
+      //      this state
       //
       //
       //
@@ -262,8 +281,31 @@ object UserEditorComp {
       //    - a field showing the value of `S_Counter`
       //
       //
-      // invalidate kess button
-      //  - invalidate kess function in kess
+      //
+      // invalidate cache button
+      //  - invalidate cache function
+      //       - in placed into the cache object
+      //       - sets type of entry to `Stale`
+      //         for the given (Read) Request
+      //
+      //         (it makes no sense to have such
+      //          `Stale` state for write request
+      //          "caches", and it is not even clear
+      //          if it makes sense to have any type
+      //          "cache" for write requests - in
+      //          the first place, because their result
+      //          is not meant to be displayed, they
+      //          only exist for creating side effects)
+      //
+      //
+      //  - cache has entry type of `Stale`
+      //
+      //
+      //
+      //
+      //
+      // refresh kess button
+      //
       //
       //
       // react state `S_UpdateRequest` :
@@ -287,6 +329,8 @@ object UserEditorComp {
       //
       //
       // button to set S1 from false to true
+      //    - button
+      //    - handler
 
       <.div(
         <.h1("This is the UserEditor Page"),

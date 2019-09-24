@@ -261,7 +261,7 @@ object ThieveryDemoComp {
         "Here is the sum of the Thievery Numbers (as Integers), " +
           "calculated on the server:",
         br(2),
-        calculateSumOnServer(props, s.sumIntViewPars).toOption
+        calculateSumOnServer(props, s.sumIntViewPars).toOptionEither
           .toString(),
         br(2),
         "Also, here we have a bootstrap button " +

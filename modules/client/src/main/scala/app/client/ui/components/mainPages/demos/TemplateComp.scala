@@ -121,7 +121,7 @@ object TemplateComp {
         )
 
     val refToAllUsersOption: Option[GetAllUsersReq.Res] =
-      requestResultForRefToAllUsers.toOption
+      requestResultForRefToAllUsers.toOptionEither
 
     def listOfStrings2TagMod(l: List[String]): TagMod =
       TagMod(l.map(<.div(<.br, _)).toVdomArray)
@@ -133,7 +133,7 @@ object TemplateComp {
       val res_ =
         cacheInterfaceWrapper.cache
           .getResultOfCachedPostRequest[ReadRequest,  GetEntityReq[User]](par_)
-          .toOption
+          .toOptionEither
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)
 

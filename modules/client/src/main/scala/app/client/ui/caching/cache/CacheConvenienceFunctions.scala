@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.comm.PostRequestResultCache
+import app.client.ui.caching.cache.comm.ReadRequestResultCache
 import app.client.ui.caching.cacheInjector.Cache
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
@@ -21,7 +21,7 @@ object CacheConvenienceFunctions {
     identity: EntityIdentity,
     cache:    Cache
   )(
-    implicit postRequestResultCache: PostRequestResultCache[ReadRequest,
+    implicit postRequestResultCache: ReadRequestResultCache[ReadRequest,
       GetEntityReq[EV]
     ],
     decoder: Decoder[GetEntityReq[EV]#ResT],
@@ -37,9 +37,14 @@ object CacheConvenienceFunctions {
       cache.getResultOfCachedPostRequest[ReadRequest, GetEntityReq[EV]](par)
 
 
-    val res2: Option[Entity[EV]] =
-      res.toOption.flatMap(x => x.optionEntity)
-    res2
+    val res2: Option[GetEntityReq.Res[EV]] =
+      res.toOptionEither.flatMap((x: Either[GetEntityReq.Res[EV], GetEntityReq.Res[EV]]) =>x.toOption )
+      // todo-later ^^^ "make this nicer" =
+      //  create a unified / generalized Option type, which has map/flatMap, i.e. which is a
+      //  "monad"
+
+    val res3=res2.flatMap(x=>x.optionEntity)
+    res3
   }
 
 }

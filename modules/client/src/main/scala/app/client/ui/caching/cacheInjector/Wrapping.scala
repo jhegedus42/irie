@@ -1,14 +1,19 @@
 package app.client.ui.caching.cacheInjector
 import app.client.ui.caching.cache.CacheEntryStates.CacheEntryState
-import app.client.ui.caching.cache.comm.PostRequestResultCache
+import app.client.ui.caching.cache.comm.ReadRequestResultCache
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.shared.comm.{PostRequest, PostRequestType}
+import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
 import app.client.ui.components.{MainPage, MainPageWithCache}
@@ -50,16 +55,18 @@ case class CacheAndProps[Props](
 
 class Cache() {
 
-  def getResultOfCachedPostRequest[RT<:PostRequestType, Req<: PostRequest[RT]](
-    par: Req#ParT
+  def getResultOfCachedPostRequest[
+    RT  <: ReadRequest,
+    Req <: PostRequest[RT]
+  ](par: Req#ParT
   )(
     implicit
-    c:       PostRequestResultCache[RT,Req],
+    c:       ReadRequestResultCache[RT, Req],
     decoder: Decoder[Req#ResT],
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): CacheEntryState[RT,Req] = c.getPostRequestResult(par)
+  ): CacheEntryState[RT,Req] = c.getRequestResult(par)
 }
 
 trait ToBeWrappedMainPageComponent[
