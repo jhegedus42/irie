@@ -81,6 +81,7 @@ object UserEditorComp {
     * @param intendedNewName
     */
   case class State(
+                  counter: Int,
     updatedUser:     UpdatedUser,
     intendedNewName: IntendedNewName = IntendedNewName())
 
@@ -98,7 +99,7 @@ object UserEditorComp {
       .builder[CacheAndProps[Props]](
         "This is a userEditor page. It demonstrates all crucial functionality."
       )
-      .initialState(State(UpdatedUser(None)))
+      .initialState(State(counter=0,updatedUser=UpdatedUser(None)))
       .renderBackend[Backend[Props]]
       .build
   }
@@ -247,104 +248,7 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
-      //
-      //
-      // react props:
-      //    - user identity
-      //    - router controller
-      //
-      //
-      // current state of cache displayed in a textfield
-      //    - (raw/crud/unprocessed), simply display whatever
-      //       the cache returns, as it is, usint a .toString
-      //
-      //    -  for this, we use "get entity from server"
-      //       request
-      //
-      //
-      //
-      //
-      // intended new name                      - tikk
-      //    - state of type : `IntendedNewName`
-      //    - textfield for editing showing and editing
-      //      this state
-      //
-      //
-      //
-      // refresh button (increase counter) :
-      //
-      //    - react state `SCounter` of type `Int`
-      //
-      //    - button handler that increases this state
-      //      by one when pressed (this will trigger
-      //      a re-render, hopefully)
-      //
-      //    - a field showing the value of `S_Counter`
-      //
-      //
-      //
-      // invalidate cache button
-      //  - invalidate cache function
-      //       - in placed into the cache object
-      //       - sets type of entry to `Stale`
-      //         for the given (Read) Request
-      //
-      //         (it makes no sense to have such
-      //          `Stale` state for write request
-      //          "caches", and it is not even clear
-      //          if it makes sense to have any type
-      //          "cache" for write requests - in
-      //          the first place, because their result
-      //          is not meant to be displayed, they
-      //          only exist for creating side effects)
-      //
-      //
-      //  - cache has entry type of `Stale`
-      //
-      //
-      //
-      //
-      //
-      // refresh kess button
-      //
-      //
-      //
-      // react state `S_UpdateRequest` :
-      //          - have we pressed the update
-      //            button already ? YES/NO
-      //
-      //          - the starting (initial) value
-      //            of this state is NO
-      //
-      //
-      // field showing `S_UpdateRequest`
-      //
-      //
-      // if field `S_UpdateRequest` is true
-      //   then show the result of the update request
-      //     which can be
-      //       1) pending
-      //       2) ready with
-      //           2.1) success
-      //           2.2) OCC failure
-      //
-      //
-      // button to set S1 from false to true
-      //    - button
-      //    - handler
-      //
-      //
-      // we need a separate type of "Caching" logic for
-      // update requests
-      //   => - but what should be that "new" caching logice ?
-      //      - what is the simplest "caching logic" that would
-      //        "work" for update/write requests ?
-      //      - what are sensible "RULES" that should be obeyed by
-      //        "update requests" ?
-      //            - at ANY GIVEN TIME, there can be only one
-      //              single update request "in-flight"
-      //
-      //
+      // todo-now : see omnigraffle diagram
 
       <.div(
         <.h1("This is the UserEditor Page"),
