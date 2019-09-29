@@ -6,11 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandlerStates.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/sandbox/cats/Ch_01_01.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/ReadCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandlerStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandlerStates.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -378,13 +377,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00307" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------">
-      <created>1568324862608</created>
-      <option name="number" value="00307" />
-      <option name="presentableId" value="LOCAL-00307" />
-      <option name="project" value="LOCAL" />
-      <updated>1568324862608</updated>
-    </task>
     <task id="LOCAL-00308" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------">
       <created>1568325119095</created>
       <option name="number" value="00308" />
@@ -721,7 +713,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569712241914</updated>
     </task>
-    <option name="localTasksCounter" value="356" />
+    <task id="LOCAL-00356" summary="Working on write request handler.">
+      <created>1569794566899</created>
+      <option name="number" value="00356" />
+      <option name="presentableId" value="LOCAL-00356" />
+      <option name="project" value="LOCAL" />
+      <updated>1569794566899</updated>
+    </task>
+    <option name="localTasksCounter" value="357" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -767,7 +766,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 1.41.23:&#10;&#10;Added some &quot;workaround text&quot;, as a &quot;hack&quot;, the router&#10;is not really refreshing when its parents state changes.&#10;&#10;Which is weird/unexpected. ATM, I have no good ideas on&#10;how to implement the login page functionality without&#10;terrible hacks involving dreaded VARs crawling all over&#10;my skin... :) ... LOL ... I mean, in the code... which&#10;after coding 5 million hours... starts to feel like my&#10;skin :)." />
     <MESSAGE value="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 0.43.35:&#10;&#10;Cleaning up the code a bit.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 1.41.23:&#10;&#10;Added some &quot;workaround text&quot;, as a &quot;hack&quot;, the router&#10;is not really refreshing when its parents state changes.&#10;&#10;Which is weird/unexpected. ATM, I have no good ideas on&#10;how to implement the login page functionality without&#10;terrible hacks involving dreaded VARs crawling all over&#10;my skin... :) ... LOL ... I mean, in the code... which&#10;after coding 5 million hours... starts to feel like my&#10;skin :).&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 6.53.29:&#10;&#10;So the reading part, related for the User CRUD on the&#10;client side seems to be soon coming to an end.&#10;&#10;Next step: pass a Router Control to the User List and&#10;Editor component so that the User/Admin can select an&#10;User by clicking on the corresponding button in the &#10;User-List (which is now in the upper part of the page,&#10;after the text &quot;result for the GetAllUsersReq is:&quot;).&#10;--------------------------------------------------" />
     <MESSAGE value="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s." />
@@ -792,6 +790,7 @@
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.38.49:&#10;&#10;Code compiles.&#10;&#10;Added &quot;Stale&quot; functionality to Cache, and rewrite the&#10;&quot;toOption casting&quot; such that it gives `Some` even for&#10;stale states.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.59.51:&#10;&#10;Added some documentation and a few more Cache Entry States." />
     <MESSAGE value="&quot;Safety commit.&quot;" />
     <MESSAGE value="Write Request Hander's State skeleton is written." />
-    <option name="LAST_COMMIT_MESSAGE" value="Write Request Hander's State skeleton is written." />
+    <MESSAGE value="Working on write request handler." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on write request handler." />
   </component>
 </project>

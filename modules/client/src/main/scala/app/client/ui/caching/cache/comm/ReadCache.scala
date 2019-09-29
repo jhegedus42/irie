@@ -1,28 +1,16 @@
 package app.client.ui.caching.cache.comm
 
 import AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import app.client.ui.caching.cache.ReadCacheEntryStates.{
-  ReadCacheEntryState,
-  Returned,
-  InFlight
-}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.{
-  PostRequest,
-  PostRequestType,
-  ReadRequest,
-  WriteRequest
-}
-import app.shared.comm.postRequests.{
-  GetAllUsersReq,
-  GetEntityReq,
-  SumIntRoute
-}
+import app.shared.comm.{PostRequest, PostRequestType, ReadRequest, WriteRequest}
+import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
+import scala.util.Try
 
 trait ReadCache[
   RT  <: ReadRequest,
@@ -75,7 +63,7 @@ private[caching] class ReadCacheImpl[
       this.map = map + (par -> loading)
       sendPostAjaxRequest[Req](AjaxCallPar(par))
         .onComplete(
-          r => {
+          (r: Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]) => {
             r.foreach(decoded => {
               this.map = map + (decoded.par -> Returned(
                 decoded.par,
