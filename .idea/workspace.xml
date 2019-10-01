@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/ReadCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandler.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandlerStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/WriteRequestHandlerStates.scala" afterDir="false" />
     </list>
@@ -377,13 +376,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00308" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------">
-      <created>1568325119095</created>
-      <option name="number" value="00308" />
-      <option name="presentableId" value="LOCAL-00308" />
-      <option name="project" value="LOCAL" />
-      <updated>1568325119095</updated>
-    </task>
     <task id="LOCAL-00309" summary="Thursday, 12 September 2019 22.50.52:&#10;&#10;Info page for user &quot;Gezaaaaaa ! Hatolj be ! &#10;Tedd artalmatlanna !&quot;&#10;&#10;works.&#10;&#10;Next step: cache needs to be &quot;injected&quot;.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.46.50:&#10;&#10;The sum number page was modified a bit, in order to &#10;&quot;demo&quot;, that props/data from URL can be obtained by &#10;using &quot;dynamic routing&quot; in the router.&#10;&#10;This &quot;hackish&quot; proof of concept &quot;works&quot;.&#10;&#10;--------------------------------------------------&#10;Friday, 13 September 2019 0.51.44:&#10;&#10;Added TODO, for next step.&#10;--------------------------------------------------&#10;Friday, 13 September 2019 2.52.30:&#10;&#10;Before refactoring lot of stuff out from the router.&#10;--------------------------------------------------">
       <created>1568332373250</created>
       <option name="number" value="00309" />
@@ -720,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569794566899</updated>
     </task>
-    <option name="localTasksCounter" value="357" />
+    <task id="LOCAL-00357" summary="Working on write request handler.">
+      <created>1569796566706</created>
+      <option name="number" value="00357" />
+      <option name="presentableId" value="LOCAL-00357" />
+      <option name="project" value="LOCAL" />
+      <updated>1569796566706</updated>
+    </task>
+    <option name="localTasksCounter" value="358" />
     <servers />
   </component>
   <component name="UnknownFeatures">

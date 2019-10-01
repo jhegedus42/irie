@@ -16,7 +16,7 @@ object WriteRequestHandlerStates {
   trait RequestArrived[Req <: WR] extends WriteHandlerState[Req]
 
   case class RequestError[Req   <: WR](errorDescription:String) extends RequestArrived[Req]
-  case class RequestSuccess[Req <: WR]() extends RequestArrived[Req]
+  case class RequestSuccess[Req <: WR](par:Req#ParT,res:Req#ResT) extends RequestArrived[Req]
 
   def toInt[R <: WR](ra: WriteHandlerState[R]): Int = {
     ra match {
@@ -25,7 +25,7 @@ object WriteRequestHandlerStates {
       case arrived: RequestArrived[R] =>
         arrived match {
           case RequestError(_)   => 3
-          case RequestSuccess() => 4
+          case RequestSuccess(_,_) => 4
           case _                => 5
         }
     }

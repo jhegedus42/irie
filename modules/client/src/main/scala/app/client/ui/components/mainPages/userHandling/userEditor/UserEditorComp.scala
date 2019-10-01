@@ -198,21 +198,11 @@ object UserEditorComp {
       val par: UpdateReq[User]#ParT =
         UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
 
-//      val res
-//        : CacheEntryStates.CacheEntryState[WriteRequest, UpdateReq[
-//          User
-//        ]] =
-//        cacheAndProps.cache
-//          .getResultOfCachedPostRequest[WriteRequest, UpdateReq[
-//            User
-//          ]](par)(???, ???, ???, ???, ???)
+      // todo-now 1 complete this
 
-//      val res2: Option[Entity[User]] =
-//        res.toOption.map(x => x.entity)
+      // todo-now 2 kell egy kess ami elerheto
 
-//      res2
-
-      ???
+      None
     }
 
     def handleUpdateUserButon(

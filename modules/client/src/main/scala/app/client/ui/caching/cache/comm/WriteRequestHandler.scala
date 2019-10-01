@@ -1,7 +1,7 @@
 package app.client.ui.caching.cache.comm
 
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import app.client.ui.caching.cache.comm.WriteRequestHandlerStates.{NotCalledYet, RequestError, WriteHandlerState}
+import app.client.ui.caching.cache.comm.WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.{PostRequest, WriteRequest}
 import io.circe.{Decoder, Encoder}
@@ -65,7 +65,6 @@ trait WriteRequestHandlerImpl[
     def ajaxReturnHandler(
       r: Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
     ): Unit = {
-      // change requestHandlerState based on r - todo-now
       r match {
         case err @ Failure(exception) =>
           requestHandlerState = RequestError(err.toString)
@@ -74,7 +73,7 @@ trait WriteRequestHandlerImpl[
               value: AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]
             ) => {
 
-          requestHandlerState = ??? //todo-now
+          requestHandlerState = RequestSuccess[Req](par,s.value.res)
 
           invalidateReadCache()
 
@@ -95,14 +94,13 @@ trait WriteRequestHandlerImpl[
       case arrived: WriteRequestHandlerStates.RequestArrived[Req] => {
         arrived match {
           case WriteRequestHandlerStates.RequestError(_) => Unit
-          case WriteRequestHandlerStates.RequestSuccess() =>
+          case WriteRequestHandlerStates.RequestSuccess(_,_) =>
             sendAJAXCall()
           case _ => Unit
         }
       }
     }
 
-    ???
   }
 
 }
