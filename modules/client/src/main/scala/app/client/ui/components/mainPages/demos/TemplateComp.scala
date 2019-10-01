@@ -116,7 +116,7 @@ object TemplateComp {
     val requestResultForRefToAllUsers
       : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetAllUsersReq] =
       cacheInterfaceWrapper.cache
-        .getResultOfCachedPostRequest[ReadRequest, GetAllUsersReq](
+        .readFromServer[ReadRequest, GetAllUsersReq](
           GetAllUsersReq.Par(AdminPassword("titok"))
         )
 
@@ -132,7 +132,7 @@ object TemplateComp {
       val par_ = GetEntityReq.Par(r)
       val res_ =
         cacheInterfaceWrapper.cache
-          .getResultOfCachedPostRequest[ReadRequest,  GetEntityReq[User]](par_)
+          .readFromServer[ReadRequest,  GetEntityReq[User]](par_)
           .toOption
       val emptyResult: GetEntityReq.Res[User] =
         GetEntityReq.Res[User](None)

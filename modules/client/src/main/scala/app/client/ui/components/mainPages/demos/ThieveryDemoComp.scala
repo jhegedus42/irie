@@ -131,7 +131,7 @@ object ThieveryDemoComp {
       props:  CacheAndProps[Props],
       params: SumIntPar
     ): ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, SumIntRoute] = {
-      props.cache.getResultOfCachedPostRequest[ReadRequest, SumIntRoute](params)
+      props.cache.readFromServer[ReadRequest, SumIntRoute](params)
     }
 
     object StateChangers {

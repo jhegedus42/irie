@@ -55,7 +55,7 @@ case class CacheAndProps[Props](
 
 class Cache() {
 
-  def getResultOfCachedPostRequest[
+  def readFromServer[
     RT  <: ReadRequest,
     Req <: PostRequest[RT]
   ](par: Req#ParT
@@ -67,6 +67,13 @@ class Cache() {
      ct:      ClassTag[Req],
      ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[RT,Req] = c.getRequestResult(par)
+
+  def writeToServer = ??? // todo-now-3
+  //todo-now-4 put a write request handler instance into this method
+
+
+
+
 }
 
 trait ToBeWrappedMainPageComponent[

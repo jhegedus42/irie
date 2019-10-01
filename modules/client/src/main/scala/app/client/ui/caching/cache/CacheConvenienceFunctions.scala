@@ -34,7 +34,7 @@ object CacheConvenienceFunctions {
                                 entityIdentity = identity)
     )
     val res: ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetEntityReq[EV]] =
-      cache.getResultOfCachedPostRequest[ReadRequest, GetEntityReq[EV]](par)
+      cache.readFromServer[ReadRequest, GetEntityReq[EV]](par)
 
 
     val res2: Option[GetEntityReq.Res[EV]] =

@@ -32,6 +32,10 @@ trait WriteRequestHandler[
   *
   */
 trait WriteRequestHandlerImpl[
+
+// todo-now-5 write type class instance for User Update Post Request
+//  this one : app.shared.comm.postRequests.UpdateReq
+
   RT  <: WriteRequest,
   Req <: PostRequest[RT]]
     extends WriteRequestHandler[RT, Req] { ReadCacheInvalidator =>
