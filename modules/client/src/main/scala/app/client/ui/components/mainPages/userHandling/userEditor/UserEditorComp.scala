@@ -248,6 +248,7 @@ object UserEditorComp {
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))
         )
+        // todo-now - send update user ajax call button
       )
 
     }
