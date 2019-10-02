@@ -1,7 +1,8 @@
-package app.client.ui.caching.cache.comm
+package app.client.ui.caching.cache.comm.write
 
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import app.client.ui.caching.cache.comm.WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
+import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
+import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.{PostRequest, WriteRequest}
 import io.circe.{Decoder, Encoder}
@@ -11,34 +12,23 @@ import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
 //import cats.implicits._
 
-trait WriteRequestHandler[
-  RT  <: WriteRequest,
-  Req <: PostRequest[RT]] {
 
-  def executeRequest(
-    par: Req#ParT
-  )(
-    implicit
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
-  ): Unit
-}
+
+
+
+
 
 /**
   *
   * This should be singleton.
   *
   */
-trait WriteRequestHandlerImpl[
-
+trait WriteRequestHandlerTCImpl[
 // todo-now-5 write type class instance for User Update Post Request
 //  this one : app.shared.comm.postRequests.UpdateReq
-
   RT  <: WriteRequest,
-  Req <: PostRequest[RT]]
-    extends WriteRequestHandler[RT, Req] { ReadCacheInvalidator =>
+  Req <: PostRequest[RT]
+] extends WriteRequestHandlerTC[RT, Req] {  ReadCacheInvalidator =>
   type WR = PostRequest[RT]
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -49,7 +39,8 @@ trait WriteRequestHandlerImpl[
 
   def getState = requestHandlerState
 
-  def invalidateReadCache(): Unit
+  def invalidateReadCache(): Unit = ??? //todo-now-6
+  //
 
   /**
     * We implement this now without error handling.
@@ -64,7 +55,7 @@ trait WriteRequestHandlerImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): Unit = {
+  ): WriteHandlerState[Req]= {
 
     def ajaxReturnHandler(
       r: Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
@@ -77,7 +68,7 @@ trait WriteRequestHandlerImpl[
               value: AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]
             ) => {
 
-          requestHandlerState = RequestSuccess[Req](par,s.value.res)
+          requestHandlerState = RequestSuccess[Req](par, s.value.res)
 
           invalidateReadCache()
 
@@ -98,13 +89,23 @@ trait WriteRequestHandlerImpl[
       case arrived: WriteRequestHandlerStates.RequestArrived[Req] => {
         arrived match {
           case WriteRequestHandlerStates.RequestError(_) => Unit
-          case WriteRequestHandlerStates.RequestSuccess(_,_) =>
+          case WriteRequestHandlerStates.RequestSuccess(_, _) =>
             sendAJAXCall()
           case _ => Unit
         }
       }
     }
-
+  requestHandlerState
   }
+
+}
+
+object WriteRequestHandlerTCImpl {
+  implicit val updateUserWriteHandler
+    : WriteRequestHandlerTCImpl[WriteRequest, PostRequest[
+      WriteRequest
+    ]] =
+    new WriteRequestHandlerTCImpl[WriteRequest, PostRequest[WriteRequest
+    ]](){}
 
 }

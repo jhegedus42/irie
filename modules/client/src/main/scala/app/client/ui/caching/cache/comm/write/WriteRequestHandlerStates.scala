@@ -1,4 +1,4 @@
-package app.client.ui.caching.cache.comm
+package app.client.ui.caching.cache.comm.write
 
 import app.shared.comm.{PostRequest, WriteRequest}
 

@@ -22,3 +22,4 @@ class UpdateReq[V <: EntityValue[V]] extends PostRequest[WriteRequest] {
   override type PayLoadT = V
 
 }
+

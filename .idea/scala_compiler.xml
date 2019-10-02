@@ -38,8 +38,14 @@
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 7" modules="shared_jvm">
+    <profile name="sbt 7" modules="client">
+      <option name="warnings" value="false" />
+      <parameters>
+        <parameter value="-Yrangepos" />
+        <parameter value="-Ypartial-unification" />
+      </parameters>
       <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.25.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
@@ -49,14 +55,8 @@
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 9" modules="client">
-      <option name="warnings" value="false" />
-      <parameters>
-        <parameter value="-Yrangepos" />
-        <parameter value="-Ypartial-unification" />
-      </parameters>
+    <profile name="sbt 9" modules="shared_jvm">
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.25.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
