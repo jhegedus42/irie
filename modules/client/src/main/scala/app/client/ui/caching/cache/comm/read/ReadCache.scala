@@ -24,6 +24,8 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[RT, Req]
 
+  def invalidateEntry(par:Req#ParT)
+
 }
 
 // todo-now :
@@ -78,6 +80,8 @@ private[caching] class ReadCacheImpl[
         )
       loading
     } else map(par)
+
+  override def invalidateEntry(par: Req#ParT): Unit = ??? //todo-now RIGHT NOW
 }
 
 object ReadCache {

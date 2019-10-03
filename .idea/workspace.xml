@@ -7,7 +7,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/ReadCacheInvalidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/ReadCacheInvalidator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTC.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -374,13 +377,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00312" summary="Little progress has been made on userRef2UserOption.">
-      <created>1568473120041</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1568473120043</updated>
-    </task>
     <task id="LOCAL-00313" summary="Little progress has been made on userRef2UserOption.&#10;&#10;--------------------------------------------------&#10;Saturday, 14 September 2019 21.24.34:&#10;Added cats-core as dependency.&#10;&#10;Looking into traversables.&#10;&#10;Need to code a function that&#10;takes a List of Option of A-s to an Option of List of A-s .">
       <created>1568485551923</created>
       <option name="number" value="00313" />
@@ -717,7 +713,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570043285279</updated>
     </task>
-    <option name="localTasksCounter" value="361" />
+    <task id="LOCAL-00361" summary="invalidate cache method impl in progress">
+      <created>1570060415661</created>
+      <option name="number" value="00361" />
+      <option name="presentableId" value="LOCAL-00361" />
+      <option name="project" value="LOCAL" />
+      <updated>1570060415661</updated>
+    </task>
+    <option name="localTasksCounter" value="362" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -763,7 +766,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 11.26.06:&#10;&#10;Clicking page works." />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------" />
@@ -788,6 +790,7 @@
     <MESSAGE value="Working on write request handler.&#10;Bit of progress was made." />
     <MESSAGE value="Working on write request handler.&#10;Bit of progress was made.&#10;&#10;Added todo-s." />
     <MESSAGE value="intermediate commit ... implementation of write &quot;cache&quot; is in&#10;progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="intermediate commit ... implementation of write &quot;cache&quot; is in&#10;progress" />
+    <MESSAGE value="invalidate cache method impl in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="invalidate cache method impl in progress" />
   </component>
 </project>

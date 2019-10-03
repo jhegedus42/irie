@@ -8,7 +8,9 @@ import scala.reflect.ClassTag
 
 trait WriteRequestHandlerTC[
   RT  <: WriteRequest,
-  Req <: PostRequest[RT]] {
+  Req <: PostRequest[RT]] { self: ReadCacheInvalidator[RT, Req] =>
+
+  val rci=self
 
   def executeRequest(
     par: Req#ParT
@@ -20,3 +22,4 @@ trait WriteRequestHandlerTC[
     ct2:     ClassTag[Req#PayLoadT]
   ): WriteHandlerState[Req]
 }
+
