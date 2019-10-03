@@ -11,6 +11,7 @@ import WriteRequestHandlerStates.{
   WriteHandlerState
 }
 import app.client.ui.caching.cache.comm.AJAXCalls
+import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.{PostRequest, WriteRequest}
@@ -44,7 +45,6 @@ trait WriteRequestHandlerTCImpl[
     NotCalledYet[Req]()
 
   def getState = requestHandlerState
-
 
   /**
     * We implement this now without error handling.
@@ -89,7 +89,7 @@ trait WriteRequestHandlerTCImpl[
 
     requestHandlerState match {
       case NotCalledYet()                             => sendAJAXCall()
-      case WriteRequestHandlerStates.RequestPending() => Unit
+      case WriteRequestHandlerStates.RequestPending(_) => Unit
       case arrived: WriteRequestHandlerStates.RequestArrived[Req] => {
         arrived match {
           case WriteRequestHandlerStates.RequestError(_) => Unit
@@ -108,11 +108,20 @@ object WriteRequestHandlerTCImpl {
 
   trait UserReadCacheInvalidator
       extends ReadCacheInvalidator[WriteRequest, UpdateReq[User]] {
-    override def invalidateReadCache(): Unit = ??? // todo-now RIGHT NOW
+    self: WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]] =>
+    override def invalidateReadCache(): Unit = {
+      val s=self.requestHandlerState
+      s.getPar.foreach(par =>{
+
+        val r=par.currentEntity.refToEntity.stripVersion()
+        ReadCache.getUserCache.invalidateEntry(r)
+      }
+      )
+    }
   }
 
-  object  updateUserWriteHandler extends
-     WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
-     with UserReadCacheInvalidator
+  object updateUserWriteHandler
+      extends WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+      with UserReadCacheInvalidator
 
 }

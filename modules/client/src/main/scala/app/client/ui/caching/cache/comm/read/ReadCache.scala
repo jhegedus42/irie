@@ -1,12 +1,24 @@
 package app.client.ui.caching.cache.comm.read
 
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  InFlight,
+  ReadCacheEntryState,
+  Returned
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
+import app.shared.comm.postRequests.{
+  GetAllUsersReq,
+  GetEntityReq,
+  SumIntRoute
+}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
+import app.shared.entity.refs.RefToEntityWithoutVersion
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -24,7 +36,7 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[RT, Req]
 
-  def invalidateEntry(par:Req#ParT)
+  def invalidateEntry(par: RefToEntityWithoutVersion[_])
 
 }
 
@@ -81,7 +93,9 @@ private[caching] class ReadCacheImpl[
       loading
     } else map(par)
 
-  override def invalidateEntry(par: Req#ParT): Unit = ??? //todo-now RIGHT NOW
+  override def invalidateEntry(
+    par: RefToEntityWithoutVersion[_]
+  ): Unit = ??? //todo-now RIGHT NOW
 }
 
 object ReadCache {
