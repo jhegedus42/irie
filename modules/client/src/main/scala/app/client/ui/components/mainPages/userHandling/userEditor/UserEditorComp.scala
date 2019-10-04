@@ -198,9 +198,11 @@ object UserEditorComp {
       val par: UpdateReq[User]#ParT =
         UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
 
-      // todo-now 1 complete this
+      // todo-now 1.2 complete this
 
-      // todo-now 2 kell egy kess ami elerheto
+      // todo-now 1.3 kell egy kess ami elerheto
+
+      // todo-now 1.4 send update request
 
       None
     }
@@ -218,6 +220,7 @@ object UserEditorComp {
       })
 
     // call update user request
+      // todo-now-1.1 handle button press
     }
 
   }
@@ -238,17 +241,24 @@ object UserEditorComp {
 
       import org.scalajs.dom.html.{Anchor, Div}
 
-      // todo-now : see omnigraffle diagram
 
       <.div(
         <.h1("This is the UserEditor Page"),
+        <.br,
+        "Current value of the User "+entityOption,
         <.br,
         "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))
         )
-        // todo-now - send update user ajax call button
+
+        // todo-now continue-here
+        // todo-now 1 - send update user ajax call button
+
+        // todo-now-2  button to increase counter => refresh page
+
+        // todo-now-3  button to trigger cache refresh
       )
 
     }

@@ -44,7 +44,6 @@ object ReadCacheEntryStates {
       case ReturnedWithError(param, descriptionOfError) => None
     }
 
-    // todo-now continue here
 
   }
 

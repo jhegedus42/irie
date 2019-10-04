@@ -27,16 +27,6 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
 
 }
 
-// todo-now :
-//  use different implementations of cache-s
-//  1) for read type requests
-//  and
-//  2) for write type requests
-//
-//  the current implementaiton uses the same type of cache
-//  for these two types of - fundamentally - different requests
-//
-//  => this should be a trait and not a class
 
 private[caching] class ReadCacheImpl[
   RT  <: ReadRequest,
@@ -92,7 +82,7 @@ object ReadCache {
   implicit val getUserCache=
     new ReadCacheImpl[ReadRequest, GetEntityReq[User]]() {
       def invalidateEntry(
-        par: RefToEntityWithVersion[_]
+        par: RefToEntityWithVersion[User]
       ): Unit = {
         val id   = par.entityIdentity
         val keys_ = map.keys

@@ -1,7 +1,15 @@
 package app.client.ui.caching.cache.comm.write
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
+import WriteRequestHandlerStates.{
+  NotCalledYet,
+  RequestError,
+  RequestSuccess,
+  WriteHandlerState
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.ReRenderer
@@ -22,8 +30,6 @@ import scala.util.{Failure, Success, Try}
   *
   */
 trait WriteRequestHandlerTCImpl[
-// todo-now-5 write type class instance for User Update Post Request
-//  this one : app.shared.comm.postRequests.UpdateReq
   RT  <: WriteRequest,
   Req <: PostRequest[RT]]
     extends WriteRequestHandlerTC[RT, Req] {
@@ -107,14 +113,17 @@ object WriteRequestHandlerTCImpl {
       val s = self.requestHandlerState
       s.getPar.foreach(par => {
 
-        val r: RefToEntityWithVersion[User] = par.currentEntity.refToEntity
+        val r: RefToEntityWithVersion[User] =
+          par.currentEntity.refToEntity
         ReadCache.getUserCache.invalidateEntry(r)
       })
     }
   }
 
-  object updateUserWriteHandler
-      extends WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
-      with UserReadCacheInvalidator
+  // this is a TC instance
+
+  implicit val userUpdater =
+    new WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+    with UserReadCacheInvalidator
 
 }
