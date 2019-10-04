@@ -36,6 +36,16 @@ object ReadCacheEntryStates {
         case Stale(_, res)    => Some(Left(res))
       }
 
+    def toStale:Option[Stale[RT,Req]] = this match {
+      case InFlight(param) => None
+      case Returned(param, result) => Some(Stale(param,result))
+      case Stale(param, result) => None
+      case TimedOut(param) => None
+      case ReturnedWithError(param, descriptionOfError) => None
+    }
+
+    // todo-now continue here
+
   }
 
   /**

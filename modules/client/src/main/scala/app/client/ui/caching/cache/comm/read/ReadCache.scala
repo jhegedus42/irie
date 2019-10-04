@@ -1,13 +1,13 @@
 package app.client.ui.caching.cache.comm.read
 
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -25,8 +25,6 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[RT, Req]
 
-  def invalidateEntry(par: RefToEntityWithoutVersion[_])
-
 }
 
 // todo-now :
@@ -40,7 +38,7 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
 //
 //  => this should be a trait and not a class
 
-private[caching] trait ReadCacheImpl[
+private[caching] class ReadCacheImpl[
   RT  <: ReadRequest,
   Req <: PostRequest[RT]]
     extends ReadCache[RT, Req] {
@@ -82,37 +80,32 @@ private[caching] trait ReadCacheImpl[
         )
       loading
     } else map(par)
+
+
 }
 
 object ReadCache {
-  implicit val sumIntPostRequestResultCache =
-    new ReadCacheImpl[ReadRequest, SumIntRoute]() {
-      override def invalidateEntry(
-        par: RefToEntityWithoutVersion[_]
-      ): Unit = ???
-    }
 
-  implicit val getUserCache
-    : ReadCacheImpl[ReadRequest, GetEntityReq[User]] =
+  implicit val sumIntPostRequestResultCache =
+    new ReadCacheImpl[ReadRequest, SumIntRoute]()
+
+  implicit val getUserCache=
     new ReadCacheImpl[ReadRequest, GetEntityReq[User]]() {
-      override def invalidateEntry(
-        par: RefToEntityWithoutVersion[_]
+      def invalidateEntry(
+        par: RefToEntityWithVersion[_]
       ): Unit = {
         val id   = par.entityIdentity
-        val keys = map.keySet
-        val key: Set[GetEntityReq.Par[User]] = keys.filter(
-          p => p.refToEntityWithoutVersion.entityIdentity == id
+        val keys_ = map.keys
+        val key = keys_.filter(
+          p => p.refToEntityWithoutVersion.entityIdentity  == id
         )
-        // todo-now continue here
-        // we need to set the entry here to Stale
+        val oldVal=map(key.head)
+        val newMap=map + (key.head -> oldVal.toStale.get)
 
       }
     }
 
   implicit val getAllUsersReqCache =
-    new ReadCacheImpl[ReadRequest, GetAllUsersReq]() {
-      override def invalidateEntry(
-        par: RefToEntityWithoutVersion[_]
-      ): Unit = ???
-    }
+    new ReadCacheImpl[ReadRequest, GetAllUsersReq]()
+
 }

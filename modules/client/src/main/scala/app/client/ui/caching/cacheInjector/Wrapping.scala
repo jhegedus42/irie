@@ -4,13 +4,23 @@ import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerStates.WriteHandlerState
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.shared.comm.{PostRequest, PostRequestType, ReadRequest, WriteRequest}
+import app.shared.comm.{
+  PostRequest,
+  PostRequestType,
+  ReadRequest,
+  WriteRequest
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
 import app.client.ui.components.{MainPage, MainPageWithCache}
@@ -52,34 +62,27 @@ case class CacheAndProps[Props](
 
 class Cache() {
 
-  def readFromServer[
-    RT  <: ReadRequest,
-    Req <: PostRequest[RT]
-  ](par: Req#ParT
+  def readFromServer[RT <: ReadRequest, Req <: PostRequest[RT]](
+    par: Req#ParT
   )(
-     implicit
-     c:       ReadCache[RT, Req],
-     decoder: Decoder[Req#ResT],
-     encoder: Encoder[Req#ParT],
-     ct:      ClassTag[Req],
-     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[RT,Req] = c.getRequestResult(par)
+    implicit
+    c:       ReadCache[RT, Req],
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
+  ): ReadCacheEntryState[RT, Req] = c.getRequestResult(par)
 
-
-
-  def writeToServer[
-    RT  <: WriteRequest,
-    Req <: PostRequest[RT]
-  ](par: Req#ParT
-   )(
-     implicit
-     c:       WriteRequestHandlerTC[RT, Req],
-     decoder: Decoder[Req#ResT],
-     encoder: Encoder[Req#ParT],
-     ct:      ClassTag[Req],
-     ct2:     ClassTag[Req#PayLoadT]
-   ): WriteHandlerState[Req] = c.executeRequest(par)
-
+  def writeToServer[RT <: WriteRequest, Req <: PostRequest[RT]](
+    par: Req#ParT
+  )(
+    implicit
+    c:       WriteRequestHandlerTC[RT, Req],
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
+  ): WriteHandlerState[Req] = c.executeRequest(par)
 
 }
 
@@ -148,3 +151,4 @@ private[caching] object ReRenderer {
   case class ReRenderTriggerer(triggerReRender: () => Unit)
 
 }
+

@@ -1,21 +1,14 @@
 package app.client.ui.caching.cache.comm.write
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  sendPostAjaxRequest
-}
-import WriteRequestHandlerStates.{
-  NotCalledYet,
-  RequestError,
-  RequestSuccess,
-  WriteHandlerState
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.entityValue.values.User
+import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -88,7 +81,7 @@ trait WriteRequestHandlerTCImpl[
     }
 
     requestHandlerState match {
-      case NotCalledYet()                             => sendAJAXCall()
+      case NotCalledYet()                              => sendAJAXCall()
       case WriteRequestHandlerStates.RequestPending(_) => Unit
       case arrived: WriteRequestHandlerStates.RequestArrived[Req] => {
         arrived match {
@@ -110,13 +103,13 @@ object WriteRequestHandlerTCImpl {
       extends ReadCacheInvalidator[WriteRequest, UpdateReq[User]] {
     self: WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]] =>
     override def invalidateReadCache(): Unit = {
-      val s=self.requestHandlerState
-      s.getPar.foreach(par =>{
 
-        val r=par.currentEntity.refToEntity.stripVersion()
+      val s = self.requestHandlerState
+      s.getPar.foreach(par => {
+
+        val r: RefToEntityWithVersion[User] = par.currentEntity.refToEntity
         ReadCache.getUserCache.invalidateEntry(r)
-      }
-      )
+      })
     }
   }
 
