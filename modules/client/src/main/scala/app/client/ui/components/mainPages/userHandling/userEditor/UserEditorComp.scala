@@ -81,7 +81,7 @@ object UserEditorComp {
     * @param intendedNewName
     */
   case class State(
-                  counter: Int,
+    counter:         Int,
     updatedUser:     UpdatedUser,
     intendedNewName: IntendedNewName = IntendedNewName())
 
@@ -99,7 +99,9 @@ object UserEditorComp {
       .builder[CacheAndProps[Props]](
         "This is a userEditor page. It demonstrates all crucial functionality."
       )
-      .initialState(State(counter=0,updatedUser=UpdatedUser(None)))
+      .initialState(
+        State(counter = 0, updatedUser = UpdatedUser(None))
+      )
       .renderBackend[Backend[Props]]
       .build
   }
@@ -219,8 +221,11 @@ object UserEditorComp {
 
       })
 
-    // call update user request
-      // todo-now-1.1 handle button press
+
+      // todo-now-1.1 handle button press - continue-here
+      // call update user request
+      // we need a write request handler here...
+
     }
 
   }
@@ -240,27 +245,27 @@ object UserEditorComp {
         )
 
       import org.scalajs.dom.html.{Anchor, Div}
-
+      val newName: String = s.intendedNewName.value.getOrElse("there is no new name defined yet")
 
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
-        "Current value of the User "+entityOption,
+        "Current name of the User " + entityOption.map(_.entityValue.name).getOrElse("Loading..."),
         <.br,
         "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))
-        )
+        ),
 
-        // todo-now continue-here
+        Helpers.saveButton(Helpers.handleUpdateUserButon("string2")(newName) )
+
         // todo-now 1 - send update user ajax call button
 
-        // todo-now-2  button to increase counter => refresh page
+        // todo-now-2 - button to increase counter => refresh page
 
-        // todo-now-3  button to trigger cache refresh
+        // todo-now-3 - button to trigger cache refresh
       )
-
     }
 
   }
