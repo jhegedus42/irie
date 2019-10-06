@@ -21,7 +21,7 @@ import app.shared.comm.postRequests.{
 }
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.RefToEntityWithVersion
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}

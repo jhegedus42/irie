@@ -33,7 +33,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
 
     val r1: Future[Entity[User]] = helper
-      .getUser(alice.refToEntity.stripVersion())
+      .getUser(alice.refToEntity)
 
 //    r1.onComplete(
 //      (x: Try[Entity[User]]) =>
@@ -63,7 +63,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val getResult: Future[Entity[User]] =
       insertResult.flatMap(
         (e: Entity[User]) =>
-          helper.getUser(e.refToEntity.stripVersion())
+          helper.getUser(e.refToEntity)
       )
 
     val futureAssertionThatEverythingIsKosher: Future[Assertion] =
@@ -88,7 +88,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     val getRequestResult: Future[Entity[User]] =
       updateReqResult.flatMap(
-        e => helper.getUser(e.refToEntity.stripVersion())
+        e => helper.getUser(e.refToEntity)
       )
     // here we are waiting first for the update request to return
     // and only after that we launch the getRequest
@@ -129,7 +129,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     // get alice and check that her state is resetted
 
     val refToAlice =
-      TestEntities.aliceEntity_with_UUID0.refToEntity.stripVersion()
+      TestEntities.aliceEntity_with_UUID0.refToEntity
 
     val alice: Future[Entity[User]] = helper.waitFor(reset) {
       helper.getUser(refToAlice)
@@ -144,7 +144,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val newAlice = alice.flatMap(a => helper.setUsersFavNumber(a, 66))
 
     val fetchedNewAlice: Future[Entity[User]] = newAlice.flatMap(
-      na => helper.getUser(na.refToEntity.stripVersion())
+      na => helper.getUser(na.refToEntity)
     )
 
     // now we check that her state has been updated

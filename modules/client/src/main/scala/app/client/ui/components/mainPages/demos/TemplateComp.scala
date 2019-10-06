@@ -7,7 +7,7 @@ import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTe
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.{RefToEntityWithVersion }
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
@@ -127,7 +127,7 @@ object TemplateComp {
       TagMod(l.map(<.div(<.br, _)).toVdomArray)
 
     def userRef2UserOption(
-      r: RefToEntityWithoutVersion[User]
+      r: RefToEntityWithVersion[User]
     ): GetEntityReq.Res[User] = {
       val par_ = GetEntityReq.Par(r)
       val res_ =
@@ -234,3 +234,5 @@ object TemplateComp {
 
   }
 }
+
+

@@ -27,7 +27,6 @@ import app.shared.comm.postRequests.marshall.{
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
 import app.shared.initialization.testing.TestEntities
 import io.circe.generic.auto._
 import monocle.macros.syntax.lens._
@@ -103,7 +102,7 @@ class RouteFactoryTest
 
     assert(
       updatedTA.entityValue.favoriteNumber === getLatestEntity(
-        originalTA.refToEntity.stripVersion()
+        originalTA.refToEntity
       ).entityValue.favoriteNumber
     )
 
@@ -115,7 +114,7 @@ class RouteFactoryTest
 
     resetServerState()
     val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
-    val refToEntityWithoutVersion = alice.refToEntity.stripVersion()
+    val refToEntityWithoutVersion = alice.refToEntity
 
     assertLatestEntityIs(alice)
 

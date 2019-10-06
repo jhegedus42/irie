@@ -7,7 +7,6 @@ import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.comm.postRequests.ResetRequest.{Par, Res}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.Entity
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
 import io.circe.generic.JsonCodec
 import io.circe.syntax._
 

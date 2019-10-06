@@ -1,6 +1,5 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}
@@ -20,8 +19,8 @@ case class UntypedRef(
       s"${entityVersion.versionNumberLong}"
   }
 
-  def stripVersion(): UntypedRefWithoutVersion =
-    UntypedRefWithoutVersion(entityValueTypeAsString, entityIdentity)
+//  def stripVersion(): UntypedRefWithoutVersion =
+//    UntypedRefWithoutVersion(entityValueTypeAsString, entityIdentity)
 }
 
 object UntypedRef {

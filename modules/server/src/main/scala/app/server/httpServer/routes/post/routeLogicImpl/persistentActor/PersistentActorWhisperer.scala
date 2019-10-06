@@ -23,8 +23,7 @@ import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{
   EntityDeletedFlag,
-  RefToEntityWithVersion,
-  RefToEntityWithoutVersion
+  RefToEntityWithVersion
 }
 import io.circe.{Decoder, Encoder}
 
@@ -127,7 +126,7 @@ case class PersistentActorWhisperer(
   }
 
   def getAllUserRefs
-    : Future[List[RefToEntityWithoutVersion[User]]] = {
+    : Future[List[RefToEntityWithVersion[User]]] = {
 
     val snapshot: Future[StateMapSnapshot] = getSnaphot
 
@@ -141,9 +140,9 @@ case class PersistentActorWhisperer(
     val allUserRefsUntyped
       : Future[List[UntypedRef]] = refs
 
-    val refsTyped: Future[List[RefToEntityWithoutVersion[User]]] =
+    val refsTyped: Future[List[RefToEntityWithVersion[User]]] =
       allUserRefsUntyped.map(
-        x => x.map(UntypedRef.getTypedRef[User](_).stripVersion())
+        x => x.map(UntypedRef.getTypedRef[User](_))
       )
     refsTyped
   }
@@ -170,7 +169,7 @@ case class PersistentActorWhisperer(
   }
 
   def getEntityWithLatestVersion[EV <: EntityValue[EV]](
-    ref: RefToEntityWithoutVersion[EV]
+    ref: RefToEntityWithVersion[EV]
   )(
     implicit d: Decoder[EV]
   ): Future[Option[Entity[EV]]] = {

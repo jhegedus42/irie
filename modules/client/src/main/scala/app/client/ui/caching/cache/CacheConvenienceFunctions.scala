@@ -8,7 +8,7 @@ import app.shared.entity.Entity
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.auto._
@@ -30,7 +30,7 @@ object CacheConvenienceFunctions {
     ct2:     ClassTag[GetEntityReq[EV]#PayLoadT]
   ): Option[Entity[EV]] = {
     val par: GetEntityReq.Par[EV] = GetEntityReq.Par[EV](
-      RefToEntityWithoutVersion(EntityValueTypeAsString.make[EV],
+      RefToEntityWithVersion(EntityValueTypeAsString.make[EV],
                                 entityIdentity = identity)
     )
     val res: ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetEntityReq[EV]] =

@@ -11,7 +11,7 @@ import app.shared.entity.asString.{
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.{
   RefToEntityWithVersion,
-  RefToEntityWithoutVersion
+//  RefToEntityWithoutVersion
 }
 import app.shared.utils.UUID_Utils.EntityIdentity
 
@@ -43,21 +43,21 @@ object Responses {
 }
 
 object Payloads {
-  case class UntypedRefWithoutVersion(
-      entityValueTypeAsString: EntityValueTypeAsString,
-      entityIdentity:          EntityIdentity = EntityIdentity()
-  )
+//  case class UntypedRefWithoutVersion(
+//      entityValueTypeAsString: EntityValueTypeAsString,
+//      entityIdentity:          EntityIdentity = EntityIdentity()
+//  )
 
-  object UntypedRefWithoutVersion {
-    implicit def makeFromRefToEntity[T <: EntityValue[T]](
-        refToEntity: RefToEntityWithoutVersion[T]
-    ): UntypedRefWithoutVersion = {
-      UntypedRefWithoutVersion(
-        entityValueTypeAsString = refToEntity.entityValueTypeAsString,
-        entityIdentity          = refToEntity.entityIdentity
-      )
-    }
-
-  }
+//  object UntypedRefWithoutVersion {
+//    implicit def makeFromRefToEntity[T <: EntityValue[T]](
+//        refToEntity: RefToEntityWithVersion[T]
+//    ): UntypedRefWithoutVersion = {
+//      UntypedRefWithoutVersion(
+//        entityValueTypeAsString = refToEntity.entityValueTypeAsString,
+//        entityIdentity          = refToEntity.entityIdentity
+//      )
+//    }
+//
+//  }
 
 }

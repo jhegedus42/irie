@@ -1,6 +1,5 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Payloads.UntypedRefWithoutVersion
 import app.shared.entity.asString.{
   EntityValueAsJSON,
   EntityValueTypeAsString
@@ -135,7 +134,7 @@ private[persistentActor] case class StateMapSnapshot(
   }
 
   def getEntityWithLatestVersion[V <: EntityValue[V]](
-    r: UntypedRefWithoutVersion
+    r: UntypedRef
   ): Option[UntypedEntity] = {
 //    map.get(r)
 

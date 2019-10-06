@@ -12,34 +12,18 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.Te
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
 import app.shared.comm.postRequests.InsertReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
-import app.shared.comm.postRequests.marshall.{
-  EncodersDecoders,
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
+import app.shared.comm.postRequests.marshall.{EncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.io.dns.DnsProtocol.RequestType
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
-import app.shared.comm.postRequests.marshall.EncodersDecoders.{
-  decodeResult,
-  encodeParameters,
-  encodeResult
-}
-import app.shared.comm.postRequests.marshall.{
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  InsertReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.postRequests.marshall.EncodersDecoders.{decodeResult, encodeParameters, encodeResult}
+import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
+import app.shared.comm.postRequests.{GetEntityReq, InsertReq, ResetRequest, UpdateReq}
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.{RefToEntityWithVersion }
 import io.circe
 import io.circe.{Decoder, Encoder}
 import org.scalatest.{FunSuite, Matchers}
@@ -77,7 +61,7 @@ case class TestHelper(routes: RouteFactory)
   ): Unit = {
 
     val resFromServer: Entity[User] = getLatestEntity(
-      user.refToEntity.stripVersion()
+      user.refToEntity
     )
 
     assert(
@@ -230,7 +214,7 @@ case class TestHelper(routes: RouteFactory)
   }
 
   def getLatestEntity[V <: EntityValue[V]](
-    ref: RefToEntityWithoutVersion[V]
+    ref: RefToEntityWithVersion[V]
   )(
     implicit
     encoder: Encoder[GetEntityReq[V]#ResT],
@@ -254,7 +238,7 @@ case class TestHelper(routes: RouteFactory)
   }
 
   def assertLatestEntityValueIs[V <: EntityValue[V]](
-    ref: RefToEntityWithoutVersion[V],
+    ref: RefToEntityWithVersion[V],
     ev:  EntityValue[V]
   ): Unit = {
     ??? // todo-later maybe
@@ -275,7 +259,7 @@ case class TestHelper(routes: RouteFactory)
 
     val req = Post(rn).withEntity(
       encodeParameters[GetEntityReq[User]](
-        Par(entity.refToEntity.stripVersion())
+        Par(entity.refToEntity)
       ).parameters_as_json
     )
 

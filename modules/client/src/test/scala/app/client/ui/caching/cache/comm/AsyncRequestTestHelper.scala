@@ -1,21 +1,14 @@
 package app.client.ui.caching.cache.comm
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  PostAJAXRequestSuccessfulResponse
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{GetEntityReq, ResetRequest, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq.Par
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.entity.Entity
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithoutVersion
+import app.shared.entity.refs.{RefToEntityWithVersion }
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}
@@ -59,7 +52,7 @@ case class AsyncRequestTestHelper(
   }
 
   def getUser(
-    ref: RefToEntityWithoutVersion[User]
+    ref: RefToEntityWithVersion[User]
   ): Future[Entity[User]] = {
 
     val requestPar: Par[User] =
@@ -112,7 +105,7 @@ case class AsyncRequestTestHelper(
   }
 
   def isUsersFavoriteNumberX(
-    ref:       RefToEntityWithoutVersion[User],
+    ref:       RefToEntityWithVersion[User],
     favNumber: Int
   ): Future[Boolean] = {
     val u = getUser(ref)

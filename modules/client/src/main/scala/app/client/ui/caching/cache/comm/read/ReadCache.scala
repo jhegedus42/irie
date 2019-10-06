@@ -7,7 +7,7 @@ import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion, RefToEntityWithoutVersion}
+import app.shared.entity.refs.{RefToEntityWithVersion }
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
