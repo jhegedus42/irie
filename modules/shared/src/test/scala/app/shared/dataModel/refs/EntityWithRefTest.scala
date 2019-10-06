@@ -1,17 +1,17 @@
 package app.shared.dataModel.refs
 
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import org.scalatest.FunSuite
 import io.circe.generic.auto._
 
-class EntityTest extends FunSuite {
+class EntityWithRefTest extends FunSuite {
 
   test( "testToJSON" ) {
 
     val alice = User( "Alice", 38 )
-    val entityAlice: Entity[User] =
-      Entity.makeFromValue( alice )
+    val entityAlice: EntityWithRef[User] =
+      EntityWithRef.makeFromValue( alice )
 
     println( s"\n\nentity for Alice as nice String : \n${entityAlice.entityAsJSON()}\n\n" )
 

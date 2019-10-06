@@ -3,7 +3,7 @@ package app.server.httpServer.routes
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
 import app.shared.comm.postRequests.{GetEntityReq, InsertReq, UpdateReq}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
@@ -24,12 +24,12 @@ case class CRUDRouteFactory(
 
 //  implicit val ec = executionContext: ExecutionContextExecutor
   def route[V <: EntityValue[V]: ClassTag](
-    implicit
-    unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
-    encoder:           Encoder[Entity[V]],
-    valueEncoder:      Encoder[V],
-    decoder:           Decoder[Entity[V]],
-    dpl:               Decoder[V]
+                                            implicit
+                                            unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
+                                            encoder:           Encoder[EntityWithRef[V]],
+                                            valueEncoder:      Encoder[V],
+                                            decoder:           Decoder[EntityWithRef[V]],
+                                            dpl:               Decoder[V]
   ): Route = {
 
     import io.circe.generic.auto._

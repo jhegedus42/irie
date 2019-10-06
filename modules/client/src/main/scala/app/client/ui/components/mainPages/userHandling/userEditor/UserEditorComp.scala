@@ -24,7 +24,7 @@ import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp
 import app.client.ui.components.{MainPage, MainPageWithCache}
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
@@ -67,7 +67,7 @@ object UserEditorComp {
       extends MainPageWithCache[UserEditorComp, UserEditorPage]
 
   case class UpdatedUser(
-    resultOfUserUpdateRequest: Option[Entity[User]])
+    resultOfUserUpdateRequest: Option[EntityWithRef[User]])
 
   /**
     *
@@ -152,10 +152,10 @@ object UserEditorComp {
     }
 
     def updateUserName(
-      currentEntity: Entity[User],
-      newName:       String,
-      cacheAndProps: CacheAndProps[Props]
-    ): Option[Entity[User]] = {
+                        currentEntity: EntityWithRef[User],
+                        newName:       String,
+                        cacheAndProps: CacheAndProps[Props]
+    ): Option[EntityWithRef[User]] = {
 
       val newEntityVal =
         currentEntity.entityValue.lens(_.name).set(newName)
@@ -174,7 +174,7 @@ object UserEditorComp {
 
     def handleUpdateUserButon(
       cache:            Cache,
-      currentEntityPar: Entity[User]
+      currentEntityPar: EntityWithRef[User]
     ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
         dom.window.alert(
@@ -209,7 +209,7 @@ object UserEditorComp {
       s:             State
     ): VdomElement = {
 
-      val entityOption: Option[Entity[User]] =
+      val entityOption: Option[EntityWithRef[User]] =
         CacheConvenienceFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
           cacheAndProps.cache

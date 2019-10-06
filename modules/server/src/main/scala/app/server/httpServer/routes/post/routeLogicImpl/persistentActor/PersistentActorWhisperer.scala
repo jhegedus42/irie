@@ -3,37 +3,20 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
-  GetStateSnapshot,
-  InsertNewEntityCommand,
-  ResetStateCommand,
-  UpdateEntityCommand
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntity,
-  UntypedRef
-}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{
-  DidOperationSucceed,
-  PersistentActorImpl
-}
-import app.shared.entity.Entity
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{StateMapSnapshot, UntypedEntity, UntypedRef}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{
-  EntityDeletedFlag,
-  RefToEntityWithVersion
-}
-import io.circe.{Decoder, Encoder}
+import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion}
+import io.circe.{Decoder, Encoder, Json}
 
 import scala.concurrent.duration._
-import app.shared.entity.asString.{
-  EntityValueAsJSON,
-  EntityValueTypeAsString
-}
+import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.values.User
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
+import io.circe.Decoder.Result
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -68,12 +51,12 @@ case class PersistentActorWhisperer(
     }
 
     def updateEntity[V <: EntityValue[V]: ClassTag](
-      currentEntity: Entity[V],
-      newValue:      V
+                                                     currentEntity: EntityWithRef[V],
+                                                     newValue:      V
     )(
-      implicit encoder: Encoder[Entity[V]],
-      eencoder:         Encoder[V]
-    ): Future[Option[Entity[V]]] = {
+                                                     implicit encoder: Encoder[EntityWithRef[V]],
+                                                     eencoder:         Encoder[V]
+    ): Future[Option[EntityWithRef[V]]] = {
 
 //    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
@@ -106,11 +89,11 @@ case class PersistentActorWhisperer(
     def insertNewEntity[V <: EntityValue[V]: ClassTag](
       value: V
     )(
-      implicit encoder: Encoder[Entity[V]],
-      eencoder:         Encoder[V]
-    ): Future[Option[Entity[V]]] = {
+                                                        implicit encoder: Encoder[EntityWithRef[V]],
+                                                        eencoder:         Encoder[V]
+    ): Future[Option[EntityWithRef[V]]] = {
 
-      val entity: Entity[V] = Entity.makeFromValue[V](value)
+      val entity: EntityWithRef[V] = EntityWithRef.makeFromValue[V](value)
 
       val ute: UntypedEntity          = UntypedEntity.makeFromEntity(entity)
       val ic:  InsertNewEntityCommand = InsertNewEntityCommand(ute)
@@ -150,33 +133,52 @@ case class PersistentActorWhisperer(
   def getEntityWithVersion[V <: EntityValue[V]](
     ref: RefToEntityWithVersion[V]
   )(
-    implicit d: Decoder[Entity[V]]
-  ): Future[Option[Entity[V]]] = {
+    implicit d: Decoder[EntityWithRef[V]]
+  ): Future[Option[EntityWithRef[V]]] = {
 
     def snapshot2res(
       stateMapSnapshot: StateMapSnapshot
-    ): Option[Entity[V]] = {
+    ): Option[EntityWithRef[V]] = {
+
       val res: Option[UntypedEntity] = stateMapSnapshot.getEntity(ref)
-      def res2entity(sme: UntypedEntity): Option[Entity[V]] = {
-        val json = sme.entityValueAsJSON.json
-        d.decodeJson(json).toOption
-      }
-      res.flatMap(res2entity(_))
+
+      println(s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res ")
+
+
+      val json: Json =res.head.entityValueAsJSON.json
+
+      println(s"410B699E-40CC-4973-8020-AB6944A643FD - $json - json in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion")
+
+      val res2: Result[EntityWithRef[V]] =d.decodeJson(json)
+
+      val res3 = res2.toOption
+
+      println(s"20E679D9-D20B-4191-87D4-CCB3C9E966DD - $res3 - decoded json in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion")
+
+      res3
+
     }
 
     val sh: Future[StateMapSnapshot] = getSnaphot
-    sh.map(snapshot2res(_))
+
+    val res = sh.map(snapshot2res(_))
+
+    println("D7545812-E527-4FE6-A4CF-966C01407333 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion ")
+
+    val res2=res
+
+    res2
   }
 
   def getEntityWithLatestVersion[EV <: EntityValue[EV]](
     ref: RefToEntityWithVersion[EV]
   )(
     implicit d: Decoder[EV]
-  ): Future[Option[Entity[EV]]] = {
+  ): Future[Option[EntityWithRef[EV]]] = {
 
     def snapshot2res(
       stateMapSnapshot: StateMapSnapshot
-    ): Option[Entity[EV]] = {
+    ): Option[EntityWithRef[EV]] = {
 
 //      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
 //      val par2 : UntypedRef=
@@ -193,8 +195,8 @@ case class PersistentActorWhisperer(
       val value: Option[EV] = res.flatMap(res2entity(_))
       val r2: Option[RefToEntityWithVersion[EV]] =
         res.map(x => UntypedRef.getTypedRef[EV](x.untypedRef))
-      val entity: Entity[EV] =
-        Entity[EV](value.get, r2.get, EntityDeletedFlag(false))
+      val entity: EntityWithRef[EV] =
+        EntityWithRef[EV](value.get, r2.get, EntityDeletedFlag(false))
       Some(entity) // todo-next ^^^ fix this "not nice" error handling
     }
 

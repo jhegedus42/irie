@@ -2,7 +2,7 @@ package app.shared.comm.postRequests
 
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.refs.{RefToEntityWithVersion}
 import io.circe.generic.JsonCodec
 
@@ -18,7 +18,7 @@ object GetEntityReq {
       extends PostRequest.Parameter
 
   @JsonCodec
-  case class Res[V <: EntityValue[V]](optionEntity: Option[Entity[V]])
+  case class Res[V <: EntityValue[V]](optionEntity: Option[EntityWithRef[V]])
       extends PostRequest.Result
 
 }

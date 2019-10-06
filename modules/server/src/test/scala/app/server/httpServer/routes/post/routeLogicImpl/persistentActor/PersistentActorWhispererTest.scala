@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.ShutdownActor
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntities
 import org.scalatest.{BeforeAndAfter, FunSuite}
@@ -29,7 +29,7 @@ class PersistentActorWhispererTest extends FunSuite with BeforeAndAfter{
     val aer=ae.refToEntity
 
     val res=tsap.getEntityWithVersion(aer)
-    val resa: Option[Entity[User]] =Await.result(res, 1 second )
+    val resa: Option[EntityWithRef[User]] =Await.result(res, 1 second )
     println(s"the result is here: $resa")
     assert(ae===resa.get)
 

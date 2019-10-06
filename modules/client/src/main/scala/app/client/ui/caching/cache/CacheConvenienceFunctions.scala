@@ -4,7 +4,7 @@ import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.Cache
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
@@ -28,7 +28,7 @@ object CacheConvenienceFunctions {
     encoder: Encoder[GetEntityReq[EV]#ParT],
     ct:      ClassTag[GetEntityReq[EV]],
     ct2:     ClassTag[GetEntityReq[EV]#PayLoadT]
-  ): Option[Entity[EV]] = {
+  ): Option[EntityWithRef[EV]] = {
     val par: GetEntityReq.Par[EV] = GetEntityReq.Par[EV](
       RefToEntityWithVersion(EntityValueTypeAsString.make[EV],
                                 entityIdentity = identity)

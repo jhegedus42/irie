@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistenceService.pers
 
 import akka.actor.ActorSystem
 import app.server.utils.PrettyPrint
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import org.scalatest.FunSuite

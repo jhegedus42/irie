@@ -7,49 +7,50 @@ import app.shared.entity.asString.{
   EntityValueTypeAsString
 }
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion}
+import app.shared.entity.refs.{
+  EntityDeletedFlag,
+  RefToEntityWithVersion
+}
 import io.circe._
 import monocle.macros.Lenses
 
 import scala.reflect.ClassTag
 
-
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
 
-
-
-//@JsonCodec
+@JsonCodec
 @Lenses
-case class Entity[E <: EntityValue[E]](
-    entityValue:       E,
-    refToEntity:       RefToEntityWithVersion[E],
-    entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag(false)
-) {
+case class EntityWithRef[E <: EntityValue[E]](
+  entityValue:       E,
+  refToEntity:       RefToEntityWithVersion[E],
+  entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag(false)) {
 
-  def entityAsJSON()(
-      implicit e: Encoder[Entity[E]],
-      ee:         Encoder[E]
+  def entityAsJSON(
+  )(
+    implicit e: Encoder[EntityWithRef[E]],
+    ee:         Encoder[E]
   ): EntityAndItsValueAsJSON = {
     EntityAndItsValueAsJSON(EntityAsJSON(e.apply(this)),
                             EntityValue.getAsJson(entityValue))
   }
 
-
-
 }
 
-object Entity {
+object EntityWithRef {
 
   /**
     * @param v
     * @tparam V
     * @return Entity with random UUID and Version 0.
     */
-  def makeFromValue[V <: EntityValue[V]: ClassTag](v: V): Entity[V] = {
-    val tr = RefToEntityWithVersion[V](EntityValueTypeAsString.make[V])
-    Entity(v, tr)
+  def makeFromValue[V <: EntityValue[V]: ClassTag](
+    v: V
+  ): EntityWithRef[V] = {
+    val tr =
+      RefToEntityWithVersion[V](EntityValueTypeAsString.make[V])
+    EntityWithRef(v, tr)
   }
 
 }

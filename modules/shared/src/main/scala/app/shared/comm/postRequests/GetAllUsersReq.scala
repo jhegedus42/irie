@@ -2,7 +2,7 @@ package app.shared.comm.postRequests
 
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.comm.postRequests.GetAllUsersReq.Par
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion }
 import io.circe.generic.auto._

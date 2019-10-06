@@ -2,17 +2,17 @@ package app.shared.comm.postRequests
 
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 
 object UpdateReq {
 
   case class UpdateReqPar[V <: EntityValue[V]](
-      currentEntity: Entity[V],
-      newValue:      V
+                                                currentEntity: EntityWithRef[V],
+                                                newValue:      V
   ) extends PostRequest.Parameter
 
-  case class UpdateReqRes[V <: EntityValue[V]](entity: Entity[V])
+  case class UpdateReqRes[V <: EntityValue[V]](entity: EntityWithRef[V])
       extends PostRequest.Result
 }
 

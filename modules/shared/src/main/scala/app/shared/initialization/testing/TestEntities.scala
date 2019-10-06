@@ -1,6 +1,6 @@
 package app.shared.initialization.testing
 
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils
 
@@ -14,9 +14,9 @@ object TestEntities {
   val terezAnya   = User(name = "TerezAnya", favoriteNumber   = 666)
   val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
-  val aliceEntity:      Entity[User] = Entity.makeFromValue(alice)
-  val bobEntity:        Entity[User] = Entity.makeFromValue(bob)
-  val meresiHibaEntity: Entity[User] = Entity.makeFromValue(meresiHiba)
+  val aliceEntity:      EntityWithRef[User] = EntityWithRef.makeFromValue(alice)
+  val bobEntity:        EntityWithRef[User] = EntityWithRef.makeFromValue(bob)
+  val meresiHibaEntity: EntityWithRef[User] = EntityWithRef.makeFromValue(meresiHiba)
   import monocle.macros.syntax.lens._
 
   val aliceEntity_with_UUID0 = aliceEntity

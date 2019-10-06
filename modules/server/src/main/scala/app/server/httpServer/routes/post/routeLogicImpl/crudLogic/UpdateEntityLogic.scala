@@ -5,7 +5,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Persiste
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
 
@@ -14,22 +14,22 @@ import scala.reflect.ClassTag
 
 case class UpdateEntityLogic[V <: EntityValue[V]](
 )(
-  implicit
-  paw:             PersistentActorWhisperer,
-  decoderEntityV:  Decoder[Entity[V]],
-  encoderEntityV:  Encoder[Entity[V]],
-  _encoderV:       Encoder[V],
-  classTag:        ClassTag[V],
-  contextExecutor: ExecutionContextExecutor)
+                                                   implicit
+                                                   paw:             PersistentActorWhisperer,
+                                                   decoderEntityV:  Decoder[EntityWithRef[V]],
+                                                   encoderEntityV:  Encoder[EntityWithRef[V]],
+                                                   _encoderV:       Encoder[V],
+                                                   classTag:        ClassTag[V],
+                                                   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(
     param: UpdateReqPar[V]
   ): Future[UpdateReqRes[V]] = {
 
-    val r: Future[Option[Entity[V]]] =
+    val r: Future[Option[EntityWithRef[V]]] =
       paw.WriteOps.updateEntity(param.currentEntity, param.newValue)
-    r.map((x: Option[Entity[V]]) => UpdateReqRes(x.get))
+    r.map((x: Option[EntityWithRef[V]]) => UpdateReqRes(x.get))
 
   }
 

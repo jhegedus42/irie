@@ -5,7 +5,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Persiste
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
 
@@ -13,23 +13,24 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class GetEntityLogic[V <: EntityValue[V]](
 )(
-  implicit
-  paw:             PersistentActorWhisperer,
-  dv:              Decoder[V],
-  de:              Decoder[Entity[V]],
-  contextExecutor: ExecutionContextExecutor)
+                                                implicit
+                                                paw:             PersistentActorWhisperer,
+                                                dv:              Decoder[V],
+                                                de:              Decoder[EntityWithRef[V]],
+                                                contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[GetEntityReq[V]] {
 
   override def getHttpReqResult(
     param: Par[V]
   ): Future[Res[V]] = {
 
-    val res: Future[Option[Entity[V]]] =
+    val res: Future[Option[EntityWithRef[V]]] =
 //      paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
     paw.getEntityWithVersion(param.refToEntityWithVersion)
 
     val res2: Future[Res[V]] =
       res.map(r => Res(r))
+
     res2
   }
 

@@ -13,7 +13,7 @@ import app.shared.comm.postRequests.{
   ResetRequest,
   UpdateReq
 }
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntities
 import io.circe.generic.auto._
@@ -30,9 +30,9 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("getentity test") {
     println("now starting get test...")
-    val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
+    val alice: EntityWithRef[User] = TestEntities.aliceEntity_with_UUID0
 
-    val r1: Future[Entity[User]] = helper
+    val r1: Future[EntityWithRef[User]] = helper
       .getUser(alice.refToEntity)
 
 //    r1.onComplete(
@@ -42,7 +42,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     val res: Future[Assertion] =
       r1.map(
-        (u: Entity[User]) =>
+        (u: EntityWithRef[User]) =>
           helper.assertUserNamesAreEqual(u, alice.entityValue)
       )
     res
@@ -58,17 +58,17 @@ class AsyncRequestTest extends AsyncFunSuite {
       : Future[PostAJAXRequestSuccessfulResponse[InsertReq[User]]] =
       AJAXCalls.sendPostAjaxRequest(par)
 
-    val insertResult: Future[Entity[User]] = ac.map(_.res.entity)
+    val insertResult: Future[EntityWithRef[User]] = ac.map(_.res.entity)
 
-    val getResult: Future[Entity[User]] =
+    val getResult: Future[EntityWithRef[User]] =
       insertResult.flatMap(
-        (e: Entity[User]) =>
+        (e: EntityWithRef[User]) =>
           helper.getUser(e.refToEntity)
       )
 
     val futureAssertionThatEverythingIsKosher: Future[Assertion] =
       getResult.map(
-        (e: Entity[User]) => helper.assertUserNamesAreEqual(e, c)
+        (e: EntityWithRef[User]) => helper.assertUserNamesAreEqual(e, c)
       )
     futureAssertionThatEverythingIsKosher
   }
@@ -83,10 +83,10 @@ class AsyncRequestTest extends AsyncFunSuite {
     val newValue: User =
       userEntity.entityValue.lens(_.favoriteNumber).set(66)
 
-    val updateReqResult: Future[Entity[User]] =
+    val updateReqResult: Future[EntityWithRef[User]] =
       helper.updateUser(userEntity, newValue)
 
-    val getRequestResult: Future[Entity[User]] =
+    val getRequestResult: Future[EntityWithRef[User]] =
       updateReqResult.flatMap(
         e => helper.getUser(e.refToEntity)
       )
@@ -131,7 +131,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val refToAlice =
       TestEntities.aliceEntity_with_UUID0.refToEntity
 
-    val alice: Future[Entity[User]] = helper.waitFor(reset) {
+    val alice: Future[EntityWithRef[User]] = helper.waitFor(reset) {
       helper.getUser(refToAlice)
     }
 
@@ -143,7 +143,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     val newAlice = alice.flatMap(a => helper.setUsersFavNumber(a, 66))
 
-    val fetchedNewAlice: Future[Entity[User]] = newAlice.flatMap(
+    val fetchedNewAlice: Future[EntityWithRef[User]] = newAlice.flatMap(
       na => helper.getUser(na.refToEntity)
     )
 
@@ -160,7 +160,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     // now we check that alice has a resetted favorite number
 
-    val aliceAfterUpdateAndReset: Future[Entity[User]] =
+    val aliceAfterUpdateAndReset: Future[EntityWithRef[User]] =
       helper.waitFor(reset) {
         helper.getUser(refToAlice)
       }

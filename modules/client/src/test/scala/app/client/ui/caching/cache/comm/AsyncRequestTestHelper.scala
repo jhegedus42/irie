@@ -5,7 +5,7 @@ import app.shared.comm.PostRequest
 import app.shared.comm.postRequests.{GetEntityReq, ResetRequest, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq.Par
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion }
@@ -24,9 +24,9 @@ case class AsyncRequestTestHelper(
     extends AsyncFunSuite {
 
   def updateUser(
-    currentEntity: Entity[User],
-    newValue:      User
-  ): Future[Entity[User]] = {
+                  currentEntity: EntityWithRef[User],
+                  newValue:      User
+  ): Future[EntityWithRef[User]] = {
     val p: UpdateReqPar[User] =
       UpdateReqPar[User](currentEntity, newValue)
 
@@ -36,15 +36,15 @@ case class AsyncRequestTestHelper(
       : Future[PostAJAXRequestSuccessfulResponse[UpdateReq[User]]] =
       AJAXCalls.sendPostAjaxRequest(par)
 
-    val res: Future[Entity[User]] = ac.map(_.res.entity)
+    val res: Future[EntityWithRef[User]] = ac.map(_.res.entity)
 
     res
   }
 
   def setUsersFavNumber(
-    entity: Entity[User],
-    favNum: Int
-  ): Future[Entity[User]] = {
+                         entity: EntityWithRef[User],
+                         favNum: Int
+  ): Future[EntityWithRef[User]] = {
     val newValue =
       entity.entityValue.lens(_.favoriteNumber).set(favNum)
     updateUser(entity, newValue)
@@ -53,7 +53,7 @@ case class AsyncRequestTestHelper(
 
   def getUser(
     ref: RefToEntityWithVersion[User]
-  ): Future[Entity[User]] = {
+  ): Future[EntityWithRef[User]] = {
 
     val requestPar: Par[User] =
       Par(ref)
@@ -122,8 +122,8 @@ case class AsyncRequestTestHelper(
   }
 
   def assertUserNamesAreEqual(
-    resultingEntity: Entity[User],
-    user:            User
+                               resultingEntity: EntityWithRef[User],
+                               user:            User
   ): Assertion = {
 
     println(s"""

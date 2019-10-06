@@ -7,7 +7,7 @@ import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Pro
 import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion }
 import app.shared.utils.UUID_Utils.EntityIdentity
@@ -33,7 +33,7 @@ case class UserListRenderLogic(
       requestResultForRefToAllUsers.toOption
     }
 
-    def getUserListAsVDOM(l: List[Option[Entity[User]]]): TagMod = {
+    def getUserListAsVDOM(l: List[Option[EntityWithRef[User]]]): TagMod = {
 
       /**
         * todo-now - tenni ide egy linket
@@ -41,7 +41,7 @@ case class UserListRenderLogic(
         * @return
         */
       def optUserEntity2VDOM(
-        user: Option[Entity[User]]
+        user: Option[EntityWithRef[User]]
       ): VdomElement = {
         val ctl = cacheInterfaceWrapper.props.routerCtl
 

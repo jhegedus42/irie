@@ -5,7 +5,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Persiste
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.InsertReq
 import app.shared.comm.postRequests.InsertReq.{InsertReqPar, InsertReqRes}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import io.circe.{Decoder, Encoder}
 
@@ -14,21 +14,21 @@ import scala.reflect.ClassTag
 
 case class InsertEntityLogic[V <: EntityValue[V]](
 )(
-  implicit
-  paw:             PersistentActorWhisperer,
-  decoderEntityV:  Decoder[Entity[V]],
-  encoderEntityV:  Encoder[Entity[V]],
-  encoderV:        Encoder[V],
-  classTag:        ClassTag[V],
-  contextExecutor: ExecutionContextExecutor)
+                                                   implicit
+                                                   paw:             PersistentActorWhisperer,
+                                                   decoderEntityV:  Decoder[EntityWithRef[V]],
+                                                   encoderEntityV:  Encoder[EntityWithRef[V]],
+                                                   encoderV:        Encoder[V],
+                                                   classTag:        ClassTag[V],
+                                                   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[InsertReq[V]] {
 
   override def getHttpReqResult(
     param: InsertReqPar[V]
   ): Future[InsertReqRes[V]] = {
-    val r: Future[Option[Entity[V]]] =
+    val r: Future[Option[EntityWithRef[V]]] =
       paw.WriteOps.insertNewEntity(param.value)
-    r.map((o: Option[Entity[V]]) => InsertReqRes(o.get)) // todo-later - some error handling
+    r.map((o: Option[EntityWithRef[V]]) => InsertReqRes(o.get)) // todo-later - some error handling
   }
   override def getRouteName: String =
     "debug 319CCAEA2DE4 - insert logic"

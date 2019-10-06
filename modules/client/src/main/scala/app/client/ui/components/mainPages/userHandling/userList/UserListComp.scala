@@ -19,7 +19,7 @@ import app.shared.comm.postRequests.{
   GetAllUsersReq,
   GetEntityReq
 }
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithVersion
 import japgolly.scalajs.react.component.Scala.Component

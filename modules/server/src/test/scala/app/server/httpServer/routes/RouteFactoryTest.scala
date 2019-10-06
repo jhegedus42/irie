@@ -24,7 +24,7 @@ import app.shared.comm.postRequests.marshall.{
   ParametersAsJSON,
   ResultOptionAsJSON
 }
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntities
@@ -95,7 +95,7 @@ class RouteFactoryTest
         .lens(_.favoriteNumber)
         .set(7)
 
-    val updatedTA: Entity[User] =
+    val updatedTA: EntityWithRef[User] =
       executeUpdateUserRequest(originalTA, updatedTAValue)
 
     assertLatestEntityIs(updatedTA)
@@ -113,8 +113,8 @@ class RouteFactoryTest
 //    val
 
     resetServerState()
-    val alice: Entity[User] = TestEntities.aliceEntity_with_UUID0
-    val refToEntityWithoutVersion = alice.refToEntity
+    val alice: EntityWithRef[User] = TestEntities.aliceEntity_with_UUID0
+    val refToEntityWithVersion = alice.refToEntity
 
     assertLatestEntityIs(alice)
 
@@ -131,7 +131,7 @@ class RouteFactoryTest
 
     resetServerState()
 
-    val mhb: Entity[User] = TestEntities.meresiHiba_with_UUID2
+    val mhb: EntityWithRef[User] = TestEntities.meresiHiba_with_UUID2
 
     assertUserFavoriteNumber(mhb,369)
 

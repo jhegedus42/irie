@@ -20,7 +20,7 @@ import app.shared.comm.postRequests.marshall.EncodersDecoders.{decodeResult, enc
 import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
 import app.shared.comm.postRequests.{GetEntityReq, InsertReq, ResetRequest, UpdateReq}
 import app.shared.comm.{PostRequest, RouteName}
-import app.shared.entity.Entity
+import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion }
@@ -38,8 +38,8 @@ case class TestHelper(routes: RouteFactory)
     with ScalatestRouteTest {
 
   def updateUsersFavoriteNumer(
-    user:              Entity[User],
-    newFavoriteNumber: Int
+                                user:              EntityWithRef[User],
+                                newFavoriteNumber: Int
   ): Unit = {
 
     val updatedUserValue =
@@ -56,11 +56,11 @@ case class TestHelper(routes: RouteFactory)
   }
 
   def assertUserFavoriteNumber(
-    user:           Entity[User],
-    favoriteNumber: Int
+                                user:           EntityWithRef[User],
+                                favoriteNumber: Int
   ): Unit = {
 
-    val resFromServer: Entity[User] = getLatestEntity(
+    val resFromServer: EntityWithRef[User] = getLatestEntity(
       user.refToEntity
     )
 
@@ -87,13 +87,13 @@ case class TestHelper(routes: RouteFactory)
     V   <: EntityValue[V]
   ](par: Req#ParT
   )(
-    implicit
-    encoder: Encoder[Req#ResT],
-    decoder: Decoder[Req#ResT],
-    enc_par: Encoder[Req#ParT],
-    e2:      Encoder[Entity[V]],
-    ct1:     ClassTag[Req#PayLoadT],
-    ct2:     ClassTag[Req]
+     implicit
+     encoder: Encoder[Req#ResT],
+     decoder: Decoder[Req#ResT],
+     enc_par: Encoder[Req#ParT],
+     e2:      Encoder[EntityWithRef[V]],
+     ct1:     ClassTag[Req#PayLoadT],
+     ct2:     ClassTag[Req]
   ): Req#ResT = {
 
     val rn: String = "/" + RouteName
@@ -128,9 +128,9 @@ case class TestHelper(routes: RouteFactory)
   // todo-later guzsba kotni az impliciteket itt, felhasznalva a Macska pattern-t
 
   def executeUpdateUserRequest(
-    currentEntity: Entity[User],
-    newValue:      User
-  ): Entity[User] = {
+                                currentEntity: EntityWithRef[User],
+                                newValue:      User
+  ): EntityWithRef[User] = {
 
     val rn: String = "/" + RouteName
       .getRouteName[UpdateReq[User]]()
@@ -174,7 +174,7 @@ case class TestHelper(routes: RouteFactory)
 
   }
 
-  def executeInsertUserRequest(u: User): Entity[User] = {
+  def executeInsertUserRequest(u: User): EntityWithRef[User] = {
 
     val rn: String = "/" + RouteName
       .getRouteName[InsertReq[User]]()
@@ -204,7 +204,7 @@ case class TestHelper(routes: RouteFactory)
 
     println(resp)
 
-    val ent: Entity[User] =
+    val ent: EntityWithRef[User] =
       decodeResult[ InsertReq[User]](
         ResultOptionAsJSON(resp)
       ).right.get.entity
@@ -216,12 +216,12 @@ case class TestHelper(routes: RouteFactory)
   def getLatestEntity[V <: EntityValue[V]](
     ref: RefToEntityWithVersion[V]
   )(
-    implicit
-    encoder: Encoder[GetEntityReq[V]#ResT],
-    decoder: Decoder[GetEntityReq[V]#ResT],
-    enc_ent: Encoder[Entity[V]],
-    ct1:     ClassTag[GetEntityReq[V]#PayLoadT]
-  ): Entity[V] = {
+                                            implicit
+                                            encoder: Encoder[GetEntityReq[V]#ResT],
+                                            decoder: Decoder[GetEntityReq[V]#ResT],
+                                            enc_ent: Encoder[EntityWithRef[V]],
+                                            ct1:     ClassTag[GetEntityReq[V]#PayLoadT]
+  ): EntityWithRef[V] = {
 
     val rn: String = "/" + RouteName
       .getRouteName[GetEntityReq[User]]()
@@ -252,7 +252,7 @@ case class TestHelper(routes: RouteFactory)
     *
     * @param entity
     */
-  def assertLatestEntityIs(entity: Entity[User]): Unit = {
+  def assertLatestEntityIs(entity: EntityWithRef[User]): Unit = {
     val rn: String = "/" + RouteName
       .getRouteName[GetEntityReq[User]]()
       .name
