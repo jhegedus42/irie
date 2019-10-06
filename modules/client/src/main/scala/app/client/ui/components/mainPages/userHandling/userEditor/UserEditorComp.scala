@@ -1,5 +1,6 @@
 package app.client.ui.components.mainPages.userHandling.userEditor
 
+import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cache.{
   CacheConvenienceFunctions,
   ReadCacheEntryStates
@@ -148,46 +149,6 @@ object UserEditorComp {
       )
     }
 
-    /**
-      *
-      * If the option is None, this displays some "default" text,
-      * otherwise, it displays the
-      * @param entityOption
-      * @param updateHandler
-      * @return
-      */
-    def intendedNewNameTextField(
-      entityOption:  Option[Entity[User]],
-      updateHandler: String => CallbackTo[Unit]
-    ) = {
-
-      def g[V](v: Option[V])(f: V => VdomTagOf[Div]): VdomTagOf[Div] =
-        if (entityOption.isEmpty) <.div(<.p("loading ..."))
-        else f(v.get)
-
-      val res: html_<^.VdomTagOf[Div] = g(entityOption) {
-        userEntity: Entity[User] =>
-          val userName = userEntity.entityValue.name
-          <.div(
-            <.br,
-            s"Original name: $userName",
-            <.br,
-            <.hr,
-            <.br,
-            TBH.textFieldComp(userName)(
-              TBH.Props(
-                updateHandler,
-                "Save Changes",
-                "Intended new name for the user (TextField implementation): "
-              )
-            )
-          )
-      }
-
-      res
-
-    }
-
     def updateUserName(
       currentEntity: Entity[User],
       newName:       String,
@@ -210,24 +171,32 @@ object UserEditorComp {
     }
 
     def handleUpdateUserButon(
-      message: String
-    ): String => CallbackTo[Unit] = { newValue: String =>
+      cache:            Cache,
+      currentEntityPar: Entity[User]
+    ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
-
         dom.window.alert(
-          s"mi ezt az usert-t fogjuk update-elni : $message\n" +
-            s"ez lesz az uj neve: $newValue"
+          s"mi ezt az usert-t fogjuk update-elni : ${currentEntityPar.entityValue.name}\n" +
+            s"ez lesz az uj neve: $newUserName"
         )
 
+        implicit val i
+          : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+            with WriteRequestHandlerTCImpl.UserReadCacheInvalidator =
+          WriteRequestHandlerTCImpl.userUpdater
+
+        import io.circe.generic.auto._
+
+        val newEntityVal =
+          currentEntityPar.entityValue.lens(_.name).set(newUserName)
+
+        val ur1 =
+          UpdateReq.UpdateReqPar[User](currentEntityPar, newEntityVal)
+
+        cache.writeToServer[WriteRequest, UpdateReq[User]](ur1)
+
       })
-
-
-      // todo-now-1.1 handle button press - continue-here
-      // call update user request
-      // we need a write request handler here...
-
     }
-
   }
 
   class Backend[Properties](
@@ -245,27 +214,39 @@ object UserEditorComp {
         )
 
       import org.scalajs.dom.html.{Anchor, Div}
-      val newName: String = s.intendedNewName.value.getOrElse("there is no new name defined yet")
+      val newName: String = s.intendedNewName.value
+        .getOrElse("there is no new name defined yet")
+
+      val currentName: String =
+        entityOption.map(_.entityValue.name).getOrElse("Loading...")
+
+      def buttonOpt: VdomTagOf[Div] =
+        if (entityOption.nonEmpty) {
+          <.div(
+            Helpers.saveButton(
+              Helpers.handleUpdateUserButon(cacheAndProps.cache,
+                                            entityOption.get)(newName)
+            )
+          )
+
+        } else <.div("  No entity, no button !")
 
       <.div(
         <.h1("This is the UserEditor Page"),
         <.br,
-        "Current name of the User " + entityOption.map(_.entityValue.name).getOrElse("Loading..."),
+        "Current name of the User " + currentName,
         <.br,
         "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))
         ),
-
-        Helpers.saveButton(Helpers.handleUpdateUserButon("string2")(newName) )
-
-        // todo-now 1 - send update user ajax call button
-
-        // todo-now-2 - button to increase counter => refresh page
-
-        // todo-now-3 - button to trigger cache refresh
+        <.br,
+        buttonOpt,
+        <.br
       )
+      // todo-now-2 - button to increase counter => refresh page
+      // todo-now-3 - button to trigger cache refresh
     }
 
   }
