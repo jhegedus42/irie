@@ -87,7 +87,7 @@ object ReadCache {
         val id   = par.entityIdentity
         val keys_ = map.keys
         val key = keys_.filter(
-          p => p.refToEntityWithoutVersion.entityIdentity  == id
+          p => p.refToEntityWithVersion.entityIdentity  == id
         )
         val oldVal=map(key.head)
         val newMap=map + (key.head -> oldVal.toStale.get)

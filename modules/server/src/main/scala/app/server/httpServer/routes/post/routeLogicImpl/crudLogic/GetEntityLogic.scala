@@ -16,6 +16,7 @@ case class GetEntityLogic[V <: EntityValue[V]](
   implicit
   paw:             PersistentActorWhisperer,
   dv:              Decoder[V],
+  de:              Decoder[Entity[V]],
   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[GetEntityReq[V]] {
 
@@ -24,7 +25,8 @@ case class GetEntityLogic[V <: EntityValue[V]](
   ): Future[Res[V]] = {
 
     val res: Future[Option[Entity[V]]] =
-      paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
+//      paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
+    paw.getEntityWithVersion(param.refToEntityWithVersion)
 
     val res2: Future[Res[V]] =
       res.map(r => Res(r))
