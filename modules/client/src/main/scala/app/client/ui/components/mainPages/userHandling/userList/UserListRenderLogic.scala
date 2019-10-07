@@ -1,15 +1,28 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndProps,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
-import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
+import app.client.ui.components.{
+  MainPage,
+  StaticTemplatePage,
+  UserListPage
+}
 import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
+import app.shared.comm.postRequests.{
+  AdminPassword,
+  GetAllUsersReq,
+  GetEntityReq
+}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion }
+import app.shared.entity.refs.{RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -25,7 +38,8 @@ case class UserListRenderLogic(
 
     def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
       def requestResultForRefToAllUsers
-        : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetAllUsersReq] =
+        : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest,
+                                                   GetAllUsersReq] =
         cacheInterfaceWrapper.cache
           .readFromServer[ReadRequest, GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
@@ -33,7 +47,9 @@ case class UserListRenderLogic(
       requestResultForRefToAllUsers.toOption
     }
 
-    def getUserListAsVDOM(l: List[Option[EntityWithRef[User]]]): TagMod = {
+    def getUserListAsVDOM(
+      l: List[Option[EntityWithRef[User]]]
+    ): TagMod = {
 
       /**
         * todo-now - tenni ide egy linket
@@ -48,14 +64,15 @@ case class UserListRenderLogic(
         def linkToUserEditorPage(
           id: EntityIdentity
         ): VdomTagOf[Anchor] =
-            <.a("edit", ^.href := ctl.urlFor(StaticTemplatePage).value,
-            ctl.setOnLinkClick(UserEditorPage(id.uuid)))
+          <.a("edit",
+              ^.href := ctl.urlFor(StaticTemplatePage).value,
+              ctl.setOnLinkClick(UserEditorPage(id.uuid)))
 
         if (user.isDefined) {
-          val name=user.get.entityValue.name
-          val n=user.get.entityValue.favoriteNumber
+          val name = user.get.entityValue.name
+          val n    = user.get.entityValue.favoriteNumber
           <.p(
-            s"Name : $name , favorite number: $n " ,
+            s"Name : $name , favorite number: $n ",
             linkToUserEditorPage(user.get.refToEntity.entityIdentity),
             <.br
           )
@@ -81,11 +98,12 @@ case class UserListRenderLogic(
 
     for {
       res <- refToAllUsersOption
-      res2 = res.allUserRefs
-      res3 = res2.map(userRef2UserOption(_))
-      res4 = res3.map(x => x.optionEntity)
-      res5 = getUserListAsVDOM(res4)
+      res2  = RefToEntityWithVersion.getOnlyLatestVersions(res.allUserRefs)
+      res3  = res2.map(userRef2UserOption(_))
+      res4  = res3.map(x => x.optionEntity)
+      res5  = getUserListAsVDOM(res4)
     } yield (res5)
+
   }
 
 }

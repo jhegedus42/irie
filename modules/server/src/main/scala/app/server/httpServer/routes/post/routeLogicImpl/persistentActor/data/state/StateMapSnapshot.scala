@@ -1,6 +1,10 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
+import app.shared.entity.asString.{
+  EntityAndItsValueAsJSON,
+  EntityValueAsJSON,
+  EntityValueTypeAsString
+}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
@@ -71,9 +75,7 @@ private[persistentActor] case class StateMapSnapshot(
   def filterByIdentity(
     entityIdentity: EntityIdentity
   ): Map[UntypedRef, UntypedEntity] =
-    map.filterKeys(
-      _.entityIdentity == entityIdentity
-    )
+    map.filterKeys(_.entityIdentity == entityIdentity)
 
   def getLatestVersionForEntity(
     identity: EntityIdentity
@@ -100,9 +102,7 @@ private[persistentActor] case class StateMapSnapshot(
     assert(map.contains(refToLatestVersion))
 
     val latestVersion: Long =
-      getLatestVersionForEntity(
-        refToLatestVersion.entityIdentity
-      )._1.entityVersion.versionNumberLong
+      getLatestVersionForEntity(refToLatestVersion.entityIdentity)._1.entityVersion.versionNumberLong
 
     assert(
       refToLatestVersion.entityVersion.versionNumberLong == latestVersion
@@ -110,7 +110,7 @@ private[persistentActor] case class StateMapSnapshot(
 
     val ref_new: UntypedRef = refToLatestVersion.bumpVersion
 
-    val newUntypedEntity=UntypedEntity(ref_new,value)
+    val newUntypedEntity = UntypedEntity(ref_new, value)
 
     val newMap = map + (ref_new -> newUntypedEntity)
 

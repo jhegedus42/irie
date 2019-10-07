@@ -5,7 +5,15 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetAllUsersReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.RouteFactoryTest">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="fastOptJS" />
@@ -297,10 +305,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="ScalaTest.RouteFactoryTest" />
-        <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test insert route[User]" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test update route" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test get route[User]" />
+        <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
       </list>
     </recent_temporary>
   </component>
@@ -380,13 +388,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00325" summary="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 23.18.36:&#10;&#10;Code compiles but router complains about &#10;some &quot;unspecified path&quot;.&#10;&#10;Need to fix this runtime error.&#10;It is marked in the source as &quot;todo-now&quot;.&#10;--------------------------------------------------">
-      <created>1568665225485</created>
-      <option name="number" value="00325" />
-      <option name="presentableId" value="LOCAL-00325" />
-      <option name="project" value="LOCAL" />
-      <updated>1568665225486</updated>
     </task>
     <task id="LOCAL-00326" summary="Proceeding with User CRUD client side logic.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 1.03.50:&#10;&#10;Rearranging the files a bit.&#10;Cleaning up the root directory.&#10;Moving away .sh files, into a designated&#10;sub-folder.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 18.58.01:&#10;&#10;Refactored the code a bit.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 19.27.57:&#10;&#10;In the middle of some refactoring for &quot;more type safety&quot;,&#10;we have now a few compiler errors.&#10;&#10;It is about the declaration and implementation for the &#10;&quot;MainPage&quot; react components.&#10;&#10;That is, about their types. The two should be related.&#10;--------------------------------------------------&#10;Monday, 16 September 2019 23.18.36:&#10;&#10;Code compiles but router complains about &#10;some &quot;unspecified path&quot;.&#10;&#10;Need to fix this runtime error.&#10;It is marked in the source as &quot;todo-now&quot;.&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 2.54.04:&#10;&#10;Everything works !&#10;&#10;The new, more type safe &quot;cache injector&quot; / &quot;wrapper&quot;&#10;and also the parameter passing from the URL into the component.&#10;&#10;See the SumIntPage.&#10;&#10;Next thing : onto the single User-CRUD.&#10;&#10;--------------------------------------------------">
       <created>1568678164252</created>
@@ -724,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570452327796</updated>
     </task>
-    <option name="localTasksCounter" value="374" />
+    <task id="LOCAL-00374" summary="testing client side... &#10;&#10;something is off, but things are getting better">
+      <created>1570452637497</created>
+      <option name="number" value="00374" />
+      <option name="presentableId" value="LOCAL-00374" />
+      <option name="project" value="LOCAL" />
+      <updated>1570452637497</updated>
+    </task>
+    <option name="localTasksCounter" value="375" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -770,7 +778,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Monday, 23 September 2019 3.08.52:&#10;&#10;Introduced the &quot;PostRequestType&quot;, phantom type.&#10;&#10;Now I have lot of type errors, all over the place.&#10;&#10;They either need to be fixed, or we roll back and&#10;remove this phantom type parameter.&#10;--------------------------------------------------&#10;Monday, 23 September 2019 18.20.06:&#10;&#10;Phantom type is still in the code.&#10;&#10;I used a _ for the type parameter at a lot of places.&#10;Also I have a few ???-s and a few todo-now-s, so,&#10;even though the code compiles now, it will fail&#10;at runtime, most likely. &#10;&#10;So the ???-s and todo-now-s have to be fixed, and&#10;after that we need to see how to separate the &#10;&quot;write&quot; and &quot;read&quot; cache / logic in the app, for&#10;which the phantom type parameter was introduced.&#10;&#10;Possibly different type classes for the caches, or&#10;some sort of &quot;master cache&quot;, or &quot;cache supervisor&quot;,&#10;an an extra layer of abstraction above the current&#10;client caching ... we need to see... it's not&#10;clear yet.&#10;&#10;A bit of experimentation is ahead on the road." />
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place." />
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely." />
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------" />
@@ -795,6 +802,7 @@
     <MESSAGE value="work in progress...." />
     <MESSAGE value="test get route has passed ..." />
     <MESSAGE value="all server side tests pass" />
-    <option name="LAST_COMMIT_MESSAGE" value="all server side tests pass" />
+    <MESSAGE value="testing client side... &#10;&#10;something is off, but things are getting better" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing client side... &#10;&#10;something is off, but things are getting better" />
   </component>
 </project>

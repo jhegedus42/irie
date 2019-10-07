@@ -13,20 +13,18 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class GetEntityLogic[V <: EntityValue[V]](
 )(
-                                                implicit
-                                                paw:             PersistentActorWhisperer,
-                                                dv:              Decoder[V],
-                                                de:              Decoder[EntityWithRef[V]],
-                                                contextExecutor: ExecutionContextExecutor)
+  implicit
+  paw:             PersistentActorWhisperer,
+  dv:              Decoder[V],
+  de:              Decoder[EntityWithRef[V]],
+  contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[GetEntityReq[V]] {
 
-  override def getHttpReqResult(
-    param: Par[V]
-  ): Future[Res[V]] = {
+  override def getHttpReqResult(param: Par[V]): Future[Res[V]] = {
 
     val res: Future[Option[EntityWithRef[V]]] =
-//      paw.getEntityWithLatestVersion(param.refToEntityWithoutVersion)
-    paw.getEntityWithVersion(param.refToEntityWithVersion)
+      paw.getEntityWithLatestVersion(param.refToEntityWithVersion)
+//    paw.getEntityWithVersion(param.refToEntityWithVersion)
 
     val res2: Future[Res[V]] =
       res.map(r => Res(r))

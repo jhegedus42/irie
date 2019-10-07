@@ -31,4 +31,5 @@ object GetAllUsersReq {
   case class Res(allUserRefs: List[RefToEntityWithVersion[User]])
       extends PostRequest.Result
 
+
 }

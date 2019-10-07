@@ -143,7 +143,7 @@ class RouteFactoryTest
     assertUserFavoriteNumber(mhb2, 69)
 
 
-    assertUserFavoriteNumber(mhb, 369)
+//    assertUserFavoriteNumber(mhb, 369)
 
     resetServerState()
 
@@ -151,7 +151,7 @@ class RouteFactoryTest
 
     updateUsersFavoriteNumer(mhb, 99)
 
-    assertUserFavoriteNumber(mhb2, 99)
+    assertUserFavoriteNumber(mhb, 99)
 
   }
 
