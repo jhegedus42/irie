@@ -180,7 +180,7 @@ case class PersistentActorWhisperer(
         stateMapSnapshot.getEntityWithLatestVersion(ref)
 
       def res2entity(sme: UntypedEntity): Option[EV] = {
-        val json = sme.entityValueAsJSON.json
+        val json = sme.entityAndItsValueAsJSON.entityValueAsJSON.json
         val res: Option[EV] = d.decodeJson(json).toOption
         res
       }

@@ -12,9 +12,12 @@ import monocle.macros.Lenses
 @Lenses
 private[persistentActor] case class UntypedEntity(
   untypedRef:              UntypedRef,
-  entityAndItsValueAsJSON: EntityAndItsValueAsJSON,
+  entityAndItsValueAsJSON: EntityAndItsValueAsJSON) {
+
+}
+
 //      entityAndItsValueAsJSON: EntityAndItsValueAsJSON
-  entityValueAsJSON: EntityValueAsJSON)
+//  entityValueAsJSON: EntityValueAsJSON)
 
 object UntypedEntity {
 
@@ -29,7 +32,7 @@ object UntypedEntity {
     val entityValueAsString: EntityValueAsJSON =
       EntityValue.getAsJson(e.entityValue)
 //    UntypedEntity(utr, entityValueAsString)
-    UntypedEntity(utr, entityAsString, entityValueAsString)
+    UntypedEntity(utr, entityAsString)
   }
 
   def converToTypedEntityWithRef[V <: EntityValue[V]](
@@ -39,5 +42,10 @@ object UntypedEntity {
     // todo-now continue-now
     ???
   }
+
+  def updateEntityValue(
+    ute:   UntypedEntity,
+    value: EntityValueAsJSON
+  ): UntypedEntity = ???
 
 }

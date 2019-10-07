@@ -100,10 +100,10 @@ class RouteFactoryTest
 
     assertLatestEntityIs(updatedTA)
 
+    val latestEntity = getEntity(updatedTA.refToEntity)
+
     assert(
-      updatedTA.entityValue.favoriteNumber === getLatestEntity(
-        originalTA.refToEntity
-      ).entityValue.favoriteNumber
+      updatedTA.entityValue.favoriteNumber === latestEntity.entityValue.favoriteNumber
     )
 
   }
@@ -113,7 +113,8 @@ class RouteFactoryTest
 //    val
 
     resetServerState()
-    val alice: EntityWithRef[User] = TestEntities.aliceEntity_with_UUID0
+    val alice: EntityWithRef[User] =
+      TestEntities.aliceEntity_with_UUID0
     val refToEntityWithVersion = alice.refToEntity
 
     assertLatestEntityIs(alice)
@@ -133,16 +134,24 @@ class RouteFactoryTest
 
     val mhb: EntityWithRef[User] = TestEntities.meresiHiba_with_UUID2
 
-    assertUserFavoriteNumber(mhb,369)
+    assertUserFavoriteNumber(mhb, 369)
 
-    updateUsersFavoriteNumer(mhb,69)
+    val mhb2=mhb.bumpVersion
 
-    assertUserFavoriteNumber(mhb,69)
+    updateUsersFavoriteNumer(mhb, 69)
+
+    assertUserFavoriteNumber(mhb2, 69)
+
+
+    assertUserFavoriteNumber(mhb, 369)
 
     resetServerState()
 
-    assertUserFavoriteNumber(mhb,369)
+    assertUserFavoriteNumber(mhb, 369)
 
+    updateUsersFavoriteNumer(mhb, 99)
+
+    assertUserFavoriteNumber(mhb2, 99)
 
   }
 

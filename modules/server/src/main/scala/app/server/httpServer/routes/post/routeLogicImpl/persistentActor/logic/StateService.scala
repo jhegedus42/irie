@@ -8,7 +8,10 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.sta
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.server.initialization.Config
-import app.shared.entity.asString.EntityValueAsJSON
+import app.shared.entity.asString.{
+  EntityAndItsValueAsJSON,
+  EntityValueAsJSON
+}
 
 sealed trait DidOperationSucceed
 case class StateServiceOperationSucceeded(m: String)
@@ -22,7 +25,9 @@ case class StateServiceOperationFailed(m: String)
 private[logic] case class StateService() {
 
   def resetState(): Unit = {
-    println("1C6C8F45 - we reset the state now - its value before reset is:")
+    println(
+      "1C6C8F45 - we reset the state now - its value before reset is:"
+    )
     printStateInSimpleFormat()
 
     val newState: StateMapSnapshot = TestDataProvider.getTestState
@@ -32,11 +37,13 @@ private[logic] case class StateService() {
 
   def updateEntity(
     refToLatestVersion: UntypedRef,
-    newValue:           EntityValueAsJSON
+    newValue:           EntityAndItsValueAsJSON
   ): DidOperationSucceed = {
 
     val currentState = getState
+
 //  val newState: Option[StateMapSnapshot] =currentState.updateExistingEntity(currentEntity,newValue)
+
     val newState: Option[StateMapSnapshot] =
       currentState.unsafeInsertUpdatedEntity(refToLatestVersion,
                                              newValue)
@@ -79,7 +86,7 @@ private[logic] case class StateService() {
     applicationState
   }
 
-  def printStateInSimpleFormat():Unit={
+  def printStateInSimpleFormat(): Unit = {
     applicationState.getSimpleFormat.foreach(println(_))
   }
 

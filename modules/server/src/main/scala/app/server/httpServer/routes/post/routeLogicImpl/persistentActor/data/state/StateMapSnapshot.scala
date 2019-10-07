@@ -1,9 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
-import app.shared.entity.asString.{
-  EntityValueAsJSON,
-  EntityValueTypeAsString
-}
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
@@ -12,8 +9,6 @@ import monocle.macros.syntax.lens._
 //import scalaz._
 
 //import Scalaz._
-
-
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
@@ -25,7 +20,7 @@ private[persistentActor] case class StateMapSnapshot(
 
   def getSimpleFormat: List[String] = {
     val res: Iterable[String] = map.values.map(x => {
-      s" $occVersion ${x.entityValueAsJSON.json.noSpaces} ${x.untypedRef.entityVersion} ${x.untypedRef.entityIdentity.uuid}"
+      s" $occVersion ${x.entityAndItsValueAsJSON.entityValueAsJSON.json.noSpaces} ${x.untypedRef.entityVersion} ${x.untypedRef.entityIdentity.uuid}"
     })
     res.toList
   }
@@ -95,7 +90,7 @@ private[persistentActor] case class StateMapSnapshot(
     */
   def unsafeInsertUpdatedEntity(
     refToLatestVersion: UntypedRef,
-    value:              EntityValueAsJSON
+    value:              EntityAndItsValueAsJSON
   ): Option[StateMapSnapshot] = {
 
     // todo-later - this can throw !!!
@@ -115,8 +110,10 @@ private[persistentActor] case class StateMapSnapshot(
 
     val ref_new: UntypedRef = refToLatestVersion.bumpVersion
 
-//    val newMap = map + (ref_new -> UntypedEntity(ref_new, value))
-    val newMap = ??? // todo-now -- continue here
+    val newUntypedEntity=UntypedEntity(ref_new,value)
+
+    val newMap = map + (ref_new -> newUntypedEntity)
+
     Some(StateMapSnapshot(newMap).bumpVersion)
   }
 
@@ -158,7 +155,6 @@ private[persistentActor] case class StateMapSnapshot(
     //  see : https://github.com/scalaz/scalaz-deriving/tree/v1.0.0
     //  and : http://eed3si9n.com/learning-scalaz/Equal.html
     //  and : http://eed3si9n.com/learning-scalaz/Equal.html
-
 
     keys.toList
 
