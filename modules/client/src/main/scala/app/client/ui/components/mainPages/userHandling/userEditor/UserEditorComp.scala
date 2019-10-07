@@ -151,36 +151,15 @@ object UserEditorComp {
       )
     }
 
-    def updateUserName(
-                        currentEntity: EntityWithRef[User],
-                        newName:       String,
-                        cacheAndProps: CacheAndProps[Props]
-    ): Option[EntityWithRef[User]] = {
-
-      val newEntityVal =
-        currentEntity.entityValue.lens(_.name).set(newName)
-
-      val par: UpdateReq[User]#ParT =
-        UpdateReq.UpdateReqPar[User](currentEntity, newEntityVal)
-
-      // todo-now 1.2 complete this
-
-      // todo-now 1.3 kell egy kess ami elerheto
-
-      // todo-now 1.4 send update request
-
-      None
-    }
-
     def handleUpdateUserButon(
       cache:            Cache,
       currentEntityPar: EntityWithRef[User]
     ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
-        dom.window.alert(
-          s"mi ezt az usert-t fogjuk update-elni : ${currentEntityPar.entityValue.name}\n" +
-            s"ez lesz az uj neve: $newUserName"
-        )
+//        dom.window.alert(
+//          s"mi ezt az usert-t fogjuk update-elni : ${currentEntityPar.entityValue.name}\n" +
+//            s"ez lesz az uj neve: $newUserName"
+//        )
 
         implicit val i
           : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
@@ -209,17 +188,18 @@ object UserEditorComp {
       s:             State
     ): VdomElement = {
 
-      val entityOption: Option[EntityWithRef[User]] =
+      def entityOption: Option[EntityWithRef[User]] =
         CacheConvenienceFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
           cacheAndProps.cache
         )
 
       import org.scalajs.dom.html.{Anchor, Div}
-      val newName: String = s.intendedNewName.value
-        .getOrElse("there is no new name defined yet")
+      def newName: String =
+        s.intendedNewName.value
+          .getOrElse("there is no new name defined yet")
 
-      val currentName: String =
+      def currentName: String =
         entityOption.map(_.entityValue.name).getOrElse("Loading...")
 
       def buttonOpt: VdomTagOf[Div] =
@@ -247,8 +227,13 @@ object UserEditorComp {
         buttonOpt,
         <.br
       )
+
       // todo-now-2 - button to increase counter => refresh page
+
+      // todo-right-now
+
       // todo-now-3 - button to trigger cache refresh
+
     }
 
   }

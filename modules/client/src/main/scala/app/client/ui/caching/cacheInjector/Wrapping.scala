@@ -145,8 +145,10 @@ private[caching] object ReRenderer {
   def setTriggerer(reRenderTriggerer: ReRenderTriggerer): Unit =
     triggerer = Some(reRenderTriggerer)
 
-  def triggerReRender(): Unit =
+  def triggerReRender(): Unit = {
     if (triggerer.nonEmpty) triggerer.head.triggerReRender()
+    println("C6A0E3FD-5F15-435B-8750-E4F8AD9F6401 trigger re-render was called")
+  }
 
   case class ReRenderTriggerer(triggerReRender: () => Unit)
 

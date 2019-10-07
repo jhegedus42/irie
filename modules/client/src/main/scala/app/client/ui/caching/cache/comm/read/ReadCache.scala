@@ -91,7 +91,7 @@ object ReadCache {
         )
         val oldVal=map(key.head)
         val newMap=map + (key.head -> oldVal.toStale.get)
-
+        ReRenderer.triggerReRender()
       }
     }
 

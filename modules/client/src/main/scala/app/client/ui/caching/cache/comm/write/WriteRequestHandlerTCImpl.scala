@@ -36,6 +36,7 @@ trait WriteRequestHandlerTCImpl[
   self: ReadCacheInvalidator[RT, Req] =>
 
   type WR = PostRequest[RT]
+
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
