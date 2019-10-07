@@ -113,17 +113,10 @@ private[persistentActor] case class StateMapSnapshot(
       refToLatestVersion.entityVersion.versionNumberLong == latestVersion
     ) // this is for the occ
 
-    import monocle.macros.syntax.lens._
-    val ref_new: UntypedRef =
-      refToLatestVersion
-        .lens(
-          _.entityVersion.versionNumberLong
-        )
-        .modify(
-          x => x + 1
-        )
+    val ref_new: UntypedRef = refToLatestVersion.bumpVersion
 
-    val newMap = map + (ref_new -> UntypedEntity(ref_new, value))
+//    val newMap = map + (ref_new -> UntypedEntity(ref_new, value))
+    val newMap = ??? // todo-now -- continue here
     Some(StateMapSnapshot(newMap).bumpVersion)
   }
 

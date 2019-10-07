@@ -71,7 +71,7 @@ case class PersistentActorWhisperer(
         .lens(_.entityValue)
         .set(newValue)
         .lens(_.refToEntity.entityVersion)
-        .modify(_.inc())
+        .modify(_.bumpVersion())
 
       val ic: UpdateEntityCommand = UpdateEntityCommand(
         currentEntityUntyped,
@@ -144,18 +144,11 @@ case class PersistentActorWhisperer(
 
       println(s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res ")
 
+      val ent: Option[EntityWithRef[V]] =res.head.entityAndItsValueAsJSON.entityAsJSON.getEntity
 
-      val json: Json =res.head.entityValueAsJSON.json
+      println(s"410B699E-40CC-4973-8020-AB6944A643FD - $ent - ent in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion")
 
-      println(s"410B699E-40CC-4973-8020-AB6944A643FD - $json - json in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion")
-
-      val res2: Result[EntityWithRef[V]] =d.decodeJson(json)
-
-      val res3 = res2.toOption
-
-      println(s"20E679D9-D20B-4191-87D4-CCB3C9E966DD - $res3 - decoded json in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion")
-
-      res3
+      ent
 
     }
 

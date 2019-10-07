@@ -5,15 +5,11 @@ import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Json}
 
-case class EntityAsJSON(json: Json)
+case class EntityAsJSON(json: Json) {
 
-
-
-object EntityAsJSON {
   def getEntity[V <: EntityValue[V]](
-      entityAsJSON: EntityAsJSON
-  )(implicit d:     Decoder[EntityWithRef[V]]): Option[EntityWithRef[V]] = {
-    val json = entityAsJSON.json
+    implicit d: Decoder[EntityWithRef[V]]
+  ): Option[EntityWithRef[V]] = {
     val res: Result[EntityWithRef[V]] = d.decodeJson(json)
     res.toOption
   }

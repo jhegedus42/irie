@@ -36,7 +36,13 @@ case class EntityWithRef[E <: EntityValue[E]](
                             EntityValue.getAsJson(entityValue))
   }
 
+  def updateValue(v:E): EntityWithRef[E] =this.copy(entityValue=v)
+  def bumpVersion: EntityWithRef[E] =this.copy(refToEntity=this.refToEntity.bumpVersion)
+
+
+
 }
+
 
 object EntityWithRef {
 
@@ -52,5 +58,6 @@ object EntityWithRef {
       RefToEntityWithVersion[V](EntityValueTypeAsString.make[V])
     EntityWithRef(v, tr)
   }
+
 
 }

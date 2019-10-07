@@ -7,12 +7,10 @@ import monocle.macros.Lenses
 
 @Lenses
 case class RefToEntityWithVersion[T <: EntityValue[T]](
-    entityValueTypeAsString: EntityValueTypeAsString,
-    entityIdentity:          EntityIdentity = EntityIdentity(),
-    entityVersion:           EntityVersion = EntityVersion()
+  entityValueTypeAsString: EntityValueTypeAsString,
+  entityIdentity:          EntityIdentity = EntityIdentity(),
+  entityVersion:           EntityVersion = EntityVersion()) {
 
-){
-//  def stripVersion():RefToEntityWithoutVersion[T] =
-//  RefToEntityWithoutVersion(entityValueTypeAsString,entityIdentity)
+  def bumpVersion: RefToEntityWithVersion[T] =
+    this.copy(entityVersion = entityVersion.bumpVersion())
 }
-

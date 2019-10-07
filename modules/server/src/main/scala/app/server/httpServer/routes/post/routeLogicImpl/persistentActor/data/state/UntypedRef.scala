@@ -8,10 +8,9 @@ import monocle.macros.Lenses
 
 @Lenses
 case class UntypedRef(
-    entityValueTypeAsString: EntityValueTypeAsString,
-    entityIdentity:          EntityIdentity = EntityIdentity(),
-    entityVersion:           EntityVersion = EntityVersion()
-) {
+  entityValueTypeAsString: EntityValueTypeAsString,
+  entityIdentity:          EntityIdentity = EntityIdentity(),
+  entityVersion:           EntityVersion = EntityVersion()) {
 
   def asSimpleString(): String = {
     s"${this.entityIdentity.uuid} " +
@@ -21,12 +20,23 @@ case class UntypedRef(
 
 //  def stripVersion(): UntypedRefWithoutVersion =
 //    UntypedRefWithoutVersion(entityValueTypeAsString, entityIdentity)
+  def bumpVersion: UntypedRef = {
+    import monocle.macros.syntax.lens._
+    val res: UntypedRef = this
+      .lens(
+        _.entityVersion.versionNumberLong
+      )
+      .modify(
+        x => x + 1
+      )
+    res
+  }
 }
 
 object UntypedRef {
 
   implicit def makeFromRefToEntity[T <: EntityValue[T]](
-      refToEntity: RefToEntityWithVersion[T]
+    refToEntity: RefToEntityWithVersion[T]
   ): UntypedRef = {
     UntypedRef(
       entityValueTypeAsString = refToEntity.entityValueTypeAsString,
@@ -36,7 +46,7 @@ object UntypedRef {
   }
 
   def getTypedRef[T <: EntityValue[T]](
-      untypedRef: UntypedRef
+    untypedRef: UntypedRef
   ): RefToEntityWithVersion[T] = {
     RefToEntityWithVersion(untypedRef.entityValueTypeAsString,
                            untypedRef.entityIdentity,
