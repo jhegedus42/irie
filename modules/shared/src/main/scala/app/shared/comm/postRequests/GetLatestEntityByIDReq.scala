@@ -6,7 +6,7 @@ import app.shared.entity.EntityWithRef
 import app.shared.entity.refs.{RefToEntityWithVersion}
 import io.circe.generic.JsonCodec
 
-object GetEntityReq {
+object GetLatestEntityByIDReq {
 
   import io.circe.generic.auto._
   import io.circe.syntax._
@@ -25,10 +25,10 @@ object GetEntityReq {
 }
 
 //@JsonCodec
-class GetEntityReq[V <: EntityValue[V]]
+class GetLatestEntityByIDReq[V <: EntityValue[V]]
     extends PostRequest[ReadRequest] {
-  override type ParT     = GetEntityReq.Par[V]
-  override type ResT     = GetEntityReq.Res[V]
+  override type ParT     = GetLatestEntityByIDReq.Par[V]
+  override type ResT     = GetLatestEntityByIDReq.Res[V]
   override type PayLoadT = V
 
 }

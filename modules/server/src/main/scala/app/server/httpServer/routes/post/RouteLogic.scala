@@ -1,7 +1,11 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.{GetAllUsersLogic, ResetServerStateLogic, SumIntLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.{
+  GetAllUsersLogic,
+  ResetServerStateLogic,
+  SumIntLogic
+}
 import app.shared.comm.{PostRequest, PostRequestType}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -12,8 +16,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
   *
   * @tparam Req
   */
-trait RouteLogic[Req<: PostRequest[_]] {
-
+trait RouteLogic[Req <: PostRequest[_]] {
 
   /**
     *
