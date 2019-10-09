@@ -1,11 +1,10 @@
 package app.shared.entity.refs
 
+
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
-import scala.collection.immutable
-
 
 
 @Lenses
@@ -31,7 +30,7 @@ object RefToEntityWithVersion {
       )
     val map_ : Map[String, RefToEntityWithVersion[V]] = g2.toMap
 
-    val res =map_.values.toList
+    val res = map_.values.toList
     res
   }
 

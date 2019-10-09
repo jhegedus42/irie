@@ -2,7 +2,7 @@ package app.client.ui.components.mainPages.userHandling.userEditor
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cache.{
-  CacheConvenienceFunctions,
+  CacheHelperFunctions,
   ReadCacheEntryStates
 }
 
@@ -189,7 +189,7 @@ object UserEditorComp {
     ): VdomElement = {
 
       def entityOption: Option[EntityWithRef[User]] =
-        CacheConvenienceFunctions.getEntity[User](
+        CacheHelperFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
           cacheAndProps.cache
         )

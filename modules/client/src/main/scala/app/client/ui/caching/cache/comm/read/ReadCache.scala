@@ -4,10 +4,10 @@ import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntr
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, SumIntRoute}
+import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, SumIntRoute}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion }
+import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -26,7 +26,6 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
   ): ReadCacheEntryState[RT, Req]
 
 }
-
 
 private[caching] class ReadCacheImpl[
   RT  <: ReadRequest,
@@ -71,26 +70,39 @@ private[caching] class ReadCacheImpl[
       loading
     } else map(par)
 
-
 }
 
 object ReadCache {
 
+  implicit val getLatestUserCache =
+    new ReadCacheImpl[ReadRequest, GetLatestEntityByIDReq[User]]() {
+
+      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
+        val id    = par.entityIdentity
+        val keys_ = map.keys
+        val key = keys_.filter(
+          p => p.refToEntityWithVersion.entityIdentity == id
+        )
+        val oldVal = map(key.head)
+        val newMap = map + (key.head -> oldVal.toStale.get)
+        ReRenderer.triggerReRender()
+      }
+    }
+
   implicit val sumIntPostRequestResultCache =
     new ReadCacheImpl[ReadRequest, SumIntRoute]()
 
-  implicit val getUserCache=
+  implicit val getUserCache =
     new ReadCacheImpl[ReadRequest, GetEntityReq[User]]() {
-      def invalidateEntry(
-        par: RefToEntityWithVersion[User]
-      ): Unit = {
-        val id   = par.entityIdentity
+
+      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
+        val id    = par.entityIdentity
         val keys_ = map.keys
         val key = keys_.filter(
-          p => p.refToEntityWithVersion.entityIdentity  == id
+          p => p.refToEntityWithVersion.entityIdentity == id
         )
-        val oldVal=map(key.head)
-        val newMap=map + (key.head -> oldVal.toStale.get)
+        val oldVal = map(key.head)
+        val newMap = map + (key.head -> oldVal.toStale.get)
         ReRenderer.triggerReRender()
       }
     }

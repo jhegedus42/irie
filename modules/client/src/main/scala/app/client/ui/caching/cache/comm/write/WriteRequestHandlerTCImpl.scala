@@ -22,6 +22,8 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
+
+
 //import cats.implicits._
 
 /**
@@ -116,7 +118,7 @@ object WriteRequestHandlerTCImpl {
 
         val r: RefToEntityWithVersion[User] =
           par.currentEntity.refToEntity
-        ReadCache.getUserCache.invalidateEntry(r)
+        ReadCache.getLatestUserCache.invalidateEntry(r)
       })
     }
   }

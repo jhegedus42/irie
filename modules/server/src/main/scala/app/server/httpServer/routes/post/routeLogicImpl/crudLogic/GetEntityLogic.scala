@@ -23,8 +23,8 @@ case class GetEntityLogic[V <: EntityValue[V]](
   override def getHttpReqResult(param: Par[V]): Future[Res[V]] = {
 
     val res: Future[Option[EntityWithRef[V]]] =
-      paw.getEntityWithLatestVersion(param.refToEntityWithVersion)
-//    paw.getEntityWithVersion(param.refToEntityWithVersion)
+//      paw.getEntityWithLatestVersion(param.refToEntityWithVersion)
+      paw.getEntityWithVersion(param.refToEntityWithVersion)
 
     val res2: Future[Res[V]] =
       res.map(r => Res(r))

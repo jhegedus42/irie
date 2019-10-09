@@ -2,23 +2,23 @@ package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.postRequests.GetLatestEntityByIDReq
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.GetEntityReq
-import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
+import app.shared.comm.postRequests.GetLatestEntityByIDReq.{Par, Res}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class GetEntityLogic[V <: EntityValue[V]](
+case class GetLatestEntityByIDLogic[V <: EntityValue[V]](
 )(
   implicit
   paw:             PersistentActorWhisperer,
   dv:              Decoder[V],
   de:              Decoder[EntityWithRef[V]],
   contextExecutor: ExecutionContextExecutor)
-    extends RouteLogic[GetEntityReq[V]] {
+    extends RouteLogic[GetLatestEntityByIDReq[V]] {
 
   override def getHttpReqResult(param: Par[V]): Future[Res[V]] = {
 
@@ -26,9 +26,7 @@ case class GetEntityLogic[V <: EntityValue[V]](
       paw.getEntityWithLatestVersion(param.refToEntityWithVersion)
 //    paw.getEntityWithVersion(param.refToEntityWithVersion)
 
-    val res2: Future[Res[V]] =
-      res.map(r => Res(r))
-
+    val res2: Future[Res[V]] = res.map(r => Res(r))
     res2
   }
 
