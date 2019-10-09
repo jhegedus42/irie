@@ -21,27 +21,31 @@ object CacheHelperFunctions {
     identity: EntityIdentity,
     cache:    Cache
   )(
-    implicit postRequestResultCache: ReadCache[ReadRequest,
-    GetLatestEntityByIDReq[EV]],
+    implicit postRequestResultCache: ReadCache[
+      ReadRequest,
+      GetLatestEntityByIDReq[EV]
+    ],
     decoder: Decoder[GetLatestEntityByIDReq[EV]#ResT],
     encoder: Encoder[GetLatestEntityByIDReq[EV]#ParT],
     ct:      ClassTag[GetLatestEntityByIDReq[EV]],
     ct2:     ClassTag[GetLatestEntityByIDReq[EV]#PayLoadT]
   ): Option[EntityWithRef[EV]] = {
-    val par: GetLatestEntityByIDReq.Par[EV] = GetLatestEntityByIDReq.Par[EV](
-      RefToEntityWithVersion(EntityValueTypeAsString.make[EV],
-                             entityIdentity = identity)
-    )
-    val res
-      : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest,
-      GetLatestEntityByIDReq[EV]] =
-      cache.readFromServer[ReadRequest, GetLatestEntityByIDReq[EV]](par)
+
+    val par: GetLatestEntityByIDReq.Par[EV] =
+      GetLatestEntityByIDReq.Par[EV](
+        RefToEntityWithVersion(EntityValueTypeAsString.make[EV],
+                               entityIdentity = identity) )
+
+    val res: ReadCacheEntryStates.ReadCacheEntryState[
+      ReadRequest,
+      GetLatestEntityByIDReq[EV]
+    ] = cache.readFromServer[ReadRequest, GetLatestEntityByIDReq[EV]]( par )
 
     val res2: Option[GetLatestEntityByIDReq.Res[EV]] =
       res.toOptionEither.flatMap(
-        (x: Either[GetLatestEntityByIDReq.Res[EV], GetLatestEntityByIDReq.Res[EV]]) =>
-          x.toOption
-      )
+        (x: Either[GetLatestEntityByIDReq.Res[EV],
+                   GetLatestEntityByIDReq.Res[EV]]) => x.toOption )
+
     // todo-later ^^^ "make this nicer" =
     //  create a unified / generalized Option type, which has map/flatMap, i.e. which is a
     //  "monad"

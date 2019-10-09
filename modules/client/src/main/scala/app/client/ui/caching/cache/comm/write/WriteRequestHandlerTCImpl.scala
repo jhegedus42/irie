@@ -23,7 +23,6 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
 
-
 //import cats.implicits._
 
 /**
@@ -87,6 +86,7 @@ trait WriteRequestHandlerTCImpl[
 
     def sendAJAXCall(): Unit = {
       sendPostAjaxRequest[Req](AjaxCallPar(par))
+        .onComplete(ajaxReturnHandler)
     }
 
     requestHandlerState match {

@@ -36,14 +36,13 @@ object ReadCacheEntryStates {
         case Stale(_, res)    => Some(Left(res))
       }
 
-    def toStale:Option[Stale[RT,Req]] = this match {
-      case InFlight(param) => None
-      case Returned(param, result) => Some(Stale(param,result))
-      case Stale(param, result) => None
-      case TimedOut(param) => None
+    def toStale: Option[Stale[RT, Req]] = this match {
+      case InFlight(param)                              => None
+      case Returned(param, result)                      => Some(Stale(param, result))
+      case Stale(param, result)                         => None
+      case TimedOut(param)                              => None
       case ReturnedWithError(param, descriptionOfError) => None
     }
-
 
   }
 
@@ -95,8 +94,11 @@ object ReadCacheEntryStates {
     * @tparam RT
     * @tparam Req
     */
-  case class ReturnedWithError[RT <: ReadRequest, Req <: PostRequest[RT]](
-    param: Req#ParT, descriptionOfError: String)
+  case class ReturnedWithError[
+    RT  <: ReadRequest,
+    Req <: PostRequest[RT]
+  ](param:              Req#ParT,
+    descriptionOfError: String)
       extends ReadCacheEntryState[RT, Req]
 
 }

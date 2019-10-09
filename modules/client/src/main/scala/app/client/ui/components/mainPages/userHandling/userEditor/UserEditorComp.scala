@@ -188,6 +188,11 @@ object UserEditorComp {
       s:             State
     ): VdomElement = {
 
+      println(
+        "render was called in" +
+          " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
+      )
+
       def entityOption: Option[EntityWithRef[User]] =
         CacheHelperFunctions.getEntity[User](
           cacheAndProps.props.userIdentity,
@@ -217,6 +222,10 @@ object UserEditorComp {
         <.h1("This is the UserEditor Page"),
         <.br,
         "Current name of the User " + currentName,
+        <.br,
+//        s"our entity option is :",
+//        <.br,
+//        s"$entityOption",
         <.br,
         "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(

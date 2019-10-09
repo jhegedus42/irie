@@ -1,10 +1,24 @@
 package app.client.ui.caching.cache.comm.read
 
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
+import app.client.ui.caching.cache.ReadCacheEntryStates
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  InFlight,
+  ReadCacheEntryState,
+  Returned,
+  Stale
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, SumIntRoute}
+import app.shared.comm.postRequests.{
+  GetAllUsersReq,
+  GetEntityReq,
+  GetLatestEntityByIDReq,
+  SumIntRoute
+}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithVersion
@@ -39,6 +53,39 @@ private[caching] class ReadCacheImpl[
     : Map[Req#ParT, ReadCacheEntryState[RT, Req]] =
     Map()
 
+  def getInFlight(
+    param: Req#ParT
+  )(
+    implicit
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
+  ): InFlight[RT, Req] = {
+
+    val loading = InFlight[RT, Req](param)
+    this.map = map + (param -> loading)
+
+    sendPostAjaxRequest[Req](AjaxCallPar(param))
+      .onComplete(
+        (r: Try[
+          AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]
+        ]) => {
+          r.foreach(decoded => {
+            this.map = map + (decoded.par -> Returned(
+              decoded.par,
+              decoded.res
+            ))
+          })
+
+          if (!map.valuesIterator.exists(_.isLoading))
+            ReRenderer.triggerReRender()
+
+        }
+      )
+    loading
+  }
+
   override def getRequestResult(
     par: Req#ParT
   )(
@@ -47,28 +94,26 @@ private[caching] class ReadCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[RT, Req] =
-    if (!map.contains(par)) {
-      val loading = InFlight[RT, Req](par)
-      this.map = map + (par -> loading)
-      sendPostAjaxRequest[Req](AjaxCallPar(par))
-        .onComplete(
-          (r: Try[
-            AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]
-          ]) => {
-            r.foreach(decoded => {
-              this.map = map + (decoded.par -> Returned(
-                decoded.par,
-                decoded.res
-              ))
-            })
-            if (!map.valuesIterator.exists(_.isLoading))
-              ReRenderer.triggerReRender()
+  ): ReadCacheEntryState[RT, Req] = {
 
-          }
-        )
-      loading
-    } else map(par)
+    if (!map.contains(par)) {
+      getInFlight(par)
+    } else {
+      val res: ReadCacheEntryState[RT, Req] = map(par)
+
+      val res2 = res match {
+        case InFlight(param)                      => res
+        case Returned(param, result)              => res
+        case Stale(param, result)                 => getInFlight(par)
+        case ReadCacheEntryStates.TimedOut(param) => res
+        case ReadCacheEntryStates
+              .ReturnedWithError(param, descriptionOfError) =>
+          res
+      }
+
+      res2
+    }
+  }
 
 }
 
@@ -78,14 +123,26 @@ object ReadCache {
     new ReadCacheImpl[ReadRequest, GetLatestEntityByIDReq[User]]() {
 
       def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
+        println(
+          "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
+            "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
+        )
+
         val id    = par.entityIdentity
+
         val keys_ = map.keys
+
         val key = keys_.filter(
           p => p.refToEntityWithVersion.entityIdentity == id
         )
         val oldVal = map(key.head)
+
         val newMap = map + (key.head -> oldVal.toStale.get)
+
+        map=newMap
+
         ReRenderer.triggerReRender()
+
       }
     }
 
@@ -105,6 +162,7 @@ object ReadCache {
         val newMap = map + (key.head -> oldVal.toStale.get)
         ReRenderer.triggerReRender()
       }
+
     }
 
   implicit val getAllUsersReqCache =

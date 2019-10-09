@@ -5,17 +5,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="adding new request: get latest entity by ID">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheConvenienceFunctions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/ReadCacheEntryStates.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/ReadCacheEntryStates.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetLatestEntityByIDLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetLatestEntityByIDLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -388,13 +384,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00328" summary="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.">
-      <created>1568714377638</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1568714377639</updated>
-    </task>
     <task id="LOCAL-00329" summary="Tuesday, 17 September 2019 12.59.24:&#10;&#10;Trying to implement &quot;login&quot;.&#10;&#10;--------------------------------------------------&#10;Tuesday, 17 September 2019 13.18.24 :&#10;&#10;Waiting for some help on how to implement&#10;&quot;login&quot; logic using the router.&#10;&#10;--------------------------------------------------">
       <created>1568715536147</created>
       <option name="number" value="00329" />
@@ -731,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570614854978</updated>
     </task>
-    <option name="localTasksCounter" value="377" />
+    <task id="LOCAL-00377" summary="simplest crud seems to be working, but pages need to be refreshed">
+      <created>1570625978926</created>
+      <option name="number" value="00377" />
+      <option name="presentableId" value="LOCAL-00377" />
+      <option name="project" value="LOCAL" />
+      <updated>1570625978927</updated>
+    </task>
+    <option name="localTasksCounter" value="378" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -777,7 +773,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------" />
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.38.49:&#10;&#10;Code compiles.&#10;&#10;Added &quot;Stale&quot; functionality to Cache, and rewrite the&#10;&quot;toOption casting&quot; such that it gives `Some` even for&#10;stale states." />
     <MESSAGE value="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.38.49:&#10;&#10;Code compiles.&#10;&#10;Added &quot;Stale&quot; functionality to Cache, and rewrite the&#10;&quot;toOption casting&quot; such that it gives `Some` even for&#10;stale states.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.59.51:&#10;&#10;Added some documentation and a few more Cache Entry States." />
     <MESSAGE value="&quot;Safety commit.&quot;" />
@@ -802,6 +797,7 @@
     <MESSAGE value="testing client side... &#10;&#10;something is off, but things are getting better" />
     <MESSAGE value="updating user names seems to work" />
     <MESSAGE value="adding new request: get latest entity by ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new request: get latest entity by ID" />
+    <MESSAGE value="simplest crud seems to be working, but pages need to be refreshed" />
+    <option name="LAST_COMMIT_MESSAGE" value="simplest crud seems to be working, but pages need to be refreshed" />
   </component>
 </project>
