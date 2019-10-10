@@ -71,6 +71,9 @@ object UserListComp {
       s:             State
     ): VdomElement = {
 
+      println("13784000-2EA3-4753-B2B7-DC8C3B54B417 - render was called in " +
+        " app.client.ui.components.mainPages.userHandling.userList.UserListComp")
+
       val renderLogic = UserListRenderLogic(cacheAndProps)
       val route       = StaticTemplatePage
 

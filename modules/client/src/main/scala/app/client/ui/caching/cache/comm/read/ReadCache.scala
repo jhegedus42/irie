@@ -1,27 +1,14 @@
 package app.client.ui.caching.cache.comm.read
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{
-  InFlight,
-  ReadCacheEntryState,
-  Returned,
-  Stale
-}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  sendPostAjaxRequest
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{
-  GetAllUsersReq,
-  GetEntityReq,
-  GetLatestEntityByIDReq,
-  SumIntRoute
-}
+import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, SumIntRoute}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -49,6 +36,7 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): Unit
 
+  def clearCache() : Unit
 }
 
 private[caching] class ReadCacheImpl[
@@ -62,6 +50,8 @@ private[caching] class ReadCacheImpl[
   protected[this] var map
     : Map[Req#ParT, ReadCacheEntryState[RT, Req]] =
     Map()
+
+  override  def clearCache() : Unit = {map= Map()}
 
   def getInFlight(
     param: Req#ParT
@@ -134,6 +124,18 @@ private[caching] class ReadCacheImpl[
     ct2:              ClassTag[Req#PayLoadT]
   ): Unit = {
 
+    println(s"map: $map")
+
+    println(s"map's keys:\n")
+
+    map.keys.foreach(println)
+
+    println("8F3C7E78-00BB-4B7E-A503-FAB20E1BA3C6 - " +
+      "app.client.ui.caching.cache.comm.read.ReadCacheImpl.setEntryToStale " +
+      "was called.")
+
+    println(s"par: $par")
+
     val oldVal: ReadCacheEntryState[RT, Req] = map(par)
 
     oldVal match {
@@ -144,9 +146,6 @@ private[caching] class ReadCacheImpl[
 
         map = newMap
 
-        println("8F3C7E78-00BB-4B7E-A503-FAB20E1BA3C6 - " +
-          "app.client.ui.caching.cache.comm.read.ReadCacheImpl.setEntryToStale " +
-          "was called.")
 
         ReRenderer.triggerReRender()
 
@@ -166,13 +165,14 @@ object ReadCache {
   implicit val getLatestUserCache =
     new ReadCacheImpl[ReadRequest, GetLatestEntityByIDReq[User]]() {
 
-      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
+      def invalidateEntry(par: RefToEntityByID[User]): Unit = {
         println(
           "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
             "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
         )
         val p=GetLatestEntityByIDReq.Par(par)
         setEntryToStale(p)
+        getAllUsersReqCache.clearCache()
       }
 
 //      def invalidateEntry_old(par: RefToEntityWithVersion[User]): Unit = {

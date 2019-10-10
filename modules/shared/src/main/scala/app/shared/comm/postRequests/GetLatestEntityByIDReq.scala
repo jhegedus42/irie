@@ -3,7 +3,7 @@ package app.shared.comm.postRequests
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.EntityWithRef
-import app.shared.entity.refs.{RefToEntityWithVersion}
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.generic.JsonCodec
 
 object GetLatestEntityByIDReq {
@@ -14,7 +14,7 @@ object GetLatestEntityByIDReq {
 
   @JsonCodec
   case class Par[V <: EntityValue[V]](
-    refToEntityWithVersion: RefToEntityWithVersion[V])
+    refToEntityByID: RefToEntityByID[V])
       extends PostRequest.Parameter
 
   @JsonCodec

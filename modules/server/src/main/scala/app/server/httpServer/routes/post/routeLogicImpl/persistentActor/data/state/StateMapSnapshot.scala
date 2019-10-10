@@ -1,11 +1,8 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
-import app.shared.entity.asString.{
-  EntityAndItsValueAsJSON,
-  EntityValueAsJSON,
-  EntityValueTypeAsString
-}
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.refs.RefToEntityByID
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
@@ -124,7 +121,7 @@ private[persistentActor] case class StateMapSnapshot(
   }
 
   def getEntityWithLatestVersion[V <: EntityValue[V]](
-    r: UntypedRef
+    r: RefToEntityByID[V]
   ): Option[UntypedEntity] = {
 //    map.get(r)
 

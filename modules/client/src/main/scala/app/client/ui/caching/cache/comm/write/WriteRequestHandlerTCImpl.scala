@@ -16,7 +16,10 @@ import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -121,7 +124,10 @@ object WriteRequestHandlerTCImpl {
 
         val r: RefToEntityWithVersion[User] =
           par.currentEntity.refToEntity
-        ReadCache.getLatestUserCache.invalidateEntry(r)
+
+        val r1 = RefToEntityByID[User](r.entityIdentity)
+
+        ReadCache.getLatestUserCache.invalidateEntry(r1)
       })
     }
   }

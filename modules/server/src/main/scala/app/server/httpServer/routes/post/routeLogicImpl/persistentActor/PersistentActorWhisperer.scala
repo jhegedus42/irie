@@ -9,7 +9,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.sta
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityWithVersion}
+import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder, Json}
 
 import scala.concurrent.duration._
@@ -164,7 +164,7 @@ case class PersistentActorWhisperer(
   }
 
   def getEntityWithLatestVersion[EV <: EntityValue[EV]](
-    ref: RefToEntityWithVersion[EV]
+    ref: RefToEntityByID[EV]
   )(
     implicit d: Decoder[EV]
   ): Future[Option[EntityWithRef[EV]]] = {

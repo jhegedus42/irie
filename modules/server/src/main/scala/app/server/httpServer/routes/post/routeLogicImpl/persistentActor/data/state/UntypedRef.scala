@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.st
 
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
-import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}
+import app.shared.entity.refs.{EntityVersion, RefToEntityByID, RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 
@@ -44,6 +44,7 @@ object UntypedRef {
       entityVersion           = refToEntity.entityVersion
     )
   }
+
 
   def getTypedRef[T <: EntityValue[T]](
     untypedRef: UntypedRef

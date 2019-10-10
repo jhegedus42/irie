@@ -8,7 +8,7 @@ import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.auto._
@@ -32,9 +32,7 @@ object CacheHelperFunctions {
   ): Option[EntityWithRef[EV]] = {
 
     val par: GetLatestEntityByIDReq.Par[EV] =
-      GetLatestEntityByIDReq.Par[EV](
-        RefToEntityWithVersion(EntityValueTypeAsString.make[EV],
-                               entityIdentity = identity) )
+      GetLatestEntityByIDReq.Par[EV](RefToEntityByID(identity))
 
     val res: ReadCacheEntryStates.ReadCacheEntryState[
       ReadRequest,
