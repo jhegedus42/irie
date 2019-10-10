@@ -35,17 +35,16 @@ object UntypedEntity {
     UntypedEntity(utr, entityAsString)
   }
 
-  def converToTypedEntityWithRef[V <: EntityValue[V]](
-    ute: UntypedEntity
-  ): EntityWithRef[V] = {
+//  def converToTypedEntityWithRef[V <: EntityValue[V]](
+//    ute: UntypedEntity
+//  ): EntityWithRef[V] = {
+//
+//    ???
+//  }
 
-    // todo-now continue-now
-    ???
-  }
-
-  def updateEntityValue(
-    ute:   UntypedEntity,
-    value: EntityValueAsJSON
-  ): UntypedEntity = ???
+//  def updateEntityValue(
+//    ute:   UntypedEntity,
+//    value: EntityValueAsJSON
+//  ): UntypedEntity = ???
 
 }

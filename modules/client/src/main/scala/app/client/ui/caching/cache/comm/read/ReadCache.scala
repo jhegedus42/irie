@@ -39,6 +39,16 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[RT, Req]
 
+  private[caching] def setEntryToStale(
+    par: Req#ParT
+  )(
+    implicit
+    decoder: Decoder[Req#ResT],
+    encoder: Encoder[Req#ParT],
+    ct:      ClassTag[Req],
+    ct2:     ClassTag[Req#PayLoadT]
+  ): Unit
+
 }
 
 private[caching] class ReadCacheImpl[
@@ -115,6 +125,40 @@ private[caching] class ReadCacheImpl[
     }
   }
 
+  override private[caching] def setEntryToStale(
+    par: Req#ParT
+  )(
+    implicit decoder: Decoder[Req#ResT],
+    encoder:          Encoder[Req#ParT],
+    ct:               ClassTag[Req],
+    ct2:              ClassTag[Req#PayLoadT]
+  ): Unit = {
+
+    val oldVal: ReadCacheEntryState[RT, Req] = map(par)
+
+    oldVal match {
+      case InFlight(param)                      =>
+      case Returned(param, result)              => {
+
+        val newMap = map + (par -> oldVal.toStale.get)
+
+        map = newMap
+
+        println("8F3C7E78-00BB-4B7E-A503-FAB20E1BA3C6 - " +
+          "app.client.ui.caching.cache.comm.read.ReadCacheImpl.setEntryToStale " +
+          "was called.")
+
+        ReRenderer.triggerReRender()
+
+      }
+      case Stale(param, result)                 =>
+      case ReadCacheEntryStates.TimedOut(param) =>
+      case ReadCacheEntryStates
+            .ReturnedWithError(param, descriptionOfError) =>
+    }
+
+  }
+
 }
 
 object ReadCache {
@@ -127,23 +171,32 @@ object ReadCache {
           "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
             "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
         )
-
-        val id    = par.entityIdentity
-
-        val keys_ = map.keys
-
-        val key = keys_.filter(
-          p => p.refToEntityWithVersion.entityIdentity == id
-        )
-        val oldVal = map(key.head)
-
-        val newMap = map + (key.head -> oldVal.toStale.get)
-
-        map=newMap
-
-        ReRenderer.triggerReRender()
-
+        val p=GetLatestEntityByIDReq.Par(par)
+        setEntryToStale(p)
       }
+
+//      def invalidateEntry_old(par: RefToEntityWithVersion[User]): Unit = {
+//        println(
+//          "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
+//            "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
+//        )
+//
+//        val id = par.entityIdentity
+//
+//        val keys_ = map.keys
+//
+//        val key = keys_.filter(
+//          p => p.refToEntityWithVersion.entityIdentity == id
+//        )
+//        val oldVal = map(key.head)
+//
+//        val newMap = map + (key.head -> oldVal.toStale.get)
+//
+//        map = newMap
+//
+//        ReRenderer.triggerReRender()
+//
+//      }
     }
 
   implicit val sumIntPostRequestResultCache =
@@ -152,16 +205,16 @@ object ReadCache {
   implicit val getUserCache =
     new ReadCacheImpl[ReadRequest, GetEntityReq[User]]() {
 
-      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
-        val id    = par.entityIdentity
-        val keys_ = map.keys
-        val key = keys_.filter(
-          p => p.refToEntityWithVersion.entityIdentity == id
-        )
-        val oldVal = map(key.head)
-        val newMap = map + (key.head -> oldVal.toStale.get)
-        ReRenderer.triggerReRender()
-      }
+//      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
+//        val id    = par.entityIdentity
+//        val keys_ = map.keys
+//        val key = keys_.filter(
+//          p => p.refToEntityWithVersion.entityIdentity == id
+//        )
+//        val oldVal = map(key.head)
+//        val newMap = map + (key.head -> oldVal.toStale.get)
+//        ReRenderer.triggerReRender()
+//      }
 
     }
 

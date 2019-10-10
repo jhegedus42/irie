@@ -163,7 +163,7 @@ object UserEditorComp {
 
         implicit val i
           : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
-            with WriteRequestHandlerTCImpl.UserReadCacheInvalidator =
+            with WriteRequestHandlerTCImpl.UpdateReqUserCacheInvalidator =
           WriteRequestHandlerTCImpl.userUpdater
 
         import io.circe.generic.auto._
@@ -236,12 +236,6 @@ object UserEditorComp {
         buttonOpt,
         <.br
       )
-
-      // todo-now-2 - button to increase counter => refresh page
-
-      // todo-right-now
-
-      // todo-now-3 - button to trigger cache refresh
 
     }
 
