@@ -7,9 +7,9 @@ import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTe
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion }
+import app.shared.entity.refs.RefToEntityWithVersion
 import japgolly.scalajs.react.component.Scala.Component
-import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.extra.router.{RouterConfigDsl, RouterCtl}
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
@@ -205,7 +205,7 @@ object TemplateComp {
 
   }
 
-  def getRoute(cacheInterface: Cache) = {
+  def getRoute(cacheInterface: Cache)  = {
 
     import japgolly.scalajs.react.extra.router._
 
@@ -230,6 +230,7 @@ object TemplateComp {
         "#templatePageRoute" / string("""[\d\w-]+""").caseClass[TemplatePage]
 
       val res: dsl.Rule =dynamicRouteCT[TemplatePage](f).~>(page2renderer)
+
       res
 
   }

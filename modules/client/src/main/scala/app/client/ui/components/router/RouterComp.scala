@@ -41,7 +41,7 @@ case class RouterComp() {
 
   lazy val cache: Cache = new Cache()
 
-  val routerConfig: RouterConfig[MainPage] =
+  def routerConfig: RouterConfig[MainPage] =
     RouterConfigDsl[MainPage].buildConfig {
       dsl: RouterConfigDsl[MainPage] =>
         import dsl._
@@ -52,6 +52,7 @@ case class RouterComp() {
           }
         )
 
+        val userIsLoggedIn=
         (trimSlashes
           | loginRoute
           | ThieveryDemoComp.getRoute(cache)(dsl)
@@ -63,12 +64,27 @@ case class RouterComp() {
           .notFound(
             redirectToPage(LoginPage)(Redirect.Replace)
           )
-          .renderWith(f = RouterLayout.layout)
+
+        val userIsNotLoggedIn=
+          (trimSlashes
+            | loginRoute)
+            .notFound(
+              redirectToPage(LoginPage)(Redirect.Replace)
+            )
+
+          if(LoginPageComp.isUserLoggedIn.yesOrNo)
+          userIsLoggedIn
+            .renderWith(f = RouterLayout.layout)
+          else
+            userIsNotLoggedIn
+            .renderWith(f = RouterLayout.layout)
+
+
     }
 
   val baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
 
-  val routerComp =
+  def routerComp =
 //    : ScalaComponent[Unit, Resolution[MainPage], OnUnmount.Backend, CtorType.Nullary] =
     Router.apply(baseUrl, routerConfig)
 
