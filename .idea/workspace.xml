@@ -7,10 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterLayout.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterLayout.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -383,13 +381,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00333" summary="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------">
-      <created>1568779142508</created>
-      <option name="number" value="00333" />
-      <option name="presentableId" value="LOCAL-00333" />
-      <option name="project" value="LOCAL" />
-      <updated>1568779142508</updated>
-    </task>
     <task id="LOCAL-00334" summary="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s.">
       <created>1568779308972</created>
       <option name="number" value="00334" />
@@ -726,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570824218357</updated>
     </task>
-    <option name="localTasksCounter" value="382" />
+    <task id="LOCAL-00382" summary="intermezzo commit">
+      <created>1570874185347</created>
+      <option name="number" value="00382" />
+      <option name="presentableId" value="LOCAL-00382" />
+      <option name="project" value="LOCAL" />
+      <updated>1570874185352</updated>
+    </task>
+    <option name="localTasksCounter" value="383" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -772,7 +770,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Working on write request handler." />
     <MESSAGE value="Working on write request handler.&#10;Bit of progress was made." />
     <MESSAGE value="Working on write request handler.&#10;Bit of progress was made.&#10;&#10;Added todo-s." />
     <MESSAGE value="intermediate commit ... implementation of write &quot;cache&quot; is in&#10;progress" />
@@ -797,6 +794,7 @@
     <MESSAGE value="exception is thrown at updating an entity&#10;&#10;it is due to cache invalidation" />
     <MESSAGE value="username update is working" />
     <MESSAGE value="trying to get login page working ... and add new routes&#10;after the user has logged in ...&#10;&#10;does not seem to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to get login page working ... and add new routes&#10;after the user has logged in ...&#10;&#10;does not seem to work" />
+    <MESSAGE value="intermezzo commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="intermezzo commit" />
   </component>
 </project>

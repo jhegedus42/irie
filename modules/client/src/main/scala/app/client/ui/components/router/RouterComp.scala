@@ -66,21 +66,21 @@ case class RouterComp() {
           )
 
         // todo-later :
-        val userIsNotLoggedIn=
-          (trimSlashes
-            | loginRoute)
-            .notFound(
-              redirectToPage(LoginPage)(Redirect.Replace)
-            )
+//        val userIsNotLoggedIn=
+//          (trimSlashes
+//            | loginRoute)
+//            .notFound(
+//              redirectToPage(LoginPage)(Redirect.Replace)
+//            )
+//
+//          if(LoginPageComp.isUserLoggedIn.yesOrNo)
+//          userIsLoggedIn
+//            .renderWith(f = RouterLayout.layout)
+//          else
+//            userIsNotLoggedIn
+//            .renderWith(f = RouterLayout.layout)
 
-          if(LoginPageComp.isUserLoggedIn.yesOrNo)
-          userIsLoggedIn
-            .renderWith(f = RouterLayout.layout)
-          else
-            userIsNotLoggedIn
-            .renderWith(f = RouterLayout.layout)
-
-//        userIsLoggedIn.renderWith(f = RouterLayout.layout)
+        userIsLoggedIn.renderWith(f = RouterLayout.layout)
 
     }
 

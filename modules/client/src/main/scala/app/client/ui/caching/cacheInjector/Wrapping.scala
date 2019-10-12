@@ -44,6 +44,9 @@ class WrapperHOC[Backend, Props, State](
               $.setState(Unit).runNow()
             }))
           }
+        // todo-later - perhaps we should check here if the user
+        //  is logged in, and if not then redirect the page
+        //  to the login page ...
       )
       .build
 
