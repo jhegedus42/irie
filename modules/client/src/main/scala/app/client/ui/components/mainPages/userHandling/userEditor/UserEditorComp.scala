@@ -8,7 +8,7 @@ import app.client.ui.caching.cache.{
 
 import app.client.ui.caching.cacheInjector.{
   Cache,
-  CacheAndProps,
+  CacheAndPropsAndRouterCtrl,
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
@@ -93,13 +93,13 @@ object UserEditorComp {
     routerCtl:    RouterCtl[MainPage])
 
   val component: Component[
-    CacheAndProps[Props],
+    CacheAndPropsAndRouterCtrl[Props],
     State,
     Backend[Props],
     CtorType.Props
   ] = {
     ScalaComponent
-      .builder[CacheAndProps[Props]](
+      .builder[CacheAndPropsAndRouterCtrl[Props]](
         "This is a userEditor page. It demonstrates all crucial functionality."
       )
       .initialState(
@@ -110,7 +110,7 @@ object UserEditorComp {
   }
 
   object Helpers {
-    import app.client.ui.caching.cacheInjector.CacheAndProps
+    import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
     import japgolly.scalajs.react.vdom.html_<^.{
       <,
       TagMod,
@@ -140,7 +140,7 @@ object UserEditorComp {
     }
 
     def onChangeIntendedNewName(
-      bs: BackendScope[CacheAndProps[Props], State]
+      bs: BackendScope[CacheAndPropsAndRouterCtrl[Props], State]
     )(e:  ReactEventFromInput
     ): CallbackTo[Unit] = {
       val event:  ReactEventFromInput = e
@@ -181,11 +181,11 @@ object UserEditorComp {
   }
 
   class Backend[Properties](
-    $ : BackendScope[CacheAndProps[Props], State]) {
+    $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], State]) {
 
     def render(
-      cacheAndProps: CacheAndProps[Props],
-      s:             State
+                cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
+                s:             State
     ): VdomElement = {
 
       println(

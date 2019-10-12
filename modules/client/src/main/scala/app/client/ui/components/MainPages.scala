@@ -1,7 +1,6 @@
 package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
-import app.client.ui.components.mainPages.demos.ThieveryDemoComp
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
 
 
@@ -64,14 +63,14 @@ trait MainPage
 
   case object LoginPage extends MainPage
 
-/**
-  *
-  * Add two "thievery" numbers.
-  *
-  * @param number
-  */
-case class ThieveryDemo(number: Int)
-      extends MainPageWithCache[ThieveryDemoComp, ThieveryDemo]
+///**
+//  *
+//  * Add two "thievery" numbers.
+//  *
+//  * @param number
+//  */
+//case class ThieveryDemo(number: Int)
+//      extends MainPageWithCache[ThieveryDemoComp, ThieveryDemo]
 
   case class UserListPage()
       extends MainPageWithCache[UserListComp, UserListPage]

@@ -1,5 +1,5 @@
 package app.client.ui.components.mainPageLayout
-import app.client.ui.components.{LoginPage, MainPage, ThieveryDemo, UserListPage}
+import app.client.ui.components.{LoginPage, MainPage,  UserListPage}
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
 import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn

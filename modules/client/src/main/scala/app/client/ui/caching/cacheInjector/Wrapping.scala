@@ -22,7 +22,10 @@ import japgolly.scalajs.react.{
   ScalaComponent
 }
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.client.ui.caching.cacheInjector.{CacheAndProps, ReRenderer}
+import app.client.ui.caching.cacheInjector.{
+  CacheAndPropsAndRouterCtrl,
+  ReRenderer
+}
 import app.client.ui.components.{MainPage, MainPageWithCache}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
@@ -31,11 +34,11 @@ import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^._
 
 class WrapperHOC[Backend, Props, State](
-  toBeWrapped: Component[CacheAndProps[Props], State, Backend, CtorType.Props]) {
+  toBeWrapped: Component[CacheAndPropsAndRouterCtrl[Props], State, Backend, CtorType.Props]) {
 
   def wrapperConstructor =
     ScalaComponent
-      .builder[CacheAndProps[Props]]("Wrapper")
+      .builder[CacheAndPropsAndRouterCtrl[Props]]("Wrapper")
       .renderBackend[WrapperBackend]
       .componentWillMount(
         $ =>
@@ -50,18 +53,20 @@ class WrapperHOC[Backend, Props, State](
       )
       .build
 
-  class WrapperBackend($ : BackendScope[CacheAndProps[Props], Unit]) {
+  class WrapperBackend(
+    $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], Unit]) {
 
-    def render(props: CacheAndProps[Props]) = {
+    def render(props: CacheAndPropsAndRouterCtrl[Props]) = {
       <.div(toBeWrapped(props))
     }
   }
 
 }
 
-case class CacheAndProps[Props](
+case class CacheAndPropsAndRouterCtrl[Props](
   cache: Cache,
-  props: Props)
+  props: Props,
+  routerCtl: RouterCtl[MainPage])
 
 class Cache() {
 
@@ -113,15 +118,17 @@ case class MainPageReactCompWrapper[
   Page <: MainPageWithCache[Comp, Page]
 ](cache:         Cache,
   propsProvider: () => Comp#PropsT,
-  comp:          ScalaComponent[CacheAndProps[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
+  routerController: RouterCtl[MainPage],
+  comp:          ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
 
   def wrappedConstructor =
     new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
       .wrapperConstructor(
-        CacheAndProps[Comp#PropsT](
+        CacheAndPropsAndRouterCtrl[Comp#PropsT](
           cache = cache,
-          props = propsProvider()
-        )
+          props = propsProvider(),
+          routerCtl = routerController
+        ) // todo-later, maybe we should pass here a router ctrl to this wrapper
       )
 
 }
@@ -150,10 +157,11 @@ private[caching] object ReRenderer {
 
   def triggerReRender(): Unit = {
     if (triggerer.nonEmpty) triggerer.head.triggerReRender()
-    println("C6A0E3FD-5F15-435B-8750-E4F8AD9F6401 trigger re-render was called")
+    println(
+      "C6A0E3FD-5F15-435B-8750-E4F8AD9F6401 trigger re-render was called"
+    )
   }
 
   case class ReRenderTriggerer(triggerReRender: () => Unit)
 
 }
-

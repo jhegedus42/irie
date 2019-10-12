@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.userHandling.userList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{
   Cache,
-  CacheAndProps,
+  CacheAndPropsAndRouterCtrl,
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
@@ -32,7 +32,7 @@ import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 import org.scalajs.dom.html.{Anchor, Div}
 
 case class UserListRenderLogic(
-  cacheInterfaceWrapper: CacheAndProps[Props]) {
+  cacheInterfaceWrapper: CacheAndPropsAndRouterCtrl[Props]) {
 
   def userListAsVDOM: Option[html_<^.TagMod] = {
 

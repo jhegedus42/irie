@@ -1,18 +1,13 @@
 package app.client.ui.components.router
 
-import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper}
-import app.client.ui.components.{ItemPage, LoginPage, MainPage}
-import app.client.ui.components.mainPageLayout.TopNavComp.Menu
-import app.client.ui.components.mainPageLayout.{FooterComp, TopNavComp}
+import app.client.ui.caching.cacheInjector.Cache
 import app.client.ui.components.mainPages.LoginPageComp
-import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
-import app.client.ui.components.mainPages.demos.{ThieveryDemoComp, StaticTemplateComp, TemplateComp}
-import app.client.ui.components.mainPages.userHandling.userEditor.{UserEditorComp, UserEditorRouteProvider}
+import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
+import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorRouteProvider
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
-import japgolly.scalajs.react.{CtorType, ScalaComponent}
-import japgolly.scalajs.react.extra.{OnUnmount, router}
+import app.client.ui.components.{ItemPage, LoginPage, MainPage}
 import japgolly.scalajs.react.extra.router.StaticDsl.Rule
-import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
+import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 
 // this wrapper is needed so that we can "re render the react tree below this"
@@ -55,7 +50,7 @@ case class RouterComp() {
         val userIsLoggedIn=
         (trimSlashes
           | loginRoute
-          | ThieveryDemoComp.getRoute(cache)(dsl)
+//          | ThieveryDemoComp.getRoute(cache)(dsl)
           | Pages.itemPageRoute(dsl)
           | UserEditorRouteProvider.getRoute(cache)(dsl)
           | TemplateComp.getRoute(cache)(dsl)

@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages.userHandling.userEditor
 
-import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import japgolly.scalajs.react.vdom.html_<^.{
   <,
   TagMod,

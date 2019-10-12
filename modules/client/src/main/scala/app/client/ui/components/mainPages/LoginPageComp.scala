@@ -1,6 +1,6 @@
 package app.client.ui.components.mainPages
 
-import app.client.ui.caching.cacheInjector.CacheAndProps
+import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import app.client.ui.components.MainPage
 import bootstrap4.TB.C
 import japgolly.scalajs.react._

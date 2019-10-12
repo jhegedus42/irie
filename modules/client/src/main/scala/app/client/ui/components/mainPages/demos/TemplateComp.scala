@@ -1,7 +1,7 @@
 package app.client.ui.components.mainPages.demos
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndProps, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
 import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTemplatePage}
 import app.shared.comm.ReadRequest
@@ -71,13 +71,13 @@ object TemplateComp {
     routerCtl:  RouterCtl[MainPage])
 
   val component: Component[
-    CacheAndProps[Props],
+    CacheAndPropsAndRouterCtrl[Props],
     State,
     Backend[Props],
     CtorType.Props
   ] = {
     ScalaComponent
-      .builder[CacheAndProps[Props]](
+      .builder[CacheAndPropsAndRouterCtrl[Props]](
         "This is a template page. It demonstrates all crucial functionality."
       )
       .initialState(State("initial state"))
@@ -111,7 +111,7 @@ object TemplateComp {
     * @param cacheInterfaceWrapper
     */
   case class RenderLogicForGettingAllUsers(
-    cacheInterfaceWrapper: CacheAndProps[Props]) {
+    cacheInterfaceWrapper: CacheAndPropsAndRouterCtrl[Props]) {
 
     val requestResultForRefToAllUsers
       : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest, GetAllUsersReq] =
@@ -156,11 +156,11 @@ object TemplateComp {
   }
 
   class Backend[Properties](
-    $ : BackendScope[CacheAndProps[Properties], State]) {
+    $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], State]) {
 
     def render(
-      cacheAndProps: CacheAndProps[Props],
-      s:             State
+                cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
+                s:             State
     ): VdomElement = {
 
       def link(
@@ -220,7 +220,8 @@ object TemplateComp {
           cache = cacheInterface,
           propsProvider =
             () => TemplateComp.Props(page.paramFromURL, ctl),
-          comp = TemplateComp.component
+          comp = TemplateComp.component,
+          routerController = ctl
         )
 
       def page2renderer: TemplatePage => dsl.Renderer =

@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.userHandling.userList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{
   Cache,
-  CacheAndProps,
+  CacheAndPropsAndRouterCtrl,
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
@@ -49,13 +49,13 @@ object UserListComp {
   case class Props(routerCtl: RouterCtl[MainPage])
 
   val component: Component[
-    CacheAndProps[Props],
+    CacheAndPropsAndRouterCtrl[Props],
     State,
     Backend[Props],
     CtorType.Props
   ] = {
     ScalaComponent
-      .builder[CacheAndProps[Props]](
+      .builder[CacheAndPropsAndRouterCtrl[Props]](
         "Page listing all the users"
       )
       .initialState(State("initial state"))
@@ -64,11 +64,11 @@ object UserListComp {
   }
 
   class Backend[Properties](
-    $ : BackendScope[CacheAndProps[Properties], State]) {
+    $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], State]) {
 
     def render(
-      cacheAndProps: CacheAndProps[Props],
-      s:             State
+                cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
+                s:             State
     ): VdomElement = {
 
       println("13784000-2EA3-4753-B2B7-DC8C3B54B417 - render was called in " +
@@ -83,7 +83,9 @@ object UserListComp {
         renderLogic.userListAsVDOM.getOrElse(
           TagMod("List of users is loading ...")
         ),
-        <.br
+        <.br,
+
+
       )
 
     }
@@ -97,7 +99,8 @@ object UserListComp {
     MainPageReactCompWrapper[UserListComp, UserListPage](
       cache         = cache,
       propsProvider = () => UserListComp.Props(ctl),
-      comp          = UserListComp.component
+      comp          = UserListComp.component,
+      routerController = ctl
     )
 
   def getRoute(cache: Cache) = {

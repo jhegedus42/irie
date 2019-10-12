@@ -23,7 +23,8 @@ object UserEditorRouteProvider {
           propsProvider = () =>
             UserEditorComp.Props(EntityIdentity(page.paramFromURL),
                                  ctl),
-          comp = UserEditorComp.component
+          comp = UserEditorComp.component,
+          routerController = ctl
         )
 
       def g2(t2: (UserEditorPage, RouterCtl[MainPage])) =
