@@ -30,7 +30,7 @@ import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.{
   LoginPage,
   MainPage,
-  MainPageWithCache
+  MainPageInjectedWithCacheAndController
 }
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
@@ -113,7 +113,7 @@ class Cache() {
 
 trait ToBeWrappedMainPageComponent[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-  Page <: MainPageWithCache[Comp, Page]] {
+  Page <: MainPageInjectedWithCacheAndController[Comp, Page]] {
   type PropsT
   type StateT
   type BackendT
@@ -132,7 +132,7 @@ trait ToBeWrappedMainPageComponent[
   */
 case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-  Page <: MainPageWithCache[Comp, Page]
+  Page <: MainPageInjectedWithCacheAndController[Comp, Page]
 ](cache:            Cache,
   propsProvider:    () => Comp#PropsT,
   routerController: RouterCtl[MainPage],

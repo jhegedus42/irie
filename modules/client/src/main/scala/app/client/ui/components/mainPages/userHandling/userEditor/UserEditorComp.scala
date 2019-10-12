@@ -21,7 +21,7 @@ import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp
   Props,
   UserEditorPage
 }
-import app.client.ui.components.{MainPage, MainPageWithCache}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
@@ -64,7 +64,7 @@ trait UserEditorComp
 object UserEditorComp {
 
   case class UserEditorPage(paramFromURL: String)
-      extends MainPageWithCache[UserEditorComp, UserEditorPage]
+      extends MainPageInjectedWithCacheAndController[UserEditorComp, UserEditorPage]
 
   case class UpdatedUser(
     resultOfUserUpdateRequest: Option[EntityWithRef[User]])
@@ -156,10 +156,7 @@ object UserEditorComp {
       currentEntityPar: EntityWithRef[User]
     ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
-//        dom.window.alert(
-//          s"mi ezt az usert-t fogjuk update-elni : ${currentEntityPar.entityValue.name}\n" +
-//            s"ez lesz az uj neve: $newUserName"
-//        )
+
 
         implicit val i
           : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]

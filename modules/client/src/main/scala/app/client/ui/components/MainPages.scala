@@ -3,7 +3,6 @@ package app.client.ui.components
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
 
-
 /**
   *
   * The scalajs-react-router needs this trait.
@@ -39,44 +38,33 @@ import app.client.ui.components.mainPages.userHandling.userList.UserListComp
   * the Router. That's it. PUNKTUM.
   *
   */
-
 trait MainPage
 
-  /**
-    *
-    * Represents a page. This is a data type whose instance (object) corresponds
-    * to a "main page" that can be routed to be the "main page" by the router.
-    * (Sorry for the lack of better words.)
-    *
-    * @tparam Comp the component that implements the Page
-    *
-    * @tparam Page the data type that describes the URL route of the page,
-    *              and in general, represents the page for the Router,
-    *              it is only needed because of the router, the router
-    *              needs this, "representation" of a page, a representation
-    *              as an object (which has a MainPageWithCache type)
-    */
-  trait MainPageWithCache[
-    Comp <: ToBeWrappedMainPageComponent[Comp, Page],
-    Page <: MainPageWithCache[Comp, Page]]
-      extends MainPage
+/**
+  *
+  * Represents a page. This is a data type whose instance (object) corresponds
+  * to a "main page" that can be routed to be the "main page" by the router.
+  * (Sorry for the lack of better words.)
+  *
+  * @tparam Comp the component that implements the Page
+  *
+  * @tparam Page the data type that describes the URL route of the page,
+  *              and in general, represents the page for the Router,
+  *              it is only needed because of the router, the router
+  *              needs this, "representation" of a page, a representation
+  *              as an object (which has a MainPageWithCache type)
+  */
+trait MainPageInjectedWithCacheAndController[
+  Comp <: ToBeWrappedMainPageComponent[Comp, Page],
+  Page <: MainPageInjectedWithCacheAndController[Comp, Page]]
+    extends MainPage
 
-  case object LoginPage extends MainPage
+case object LoginPage extends MainPage
 
-///**
-//  *
-//  * Add two "thievery" numbers.
-//  *
-//  * @param number
-//  */
-//case class ThieveryDemo(number: Int)
-//      extends MainPageWithCache[ThieveryDemoComp, ThieveryDemo]
+case class UserListPage()
+    extends MainPageInjectedWithCacheAndController[UserListComp,
+                                                   UserListPage]
 
-  case class UserListPage()
-      extends MainPageWithCache[UserListComp, UserListPage]
+case object StaticTemplatePage extends MainPage
 
-  case object StaticTemplatePage extends MainPage
-
-  case class ItemPage(id: Int) extends MainPage
-
-
+case class ItemPage(id: Int) extends MainPage

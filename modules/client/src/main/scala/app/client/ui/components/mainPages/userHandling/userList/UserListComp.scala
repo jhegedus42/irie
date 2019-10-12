@@ -26,7 +26,13 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
-import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
+import org.scalajs.dom
 import org.scalajs.dom.html.Div
 
 trait UserListComp
@@ -66,16 +72,25 @@ object UserListComp {
   class Backend[Properties](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], State]) {
 
+    val dummyButtonHandler = Callback({
+
+      dom.window.alert("push the button, pu-push it real good !")
+    })
+
     def render(
-                cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
-                s:             State
+      cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
+      s:             State
     ): VdomElement = {
 
-      println("13784000-2EA3-4753-B2B7-DC8C3B54B417 - render was called in " +
-        " app.client.ui.components.mainPages.userHandling.userList.UserListComp")
+      println(
+        "13784000-2EA3-4753-B2B7-DC8C3B54B417 - render was called in " +
+          " app.client.ui.components.mainPages.userHandling.userList.UserListComp"
+      )
 
       val renderLogic = UserListRenderLogic(cacheAndProps)
       val route       = StaticTemplatePage
+
+      import bootstrap4.TB.convertableToTagOfExtensionMethods
 
       <.div(
         s"Users:",
@@ -84,8 +99,10 @@ object UserListComp {
           TagMod("List of users is loading ...")
         ),
         <.br,
-
-
+        <.button.btn.btnPrimary(
+          "Create new user.",
+          ^.onClick --> dummyButtonHandler
+        )
       )
 
     }
@@ -97,9 +114,9 @@ object UserListComp {
     cache: Cache
   ): MainPageReactCompWrapper[UserListComp, UserListPage] =
     MainPageReactCompWrapper[UserListComp, UserListPage](
-      cache         = cache,
-      propsProvider = () => UserListComp.Props(ctl),
-      comp          = UserListComp.component,
+      cache            = cache,
+      propsProvider    = () => UserListComp.Props(ctl),
+      comp             = UserListComp.component,
       routerController = ctl
     )
 

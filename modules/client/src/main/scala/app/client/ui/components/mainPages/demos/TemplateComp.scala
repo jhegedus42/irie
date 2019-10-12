@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.demos
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
-import app.client.ui.components.{ItemPage, MainPage, MainPageWithCache, StaticTemplatePage}
+import app.client.ui.components.{ItemPage, MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
 import app.shared.entity.entityValue.values.User
@@ -62,7 +62,7 @@ trait TemplateComp
 object TemplateComp {
 
   case class TemplatePage(paramFromURL: String)
-      extends MainPageWithCache[TemplateComp, TemplatePage]
+      extends MainPageInjectedWithCacheAndController[TemplateComp, TemplatePage]
 
   case class State(someString: String)
 
