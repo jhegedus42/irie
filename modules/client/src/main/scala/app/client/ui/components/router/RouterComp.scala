@@ -65,6 +65,7 @@ case class RouterComp() {
             redirectToPage(LoginPage)(Redirect.Replace)
           )
 
+        // todo-later :
         val userIsNotLoggedIn=
           (trimSlashes
             | loginRoute)
@@ -79,13 +80,13 @@ case class RouterComp() {
             userIsNotLoggedIn
             .renderWith(f = RouterLayout.layout)
 
+//        userIsLoggedIn.renderWith(f = RouterLayout.layout)
 
     }
 
   val baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
 
   def routerComp =
-//    : ScalaComponent[Unit, Resolution[MainPage], OnUnmount.Backend, CtorType.Nullary] =
     Router.apply(baseUrl, routerConfig)
 
 }

@@ -21,7 +21,7 @@ object MenuItems {
         case IsUserLoggedIn(true) =>
           Vector.apply(
             Menu.apply("Home", LoginPage),
-            Menu.apply("Users", UserListPage()),
+            Menu.apply("Users", UserListPage()), // todo-later
 //            Menu.apply("User Editor",
 //                       UserEditorPage(
 //                         "this-is-the-uuid-of-the-to-be-edited-user"
@@ -47,9 +47,9 @@ object TopNavComp {
 
   case class Props(
     selectedPage: MainPage,
-    ctrl:         RouterCtl[MainPage])
+    ctrl:          RouterCtl[MainPage])
 
-  private def pagesInNavbar(P: Props) = {
+  private def pagesInNavbar(P: Props): TagMod = {
     MenuItems.mainMenu().toTagMod { item: Menu =>
 //      println(s" Start $item, ${item.route}")
 
@@ -58,12 +58,14 @@ object TopNavComp {
         C.navLink,
         C.pb1,
         C.pt0,
+
         <.a(C.pb1,
             C.pt0,
             C.navLink,
             item.name,
             ^.href := P.ctrl.urlFor(item.route).value),
         P.ctrl.setOnLinkClick(item.route),
+
         ^.key := item.name, {
           if (P.selectedPage == item.route) C.active
           else C.navLink

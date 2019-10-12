@@ -27,9 +27,16 @@ object Main extends js.JSApp {
     )
 
     val router = RouterComp().routerComp()
+    // todo-later ^^^ have a login page first, when the page loads / reloads
+    // if the user is logged in, then it mounts the router
+    // if the user is not logged in then it mounts the log in page
+    // => log in page will need to umount itself and mount the router instead
+
+    // or the router itself is a child of a react component
 
 //    RouterWrapper.component().renderIntoDOM( e )
     router.renderIntoDOM(e)
+
 
   }
 
