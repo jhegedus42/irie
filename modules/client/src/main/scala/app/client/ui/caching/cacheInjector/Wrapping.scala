@@ -26,7 +26,12 @@ import app.client.ui.caching.cacheInjector.{
   CacheAndPropsAndRouterCtrl,
   ReRenderer
 }
-import app.client.ui.components.{MainPage, MainPageWithCache}
+import app.client.ui.components.mainPages.LoginPageComp
+import app.client.ui.components.{
+  LoginPage,
+  MainPage,
+  MainPageWithCache
+}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
@@ -36,20 +41,32 @@ import japgolly.scalajs.react.vdom.html_<^._
 class WrapperHOC[Backend, Props, State](
   toBeWrapped: Component[CacheAndPropsAndRouterCtrl[Props], State, Backend, CtorType.Props]) {
 
-  def wrapperConstructor =
+  def wrapperConstructor(routerCtl: RouterCtl[MainPage]) =
     ScalaComponent
       .builder[CacheAndPropsAndRouterCtrl[Props]]("Wrapper")
       .renderBackend[WrapperBackend]
       .componentWillMount(
-        $ =>
-          Callback {
+        $ => {
+          val r1: Callback = Callback {
             ReRenderer.setTriggerer(ReRenderTriggerer(() => {
               $.setState(Unit).runNow()
             }))
           }
-        // todo-later - perhaps we should check here if the user
-        //  is logged in, and if not then redirect the page
-        //  to the login page ...
+
+          val r2: Callback = routerCtl.set(LoginPage)
+
+          val r3: Callback =
+            if (LoginPageComp.isUserLoggedIn.yesOrNo) {
+              r1
+            } else r2
+
+          // todo-later - perhaps we should check here if the user
+          //  is logged in, and if not then redirect the page
+          //  to the login page ...
+
+          r1
+
+        }
       )
       .build
 
@@ -64,8 +81,8 @@ class WrapperHOC[Backend, Props, State](
 }
 
 case class CacheAndPropsAndRouterCtrl[Props](
-  cache: Cache,
-  props: Props,
+  cache:     Cache,
+  props:     Props,
   routerCtl: RouterCtl[MainPage])
 
 class Cache() {
@@ -116,17 +133,17 @@ trait ToBeWrappedMainPageComponent[
 case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
   Page <: MainPageWithCache[Comp, Page]
-](cache:         Cache,
-  propsProvider: () => Comp#PropsT,
+](cache:            Cache,
+  propsProvider:    () => Comp#PropsT,
   routerController: RouterCtl[MainPage],
-  comp:          ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
+  comp:             ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
 
   def wrappedConstructor =
     new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
-      .wrapperConstructor(
+      .wrapperConstructor(routerController)(
         CacheAndPropsAndRouterCtrl[Comp#PropsT](
-          cache = cache,
-          props = propsProvider(),
+          cache     = cache,
+          props     = propsProvider(),
           routerCtl = routerController
         ) // todo-later, maybe we should pass here a router ctrl to this wrapper
       )

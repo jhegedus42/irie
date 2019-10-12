@@ -8,17 +8,6 @@
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/ThieveryDemoComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/ThieveryDemoComp.scala.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/TextFieldWithButtonAndHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/TextFieldWithButtonAndHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -391,13 +380,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00335" summary="Wednesday, 18 September 2019 6.56.16:&#10;&#10;&quot;New sprint&quot;: page navigation for the &#10;'User List and Editor' page.&#10;&#10;See the comment todo-now in the source.&#10;&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 7.01.22:&#10;&#10;Cleaned up the UI a bit, removed the ItemPage-s.&#10;--------------------------------------------------&#10;Wednesday, 18 September 2019 11.26.06:&#10;&#10;Clicking page works.">
-      <created>1568795174869</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1568795174870</updated>
-    </task>
     <task id="LOCAL-00336" summary="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------">
       <created>1568847332421</created>
       <option name="number" value="00336" />
@@ -734,7 +716,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570874764615</updated>
     </task>
-    <option name="localTasksCounter" value="384" />
+    <task id="LOCAL-00384" summary="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in">
+      <created>1570876807607</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1570876807609</updated>
+    </task>
+    <option name="localTasksCounter" value="385" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -780,7 +769,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Working on write request handler.&#10;Bit of progress was made." />
     <MESSAGE value="Working on write request handler.&#10;Bit of progress was made.&#10;&#10;Added todo-s." />
     <MESSAGE value="intermediate commit ... implementation of write &quot;cache&quot; is in&#10;progress" />
     <MESSAGE value="invalidate cache method impl in progress" />
@@ -805,6 +793,7 @@
     <MESSAGE value="username update is working" />
     <MESSAGE value="trying to get login page working ... and add new routes&#10;after the user has logged in ...&#10;&#10;does not seem to work" />
     <MESSAGE value="intermezzo commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="intermezzo commit" />
+    <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in" />
+    <option name="LAST_COMMIT_MESSAGE" value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in" />
   </component>
 </project>
