@@ -10,7 +10,7 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
-import app.shared.comm.postRequests.CreateEntityReq.InsertReqRes
+import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
@@ -200,8 +200,8 @@ case class TestHelper(routes: RouteFactory)
 
     val mhb: User = u
 
-    val par: CreateEntityReq.InsertReqPar[User] =
-      CreateEntityReq.InsertReqPar(mhb)
+    val par: CreateEntityReq.CreateEntityReqPar[User] =
+      CreateEntityReq.CreateEntityReqPar(mhb)
 
     val json: ParametersAsJSON =
       encodeParameters[CreateEntityReq[User]](par)

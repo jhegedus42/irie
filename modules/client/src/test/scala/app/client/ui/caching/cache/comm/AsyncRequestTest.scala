@@ -4,7 +4,7 @@ import app.client.ui.caching.cache.comm.AJAXCalls.{
   AjaxCallPar,
   PostAJAXRequestSuccessfulResponse
 }
-import app.shared.comm.postRequests.CreateEntityReq.InsertReqPar
+import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqPar
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.comm.postRequests.{
   AdminPassword,
@@ -48,11 +48,11 @@ class AsyncRequestTest extends AsyncFunSuite {
     res
   }
 
-  test("insert and then get") {
+  test("insert and then get") { // todo-now => test this
     println("now starting insert test...")
     val c = TestEntities.cica
 
-    val par = AjaxCallPar[CreateEntityReq[User]](InsertReqPar(c))
+    val par = AjaxCallPar[CreateEntityReq[User]](CreateEntityReqPar(c))
 
     val ac
       : Future[PostAJAXRequestSuccessfulResponse[CreateEntityReq[User]]] =

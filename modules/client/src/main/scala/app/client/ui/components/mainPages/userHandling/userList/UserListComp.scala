@@ -1,12 +1,31 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
+import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
+import app.client.ui.components.{
+  MainPage,
+  StaticTemplatePage,
+  UserListPage
+}
+import app.shared.comm.WriteRequest
+import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
+import app.shared.entity.entityValue.values.User
+import app.shared.initialization.testing.TestEntities
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import org.scalajs.dom
 
 trait UserListComp
@@ -51,16 +70,39 @@ object UserListComp {
       dom.window.alert("push the button, pu-push it real good !")
     })
 
-    val dummyButtonHandler2 = Callback({
+    def dummyButtonHandler2(
+      caprarc: CacheAndPropsAndRouterCtrl[Props]
+    ) =
+      Callback({
 
-      dom.window.alert("push the button, pu-push it real good !")
+//        dom.window.alert("push the button, pu-push it real good !")
 
+        // todo-now - create a "create user logic" here
 
-    })
+        println("now we get into action")
+
+        import io.circe.generic.auto._
+
+        val entity: User = TestEntities.jetiLabnyom
+
+        val params: CreateEntityReq.CreateEntityReqPar[User] =
+          CreateEntityReq.CreateEntityReqPar(entity)
+
+        implicit val writeReqHandler =
+          WriteRequestHandlerTCImpl.CreateEntityReq.createUserEntityReqHandler
+
+        println(
+          s"we gonna send the params for creating a user: $params"
+        )
+
+        caprarc.cache
+          .writeToServer[WriteRequest, CreateEntityReq[User]](params)
+
+      })
 
     def render(
-      cacheAndProps: CacheAndPropsAndRouterCtrl[Props],
-      s:             State
+      chPrRc: CacheAndPropsAndRouterCtrl[Props],
+      s:      State
     ): VdomElement = {
 
       println(
@@ -68,7 +110,7 @@ object UserListComp {
           " app.client.ui.components.mainPages.userHandling.userList.UserListComp"
       )
 
-      val renderLogic = UserListRenderLogic(cacheAndProps)
+      val renderLogic = UserListRenderLogic(chPrRc)
       val route       = StaticTemplatePage
 
       import bootstrap4.TB.convertableToTagOfExtensionMethods
@@ -82,7 +124,7 @@ object UserListComp {
         <.br,
         <.button.btn.btnPrimary(
           "Create new user.",
-          ^.onClick --> dummyButtonHandler
+          ^.onClick --> dummyButtonHandler2(chPrRc)
         )
       )
 

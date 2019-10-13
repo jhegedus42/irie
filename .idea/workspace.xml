@@ -6,24 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/InsertEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/CreateEntityLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/PostRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/InsertReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +167,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HelloWorldMonix">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="HelloWorldMonix" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.monix.HelloWorldMonix" />
       <module name="server" />
@@ -381,13 +372,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00338" summary="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------">
-      <created>1568917766734</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1568917766735</updated>
     </task>
     <task id="LOCAL-00339" summary="Thursday, 19 September 2019 1.55.06:&#10;&#10;Now we have a &quot;Template Page&quot;&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 2.21.18:&#10;&#10;Wrote a todo plan for User update and cache&#10;invalidation/refresh.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.28.19:&#10;&#10;A bit of refactoring and adding a new page&#10;dedicated solely for editing the Users field.&#10;&#10;--------------------------------------------------&#10;Thursday, 19 September 2019 21.34.08:&#10;&#10;Added a TODO.&#10;--------------------------------------------------">
       <created>1568918065876</created>
@@ -725,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570878892368</updated>
     </task>
-    <option name="localTasksCounter" value="387" />
+    <task id="LOCAL-00387" summary="started working on creating new user:&#10;-dummy create user is now in the user list page&#10;&#10;( intermezzo - added a hello world monix example to the JVM side&#10;   for possible cache invalidation/dependency graph description &#10;   solution - in the future, this is something to look into,&#10;   eventually )">
+      <created>1570985164964</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1570985164972</updated>
+    </task>
+    <option name="localTasksCounter" value="388" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -771,7 +762,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="invalidate cache method impl in progress" />
     <MESSAGE value="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl.UserReadCacheInvalidator.invalidateReadCache&#10;&#10;this is what we need to continue ^^^" />
     <MESSAGE value="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.read.ReadCacheImpl.invalidateEntry&#10;^ this is in progress" />
     <MESSAGE value="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.read.ReadCache.getUserCache&#10;&#10;is in progress ^" />
@@ -796,6 +786,7 @@
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in" />
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in&#10;&#10;intermezzo commit" />
     <MESSAGE value="started working on creating new user:&#10;-dummy create user is now in the user list page" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on creating new user:&#10;-dummy create user is now in the user list page" />
+    <MESSAGE value="started working on creating new user:&#10;-dummy create user is now in the user list page&#10;&#10;( intermezzo - added a hello world monix example to the JVM side&#10;   for possible cache invalidation/dependency graph description &#10;   solution - in the future, this is something to look into,&#10;   eventually )" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on creating new user:&#10;-dummy create user is now in the user list page&#10;&#10;( intermezzo - added a hello world monix example to the JVM side&#10;   for possible cache invalidation/dependency graph description &#10;   solution - in the future, this is something to look into,&#10;   eventually )" />
   </component>
 </project>

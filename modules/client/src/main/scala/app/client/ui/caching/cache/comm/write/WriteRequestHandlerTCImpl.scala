@@ -116,8 +116,6 @@ object WriteRequestHandlerTCImpl {
     self: WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]] =>
     override def invalidateReadCache(): Unit = {
 
-      // todo-now
-      // invalidate app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
 
       val s = self.requestHandlerState
       s.getPar.foreach(par => {

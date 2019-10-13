@@ -9,7 +9,7 @@ import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.crudLogic.{GetEntityLogic, GetLatestEntityByIDLogic, InsertEntityLogic, UpdateEntityLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.crudLogic.{GetEntityLogic, GetLatestEntityByIDLogic, CreateEntityLogic, UpdateEntityLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.{ReadRequest, WriteRequest}
 
@@ -34,8 +34,8 @@ case class CRUDRouteFactory(
 
     import io.circe.generic.auto._
 
-    implicit val insertRouteLogic: InsertEntityLogic[V] =
-      InsertEntityLogic()
+    implicit val insertRouteLogic: CreateEntityLogic[V] =
+      CreateEntityLogic()
 
     implicit val updateRouteLogic: UpdateEntityLogic[V] =
       UpdateEntityLogic()

@@ -17,7 +17,7 @@ import app.shared.comm.postRequests.{
   UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._
-import app.shared.comm.postRequests.CreateEntityReq.InsertReqRes
+import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
