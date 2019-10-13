@@ -1,39 +1,13 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
-import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
-import app.client.ui.components.{
-  MainPage,
-  StaticTemplatePage,
-  UserListPage
-}
-import app.shared.comm.postRequests.{
-  AdminPassword,
-  GetAllUsersReq,
-  GetEntityReq
-}
-import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityWithVersion
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import org.scalajs.dom
-import org.scalajs.dom.html.Div
 
 trait UserListComp
     extends ToBeWrappedMainPageComponent[
@@ -75,6 +49,13 @@ object UserListComp {
     val dummyButtonHandler = Callback({
 
       dom.window.alert("push the button, pu-push it real good !")
+    })
+
+    val dummyButtonHandler2 = Callback({
+
+      dom.window.alert("push the button, pu-push it real good !")
+
+
     })
 
     def render(

@@ -10,7 +10,7 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
-import app.shared.comm.postRequests.InsertReq.InsertReqRes
+import app.shared.comm.postRequests.CreateEntityReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
@@ -31,7 +31,7 @@ import app.shared.comm.postRequests.marshall.{
 }
 import app.shared.comm.postRequests.{
   GetEntityReq,
-  InsertReq,
+  CreateEntityReq,
   ResetRequest,
   UpdateReq
 }
@@ -195,16 +195,16 @@ case class TestHelper(routes: RouteFactory)
   def executeInsertUserRequest(u: User): EntityWithRef[User] = {
 
     val rn: String = "/" + RouteName
-      .getRouteName[InsertReq[User]]()
+      .getRouteName[CreateEntityReq[User]]()
       .name
 
     val mhb: User = u
 
-    val par: InsertReq.InsertReqPar[User] =
-      InsertReq.InsertReqPar(mhb)
+    val par: CreateEntityReq.InsertReqPar[User] =
+      CreateEntityReq.InsertReqPar(mhb)
 
     val json: ParametersAsJSON =
-      encodeParameters[InsertReq[User]](par)
+      encodeParameters[CreateEntityReq[User]](par)
 
     val json_par_as_string: String = json.parameters_as_json
 
@@ -223,7 +223,7 @@ case class TestHelper(routes: RouteFactory)
     println(resp)
 
     val ent: EntityWithRef[User] =
-      decodeResult[InsertReq[User]](
+      decodeResult[CreateEntityReq[User]](
         ResultOptionAsJSON(resp)
       ).right.get.entity
 

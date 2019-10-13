@@ -13,7 +13,7 @@ import WriteRequestHandlerStates.{
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.UpdateReq
+import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{
@@ -134,8 +134,24 @@ object WriteRequestHandlerTCImpl {
 
   // this is a TC instance
 
-  implicit val userUpdater =
+  implicit val userUpdater
+    : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+      with UpdateReqUserCacheInvalidator =
     new WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
     with UpdateReqUserCacheInvalidator
+
+  object CreateEntityReq {
+
+    trait ReadCacheInvalidatorForCreateEntityRequest
+        extends ReadCacheInvalidator[WriteRequest, CreateEntityReq[User]] {
+      override def invalidateReadCache(): Unit = ???
+
+    }
+
+    val createUserEntityReqHandler =
+      new WriteRequestHandlerTCImpl[WriteRequest, CreateEntityReq[User]] with
+      ReadCacheInvalidatorForCreateEntityRequest
+
+  }
 
 }

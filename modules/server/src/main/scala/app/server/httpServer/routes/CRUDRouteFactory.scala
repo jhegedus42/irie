@@ -2,7 +2,7 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, InsertReq, UpdateReq}
+import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, CreateEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityValue
 import app.shared.entity.refs.RefToEntityWithVersion
@@ -48,7 +48,7 @@ case class CRUDRouteFactory(
 
     getPostRoute[UpdateReq[V]].route ~
       getPostRoute[GetLatestEntityByIDReq[V]].route ~
-      getPostRoute[InsertReq[V]].route ~
+      getPostRoute[CreateEntityReq[V]].route ~
       getPostRoute[GetEntityReq[V]].route
   }
 

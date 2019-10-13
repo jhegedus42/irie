@@ -64,8 +64,10 @@ object Settings {
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
       "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
       "org.typelevel" %%% "cats-core"                 % "2.0.0",
+      "io.monix" %%% "monix" % "3.0.0",
       "org.typelevel" %% "simulacrum" % "1.0.0"
-  ) ++
+
+    ) ++
       Seq(
         "io.circe" %%% "circe-core",
         "io.circe" %%% "circe-generic",

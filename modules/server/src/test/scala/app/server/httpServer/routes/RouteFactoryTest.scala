@@ -12,12 +12,12 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.Te
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{
   GetEntityReq,
-  InsertReq,
+  CreateEntityReq,
   ResetRequest,
   UpdateReq
 }
 import app.shared.comm.postRequests.GetEntityReq._
-import app.shared.comm.postRequests.InsertReq.InsertReqRes
+import app.shared.comm.postRequests.CreateEntityReq.InsertReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
   EncodersDecoders,
