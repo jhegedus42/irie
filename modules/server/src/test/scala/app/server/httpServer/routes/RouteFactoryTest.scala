@@ -151,7 +151,7 @@ class RouteFactoryTest
 
     updateUsersFavoriteNumer(mhb, 99)
 
-    assertUserFavoriteNumber(mhb, 99)
+    assertUserFavoriteNumber(mhb2, 99)
 
   }
 

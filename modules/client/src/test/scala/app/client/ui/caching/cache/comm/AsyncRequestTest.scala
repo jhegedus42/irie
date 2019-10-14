@@ -28,6 +28,8 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   val helper = AsyncRequestTestHelper()
 
+  // todo-now check these integration tests (run them all)
+
   test("getentity test") {
     println("now starting get test...")
     val alice: EntityWithRef[User] = TestEntities.aliceEntity_with_UUID0
