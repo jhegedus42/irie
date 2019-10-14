@@ -1,25 +1,15 @@
 package app.client.ui.caching.cache.comm.write
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  sendPostAjaxRequest
-}
-import WriteRequestHandlerStates.{
-  NotCalledYet,
-  RequestError,
-  RequestSuccess,
-  WriteHandlerState
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -117,7 +107,8 @@ object WriteRequestHandlerTCImpl {
     override def invalidateReadCache(): Unit = {
 
 
-      val s = self.requestHandlerState
+      val s: WriteHandlerState[UpdateReq[User]] = self.requestHandlerState
+
       s.getPar.foreach(par => {
 
         val r: RefToEntityWithVersion[User] =
@@ -127,6 +118,7 @@ object WriteRequestHandlerTCImpl {
 
         ReadCache.getLatestUserCache.invalidateEntry(r1)
       })
+
     }
   }
 
@@ -142,14 +134,14 @@ object WriteRequestHandlerTCImpl {
 
     trait ReadCacheInvalidatorForCreateEntityRequest
         extends ReadCacheInvalidator[WriteRequest, CreateEntityReq[User]] {
-      override def invalidateReadCache(): Unit = ???
-
+      override def invalidateReadCache(): Unit = {
+        getAllUsersReqCache.clearCache()
+      }
     }
 
     val createUserEntityReqHandler =
       new WriteRequestHandlerTCImpl[WriteRequest, CreateEntityReq[User]] with
       ReadCacheInvalidatorForCreateEntityRequest
-
   }
 
 }

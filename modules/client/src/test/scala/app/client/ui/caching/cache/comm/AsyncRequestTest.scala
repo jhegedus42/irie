@@ -28,7 +28,6 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   val helper = AsyncRequestTestHelper()
 
-  // todo-now check these integration tests (run them all)
 
   test("getentity test") {
     println("now starting get test...")
@@ -50,7 +49,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     res
   }
 
-  test("insert and then get") { // todo-now => test this
+  test("insert and then get") {
     println("now starting insert test...")
     val c = TestEntities.cica
 

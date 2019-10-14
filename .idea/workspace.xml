@@ -5,7 +5,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +163,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.RouteFactoryTest">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="HelloWorldMonix" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.monix.HelloWorldMonix" />
       <module name="server" />
@@ -362,13 +368,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00341" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.">
-      <created>1568976497086</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1568976497087</updated>
     </task>
     <task id="LOCAL-00342" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.">
       <created>1568976632727</created>
@@ -706,7 +705,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571040756553</updated>
     </task>
-    <option name="localTasksCounter" value="390" />
+    <task id="LOCAL-00390" summary="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
+      <created>1571040790808</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1571040790808</updated>
+    </task>
+    <option name="localTasksCounter" value="391" />
     <servers />
   </component>
   <component name="UnknownFeatures">

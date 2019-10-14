@@ -77,7 +77,13 @@ case class UserListRenderLogic(
             <.br
           )
         } else <.div("user info not loaded yet ...")
+
       }
+
+      //val l2= l.sortBy()
+
+      // todo-later ... sort the users by name
+      //  (or creation date, or something)
 
       TagMod(l.map(optUserEntity2VDOM(_)).toVdomArray)
     }

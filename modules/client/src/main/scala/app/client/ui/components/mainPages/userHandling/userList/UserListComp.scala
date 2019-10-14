@@ -62,6 +62,17 @@ object UserListComp {
       .build
   }
 
+  // todo-now - delete user
+  //   - add delete button next to each user
+  //   - ask for confirmation
+  //   - execute delete request
+  //     - create delete request
+  //        - create delete request handling logic
+  //          on server side
+  //   - invalidate cache
+  //   - refresh page
+
+
   class Backend[Properties](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], State]) {
 
@@ -71,13 +82,12 @@ object UserListComp {
     })
 
     def dummyButtonHandler2(
-      caprarc: CacheAndPropsAndRouterCtrl[Props]
+      cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props]
     ) =
       Callback({
 
 //        dom.window.alert("push the button, pu-push it real good !")
 
-        // todo-now - create a "create user logic" here
 
         println("now we get into action")
 
@@ -95,14 +105,14 @@ object UserListComp {
           s"we gonna send the params for creating a user: $params"
         )
 
-        caprarc.cache
+        cacheAndPropsAndRouterCtrl.cache
           .writeToServer[WriteRequest, CreateEntityReq[User]](params)
 
       })
 
     def render(
-      chPrRc: CacheAndPropsAndRouterCtrl[Props],
-      s:      State
+      cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props],
+      s:                          State
     ): VdomElement = {
 
       println(
@@ -110,8 +120,10 @@ object UserListComp {
           " app.client.ui.components.mainPages.userHandling.userList.UserListComp"
       )
 
-      val renderLogic = UserListRenderLogic(chPrRc)
-      val route       = StaticTemplatePage
+      val renderLogic = UserListRenderLogic(
+        cacheAndPropsAndRouterCtrl
+      )
+      val route = StaticTemplatePage
 
       import bootstrap4.TB.convertableToTagOfExtensionMethods
 
@@ -124,7 +136,9 @@ object UserListComp {
         <.br,
         <.button.btn.btnPrimary(
           "Create new user.",
-          ^.onClick --> dummyButtonHandler2(chPrRc)
+          ^.onClick --> dummyButtonHandler2(
+            cacheAndPropsAndRouterCtrl
+          )
         )
       )
 
