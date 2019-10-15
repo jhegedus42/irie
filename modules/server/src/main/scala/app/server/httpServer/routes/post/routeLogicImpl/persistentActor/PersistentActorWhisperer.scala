@@ -189,7 +189,7 @@ case class PersistentActorWhisperer(
       val r2: Option[RefToEntityWithVersion[EV]] =
         res.map(x => UntypedRef.getTypedRef[EV](x.untypedRef))
       val entity: EntityWithRef[EV] =
-        EntityWithRef[EV](value.get, r2.get, EntityDeletedFlag(false))
+        EntityWithRef[EV](value.get, r2.get)
       Some(entity) // todo-next ^^^ fix this "not nice" error handling
     }
 

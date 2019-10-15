@@ -5,11 +5,12 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -368,13 +369,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00343" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component.">
-      <created>1569011889613</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1569011889614</updated>
-    </task>
     <task id="LOCAL-00344" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component.&#10; &#10; --------------------------------------------------&#10; Saturday, 21 September 2019 1.31.00:&#10; &#10; Textfield now works in the User Editor component.&#10; &#10; Next Step: Update User's name.">
       <created>1569018699033</created>
       <option name="number" value="00344" />
@@ -711,7 +705,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571044535246</updated>
     </task>
-    <option name="localTasksCounter" value="392" />
+    <task id="LOCAL-00392" summary="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.">
+      <created>1571155584323</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1571155584325</updated>
+    </task>
+    <option name="localTasksCounter" value="393" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -757,7 +758,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="invalidate cache method impl in progress&#10;&#10;some more progress" />
     <MESSAGE value="invalidate cache method impl in progress&#10;&#10;clear todo path" />
     <MESSAGE value="little progress was made, towards writing to the server" />
     <MESSAGE value="user name updating seems to work,&#10;&#10;page needs to be refreshed" />
@@ -782,6 +782,7 @@
     <MESSAGE value="create user button handler is implemented but&#10;the ajax request fails&#10;&#10;=&gt; we need to check the unit tests for creating entities" />
     <MESSAGE value="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
+    <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh." />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh." />
   </component>
 </project>

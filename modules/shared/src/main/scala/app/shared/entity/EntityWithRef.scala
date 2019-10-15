@@ -24,8 +24,7 @@ import io.circe.generic.JsonCodec
 @Lenses
 case class EntityWithRef[E <: EntityValue[E]](
   entityValue:       E,
-  refToEntity:       RefToEntityWithVersion[E],
-  entityDeletedFlag: EntityDeletedFlag = EntityDeletedFlag(false)) {
+  refToEntity:       RefToEntityWithVersion[E]){
 
   def entityAsJSON(
   )(
