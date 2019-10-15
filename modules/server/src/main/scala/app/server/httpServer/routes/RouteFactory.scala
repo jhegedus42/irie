@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
-import app.server.httpServer.routes.post.routeLogicImpl.{GetAllUsersLogic, ResetServerStateLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._

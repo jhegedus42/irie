@@ -7,7 +7,6 @@ import app.shared.entity.refs.{RefToEntityWithVersion}
 import io.circe.generic.JsonCodec
 
 object GetEntityReq {
-
   import io.circe.generic.auto._
   import io.circe.syntax._
   import io.circe.generic.JsonCodec
@@ -21,7 +20,6 @@ object GetEntityReq {
   case class Res[V <: EntityValue[V]](
     optionEntity: Option[EntityWithRef[V]])
       extends PostRequest.Result
-
 }
 
 //@JsonCodec

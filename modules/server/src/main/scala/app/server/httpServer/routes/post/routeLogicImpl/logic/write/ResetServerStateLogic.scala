@@ -1,8 +1,7 @@
-package app.server.httpServer.routes.post.routeLogicImpl
+package app.server.httpServer.routes.post.routeLogicImpl.logic.write
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.ResetRequest
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

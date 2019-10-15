@@ -6,11 +6,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/GetAllUsersLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/GetAllUsersLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/ResetServerStateLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/write/ResetServerStateLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/SumIntLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/SumIntLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/CreateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/CreateEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/GetLatestEntityByIDLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetLatestEntityByIDLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/crudLogic/UpdateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/UpdateEntityLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -369,13 +378,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00344" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component.&#10; &#10; --------------------------------------------------&#10; Saturday, 21 September 2019 1.31.00:&#10; &#10; Textfield now works in the User Editor component.&#10; &#10; Next Step: Update User's name.">
-      <created>1569018699033</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1569018699035</updated>
-    </task>
     <task id="LOCAL-00345" summary="Friday, 20 September 2019 13.45.30:&#10;&#10;User editor page &quot;stub&quot; works.&#10;&#10;TODO now : &#10;- display user's favorite number.&#10;- add TextField which will be the new value.&#10;- add a button to Save replace the old value&#10;  with the new value.&#10; &#10; --------------------------------------------------&#10; Friday, 20 September 2019 13.50.17:&#10; &#10; Added favorite number to the user list page.&#10; &#10; --------------------------------------------------&#10; Textfield works now in the &quot;Thievery Demo&quot; page,&#10; next step : move it into the User Editor Component &#10; via using the TextField component.&#10; &#10; --------------------------------------------------&#10; Saturday, 21 September 2019 1.31.00:&#10; &#10; Textfield now works in the User Editor component.&#10; &#10; Next Step: Update User's name.&#10; &#10; --------------------------------------------------&#10; Saturday, 21 September 2019 18.34.15:&#10; &#10; Code does not compile - updating User entity implementation&#10; from React client (save update button) implementation is in&#10; progress. Now a I take a little break from coding, a day or&#10; two, perhaps.">
       <created>1569080061186</created>
       <option name="number" value="00345" />
@@ -712,7 +714,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571155584325</updated>
     </task>
-    <option name="localTasksCounter" value="393" />
+    <task id="LOCAL-00393" summary="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now.">
+      <created>1571158500266</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1571158500267</updated>
+    </task>
+    <option name="localTasksCounter" value="394" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -758,7 +767,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="invalidate cache method impl in progress&#10;&#10;clear todo path" />
     <MESSAGE value="little progress was made, towards writing to the server" />
     <MESSAGE value="user name updating seems to work,&#10;&#10;page needs to be refreshed" />
     <MESSAGE value="getting rid of methods that use nonversioned refs to entities" />
@@ -783,6 +791,7 @@
     <MESSAGE value="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh." />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh." />
+    <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now." />
   </component>
 </project>

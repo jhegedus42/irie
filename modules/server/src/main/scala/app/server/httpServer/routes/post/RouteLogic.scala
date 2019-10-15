@@ -1,11 +1,8 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.{
-  GetAllUsersLogic,
-  ResetServerStateLogic,
-  SumIntLogic
-}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{GetAllUsersLogic, SumIntLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.shared.comm.{PostRequest, PostRequestType}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}

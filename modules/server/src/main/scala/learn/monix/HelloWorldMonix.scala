@@ -2,7 +2,11 @@ package learn.monix
 
 import monix.execution.CancelableFuture
 
-object HelloWorldMonix extends  App{
+object HelloWorldMonix { // extends  App{
+  // make this into an App if you want to run it
+  // App is commented out because then sbt has a default, single
+  // App to launch, so there is no need to select what to launch
+  // manually each time the server is restarted
 
   // todo later - https://monix.io/docs/3x/intro/hello-world.html
 

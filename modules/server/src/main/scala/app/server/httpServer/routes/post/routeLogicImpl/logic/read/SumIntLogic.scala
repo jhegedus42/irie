@@ -1,9 +1,8 @@
-package app.server.httpServer.routes.post.routeLogicImpl
+package app.server.httpServer.routes.post.routeLogicImpl.logic.read
 
 import java.util.Calendar
 
 import app.server.httpServer.routes.post.RouteLogic
-import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.SumIntRoute
 import app.shared.comm.postRequests.SumIntRoute.{SumIntPar, SumIntRes}
 

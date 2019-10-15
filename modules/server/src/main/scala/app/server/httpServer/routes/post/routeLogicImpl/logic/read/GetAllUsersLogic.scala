@@ -1,20 +1,16 @@
-package app.server.httpServer.routes.post.routeLogicImpl
+package app.server.httpServer.routes.post.routeLogicImpl.logic.read
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetAllUsersReq
-import app.shared.entity.entityValue.EntityValue
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
-
 
 case class GetAllUsersLogic(
 )(
   implicit
   paw:             PersistentActorWhisperer,
-  contextExecutor: ExecutionContextExecutor
-)
+  contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[GetAllUsersReq] {
 
   override def getHttpReqResult(

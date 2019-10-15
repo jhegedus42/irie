@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.crudLogic
+package app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer

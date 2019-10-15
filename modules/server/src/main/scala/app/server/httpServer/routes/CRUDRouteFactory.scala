@@ -9,7 +9,7 @@ import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.crudLogic.{GetEntityLogic, GetLatestEntityByIDLogic, CreateEntityLogic, UpdateEntityLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic.{GetEntityLogic, GetLatestEntityByIDLogic, CreateEntityLogic, UpdateEntityLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.{ReadRequest, WriteRequest}
 
