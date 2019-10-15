@@ -62,16 +62,6 @@ object UserListComp {
       .build
   }
 
-  // todo-now - delete user
-  //   - add delete button next to each user
-  //   - ask for confirmation
-  //   - execute delete request
-  //     - create delete request
-  //        - create delete request handling logic
-  //          on server side
-  //   - invalidate cache
-  //   - refresh page
-
 
   class Backend[Properties](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], State]) {
