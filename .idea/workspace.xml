@@ -6,39 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTestHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTestHelper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/CRUDRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/CreateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/CreateEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetEntityLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetLatestEntityByIDLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/GetLatestEntityByIDLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/UpdateEntityLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/crudLogic/UpdateEntityLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetEntityReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetLatestEntityByIDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetLatestEntityByIDReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/ResetRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/UpdateReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/UpdateReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAsJSON.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityValueTypeAsString.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityValueTypeAsString.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/AdminUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/AdminUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/User.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityByID.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityByID.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -401,13 +370,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00347" summary="Monday, 23 September 2019 3.08.52:&#10;&#10;Introduced the &quot;PostRequestType&quot;, phantom type.&#10;&#10;Now I have lot of type errors, all over the place.&#10;&#10;They either need to be fixed, or we roll back and&#10;remove this phantom type parameter.">
-      <created>1569197403459</created>
-      <option name="number" value="00347" />
-      <option name="presentableId" value="LOCAL-00347" />
-      <option name="project" value="LOCAL" />
-      <updated>1569197403459</updated>
-    </task>
     <task id="LOCAL-00348" summary="Monday, 23 September 2019 3.08.52:&#10;&#10;Introduced the &quot;PostRequestType&quot;, phantom type.&#10;&#10;Now I have lot of type errors, all over the place.&#10;&#10;They either need to be fixed, or we roll back and&#10;remove this phantom type parameter.&#10;--------------------------------------------------&#10;Monday, 23 September 2019 18.20.06:&#10;&#10;Phantom type is still in the code.&#10;&#10;I used a _ for the type parameter at a lot of places.&#10;Also I have a few ???-s and a few todo-now-s, so,&#10;even though the code compiles now, it will fail&#10;at runtime, most likely. &#10;&#10;So the ???-s and todo-now-s have to be fixed, and&#10;after that we need to see how to separate the &#10;&quot;write&quot; and &quot;read&quot; cache / logic in the app, for&#10;which the phantom type parameter was introduced.&#10;&#10;Possibly different type classes for the caches, or&#10;some sort of &quot;master cache&quot;, or &quot;cache supervisor&quot;,&#10;an an extra layer of abstraction above the current&#10;client caching ... we need to see... it's not&#10;clear yet.&#10;&#10;A bit of experimentation is ahead on the road.">
       <created>1569252208326</created>
       <option name="number" value="00348" />
@@ -744,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571166851936</updated>
     </task>
-    <option name="localTasksCounter" value="396" />
+    <task id="LOCAL-00396" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)">
+      <created>1571232620490</created>
+      <option name="number" value="00396" />
+      <option name="presentableId" value="LOCAL-00396" />
+      <option name="project" value="LOCAL" />
+      <updated>1571232620490</updated>
+    </task>
+    <option name="localTasksCounter" value="397" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -791,7 +760,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="getting rid of methods that use nonversioned refs to entities" />
     <MESSAGE value="code compiles, needs to be debugged, in progress" />
     <MESSAGE value="work in progress...." />
     <MESSAGE value="test get route has passed ..." />
@@ -816,6 +784,7 @@
     <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now." />
     <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now.&#10;-bit of refactoring." />
     <MESSAGE value="Login logic implementation is in progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login logic implementation is in progress." />
+    <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
   </component>
 </project>

@@ -12,9 +12,7 @@ import monocle.macros.Lenses
 @Lenses
 private[persistentActor] case class UntypedEntity(
   untypedRef:              UntypedRef,
-  entityAndItsValueAsJSON: EntityAndItsValueAsJSON) {
-
-}
+  entityAndItsValueAsJSON: EntityAndItsValueAsJSON) {}
 
 //      entityAndItsValueAsJSON: EntityAndItsValueAsJSON
 //  entityValueAsJSON: EntityValueAsJSON)

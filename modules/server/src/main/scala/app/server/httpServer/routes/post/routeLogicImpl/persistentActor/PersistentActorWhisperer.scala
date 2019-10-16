@@ -133,7 +133,6 @@ case class PersistentActorWhisperer(
 
     val snapshot: Future[StateMapSnapshot] = getSnaphot
 
-
     val refs: Future[List[UntypedRef]] = snapshot.map(x => {
       x.getAllRefsWithGivenEntityType[User]
     })
@@ -210,10 +209,12 @@ case class PersistentActorWhisperer(
       }
 
       val value: Option[EV] = res.flatMap(res2entity(_))
-      val r2: Option[RefToEntityWithVersion[EV]] =
-        res.map(x => UntypedRef.getTypedRef[EV](x.untypedRef))
+
       val entity: EntityWithRef[EV] =
-        EntityWithRef[EV](value.get, r2.get)
+        EntityWithRef[EV](
+          value.get,
+          res.map(x => UntypedRef.getTypedRef[EV](x.untypedRef)).get
+        )
       Some(entity) // todo-next ^^^ fix this "not nice" error handling
     }
 
@@ -228,12 +229,13 @@ case class PersistentActorWhisperer(
       .map(_.state)
   }
 
-  def filterSnapshotToEntityType[V <: EntityType[V]](
+  def filterSnapshotToEntityType[V <: EntityType[V]: ClassTag](
     stateMapSnapshot: StateMapSnapshot
   ): Set[EntityWithRef[V]] = {
     // todo-now 1.1.1
 
-    val res: Seq[UntypedRef] =stateMapSnapshot.getAllRefsWithGivenEntityType[User]
+    val res: List[UntypedEntity] =
+      stateMapSnapshot.getAllEntitiesWithGivenEntityType[V]
 
     ???
   }
@@ -243,27 +245,20 @@ case class PersistentActorWhisperer(
     * @return Latest version of all entities of type `V`
     */
   def getNewestVersionsForAllEntitiesWithGivenEntityType[
-    V <: EntityType[V]
+    V <: EntityType[V]: ClassTag
   ]: Future[Set[EntityWithRef[V]]] = {
 
     val fsm: Future[StateMapSnapshot] = getSnaphot
 
-    def f( stateMapSnapshot: StateMapSnapshot ): Set[EntityWithRef[V]] = {
-
-      val res: Map[EntityIdentity, Set[EntityWithRef[V]]] =
-        filterSnapshotToEntityType[V](stateMapSnapshot)
-          .groupBy(f => f.refToEntity.entityIdentity)
-
-      val res2: Set[EntityWithRef[V]] = res
+    def f(stateMapSnapshot: StateMapSnapshot): Set[EntityWithRef[V]] =
+      filterSnapshotToEntityType[V](stateMapSnapshot)
+        .groupBy(f => f.refToEntity.entityIdentity)
         .transform(
           (e: EntityIdentity, s: Set[EntityWithRef[V]]) =>
             s.maxBy(
               tmp => tmp.refToEntity.entityVersion.versionNumberLong
             )
         ).values.toSet
-
-      res2
-    }
 
     fsm.map(f)
 
