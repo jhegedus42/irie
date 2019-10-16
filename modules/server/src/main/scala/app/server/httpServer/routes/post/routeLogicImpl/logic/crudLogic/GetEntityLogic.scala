@@ -6,12 +6,12 @@ import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class GetEntityLogic[V <: EntityValue[V]](
+case class GetEntityLogic[V <: EntityType[V]](
 )(
   implicit
   paw:             PersistentActorWhisperer,

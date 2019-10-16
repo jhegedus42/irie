@@ -8,7 +8,7 @@ import app.shared.entity.asString.{
   EntityValueAsJSON,
   EntityValueTypeAsString
 }
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.{
   RefToEntityWithVersion,
 //  RefToEntityWithoutVersion

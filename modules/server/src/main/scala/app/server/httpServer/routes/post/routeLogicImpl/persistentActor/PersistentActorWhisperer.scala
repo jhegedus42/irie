@@ -20,7 +20,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{
   PersistentActorImpl
 }
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.{
   EntityDeletedFlag,
   RefToEntityByID,
@@ -34,6 +34,7 @@ import app.shared.entity.asString.{
   EntityValueTypeAsString
 }
 import app.shared.entity.entityValue.values.User
+import app.shared.utils.UUID_Utils.EntityIdentity
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
 import io.circe.Decoder.Result
 
@@ -69,7 +70,7 @@ case class PersistentActorWhisperer(
         .mapTo[String]
     }
 
-    def updateEntity[V <: EntityValue[V]: ClassTag](
+    def updateEntity[V <: EntityType[V]: ClassTag](
       currentEntity: EntityWithRef[V],
       newValue:      V
     )(
@@ -83,7 +84,7 @@ case class PersistentActorWhisperer(
         UntypedEntity.makeFromEntity(currentEntity)
 
       val newValueAsJSON: EntityValueAsJSON =
-        EntityValue.getAsJson(newValue)
+        EntityType.getAsJson(newValue)
 
       import monocle.macros.syntax.lens._
       val newValueAsEntity = currentEntity
@@ -105,7 +106,7 @@ case class PersistentActorWhisperer(
       res
     }
 
-    def insertNewEntity[V <: EntityValue[V]: ClassTag](
+    def insertNewEntity[V <: EntityType[V]: ClassTag](
       value: V
     )(
       implicit encoder: Encoder[EntityWithRef[V]],
@@ -132,11 +133,9 @@ case class PersistentActorWhisperer(
 
     val snapshot: Future[StateMapSnapshot] = getSnaphot
 
-    val entityValueTypeAsString: EntityValueTypeAsString =
-      EntityValueTypeAsString.make[User]
 
     val refs: Future[List[UntypedRef]] = snapshot.map(x => {
-      x.getAllRefsWithGivenEntityType(entityValueTypeAsString)
+      x.getAllRefsWithGivenEntityType[User]
     })
 
     val allUserRefsUntyped: Future[List[UntypedRef]] = refs
@@ -148,7 +147,7 @@ case class PersistentActorWhisperer(
     refsTyped
   }
 
-  def getEntityWithVersion[V <: EntityValue[V]](
+  def getEntityWithVersion[V <: EntityType[V]](
     ref: RefToEntityWithVersion[V]
   )(
     implicit d: Decoder[EntityWithRef[V]]
@@ -188,7 +187,7 @@ case class PersistentActorWhisperer(
     res2
   }
 
-  def getEntityWithLatestVersion[EV <: EntityValue[EV]](
+  def getEntityWithLatestVersion[EV <: EntityType[EV]](
     ref: RefToEntityByID[EV]
   )(
     implicit d: Decoder[EV]
@@ -229,15 +228,45 @@ case class PersistentActorWhisperer(
       .map(_.state)
   }
 
+  def filterSnapshotToEntityType[V <: EntityType[V]](
+    stateMapSnapshot: StateMapSnapshot
+  ): Set[EntityWithRef[V]] = {
+    // todo-now 1.1.1
+
+    val res: Seq[UntypedRef] =stateMapSnapshot.getAllRefsWithGivenEntityType[User]
+
+    ???
+  }
+
   /**
     * @tparam V
     * @return Latest version of all entities of type `V`
     */
-  def getAllEntities[
-    V <: EntityValue[V]
-  ]: Future[List[EntityWithRef[V]]] = {
+  def getNewestVersionsForAllEntitiesWithGivenEntityType[
+    V <: EntityType[V]
+  ]: Future[Set[EntityWithRef[V]]] = {
 
-    ??? // todo-now 1.1
+    val fsm: Future[StateMapSnapshot] = getSnaphot
+
+    def f( stateMapSnapshot: StateMapSnapshot ): Set[EntityWithRef[V]] = {
+
+      val res: Map[EntityIdentity, Set[EntityWithRef[V]]] =
+        filterSnapshotToEntityType[V](stateMapSnapshot)
+          .groupBy(f => f.refToEntity.entityIdentity)
+
+      val res2: Set[EntityWithRef[V]] = res
+        .transform(
+          (e: EntityIdentity, s: Set[EntityWithRef[V]]) =>
+            s.maxBy(
+              tmp => tmp.refToEntity.entityVersion.versionNumberLong
+            )
+        ).values.toSet
+
+      res2
+    }
+
+    fsm.map(f)
+
   }
 
 }

@@ -37,7 +37,7 @@ import app.shared.comm.postRequests.{
 }
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion}
 import io.circe
@@ -93,7 +93,7 @@ case class TestHelper(routes: RouteFactory)
   }
 
   def resetServerState(): Unit = {
-    case class DummyVal(s: String) extends EntityValue[DummyVal]
+    case class DummyVal(s: String) extends EntityType[DummyVal]
     val resetRes1: ResetRequest.Res =
       getPostRequestResult[ResetRequest, DummyVal](
         ResetRequest.Par()
@@ -102,7 +102,7 @@ case class TestHelper(routes: RouteFactory)
 
   def getPostRequestResult[
     Req <: PostRequest[_],
-    V   <: EntityValue[V]
+    V   <: EntityType[V]
   ](par: Req#ParT
   )(
     implicit
@@ -231,7 +231,7 @@ case class TestHelper(routes: RouteFactory)
 
   }
 
-  def getEntity[V <: EntityValue[V]](
+  def getEntity[V <: EntityType[V]](
     ref: RefToEntityWithVersion[V]
   )(
     implicit
@@ -255,9 +255,9 @@ case class TestHelper(routes: RouteFactory)
     entity
   }
 
-  def assertLatestEntityValueIs[V <: EntityValue[V]](
+  def assertLatestEntityValueIs[V <: EntityType[V]](
     ref: RefToEntityWithVersion[V],
-    ev:  EntityValue[V]
+    ev:  EntityType[V]
   ): Unit = {
     ??? // todo-later maybe
 

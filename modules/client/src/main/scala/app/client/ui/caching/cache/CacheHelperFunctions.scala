@@ -6,7 +6,7 @@ import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetLatestEntityByIDReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityValueTypeAsString
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
@@ -17,7 +17,7 @@ import scala.reflect.ClassTag
 
 object CacheHelperFunctions {
 
-  def getEntity[EV <: EntityValue[EV]](
+  def getEntity[EV <: EntityType[EV]](
     identity: EntityIdentity,
     cache:    Cache
   )(

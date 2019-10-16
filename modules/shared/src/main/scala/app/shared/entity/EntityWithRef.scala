@@ -6,7 +6,7 @@ import app.shared.entity.asString.{
   EntityValueAsJSON,
   EntityValueTypeAsString
 }
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.{
   EntityDeletedFlag,
   RefToEntityWithVersion
@@ -22,7 +22,7 @@ import io.circe.generic.JsonCodec
 
 @JsonCodec
 @Lenses
-case class EntityWithRef[E <: EntityValue[E]](
+case class EntityWithRef[E <: EntityType[E]](
   entityValue:       E,
   refToEntity:       RefToEntityWithVersion[E]){
 
@@ -32,7 +32,7 @@ case class EntityWithRef[E <: EntityValue[E]](
     ee:         Encoder[E]
   ): EntityAndItsValueAsJSON = {
     EntityAndItsValueAsJSON(EntityAsJSON(e.apply(this)),
-                            EntityValue.getAsJson(entityValue))
+                            EntityType.getAsJson(entityValue))
   }
 
   def updateValue(v:E): EntityWithRef[E] =this.copy(entityValue=v)
@@ -50,11 +50,11 @@ object EntityWithRef {
     * @tparam V
     * @return Entity with random UUID and Version 0.
     */
-  def makeFromValue[V <: EntityValue[V]: ClassTag](
+  def makeFromValue[V <: EntityType[V]: ClassTag](
     v: V
   ): EntityWithRef[V] = {
     val tr =
-      RefToEntityWithVersion[V](EntityValueTypeAsString.make[V])
+      RefToEntityWithVersion[V](EntityValueTypeAsString.getEntityValueTypeAsString[V])
     EntityWithRef(v, tr)
   }
 

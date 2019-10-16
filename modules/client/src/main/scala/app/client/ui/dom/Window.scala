@@ -2,7 +2,7 @@ package app.client.ui.dom
 
 object Window {
   def setLoggedInUUID(s:String) : Unit={
-    // todo-now - implement login logic
+    // todo-now-2 implement login logic
   }
 
   def runWindowNameTest() : Unit ={

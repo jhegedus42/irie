@@ -5,7 +5,7 @@ import app.shared.entity.asString.{
   EntityAndItsValueAsJSON,
   EntityValueAsJSON
 }
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import io.circe.Encoder
 import monocle.macros.Lenses
 
@@ -21,7 +21,7 @@ private[persistentActor] case class UntypedEntity(
 
 object UntypedEntity {
 
-  implicit def makeFromEntity[V <: EntityValue[V]](
+  implicit def makeFromEntity[V <: EntityType[V]](
     e: EntityWithRef[V]
   )(
     implicit encoder: Encoder[EntityWithRef[V]],
@@ -30,7 +30,7 @@ object UntypedEntity {
     val utr:            UntypedRef              = e.refToEntity
     val entityAsString: EntityAndItsValueAsJSON = e.entityAsJSON()
     val entityValueAsString: EntityValueAsJSON =
-      EntityValue.getAsJson(e.entityValue)
+      EntityType.getAsJson(e.entityValue)
 //    UntypedEntity(utr, entityValueAsString)
     UntypedEntity(utr, entityAsString)
   }

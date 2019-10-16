@@ -19,7 +19,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.{
   InsertEvent,
   UpdateEvent
 }
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 
 import scala.language.postfixOps
 import scala.reflect.ClassTag

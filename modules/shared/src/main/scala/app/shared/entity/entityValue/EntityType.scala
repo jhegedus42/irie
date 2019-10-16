@@ -11,13 +11,16 @@ import io.circe.{Encoder, Json}
   *
   * @tparam T
   */
-trait EntityValue[T <: EntityValue[T]] {}
+trait EntityType[T <: EntityType[T]] {}
 
-object EntityValue {
+object EntityType {
 
-  def getAsJson[T <: EntityValue[T]](
-      v:              T
-  )(implicit encoder: Encoder[T]): EntityValueAsJSON =
+  def getAsJson[T <: EntityType[T]](
+    v: T
+  )(
+    implicit encoder: Encoder[T]
+  ): EntityValueAsJSON =
     EntityValueAsJSON(encoder.apply(v))
+
 
 }

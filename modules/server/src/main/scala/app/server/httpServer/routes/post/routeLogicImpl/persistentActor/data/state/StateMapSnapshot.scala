@@ -1,11 +1,14 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
 import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
+import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityByID
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
+
+import scala.reflect.ClassTag
 
 //import scalaz._
 
@@ -114,13 +117,13 @@ private[persistentActor] case class StateMapSnapshot(
     Some(StateMapSnapshot(newMap).bumpVersion)
   }
 
-  def getEntity[V <: EntityValue[V]](
+  def getEntity[V <: EntityType[V]](
     r: UntypedRef
   ): Option[UntypedEntity] = {
     map.get(r)
   }
 
-  def getEntityWithLatestVersion[V <: EntityValue[V]](
+  def getEntityWithLatestVersion[V <: EntityType[V]](
     r: RefToEntityByID[V]
   ): Option[UntypedEntity] = {
 //    map.get(r)
@@ -141,12 +144,28 @@ private[persistentActor] case class StateMapSnapshot(
     // todo-one-day : fix this possible exception here, that getRes is empty
   }
 
-  def getAllRefsWithGivenEntityType(
-    entityType: EntityValueTypeAsString
-  ): List[UntypedRef] = {
+  def getAllEntitiesWithGivenEntityType[
+    V <: EntityType[V]:ClassTag
+  ]: List[UntypedEntity] = {
+    map
+      .filter(
+        x =>
+          x._1.entityValueTypeAsString == EntityValueTypeAsString
+            .getEntityValueTypeAsString[V]
+      ).values.toList
+  }
+
+  def getAllRefsWithGivenEntityType[
+    V <: EntityType[V]:ClassTag
+  ]: List[UntypedRef] = {
 
     val keys =
-      map.keySet.filter(r => r.entityValueTypeAsString == entityType)
+      map.keySet.filter(
+        r =>
+          r.entityValueTypeAsString == EntityValueTypeAsString
+            .getEntityValueTypeAsString[V]
+      )
+
     // todo-one-day , use scalaZ's or cat's triple equals + deriving ^^^
     //  for things like this ^^^
     //  see : https://github.com/scalaz/scalaz-deriving/tree/v1.0.0

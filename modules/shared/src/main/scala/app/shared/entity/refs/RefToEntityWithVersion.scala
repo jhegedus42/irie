@@ -1,12 +1,12 @@
 package app.shared.entity.refs
 
 import app.shared.entity.asString.EntityValueTypeAsString
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.utils.UUID_Utils.EntityIdentity
 import monocle.macros.Lenses
 
 @Lenses
-case class RefToEntityWithVersion[T <: EntityValue[T]](
+case class RefToEntityWithVersion[T <: EntityType[T]](
   entityValueTypeAsString: EntityValueTypeAsString,
   entityIdentity:          EntityIdentity = EntityIdentity(),
   entityVersion:           EntityVersion = EntityVersion()) {
@@ -17,7 +17,7 @@ case class RefToEntityWithVersion[T <: EntityValue[T]](
 
 object RefToEntityWithVersion {
 
-  def getOnlyLatestVersions[V <: EntityValue[V]](
+  def getOnlyLatestVersions[V <: EntityType[V]](
     l: List[RefToEntityWithVersion[V]]
   ) = {
     val grouped: Map[String, List[RefToEntityWithVersion[V]]] =

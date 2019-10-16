@@ -1,11 +1,11 @@
 package app.shared.comm.postRequests
 
 import app.shared.comm.{PostRequest, WriteRequest}
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.comm.PostRequest
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.comm.postRequests.ResetRequest.{Par, Res}
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.EntityWithRef
 import io.circe.generic.JsonCodec
 import io.circe.syntax._

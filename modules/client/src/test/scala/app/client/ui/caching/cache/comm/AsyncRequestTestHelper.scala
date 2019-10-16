@@ -6,7 +6,7 @@ import app.shared.comm.postRequests.{GetEntityReq, ResetRequest, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq.Par
 import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityWithVersion }
 import io.circe.{Decoder, Encoder}

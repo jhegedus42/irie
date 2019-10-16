@@ -4,7 +4,7 @@ import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
 import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, CreateEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
@@ -23,7 +23,7 @@ case class CRUDRouteFactory(
   executionContext: ExecutionContextExecutor) {
 
 //  implicit val ec = executionContext: ExecutionContextExecutor
-  def route[V <: EntityValue[V]: ClassTag](
+  def route[V <: EntityType[V]: ClassTag](
     implicit
     unTypedRefDecoder: Decoder[RefToEntityWithVersion[V]],
     encoder:           Encoder[EntityWithRef[V]],

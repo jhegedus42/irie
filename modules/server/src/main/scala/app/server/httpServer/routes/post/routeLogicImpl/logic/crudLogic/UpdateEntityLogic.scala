@@ -6,13 +6,13 @@ import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.UpdateReq
 import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-case class UpdateEntityLogic[V <: EntityValue[V]](
+case class UpdateEntityLogic[V <: EntityType[V]](
 )(
                                                    implicit
                                                    paw:             PersistentActorWhisperer,

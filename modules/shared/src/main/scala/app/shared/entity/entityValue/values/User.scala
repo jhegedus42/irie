@@ -1,6 +1,6 @@
 package app.shared.entity.entityValue.values
 
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 
 import io.circe._
 
@@ -13,7 +13,7 @@ case class User(
   name:           String,
   favoriteNumber: Int,
   password:       String="titok")
-    extends EntityValue[User]
+    extends EntityType[User]
 
 
 // todo-next-0 admin page for users (CRUD for User Entity):

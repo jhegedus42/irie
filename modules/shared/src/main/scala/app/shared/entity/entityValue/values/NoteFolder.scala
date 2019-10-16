@@ -1,6 +1,6 @@
 package app.shared.entity.entityValue.values
 
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion
 
 /**
@@ -10,4 +10,4 @@ import app.shared.entity.refs.RefToEntityWithVersion
   * @param name
   */
 case class NoteFolder(user: RefToEntityWithVersion[User], name: String )
-    extends EntityValue[NoteFolder]
+    extends EntityType[NoteFolder]

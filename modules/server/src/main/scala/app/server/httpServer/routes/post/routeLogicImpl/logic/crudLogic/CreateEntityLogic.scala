@@ -9,12 +9,12 @@ import app.shared.comm.postRequests.CreateEntityReq.{
   CreateEntityReqRes
 }
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityValue
+import app.shared.entity.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-case class CreateEntityLogic[V <: EntityValue[V]](
+case class CreateEntityLogic[V <: EntityType[V]](
 )(
   implicit
   paw:             PersistentActorWhisperer,
