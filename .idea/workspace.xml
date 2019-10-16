@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" afterDir="false" />
     </list>
@@ -370,13 +371,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00348" summary="Monday, 23 September 2019 3.08.52:&#10;&#10;Introduced the &quot;PostRequestType&quot;, phantom type.&#10;&#10;Now I have lot of type errors, all over the place.&#10;&#10;They either need to be fixed, or we roll back and&#10;remove this phantom type parameter.&#10;--------------------------------------------------&#10;Monday, 23 September 2019 18.20.06:&#10;&#10;Phantom type is still in the code.&#10;&#10;I used a _ for the type parameter at a lot of places.&#10;Also I have a few ???-s and a few todo-now-s, so,&#10;even though the code compiles now, it will fail&#10;at runtime, most likely. &#10;&#10;So the ???-s and todo-now-s have to be fixed, and&#10;after that we need to see how to separate the &#10;&quot;write&quot; and &quot;read&quot; cache / logic in the app, for&#10;which the phantom type parameter was introduced.&#10;&#10;Possibly different type classes for the caches, or&#10;some sort of &quot;master cache&quot;, or &quot;cache supervisor&quot;,&#10;an an extra layer of abstraction above the current&#10;client caching ... we need to see... it's not&#10;clear yet.&#10;&#10;A bit of experimentation is ahead on the road.">
-      <created>1569252208326</created>
-      <option name="number" value="00348" />
-      <option name="presentableId" value="LOCAL-00348" />
-      <option name="project" value="LOCAL" />
-      <updated>1569252208326</updated>
-    </task>
     <task id="LOCAL-00349" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.">
       <created>1569322033422</created>
       <option name="number" value="00349" />
@@ -713,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571232620490</updated>
     </task>
-    <option name="localTasksCounter" value="397" />
+    <task id="LOCAL-00397" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)">
+      <created>1571233102889</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1571233102890</updated>
+    </task>
+    <option name="localTasksCounter" value="398" />
     <servers />
   </component>
   <component name="UnknownFeatures">

@@ -19,30 +19,21 @@ private[persistentActor] case class UntypedEntity(
 
 object UntypedEntity {
 
-  implicit def makeFromEntity[V <: EntityType[V]](
-    e: EntityWithRef[V]
-  )(
-    implicit encoder: Encoder[EntityWithRef[V]],
-    ee:               Encoder[V]
+  implicit def makeFromEntity[V <: EntityType[V]]
+  ( e: EntityWithRef[V] )
+  ( implicit encoder: Encoder[EntityWithRef[V]],
+     ee:               Encoder[V]
   ): UntypedEntity = {
     val utr:            UntypedRef              = e.refToEntity
     val entityAsString: EntityAndItsValueAsJSON = e.entityAsJSON()
-    val entityValueAsString: EntityValueAsJSON =
-      EntityType.getAsJson(e.entityValue)
-//    UntypedEntity(utr, entityValueAsString)
     UntypedEntity(utr, entityAsString)
   }
 
-//  def converToTypedEntityWithRef[V <: EntityValue[V]](
-//    ute: UntypedEntity
-//  ): EntityWithRef[V] = {
-//
-//    ???
-//  }
+  def converToTypedEntityWithRef[V <: EntityType[V]](
+    ute: UntypedEntity
+  ): EntityWithRef[V] = {
 
-//  def updateEntityValue(
-//    ute:   UntypedEntity,
-//    value: EntityValueAsJSON
-//  ): UntypedEntity = ???
+    ??? //todo-now 1.1.1.1
+  }
 
 }

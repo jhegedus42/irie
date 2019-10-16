@@ -250,6 +250,7 @@ case class PersistentActorWhisperer(
 
     val fsm: Future[StateMapSnapshot] = getSnaphot
 
+    // todo-now 1.1
     def f(stateMapSnapshot: StateMapSnapshot): Set[EntityWithRef[V]] =
       filterSnapshotToEntityType[V](stateMapSnapshot)
         .groupBy(f => f.refToEntity.entityIdentity)
