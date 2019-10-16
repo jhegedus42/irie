@@ -6,9 +6,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/cats/Traversable.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/MainTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/MainTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/PersistedEvents.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/PersistedEvents.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/StateService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/StateService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAndItsValueAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAndItsValueAsJSON.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/asString/EntityWithRefAsJSON.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/EntityType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/refs/EntityWithRefTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/test/scala/app/shared/dataModel/refs/EntityWithRefTest.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -371,13 +387,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00349" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.">
-      <created>1569322033422</created>
-      <option name="number" value="00349" />
-      <option name="presentableId" value="LOCAL-00349" />
-      <option name="project" value="LOCAL" />
-      <updated>1569322033422</updated>
-    </task>
     <task id="LOCAL-00350" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.">
       <created>1569340902704</created>
       <option name="number" value="00350" />
@@ -714,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571233102890</updated>
     </task>
-    <option name="localTasksCounter" value="398" />
+    <task id="LOCAL-00398" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s">
+      <created>1571240850676</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1571240850679</updated>
+    </task>
+    <option name="localTasksCounter" value="399" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -761,7 +777,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="code compiles, needs to be debugged, in progress" />
     <MESSAGE value="work in progress...." />
     <MESSAGE value="test get route has passed ..." />
     <MESSAGE value="all server side tests pass" />
@@ -786,6 +801,7 @@
     <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now.&#10;-bit of refactoring." />
     <MESSAGE value="Login logic implementation is in progress." />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
+    <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s" />
   </component>
 </project>

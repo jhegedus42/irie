@@ -3,6 +3,10 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.read
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.postRequests.LoginReq
+import app.shared.entity.EntityWithRef
+import app.shared.entity.entityValue.values.User
+import app.shared.utils.UUID_Utils.EntityIdentity
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 case class LoginLogic(
@@ -15,15 +19,21 @@ case class LoginLogic(
   override def getHttpReqResult(
     param: LoginReq.Par
   ): Future[LoginReq.Res] = {
-//    paw.getAllUserRefs.map(LoginReq.Res(_))
 
-    val password=param.password
+    def f(os: Option[Set[EntityWithRef[User]]]) = {
+      os.flatMap(
+        _.filter(
+          p =>
+            (p.entityValue.name == param.userName &&
+              p.entityValue.password == param.password)
+        ).headOption.map(x => x.refToEntity.entityIdentity)
+      )
+    }
 
-    val userName=param.userName
-
-    // let's assume that user name is unique
-
-    ??? // todo-now 1
+    paw
+      .getNewestVersionsForAllEntitiesWithGivenEntityType[User].map(f).map(
+        LoginReq.Res.apply
+      )
   }
 
   override def getRouteName: String =
@@ -32,7 +42,5 @@ case class LoginLogic(
 }
 
 object LoginLogic {
-
-//  implicit def getLogic : LoginLogic = ??? // todo-later ?? => what is this here ?
 
 }

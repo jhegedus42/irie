@@ -9,7 +9,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Persiste
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{GetAllUsersReq, ResetRequest, SumIntRoute}
+import app.shared.comm.postRequests.{GetAllUsersReq, LoginReq, ResetRequest, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -35,8 +35,10 @@ private[httpServer] case class RouteFactory(
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~
       ping_pong ~
-      getPostRoute[ResetRequest]().route ~
-      getPostRoute[GetAllUsersReq]().route
+      getPostRoute[ResetRequest].route ~
+      getPostRoute[GetAllUsersReq].route ~
+      getPostRoute[LoginReq].route
+  // todo-now 1 - test LoginReq with http-akka-testkit
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

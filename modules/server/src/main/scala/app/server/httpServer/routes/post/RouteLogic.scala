@@ -1,7 +1,11 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{GetAllUsersLogic, SumIntLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{
+  GetAllUsersLogic,
+  LoginLogic,
+  SumIntLogic
+}
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.shared.comm.{PostRequest, PostRequestType}
 
@@ -47,5 +51,11 @@ object RouteLogic {
     implicit paw:    PersistentActorWhisperer,
     contextExecutor: ExecutionContextExecutor
   ): GetAllUsersLogic = GetAllUsersLogic()
+
+  implicit def getLoginLogic(
+    implicit
+    paw:             PersistentActorWhisperer,
+    contextExecutor: ExecutionContextExecutor
+  ): LoginLogic = LoginLogic()
 
 }

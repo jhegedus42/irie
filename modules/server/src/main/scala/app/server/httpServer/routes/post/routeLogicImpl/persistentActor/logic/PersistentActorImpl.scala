@@ -11,7 +11,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Com
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  UntypedEntity,
+  UntypedEntityWithRef,
   UntypedRef
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.{
@@ -73,7 +73,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
           s"\n\nApplyEvent was called with CreateEntityEvent:\n$insertEventPayload"
         )
 
-        val newEntry: UntypedEntity =
+        val newEntry: UntypedEntityWithRef =
           insertEventPayload.newEntry
 
 //      val newState =
@@ -92,7 +92,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
 
         // todo-later ... use some common handler , the one that handles the command too
 
-        val newEntry: UntypedEntity =
+        val newEntry: UntypedEntityWithRef =
           insertEventPayload.updatedEntry
 
 //      val newState = stateService.getState.unsafeInsertUpdatedEntity(newEntry)

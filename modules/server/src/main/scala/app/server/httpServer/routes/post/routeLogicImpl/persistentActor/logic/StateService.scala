@@ -3,7 +3,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.UpdateEntityCommand
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
-  UntypedEntity,
+  UntypedEntityWithRef,
   UntypedRef
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
@@ -97,7 +97,7 @@ private[logic] case class StateService() {
     printStateInSimpleFormat()
   }
 
-  def insertNewEntity(se: UntypedEntity): DidOperationSucceed = {
+  def insertNewEntity(se: UntypedEntityWithRef): DidOperationSucceed = {
     val oldState = getState
     val newState = oldState.insertVirginEntity(se)
     setNewState(newState)

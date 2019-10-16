@@ -12,7 +12,7 @@ import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Com
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
-  UntypedEntity,
+  UntypedEntityWithRef,
   UntypedRef
 }
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{
@@ -80,11 +80,11 @@ case class PersistentActorWhisperer(
 
 //    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
-      val currentEntityUntyped: UntypedEntity =
-        UntypedEntity.makeFromEntity(currentEntity)
+      val currentEntityUntyped: UntypedEntityWithRef =
+        UntypedEntityWithRef.makeFromEntity(currentEntity)
 
       val newValueAsJSON: EntityValueAsJSON =
-        EntityType.getAsJson(newValue)
+        EntityType.toJSON(newValue)
 
       import monocle.macros.syntax.lens._
       val newValueAsEntity = currentEntity
@@ -116,7 +116,7 @@ case class PersistentActorWhisperer(
       val entity: EntityWithRef[V] =
         EntityWithRef.makeFromValue[V](value)
 
-      val ute: UntypedEntity          = UntypedEntity.makeFromEntity(entity)
+      val ute: UntypedEntityWithRef          = UntypedEntityWithRef.makeFromEntity(entity)
       val ic:  InsertNewEntityCommand = InsertNewEntityCommand(ute)
 
       val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
@@ -156,14 +156,14 @@ case class PersistentActorWhisperer(
       stateMapSnapshot: StateMapSnapshot
     ): Option[EntityWithRef[V]] = {
 
-      val res: Option[UntypedEntity] = stateMapSnapshot.getEntity(ref)
+      val res: Option[UntypedEntityWithRef] = stateMapSnapshot.getEntity(ref)
 
       println(
         s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res "
       )
 
       val ent: Option[EntityWithRef[V]] =
-        res.head.entityAndItsValueAsJSON.entityAsJSON.getEntity
+        res.head.entityAndItsValueAsJSON.entityWithRefAsJSON.toEntityWithRef
 
       println(
         s"410B699E-40CC-4973-8020-AB6944A643FD - $ent - ent in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion"
@@ -199,10 +199,10 @@ case class PersistentActorWhisperer(
 //      val res: Option[StateMapEntry] = stateMapSnapshot.getEntity(ref)
 //      val par2 : UntypedRef=
 
-      val res: Option[UntypedEntity] =
+      val res: Option[UntypedEntityWithRef] =
         stateMapSnapshot.getEntityWithLatestVersion(ref)
 
-      def res2entity(sme: UntypedEntity): Option[EV] = {
+      def res2entity(sme: UntypedEntityWithRef): Option[EV] = {
         val json = sme.entityAndItsValueAsJSON.entityValueAsJSON.json
         val res: Option[EV] = d.decodeJson(json).toOption
         res
@@ -231,13 +231,15 @@ case class PersistentActorWhisperer(
 
   def filterSnapshotToEntityType[V <: EntityType[V]: ClassTag](
     stateMapSnapshot: StateMapSnapshot
-  ): Set[EntityWithRef[V]] = {
-    // todo-now 1.1.1
-
-    val res: List[UntypedEntity] =
-      stateMapSnapshot.getAllEntitiesWithGivenEntityType[V]
-
-    ???
+  )(
+    implicit d: Decoder[EntityWithRef[V]]
+  )
+  : Option[List[EntityWithRef[V]]] = {
+    import cats.implicits._
+    import cats.Applicative
+     val r1: List[Option[EntityWithRef[V]]] =stateMapSnapshot.getAllEntitiesWithGivenEntityType[V].
+    map(UntypedEntityWithRef.toTypedEntityWithRef[V]).toList
+    r1.traverse(identity)
   }
 
   /**
@@ -246,23 +248,26 @@ case class PersistentActorWhisperer(
     */
   def getNewestVersionsForAllEntitiesWithGivenEntityType[
     V <: EntityType[V]: ClassTag
-  ]: Future[Set[EntityWithRef[V]]] = {
+  ](
+  implicit d: Decoder[EntityWithRef[V]])
+  : Future[Option[Set[EntityWithRef[V]]]] = {
 
     val fsm: Future[StateMapSnapshot] = getSnaphot
 
-    // todo-now 1.1
-    def f(stateMapSnapshot: StateMapSnapshot): Set[EntityWithRef[V]] =
-      filterSnapshotToEntityType[V](stateMapSnapshot)
+    def f(stateMapSnapshot: StateMapSnapshot): Option[Set[EntityWithRef[V]]] =
+      filterSnapshotToEntityType[V](stateMapSnapshot).map(_
         .groupBy(f => f.refToEntity.entityIdentity)
         .transform(
-          (e: EntityIdentity, s: Set[EntityWithRef[V]]) =>
+          (e: EntityIdentity, s: List[EntityWithRef[V]]) =>
             s.maxBy(
               tmp => tmp.refToEntity.entityVersion.versionNumberLong
             )
-        ).values.toSet
+        ).values.toSet)
 
-    fsm.map(f)
 
+    val res: Future[Option[Set[EntityWithRef[V]]]] =fsm.map(f)
+
+    res
   }
 
 }

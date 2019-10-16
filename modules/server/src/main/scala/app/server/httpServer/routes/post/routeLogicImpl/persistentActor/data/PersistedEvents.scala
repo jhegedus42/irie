@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.UntypedEntity
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.UntypedEntityWithRef
 
 trait EventToBeSavedIntoJournal
 
@@ -13,9 +13,9 @@ case class UpdateEvent(data: DummyEventPayload)
 
 case class DummyEventPayload()
 {
-  def newEntry:     UntypedEntity = ???
+  def newEntry:     UntypedEntityWithRef = ???
   // todo-next => ??? what is this here ^^^ ???
   //  maybe this is needed to make
   //  actual persistence work ?
-  def updatedEntry: UntypedEntity = ???
+  def updatedEntry: UntypedEntityWithRef = ???
 }

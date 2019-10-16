@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
-  UntypedEntity
+  UntypedEntityWithRef
 }
 import app.shared.entity.asString.{
   EntityValueAsJSON,
@@ -18,12 +18,12 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 object Commands {
   sealed trait Command
   case object GetStateSnapshot extends Command
-  case class InsertNewEntityCommand(newEntity: UntypedEntity)
+  case class InsertNewEntityCommand(newEntity: UntypedEntityWithRef)
       extends Command
 
   case class UpdateEntityCommand(
-      updatedCurrentEntity: UntypedEntity,
-      newEntity:            UntypedEntity
+                                  updatedCurrentEntity: UntypedEntityWithRef,
+                                  newEntity:            UntypedEntityWithRef
   ) extends Command
 
   case object ShutdownActor extends Command

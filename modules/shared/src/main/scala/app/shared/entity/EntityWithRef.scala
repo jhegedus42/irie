@@ -1,7 +1,7 @@
 package app.shared.entity
 
 import app.shared.entity.asString.{
-  EntityAsJSON,
+  EntityWithRefAsJSON,
   EntityAndItsValueAsJSON,
   EntityValueAsJSON,
   EntityValueTypeAsString
@@ -23,25 +23,15 @@ import io.circe.generic.JsonCodec
 @JsonCodec
 @Lenses
 case class EntityWithRef[E <: EntityType[E]](
-  entityValue:       E,
-  refToEntity:       RefToEntityWithVersion[E]){
+  entityValue: E,
+  refToEntity: RefToEntityWithVersion[E]) {
 
-  def entityAsJSON(
-  )(
-    implicit e: Encoder[EntityWithRef[E]],
-    ee:         Encoder[E]
-  ): EntityAndItsValueAsJSON = {
-    EntityAndItsValueAsJSON(EntityAsJSON(e.apply(this)),
-                            EntityType.getAsJson(entityValue))
-  }
+  def updateValue(v: E): EntityWithRef[E] = this.copy(entityValue = v)
 
-  def updateValue(v:E): EntityWithRef[E] =this.copy(entityValue=v)
-  def bumpVersion: EntityWithRef[E] =this.copy(refToEntity=this.refToEntity.bumpVersion)
-
-
+  def bumpVersion: EntityWithRef[E] =
+    this.copy(refToEntity = this.refToEntity.bumpVersion)
 
 }
-
 
 object EntityWithRef {
 
@@ -54,9 +44,10 @@ object EntityWithRef {
     v: V
   ): EntityWithRef[V] = {
     val tr =
-      RefToEntityWithVersion[V](EntityValueTypeAsString.getEntityValueTypeAsString[V])
+      RefToEntityWithVersion[V](
+        EntityValueTypeAsString.getEntityValueTypeAsString[V]
+      )
     EntityWithRef(v, tr)
   }
-
 
 }

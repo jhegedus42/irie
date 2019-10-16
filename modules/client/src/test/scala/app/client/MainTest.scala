@@ -1,5 +1,6 @@
 package app.client
 
+import app.shared.entity.asString.EntityWithRefAsJSON._
 import io.circe.generic.auto._
 import org.scalatest.FunSuite
 
@@ -27,7 +28,8 @@ class MainTest extends FunSuite {
     import scala.scalajs.js._
 
     val alice_as_json: String =
-      aliceEntity.entityAsJSON().entityAsJSON.json.noSpaces
+      fromEntityRef(aliceEntity).json.noSpaces
+//      aliceEntity.toJSON().entityWithRefAsJSON.json.noSpaces
 
     val encoded: String = URIUtils.encodeURIComponent( alice_as_json )
 

@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
   StateMapSnapshot,
-  UntypedEntity
+  UntypedEntityWithRef
 }
 import app.shared.initialization.testing.TestEntities
 import io.circe.generic.auto._
@@ -14,7 +14,7 @@ object TestDataProvider {
     val init: StateMapSnapshot = StateMapSnapshot()
 
     val withAlice = init.insertVirginEntity(
-      UntypedEntity.makeFromEntity(TestEntities.aliceEntity_with_UUID0)
+      UntypedEntityWithRef.makeFromEntity(TestEntities.aliceEntity_with_UUID0)
     )
     val withBob =
       withAlice.insertVirginEntity(TestEntities.bobEntity_with_UUID1)

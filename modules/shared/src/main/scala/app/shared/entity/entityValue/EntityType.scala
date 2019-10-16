@@ -1,6 +1,7 @@
 package app.shared.entity.entityValue
 
 import app.shared.entity.asString.EntityValueAsJSON
+import io.circe.generic.JsonCodec
 import io.circe.{Encoder, Json}
 
 /**
@@ -15,7 +16,7 @@ trait EntityType[T <: EntityType[T]] {}
 
 object EntityType {
 
-  def getAsJson[T <: EntityType[T]](
+  def toJSON[T <: EntityType[T]](
     v: T
   )(
     implicit encoder: Encoder[T]
