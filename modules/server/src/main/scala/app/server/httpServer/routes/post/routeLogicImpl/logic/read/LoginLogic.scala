@@ -20,13 +20,15 @@ case class LoginLogic(
     param: LoginReq.Par
   ): Future[LoginReq.Res] = {
 
-    def f(os: Option[Set[EntityWithRef[User]]]) = {
+    def f(
+      os: Option[Set[EntityWithRef[User]]]
+    )  = {
       os.flatMap(
         _.filter(
           p =>
             (p.entityValue.name == param.userName &&
               p.entityValue.password == param.password)
-        ).headOption.map(x => x.refToEntity.entityIdentity)
+        ).headOption
       )
     }
 
@@ -41,6 +43,4 @@ case class LoginLogic(
 
 }
 
-object LoginLogic {
-
-}
+object LoginLogic {}

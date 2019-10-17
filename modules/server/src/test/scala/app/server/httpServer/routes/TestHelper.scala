@@ -11,16 +11,16 @@ import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
-import app.shared.comm.postRequests.marshall.EncodersDecoders._
+import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
-  EncodersDecoders,
+  JSONEncodersDecoders,
   ParametersAsJSON,
   ResultOptionAsJSON
 }
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.io.dns.DnsProtocol.RequestType
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
-import app.shared.comm.postRequests.marshall.EncodersDecoders.{
+import app.shared.comm.postRequests.marshall.JSONEncodersDecoders.{
   decodeResult,
   encodeParameters,
   encodeResult

@@ -4,7 +4,7 @@ import app.shared.comm.{PostRequest, PostRequestType}
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 
-object EncodersDecoders {
+object JSONEncodersDecoders {
 
   def decodeResult[Req<: PostRequest[_]](
     res: ResultOptionAsJSON

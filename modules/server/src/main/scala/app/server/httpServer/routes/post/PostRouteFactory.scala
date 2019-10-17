@@ -12,7 +12,7 @@ import scala.reflect.ClassTag
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.shared.comm.postRequests.marshall.{
-  EncodersDecoders,
+  JSONEncodersDecoders,
   ParametersAsJSON,
   ResultOptionAsJSON
 }
@@ -39,7 +39,7 @@ private[routes] object PostRouteFactory {
         val rn = RouteName.getRouteName[Req].name
         path(rn) {
           entity(as[String]) { s: String =>
-            val encdec = EncodersDecoders
+            val encdec = JSONEncodersDecoders
 
             import io.circe.parser._
             import io.circe.{Decoder, Error, _}

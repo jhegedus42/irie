@@ -2,7 +2,7 @@ package app.client.ui.components.mainPageLayout
 import app.client.ui.components.{LoginPage, MainPage,  UserListPage}
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
 import app.client.ui.components.mainPages.LoginPageComp
-import app.client.ui.components.mainPages.LoginPageComp.State.IsUserLoggedIn
+import app.client.ui.components.mainPages.LoginPageComp.State.UserLoginStatus
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import japgolly.scalajs.react._
@@ -18,7 +18,8 @@ object MenuItems {
   def mainMenu: () => Vector[Menu] =
     () =>
       LoginPageComp.isUserLoggedIn match {
-        case IsUserLoggedIn(true) =>
+
+        case UserLoginStatus(_)=> // todo-now 1.4
           Vector.apply(
             Menu.apply("Home", LoginPage),
             Menu.apply("Users", UserListPage()), // todo-later
@@ -30,7 +31,7 @@ object MenuItems {
 //            Menu.apply("Template Page",
 //                       TemplatePage("CopyMeAndThenChangeMe"))
           )
-        case IsUserLoggedIn(false) =>
+        case UserLoginStatus(_)=> // todo-now 1.3
           Vector.apply(
             Menu.apply("Home", LoginPage)
           )

@@ -3,6 +3,7 @@ package app.shared.comm.postRequests
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.EntityWithRef
+import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.generic.JsonCodec
 import app.shared.utils.UUID_Utils.EntityIdentity
@@ -19,7 +20,7 @@ object LoginReq {
       extends PostRequest.Parameter
 
   @JsonCodec
-  case class Res(optionEntityIdentity: Option[EntityIdentity])
+  case class Res(optionUserRef: Option[EntityWithRef[User]])
       extends PostRequest.Result
 }
 

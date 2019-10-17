@@ -1,17 +1,35 @@
 package app.client.ui.dom
 
+import app.client.ui.components.mainPages.LoginPageComp.State.UserLoginStatus
+import app.shared.entity.EntityWithRef
+import app.shared.entity.asString.EntityWithRefAsJSON
+import app.shared.entity.entityValue.values.User
+import app.shared.utils.UUID_Utils.EntityIdentity
+import io.circe.Decoder.Result
+import io.circe.{Decoder, Encoder, Json}
+import io.circe.parser._
+import io.circe.{Decoder, Error, _}
+import org.scalajs.dom.window
+
 object Window {
-  def setLoggedInUUID(userUUID:String) : Unit={
-    // todo-now-2 implement login logic
-    import org.scalajs.dom.window
-    window.name = s"$userUUID"
-  }
-  def getLoggedInUUID:String={
-    import org.scalajs.dom.window
-    window.name
+
+  def setLoggedInUser(
+    user: EntityWithRef[User]
+  )(
+    implicit enc: Encoder[EntityWithRef[User]]
+  ): Unit = {
+    window.name = s"${enc(user).noSpaces}"
   }
 
-  def runWindowNameTest() : Unit ={
+  def getUserLoginStatus(
+  implicit dec:Decoder[EntityWithRef[User]]
+  ):UserLoginStatus = {
+    val s: String = window.name
+    val ej: Either[Error, EntityWithRef[User]] =decode(s)
+    UserLoginStatus(ej.toOption)
+  }
+
+  def runWindowNameTest(): Unit = {
 
     import org.scalajs.dom.window
 

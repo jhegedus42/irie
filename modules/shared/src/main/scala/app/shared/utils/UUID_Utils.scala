@@ -1,5 +1,6 @@
 package app.shared.utils
 
+import io.circe.generic.JsonCodec
 import monocle.macros.Lenses
 import scalaz.\/
 

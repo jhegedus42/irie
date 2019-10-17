@@ -7,9 +7,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/LoginPageComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/dom/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/PostRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/EncodersDecoders.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/marshall/JSONEncodersDecoders.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.fastOptJS">
+  <component name="RunManager" selected="ScalaTest.RouteFactoryTest">
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="fastOptJS" />
@@ -305,8 +313,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="ScalaTest.RouteFactoryTest.login route" />
         <item itemvalue="ScalaTest.RouteFactoryTest" />
+        <item itemvalue="ScalaTest.RouteFactoryTest.login route" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test get route[User]" />
         <item itemvalue="ScalaTest.RouteFactoryTest.testsimplePostRouteHelloWorldRoute" />
@@ -388,13 +396,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00353" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.38.49:&#10;&#10;Code compiles.&#10;&#10;Added &quot;Stale&quot; functionality to Cache, and rewrite the&#10;&quot;toOption casting&quot; such that it gives `Some` even for&#10;stale states.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.59.51:&#10;&#10;Added some documentation and a few more Cache Entry States.">
-      <created>1569351625755</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1569351625755</updated>
     </task>
     <task id="LOCAL-00354" summary="&quot;Safety commit.&quot;">
       <created>1569352039442</created>
@@ -732,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571307761740</updated>
     </task>
-    <option name="localTasksCounter" value="402" />
+    <task id="LOCAL-00402" summary="Client : simple login, that survives the window refresh has been&#10;implemented.">
+      <created>1571309872103</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1571309872106</updated>
+    </task>
+    <option name="localTasksCounter" value="403" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -779,7 +787,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="testing client side... &#10;&#10;something is off, but things are getting better" />
     <MESSAGE value="updating user names seems to work" />
     <MESSAGE value="adding new request: get latest entity by ID" />
     <MESSAGE value="simplest crud seems to be working, but pages need to be refreshed" />
@@ -804,6 +811,7 @@
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;- Login Req impl. is &quot;complete&quot;, now it needs to be &#10;  tested using akka-http-testkit" />
     <MESSAGE value="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code." />
     <MESSAGE value="Login routed test with akka-http-testkit has been&#10;written and it passes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login routed test with akka-http-testkit has been&#10;written and it passes." />
+    <MESSAGE value="Client : simple login, that survives the window refresh has been&#10;implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Client : simple login, that survives the window refresh has been&#10;implemented." />
   </component>
 </project>

@@ -19,9 +19,9 @@ import app.shared.comm.postRequests.{
 }
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
-import app.shared.comm.postRequests.marshall.EncodersDecoders._
+import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
 import app.shared.comm.postRequests.marshall.{
-  EncodersDecoders,
+  JSONEncodersDecoders,
   ParametersAsJSON,
   ResultOptionAsJSON
 }
@@ -111,17 +111,19 @@ class RouteFactoryTest
 
   test("login route") {
 
+
     assert(
       getPostRequestResult[LoginReq](
         LoginReq.Par("Alice", "titokNyitja")
-      ).optionEntityIdentity.get.uuid ===
-        TestEntities.aliceEntity_with_UUID0.refToEntity.entityIdentity.uuid
+      ).optionUserRef.get ===
+        TestEntities.aliceEntity_with_UUID0
     )
+
 
     assert(
       getPostRequestResult[LoginReq](
         LoginReq.Par("Alice", "titokNyitj")
-      ).optionEntityIdentity === None
+      ).optionUserRef === None
     )
 
   }

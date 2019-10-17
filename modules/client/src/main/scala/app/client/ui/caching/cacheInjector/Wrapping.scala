@@ -53,12 +53,12 @@ class WrapperHOC[Backend, Props, State](
             }))
           }
 
-          val r2: Callback = routerCtl.set(LoginPage)
-
-          val r3: Callback =
-            if (LoginPageComp.isUserLoggedIn.yesOrNo) {
-              r1
-            } else r2
+//          val r2: Callback = routerCtl.set(LoginPage)
+//
+//          val r3: Callback =
+//            if (LoginPageComp.isUserLoggedIn.yesOrNo) {
+//              r1
+//            } else r2
 
           // todo-later - perhaps we should check here if the user
           //  is logged in, and if not then redirect the page
