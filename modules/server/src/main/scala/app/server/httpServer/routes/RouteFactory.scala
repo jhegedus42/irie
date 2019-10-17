@@ -38,7 +38,6 @@ private[httpServer] case class RouteFactory(
       getPostRoute[ResetRequest].route ~
       getPostRoute[GetAllUsersReq].route ~
       getPostRoute[LoginReq].route
-  // todo-now 1 - test LoginReq with http-akka-testkit
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

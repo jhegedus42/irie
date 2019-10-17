@@ -1,8 +1,14 @@
 package app.client.ui.dom
 
 object Window {
-  def setLoggedInUUID(s:String) : Unit={
+  def setLoggedInUUID(userUUID:String) : Unit={
     // todo-now-2 implement login logic
+    import org.scalajs.dom.window
+    window.name = s"$userUUID"
+  }
+  def getLoggedInUUID:String={
+    import org.scalajs.dom.window
+    window.name
   }
 
   def runWindowNameTest() : Unit ={
