@@ -8,7 +8,8 @@
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/TestHelper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/LoginReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestEntities.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,14 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="ScalaTest.RouteFactoryTest">
-    <configuration name="HelloWorldMonix" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="learn.monix.HelloWorldMonix" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="ScalaTest.RouteFactoryTest.login route">
     <configuration name="fastOptJS" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="fastOptJS" />
@@ -209,6 +203,27 @@
       <option name="showProgressMessages" value="true" />
       <option name="testArgs" value="" />
       <option name="testClassPath" value="app.server.httpServer.routes.RouteFactoryTest" />
+      <option name="useSbt" value="false" />
+      <option name="useUiWithSbt" value="false" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RouteFactoryTest.login route" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="server" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="testKind" value="Class" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="javaOptions" value="" />
+      <option name="jrePath" />
+      <option name="searchTest" value="Across module dependencies" />
+      <option name="showProgressMessages" value="true" />
+      <option name="testArgs" value="" />
+      <option name="testClassPath" value="app.server.httpServer.routes.RouteFactoryTest" />
+      <option name="testName" value="login route" />
       <option name="useSbt" value="false" />
       <option name="useUiWithSbt" value="false" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
@@ -283,18 +298,18 @@
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.test" />
       <item itemvalue="ScalaTest.RouteFactoryTest" />
-      <item itemvalue="Application.HelloWorldMonix" />
       <item itemvalue="ScalaTest.RouteFactoryTest.testsimplePostRouteHelloWorldRoute" />
       <item itemvalue="ScalaTest.RouteFactoryTest.test get route[User]" />
       <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
+      <item itemvalue="ScalaTest.RouteFactoryTest.login route" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="ScalaTest.RouteFactoryTest.login route" />
         <item itemvalue="ScalaTest.RouteFactoryTest" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test reset route" />
         <item itemvalue="ScalaTest.RouteFactoryTest.test get route[User]" />
         <item itemvalue="ScalaTest.RouteFactoryTest.testsimplePostRouteHelloWorldRoute" />
-        <item itemvalue="Application.HelloWorldMonix" />
       </list>
     </recent_temporary>
   </component>
@@ -373,13 +388,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00351" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------">
-      <created>1569346786480</created>
-      <option name="number" value="00351" />
-      <option name="presentableId" value="LOCAL-00351" />
-      <option name="project" value="LOCAL" />
-      <updated>1569346786481</updated>
     </task>
     <task id="LOCAL-00352" summary="Starting to implement a very explicit UserEditorComp,&#10;which will contain the update logic explicitly and&#10;we will be able to follow and control - in the browser &#10;- on the page - how the update, cache invalidation and&#10;reloading will take place, step by step.&#10;&#10;Later this logic will be generalized and moved &quot;somewhere&#10;elsewhere&quot;, where exactly, I don't know yet. Possibly&#10;into some helper function, residing somewhere in the Cache's&#10;companion object - or some conceptually closely related place.&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 19.00.45:&#10;&#10;Writing a TODO list - that specifies the above outlined&#10;functionality precisely.&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 20.38.12:&#10;&#10;Re-thinking, re-factoring the read-cache's implementation / &#10;design. More specifically, adding &quot;stale&quot; state &quot;handling&quot;,&#10;or at least the possibility of it, in terms of &#10;Option[Either[..,..]]&#10;&#10;--------------------------------------------------&#10;Tuesday, 24 September 2019 21.38.49:&#10;&#10;Code compiles.&#10;&#10;Added &quot;Stale&quot; functionality to Cache, and rewrite the&#10;&quot;toOption casting&quot; such that it gives `Some` even for&#10;stale states.">
       <created>1569350385538</created>
@@ -717,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571257179714</updated>
     </task>
-    <option name="localTasksCounter" value="400" />
+    <task id="LOCAL-00400" summary="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code.">
+      <created>1571306556482</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1571306556488</updated>
+    </task>
+    <option name="localTasksCounter" value="401" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -764,7 +779,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test get route has passed ..." />
     <MESSAGE value="all server side tests pass" />
     <MESSAGE value="testing client side... &#10;&#10;something is off, but things are getting better" />
     <MESSAGE value="updating user names seems to work" />
@@ -789,6 +803,7 @@
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s" />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;- Login Req impl. is &quot;complete&quot;, now it needs to be &#10;  tested using akka-http-testkit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login logic implementation is in progress.&#10;&#10;- Login Req impl. is &quot;complete&quot;, now it needs to be &#10;  tested using akka-http-testkit" />
+    <MESSAGE value="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code." />
   </component>
 </project>

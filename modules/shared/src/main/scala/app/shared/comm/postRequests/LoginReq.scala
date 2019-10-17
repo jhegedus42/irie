@@ -19,7 +19,7 @@ object LoginReq {
       extends PostRequest.Parameter
 
   @JsonCodec
-  case class Res(optionEntity: Option[EntityIdentity])
+  case class Res(optionEntityIdentity: Option[EntityIdentity])
       extends PostRequest.Result
 }
 

@@ -10,11 +10,21 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, LoginReq, ResetRequest, UpdateReq}
+import app.shared.comm.postRequests.{
+  CreateEntityReq,
+  GetEntityReq,
+  LoginReq,
+  ResetRequest,
+  UpdateReq
+}
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
-import app.shared.comm.postRequests.marshall.{EncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
+import app.shared.comm.postRequests.marshall.{
+  EncodersDecoders,
+  ParametersAsJSON,
+  ResultOptionAsJSON
+}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
@@ -99,16 +109,21 @@ class RouteFactoryTest
 
   }
 
-//  type E <:EntityType[_]
-
   test("login route") {
 
+    assert(
+      getPostRequestResult[LoginReq](
+        LoginReq.Par("Alice", "titokNyitja")
+      ).optionEntityIdentity.get.uuid ===
+        TestEntities.aliceEntity_with_UUID0.refToEntity.entityIdentity.uuid
+    )
 
-    val par : LoginReq.Par = ???
-    val res: LoginReq.Res =  ??? /// getPostRequestResult[LoginReq,E](par)
-    val expectedRes : LoginReq.Res =  ???
+    assert(
+      getPostRequestResult[LoginReq](
+        LoginReq.Par("Alice", "titokNyitj")
+      ).optionEntityIdentity === None
+    )
 
-    assert(res===expectedRes)
   }
 
   test("test get route[User]") {
@@ -139,12 +154,11 @@ class RouteFactoryTest
 
     assertUserFavoriteNumber(mhb, 369)
 
-    val mhb2=mhb.bumpVersion
+    val mhb2 = mhb.bumpVersion
 
     updateUsersFavoriteNumer(mhb, 69)
 
     assertUserFavoriteNumber(mhb2, 69)
-
 
 //    assertUserFavoriteNumber(mhb, 369)
 
