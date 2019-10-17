@@ -13,7 +13,10 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 
-import app.client.ui.components.mainPages.LoginPageComp.{Props, State}
+import app.client.ui.components.mainPages.login.LoginPageComp.{
+  Props,
+  State
+}
 import app.client.ui.components.mainPages.userHandling.userEditor.{
   TextFieldWithButtonAndHandler => TBH
 }
@@ -190,7 +193,7 @@ object UserEditorComp {
 
       println(
         "render was called in" +
-          " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
+        " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
       )
 
       def entityOption: Option[EntityWithRef[User]] =

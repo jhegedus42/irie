@@ -1,8 +1,8 @@
 package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.Cache
-import app.client.ui.components.mainPages.LoginPageComp
 import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
+import app.client.ui.components.mainPages.login.LoginPageComp
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorRouteProvider
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
 import app.client.ui.components.{ItemPage, LoginPage, MainPage}

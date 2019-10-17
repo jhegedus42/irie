@@ -1,15 +1,12 @@
-package app.client.ui.components.mainPages
+package app.client.ui.components.mainPages.login
 
-import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
+import app.client.ui.components.mainPages.login.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
 import app.client.ui.dom.Window
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
-import app.shared.utils.UUID_Utils.EntityIdentity
 import bootstrap4.TB.C
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.component.Scala.Unmounted
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
@@ -18,26 +15,20 @@ object LoginPageComp {
   case class Props(routerCtl: RouterCtl[MainPage])
 
   object State {
-    case class TextFieldValues(
-      loginName: String = "",
-      password:  String = "")
-
     case class LoginPageCompState(
-      loginStatus:     UserLoginStatus = UserLoginStatus(),
-      textFieldValues: TextFieldValues = TextFieldValues())
+      loginStatus:     UserLoginStatus = UserLoginStatus())
 
     case class UserLoginStatus(
       userOption: Option[EntityWithRef[User]] = None)
 
-    // todo-now 1.5.1 add password and login-name, for text-field
     def setUserLoggedIn(user: EntityWithRef[User]): Unit = {
       Window.setLoggedInUser(user)
     }
   }
 
   def isUserLoggedIn: UserLoginStatus = {
-//    true
-    ???
+    val s=Window.getUserLoginStatus
+    s
   }
 
 //    Window.getLoggedInUUID match {
@@ -56,7 +47,7 @@ object LoginPageComp {
       //
 
       val refresh: Callback = p.routerCtl.refresh
-      $.setState(???) >> refresh // todo-now 1.1
+//      $.setState(???) >> refresh // todo-now 1.1
       refresh
     }
 
@@ -67,7 +58,7 @@ object LoginPageComp {
 
       // todo-now 1.5 RIGHT-NOW - add login-name and password fields
 
-      val isUserLoggedIn: Boolean = ??? // todo-now 1.2
+      val isUserLoggedIn: Boolean = s.loginStatus.userOption.isDefined
 
       val login =
         if (isUserLoggedIn)
@@ -78,10 +69,12 @@ object LoginPageComp {
           )
         else {
           import bootstrap4.TB.convertableToTagOfExtensionMethods
+          <.div(
+            UsernameAndPassword.Component(UsernameAndPassword.Props("bla")),
           <.button.btn.btnPrimary(
             "Press this button to log in.",
             ^.onClick --> handleLoginButton(p)
-          )
+          ))
         }
 
       <.div(
@@ -101,8 +94,6 @@ object LoginPageComp {
 
     }
   }
-
-  import bootstrap4.TB.C
   val initState: LoginPageCompState =LoginPageCompState()
 
   val component =
