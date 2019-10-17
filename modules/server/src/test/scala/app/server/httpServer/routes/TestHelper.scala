@@ -62,7 +62,7 @@ case class TestHelper(routes: RouteFactory)
       user.entityValue.lens(_.favoriteNumber).set(newFavoriteNumber)
 
     val updateRes: UpdateReq.UpdateReqRes[User] =
-      getPostRequestResult[UpdateReq[User], User](
+      getPostRequestResult[UpdateReq[User] ](
         UpdateReq.UpdateReqPar(
           user,
           updatedUserValue
@@ -95,21 +95,21 @@ case class TestHelper(routes: RouteFactory)
   def resetServerState(): Unit = {
     case class DummyVal(s: String) extends EntityType[DummyVal]
     val resetRes1: ResetRequest.Res =
-      getPostRequestResult[ResetRequest, DummyVal](
+      getPostRequestResult[ResetRequest ](
         ResetRequest.Par()
       )
   }
 
   def getPostRequestResult[
-    Req <: PostRequest[_],
-    V   <: EntityType[V]
+    Req <: PostRequest[_]
+//    V   <: EntityType[V]
   ](par: Req#ParT
   )(
     implicit
     encoder: Encoder[Req#ResT],
     decoder: Decoder[Req#ResT],
     enc_par: Encoder[Req#ParT],
-    e2:      Encoder[EntityWithRef[V]],
+//    e2:      Encoder[EntityWithRef[V]],
     ct1:     ClassTag[Req#PayLoadT],
     ct2:     ClassTag[Req]
   ): Req#ResT = {
@@ -249,7 +249,7 @@ case class TestHelper(routes: RouteFactory)
       Par(ref)
 
     val res: Res[V] =
-      getPostRequestResult[GetEntityReq[V], V](par)
+      getPostRequestResult[GetEntityReq[V] ](par)
 
     val entity = res.optionEntity.get
     entity

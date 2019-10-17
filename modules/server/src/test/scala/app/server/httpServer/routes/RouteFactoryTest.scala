@@ -10,20 +10,11 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  CreateEntityReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, LoginReq, ResetRequest, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.EncodersDecoders._
-import app.shared.comm.postRequests.marshall.{
-  EncodersDecoders,
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
+import app.shared.comm.postRequests.marshall.{EncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
@@ -106,6 +97,18 @@ class RouteFactoryTest
       updatedTA.entityValue.favoriteNumber === latestEntity.entityValue.favoriteNumber
     )
 
+  }
+
+//  type E <:EntityType[_]
+
+  test("login route") {
+
+
+    val par : LoginReq.Par = ???
+    val res: LoginReq.Res =  ??? /// getPostRequestResult[LoginReq,E](par)
+    val expectedRes : LoginReq.Res =  ???
+
+    assert(res===expectedRes)
   }
 
   test("test get route[User]") {
