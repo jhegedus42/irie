@@ -2,7 +2,7 @@ package app.client.ui.components.mainPages
 
 import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.LoginPageComp.State.UserLoginStatus
+import app.client.ui.components.mainPages.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
 import app.client.ui.dom.Window
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
@@ -15,17 +15,27 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 object LoginPageComp {
 
-
   case class Props(routerCtl: RouterCtl[MainPage])
 
   object State {
-    case class UserLoginStatus(userOption:Option[EntityWithRef[User]])
-    def setUserLoggedIn(user:EntityWithRef[User]): Unit = {
+    case class TextFieldValues(
+      loginName: String = "",
+      password:  String = "")
+
+    case class LoginPageCompState(
+      loginStatus:     UserLoginStatus = UserLoginStatus(),
+      textFieldValues: TextFieldValues = TextFieldValues())
+
+    case class UserLoginStatus(
+      userOption: Option[EntityWithRef[User]] = None)
+
+    // todo-now 1.5.1 add password and login-name, for text-field
+    def setUserLoggedIn(user: EntityWithRef[User]): Unit = {
       Window.setLoggedInUser(user)
     }
   }
 
-  def isUserLoggedIn : UserLoginStatus = {
+  def isUserLoggedIn: UserLoginStatus = {
 //    true
     ???
   }
@@ -37,7 +47,7 @@ object LoginPageComp {
 //  }
 
   class LoginPageBackend[P](
-    $ : BackendScope[Props, State.UserLoginStatus]) {
+    $ : BackendScope[Props, State.LoginPageCompState ]) {
 
     def handleLoginButton(p: Props): CallbackTo[Unit] = {
 //      State.setUserLoggedIn()
@@ -52,10 +62,12 @@ object LoginPageComp {
 
     def render(
       p: Props,
-      s: State.UserLoginStatus
+      s: State.LoginPageCompState
     ): VdomElement = {
 
-      val isUserLoggedIn: Boolean= ??? // todo-now 1.2
+      // todo-now 1.5 RIGHT-NOW - add login-name and password fields
+
+      val isUserLoggedIn: Boolean = ??? // todo-now 1.2
 
       val login =
         if (isUserLoggedIn)
@@ -91,11 +103,12 @@ object LoginPageComp {
   }
 
   import bootstrap4.TB.C
+  val initState: LoginPageCompState =LoginPageCompState()
 
   val component =
     ScalaComponent
       .builder[Props]("Login Page")
-      .initialState(isUserLoggedIn)
+      .initialState(initState)
       .renderBackend[LoginPageBackend[Props]]
       .build
 
