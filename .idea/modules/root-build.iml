@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="root-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="SUB:DOLLARa5987aa8f70d311c194c.`client`, SUB:DOLLARa5987aa8f70d311c194c.`server`, SUB:DOLLARa5987aa8f70d311c194c.`shared_js`, SUB:DOLLARa5987aa8f70d311c194c.`shared_jvm`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin.autoImport._, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._, _root_.org.scalafmt.sbt.ScalafmtPlugin.autoImport._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, _root_.org.scalajs.sbtplugin.internal.ScalaJSGlobalPlugin, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin, _root_.org.scalafmt.sbt.ScalafmtPlugin, _root_.scala.xml.{TopScope=&amp;gt;SUB:DOLLARscope}" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, https://jcenter.bintray.com/|maven|jcenter, file:/Users/joco/.sbt/preloaded/|maven|local-preloaded, https://dl.bintray.com/naftoligug/maven/|maven|bintray-naftoligug-maven, /Users/joco/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
+<module external.linked.project.id="root-build" external.linked.project.path="$MODULE_DIR$/../../project" external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" sbt.imports="SUB:DOLLAR7c72dc0a5a8229e82fa0.`client`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`server`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`shared_js`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`shared_jvm`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin.autoImport._, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._, _root_.org.scalafmt.sbt.ScalafmtPlugin.autoImport._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, _root_.org.scalajs.sbtplugin.internal.ScalaJSGlobalPlugin, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin, _root_.org.scalafmt.sbt.ScalafmtPlugin, _root_.scala.xml.{TopScope=&amp;gt;SUB:DOLLARscope}" sbt.resolvers="https://repo1.maven.org/maven2/|maven|public, https://jcenter.bintray.com/|maven|jcenter, file:/Users/joco/.sbt/preloaded/|maven|local-preloaded, https://dl.bintray.com/naftoligug/maven/|maven|bintray-naftoligug-maven, https://jitpack.io|maven|jitpack, /Users/joco/.ivy2/cache|ivy|Local cache" type="SBT_MODULE" version="4">
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../../project/target/idea-classes" />
     <output-test url="file://$MODULE_DIR$/../../project/target/idea-test-classes" />
@@ -16,21 +16,26 @@
         <CLASSES>
           <root url="jar://$USER_HOME$/.ivy2/cache/args4j/args4j/bundles/args4j-2.0.26.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.geirsson/coursier-small_2.12/jars/coursier-small_2.12-1.3.1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-1.3.9.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.2.4.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.guava/guava/bundles/guava-19.0.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.protobuf/protobuf-java/bundles/protobuf-java-2.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.findbugs/jsr305/jars/jsr305-3.0.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.gson/gson/jars/gson-2.7.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.3.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.guava/guava/bundles/guava-25.1-jre.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.javascript/closure-compiler-externs/jars/closure-compiler-externs-v20190513.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.javascript/closure-compiler/jars/closure-compiler-v20190513.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.jsinterop/jsinterop-annotations/jars/jsinterop-annotations-1.0.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.protobuf/protobuf-java/bundles/protobuf-java-3.0.2.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.googlecode.json-simple/json-simple/bundles/json-simple-1.1.1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.typesafe/config/bundles/config-1.3.3.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/io.github.sugakandrey/scala-compiler-indices-protocol_2.12/jars/scala-compiler-indices-protocol_2.12-0.1.1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/io.spray/spray-json_2.12/bundles/spray-json_2.12-1.3.4.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.checkerframework/checker-qual/jars/checker-qual-2.0.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.mozilla/rhino/jars/rhino-1.7.6.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/closure-compiler-externs-java-6/jars/closure-compiler-externs-java-6-v20160517.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/closure-compiler-java-6/jars/closure-compiler-java-6-v20160517.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-ir_2.12/jars/scalajs-ir_2.12-0.6.25.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.12/jars/scalajs-js-envs_2.12-0.6.25.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-sbt-test-adapter_2.12/jars/scalajs-sbt-test-adapter_2.12-0.6.25.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.12/jars/scalajs-tools_2.12-0.6.25.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-ir_2.12/jars/scalajs-ir_2.12-0.6.29.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.12/jars/scalajs-js-envs_2.12-0.6.29.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-sbt-test-adapter_2.12/jars/scalajs-sbt-test-adapter_2.12-0.6.29.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.12/jars/scalajs-tools_2.12-0.6.29.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-sbt/test-interface/jars/test-interface-1.0.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scalameta/scalafmt-dynamic_2.12/jars/scalafmt-dynamic_2.12-2.0.0-RC5.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scalameta/scalafmt-interfaces/jars/scalafmt-interfaces-2.0.0-RC5.jar!/" />
@@ -39,7 +44,7 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.jetbrains/sbt-idea-shell/jars/sbt-idea-shell-2018.3.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.jetbrains/sbt-structure-extractor/jars/sbt-structure-extractor-2018.2.1+4-88400d3f.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.portable-scala/sbt-platform-deps/jars/sbt-platform-deps-1.0.0.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scala-js/sbt-scalajs/jars/sbt-scalajs-0.6.25.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scala-js/sbt-scalajs/jars/sbt-scalajs-0.6.29.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scalameta/sbt-scalafmt/jars/sbt-scalafmt-2.0.0.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.7/lib/jline.jar!/" />
           <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.7/lib/scala-compiler.jar!/" />
@@ -144,8 +149,13 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/com.github.ben-manes.caffeine/caffeine/srcs/caffeine-2.5.6-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.github.cb372/scalacache-caffeine_2.12/srcs/scalacache-caffeine_2.12-0.20.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.github.cb372/scalacache-core_2.12/srcs/scalacache-core_2.12-0.20.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.gson/gson/srcs/gson-2.2.4-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.guava/guava/srcs/guava-19.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.findbugs/jsr305/srcs/jsr305-3.0.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.code.gson/gson/srcs/gson-2.7-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.errorprone/error_prone_annotations/srcs/error_prone_annotations-2.3.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.guava/guava/srcs/guava-25.1-jre-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.j2objc/j2objc-annotations/srcs/j2objc-annotations-1.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.javascript/closure-compiler/srcs/closure-compiler-v20190513-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.google.jsinterop/jsinterop-annotations/srcs/jsinterop-annotations-1.0.0-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-3.3.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.googlecode.json-simple/json-simple/srcs/json-simple-1.1.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/com.jcraft/jsch/srcs/jsch-0.1.54-sources.jar!/" />
@@ -170,14 +180,15 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.logging.log4j/log4j-api/srcs/log4j-api-2.11.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.logging.log4j/log4j-core/srcs/log4j-core-2.11.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.logging.log4j/log4j-slf4j-impl/srcs/log4j-slf4j-impl-2.11.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.checkerframework/checker-qual/srcs/checker-qual-2.0.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.codehaus.mojo/animal-sniffer-annotations/srcs/animal-sniffer-annotations-1.14-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.hamcrest/hamcrest-core/srcs/hamcrest-core-1.1-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.mozilla/rhino/srcs/rhino-1.7.6-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.reactivestreams/reactive-streams/srcs/reactive-streams-1.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/closure-compiler-java-6/srcs/closure-compiler-java-6-v20160517-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-ir_2.12/srcs/scalajs-ir_2.12-0.6.25-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.12/srcs/scalajs-js-envs_2.12-0.6.25-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-sbt-test-adapter_2.12/srcs/scalajs-sbt-test-adapter_2.12-0.6.25-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.12/srcs/scalajs-tools_2.12-0.6.25-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-ir_2.12/srcs/scalajs-ir_2.12-0.6.29-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-js-envs_2.12/srcs/scalajs-js-envs_2.12-0.6.29-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-sbt-test-adapter_2.12/srcs/scalajs-sbt-test-adapter_2.12-0.6.29-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-tools_2.12/srcs/scalajs-tools_2.12-0.6.29-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.0.5-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.0.6-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.12.7-sources.jar!/" />
@@ -236,7 +247,7 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.jetbrains/sbt-idea-shell/srcs/sbt-idea-shell-2018.3-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.jetbrains/sbt-structure-extractor/srcs/sbt-structure-extractor-2018.2.1+4-88400d3f-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.portable-scala/sbt-platform-deps/srcs/sbt-platform-deps-1.0.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scala-js/sbt-scalajs/srcs/sbt-scalajs-0.6.25-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scala-js/sbt-scalajs/srcs/sbt-scalajs-0.6.29-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/scala_2.12/sbt_1.0/org.scalameta/sbt-scalafmt/srcs/sbt-scalafmt-2.0.0-sources.jar!/" />
         </SOURCES>
       </library>
@@ -244,6 +255,6 @@
   </component>
   <component name="SbtModule">
     <option name="buildForURI" value="file:$MODULE_DIR$/../../" />
-    <option name="imports" value="SUB:DOLLARa5987aa8f70d311c194c.`client`, SUB:DOLLARa5987aa8f70d311c194c.`server`, SUB:DOLLARa5987aa8f70d311c194c.`shared_js`, SUB:DOLLARa5987aa8f70d311c194c.`shared_jvm`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin.autoImport._, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._, _root_.org.scalafmt.sbt.ScalafmtPlugin.autoImport._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, _root_.org.scalajs.sbtplugin.internal.ScalaJSGlobalPlugin, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin, _root_.org.scalafmt.sbt.ScalafmtPlugin, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}" />
+    <option name="imports" value="SUB:DOLLAR7c72dc0a5a8229e82fa0.`client`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`server`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`shared_js`, SUB:DOLLAR7c72dc0a5a8229e82fa0.`shared_jvm`, _root_.sbt.Keys._, _root_.sbt.ScriptedPlugin.autoImport._, _root_.org.jetbrains.sbt.IdeaShellPlugin.autoImport._, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin.autoImport._, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin.autoImport._, _root_.org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._, _root_.org.scalafmt.sbt.ScalafmtPlugin.autoImport._, _root_.sbt._, _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.org.jetbrains.sbt.StructurePlugin, _root_.org.jetbrains.sbt.IdeaShellPlugin, _root_.org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin, _root_.org.scalajs.jsdependencies.sbtplugin.JSDependenciesPlugin, _root_.org.scalajs.sbtplugin.ScalaJSJUnitPlugin, _root_.org.scalajs.sbtplugin.ScalaJSPlugin, _root_.org.scalajs.sbtplugin.internal.ScalaJSGlobalPlugin, _root_.org.portablescala.sbtplatformdeps.PlatformDepsPlugin, _root_.org.scalafmt.sbt.ScalafmtPlugin, _root_.scala.xml.{TopScope=&gt;SUB:DOLLARscope}" />
   </component>
 </module>

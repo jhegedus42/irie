@@ -3,6 +3,12 @@
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
     <profile name="sbt 1" modules="irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
+    <profile name="sbt 10" modules="shared_js">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.29.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
+      </plugins>
+    </profile>
     <profile name="sbt 2" modules=".js-modules_shared,layer_V_JS_client,layer_Z_JS_shared,shared-.js-modules_shared">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.6/jars/scalajs-compiler_2.12.6-0.6.25.jar" />
@@ -45,11 +51,11 @@
         <parameter value="-Ypartial-unification" />
       </parameters>
       <plugins>
-        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.25.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.29.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
-    <profile name="sbt 8" modules=".js-shared_js,shared_js">
+    <profile name="sbt 8" modules=".js-shared_js">
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.25.jar" />
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />

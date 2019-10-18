@@ -6,13 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_js_scalajs_dom_sjs0_6_2_12_0_9_6_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_js_scalajs_library_2_12_0_6_28_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_js_scalajs_test_interface_2_12_0_6_28_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -325,24 +330,24 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/client" />
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -359,12 +364,12 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/build.sbt" value="2980524820" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="4036151638" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="577110679" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="173965936" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
-        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="2910010356" />
+        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="3743763501" />
       </map>
     </option>
     <option name="projectSyncType">
@@ -392,13 +397,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00358" summary="Working on write request handler.&#10;Bit of progress was made.">
-      <created>1569968006889</created>
-      <option name="number" value="00358" />
-      <option name="presentableId" value="LOCAL-00358" />
-      <option name="project" value="LOCAL" />
-      <updated>1569968006890</updated>
     </task>
     <task id="LOCAL-00359" summary="Working on write request handler.&#10;Bit of progress was made.&#10;&#10;Added todo-s.">
       <created>1569968234928</created>
@@ -736,7 +734,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571425936057</updated>
     </task>
-    <option name="localTasksCounter" value="407" />
+    <task id="LOCAL-00407" summary="outwatch hello world, error">
+      <created>1571428324533</created>
+      <option name="number" value="00407" />
+      <option name="presentableId" value="LOCAL-00407" />
+      <option name="project" value="LOCAL" />
+      <updated>1571428324534</updated>
+    </task>
+    <option name="localTasksCounter" value="408" />
     <servers />
   </component>
   <component name="UnknownFeatures">

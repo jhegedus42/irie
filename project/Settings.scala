@@ -105,8 +105,8 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test",
-      "com.github.outwatch" %%% "outwatch"            % "f7c3081"
+      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" //,
+//      "com.github.outwatch.outwatch" %%% "outwatch"   % "f7c3081"
     )
   )
 

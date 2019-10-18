@@ -48,6 +48,7 @@ lazy val client: Project = (project in file("modules/client"))
     libraryDependencies ++= Settings.scalajsDependencies.value,
     libraryDependencies ++= paradisePlugin.value,
     jsEnv := new CustomJSDOMNODEJsEnv(), // this is a hack to make testing on node.js possible
+//    scalaJSModuleKind := ModuleKind.CommonJSModule,
     scalaJSOptimizerOptions ~= {
       _.withDisableOptimizer(true)
     },
