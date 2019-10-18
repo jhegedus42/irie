@@ -16,8 +16,8 @@ object Settings {
   val scalacOptions = Seq(
 //    "-Xlint",
 //    "-unchecked",
-   // "-deprecation",
- //   "-feature",
+    // "-deprecation",
+    //   "-feature",
     "-Yrangepos",
     "-Ypartial-unification",
     "-nowarn" //,
@@ -43,7 +43,7 @@ object Settings {
 
     val akkaHttp = "10.1.9"
 
-    val monocleVersion = "1.5.0"
+    val monocleVersion   = "1.5.0"
     val scalaTestVersion = "3.0.8"
 
   }
@@ -63,10 +63,9 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
       "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
-      "org.typelevel" %%% "cats-core"                 % "2.0.0",
-      "io.monix" %%% "monix" % "3.0.0",
-      "org.typelevel" %% "simulacrum" % "1.0.0"
-
+      "org.typelevel" %%% "cats-core"                  % "2.0.0",
+      "io.monix" %%% "monix"                           % "3.0.0",
+      "org.typelevel"                                  %% "simulacrum" % "1.0.0"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -106,7 +105,8 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test"
+      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test",
+      "io.github.outwatch" %%% "outwatch"             % "1.0.0-RC2"
     )
   )
 

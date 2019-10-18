@@ -16,7 +16,17 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
-    routedApp()
+//    routedApp()
+    outWatchDemo()
+  }
+
+  def outWatchDemo(): Unit ={
+    import outwatch.dom._
+    import outwatch.dom.dsl._
+    import monix.execution.Scheduler.Implicits.global
+    val myComponent = div("Hello World")
+
+    OutWatch.renderReplace("#rootComp", myComponent).unsafeRunSync()
   }
 
   def routedApp(): Unit = {

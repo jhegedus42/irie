@@ -1,7 +1,10 @@
 package app.client.ui.components.mainPages.login
 
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.login.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
+import app.client.ui.components.mainPages.login.LoginPageComp.State.{
+  LoginPageCompState,
+  UserLoginStatus
+}
 import app.client.ui.dom.Window
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
@@ -16,7 +19,7 @@ object LoginPageComp {
 
   object State {
     case class LoginPageCompState(
-      loginStatus:     UserLoginStatus = UserLoginStatus())
+      loginStatus: UserLoginStatus = UserLoginStatus())
 
     case class UserLoginStatus(
       userOption: Option[EntityWithRef[User]] = None)
@@ -27,7 +30,7 @@ object LoginPageComp {
   }
 
   def isUserLoggedIn: UserLoginStatus = {
-    val s=Window.getUserLoginStatus
+    val s = Window.getUserLoginStatus
     s
   }
 
@@ -38,7 +41,7 @@ object LoginPageComp {
 //  }
 
   class LoginPageBackend[P](
-    $ : BackendScope[Props, State.LoginPageCompState ]) {
+    $ : BackendScope[Props, State.LoginPageCompState]) {
 
     def handleLoginButton(p: Props): CallbackTo[Unit] = {
 //      State.setUserLoggedIn()
@@ -70,11 +73,14 @@ object LoginPageComp {
         else {
           import bootstrap4.TB.convertableToTagOfExtensionMethods
           <.div(
-            UsernameAndPassword.Component(UsernameAndPassword.Props("bla")),
-          <.button.btn.btnPrimary(
-            "Press this button to log in.",
-            ^.onClick --> handleLoginButton(p)
-          ))
+            UsernameAndPassword.Component(
+              UsernameAndPassword.Props("bla")
+            ),
+            <.button.btn.btnPrimary(
+              "Press this button to log in.",
+              ^.onClick --> handleLoginButton(p)
+            )
+          )
         }
 
       <.div(
@@ -94,7 +100,8 @@ object LoginPageComp {
 
     }
   }
-  val initState: LoginPageCompState =LoginPageCompState()
+
+  val initState: LoginPageCompState = LoginPageCompState()
 
   val component =
     ScalaComponent
