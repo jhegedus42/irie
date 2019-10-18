@@ -16,8 +16,8 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
-//    routedApp()
-    outWatchDemo()
+    routedApp()
+//    outWatchDemo()
   }
 
   def outWatchDemo(): Unit ={

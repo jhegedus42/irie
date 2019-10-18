@@ -106,7 +106,7 @@ object Settings {
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
       "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test",
-      "io.github.outwatch" %%% "outwatch"             % "1.0.0-RC2"
+      "com.github.outwatch" %%% "outwatch"            % "f7c3081"
     )
   )
 
