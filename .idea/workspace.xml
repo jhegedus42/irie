@@ -6,15 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/TextField.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/monix/HelloWorldMonix.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/UsernameAndPassword.scala" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +57,8 @@
         <option value="Package Object" />
         <option value="ScalaTest Class" />
         <option value="Scala Class" />
-        <option value="Scala Object" />
         <option value="Scala Trait" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -112,7 +108,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -131,19 +127,18 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/www/assets/js" />
-      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
-      <recent name="$PROJECT_DIR$/bash_scripts/running" />
-      <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
-      <recent name="$PROJECT_DIR$/utils" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.client.ui.components.mainPages.login" />
       <recent name="app.client.ui.caching.cache.comm.write" />
       <recent name="app.client.ui.caching.cache.comm" />
       <recent name="app.client.ui.components.mainPages.userHandling.userEditor" />
       <recent name="app.client.ui.components.mainPages.userHandling.userListComp" />
-      <recent name="app.client.ui.components.router" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -152,11 +147,12 @@
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/assets/js" />
+      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
+      <recent name="$PROJECT_DIR$/bash_scripts/running" />
+      <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
+      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,13 +385,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00360" summary="intermediate commit ... implementation of write &quot;cache&quot; is in&#10;progress">
-      <created>1570043285277</created>
-      <option name="number" value="00360" />
-      <option name="presentableId" value="LOCAL-00360" />
-      <option name="project" value="LOCAL" />
-      <updated>1570043285279</updated>
     </task>
     <task id="LOCAL-00361" summary="invalidate cache method impl in progress">
       <created>1570060415661</created>
@@ -733,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571431610012</updated>
     </task>
-    <option name="localTasksCounter" value="409" />
+    <task id="LOCAL-00409" summary="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)">
+      <created>1571479333480</created>
+      <option name="number" value="00409" />
+      <option name="presentableId" value="LOCAL-00409" />
+      <option name="project" value="LOCAL" />
+      <updated>1571479333482</updated>
+    </task>
+    <option name="localTasksCounter" value="410" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -780,7 +776,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="exception is thrown at updating an entity&#10;&#10;it is due to cache invalidation" />
     <MESSAGE value="username update is working" />
     <MESSAGE value="trying to get login page working ... and add new routes&#10;after the user has logged in ...&#10;&#10;does not seem to work" />
     <MESSAGE value="intermezzo commit" />
@@ -805,6 +800,7 @@
     <MESSAGE value="Login functionality - &quot;full stack&quot; - in progress.&#10;&#10;- intermezzo commit" />
     <MESSAGE value="outwatch hello world, error" />
     <MESSAGE value="continuing working on login functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality" />
+    <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
   </component>
 </project>
