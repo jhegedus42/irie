@@ -1,8 +1,12 @@
 package app.client.ui.components.mainPages.login
 
+import app.client.ui.caching.cache.comm.AJAXCalls
+import app.client.ui.caching.cache.comm.AJAXCalls.AjaxCallPar
+import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.components.MainPage
 import app.client.ui.components.mainPages.login.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
 import app.client.ui.dom.Window
+import app.shared.comm.postRequests.LoginReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import bootstrap4.TB.C
@@ -10,9 +14,11 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
+import scala.concurrent.ExecutionContextExecutor
+
 object LoginPageComp {
-  val loginComp: TextField = new TextField("login name:")
-  val passwordComp: TextField = new TextField("password:")
+  val loginNameComp: TextField = new TextField("login name:")
+  val passwordComp:  TextField = new TextField("password:")
 
   case class Props(routerCtl: RouterCtl[MainPage])
 
@@ -49,10 +55,26 @@ object LoginPageComp {
       //
 
       val refresh: Callback = p.routerCtl.refresh
-//      $.setState(???) >> refresh // todo-now 1.1
 
-      println(s"our current login name is: ${loginComp.state}")
+      println(s"our current login name is: ${loginNameComp.state}")
       println(s"our current password is: ${passwordComp.state}")
+
+      // todo-now ^ check for user ... using login req
+      // send
+
+      val par = LoginReq.Par(loginNameComp.state.text,
+                             passwordComp.state.text)
+
+      val aPar: AjaxCallPar[LoginReq] =AjaxCallPar[LoginReq](par)
+
+      implicit def executionContext: ExecutionContextExecutor =
+        scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+      AJAXCalls.sendPostAjaxRequest[LoginReq](aPar).onComplete(
+        res=> println(res)
+      )
+
+//      ReRenderer.triggerReRender()
 
       refresh
     }
@@ -76,7 +98,7 @@ object LoginPageComp {
         else {
           import bootstrap4.TB.convertableToTagOfExtensionMethods
           <.div(
-            loginComp.builtComp,
+            loginNameComp.builtComp,
             <.br,
             passwordComp.builtComp,
             <.button.btn.btnPrimary(

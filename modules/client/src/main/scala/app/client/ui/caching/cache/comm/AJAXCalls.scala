@@ -7,7 +7,7 @@ import org.scalajs.dom.ext.Ajax
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-private[caching] object AJAXCalls {
+object AJAXCalls {
 
   case class AjaxCallPar[
     Req <: PostRequest[_]
@@ -18,7 +18,7 @@ private[caching] object AJAXCalls {
   ](par: Req#ParT,
     res: Req#ResT)
 
-  private[cache] def sendPostAjaxRequest[
+  def sendPostAjaxRequest[
     Req <: PostRequest[_]
   ](requestParams: AjaxCallPar[Req]
   )(

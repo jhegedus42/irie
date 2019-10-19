@@ -36,6 +36,7 @@ object Main extends js.JSApp {
       s"Main.routedApp() : Router is just about to be mounted into a DIV."
     )
     MonixDemo.monixExample()
+    MonixDemo.monixDemo2()
 
     val router = RouterComp().routerComp()
     // todo-later ^^^ have a login page first, when the page loads / reloads
@@ -99,6 +100,7 @@ object MonixDemo {
   def monixDemo2():Unit = {
     import monix.reactive._
 
+    import monix.execution.Scheduler.Implicits.global
     // Nothing happens here, as observable is lazily
     // evaluated only when the subscription happens!
     val tick = {
@@ -113,6 +115,8 @@ object MonixDemo {
         // to print the generated events to console
         .dump("Out")
     }
+    val cancelable = tick.subscribe()
+
   }
 
 }
