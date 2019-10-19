@@ -7,8 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/AJAXCalls.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/AJAXCalls.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -385,13 +384,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00362" summary="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl.UserReadCacheInvalidator.invalidateReadCache&#10;&#10;this is what we need to continue ^^^">
-      <created>1570062334513</created>
-      <option name="number" value="00362" />
-      <option name="presentableId" value="LOCAL-00362" />
-      <option name="project" value="LOCAL" />
-      <updated>1570062334513</updated>
-    </task>
     <task id="LOCAL-00363" summary="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.read.ReadCacheImpl.invalidateEntry&#10;^ this is in progress">
       <created>1570063720780</created>
       <option name="number" value="00363" />
@@ -728,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571485479233</updated>
     </task>
-    <option name="localTasksCounter" value="411" />
+    <task id="LOCAL-00411" summary="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice">
+      <created>1571508182634</created>
+      <option name="number" value="00411" />
+      <option name="presentableId" value="LOCAL-00411" />
+      <option name="project" value="LOCAL" />
+      <updated>1571508182634</updated>
+    </task>
+    <option name="localTasksCounter" value="412" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -775,7 +774,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="trying to get login page working ... and add new routes&#10;after the user has logged in ...&#10;&#10;does not seem to work" />
     <MESSAGE value="intermezzo commit" />
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in" />
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in&#10;&#10;intermezzo commit" />
@@ -800,6 +798,7 @@
     <MESSAGE value="continuing working on login functionality" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;now we have composable TextFields" />
-    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality&#10;&#10;now we have composable TextFields" />
+    <MESSAGE value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
   </component>
 </project>

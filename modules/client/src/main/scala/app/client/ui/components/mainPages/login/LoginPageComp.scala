@@ -4,7 +4,10 @@ import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.AjaxCallPar
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.login.LoginPageComp.State.{LoginPageCompState, UserLoginStatus}
+import app.client.ui.components.mainPages.login.LoginPageComp.State.{
+  LoginPageCompState,
+  UserLoginStatus
+}
 import app.client.ui.dom.Window
 import app.shared.comm.postRequests.LoginReq
 import app.shared.entity.EntityWithRef
@@ -65,14 +68,28 @@ object LoginPageComp {
       val par = LoginReq.Par(loginNameComp.state.text,
                              passwordComp.state.text)
 
-      val aPar: AjaxCallPar[LoginReq] =AjaxCallPar[LoginReq](par)
+      val aPar: AjaxCallPar[LoginReq] = AjaxCallPar[LoginReq](par)
 
       implicit def executionContext: ExecutionContextExecutor =
         scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-      AJAXCalls.sendPostAjaxRequest[LoginReq](aPar).onComplete(
-        res=> println(res)
-      )
+      AJAXCalls
+        .sendPostAjaxRequest[LoginReq](aPar).onComplete(
+          res => {
+            println(res)
+            val optUser: Option[EntityWithRef[User]] =
+              res.toOption.flatMap(x => x.res.optionUserRef)
+            if(optUser.isDefined){
+
+              val newState=UserLoginStatus(optUser)
+              val newState2=LoginPageCompState(newState)
+              val cb= $.setState(newState2) >> refresh
+              State.setUserLoggedIn(optUser.get)
+              cb.runNow()
+
+            }
+          }
+        )
 
 //      ReRenderer.triggerReRender()
 

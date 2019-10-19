@@ -21,13 +21,13 @@ object MenuItems {
 
         case UserLoginStatus(Some(u))=>
           Vector.apply(
-            Menu.apply("Home", LoginPage),
+            Menu.apply("Login status", LoginPage),
             Menu.apply("Users", UserListPage()) // todo-later
           )
 
         case UserLoginStatus(None)=>
           Vector.apply(
-            Menu.apply("Home", LoginPage)
+            Menu.apply("Login status", LoginPage)
           )
       }
 
