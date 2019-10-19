@@ -22,7 +22,13 @@ object MenuItems {
         case UserLoginStatus(Some(u))=>
           Vector.apply(
             Menu.apply("Login status", LoginPage),
-            Menu.apply("Users", UserListPage()) // todo-later
+            Menu.apply("Users", UserListPage())
+
+            // todo-now 1 - CRUD NoteFolder(s)
+            // same as in user editor page
+            // list of notefolders, create notefolders
+            //
+
           )
 
         case UserLoginStatus(None)=>

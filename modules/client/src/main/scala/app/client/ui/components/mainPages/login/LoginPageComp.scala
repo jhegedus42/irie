@@ -54,7 +54,6 @@ object LoginPageComp {
     def handleLoginButton(p: Props): CallbackTo[Unit] = {
 //      State.setUserLoggedIn()
 
-      // todo-now - 1 make full login functionality
       //
 
       val refresh: Callback = p.routerCtl.refresh
@@ -62,7 +61,6 @@ object LoginPageComp {
       println(s"our current login name is: ${loginNameComp.state}")
       println(s"our current password is: ${passwordComp.state}")
 
-      // todo-now ^ check for user ... using login req
       // send
 
       val par = LoginReq.Par(loginNameComp.state.text,
@@ -79,11 +77,11 @@ object LoginPageComp {
             println(res)
             val optUser: Option[EntityWithRef[User]] =
               res.toOption.flatMap(x => x.res.optionUserRef)
-            if(optUser.isDefined){
+            if (optUser.isDefined) {
 
-              val newState=UserLoginStatus(optUser)
-              val newState2=LoginPageCompState(newState)
-              val cb= $.setState(newState2) >> refresh
+              val newState  = UserLoginStatus(optUser)
+              val newState2 = LoginPageCompState(newState)
+              val cb        = $.setState(newState2) >> refresh
               State.setUserLoggedIn(optUser.get)
               cb.runNow()
 
@@ -101,16 +99,18 @@ object LoginPageComp {
       s: State.LoginPageCompState
     ): VdomElement = {
 
-      // todo-now 1.5 RIGHT-NOW - add login-name and password fields
-
-      val isUserLoggedIn: Boolean = s.loginStatus.userOption.isDefined
+//      val isUserLoggedIn: Boolean = isUserLoggedIn.userOption.isDefined
 
       val login =
-        if (isUserLoggedIn)
+        if (isUserLoggedIn.userOption.isDefined)
           <.div(
             <.p(
-              "You are now logged in ! Welcome !"
+              "You are now logged in ! Welcome !",
+              <.br,
+              s"You are logged in as : ${isUserLoggedIn.userOption.head.entityValue.name}"
+              // todo later ^ use read request cache to get this name ^
             )
+            // todo-later - add log out button
           )
         else {
           import bootstrap4.TB.convertableToTagOfExtensionMethods

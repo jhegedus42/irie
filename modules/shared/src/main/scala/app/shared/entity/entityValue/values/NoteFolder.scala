@@ -9,5 +9,7 @@ import app.shared.entity.refs.RefToEntityWithVersion
   * @param user
   * @param name
   */
-case class NoteFolder(user: RefToEntityWithVersion[User], name: String )
+case class NoteFolder(
+  user: RefToEntityWithVersion[User],
+  name: String)
     extends EntityType[NoteFolder]

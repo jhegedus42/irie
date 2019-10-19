@@ -9,6 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/login/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/NoteFolder.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -384,13 +386,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00363" summary="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.read.ReadCacheImpl.invalidateEntry&#10;^ this is in progress">
-      <created>1570063720780</created>
-      <option name="number" value="00363" />
-      <option name="presentableId" value="LOCAL-00363" />
-      <option name="project" value="LOCAL" />
-      <updated>1570063720780</updated>
-    </task>
     <task id="LOCAL-00364" summary="invalidate cache method impl in progress&#10;&#10;app.client.ui.caching.cache.comm.read.ReadCache.getUserCache&#10;&#10;is in progress ^">
       <created>1570064759753</created>
       <option name="number" value="00364" />
@@ -727,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571508182634</updated>
     </task>
-    <option name="localTasksCounter" value="412" />
+    <task id="LOCAL-00412" summary="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)">
+      <created>1571508949589</created>
+      <option name="number" value="00412" />
+      <option name="presentableId" value="LOCAL-00412" />
+      <option name="project" value="LOCAL" />
+      <updated>1571508949589</updated>
+    </task>
+    <option name="localTasksCounter" value="413" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -774,7 +776,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="intermezzo commit" />
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in" />
     <MESSAGE value="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in&#10;&#10;intermezzo commit" />
     <MESSAGE value="started working on creating new user:&#10;-dummy create user is now in the user list page" />
@@ -799,6 +800,7 @@
     <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;now we have composable TextFields" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
-    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
+    <MESSAGE value="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)" />
   </component>
 </project>
