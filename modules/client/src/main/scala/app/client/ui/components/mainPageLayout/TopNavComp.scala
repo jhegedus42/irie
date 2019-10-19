@@ -24,6 +24,7 @@ object MenuItems {
             Menu.apply("Login status", LoginPage),
             Menu.apply("Users", UserListPage())
 
+
             // todo-now 1 - CRUD Notes - 2 pages for this
 
             // General pattern :
