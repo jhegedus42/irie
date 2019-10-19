@@ -20,7 +20,7 @@ object Main extends js.JSApp {
 //    outWatchDemo()
   }
 
-  def outWatchDemo(): Unit ={
+  def outWatchDemo(): Unit = {
 //    import outwatch.dom._
 //    import outwatch.dom.dsl._
 //    import monix.execution.Scheduler.Implicits.global
@@ -35,6 +35,7 @@ object Main extends js.JSApp {
     println(
       s"Main.routedApp() : Router is just about to be mounted into a DIV."
     )
+    MonixDemo.monixExample()
 
     val router = RouterComp().routerComp()
     // todo-later ^^^ have a login page first, when the page loads / reloads
@@ -46,8 +47,50 @@ object Main extends js.JSApp {
 
 //    RouterWrapper.component().renderIntoDOM( e )
 
-
     router.renderIntoDOM(e)
+
+  }
+}
+
+object MonixDemo {
+
+  def monixExample(): Unit = {
+
+    import monix.execution.CancelableFuture
+
+    // make this into an App if you want to run it
+    // App is commented out because then sbt has a default, single
+    // App to launch, so there is no need to select what to launch
+    // manually each time the server is restarted
+
+    // todo later - https://monix.io/docs/3x/intro/hello-world.html
+
+    // We need a scheduler whenever asynchronous
+    // execution happens, substituting your ExecutionContext
+
+    import monix.execution.Scheduler.Implicits.global
+//    implicit def executionContext: ExecutionContextExecutor =
+//      scala.scalajs.concurrent.JSExecutionContext.Implicits._
+
+//    import scala.scalajs.concurrent.JSExecutionContext._
+//    import scala.scalajs.concurrent.JSExecutionContext.Implicits._
+//    import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue._
+//
+
+
+    // Needed below
+    import scala.concurrent.Await
+    import scala.concurrent.duration._
+
+    import monix.eval._
+
+    // A specification for evaluating a sum,
+    // nothing gets triggered at this point!
+    val task = Task { 1 + 1 }
+
+    val future: CancelableFuture[Int] = task.runToFuture
+
+    future.onComplete(x => println(s"result for monix demo $x"))
 
   }
 
