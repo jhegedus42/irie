@@ -24,7 +24,14 @@ object MenuItems {
             Menu.apply("Login status", LoginPage),
             Menu.apply("Users", UserListPage())
 
-            // todo-now 1 - CRUD NoteFolder(s)
+            // todo-now 1 - CRUD Notes - 2 pages for this
+
+            // General pattern :
+            // 1) display list of entities
+            // 1.1) create a new entity
+            // 1.2) link to entity editor
+            // 2) entity editor
+
             // same as in user editor page
             // list of notefolders, create notefolders
             //

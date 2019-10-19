@@ -5,5 +5,5 @@ import app.shared.entity.refs.RefToEntityWithVersion
 
 case class Note(
   content: String,
-  owner:   Option[RefToEntityWithVersion[NoteFolder]] = None)
+  owner:   RefToEntityWithVersion[User])
     extends EntityType[Note]
