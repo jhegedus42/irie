@@ -149,6 +149,12 @@ object UserListComp {
 
   def getRoute(cache: Cache) = {
 
+    // todo-later forbid the "not login page" routes, like the one for this page
+    //  if user is not logged in, for example, the following route should not
+    //  work if the user is not logged in (problem = at the moment it does work):
+    //  http://commserver.asuscomm.com:8080/#userList
+
+
     import japgolly.scalajs.react.extra.router._
 
     dsl: RouterConfigDsl[MainPage] =>
