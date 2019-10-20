@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.read
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.postRequests.GetAllUsersReq
+import app.shared.comm.postRequests.read.GetAllUsersReq
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 

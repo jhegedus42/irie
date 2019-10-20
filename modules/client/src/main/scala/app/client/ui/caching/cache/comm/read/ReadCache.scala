@@ -5,7 +5,8 @@ import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntr
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, SumIntRoute}
+import app.shared.comm.postRequests.read.GetAllUsersReq
+import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, SumIntRoute}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}

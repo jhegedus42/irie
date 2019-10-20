@@ -5,7 +5,8 @@ import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, M
 import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
 import app.client.ui.components.{ItemPage, MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
 import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.{AdminPassword, GetAllUsersReq, GetEntityReq}
+import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
+import app.shared.comm.postRequests.{ GetEntityReq}
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityWithVersion
 import japgolly.scalajs.react.component.Scala.Component

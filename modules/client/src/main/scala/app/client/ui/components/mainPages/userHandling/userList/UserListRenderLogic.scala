@@ -1,28 +1,16 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
-import app.client.ui.components.{
-  MainPage,
-  StaticTemplatePage,
-  UserListPage
-}
+import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
 import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.{
-  AdminPassword,
-  GetAllUsersReq,
-  GetEntityReq
-}
+import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
+import app.shared.comm.postRequests.{GetEntityReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion}
+import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
