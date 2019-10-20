@@ -1,4 +1,5 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
 import app.shared.entity.asString.{
   EntityAndItsValueAsJSON,
