@@ -5,10 +5,13 @@ import app.shared.entity.asString.{
   EntityValueAsJSON,
   EntityValueTypeAsString
 }
+import app.shared.entity.collection.EntitySet
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityByID
+import app.shared.utils.UUID_Utils
 import app.shared.utils.UUID_Utils.EntityIdentity
+import io.circe.Decoder
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
 
@@ -77,6 +80,12 @@ private[persistentActor] case class StateMapSnapshot(
     val newMap = map + (ase.untypedRef -> ase)
     StateMapSnapshot(newMap).bumpVersion
   }
+
+  def filterByUser(id: EntityIdentity[User]): StateMapSnapshot =
+    StateMapSnapshot(
+      map.filterKeys(k => k.entityIdentity == id.stripType),
+      occVersion
+    )
 
   def filterByIdentity[T <: EntityType[T]](
     entityIdentity: EntityIdentity[T]
@@ -152,15 +161,33 @@ private[persistentActor] case class StateMapSnapshot(
     // todo-one-day : fix this possible exception here, that getRes is empty
   }
 
-  def getAllEntitiesWithGivenEntityType[
-    V <: EntityType[V]: ClassTag
-  ]: List[UntypedEntityWithRef] = {
-    map
+  def filterToEntityType[
+    T <: EntityType[T]: ClassTag
+  ]: StateMapSnapshot = {
+    val res: Map[UntypedRef, UntypedEntityWithRef] = map
       .filter(
         x =>
           x._1.entityValueTypeAsString == EntityValueTypeAsString
-            .getEntityValueTypeAsString[V]
-      ).values.toList
+            .getEntityValueTypeAsString[T]
+      )
+    StateMapSnapshot(res, occVersion)
+  }
+
+  def toEntitySet[T <: EntityType[T]: ClassTag](
+    implicit dc: Decoder[T]
+  ): EntitySet[T] = {
+    EntitySet(
+      getAllEntitiesWithGivenEntityType[T]
+        .map(
+          UntypedEntityWithRef.toTypedEntityWithRef[T](_).get
+        ).toSet
+    )
+  }
+
+  def getAllEntitiesWithGivenEntityType[
+    V <: EntityType[V]: ClassTag
+  ]: List[UntypedEntityWithRef] = {
+    filterToEntityType[V].map.values.toList
   }
 
   def getAllRefsWithGivenEntityType[

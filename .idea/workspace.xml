@@ -6,19 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/collection/EntitySet.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/EntityWithRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityByID.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityByID.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/refs/RefToEntityWithVersion.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils/UUID_Utils.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -395,13 +385,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00368" summary="user name updating seems to work,&#10;&#10;page needs to be refreshed">
-      <created>1570381322802</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1570381322803</updated>
-    </task>
     <task id="LOCAL-00369" summary="getting rid of methods that use nonversioned refs to entities">
       <created>1570384918462</created>
       <option name="number" value="00369" />
@@ -738,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571515020719</updated>
     </task>
-    <option name="localTasksCounter" value="417" />
+    <task id="LOCAL-00417" summary="Introduced type safe EntityIdentity.">
+      <created>1571566669399</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1571566669400</updated>
+    </task>
+    <option name="localTasksCounter" value="418" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -785,7 +775,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="started working on creating new user:&#10;-dummy create user is now in the user list page&#10;&#10;( intermezzo - added a hello world monix example to the JVM side&#10;   for possible cache invalidation/dependency graph description &#10;   solution - in the future, this is something to look into,&#10;   eventually )" />
     <MESSAGE value="create user button handler is implemented but&#10;the ajax request fails&#10;&#10;=&gt; we need to check the unit tests for creating entities" />
     <MESSAGE value="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
@@ -810,6 +799,7 @@
     <MESSAGE value="Login functionality &quot;works&quot;, it could be improved, &#10;but at the moment it is fine for prototyping / &#10;&quot;design space exploration&quot; purposes." />
     <MESSAGE value="Todo plan written for implementing Note editing for Users." />
     <MESSAGE value="Todo plan written for implementing Note editing for Users.&#10;&#10;(added a todo)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todo plan written for implementing Note editing for Users.&#10;&#10;(added a todo)" />
+    <MESSAGE value="Introduced type safe EntityIdentity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduced type safe EntityIdentity." />
   </component>
 </project>
