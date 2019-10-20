@@ -6,9 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/collection/EntitySet.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/view/View.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/LoginLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/collection/EntitySet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/collection/EntitySet.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -385,13 +388,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00369" summary="getting rid of methods that use nonversioned refs to entities">
-      <created>1570384918462</created>
-      <option name="number" value="00369" />
-      <option name="presentableId" value="LOCAL-00369" />
-      <option name="project" value="LOCAL" />
-      <updated>1570384918462</updated>
-    </task>
     <task id="LOCAL-00370" summary="code compiles, needs to be debugged, in progress">
       <created>1570386668245</created>
       <option name="number" value="00370" />
@@ -728,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571566669400</updated>
     </task>
-    <option name="localTasksCounter" value="418" />
+    <task id="LOCAL-00418" summary="Added EntitySet.">
+      <created>1571579130910</created>
+      <option name="number" value="00418" />
+      <option name="presentableId" value="LOCAL-00418" />
+      <option name="project" value="LOCAL" />
+      <updated>1571579130910</updated>
+    </task>
+    <option name="localTasksCounter" value="419" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -775,7 +778,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="create user button handler is implemented but&#10;the ajax request fails&#10;&#10;=&gt; we need to check the unit tests for creating entities" />
     <MESSAGE value="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)" />
     <MESSAGE value="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh." />
@@ -800,6 +802,7 @@
     <MESSAGE value="Todo plan written for implementing Note editing for Users." />
     <MESSAGE value="Todo plan written for implementing Note editing for Users.&#10;&#10;(added a todo)" />
     <MESSAGE value="Introduced type safe EntityIdentity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduced type safe EntityIdentity." />
+    <MESSAGE value="Added EntitySet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added EntitySet." />
   </component>
 </project>

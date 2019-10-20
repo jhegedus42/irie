@@ -251,7 +251,7 @@ case class PersistentActorWhisperer(
     * @tparam V
     * @return Latest version of all entities of type `V`
     */
-  def getAllEntitiesWithLatestVersion[V <: EntityType[V]: ClassTag](
+  def getNewestEntitiesWithGivenEntityType[V <: EntityType[V]: ClassTag](
     implicit d: Decoder[EntityWithRef[V]]
   ): Future[Option[Set[EntityWithRef[V]]]] = {
 

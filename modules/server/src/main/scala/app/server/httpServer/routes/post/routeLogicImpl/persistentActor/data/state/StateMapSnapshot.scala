@@ -81,7 +81,7 @@ private[persistentActor] case class StateMapSnapshot(
     StateMapSnapshot(newMap).bumpVersion
   }
 
-  def filterByUser(id: EntityIdentity[User]): StateMapSnapshot =
+  def filterToUser(id: EntityIdentity[User]): StateMapSnapshot =
     StateMapSnapshot(
       map.filterKeys(k => k.entityIdentity == id.stripType),
       occVersion
