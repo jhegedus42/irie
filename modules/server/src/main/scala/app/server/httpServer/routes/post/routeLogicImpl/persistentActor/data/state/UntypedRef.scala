@@ -2,14 +2,21 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.st
 
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.refs.{EntityVersion, RefToEntityByID, RefToEntityWithVersion}
-import app.shared.utils.UUID_Utils.EntityIdentity
+import app.shared.entity.refs.{
+  EntityVersion,
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
+import app.shared.utils.UUID_Utils.{
+  EntityIdentity,
+  EntityIdentityUntyped
+}
 import monocle.macros.Lenses
 
 @Lenses
 case class UntypedRef(
   entityValueTypeAsString: EntityValueTypeAsString,
-  entityIdentity:          EntityIdentity = EntityIdentity(),
+  entityIdentity:          EntityIdentityUntyped = EntityIdentityUntyped(),
   entityVersion:           EntityVersion = EntityVersion()) {
 
   def asSimpleString(): String = {
@@ -40,17 +47,16 @@ object UntypedRef {
   ): UntypedRef = {
     UntypedRef(
       entityValueTypeAsString = refToEntity.entityValueTypeAsString,
-      entityIdentity          = refToEntity.entityIdentity,
+      entityIdentity          = refToEntity.entityIdentity.stripType,
       entityVersion           = refToEntity.entityVersion
     )
   }
-
 
   def getTypedRef[T <: EntityType[T]](
     untypedRef: UntypedRef
   ): RefToEntityWithVersion[T] = {
     RefToEntityWithVersion(untypedRef.entityValueTypeAsString,
-                           untypedRef.entityIdentity,
+                           untypedRef.entityIdentity.toTyped,
                            untypedRef.entityVersion)
   }
 

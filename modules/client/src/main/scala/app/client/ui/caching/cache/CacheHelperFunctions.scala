@@ -18,7 +18,7 @@ import scala.reflect.ClassTag
 object CacheHelperFunctions {
 
   def getEntity[EV <: EntityType[EV]](
-    identity: EntityIdentity,
+    identity: EntityIdentity[EV],
     cache:    Cache
   )(
     implicit postRequestResultCache: ReadCache[

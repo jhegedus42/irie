@@ -116,8 +116,9 @@ case class PersistentActorWhisperer(
       val entity: EntityWithRef[V] =
         EntityWithRef.makeFromValue[V](value)
 
-      val ute: UntypedEntityWithRef          = UntypedEntityWithRef.makeFromEntity(entity)
-      val ic:  InsertNewEntityCommand = InsertNewEntityCommand(ute)
+      val ute: UntypedEntityWithRef =
+        UntypedEntityWithRef.makeFromEntity(entity)
+      val ic: InsertNewEntityCommand = InsertNewEntityCommand(ute)
 
       val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))
         .mapTo[DidOperationSucceed]
@@ -156,7 +157,8 @@ case class PersistentActorWhisperer(
       stateMapSnapshot: StateMapSnapshot
     ): Option[EntityWithRef[V]] = {
 
-      val res: Option[UntypedEntityWithRef] = stateMapSnapshot.getEntity(ref)
+      val res: Option[UntypedEntityWithRef] =
+        stateMapSnapshot.getEntity(ref)
 
       println(
         s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res "
@@ -229,16 +231,19 @@ case class PersistentActorWhisperer(
       .map(_.state)
   }
 
+//  def filterSnapshotToUser(ref:EntityIdentity[User])
+
   def filterSnapshotToEntityType[V <: EntityType[V]: ClassTag](
     stateMapSnapshot: StateMapSnapshot
   )(
     implicit d: Decoder[EntityWithRef[V]]
-  )
-  : Option[List[EntityWithRef[V]]] = {
+  ): Option[List[EntityWithRef[V]]] = {
     import cats.implicits._
     import cats.Applicative
-     val r1: List[Option[EntityWithRef[V]]] =stateMapSnapshot.getAllEntitiesWithGivenEntityType[V].
-    map(UntypedEntityWithRef.toTypedEntityWithRef[V]).toList
+    val r1: List[Option[EntityWithRef[V]]] = stateMapSnapshot
+      .getAllEntitiesWithGivenEntityType[V].map(
+        UntypedEntityWithRef.toTypedEntityWithRef[V]
+      ).toList
     r1.traverse(identity)
   }
 
@@ -246,28 +251,32 @@ case class PersistentActorWhisperer(
     * @tparam V
     * @return Latest version of all entities of type `V`
     */
-  def getNewestVersionsForAllEntitiesWithGivenEntityType[
-    V <: EntityType[V]: ClassTag
-  ](
-  implicit d: Decoder[EntityWithRef[V]])
-  : Future[Option[Set[EntityWithRef[V]]]] = {
+  def getAllEntitiesWithLatestVersion[V <: EntityType[V]: ClassTag](
+    implicit d: Decoder[EntityWithRef[V]]
+  ): Future[Option[Set[EntityWithRef[V]]]] = {
 
     val fsm: Future[StateMapSnapshot] = getSnaphot
 
-    def f(stateMapSnapshot: StateMapSnapshot): Option[Set[EntityWithRef[V]]] =
-      filterSnapshotToEntityType[V](stateMapSnapshot).map(_
-        .groupBy(f => f.refToEntity.entityIdentity)
-        .transform(
-          (e: EntityIdentity, s: List[EntityWithRef[V]]) =>
-            s.maxBy(
-              tmp => tmp.refToEntity.entityVersion.versionNumberLong
-            )
-        ).values.toSet)
+    def f(
+      stateMapSnapshot: StateMapSnapshot
+    ): Option[Set[EntityWithRef[V]]] =
+      filterSnapshotToEntityType[V](stateMapSnapshot).map(
+        _.groupBy(f => f.refToEntity.entityIdentity)
+          .transform(
+            (e: EntityIdentity[V], s: List[EntityWithRef[V]]) =>
+              s.maxBy(
+                tmp => tmp.refToEntity.entityVersion.versionNumberLong
+              )
+          ).values.toSet
+      )
 
-
-    val res: Future[Option[Set[EntityWithRef[V]]]] =fsm.map(f)
+    val res: Future[Option[Set[EntityWithRef[V]]]] = fsm.map(f)
 
     res
   }
+
+  def getUsersLatestEntities[V <: EntityType[V]: ClassTag](
+    implicit d: Decoder[EntityWithRef[V]]
+  ) = ???
 
 }

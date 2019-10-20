@@ -33,7 +33,7 @@ case class LoginLogic(
     }
 
     paw
-      .getNewestVersionsForAllEntitiesWithGivenEntityType[User].map(f).map(
+      .getAllEntitiesWithLatestVersion[User].map(f).map(
         LoginReq.Res.apply
       )
   }

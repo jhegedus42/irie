@@ -1,6 +1,10 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.OCCVersion
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
+import app.shared.entity.asString.{
+  EntityAndItsValueAsJSON,
+  EntityValueAsJSON,
+  EntityValueTypeAsString
+}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityByID
@@ -16,8 +20,8 @@ import scala.reflect.ClassTag
 
 @Lenses
 private[persistentActor] case class StateMapSnapshot(
-                                                      val map:        Map[UntypedRef, UntypedEntityWithRef] = Map.empty,
-                                                      val occVersion: OCCVersion                     = OCCVersion(0)) {
+  val map:        Map[UntypedRef, UntypedEntityWithRef] = Map.empty,
+  val occVersion: OCCVersion                            = OCCVersion(0)) {
 
   def bumpVersion: StateMapSnapshot =
     this.lens(_.occVersion).modify(_.inc)
@@ -65,20 +69,22 @@ private[persistentActor] case class StateMapSnapshot(
     * @param ase
     * @return
     */
-  def insertVirginEntity(ase: UntypedEntityWithRef): StateMapSnapshot = {
+  def insertVirginEntity(
+    ase: UntypedEntityWithRef
+  ): StateMapSnapshot = {
     // todo-later - this can throw !!!
     assert(!map.contains(ase.untypedRef))
     val newMap = map + (ase.untypedRef -> ase)
     StateMapSnapshot(newMap).bumpVersion
   }
 
-  def filterByIdentity(
-    entityIdentity: EntityIdentity
+  def filterByIdentity[T <: EntityType[T]](
+    entityIdentity: EntityIdentity[T]
   ): Map[UntypedRef, UntypedEntityWithRef] =
-    map.filterKeys(_.entityIdentity == entityIdentity)
+    map.filterKeys(_.entityIdentity == entityIdentity.stripType)
 
-  def getLatestVersionForEntity(
-    identity: EntityIdentity
+  def getLatestVersionForEntity[T <: EntityType[T]](
+    identity: EntityIdentity[T]
   ): (UntypedRef, UntypedEntityWithRef) =
     filterByIdentity(identity).maxBy(
       _._1.entityVersion.versionNumberLong
@@ -90,7 +96,7 @@ private[persistentActor] case class StateMapSnapshot(
     *
     * @return
     */
-  def unsafeInsertUpdatedEntity(
+  def unsafeInsertUpdatedEntity[T <: EntityType[T]](
     refToLatestVersion: UntypedRef,
     value:              EntityAndItsValueAsJSON
   ): Option[StateMapSnapshot] = {
@@ -102,7 +108,9 @@ private[persistentActor] case class StateMapSnapshot(
     assert(map.contains(refToLatestVersion))
 
     val latestVersion: Long =
-      getLatestVersionForEntity(refToLatestVersion.entityIdentity)._1.entityVersion.versionNumberLong
+      getLatestVersionForEntity(
+        refToLatestVersion.entityIdentity.toTyped[T]
+      )._1.entityVersion.versionNumberLong
 
     assert(
       refToLatestVersion.entityVersion.versionNumberLong == latestVersion
@@ -145,7 +153,7 @@ private[persistentActor] case class StateMapSnapshot(
   }
 
   def getAllEntitiesWithGivenEntityType[
-    V <: EntityType[V]:ClassTag
+    V <: EntityType[V]: ClassTag
   ]: List[UntypedEntityWithRef] = {
     map
       .filter(
@@ -156,7 +164,7 @@ private[persistentActor] case class StateMapSnapshot(
   }
 
   def getAllRefsWithGivenEntityType[
-    V <: EntityType[V]:ClassTag
+    V <: EntityType[V]: ClassTag
   ]: List[UntypedRef] = {
 
     val keys =

@@ -8,4 +8,4 @@ import monocle.macros.Lenses
 @Lenses
 case class RefToEntityByID[T <: EntityType[T]](
 //    entityValueTypeAsString: EntityValueTypeAsString,
-  entityIdentity: EntityIdentity = EntityIdentity())
+  entityIdentity: EntityIdentity[T] = EntityIdentity())

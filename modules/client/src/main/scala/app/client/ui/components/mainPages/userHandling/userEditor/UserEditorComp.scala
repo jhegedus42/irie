@@ -96,7 +96,7 @@ object UserEditorComp {
     intendedNewName: IntendedNewName = IntendedNewName())
 
   case class Props(
-    userIdentity: EntityIdentity,
+    userIdentity: EntityIdentity[User],
     routerCtl:    RouterCtl[MainPage])
 
   val component: Component[

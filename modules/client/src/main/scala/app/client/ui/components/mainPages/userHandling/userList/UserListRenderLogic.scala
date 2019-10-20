@@ -62,7 +62,7 @@ case class UserListRenderLogic(
         val ctl = cacheInterfaceWrapper.props.routerCtl
 
         def linkToUserEditorPage(
-          id: EntityIdentity
+          id: EntityIdentity[User]
         ): VdomTagOf[Anchor] =
           <.a("edit",
               ^.href := ctl.urlFor(StaticTemplatePage).value,

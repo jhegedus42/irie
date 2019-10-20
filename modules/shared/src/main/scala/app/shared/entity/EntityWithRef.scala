@@ -43,7 +43,7 @@ object EntityWithRef {
   def makeFromValue[V <: EntityType[V]: ClassTag](
     v: V
   ): EntityWithRef[V] = {
-    val tr =
+    val tr: RefToEntityWithVersion[V] =
       RefToEntityWithVersion[V](
         EntityValueTypeAsString.getEntityValueTypeAsString[V]
       )
