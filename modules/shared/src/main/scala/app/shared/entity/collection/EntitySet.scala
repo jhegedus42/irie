@@ -3,12 +3,26 @@ package app.shared.entity.collection
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
+import monocle.macros.Lenses
 //import app.shared.entity.view.{View, ViewSet}
+
+import io.circe._
+//import monocle.macros.Lenses
+
+import scala.reflect.ClassTag
+
+//import io.circe.generic.auto._
+//import io.circe.syntax._
+import io.circe.generic.JsonCodec
 
 case class UsersLatestVersionEntitySet[T <: EntityType[T]](
   userRef:                EntityWithRef[User],
   latestVersionEntitySet: LatestVersionEntitySet[T])
 
+
+//@Lenses
+
+@JsonCodec
 case class LatestVersionEntitySet[T <: EntityType[T]](
   set: Set[EntityWithRef[T]]) {
 
@@ -43,3 +57,5 @@ case class EntitySet[T <: EntityType[T]](set: Set[EntityWithRef[T]]) {
   }
 
 }
+
+

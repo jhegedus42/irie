@@ -7,7 +7,17 @@ import app.shared.entity.entityValue.values.{Note, User}
 //trait View
 
 //case class ViewSet[V <: View](views: Set[V])
+import io.circe._
+import monocle.macros.Lenses
 
+import scala.reflect.ClassTag
+
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+
+@JsonCodec
+@Lenses
 case class UsersNotes(
   user: EntityWithRef[User],
   note: LatestVersionEntitySet[Note])
