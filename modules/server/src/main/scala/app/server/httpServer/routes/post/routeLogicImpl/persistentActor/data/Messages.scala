@@ -1,18 +1,10 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntityWithRef
-}
-import app.shared.entity.asString.{
-  EntityValueAsJSON,
-  EntityValueTypeAsString
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
+import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.refs.{
-  RefToEntityWithVersion,
-//  RefToEntityWithoutVersion
-}
+import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.state.UntypedEntityWithRef
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 object Commands {

@@ -1,16 +1,13 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+package app.shared.state
 
 import app.shared.entity.EntityWithRef
-import app.shared.entity.asString.{
-  EntityAndItsValueAsJSON,
-  EntityValueAsJSON
-}
+import app.shared.entity.asString.EntityAndItsValueAsJSON
 import app.shared.entity.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
 import monocle.macros.Lenses
 
 @Lenses
-private[persistentActor] case class UntypedEntityWithRef(
+case class UntypedEntityWithRef(
   untypedRef:              UntypedRef,
   entityAndItsValueAsJSON: EntityAndItsValueAsJSON) {}
 

@@ -6,22 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/logic/read/GetUsersNotesLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/MainTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/MainTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/app/client/ui/caching/cache/comm/AsyncRequestTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/RouteLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/Messages.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/PersistedEvents.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/PersistedEvents.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/StateMapSnapshot.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedEntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/state/UntypedEntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/data/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/state/UntypedRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/StateService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/StateService.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/state/TestDataProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/typesafePersistence/PersistentServiceProviderTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/PersistentActorWhispererTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetUsersNotesReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/GetUsersNotesReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/view/UsersNotes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/view/UsersNotes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/initialization/testing/TestEntitiesForUsers.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -398,13 +392,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00375" summary="updating user names seems to work">
-      <created>1570473778659</created>
-      <option name="number" value="00375" />
-      <option name="presentableId" value="LOCAL-00375" />
-      <option name="project" value="LOCAL" />
-      <updated>1570473778659</updated>
-    </task>
     <task id="LOCAL-00376" summary="adding new request: get latest entity by ID">
       <created>1570614854978</created>
       <option name="number" value="00376" />
@@ -741,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571596530436</updated>
     </task>
-    <option name="localTasksCounter" value="424" />
+    <task id="LOCAL-00424" summary="Before refactoring - moving code from server to shared.">
+      <created>1571673295282</created>
+      <option name="number" value="00424" />
+      <option name="presentableId" value="LOCAL-00424" />
+      <option name="project" value="LOCAL" />
+      <updated>1571673295282</updated>
+    </task>
+    <option name="localTasksCounter" value="425" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -788,7 +782,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login logic implementation is in progress." />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)" />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s" />
     <MESSAGE value="Login logic implementation is in progress.&#10;&#10;- Login Req impl. is &quot;complete&quot;, now it needs to be &#10;  tested using akka-http-testkit" />
@@ -813,6 +806,7 @@
     <MESSAGE value="Bit of refactoring." />
     <MESSAGE value="Started creating the Get User Notes route." />
     <MESSAGE value="GetUsersNotesReq is now in place.&#10;&#10;Logic + test needs to be implemented for it." />
-    <option name="LAST_COMMIT_MESSAGE" value="GetUsersNotesReq is now in place.&#10;&#10;Logic + test needs to be implemented for it." />
+    <MESSAGE value="Before refactoring - moving code from server to shared." />
+    <option name="LAST_COMMIT_MESSAGE" value="Before refactoring - moving code from server to shared." />
   </component>
 </project>

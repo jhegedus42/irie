@@ -1,10 +1,8 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntityWithRef
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.shared.initialization.testing.TestEntitiesForUsers
+import app.shared.state.UntypedEntityWithRef
 import io.circe.generic.auto._
 
 case class TestDataProvider(applicationStateMap: StateMapSnapshot)

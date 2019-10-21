@@ -1,17 +1,11 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.UpdateEntityCommand
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntityWithRef,
-  UntypedRef
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.server.initialization.Config
-import app.shared.entity.asString.{
-  EntityAndItsValueAsJSON,
-  EntityValueAsJSON
-}
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
+import app.shared.state.{UntypedEntityWithRef, UntypedRef}
 
 sealed trait DidOperationSucceed
 case class StateServiceOperationSucceeded(m: String)

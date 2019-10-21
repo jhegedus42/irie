@@ -5,6 +5,7 @@ import app.shared.entity.collection.EntitySet
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityByID
+import app.shared.state.{UntypedEntityWithRef, UntypedRef}
 import app.shared.utils.UUID_Utils
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.Decoder

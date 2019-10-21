@@ -1,16 +1,9 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+package app.shared.state
 
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.refs.{
-  EntityVersion,
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
-import app.shared.utils.UUID_Utils.{
-  EntityIdentity,
-  EntityIdentityUntyped
-}
+import app.shared.entity.refs.{EntityVersion, RefToEntityWithVersion}
+import app.shared.utils.UUID_Utils.EntityIdentityUntyped
 import monocle.macros.Lenses
 
 @Lenses

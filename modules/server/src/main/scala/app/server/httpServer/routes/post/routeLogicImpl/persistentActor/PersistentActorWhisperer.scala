@@ -3,41 +3,20 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
-  GetStateSnapshot,
-  InsertNewEntityCommand,
-  ResetStateCommand,
-  UpdateEntityCommand
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.{
-  StateMapSnapshot,
-  UntypedEntityWithRef,
-  UntypedRef
-}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{
-  DidOperationSucceed,
-  PersistentActorImpl
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.refs.{
-  EntityDeletedFlag,
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
+import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder, Json}
 
 import scala.concurrent.duration._
-import app.shared.entity.asString.{
-  EntityValueAsJSON,
-  EntityValueTypeAsString
-}
-import app.shared.entity.collection.{
-  EntitySet,
-  LatestVersionEntitySet
-}
+import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
+import app.shared.entity.collection.{EntitySet, LatestVersionEntitySet}
 import app.shared.entity.entityValue.values.User
+import app.shared.state.{UntypedEntityWithRef, UntypedRef}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
 import io.circe.Decoder.Result

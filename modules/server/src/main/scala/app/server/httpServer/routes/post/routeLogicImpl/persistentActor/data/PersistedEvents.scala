@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.UntypedEntityWithRef
+import app.shared.state.UntypedEntityWithRef
 
 trait EventToBeSavedIntoJournal
 
