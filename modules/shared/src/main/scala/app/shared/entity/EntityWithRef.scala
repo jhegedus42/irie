@@ -23,13 +23,13 @@ import io.circe.generic.JsonCodec
 @JsonCodec
 @Lenses
 case class EntityWithRef[E <: EntityType[E]](
-  entityValue: E,
-  refToEntity: RefToEntityWithVersion[E]) {
+                                              entityValue: E,
+                                              toRef: RefToEntityWithVersion[E]) {
 
   def updateValue(v: E): EntityWithRef[E] = this.copy(entityValue = v)
 
   def bumpVersion: EntityWithRef[E] =
-    this.copy(refToEntity = this.refToEntity.bumpVersion)
+    this.copy(toRef = this.toRef.bumpVersion)
 
 }
 

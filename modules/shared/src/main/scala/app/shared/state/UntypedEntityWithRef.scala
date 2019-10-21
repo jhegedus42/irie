@@ -22,7 +22,7 @@ object UntypedEntityWithRef {
     implicit encoder: Encoder[EntityWithRef[V]],
     ee:               Encoder[V]
   ): UntypedEntityWithRef = {
-    val utr: UntypedRef = e.refToEntity
+    val utr: UntypedRef = e.toRef
     val entityAsString: EntityAndItsValueAsJSON =
       EntityAndItsValueAsJSON.make(e)
     UntypedEntityWithRef(utr, entityAsString)

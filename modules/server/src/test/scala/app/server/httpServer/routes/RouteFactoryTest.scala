@@ -8,17 +8,28 @@ import akka.http.scaladsl.model.{HttpMessage, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.http.scaladsl.server._
 import Directives._
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetUsersNotesReq, LoginReq, ResetRequest, UpdateReq}
+import app.shared.comm.postRequests.{
+  CreateEntityReq,
+  GetEntityReq,
+  GetUsersNotesReq,
+  LoginReq,
+  ResetRequest,
+  UpdateReq
+}
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
-import app.shared.comm.postRequests.marshall.{JSONEncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
+import app.shared.comm.postRequests.marshall.{
+  JSONEncodersDecoders,
+  ParametersAsJSON,
+  ResultOptionAsJSON
+}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntitiesForUsers
+import app.shared.state.{TestDataProvider, TestEntitiesForNotes}
 import io.circe.generic.auto._
 import monocle.macros.syntax.lens._
 
@@ -65,12 +76,26 @@ class RouteFactoryTest
 
   }
 
-  test("get user note list"){
-    val a= TestEntitiesForUsers.aliceEntity_with_UUID0
+  test("get user note list") {
+    val a = TestEntitiesForUsers.aliceEntity_with_UUID0
     import GetUsersNotesReq._
-    val par:Par =Par(a.refToEntity.entityIdentity) // todo-now 1.1.1.1
-//    val
-
+    val par: Par = Par(a.toRef.entityIdentity)
+    val res: Res = getPostRequestResult[GetUsersNotesReq](par)
+    val set      = res.maybeSet.get
+    val testData = TestDataProvider.getTestState
+    val b1 = set.contains(
+      TestEntitiesForNotes.note01AliceWithRef.toRef
+    )
+    val b2 = set.contains(
+      TestEntitiesForNotes.note02AliceWithRef.toRef
+    )
+    val b3 = set.contains(
+      TestEntitiesForNotes.note03AliceWithRef.toRef
+    )
+    assert(b1)
+    assert(b3)
+    assert(!b2)
+    assert(set.size==2)
   }
 
   test("test update route") {
@@ -99,7 +124,7 @@ class RouteFactoryTest
 
     assertLatestEntityIs(updatedTA)
 
-    val latestEntity = getEntity(updatedTA.refToEntity)
+    val latestEntity = getEntity(updatedTA.toRef)
 
     assert(
       updatedTA.entityValue.favoriteNumber === latestEntity.entityValue.favoriteNumber
@@ -109,14 +134,12 @@ class RouteFactoryTest
 
   test("login route") {
 
-
     assert(
       getPostRequestResult[LoginReq](
         LoginReq.Par("Alice", "titokNyitja")
       ).optionUserRef.get ===
         TestEntitiesForUsers.aliceEntity_with_UUID0
     )
-
 
     assert(
       getPostRequestResult[LoginReq](
@@ -133,7 +156,7 @@ class RouteFactoryTest
     resetServerState()
     val alice: EntityWithRef[User] =
       TestEntitiesForUsers.aliceEntity_with_UUID0
-    val refToEntityWithVersion = alice.refToEntity
+    val refToEntityWithVersion = alice.toRef
 
     assertLatestEntityIs(alice)
 
@@ -150,7 +173,8 @@ class RouteFactoryTest
 
     resetServerState()
 
-    val mhb: EntityWithRef[User] = TestEntitiesForUsers.meresiHiba_with_UUID2
+    val mhb: EntityWithRef[User] =
+      TestEntitiesForUsers.meresiHiba_with_UUID2
 
     assertUserFavoriteNumber(mhb, 369)
 

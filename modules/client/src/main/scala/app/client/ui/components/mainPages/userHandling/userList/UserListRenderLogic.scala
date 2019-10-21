@@ -61,7 +61,7 @@ case class UserListRenderLogic(
           val n    = user.get.entityValue.favoriteNumber
           <.p(
             s"Name : $name , favorite number: $n ",
-            linkToUserEditorPage(user.get.refToEntity.entityIdentity),
+            linkToUserEditorPage(user.get.toRef.entityIdentity),
             <.br
           )
         } else <.div("user info not loaded yet ...")

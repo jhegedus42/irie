@@ -72,7 +72,7 @@ case class PersistentActorWhisperer(
       val newValueAsEntity = currentEntity
         .lens(_.entityValue)
         .set(newValue)
-        .lens(_.refToEntity.entityVersion)
+        .lens(_.toRef.entityVersion)
         .modify(_.bumpVersion())
 
       val ic: UpdateEntityCommand = UpdateEntityCommand(
@@ -245,11 +245,11 @@ case class PersistentActorWhisperer(
       stateMapSnapshot: StateMapSnapshot
     ): Option[Set[EntityWithRef[V]]] =
       filterSnapshotToEntityType[V](stateMapSnapshot).map(
-        _.groupBy(f => f.refToEntity.entityIdentity)
+        _.groupBy(f => f.toRef.entityIdentity)
           .transform(
             (e: EntityIdentity[V], s: List[EntityWithRef[V]]) =>
               s.maxBy(
-                tmp => tmp.refToEntity.entityVersion.versionNumberLong
+                tmp => tmp.toRef.entityVersion.versionNumberLong
               )
           ).values.toSet
       )

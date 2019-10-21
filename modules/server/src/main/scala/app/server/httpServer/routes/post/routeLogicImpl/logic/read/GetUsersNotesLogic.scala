@@ -36,7 +36,7 @@ case class GetUsersNotesLogic(
       val in = inOpt.get
       val res =
         in.filter(r => r.entityValue.owner.entityIdentity.uuid == p)
-      val res2 = res.map(_.refToEntity)
+      val res2 = res.map(_.toRef)
       GetUsersNotesReq.Res(Some(res2))
     }
     paw.getNewestEntitiesWithGivenEntityType[Note].map(g(_))

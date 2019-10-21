@@ -26,7 +26,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val alice: EntityWithRef[User] = TestEntitiesForUsers.aliceEntity_with_UUID0
 
     val r1: Future[EntityWithRef[User]] = helper
-      .getUser(alice.refToEntity)
+      .getUser(alice.toRef)
 
 //    r1.onComplete(
 //      (x: Try[Entity[User]]) =>
@@ -56,7 +56,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val getResult: Future[EntityWithRef[User]] =
       insertResult.flatMap(
         (e: EntityWithRef[User]) =>
-          helper.getUser(e.refToEntity)
+          helper.getUser(e.toRef)
       )
 
     val futureAssertionThatEverythingIsKosher: Future[Assertion] =
@@ -81,7 +81,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     val getRequestResult: Future[EntityWithRef[User]] =
       updateReqResult.flatMap(
-        e => helper.getUser(e.refToEntity)
+        e => helper.getUser(e.toRef)
       )
     // here we are waiting first for the update request to return
     // and only after that we launch the getRequest
@@ -96,7 +96,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
       a = r2.entityValue.favoriteNumber == 66
       b = r1.entityValue.favoriteNumber == 66
-      c = r2.refToEntity.entityVersion.versionNumberLong == 1
+      c = r2.toRef.entityVersion.versionNumberLong == 1
     } yield (assert(a && b && c))
 
     to_return
@@ -122,7 +122,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     // get alice and check that her state is resetted
 
     val refToAlice =
-      TestEntitiesForUsers.aliceEntity_with_UUID0.refToEntity
+      TestEntitiesForUsers.aliceEntity_with_UUID0.toRef
 
     val alice: Future[EntityWithRef[User]] = helper.waitFor(reset) {
       helper.getUser(refToAlice)
@@ -137,7 +137,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     val newAlice = alice.flatMap(a => helper.setUsersFavNumber(a, 66))
 
     val fetchedNewAlice: Future[EntityWithRef[User]] = newAlice.flatMap(
-      na => helper.getUser(na.refToEntity)
+      na => helper.getUser(na.toRef)
     )
 
     // now we check that her state has been updated

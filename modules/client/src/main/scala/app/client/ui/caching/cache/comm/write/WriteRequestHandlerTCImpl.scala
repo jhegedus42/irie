@@ -112,7 +112,7 @@ object WriteRequestHandlerTCImpl {
       s.getPar.foreach(par => {
 
         val r: RefToEntityWithVersion[User] =
-          par.currentEntity.refToEntity
+          par.currentEntity.toRef
 
         val r1 = RefToEntityByID[User](r.entityIdentity)
 

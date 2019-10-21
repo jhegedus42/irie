@@ -14,18 +14,16 @@ object GetUsersNotesReq {
   import io.circe.generic.JsonCodec
 
   @JsonCodec
-  case class Par(userID:EntityIdentity[User])
+  case class Par(userID: EntityIdentity[User])
       extends PostRequest.Parameter
 
   @JsonCodec
-  case class Res(
-    optionEntity: Option[Set[RefToEntityWithVersion[Note]]])
+  case class Res(maybeSet: Option[Set[RefToEntityWithVersion[Note]]])
       extends PostRequest.Result
 }
 
 //@JsonCodec
-class GetUsersNotesReq
-    extends PostRequest[ReadRequest] {
+class GetUsersNotesReq extends PostRequest[ReadRequest] {
   override type ParT     = GetUsersNotesReq.Par
   override type ResT     = GetUsersNotesReq.Res
   override type PayLoadT = Unit

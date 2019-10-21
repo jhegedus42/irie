@@ -27,15 +27,15 @@ object TestEntitiesForUsers {
   import monocle.macros.syntax.lens._
 
   val aliceEntity_with_UUID0 = aliceEntity
-    .lens(_.refToEntity.entityIdentity.uuid)
+    .lens(_.toRef.entityIdentity.uuid)
     .set(UUID_Utils.uuid00)
 
   val bobEntity_with_UUID1 = bobEntity
-    .lens(_.refToEntity.entityIdentity.uuid)
+    .lens(_.toRef.entityIdentity.uuid)
     .set(UUID_Utils.uuid01)
 
   val meresiHiba_with_UUID2 = meresiHibaEntity
-    .lens(_.refToEntity.entityIdentity.uuid)
+    .lens(_.toRef.entityIdentity.uuid)
     .set(UUID_Utils.uuid02)
 
 }

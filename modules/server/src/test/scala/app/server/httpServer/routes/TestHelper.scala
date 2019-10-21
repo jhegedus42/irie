@@ -8,38 +8,22 @@ import akka.http.scaladsl.model.{HttpMessage, StatusCodes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.http.scaladsl.server._
 import Directives._
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
-import app.shared.comm.postRequests.marshall.{
-  JSONEncodersDecoders,
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
+import app.shared.comm.postRequests.marshall.{JSONEncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.io.dns.DnsProtocol.RequestType
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
-import app.shared.comm.postRequests.marshall.JSONEncodersDecoders.{
-  decodeResult,
-  encodeParameters,
-  encodeResult
-}
-import app.shared.comm.postRequests.marshall.{
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  CreateEntityReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.postRequests.marshall.JSONEncodersDecoders.{decodeResult, encodeParameters, encodeResult}
+import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, ResetRequest, UpdateReq}
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion}
+import app.shared.entity.refs.RefToEntityWithVersion
+import app.shared.state.TestDataProvider
 import io.circe
 import io.circe.{Decoder, Encoder}
 import org.scalatest.{FunSuite, Matchers}
@@ -79,7 +63,7 @@ case class TestHelper(routes: RouteFactory)
   ): Unit = {
 
     val resFromServer: EntityWithRef[User] = getEntity(
-      user.refToEntity
+      user.toRef
     )
 
     assert(
@@ -102,14 +86,12 @@ case class TestHelper(routes: RouteFactory)
 
   def getPostRequestResult[
     Req <: PostRequest[_]
-//    V   <: EntityType[V]
   ](par: Req#ParT
   )(
     implicit
     encoder: Encoder[Req#ResT],
     decoder: Decoder[Req#ResT],
     enc_par: Encoder[Req#ParT],
-//    e2:      Encoder[EntityWithRef[V]],
     ct1:     ClassTag[Req#PayLoadT],
     ct2:     ClassTag[Req]
   ): Req#ResT = {
@@ -277,7 +259,7 @@ case class TestHelper(routes: RouteFactory)
 
     val req = Post(rn).withEntity(
       encodeParameters[GetEntityReq[User]](
-        Par(entity.refToEntity)
+        Par(entity.toRef)
       ).parameters_as_json
     )
 

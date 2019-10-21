@@ -49,9 +49,9 @@ case class EntitySet[T <: EntityType[T]](set: Set[EntityWithRef[T]]) {
   def filterToLatestVersions: LatestVersionEntitySet[T] = {
     LatestVersionEntitySet(
       set
-        .groupBy(_.refToEntity.entityIdentity.uuid).transform({
+        .groupBy(_.toRef.entityIdentity.uuid).transform({
           (x, y) =>
-            y.maxBy(_.refToEntity.entityVersion.versionNumberLong)
+            y.maxBy(_.toRef.entityVersion.versionNumberLong)
         }).values.toSet
     )
   }
