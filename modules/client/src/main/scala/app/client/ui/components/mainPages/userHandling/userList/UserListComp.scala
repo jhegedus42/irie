@@ -15,7 +15,7 @@ import app.client.ui.components.{
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
 import app.shared.entity.entityValue.values.User
-import app.shared.initialization.testing.TestEntities
+import app.shared.initialization.testing.TestEntitiesForUsers
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
@@ -83,7 +83,7 @@ object UserListComp {
 
         import io.circe.generic.auto._
 
-        val entity: User = TestEntities.jetiLabnyom
+        val entity: User = TestEntitiesForUsers.jetiLabnyom
 
         val params: CreateEntityReq.CreateEntityReqPar[User] =
           CreateEntityReq.CreateEntityReqPar(entity)

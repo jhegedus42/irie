@@ -1,12 +1,9 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{
-  GetAllUsersLogic,
-  LoginLogic,
-  SumIntLogic
-}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{GetAllUsersLogic, GetUsersNotesLogic, LoginLogic, SumIntLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
+import app.shared.comm.postRequests.GetUsersNotesReq
 import app.shared.comm.{PostRequest, PostRequestType}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -57,5 +54,11 @@ object RouteLogic {
     paw:             PersistentActorWhisperer,
     contextExecutor: ExecutionContextExecutor
   ): LoginLogic = LoginLogic()
+
+  implicit def getUsersNoteLogic(
+    implicit
+    paw:             PersistentActorWhisperer,
+    contextExecutor: ExecutionContextExecutor
+  ): GetUsersNotesLogic = GetUsersNotesLogic()
 
 }

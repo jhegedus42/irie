@@ -10,7 +10,7 @@ import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.read.GetAllUsersReq
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{LoginReq, ResetRequest, SumIntRoute}
+import app.shared.comm.postRequests.{GetUsersNotesReq, LoginReq, ResetRequest, SumIntRoute}
 import app.shared.entity.entityValue.values.User
 
 import scala.concurrent.ExecutionContextExecutor
@@ -38,7 +38,9 @@ private[httpServer] case class RouteFactory(
       ping_pong ~
       getPostRoute[ResetRequest].route ~
       getPostRoute[GetAllUsersReq].route ~
-      getPostRoute[LoginReq].route
+      getPostRoute[LoginReq].route ~
+      getPostRoute[GetUsersNotesReq].route  // todo-now 1.1.1 CONTINUE HERE
+                                            //  write akka-http test for this
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

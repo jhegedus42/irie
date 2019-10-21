@@ -10,25 +10,15 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.comm.{PostRequest, RouteName}
-import app.shared.comm.postRequests.{
-  CreateEntityReq,
-  GetEntityReq,
-  LoginReq,
-  ResetRequest,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetUsersNotesReq, LoginReq, ResetRequest, UpdateReq}
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes
 import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
-import app.shared.comm.postRequests.marshall.{
-  JSONEncodersDecoders,
-  ParametersAsJSON,
-  ResultOptionAsJSON
-}
+import app.shared.comm.postRequests.marshall.{JSONEncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
-import app.shared.initialization.testing.TestEntities
+import app.shared.initialization.testing.TestEntitiesForUsers
 import io.circe.generic.auto._
 import monocle.macros.syntax.lens._
 
@@ -67,11 +57,18 @@ class RouteFactoryTest
   test("test insert route[User]") {
 
     resetServerState()
-    val mhb = TestEntities.jetiLabnyom
+    val mhb = TestEntitiesForUsers.jetiLabnyom
 
     val insertedEntity = executeInsertUserRequest(mhb)
 
     assertLatestEntityIs(insertedEntity)
+
+  }
+
+  test("get user note list"){
+    val a= TestEntitiesForUsers.aliceEntity_with_UUID0
+    import GetUsersNotesReq._
+    val par:Par =Par(a.refToEntity.entityIdentity)
 
   }
 
@@ -80,7 +77,7 @@ class RouteFactoryTest
     // we insert a new Terez Anya
 
     resetServerState()
-    val terezAnyaValue = TestEntities.terezAnya
+    val terezAnyaValue = TestEntitiesForUsers.terezAnya
 
     val originalTA =
       executeInsertUserRequest(terezAnyaValue)
@@ -116,7 +113,7 @@ class RouteFactoryTest
       getPostRequestResult[LoginReq](
         LoginReq.Par("Alice", "titokNyitja")
       ).optionUserRef.get ===
-        TestEntities.aliceEntity_with_UUID0
+        TestEntitiesForUsers.aliceEntity_with_UUID0
     )
 
 
@@ -134,7 +131,7 @@ class RouteFactoryTest
 
     resetServerState()
     val alice: EntityWithRef[User] =
-      TestEntities.aliceEntity_with_UUID0
+      TestEntitiesForUsers.aliceEntity_with_UUID0
     val refToEntityWithVersion = alice.refToEntity
 
     assertLatestEntityIs(alice)
@@ -152,7 +149,7 @@ class RouteFactoryTest
 
     resetServerState()
 
-    val mhb: EntityWithRef[User] = TestEntities.meresiHiba_with_UUID2
+    val mhb: EntityWithRef[User] = TestEntitiesForUsers.meresiHiba_with_UUID2
 
     assertUserFavoriteNumber(mhb, 369)
 

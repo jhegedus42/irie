@@ -7,7 +7,7 @@ import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
 import app.shared.comm.postRequests.{CreateEntityReq, ResetRequest, UpdateReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
-import app.shared.initialization.testing.TestEntities
+import app.shared.initialization.testing.TestEntitiesForUsers
 import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}
 
@@ -23,7 +23,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("getentity test") {
     println("now starting get test...")
-    val alice: EntityWithRef[User] = TestEntities.aliceEntity_with_UUID0
+    val alice: EntityWithRef[User] = TestEntitiesForUsers.aliceEntity_with_UUID0
 
     val r1: Future[EntityWithRef[User]] = helper
       .getUser(alice.refToEntity)
@@ -43,7 +43,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
   test("insert and then get") {
     println("now starting insert test...")
-    val c = TestEntities.cica
+    val c = TestEntitiesForUsers.cica
 
     val par = AjaxCallPar[CreateEntityReq[User]](CreateEntityReqPar(c))
 
@@ -71,7 +71,7 @@ class AsyncRequestTest extends AsyncFunSuite {
 
     import monocle.macros.syntax.lens._
 
-    val userEntity = TestEntities.meresiHiba_with_UUID2
+    val userEntity = TestEntitiesForUsers.meresiHiba_with_UUID2
 
     val newValue: User =
       userEntity.entityValue.lens(_.favoriteNumber).set(66)
@@ -113,7 +113,7 @@ class AsyncRequestTest extends AsyncFunSuite {
   test("reset, get, update, reset and get") {
 
     println("this test is to be implemented")
-    val alicesOriginalFavNumber = TestEntities.alice.favoriteNumber
+    val alicesOriginalFavNumber = TestEntitiesForUsers.alice.favoriteNumber
 
     // reset the server
 
@@ -122,7 +122,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     // get alice and check that her state is resetted
 
     val refToAlice =
-      TestEntities.aliceEntity_with_UUID0.refToEntity
+      TestEntitiesForUsers.aliceEntity_with_UUID0.refToEntity
 
     val alice: Future[EntityWithRef[User]] = helper.waitFor(reset) {
       helper.getUser(refToAlice)

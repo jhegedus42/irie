@@ -1,10 +1,10 @@
 package app.shared.initialization.testing
 
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.User
+import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.utils.UUID_Utils
 
-object TestEntities {
+object TestEntitiesForUsers {
 
   val alice = User(name = "Alice",
                    favoriteNumber = 38,
@@ -37,5 +37,14 @@ object TestEntities {
   val meresiHiba_with_UUID2 = meresiHibaEntity
     .lens(_.refToEntity.entityIdentity.uuid)
     .set(UUID_Utils.uuid02)
+
+}
+
+object TestEntitiesForNotes {
+
+//  val aliceRef=TestDataProvider.
+//  val note01Alice = Note("Alice note 1",
+//                        "Coito ergo cum.",
+//                        TestEntitiesForUsers.aliceEntity_with_UUID0)
 
 }

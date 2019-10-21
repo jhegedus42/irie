@@ -16,23 +16,23 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
 
-@JsonCodec
-@Lenses
-case class UsersNotes(
-  user: EntityWithRef[User],
-  note: LatestVersionEntitySet[Note])
-//    extends View {}
-
-object UsersNotes {
-
-  def make(
-    user:  EntityWithRef[User],
-    notes: LatestVersionEntitySet[Note]
-  ):UsersNotes = {
-    val notesForUser = notes.filter(
-      n =>
-        n.entityValue.owner.entityIdentity == user.refToEntity.entityIdentity
-    )
-    UsersNotes(user,notesForUser)
-  }
-}
+//@JsonCodec
+//@Lenses
+//case class UsersNotes(
+//  user: EntityWithRef[User],
+//  note: LatestVersionEntitySet[Note])
+////    extends View {}
+//
+//object UsersNotes {
+//
+//  def make(
+//    user:  EntityWithRef[User],
+//    notes: LatestVersionEntitySet[Note]
+//  ):UsersNotes = {
+//    val notesForUser = notes.filter(
+//      n =>
+//        n.entityValue.owner.entityIdentity == user.refToEntity.entityIdentity
+//    )
+//    UsersNotes(user,notesForUser)
+//  }
+//}
