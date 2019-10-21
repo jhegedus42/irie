@@ -5,7 +5,6 @@ import akka.pattern.ask
 import akka.util.Timeout
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
@@ -16,7 +15,7 @@ import scala.concurrent.duration._
 import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.collection.{EntitySet, LatestVersionEntitySet}
 import app.shared.entity.entityValue.values.User
-import app.shared.state.{UntypedEntityWithRef, UntypedRef}
+import app.shared.state.{StateMapSnapshot, UntypedEntityWithRef, UntypedRef}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
 import io.circe.Decoder.Result
@@ -64,7 +63,7 @@ case class PersistentActorWhisperer(
 //    val entity: Entity[V] = Entity.makeFromValue[V](value)
 
       val currentEntityUntyped: UntypedEntityWithRef =
-        UntypedEntityWithRef.makeFromEntity(currentEntity)
+        UntypedEntityWithRef.makeFromEntityWithRef(currentEntity)
 
       val newValueAsJSON: EntityValueAsJSON =
         EntityType.toJSON(newValue)
@@ -100,7 +99,7 @@ case class PersistentActorWhisperer(
         EntityWithRef.makeFromValue[V](value)
 
       val ute: UntypedEntityWithRef =
-        UntypedEntityWithRef.makeFromEntity(entity)
+        UntypedEntityWithRef.makeFromEntityWithRef(entity)
       val ic: InsertNewEntityCommand = InsertNewEntityCommand(ute)
 
       val res = ask(actor, ic)(Timeout.durationToTimeout(1 seconds))

@@ -40,11 +40,3 @@ object TestEntitiesForUsers {
 
 }
 
-object TestEntitiesForNotes {
-
-//  val aliceRef=TestDataProvider.
-//  val note01Alice = Note("Alice note 1",
-//                        "Coito ergo cum.",
-//                        TestEntitiesForUsers.aliceEntity_with_UUID0)
-
-}

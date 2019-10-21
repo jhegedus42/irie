@@ -39,7 +39,7 @@ private[httpServer] case class RouteFactory(
       getPostRoute[ResetRequest].route ~
       getPostRoute[GetAllUsersReq].route ~
       getPostRoute[LoginReq].route ~
-      getPostRoute[GetUsersNotesReq].route  // todo-now 1.1.1 CONTINUE HERE
+      getPostRoute[GetUsersNotesReq].route  // todo-now 1.1.1
                                             //  write akka-http test for this
 
   private def rootPageHtml: String =

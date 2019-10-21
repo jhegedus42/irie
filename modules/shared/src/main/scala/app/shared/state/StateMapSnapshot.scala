@@ -1,14 +1,13 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+package app.shared.state
 
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString}
+import app.shared.entity.EntityWithRef
+import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueTypeAsString}
 import app.shared.entity.collection.EntitySet
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.RefToEntityByID
-import app.shared.state.{UntypedEntityWithRef, UntypedRef}
-import app.shared.utils.UUID_Utils
 import app.shared.utils.UUID_Utils.EntityIdentity
-import io.circe.Decoder
+import io.circe.{Decoder, Encoder}
 import monocle.macros.Lenses
 import monocle.macros.syntax.lens._
 
@@ -19,7 +18,7 @@ import scala.reflect.ClassTag
 //import Scalaz._
 
 @Lenses
-private[persistentActor] case class StateMapSnapshot(
+case class StateMapSnapshot(
   val map:        Map[UntypedRef, UntypedEntityWithRef] = Map.empty,
   val occVersion: OCCVersion                            = OCCVersion(0)) {
 
@@ -61,6 +60,15 @@ private[persistentActor] case class StateMapSnapshot(
 //    // todo-later: turn the exception for assertions into a None result
 //
 //  }
+
+  def insertEntity[T<:EntityType[T]:ClassTag](e:T)(
+    implicit encoder: Encoder[EntityWithRef[T]],
+    ee:               Encoder[T]
+  ) :StateMapSnapshot = {
+    val ref= EntityWithRef.makeFromValue(e)
+    val ur = UntypedEntityWithRef.makeFromEntityWithRef(ref)
+    insertVirginEntity(ur)
+  }
 
   /**
     * This is unsafe because it assumes that the key not exist

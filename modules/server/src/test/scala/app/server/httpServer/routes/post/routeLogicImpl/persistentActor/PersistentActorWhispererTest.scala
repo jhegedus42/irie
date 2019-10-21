@@ -2,11 +2,11 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
 import akka.actor.ActorSystem
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.ShutdownActor
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state.StateMapSnapshot
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntitiesForUsers
+import app.shared.state.StateMapSnapshot
 import org.scalatest.{BeforeAndAfter, FunSuite}
 
 import scala.concurrent.{Await, ExecutionContextExecutor}

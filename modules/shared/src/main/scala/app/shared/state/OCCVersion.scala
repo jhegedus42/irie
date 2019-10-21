@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.state
+package app.shared.state
 
 case class OCCVersion(version:Long){
 

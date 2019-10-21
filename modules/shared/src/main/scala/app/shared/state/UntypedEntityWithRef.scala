@@ -16,7 +16,7 @@ case class UntypedEntityWithRef(
 
 object UntypedEntityWithRef {
 
-  implicit def makeFromEntity[V <: EntityType[V]](
+  implicit def makeFromEntityWithRef[V <: EntityType[V]](
     e: EntityWithRef[V]
   )(
     implicit encoder: Encoder[EntityWithRef[V]],
