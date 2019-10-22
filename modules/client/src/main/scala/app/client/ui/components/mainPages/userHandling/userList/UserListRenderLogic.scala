@@ -98,6 +98,7 @@ case class UserListRenderLogic[Props](
   def userListAsVDOM: Option[html_<^.TagMod] = {
 
     def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
+
       def requestResultForRefToAllUsers
         : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest,
                                                    GetAllUsersReq] =
@@ -105,6 +106,7 @@ case class UserListRenderLogic[Props](
           .readFromServer[ReadRequest, GetAllUsersReq](
             GetAllUsersReq.Par(AdminPassword("titok"))
           )
+
       requestResultForRefToAllUsers.toOption
     }
 

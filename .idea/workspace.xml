@@ -6,7 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/test/scala/app/server/httpServer/routes/RouteFactoryTest.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -385,20 +389,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00389" summary="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
-      <created>1571040756551</created>
-      <option name="number" value="00389" />
-      <option name="presentableId" value="LOCAL-00389" />
-      <option name="project" value="LOCAL" />
-      <updated>1571040756553</updated>
-    </task>
-    <task id="LOCAL-00390" summary="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
-      <created>1571040790808</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1571040790808</updated>
-    </task>
     <task id="LOCAL-00391" summary="creating new user works now&#10;&#10;NEXT STEP - delete the user : &#10;&#10; -  create and test delete entity request&#10;  &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
       <created>1571044535246</created>
       <option name="number" value="00391" />
@@ -728,7 +718,21 @@
       <option name="project" value="LOCAL" />
       <updated>1571763926520</updated>
     </task>
-    <option name="localTasksCounter" value="438" />
+    <task id="LOCAL-00438" summary="Wrote todo list for next task : print the list of references to a user's notes.">
+      <created>1571764122098</created>
+      <option name="number" value="00438" />
+      <option name="presentableId" value="LOCAL-00438" />
+      <option name="project" value="LOCAL" />
+      <updated>1571764122098</updated>
+    </task>
+    <task id="LOCAL-00439" summary="Wrote todo list for next task : print the list of references to a user's notes.">
+      <created>1571764150930</created>
+      <option name="number" value="00439" />
+      <option name="presentableId" value="LOCAL-00439" />
+      <option name="project" value="LOCAL" />
+      <updated>1571764150930</updated>
+    </task>
+    <option name="localTasksCounter" value="440" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -775,7 +779,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;now we have composable TextFields" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)" />
@@ -800,6 +803,7 @@
     <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
     <MESSAGE value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
     <MESSAGE value="Hello world for list of user notes works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Hello world for list of user notes works." />
+    <MESSAGE value="Wrote todo list for next task : print the list of references to a user's notes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote todo list for next task : print the list of references to a user's notes." />
   </component>
 </project>

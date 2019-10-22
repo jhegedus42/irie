@@ -76,11 +76,18 @@ class RouteFactoryTest
 
   }
 
+  // todo-now 1.1.2 - 1.1.1 - 1
+  //  we need to use this for
+  //  the parent task
+
   test("get user note list") {
     val a = TestEntitiesForUsers.aliceEntity_with_UUID0
     import GetUsersNotesReq._
+
     val par: Par = Par(a.toRef.entityIdentity)
+
     val res: Res = getPostRequestResult[GetUsersNotesReq](par)
+
     val set      = res.maybeSet.get
     val testData = TestDataProvider.getTestState
     val b1 = set.contains(
