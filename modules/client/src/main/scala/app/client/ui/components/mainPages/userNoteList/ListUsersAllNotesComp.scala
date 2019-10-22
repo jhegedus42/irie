@@ -30,7 +30,7 @@ trait ListUsersAllNotesComp
     <.div("Hello List of User's Note")
 
     // todo-now 1.1.2
-    //  print list of references
+    //  print list of references to the logged-in user's notes
     //  CURRENT-FOCUS
 
     // todo-now 1.1.2.1
