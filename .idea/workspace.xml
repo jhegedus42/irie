@@ -6,11 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -389,13 +385,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00388" summary="create user button handler is implemented but&#10;the ajax request fails&#10;&#10;=&gt; we need to check the unit tests for creating entities">
-      <created>1570990936903</created>
-      <option name="number" value="00388" />
-      <option name="presentableId" value="LOCAL-00388" />
-      <option name="project" value="LOCAL" />
-      <updated>1570990936903</updated>
-    </task>
     <task id="LOCAL-00389" summary="create user works but the cache needs to be invalidated&#10;and the page refreshed (as usual), &#10;&#10;after that next thing is to delete the user : &#10; -  in the user editor page: add a delete button&#10; &#10; -  after deleting an user, it cannot be &#10;    - updated&#10;    - read (accessed)">
       <created>1571040756551</created>
       <option name="number" value="00389" />
@@ -732,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571761773407</updated>
     </task>
-    <option name="localTasksCounter" value="437" />
+    <task id="LOCAL-00437" summary="Hello world for list of user notes works.">
+      <created>1571763926520</created>
+      <option name="number" value="00437" />
+      <option name="presentableId" value="LOCAL-00437" />
+      <option name="project" value="LOCAL" />
+      <updated>1571763926520</updated>
+    </task>
+    <option name="localTasksCounter" value="438" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -779,7 +775,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="continuing working on login functionality" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;now we have composable TextFields" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
@@ -804,6 +799,7 @@
     <MESSAGE value="All app works now with the new BaseComp." />
     <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
     <MESSAGE value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
+    <MESSAGE value="Hello world for list of user notes works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Hello world for list of user notes works." />
   </component>
 </project>

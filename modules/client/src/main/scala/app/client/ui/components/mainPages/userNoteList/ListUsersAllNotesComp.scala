@@ -26,7 +26,19 @@ trait ListUsersAllNotesComp
     s:            StateT,
     backendScope: BackendScope[CacheAndPropsAndRouterCtrl[PropsT], StateT]
   ): VdomElement = {
+
     <.div("Hello List of User's Note")
+
+    // todo-now 1.1.2
+    //  print list of references
+    //  CURRENT-FOCUS
+
+    // todo-now 1.1.2.1
+    //  we need to get the list of notes for the current user
+
+    // todo-now 1.1.2.1.1
+    //  we need to create a read cache for that request
+
   }
 
 }
@@ -40,14 +52,6 @@ object ListUsersAllNotesComp extends ListUsersAllNotesComp {
   //  create a Note List page, similar to User List Page
   //  with CRU(D) capabilities
 
-  // todo-now 1.1.1
-  //  create a hello world based on UserListComp
-  //  CURRENT FOCUS
-
-  // todo-now 1.1.1.1
-  //  create a page for this component
-  // todo-now 1.1.2
-  //  print list of references, first
 
   // todo-now 1.1.3
   //  print list of note titles
