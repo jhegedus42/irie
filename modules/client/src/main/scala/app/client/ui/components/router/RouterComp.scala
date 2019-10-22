@@ -53,7 +53,7 @@ case class RouterComp() {
           | loginRoute
 //          | ThieveryDemoComp.getRoute(cache)(dsl)
           | Pages.itemPageRoute(dsl)
-          | UserEditorRouteProvider.getRoute(cache)(dsl)
+//          | UserEditorRouteProvider.getRoute(cache)(dsl)
 //          | TemplateComp.getRoute(cache)(dsl)
           | UserListComp.getStaticRoute(cache)(dsl)
           | StaticTemplateComp.getRoute(dsl))

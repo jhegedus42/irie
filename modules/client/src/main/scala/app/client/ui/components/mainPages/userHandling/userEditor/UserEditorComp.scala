@@ -61,8 +61,8 @@ trait UserEditorComp
     *
     */
   override type PropsT = UserEditorComp.Props
-  override type BackendT =
-    UserEditorComp.Backend[UserEditorComp.Props]
+//  override type BackendT =
+//    UserEditorComp.Backend[UserEditorComp.Props]
   override type StateT = UserEditorComp.State
 
 }

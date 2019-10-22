@@ -4,17 +4,34 @@ import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerStates.WriteHandlerState
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.shared.comm.{PostRequest, PostRequestType, ReadRequest, WriteRequest}
+import app.shared.comm.{
+  PostRequest,
+  PostRequestType,
+  ReadRequest,
+  WriteRequest
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ReRenderer}
+import app.client.ui.caching.cacheInjector.{
+  CacheAndPropsAndRouterCtrl,
+  ReRenderer
+}
 import app.client.ui.components.mainPages.login.LoginPageComp
-import app.client.ui.components.{LoginPage, MainPage, MainPageInjectedWithCacheAndController}
+import app.client.ui.components.{
+  LoginPage,
+  MainPage,
+  MainPageInjectedWithCacheAndController
+}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
@@ -99,7 +116,7 @@ trait ToBeWrappedMainPageComponent[
   Page <: MainPageInjectedWithCacheAndController[Comp, Page]] {
   type PropsT
   type StateT
-  type BackendT
+  type BackendT = Unit
 
 }
 
@@ -122,8 +139,9 @@ case class MainPageReactCompWrapper[
   comp:             ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
 
   def wrappedConstructor =
-    new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
-      .wrapperConstructor(routerController)(
+//    new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
+  new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
+    .wrapperConstructor(routerController)(
         CacheAndPropsAndRouterCtrl[Comp#PropsT](
           cache     = cache,
           props     = propsProvider(),

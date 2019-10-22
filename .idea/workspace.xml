@@ -5,17 +5,13 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="Factoring out potentially common code from static root pages.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +116,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -394,13 +390,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00379" summary="exception is thrown at updating an entity&#10;&#10;it is due to cache invalidation">
-      <created>1570730073793</created>
-      <option name="number" value="00379" />
-      <option name="presentableId" value="LOCAL-00379" />
-      <option name="project" value="LOCAL" />
-      <updated>1570730073794</updated>
     </task>
     <task id="LOCAL-00380" summary="username update is working">
       <created>1570741037789</created>
@@ -738,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571686292474</updated>
     </task>
-    <option name="localTasksCounter" value="428" />
+    <task id="LOCAL-00428" summary="Factoring out potentially common code from static root pages.">
+      <created>1571723131313</created>
+      <option name="number" value="00428" />
+      <option name="presentableId" value="LOCAL-00428" />
+      <option name="project" value="LOCAL" />
+      <updated>1571723131335</updated>
+    </task>
+    <option name="localTasksCounter" value="429" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -785,7 +781,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code." />
     <MESSAGE value="Login routed test with akka-http-testkit has been&#10;written and it passes." />
     <MESSAGE value="Client : simple login, that survives the window refresh has been&#10;implemented." />
     <MESSAGE value="Login functionality - &quot;full stack&quot; - in progress.&#10;&#10;Server side test for LoginReq has been refactored and&#10;it passes." />
@@ -810,6 +805,7 @@
     <MESSAGE value="Code compiles - after moving some files into the shared space." />
     <MESSAGE value="Creating test data with notes." />
     <MESSAGE value="akka-http-testkit tests pass for Get user's notes request." />
-    <option name="LAST_COMMIT_MESSAGE" value="akka-http-testkit tests pass for Get user's notes request." />
+    <MESSAGE value="Factoring out potentially common code from static root pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Factoring out potentially common code from static root pages." />
   </component>
 </project>

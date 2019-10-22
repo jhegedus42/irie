@@ -36,23 +36,28 @@ trait UserListComp
     ] {
 
   override type PropsT = UserListComp.Props
-  override type BackendT =
-    UserListComp.Backend[UserListComp.Props]
+//  override type BackendT =
+//    UserListComp.Backend[UserListComp.Props]
   override type StateT = UserListComp.State
 
 }
 
-object UserListComp extends BaseComp {
+object UserListComp
+    extends BaseComp[UserListComp, UserListPage]
+    with UserListComp {
 //  type State
 //  type Props
 
-  case class State(someString: String)
+  type State = State$
+  type Props = Props$
 
-  case class Props(propString:String)
+  case class State$(someString: String)
+
+  case class Props$(propString: String)
 
 //  def getProps
 
-  def getInitState: State = State("initial state")
+  def getInitState: State = State$("initial state")
 
   def getVDOM(
     c: CacheAndPropsAndRouterCtrl[Props],
@@ -60,7 +65,8 @@ object UserListComp extends BaseComp {
   ): VdomElement = {
 
     UserListRenderLogic(c).getVDOM
+
   }
 
-  override def propsProvider_ : Unit => Props = _ => Props("hello")
+  override def propsProvider_ : Unit => Props = _ => Props$("hello")
 }
