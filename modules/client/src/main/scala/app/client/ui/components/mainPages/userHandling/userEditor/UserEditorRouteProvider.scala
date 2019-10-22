@@ -23,8 +23,6 @@ object UserEditorRouteProvider {
           propsProvider = _ =>
             UserEditorComp.Props(EntityIdentity(page.paramFromURL)),
           comp = UserEditorComp.component,
-          // todo-now 1.1.1 - 1.1.1 fix this ^^^
-          //  CURRENT FOCUS
           routerController = ctl
         )
 

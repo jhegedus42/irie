@@ -48,9 +48,6 @@ import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Div, Input}
 
-// todo-now 1.1.1 - 1
-//  make a Base Component for this.
-//  or just make it work "somehow" - perhaps "just" replace the renderer
 
 trait UserEditorComp
     extends ToBeWrappedMainPageComponent[
