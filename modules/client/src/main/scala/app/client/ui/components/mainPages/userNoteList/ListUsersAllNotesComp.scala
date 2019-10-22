@@ -19,6 +19,4 @@ object ListUsersAllNotesComp {
   // todo-now 1.1.4
   //  print list of note titles, and link to the their "editor page"
 
-  // todo-now 1.1.5
-
 }
