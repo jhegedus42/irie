@@ -20,9 +20,8 @@ object UserEditorRouteProvider {
       ): MainPageReactCompWrapper[UserEditorComp, UserEditorPage] =
         MainPageReactCompWrapper[UserEditorComp, UserEditorPage](
           cache = cacheInterface,
-          propsProvider = () =>
-            UserEditorComp.Props(EntityIdentity(page.paramFromURL),
-                                 ctl),
+          propsProvider = _ =>
+            UserEditorComp.Props(EntityIdentity(page.paramFromURL)),
           comp = UserEditorComp.component,
           routerController = ctl
         )

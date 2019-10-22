@@ -117,7 +117,7 @@ case class MainPageReactCompWrapper[
   Comp <: ToBeWrappedMainPageComponent[Comp, Page],
   Page <: MainPageInjectedWithCacheAndController[Comp, Page]
 ](cache:            Cache,
-  propsProvider:    () => Comp#PropsT,
+  propsProvider:    Unit => Comp#PropsT,
   routerController: RouterCtl[MainPage],
   comp:             ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
 

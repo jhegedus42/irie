@@ -1,7 +1,8 @@
 package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.Cache
-import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
+import app.client.ui.components.mainPages.demos.StaticTemplateComp
+//import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
 import app.client.ui.components.mainPages.login.LoginPageComp
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorRouteProvider
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
@@ -53,8 +54,8 @@ case class RouterComp() {
 //          | ThieveryDemoComp.getRoute(cache)(dsl)
           | Pages.itemPageRoute(dsl)
           | UserEditorRouteProvider.getRoute(cache)(dsl)
-          | TemplateComp.getRoute(cache)(dsl)
-          | UserListComp.getRoute(cache)(dsl)
+//          | TemplateComp.getRoute(cache)(dsl)
+          | UserListComp.getStaticRoute(cache)(dsl)
           | StaticTemplateComp.getRoute(dsl))
           .notFound(
             redirectToPage(LoginPage)(Redirect.Replace)
