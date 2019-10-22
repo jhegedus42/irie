@@ -8,7 +8,7 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 object UserEditorRouteProvider {
 
   def getRoute(cacheInterface: Cache) = {
-
+//
 //    import japgolly.scalajs.react.extra.router._
 //
 //    dsl: RouterConfigDsl[MainPage] =>
@@ -23,6 +23,7 @@ object UserEditorRouteProvider {
 //          propsProvider = _ =>
 //            UserEditorComp.Props(EntityIdentity(page.paramFromURL)),
 //          comp = UserEditorComp.component,
+//          // todo-now 1.1.1 - 1.1.1 fix this ^^^
 //          routerController = ctl
 //        )
 //

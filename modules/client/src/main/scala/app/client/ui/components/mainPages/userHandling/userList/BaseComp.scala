@@ -49,62 +49,20 @@ trait BaseComp[
       res
   }
 
-  def getVDOM(
+  override def getVDOM(
     c: CacheAndPropsAndRouterCtrl[Comp#PropsT],
-    s: Comp#StateT
+    s: Comp#StateT,
+    backendScope: BackendScope[CacheAndPropsAndRouterCtrl[
+      Comp#PropsT
+    ], Comp#StateT]
   ): VdomElement
 
 //  type Backend[Props]
-  class Backend[Properties](
-    $ : BackendScope[CacheAndPropsAndRouterCtrl[Properties], Comp#StateT]) {
-
-    def render(
-      cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Comp#PropsT],
-      s:                          Comp#StateT
-    ): VdomElement = {
-
-      getVDOM(cacheAndPropsAndRouterCtrl, s)
-    }
-
-  }
 
   def getInitState: Comp#StateT
 
-  val component: Component[
-    CacheAndPropsAndRouterCtrl[Comp#PropsT],
-    Comp#StateT,
-//    Backend[Comp#PropsT],
-//    Comp#BackendT,
-//    Unit,
-    BackendT,
-    CtorType.Props
-  ] = {
-    ScalaComponent
-      .builder[CacheAndPropsAndRouterCtrl[Comp#PropsT]](
-        "Page listing all the users"
-      )
-      .initialState(getInitState)
-      .noBackend
-      .render_PS({
-      (cpr,s) =>
-        getVDOM(cpr,s)
-//          ???
-      })
-//      .renderBackend[Comp#BackendT]
-      .build
-  }
+  override type BackendT = Backend
 
   def propsProvider_ : Unit => Comp#PropsT
-
-  def getWrappedComp(
-    ctl:     RouterCtl[MainPage],
-    cache$ : Cache
-  ): MainPageReactCompWrapper[Comp, Page] =
-    MainPageReactCompWrapper[Comp, Page](
-      cache            = cache$,
-      propsProvider    = propsProvider_,
-      comp             = component,
-      routerController = ctl
-    )
 
 }

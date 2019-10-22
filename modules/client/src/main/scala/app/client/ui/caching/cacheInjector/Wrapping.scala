@@ -36,10 +36,11 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^._
 
-class WrapperHOC[Backend, Props, State](
-  toBeWrapped: Component[CacheAndPropsAndRouterCtrl[Props], State, Backend, CtorType.Props]) {
+class WrapperHOC[Props, State](
+  toBeWrapped: Component[CacheAndPropsAndRouterCtrl[Props], State, _, CtorType.Props]) {
 
   def wrapperConstructor(routerCtl: RouterCtl[MainPage]) =
     ScalaComponent
@@ -116,7 +117,84 @@ trait ToBeWrappedMainPageComponent[
   Page <: MainPageInjectedWithCacheAndController[Comp, Page]] {
   type PropsT
   type StateT
-  type BackendT = Unit
+  type BackendT = Backend
+
+  def getInitState: Comp#StateT
+
+  def component: Component[
+    CacheAndPropsAndRouterCtrl[Comp#PropsT],
+    Comp#StateT,
+//    Backend,
+    //    Comp#BackendT,
+    //    Unit,
+    BackendT,
+    CtorType.Props
+  ] = {
+    ScalaComponent
+      .builder[CacheAndPropsAndRouterCtrl[Comp#PropsT]](
+        "Page listing all the users"
+      )
+      .initialState(getInitState)
+      .backend(new Backend(_))
+      .renderBackend
+      //      .render(_.backend.render)
+
+      //      .noBackend
+      //      .render_PS({
+      //      (cpr,s) =>
+      //        getVDOM(cpr,s)
+      ////          ???
+      //      })
+
+      //      .renderBackend[Comp#BackendT]
+      .build
+  }
+
+  def propsProvider_ : Unit => Comp#PropsT
+
+  def getVDOM(
+    c: CacheAndPropsAndRouterCtrl[Comp#PropsT],
+    s: Comp#StateT,
+    backendScope: BackendScope[CacheAndPropsAndRouterCtrl[Comp#PropsT],Comp#StateT]
+
+  ): VdomElement
+
+//  def component :
+//  Component[
+//    CacheAndPropsAndRouterCtrl[Comp#PropsT],
+//    Comp#StateT,
+////    Comp#BackendT,
+//    //    Comp#BackendT,
+//    //    Unit,
+//        BackendT,
+//    CtorType.Props
+//  ]
+
+  def getWrappedComp(
+    ctl:     RouterCtl[MainPage],
+    cache$ : Cache
+  ): MainPageReactCompWrapper[Comp, Page] =
+    MainPageReactCompWrapper[Comp, Page](
+      cache            = cache$,
+      propsProvider    = propsProvider_,
+      comp             = component,
+      routerController = ctl
+    )
+
+  class Backend(
+    $ : BackendScope[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT]) {
+
+    def render(
+      cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[
+        Comp#PropsT
+      ],
+      s: Comp#StateT
+    ): VdomElement = {
+
+      getVDOM(cacheAndPropsAndRouterCtrl, s,$)
+    }
+
+  }
 
 }
 
@@ -136,12 +214,12 @@ case class MainPageReactCompWrapper[
 ](cache:            Cache,
   propsProvider:    Unit => Comp#PropsT,
   routerController: RouterCtl[MainPage],
-  comp:             ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, Comp#BackendT, CtorType.Props]) {
+  comp:             ScalaComponent[CacheAndPropsAndRouterCtrl[Comp#PropsT], Comp#StateT, _, CtorType.Props]) {
 
   def wrappedConstructor =
 //    new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
-  new WrapperHOC[Comp#BackendT, Comp#PropsT, Comp#StateT](comp)
-    .wrapperConstructor(routerController)(
+    new WrapperHOC[Comp#PropsT, Comp#StateT](comp)
+      .wrapperConstructor(routerController)(
         CacheAndPropsAndRouterCtrl[Comp#PropsT](
           cache     = cache,
           props     = propsProvider(),
