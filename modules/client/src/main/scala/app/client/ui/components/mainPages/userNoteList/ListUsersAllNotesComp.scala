@@ -1,22 +1,20 @@
 package app.client.ui.components.mainPages.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import app.client.ui.caching.cacheInjector.{
-  CacheAndPropsAndRouterCtrl,
-  ToBeWrappedMainPageComponent
-}
+import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
 import app.client.ui.components.ListUsersAllNotesPage
-import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp.{
-  PropsImpl,
-  StateImpl
-}
+import app.client.ui.components.mainPages.userHandling.userList.ListRenderHelper
+import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq
 import app.shared.comm.postRequests.GetUsersNotesReq.Par
+import app.shared.entity.EntityWithRef
+import app.shared.entity.entityValue.values.Note
 import app.shared.initialization.testing.TestEntitiesForUsers
 import japgolly.scalajs.react.BackendScope
 import japgolly.scalajs.react.vdom.VdomElement
+
+import scala.collection.immutable
 
 trait ListUsersAllNotesComp
     extends ToBeWrappedMainPageComponent[
@@ -56,7 +54,6 @@ trait ListUsersAllNotesComp
     //  for that we need to look at the test cases
     //  look at this :
     //  org.scalatest.FunSuiteLike.test
-    //  CURRENT FOCUS
 
     val a = TestEntitiesForUsers.aliceEntity_with_UUID0
     val par: Par = Par(a.toRef.entityIdentity)
@@ -66,11 +63,26 @@ trait ListUsersAllNotesComp
                                                  GetUsersNotesReq] =
       c.cache.readFromServer[ReadRequest, GetUsersNotesReq](par)
 
-    val s = if (res.toOption.isDefined) {
-      val s1 = res.toOption.get.maybeSet.get.toString()
-      s1
+    val helper = ListRenderHelper[Note,PropsT](c)
+
+    import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
+    import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+
+    val s: html_<^.TagMod = if (res.toOption.isDefined) {
+      val r1: GetUsersNotesReq.Res =res.toOption.get
+      val s1=r1.maybeSet.get
+      val l1=s1.toList
+
+      val r2 = l1.map(x=>helper.ref2EntityOption(x)).toList
+
+      val g : Option[EntityWithRef[Note]] => VdomElement = ???
+      // todo-now CURRENT FOCUS
+
+      val r3= helper.getEntityListAsVDOM(r2,g)
+      r3
+
     } else {
-      "List is Loading ..."
+      <.div("List is Loading ...")
     }
 
     <.div("Hello List of User's Note", <.br, s)
