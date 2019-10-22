@@ -55,14 +55,10 @@ object UserListComp
   ): VdomElement = {
     import bootstrap4.TB.convertableToTagOfExtensionMethods
 
-    // todo-now 1.1.1 - 1.1.1 - 1
-    //  put a simple counter into this
     <.div("test",
       <.br,
       s"State is: ${s.counter}",
       <.br,
-      // todo-now 1.1.1 - 1.1.1 - 1.1.1
-      //  add a button here to increase the counter - CURRENT FOCUS
        <.button.btn.btnPrimary(
          "Increase Counter",
          ^.onClick --> backendScope.modState(s=>s.inc)

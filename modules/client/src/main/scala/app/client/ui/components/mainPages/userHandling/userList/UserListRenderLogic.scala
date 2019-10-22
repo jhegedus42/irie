@@ -42,10 +42,6 @@ import org.scalajs.dom.html.{Anchor, Div}
 case class UserListRenderLogic(
   cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props]) {
 
-  // todo-now 1.1.1 - 1.1.1 - 1.1
-  //  put a simple counter into this
-  //  check out how this is done in the scalajs-react examples
-  //  => we need to get rid of this stupid render Backend macro ...
 
   def getVDOM = {
     import bootstrap4.TB.convertableToTagOfExtensionMethods
