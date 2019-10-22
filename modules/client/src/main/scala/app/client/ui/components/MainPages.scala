@@ -2,6 +2,7 @@ package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
+import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp
 
 /**
   *
@@ -66,5 +67,11 @@ case class UserListPage()
                                                    UserListPage]
 
 case object StaticTemplatePage extends MainPage
+
+case class ListUsersAllNotesPage()
+    extends MainPageInjectedWithCacheAndController[
+      ListUsersAllNotesComp,
+      ListUsersAllNotesPage
+    ]
 
 case class ItemPage(id: Int) extends MainPage

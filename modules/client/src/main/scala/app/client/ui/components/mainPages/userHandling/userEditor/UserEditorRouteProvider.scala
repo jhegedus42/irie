@@ -38,6 +38,5 @@ object UserEditorRouteProvider {
 
       dynamicRouteCT[UserEditorPage](f).~>(h2)
 
-//      ???
   }
 }

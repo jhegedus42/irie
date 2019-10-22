@@ -6,9 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorRouteProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -388,34 +392,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00383" summary="intermezzo commit">
-      <created>1570874764615</created>
-      <option name="number" value="00383" />
-      <option name="presentableId" value="LOCAL-00383" />
-      <option name="project" value="LOCAL" />
-      <updated>1570874764615</updated>
-    </task>
-    <task id="LOCAL-00384" summary="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in">
-      <created>1570876807607</created>
-      <option name="number" value="00384" />
-      <option name="presentableId" value="LOCAL-00384" />
-      <option name="project" value="LOCAL" />
-      <updated>1570876807609</updated>
-    </task>
-    <task id="LOCAL-00385" summary="added router control to the injected &quot;extra&quot; props&#10;=&gt; routed main pages can navigate now to other pages&#10;=&gt; perhaps even redirect if the user is not logged in&#10;&#10;intermezzo commit">
-      <created>1570878143618</created>
-      <option name="number" value="00385" />
-      <option name="presentableId" value="LOCAL-00385" />
-      <option name="project" value="LOCAL" />
-      <updated>1570878143622</updated>
-    </task>
-    <task id="LOCAL-00386" summary="started working on creating new user:&#10;-dummy create user is now in the user list page">
-      <created>1570878892367</created>
-      <option name="number" value="00386" />
-      <option name="presentableId" value="LOCAL-00386" />
-      <option name="project" value="LOCAL" />
-      <updated>1570878892368</updated>
-    </task>
     <task id="LOCAL-00387" summary="started working on creating new user:&#10;-dummy create user is now in the user list page&#10;&#10;( intermezzo - added a hello world monix example to the JVM side&#10;   for possible cache invalidation/dependency graph description &#10;   solution - in the future, this is something to look into,&#10;   eventually )">
       <created>1570985164964</created>
       <option name="number" value="00387" />
@@ -731,7 +707,35 @@
       <option name="project" value="LOCAL" />
       <updated>1571757600120</updated>
     </task>
-    <option name="localTasksCounter" value="432" />
+    <task id="LOCAL-00432" summary="Wrote todo list for List Note Component's implementation steps.">
+      <created>1571758060425</created>
+      <option name="number" value="00432" />
+      <option name="presentableId" value="LOCAL-00432" />
+      <option name="project" value="LOCAL" />
+      <updated>1571758060425</updated>
+    </task>
+    <task id="LOCAL-00433" summary="Wrote todo list for List Note Component's implementation steps.">
+      <created>1571758096466</created>
+      <option name="number" value="00433" />
+      <option name="presentableId" value="LOCAL-00433" />
+      <option name="project" value="LOCAL" />
+      <updated>1571758096466</updated>
+    </task>
+    <task id="LOCAL-00434" summary="Wrote todo list for List Note Component's implementation steps.">
+      <created>1571758110243</created>
+      <option name="number" value="00434" />
+      <option name="presentableId" value="LOCAL-00434" />
+      <option name="project" value="LOCAL" />
+      <updated>1571758110243</updated>
+    </task>
+    <task id="LOCAL-00435" summary="Wrote todo list for List Note Component's implementation steps.">
+      <created>1571758132160</created>
+      <option name="number" value="00435" />
+      <option name="presentableId" value="LOCAL-00435" />
+      <option name="project" value="LOCAL" />
+      <updated>1571758132160</updated>
+    </task>
+    <option name="localTasksCounter" value="436" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -778,7 +782,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login functionality - &quot;full stack&quot; - in progress.&#10;&#10;- intermezzo commit" />
     <MESSAGE value="outwatch hello world, error" />
     <MESSAGE value="continuing working on login functionality" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;(tried out monix in scalajs, it works out of the box)" />
@@ -803,6 +806,7 @@
     <MESSAGE value="For User List Component the factoring out has worked.&#10;&#10;The same should be done now for User Editor Component.&#10;&#10;It broke. Otherwise the code compiles and runs but the&#10;User Editor Component needs to be updated to work with the (a)&#10;new Base Component." />
     <MESSAGE value="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now." />
     <MESSAGE value="All app works now with the new BaseComp." />
-    <option name="LAST_COMMIT_MESSAGE" value="All app works now with the new BaseComp." />
+    <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote todo list for List Note Component's implementation steps." />
   </component>
 </project>

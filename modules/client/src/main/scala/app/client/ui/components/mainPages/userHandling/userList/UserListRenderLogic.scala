@@ -9,7 +9,6 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.mainPages.userHandling.userList.UserListComp.Props
 import app.client.ui.components.{
   MainPage,
   StaticTemplatePage,
@@ -39,7 +38,7 @@ import japgolly.scalajs.react.{
 import org.scalajs.dom
 import org.scalajs.dom.html.{Anchor, Div}
 
-case class UserListRenderLogic(
+case class UserListRenderLogic[Props](
   cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props]) {
 
 
