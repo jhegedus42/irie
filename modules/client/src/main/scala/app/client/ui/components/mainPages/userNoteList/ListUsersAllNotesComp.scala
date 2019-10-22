@@ -8,6 +8,7 @@ object ListUsersAllNotesComp {
 
   // todo-now 1.1.1
   //  create a hello world based on UserListComp
+  //  CURRENT FOCUS
 
   // todo-now 1.1.2
   //  print list of references, first
