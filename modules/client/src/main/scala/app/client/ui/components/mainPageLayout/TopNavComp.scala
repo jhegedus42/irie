@@ -1,12 +1,9 @@
 package app.client.ui.components.mainPageLayout
-import app.client.ui.components.{LoginPage, MainPage, UserListPage}
+import app.client.ui.components.{ListUsersAllNotesPage, LoginPage, MainPage, UserListPage}
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
-//import app.client.ui.components.mainPages.demos.TemplateComp.TemplatePage
 import app.client.ui.components.mainPages.login.LoginPageComp
 import app.client.ui.components.mainPages.login.LoginPageComp.State.UserLoginStatus
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import japgolly.scalajs.react._
-import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^._
 import scalacss.Defaults._
@@ -22,7 +19,8 @@ object MenuItems {
         case UserLoginStatus(Some(u))=>
           Vector.apply(
             Menu.apply("Login status", LoginPage),
-            Menu.apply("Users", UserListPage())
+            Menu.apply("Users", UserListPage()) ,
+            Menu.apply("Notes", ListUsersAllNotesPage())
 
 
             // todo-now 1 - CRUD Notes

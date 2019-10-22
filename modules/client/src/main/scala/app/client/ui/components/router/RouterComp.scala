@@ -1,7 +1,9 @@
 package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.Cache
+import app.client.ui.components.{ListUsersAllNotesPage, UserListPage}
 import app.client.ui.components.mainPages.demos.StaticTemplateComp
+import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp
 //import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
 import app.client.ui.components.mainPages.login.LoginPageComp
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorRouteProvider
@@ -43,38 +45,31 @@ case class RouterComp() {
         import dsl._
 
         val loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
-          renderR{
-            x=>LoginPageComp.component(LoginPageComp.Props(x))
+          renderR { x =>
+            LoginPageComp.component(LoginPageComp.Props(x))
           }
         )
 
-        val userIsLoggedIn=
-        (trimSlashes
-          | loginRoute
-//          | ThieveryDemoComp.getRoute(cache)(dsl)
-          | Pages.itemPageRoute(dsl)
-          | UserEditorRouteProvider.getRoute(cache)(dsl)
-//          | TemplateComp.getRoute(cache)(dsl)
-          | UserListComp.getStaticRoute(cache)(dsl)
-          | StaticTemplateComp.getRoute(dsl))
-          .notFound(
-            redirectToPage(LoginPage)(Redirect.Replace)
-          )
+        val userIsLoggedIn =
+          (trimSlashes
+            | loginRoute
+            | Pages.itemPageRoute(dsl)
+            | UserEditorRouteProvider.getRoute(cache)(dsl)
 
-        // todo-later :
-//        val userIsNotLoggedIn=
-//          (trimSlashes
-//            | loginRoute)
-//            .notFound(
-//              redirectToPage(LoginPage)(Redirect.Replace)
-//            )
-//
-//          if(LoginPageComp.isUserLoggedIn.yesOrNo)
-//          userIsLoggedIn
-//            .renderWith(f = RouterLayout.layout)
-//          else
-//            userIsNotLoggedIn
-//            .renderWith(f = RouterLayout.layout)
+            | UserListComp.getStaticRoute("userList", UserListPage())(
+              cache
+            )(dsl)
+
+            | ListUsersAllNotesComp.getStaticRoute(
+              "userNoteList",
+              ListUsersAllNotesPage()
+            )(cache)(dsl)
+
+            | StaticTemplateComp.getRoute(dsl))
+
+            .notFound(
+              redirectToPage(LoginPage)(Redirect.Replace)
+            )
 
         userIsLoggedIn.renderWith(f = RouterLayout.layout)
 

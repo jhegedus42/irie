@@ -102,7 +102,7 @@ trait ToBeWrappedMainPageComponent[
   type StateT
   type BackendT = Backend
 
-  def getStaticRoute(cache: Cache) = {
+  def getStaticRoute(routeName:String,p:Page)(cache: Cache) = {
 
     import japgolly.scalajs.react.extra.router._
 
@@ -110,7 +110,7 @@ trait ToBeWrappedMainPageComponent[
       import dsl._
 
       def r =
-        staticRoute("#userList", UserListPage())
+        staticRoute(s"#$routeName", p)
 
       def page2render: dsl.Renderer =
         Renderer(rc => getWrappedComp(rc, cache).wrappedConstructor)
