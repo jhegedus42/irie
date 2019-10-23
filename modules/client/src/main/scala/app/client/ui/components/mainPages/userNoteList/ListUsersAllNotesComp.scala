@@ -12,7 +12,6 @@ import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.Note
 import app.shared.initialization.testing.TestEntitiesForUsers
 import japgolly.scalajs.react.BackendScope
-import japgolly.scalajs.react.vdom.VdomElement
 
 import scala.collection.immutable
 
@@ -68,24 +67,36 @@ trait ListUsersAllNotesComp
     import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
     import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 
-    val s: html_<^.TagMod = if (res.toOption.isDefined) {
+    val noteList: html_<^.TagMod = if (res.toOption.isDefined) {
       val r1: GetUsersNotesReq.Res =res.toOption.get
       val s1=r1.maybeSet.get
       val l1=s1.toList
 
       val r2 = l1.map(x=>helper.ref2EntityOption(x)).toList
 
-      val g : Option[EntityWithRef[Note]] => VdomElement = ???
+      val g : Option[EntityWithRef[Note]] => VdomElement = {
+
+        x=>
+          {
+            val res: String =
+              x match {
+                case Some(value) => value.entityValue.title
+                case None => "Loading ..."
+              }
+            <.div(res,<.br)
+          }
+
+      }
       // todo-now CURRENT FOCUS
 
-      val r3= helper.getEntityListAsVDOM(r2,g)
+      val r3: html_<^.TagMod = helper.getEntityListAsVDOM(r2,g)
       r3
 
     } else {
       <.div("List is Loading ...")
     }
 
-    <.div("Hello List of User's Note", <.br, s)
+    <.div("Hello List of User's Note 42", <.br, noteList)
 
   }
 

@@ -11,7 +11,7 @@ import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.read.GetAllUsersReq
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.{GetUsersNotesReq, LoginReq, ResetRequest, SumIntRoute}
-import app.shared.entity.entityValue.values.User
+import app.shared.entity.entityValue.values.{Note, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -32,6 +32,7 @@ private[httpServer] case class RouteFactory(
 
   private def allRoutes: Route =
     crudRouteFactory.route[User] ~
+      crudRouteFactory.route[Note] ~
       getPostRoute[SumIntRoute]().route ~
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~

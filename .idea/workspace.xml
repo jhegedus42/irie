@@ -7,9 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -388,13 +387,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00392" summary="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.">
-      <created>1571155584323</created>
-      <option name="number" value="00392" />
-      <option name="presentableId" value="LOCAL-00392" />
-      <option name="project" value="LOCAL" />
-      <updated>1571155584325</updated>
-    </task>
     <task id="LOCAL-00393" summary="Starting to work on login functionality.&#10;We will use &quot;window.dom&quot; to store the UUID of the&#10;logged in user. This survives window refresh.&#10;&#10;-intermezzo commit - app works now.">
       <created>1571158500266</created>
       <option name="number" value="00393" />
@@ -731,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571768823107</updated>
     </task>
-    <option name="localTasksCounter" value="441" />
+    <task id="LOCAL-00441" summary="Implementation of listing Alice's note's contents is in progress.">
+      <created>1571779282988</created>
+      <option name="number" value="00441" />
+      <option name="presentableId" value="LOCAL-00441" />
+      <option name="project" value="LOCAL" />
+      <updated>1571779282993</updated>
+    </task>
+    <option name="localTasksCounter" value="442" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -778,7 +777,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice" />
     <MESSAGE value="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)" />
     <MESSAGE value="Login functionality &quot;works&quot;, it could be improved, &#10;but at the moment it is fine for prototyping / &#10;&quot;design space exploration&quot; purposes." />
     <MESSAGE value="Todo plan written for implementing Note editing for Users." />
@@ -803,6 +801,7 @@
     <MESSAGE value="Hello world for list of user notes works." />
     <MESSAGE value="Wrote todo list for next task : print the list of references to a user's notes." />
     <MESSAGE value="We can now print Alice's Notes." />
-    <option name="LAST_COMMIT_MESSAGE" value="We can now print Alice's Notes." />
+    <MESSAGE value="Implementation of listing Alice's note's contents is in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of listing Alice's note's contents is in progress." />
   </component>
 </project>
