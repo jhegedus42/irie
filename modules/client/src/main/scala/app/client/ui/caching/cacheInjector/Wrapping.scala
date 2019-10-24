@@ -223,7 +223,7 @@ case class MainPageReactCompWrapper[
       .wrapperConstructor(routerController)(
         CacheAndPropsAndRouterCtrl[Comp#PropsT](
           cache     = cache,
-          props     = propsProvider(),
+          props     = propsProvider(Unit),
           routerCtl = routerController
         ) // todo-later, maybe we should pass here a router ctrl to this wrapper
       )

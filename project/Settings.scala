@@ -14,12 +14,25 @@ object Settings {
 
   /** Options for the scala compiler */
   val scalacOptions = Seq(
-//    "-Xlint",
+//    "-deprecation", // Emit warning and location for usages of deprecated APIs.
+//    "-encoding",
+//    "utf-8", // Specify character encoding used by source files.
+//    "-explaintypes", // Explain type errors in more detail.
+//    "-feature", // Emit warning and location for usages of features that should be imported explicitly.
+    "-language:existentials", // Existential types (besides wildcard types) can be written and inferred
+    "-language:experimental.macros", // Allow macro definition (besides implementation and application)
+    "-language:higherKinds", // Allow higher-kinded types
+    "-language:implicitConversions", // Allow definition of implicit functions called views
+    "-Xcheckinit", // Wrap field accessors to throw an exception on uninitialized access.
+    "-Xfuture", // Turn on future language features.
+    "-Yno-adapted-args", // Do not adapt an argument list (either by inserting () or creating a tuple) to match the receiver.
+    "-Ypartial-unification", // Enable partial unification in type constructor inference
+    //    "-Xlint",
 //    "-unchecked",
     // "-deprecation",
     //   "-feature",
     "-Yrangepos",
-    "-Ypartial-unification",
+//    "-Ypartial-unification",
     "-nowarn" //,
     // https://docs.scala-lang.org/overviews/compiler-options/index.html
     //,
@@ -106,7 +119,7 @@ object Settings {
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
       "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" //,
-//      "com.github.outwatch.outwatch" %%% "outwatch"   % "f7c3081"
+      //      "com.github.outwatch.outwatch" %%% "outwatch"   % "f7c3081"
     )
   )
 

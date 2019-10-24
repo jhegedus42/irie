@@ -35,20 +35,34 @@
       </plugins>
     </profile>
     <profile name="sbt 6" modules="server">
+      <option name="implicitConversions" value="true" />
+      <option name="higherKinds" value="true" />
+      <option name="existentials" value="true" />
+      <option name="macros" value="true" />
       <option name="warnings" value="false" />
       <parameters>
-        <parameter value="-Yrangepos" />
+        <parameter value="-Xcheckinit" />
+        <parameter value="-Xfuture" />
+        <parameter value="-Yno-adapted-args" />
         <parameter value="-Ypartial-unification" />
+        <parameter value="-Yrangepos" />
       </parameters>
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.1.jar" />
       </plugins>
     </profile>
     <profile name="sbt 7" modules="client">
+      <option name="implicitConversions" value="true" />
+      <option name="higherKinds" value="true" />
+      <option name="existentials" value="true" />
+      <option name="macros" value="true" />
       <option name="warnings" value="false" />
       <parameters>
-        <parameter value="-Yrangepos" />
+        <parameter value="-Xcheckinit" />
+        <parameter value="-Xfuture" />
+        <parameter value="-Yno-adapted-args" />
         <parameter value="-Ypartial-unification" />
+        <parameter value="-Yrangepos" />
       </parameters>
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.29.jar" />

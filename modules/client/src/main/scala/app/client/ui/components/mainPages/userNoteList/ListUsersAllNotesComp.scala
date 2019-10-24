@@ -98,6 +98,6 @@ object ListUsersAllNotesComp extends ListUsersAllNotesComp {
 
   // todo-now 1.1.4 - 1
   //  create a page that can edit a Note (to which we can link)
-  //  use the user editor page as "inspiration for this
+  //  use the user editor page as "inspiration" for this
   //  CURRENT FOCUS
 }

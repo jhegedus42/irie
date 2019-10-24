@@ -15,10 +15,6 @@ class MainTest extends FunSuite {
 
   test( "simple synchronous (blocking) - 'integration test' stub" ) {
     println( "hello test world" )
-    // todo-next-2 create integration test for insert + get entity
-    //  - insert a user
-    //  - get the user
-    //  - assert that the two are the same
   }
 
   test( "url_encoding_decoding" ) {
