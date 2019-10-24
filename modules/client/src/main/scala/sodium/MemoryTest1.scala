@@ -22,7 +22,7 @@ object MemoryTest1 extends js.JSApp {
 //      }
 //    }.start()
 
-    def test1() :Unit = {
+    def test1(): Unit = {
 
       val et = new StreamSink[Int]()
       val t  = et.hold(0)
@@ -50,21 +50,20 @@ object MemoryTest1 extends js.JSApp {
       }
       l.unlisten()
     }
-  Future(test1())
-  println("test1")
+    Future(test1())
+    println("test1")
 
-  Future(test1())
-  println("test1")
+    Future(test1())
+    println("test1")
 
-  Future(test1())
-  println("test1")
+    Future(test1())
+    println("test1")
 
-  Future(test1())
-  println("test1")
+    Future(test1())
+    println("test1")
 
-  Future(test1())
-  println("test1")
+    Future(test1())
+    println("test1")
   }
-
 
 }

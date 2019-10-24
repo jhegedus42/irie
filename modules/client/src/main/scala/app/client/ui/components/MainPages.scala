@@ -2,7 +2,7 @@ package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
 import app.client.ui.components.mainPages.userHandling.userList.UserListComp
-import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp
+import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp
 
 /**
   *

@@ -1,10 +1,10 @@
-package app.client.ui.components.mainPages.userNoteList
+package app.client.ui.components.mainPages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
 import app.client.ui.components.ListUsersAllNotesPage
 import app.client.ui.components.mainPages.userHandling.userList.ListRenderHelper
-import app.client.ui.components.mainPages.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
+import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq
 import app.shared.comm.postRequests.GetUsersNotesReq.Par
