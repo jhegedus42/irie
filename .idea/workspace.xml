@@ -6,9 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -429,20 +427,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00398" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s">
-      <created>1571240850676</created>
-      <option name="number" value="00398" />
-      <option name="presentableId" value="LOCAL-00398" />
-      <option name="project" value="LOCAL" />
-      <updated>1571240850679</updated>
-    </task>
-    <task id="LOCAL-00399" summary="Login logic implementation is in progress.&#10;&#10;- Login Req impl. is &quot;complete&quot;, now it needs to be &#10;  tested using akka-http-testkit">
-      <created>1571257179712</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1571257179714</updated>
-    </task>
     <task id="LOCAL-00400" summary="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code.">
       <created>1571306556482</created>
       <option name="number" value="00400" />
@@ -772,7 +756,21 @@
       <option name="project" value="LOCAL" />
       <updated>1571958391919</updated>
     </task>
-    <option name="localTasksCounter" value="447" />
+    <task id="LOCAL-00447" summary="trying out some simple sodium code in scalajs-react">
+      <created>1572018105188</created>
+      <option name="number" value="00447" />
+      <option name="presentableId" value="LOCAL-00447" />
+      <option name="project" value="LOCAL" />
+      <updated>1572018105191</updated>
+    </task>
+    <task id="LOCAL-00448" summary="trying out some simple sodium code in scalajs-react">
+      <created>1572018165787</created>
+      <option name="number" value="00448" />
+      <option name="presentableId" value="LOCAL-00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1572018165787</updated>
+    </task>
+    <option name="localTasksCounter" value="449" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -819,7 +817,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added EntitySet." />
     <MESSAGE value="Added joinWith to EntitySet." />
     <MESSAGE value="Creating logic for creating UsersNotes is in progress." />
     <MESSAGE value="Bit of refactoring." />
@@ -844,6 +841,7 @@
     <MESSAGE value="Sodium works on Scala.js (at least one test passes.)" />
     <MESSAGE value="Testing Memory Leak in Node.js for Sodium." />
     <MESSAGE value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
+    <MESSAGE value="trying out some simple sodium code in scalajs-react" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying out some simple sodium code in scalajs-react" />
   </component>
 </project>

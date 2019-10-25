@@ -31,6 +31,9 @@ trait UserListComp
 
   override def propsProvider_ : Unit => PropsT = _ => Props$("hello")
 
+  val sbutton= SodiumButton("SButton")
+  val label = SodiumLabel(sbutton.sClickedSink.map(x=>"bello").hold("hello"))
+
   override def getVDOM(
     c: CacheAndPropsAndRouterCtrl[PropsT],
     s: StateT,
@@ -40,8 +43,6 @@ trait UserListComp
   ): VdomElement = {
     import bootstrap4.TB.convertableToTagOfExtensionMethods
 
-    val sbutton= SodiumButton("SButton")
-    val label = SodiumLabel(sbutton.sClickedSink.map(x=>"bello").hold("hello"))
 //    val cell
     <.div(
       "test",
