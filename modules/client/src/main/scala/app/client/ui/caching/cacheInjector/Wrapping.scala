@@ -246,7 +246,7 @@ case class MainPageReactCompWrapper[
   * [[MainPage]]
   *
   */
-private[caching] object ReRenderer {
+object ReRenderer {
   private var triggerer: Option[ReRenderTriggerer] = None
 
   def setTriggerer(reRenderTriggerer: ReRenderTriggerer): Unit =

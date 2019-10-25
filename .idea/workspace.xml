@@ -6,13 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/NoteEditorComp.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/MemoryTest1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/MemoryTest1.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/StreamTester.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/StreamTester.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.StreamTester">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="MainTest" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
       <option name="tasks" value="testOnly *MainTest" />
@@ -431,13 +428,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00397" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)">
-      <created>1571233102889</created>
-      <option name="number" value="00397" />
-      <option name="presentableId" value="LOCAL-00397" />
-      <option name="project" value="LOCAL" />
-      <updated>1571233102890</updated>
     </task>
     <task id="LOCAL-00398" summary="Login logic implementation is in progress.&#10;&#10;-intermezzo commit (implementing helper functions)&#10;-added some todo s">
       <created>1571240850676</created>
@@ -775,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571884685966</updated>
     </task>
-    <option name="localTasksCounter" value="446" />
+    <task id="LOCAL-00446" summary="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done.">
+      <created>1571958391918</created>
+      <option name="number" value="00446" />
+      <option name="presentableId" value="LOCAL-00446" />
+      <option name="project" value="LOCAL" />
+      <updated>1571958391919</updated>
+    </task>
+    <option name="localTasksCounter" value="447" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -822,7 +819,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Introduced type safe EntityIdentity." />
     <MESSAGE value="Added EntitySet." />
     <MESSAGE value="Added joinWith to EntitySet." />
     <MESSAGE value="Creating logic for creating UsersNotes is in progress." />
@@ -847,6 +843,7 @@
     <MESSAGE value="Started to work on Note Editor Page." />
     <MESSAGE value="Sodium works on Scala.js (at least one test passes.)" />
     <MESSAGE value="Testing Memory Leak in Node.js for Sodium." />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing Memory Leak in Node.js for Sodium." />
+    <MESSAGE value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
   </component>
 </project>
