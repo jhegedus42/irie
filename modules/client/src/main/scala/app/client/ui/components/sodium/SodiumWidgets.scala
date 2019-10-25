@@ -13,6 +13,10 @@ object SodiumWidgets {
   // based on this example :
   // https://japgolly.github.io/scalajs-react/#examples/todo
 
+
+//  Label is based on :
+  // https://github.com/SodiumFRP/sodium/blob/89f40da2f62aed75201a86868e489f1564d667f6/book/swidgets/java/swidgets/src/swidgets/SLabel.java
+
   case class SodiumLabel(val c:Cell[String]){
 
    def s=c.sample()
