@@ -26,7 +26,6 @@ case class EntityWithRef[E <: EntityType[E]](
                                               entityValue: E,
                                               toRef: RefToEntityWithVersion[E]) {
 
-  def updateValue(v: E): EntityWithRef[E] = this.copy(entityValue = v)
 
   def bumpVersion: EntityWithRef[E] =
     this.copy(toRef = this.toRef.bumpVersion)

@@ -14,19 +14,32 @@ import org.scalajs.dom.window
 object Window {
 
   def setLoggedInUser(
-    user: EntityWithRef[User]
+    user: Option[EntityWithRef[User]]
   )(
-    implicit enc: Encoder[EntityWithRef[User]]
+    implicit enc: Encoder[Option[EntityWithRef[User]]]
   ): Unit = {
-    window.name = s"${enc(user).noSpaces}"
+
+    val newName=s"${enc(user).noSpaces}"
+
+    println(s"new window name is: "+newName)
+
+    window.name = newName
   }
 
   def getUserLoginStatus(
-  implicit dec:Decoder[EntityWithRef[User]]
+  implicit dec:Decoder[Option[EntityWithRef[User]]]
   ):UserLoginStatus = {
     val s: String = window.name
-    val ej: Either[Error, EntityWithRef[User]] =decode(s)
-    UserLoginStatus(ej.toOption)
+    println(s"window name: $s")
+    val ej: Either[Error, Option[EntityWithRef[User]]] =decode(s)
+    println(s"win name: $s")
+    println(s"decoded name: $ej")
+
+    val res1=ej.toOption.flatten
+    println(s"login status:$res1")
+    val x: UserLoginStatus =UserLoginStatus(res1)
+    Window.setLoggedInUser(Some(x.userOption.get.copy()))
+    x
   }
 
   def runWindowNameTest(): Unit = {

@@ -1,9 +1,18 @@
 package app.client.ui.components.mainPages.noteHandling
 
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.noteHandling.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
+import app.client.ui.components.{
+  MainPage,
+  MainPageInjectedWithCacheAndController,
+  StaticTemplatePage
+}
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
@@ -26,16 +35,14 @@ object NoteEditorComp {
       extends MainPageInjectedWithCacheAndController[NoteEditorComp,
                                                      NoteEditorPage]
 
-
   case class Props(noteID: EntityIdentity[Note])
 
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
-
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
 
-      <.div(x.props.toString, "  " )
+      <.div(x.props.toString, "  ")
     }
 
   }

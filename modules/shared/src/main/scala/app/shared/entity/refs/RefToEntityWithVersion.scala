@@ -1,5 +1,6 @@
 package app.shared.entity.refs
 
+import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityType
 import app.shared.utils.UUID_Utils.EntityIdentity
@@ -10,6 +11,10 @@ case class RefToEntityWithVersion[T <: EntityType[T]](
   entityValueTypeAsString: EntityValueTypeAsString,
   entityIdentity:          EntityIdentity[T] = EntityIdentity[T](),
   entityVersion:           EntityVersion = EntityVersion()) {
+
+  def toEntityRef[T<:EntityType[T]]: Unit ={
+    new EntityWithRef[T]()
+  }
 
   def bumpVersion: RefToEntityWithVersion[T] =
     this.copy(entityVersion = entityVersion.bumpVersion())

@@ -32,7 +32,7 @@ object LoginPageComp {
     case class UserLoginStatus(
       userOption: Option[EntityWithRef[User]] = None)
 
-    def setUserLoggedIn(user: EntityWithRef[User]): Unit = {
+    def setUserLoggedIn(user: Option[EntityWithRef[User]]): Unit = {
       Window.setLoggedInUser(user)
     }
   }
@@ -82,7 +82,7 @@ object LoginPageComp {
               val newState  = UserLoginStatus(optUser)
               val newState2 = LoginPageCompState(newState)
               val cb        = $.setState(newState2) >> refresh
-              State.setUserLoggedIn(optUser.get)
+              State.setUserLoggedIn(optUser)
               cb.runNow()
 
             }
