@@ -6,8 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common/ListRenderHelper.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/NoteEditorComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/BaseComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common/BaseComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,9 +59,9 @@
       <list>
         <option value="Package Object" />
         <option value="ScalaTest Class" />
-        <option value="Scala Class" />
         <option value="Scala Object" />
         <option value="Scala Trait" />
+        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -125,8 +131,8 @@
       <recent name="org.scalatest.FunSuite" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="sodium" />
       <recent name="app.client.ui.components.mainPages.userHandling.userList" />
+      <recent name="sodium" />
       <recent name="app.client.ui.components.mainPages.login" />
       <recent name="app.client.ui.caching.cache.comm.write" />
       <recent name="app.client.ui.caching.cache.comm" />
@@ -145,11 +151,11 @@
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common" />
       <recent name="$PROJECT_DIR$/www/assets/js" />
       <recent name="$PROJECT_DIR$/bash_scripts/testing" />
       <recent name="$PROJECT_DIR$/bash_scripts/running" />
       <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -426,13 +432,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00400" summary="Testing login route is in progress.&#10;&#10;Refactored TestHelper.scala - a bit. Simplified&#10;the code.">
-      <created>1571306556482</created>
-      <option name="number" value="00400" />
-      <option name="presentableId" value="LOCAL-00400" />
-      <option name="project" value="LOCAL" />
-      <updated>1571306556488</updated>
     </task>
     <task id="LOCAL-00401" summary="Login routed test with akka-http-testkit has been&#10;written and it passes.">
       <created>1571307761738</created>
@@ -770,7 +769,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572018165787</updated>
     </task>
-    <option name="localTasksCounter" value="449" />
+    <task id="LOCAL-00449" summary="sodium simple button works">
+      <created>1572045093831</created>
+      <option name="number" value="00449" />
+      <option name="presentableId" value="LOCAL-00449" />
+      <option name="project" value="LOCAL" />
+      <updated>1572045093835</updated>
+    </task>
+    <option name="localTasksCounter" value="450" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -817,7 +823,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added joinWith to EntitySet." />
     <MESSAGE value="Creating logic for creating UsersNotes is in progress." />
     <MESSAGE value="Bit of refactoring." />
     <MESSAGE value="Started creating the Get User Notes route." />
@@ -842,6 +847,7 @@
     <MESSAGE value="Testing Memory Leak in Node.js for Sodium." />
     <MESSAGE value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
     <MESSAGE value="trying out some simple sodium code in scalajs-react" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying out some simple sodium code in scalajs-react" />
+    <MESSAGE value="sodium simple button works" />
+    <option name="LAST_COMMIT_MESSAGE" value="sodium simple button works" />
   </component>
 </project>

@@ -3,6 +3,7 @@ package app.client.ui.components.router
 import app.client.ui.caching.cacheInjector.Cache
 import app.client.ui.components.{ListUsersAllNotesPage, UserListPage}
 import app.client.ui.components.mainPages.demos.StaticTemplateComp
+import app.client.ui.components.mainPages.noteHandling.{NoteEditorComp, NoteEditorRouteProvider}
 import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp
 //import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
 import app.client.ui.components.mainPages.login.LoginPageComp
@@ -54,11 +55,15 @@ case class RouterComp() {
           (trimSlashes
             | loginRoute
             | Pages.itemPageRoute(dsl)
+
             | UserEditorRouteProvider.getRoute(cache)(dsl)
+
+            | NoteEditorRouteProvider.getRoute(cache)(dsl)
 
             | UserListComp.getStaticRoute("userList", UserListPage())(
               cache
             )(dsl)
+
 
             | ListUsersAllNotesComp.getStaticRoute(
               "userNoteList",

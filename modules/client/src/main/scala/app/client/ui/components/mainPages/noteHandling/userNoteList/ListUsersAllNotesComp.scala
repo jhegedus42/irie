@@ -2,8 +2,9 @@ package app.client.ui.components.mainPages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
-import app.client.ui.components.ListUsersAllNotesPage
-import app.client.ui.components.mainPages.userHandling.userList.ListRenderHelper
+import app.client.ui.components.{ListUsersAllNotesPage, StaticTemplatePage}
+import app.client.ui.components.mainPages.common.ListRenderHelper
+import app.client.ui.components.mainPages.noteHandling.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq
@@ -11,7 +12,9 @@ import app.shared.comm.postRequests.GetUsersNotesReq.Par
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.Note
 import app.shared.initialization.testing.TestEntitiesForUsers
+import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.BackendScope
+import org.scalajs.dom.html.Anchor
 
 import scala.collection.immutable
 
@@ -57,16 +60,30 @@ trait ListUsersAllNotesComp
 
       val r2 = l1.map(x=>helper.ref2EntityOption(x)).toList
 
+      val ctl=c.routerCtl
+
       val g : Option[EntityWithRef[Note]] => VdomElement = {
+
+        def linkToEditorPage( id: EntityIdentity[Note] ): VdomTagOf[Anchor] = {
+          val link = <.a("edit",
+            ^.href := ctl.urlFor(StaticTemplatePage).value,
+            ctl.setOnLinkClick(NoteEditorPage(id.uuid)))
+          link
+        }
 
         x=>
           {
-            val res: String =
+            val res =
               x match {
-                case Some(value) => value.entityValue.title
-                case None => "Loading ..."
+                case Some(value) =>
+                  {
+                    val title =value.entityValue.title
+                    <.div(title,"  ",linkToEditorPage(value.toRef.entityIdentity),<.br)
+
+                  }
+                case None => <.div("Loading ...")
               }
-            <.div(res,<.br)
+            res
           }
 
       }
