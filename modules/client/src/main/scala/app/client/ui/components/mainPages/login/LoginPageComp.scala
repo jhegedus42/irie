@@ -6,16 +6,30 @@ import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.components.MainPage
 import app.client.ui.components.mainPages.login.LoginPageComp.State.{
   LoginPageCompState,
-  UserLoginStatus
 }
 import app.client.ui.dom.Window
 import app.shared.comm.postRequests.LoginReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import bootstrap4.TB.C
+import cats.Functor
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import monocle.macros.Lenses
+
+import scala.reflect.ClassTag
+
+//import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+
+//@Lenses
+
+@JsonCodec
+case class UserLoginStatus(
+  userOption: Option[EntityWithRef[User]] = None) {}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -29,11 +43,12 @@ object LoginPageComp {
     case class LoginPageCompState(
       loginStatus: UserLoginStatus = UserLoginStatus())
 
-    case class UserLoginStatus(
-      userOption: Option[EntityWithRef[User]] = None)
+//    import cats.Functor
+//    import cats.implicits._
 
     def setUserLoggedIn(user: Option[EntityWithRef[User]]): Unit = {
-      Window.setLoggedInUser(user)
+      val u = UserLoginStatus(user)
+      Window.setLoggedInUser(u)
     }
   }
 

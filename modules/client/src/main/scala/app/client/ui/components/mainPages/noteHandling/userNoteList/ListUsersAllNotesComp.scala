@@ -1,21 +1,13 @@
 package app.client.ui.components.mainPages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import japgolly.scalajs.react.vdom.{TagOf, VdomElement, html_<^}
-import app.client.ui.caching.cacheInjector.{
-  CacheAndPropsAndRouterCtrl,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.{
-  ListUsersAllNotesPage,
-  StaticTemplatePage
-}
+import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
+import app.client.ui.components.{ListUsersAllNotesPage, StaticTemplatePage}
 import app.client.ui.components.mainPages.common.ListRenderHelper
 import app.client.ui.components.mainPages.login.LoginPageComp.State
+import app.client.ui.components.mainPages.login.UserLoginStatus
 import app.client.ui.components.mainPages.noteHandling.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{
-  PropsImpl,
-  StateImpl
-}
+import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.client.ui.dom.Window
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq
@@ -54,7 +46,7 @@ trait ListUsersAllNotesComp
     backendScope: BackendScope[CacheAndPropsAndRouterCtrl[PropsT], StateT]
   ): VdomElement = {
 
-    val userid: State.UserLoginStatus = Window.getUserLoginStatus
+    val userid: UserLoginStatus = Window.getUserLoginStatus
 
     val r3 = if (!userid.userOption.isDefined) {
       <.div(<.br, "User is not logged in")

@@ -4,17 +4,23 @@ import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityType
 import app.shared.utils.UUID_Utils.EntityIdentity
+import io.circe.Decoder
+import io.circe.generic.JsonCodec
 import monocle.macros.Lenses
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
 
-@Lenses
+//@Lenses
+//@JsonCodec
 case class RefToEntityWithVersion[T <: EntityType[T]](
   entityValueTypeAsString: EntityValueTypeAsString,
   entityIdentity:          EntityIdentity[T] = EntityIdentity[T](),
   entityVersion:           EntityVersion = EntityVersion()) {
 
-  def toEntityRef[T<:EntityType[T]]: Unit ={
-    new EntityWithRef[T]()
-  }
+//  def toEntityRef[T<:EntityType[T]]: Unit ={
+//    new EntityWithRef[T]()
+//  }
 
   def bumpVersion: RefToEntityWithVersion[T] =
     this.copy(entityVersion = entityVersion.bumpVersion())

@@ -1,6 +1,6 @@
 package app.client.ui.dom
 
-import app.client.ui.components.mainPages.login.LoginPageComp.State.UserLoginStatus
+import app.client.ui.components.mainPages.login.UserLoginStatus
 import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityWithRefAsJSON
 import app.shared.entity.entityValue.values.User
@@ -10,14 +10,16 @@ import io.circe.{Decoder, Encoder, Json}
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
 import org.scalajs.dom.window
-
+import monocle.macros.syntax.lens._
 object Window {
 
   def setLoggedInUser(
-    user: Option[EntityWithRef[User]]
+    user: UserLoginStatus
   )(
-    implicit enc: Encoder[Option[EntityWithRef[User]]]
+    implicit enc: Encoder[UserLoginStatus]
   ): Unit = {
+
+    println(s"user name is: "+user)
 
     val newName=s"${enc(user).noSpaces}"
 
@@ -27,18 +29,20 @@ object Window {
   }
 
   def getUserLoginStatus(
-  implicit dec:Decoder[Option[EntityWithRef[User]]]
+  implicit dec:Decoder[UserLoginStatus]
   ):UserLoginStatus = {
     val s: String = window.name
     println(s"window name: $s")
-    val ej: Either[Error, Option[EntityWithRef[User]]] =decode(s)
+    val ej: Option[UserLoginStatus] =decode(s).toOption
+    val ej2: UserLoginStatus =ej.getOrElse(UserLoginStatus(None))
     println(s"win name: $s")
     println(s"decoded name: $ej")
 
-    val res1=ej.toOption.flatten
-    println(s"login status:$res1")
-    val x: UserLoginStatus =UserLoginStatus(res1)
-    Window.setLoggedInUser(Some(x.userOption.get.copy()))
+    val x: UserLoginStatus =ej2
+    println(s"login status:$x")
+
+    Window.setLoggedInUser(x)
+
     x
   }
 

@@ -16,7 +16,7 @@ trait EntityType[T <: EntityType[T]] {}
 
 object EntityType {
 
-  def toJSON[T <: EntityType[T]](
+  implicit def toJSON[T <: EntityType[T]](
     v: T
   )(
     implicit encoder: Encoder[T]

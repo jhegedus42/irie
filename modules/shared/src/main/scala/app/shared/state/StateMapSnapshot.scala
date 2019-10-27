@@ -63,7 +63,8 @@ case class StateMapSnapshot(
 
   def insertEntity[T<:EntityType[T]:ClassTag](e:T)(
     implicit encoder: Encoder[EntityWithRef[T]],
-    ee:               Encoder[T]
+    ee:               Encoder[T],
+      de:               Decoder[T]
   ) :StateMapSnapshot = {
     val ref= EntityWithRef.makeFromValue(e)
     val ur = UntypedEntityWithRef.makeFromEntityWithRef(ref)

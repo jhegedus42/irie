@@ -1,8 +1,15 @@
 package app.client.ui.components.mainPageLayout
-import app.client.ui.components.{ListUsersAllNotesPage, LoginPage, MainPage, UserListPage}
+import app.client.ui.components.{
+  ListUsersAllNotesPage,
+  LoginPage,
+  MainPage,
+  UserListPage
+}
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
-import app.client.ui.components.mainPages.login.LoginPageComp
-import app.client.ui.components.mainPages.login.LoginPageComp.State.UserLoginStatus
+import app.client.ui.components.mainPages.login.{
+  LoginPageComp,
+  UserLoginStatus
+}
 import app.client.ui.dom.Window
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -45,7 +52,7 @@ object TopNavComp {
     selectedPage: MainPage,
     ctrl:         RouterCtl[MainPage])
 
-  private def pagesInNavbar(P: Props): TagMod = {
+  private def pagesInNavbar(props: Props): TagMod = {
 
     val x: Menu => VdomTagOf[LI] = { item: Menu =>
       //      println(s" Start $item, ${item.route}")
@@ -59,10 +66,10 @@ object TopNavComp {
             C.pt0,
             C.navLink,
             item.name,
-            ^.href := P.ctrl.urlFor(item.route).value),
-        P.ctrl.setOnLinkClick(item.route),
+            ^.href := props.ctrl.urlFor(item.route).value),
+        props.ctrl.setOnLinkClick(item.route),
         ^.key := item.name, {
-          if (P.selectedPage == item.route) C.active
+          if (props.selectedPage == item.route) C.active
           else C.navLink
         }
       )
@@ -70,10 +77,20 @@ object TopNavComp {
       //      println(s" End: $item, ${item.route}")
     }
 
-    def logout= {
-      val item = Menu("logout",LoginPage)
+    def logout = {
+      val item = Menu("logout", LoginPage)
 
-      Window.setLoggedInUser(None)
+      //  CURRENT FOCUS => put this into the event handler for clicking the link
+
+      val cb = props.ctrl.set(LoginPage) >> Callback {
+        Window.setLoggedInUser(UserLoginStatus(None))
+      }
+
+      def handler: TagMod = {
+        def go(e: ReactMouseEvent): Callback =
+          CallbackOption.unless(ReactMouseEvent targetsNewTab_? e) >> cb
+        ^.onClick ==> go
+      }
 
       val res = <.li(
         C.navItem,
@@ -81,11 +98,11 @@ object TopNavComp {
         C.pb1,
         C.pt0,
         <.a(C.pb1,
-          C.pt0,
-          C.navLink,
-          item.name,
-          ^.href := P.ctrl.urlFor(item.route).value),
-        P.ctrl.setOnLinkClick(item.route),
+            C.pt0,
+            C.navLink,
+            item.name,
+            ^.href := props.ctrl.urlFor(item.route).value),
+        handler,
         ^.key := item.name
       )
       res
