@@ -1,11 +1,13 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cacheInjector.ReRenderer
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, ReRenderer}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
+import app.client.ui.components.MainPage
 import sodium.{Cell, StreamSink}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import javax.swing.event.DocumentEvent.EventType
 import org.scalajs.dom.html.Div
 
 object SodiumWidgets {
@@ -18,23 +20,42 @@ object SodiumWidgets {
   // https://github.com/SodiumFRP/sodium/blob/89f40da2f62aed75201a86868e489f1564d667f6/book/swidgets/java/swidgets/src/swidgets/SLabel.java
 
   case class SodiumLabel(val c:Cell[String]){
-
    def s=c.sample()
    val f=c.listen(x=>println(s"sodum label's cell is $x"))
-
    private val comp = ScalaFnComponent[String] { props =>
-
       println("sodium label was re-rendered");
       <.div(
        props
       )
-
    }
    def vdom=comp(s)
-
   }
 
-  case class SodiumButton(name:String) {
+
+  trait SodiumNetworkHandler[EventType]
+  {
+    def handler:Stream[EventType]=>())
+  }
+
+
+  trait HasCacheAndRouterCtrl{
+    def getCache:Cache
+    def getRouterCtrl:RouterCtl[MainPage]
+  }
+
+  case class SodiumLabelGeneral[StreamType](val c:Cell[StreamType],toVDOM:(StreamType=>VdomTagOf[Div])){
+    def s=c.sample()
+    val f=c.listen(x=>println(s"sodum label's cell is $x"))
+    private val comp = ScalaFnComponent[StreamType] { props:StreamType =>
+      println("sodium label was re-rendered");
+        toVDOM(s)
+    }
+    def vdom=comp(s)
+  }
+
+
+
+
     val sClickedSink = new StreamSink[Unit]
     println("The button was created")
 
@@ -48,6 +69,8 @@ object SodiumWidgets {
       )
     }
   }
+
+
 
   // todo later - make a sodium button out of this
 //  https://github.com/SodiumFRP/sodium/blob/89f40da2f62aed75201a86868e489f1564d667f6/book/swidgets/java/swidgets/src/swidgets/SButton.java

@@ -1,12 +1,27 @@
 package app.client.ui.components.mainPages.userHandling.userList
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.userHandling.userList
-import app.client.ui.components.mainPages.userHandling.userList.UserListComp.{Props$, State$ }
+import app.client.ui.components.mainPages.userHandling.userList.UserListComp.{
+  Props$,
+  State$
+}
 import app.client.ui.components.sodium.SodiumWidgets
-import app.client.ui.components.sodium.SodiumWidgets.{SodiumButton, SodiumLabel}
-import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
+import app.client.ui.components.sodium.SodiumWidgets.{
+//  SodiumButton,
+  SodiumLabel
+}
+import app.client.ui.components.{
+  MainPage,
+  StaticTemplatePage,
+  UserListPage
+}
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
 import app.shared.entity.entityValue.values.User
@@ -15,7 +30,12 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import org.scalajs.dom
 
 trait UserListComp
@@ -31,8 +51,13 @@ trait UserListComp
 
   override def propsProvider_ : Unit => PropsT = _ => Props$("hello")
 
-  val sbutton= SodiumButton("SButton")
-  val label = SodiumLabel(sbutton.sClickedSink.map(x=>"bello").hold("hello"))
+//  object FRP {
+//    val sbutton = SodiumButton("SButton")
+//
+//    val label = SodiumLabel(
+//      sbutton.sClickedSink.map(x => "bello").hold("hello")
+//    )
+//  }
 
   override def getVDOM(
     c: CacheAndPropsAndRouterCtrl[PropsT],
@@ -55,9 +80,9 @@ trait UserListComp
       ),
       UserListRenderLogic(c).getVDOM,
       <.br(),
-      sbutton.sodiumButton(),
+//      FRP.sbutton.sodiumButton(),
       <.br(),
-      label.vdom
+//      FRP.label.vdom
     ) // todo-later continue-here
 
   }
