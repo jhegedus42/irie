@@ -34,7 +34,7 @@ object SodiumWidgets {
 
   trait SodiumNetworkHandler[EventType]
   {
-    def handler:Stream[EventType]=>())
+    def handler:Stream[EventType]=>()
   }
 
 
@@ -68,7 +68,6 @@ object SodiumWidgets {
         }))
       )
     }
-  }
 
 
 

@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.userHandling.NoteEditor
+package app.client.ui.components.mainPages.NoteHandling.NoteEditor
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cache.{
@@ -17,7 +17,7 @@ import app.client.ui.components.mainPages.login.LoginPageComp.{
   Props,
   State
 }
-import app.client.ui.components.mainPages.userHandling.NoteEditor.NoteEditorComp.{
+import app.client.ui.components.mainPages.NoteHandling.NoteEditor.NoteEditorComp.{
   Props,
   NoteEditorPage
 }
@@ -28,7 +28,7 @@ import app.client.ui.components.{
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.User
+import app.shared.entity.entityValue.values.Note
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -71,29 +71,29 @@ object NoteEditorComp {
       extends MainPageInjectedWithCacheAndController[NoteEditorComp,
                                                      NoteEditorPage]
 
-  case class UpdatedUser(
-    resultOfUserUpdateRequest: Option[EntityWithRef[User]])
+  case class UpdatedNote(
+    resultOfNoteUpdateRequest: Option[EntityWithRef[Note]])
 
   /**
     *
     * This should be used by the textfield
     *
-    * @param value this is the name to which the User's name
+    * @param value this is the name to which the Note's name
     *              should change after the update request has
     *              completed (so this stores our "intention")
     */
   case class IntendedNewName(value: Option[String] = None)
 
   /**
-    * @param updatedUser
+    * @param updatedNote
     * @param intendedNewName
     */
   case class State(
     counter:         Int,
-    updatedUser:     UpdatedUser,
+    updatedNote:     UpdatedNote,
     intendedNewName: IntendedNewName = IntendedNewName())
 
-  case class Props( userIdentity: EntityIdentity[User] )
+  case class Props( NoteIdentity: EntityIdentity[Note] )
 
   val component: Component[
     CacheAndPropsAndRouterCtrl[Props],
@@ -106,7 +106,7 @@ object NoteEditorComp {
         "This is a NoteEditor page. It demonstrates all crucial functionality."
       )
       .initialState(
-        State(counter = 0, updatedUser = UpdatedUser(None))
+        State(counter = 0, updatedNote = UpdatedNote(None))
       )
       .renderBackend[Backend[Props]]
       .build
@@ -154,29 +154,29 @@ object NoteEditorComp {
       )
     }
 
-    def handleUpdateUserButon(
-      cache:            Cache,
-      currentEntityPar: EntityWithRef[User]
-    ): String => CallbackTo[Unit] = { newUserName: String =>
-      Callback({
-
-        implicit val i: WriteRequestHandlerTCImpl[WriteRequest,
-                                                  UpdateReq[User]]
-          with WriteRequestHandlerTCImpl.UpdateReqUserCacheInvalidator =
-          WriteRequestHandlerTCImpl.userUpdater
-
-        import io.circe.generic.auto._
-
-        val newEntityVal =
-          currentEntityPar.entityValue.lens(_.name).set(newUserName)
-
-        val ur1 =
-          UpdateReq.UpdateReqPar[User](currentEntityPar, newEntityVal)
-
-        cache.writeToServer[WriteRequest, UpdateReq[User]](ur1)
-
-      })
-    }
+//    def handleUpdateNoteButon(
+//      cache:            Cache,
+//      currentEntityPar: EntityWithRef[Note]
+//    ): String => CallbackTo[Unit] = { newNoteName: String =>
+//      Callback({
+//
+//        implicit val i: WriteRequestHandlerTCImpl[WriteRequest,
+//                                                  UpdateReq[Note]]
+//          with WriteRequestHandlerTCImpl.UpdateReqNoteCacheInvalidator =
+//          WriteRequestHandlerTCImpl.NoteUpdater
+//
+//        import io.circe.generic.auto._
+//
+//        val newEntityVal =
+//          currentEntityPar.entityValue.lens(_.name).set(newNoteName)
+//
+//        val ur1 =
+//          UpdateReq.UpdateReqPar[Note](currentEntityPar, newEntityVal)
+//
+//        cache.writeToServer[WriteRequest, UpdateReq[Note]](ur1)
+//
+//      })
+//    }
   }
 
   class Backend[Properties](
@@ -189,12 +189,12 @@ object NoteEditorComp {
 
       println(
         "render was called in" +
-        " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
+        " Note Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
       )
 
-      def entityOption: Option[EntityWithRef[User]] =
-        CacheHelperFunctions.getEntity[User](
-          cacheAndProps.props.userIdentity,
+      def entityOption: Option[EntityWithRef[Note]] =
+        CacheHelperFunctions.getEntity[Note](
+          cacheAndProps.props.NoteIdentity,
           cacheAndProps.cache
         )
 
@@ -205,28 +205,28 @@ object NoteEditorComp {
 
       def currentName: String =
         entityOption.map(_.entityValue.name).getOrElse("Loading...")
-
-      def buttonOpt: VdomTagOf[Div] =
-        if (entityOption.nonEmpty) {
-          <.div(
-            Helpers.saveButton(
-              Helpers.handleUpdateUserButon(cacheAndProps.cache,
-                                            entityOption.get)(newName)
-            )
-          )
-
-        } else <.div("  No entity, no button !")
-
+//
+//      def buttonOpt: VdomTagOf[Div] =
+//        if (entityOption.nonEmpty) {
+//          <.div(
+//            Helpers.saveButton(
+//              Helpers.handleUpdateNoteButon(cacheAndProps.cache,
+//                                            entityOption.get)(newName)
+//            )
+//          )
+//
+//        } else <.div("  No entity, no button !")
+//
       <.div(
         <.h1("This is the NoteEditor Page"),
         <.br,
-        "Current name of the User " + currentName,
+        "Current name of the Note " + currentName,
         <.br,
 //        s"our entity option is :",
 //        <.br,
 //        s"$entityOption",
         <.br,
-        "Intended new name for the user (NoteEditorComp implementation): ",
+        "Intended new name for the Note (NoteEditorComp implementation): ",
         <.input.text(
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))

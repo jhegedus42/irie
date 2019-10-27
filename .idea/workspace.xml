@@ -6,16 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorRouteProvider.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/TextFieldWithButtonAndHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userEditor/TextFieldWithButtonAndHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userEditor/UserEditorRouteProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/NoteEditorComp.scala.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorCompNew.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,18 +125,19 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common" />
+      <recent name="$PROJECT_DIR$/www/assets/js" />
+      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
+      <recent name="$PROJECT_DIR$/bash_scripts/running" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="app.client.ui.components.mainPages.userHandling.userList" />
       <recent name="sodium" />
       <recent name="app.client.ui.components.mainPages.login" />
       <recent name="app.client.ui.caching.cache.comm.write" />
       <recent name="app.client.ui.caching.cache.comm" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -153,12 +146,11 @@
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common" />
-      <recent name="$PROJECT_DIR$/www/assets/js" />
-      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
-      <recent name="$PROJECT_DIR$/bash_scripts/running" />
-      <recent name="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistenceService/persistenceOperations/crudOps/persistentActor" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -435,13 +427,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00404" summary="Login functionality - &quot;full stack&quot; - in progress.&#10;&#10;- intermezzo commit">
-      <created>1571315878072</created>
-      <option name="number" value="00404" />
-      <option name="presentableId" value="LOCAL-00404" />
-      <option name="project" value="LOCAL" />
-      <updated>1571315878072</updated>
     </task>
     <task id="LOCAL-00405" summary="Login functionality - &quot;full stack&quot; - in progress.&#10;&#10;- intermezzo commit">
       <created>1571349336857</created>
@@ -779,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572193201504</updated>
     </task>
-    <option name="localTasksCounter" value="453" />
+    <task id="LOCAL-00453" summary="User Note editor in progress.">
+      <created>1572218228422</created>
+      <option name="number" value="00453" />
+      <option name="presentableId" value="LOCAL-00453" />
+      <option name="project" value="LOCAL" />
+      <updated>1572218228423</updated>
+    </task>
+    <option name="localTasksCounter" value="454" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -826,7 +818,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="GetUsersNotesReq is now in place.&#10;&#10;Logic + test needs to be implemented for it." />
     <MESSAGE value="Before refactoring - moving code from server to shared." />
     <MESSAGE value="Code compiles - after moving some files into the shared space." />
     <MESSAGE value="Creating test data with notes." />
@@ -851,6 +842,7 @@
     <MESSAGE value="we have now a note editor stub page" />
     <MESSAGE value="login functionality is in progress" />
     <MESSAGE value="Login works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login works." />
+    <MESSAGE value="User Note editor in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="User Note editor in progress." />
   </component>
 </project>

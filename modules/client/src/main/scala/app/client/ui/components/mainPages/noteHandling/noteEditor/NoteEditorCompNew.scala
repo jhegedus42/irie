@@ -1,18 +1,8 @@
-package app.client.ui.components.mainPages.noteHandling
+package app.client.ui.components.mainPages.noteHandling.noteEditor
 
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.mainPages.noteHandling.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController,
-  StaticTemplatePage
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
