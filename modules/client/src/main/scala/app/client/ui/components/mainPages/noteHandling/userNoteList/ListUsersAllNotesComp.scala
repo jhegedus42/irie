@@ -6,8 +6,8 @@ import app.client.ui.components.{ListUsersAllNotesPage, StaticTemplatePage}
 import app.client.ui.components.mainPages.common.ListRenderHelper
 import app.client.ui.components.mainPages.login.LoginPageComp.State
 import app.client.ui.components.mainPages.login.UserLoginStatus
+import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
-import app.client.ui.components.mainPages.userHandling.NoteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.dom.Window
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq

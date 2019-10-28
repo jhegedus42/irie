@@ -32,10 +32,10 @@ object SodiumWidgets {
   }
 
 
-  trait SodiumNetworkHandler[EventType]
-  {
-    def handler:Stream[EventType]=>()
-  }
+//  trait SodiumNetworkHandler[EventType]
+//  {
+//    def handler:Stream[EventType] => ()
+//  }
 
 
   trait HasCacheAndRouterCtrl{

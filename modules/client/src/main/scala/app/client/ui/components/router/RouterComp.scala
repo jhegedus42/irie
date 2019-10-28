@@ -3,7 +3,8 @@ package app.client.ui.components.router
 import app.client.ui.caching.cacheInjector.Cache
 import app.client.ui.components.{ListUsersAllNotesPage, UserListPage}
 import app.client.ui.components.mainPages.demos.StaticTemplateComp
-import app.client.ui.components.mainPages.noteHandling.{NoteEditorComp, NoteEditorRouteProvider}
+import app.client.ui.components.mainPages.noteHandling
+import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorRouteProvider
 import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp
 //import app.client.ui.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
 import app.client.ui.components.mainPages.login.LoginPageComp
