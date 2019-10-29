@@ -24,7 +24,7 @@ object GetEntityReq {
 
 //@JsonCodec
 class GetEntityReq[V <: EntityType[V]]
-    extends PostRequest[ReadRequest] {
+    extends PostRequest[ReadRequest] with ReadRequest {
   override type ParT     = GetEntityReq.Par[V]
   override type ResT     = GetEntityReq.Res[V]
   override type PayLoadT = V

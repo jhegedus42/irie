@@ -25,7 +25,7 @@ object LoginReq {
 }
 
 //@JsonCodec
-class LoginReq extends PostRequest[ReadRequest] {
+class LoginReq extends PostRequest[ReadRequest] with ReadRequest {
   override type ParT     = LoginReq.Par
   override type ResT     = LoginReq.Res
   override type PayLoadT = Unit

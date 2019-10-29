@@ -16,7 +16,7 @@ object UpdateReq {
       extends PostRequest.Result
 }
 
-class UpdateReq[V <: EntityType[V]] extends PostRequest[WriteRequest] {
+class UpdateReq[V <: EntityType[V]] extends PostRequest[WriteRequest] with WriteRequest {
   override type ParT     = UpdateReqPar[V]
   override type ResT     = UpdateReqRes[V]
   override type PayLoadT = V

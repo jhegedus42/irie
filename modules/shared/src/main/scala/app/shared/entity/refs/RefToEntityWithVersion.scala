@@ -11,6 +11,8 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
 
+import scala.reflect.ClassTag
+
 //@Lenses
 //@JsonCodec
 case class RefToEntityWithVersion[T <: EntityType[T]](
@@ -27,6 +29,15 @@ case class RefToEntityWithVersion[T <: EntityType[T]](
 }
 
 object RefToEntityWithVersion {
+
+  def fromEntityIdentity[T <: EntityType[T]: ClassTag](
+    identity: EntityIdentity[T]
+  ): RefToEntityWithVersion[T] = {
+    RefToEntityWithVersion(
+      EntityValueTypeAsString.getEntityValueTypeAsString[T],
+      identity
+    )
+  }
 
   def getOnlyLatestVersions[V <: EntityType[V]](
     l: List[RefToEntityWithVersion[V]]

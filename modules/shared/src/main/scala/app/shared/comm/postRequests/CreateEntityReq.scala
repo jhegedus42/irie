@@ -1,6 +1,6 @@
 package app.shared.comm.postRequests
 
-import app.shared.comm.{PostRequest, WriteRequest}
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.CreateEntityReq.{CreateEntityReqPar, CreateEntityReqRes}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
@@ -13,7 +13,7 @@ object CreateEntityReq {
       extends PostRequest.Result
 }
 
-class CreateEntityReq[V <: EntityType[V]] extends PostRequest[WriteRequest] {
+class CreateEntityReq[V <: EntityType[V]] extends PostRequest[WriteRequest] with WriteRequest {
   override type ParT     = CreateEntityReqPar[V]
   override type ResT     = CreateEntityReqRes[V]
   override type PayLoadT = V

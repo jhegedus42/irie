@@ -17,7 +17,7 @@ import app.shared.entity.refs.{
 import io.circe.generic.JsonCodec
 
 
-class GetAllUsersReq extends PostRequest[ReadRequest] {
+class GetAllUsersReq extends PostRequest[ReadRequest] with ReadRequest {
 
   override type ParT     = GetAllUsersReq.Par
   override type PayLoadT = Unit // has no payload

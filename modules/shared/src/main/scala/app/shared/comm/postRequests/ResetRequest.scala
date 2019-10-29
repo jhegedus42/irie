@@ -27,7 +27,7 @@ object ResetRequest {
 
 }
 
-class ResetRequest extends PostRequest[WriteRequest] {
+class ResetRequest extends PostRequest[WriteRequest] with WriteRequest {
   override type ParT     = ResetRequest.Par
   override type ResT     = ResetRequest.Res
   override type PayLoadT = String // dummy payload

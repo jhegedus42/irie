@@ -92,7 +92,8 @@ case class PersistentActorWhisperer(
       value: V
     )(
       implicit encoder: Encoder[EntityWithRef[V]],
-      eencoder:         Encoder[V]
+      eencoder:         Encoder[V],
+      d:Decoder[V]
     ): Future[Option[EntityWithRef[V]]] = {
 
       val entity: EntityWithRef[V] =

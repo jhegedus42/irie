@@ -23,7 +23,7 @@ object GetUsersNotesReq {
 }
 
 //@JsonCodec
-class GetUsersNotesReq extends PostRequest[ReadRequest] {
+class GetUsersNotesReq extends PostRequest[ReadRequest] with ReadRequest {
   override type ParT     = GetUsersNotesReq.Par
   override type ResT     = GetUsersNotesReq.Res
   override type PayLoadT = Unit

@@ -22,6 +22,7 @@ case class CreateEntityLogic[V <: EntityType[V]](
   encoderEntityV:  Encoder[EntityWithRef[V]],
   encoderV:        Encoder[V],
   classTag:        ClassTag[V],
+  decoderV:Decoder[V],
   contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[CreateEntityReq[V]] {
 

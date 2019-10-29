@@ -26,7 +26,7 @@ object GetLatestEntityByIDReq {
 
 //@JsonCodec
 class GetLatestEntityByIDReq[V <: EntityType[V]]
-    extends PostRequest[ReadRequest] {
+    extends PostRequest[ReadRequest] with ReadRequest {
   override type ParT     = GetLatestEntityByIDReq.Par[V]
   override type ResT     = GetLatestEntityByIDReq.Res[V]
   override type PayLoadT = V

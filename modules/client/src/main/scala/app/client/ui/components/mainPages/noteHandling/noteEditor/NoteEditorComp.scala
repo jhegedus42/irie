@@ -1,9 +1,22 @@
 package app.client.ui.components.mainPages.noteHandling.noteEditor
 
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cache.ReadCacheEntryStates
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
+import app.client.ui.components.{
+  MainPage,
+  MainPageInjectedWithCacheAndController,
+  StaticTemplatePage
+}
+import app.shared.comm.ReadRequest
+import app.shared.comm.postRequests.GetEntityReq
 import app.shared.entity.entityValue.values.{Note, User}
+import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
@@ -31,10 +44,20 @@ object NoteEditorComp {
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
+      //val
+
+      val refToEntityWithVersion: RefToEntityWithVersion[Note] =
+        RefToEntityWithVersion.fromEntityIdentity(x.props.noteID)
       // CONTINUE HERE
-      val //
-      x.cache.readFromServer()
-      <.div(x.props.toString, "  ")
+
+      val p: GetEntityReq.Par[Note] =
+        GetEntityReq.Par(refToEntityWithVersion)
+      val r: ReadCacheEntryStates.ReadCacheEntryState[
+        ReadRequest,
+        GetEntityReq[Note]
+      ] = x.cache.readFromServer[ReadRequest, GetEntityReq[Note]](p)
+//      <.div(x.props.toString, "  ")
+      r.toString
     }
 
   }

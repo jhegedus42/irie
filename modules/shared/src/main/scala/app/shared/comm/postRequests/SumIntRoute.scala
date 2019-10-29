@@ -20,7 +20,7 @@ object SumIntRoute {
   case class SumIntRes(sum: Int) extends PostRequest.Result
 }
 
-class SumIntRoute extends PostRequest[ReadRequest] {
+class SumIntRoute extends PostRequest[ReadRequest] with ReadRequest {
   override type ParT     = SumIntPar
   override type ResT     = SumIntRes
   override type PayLoadT = Unit
