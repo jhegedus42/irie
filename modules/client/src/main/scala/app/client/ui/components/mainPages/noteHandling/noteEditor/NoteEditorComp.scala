@@ -49,6 +49,7 @@ object NoteEditorComp {
       val refToEntityWithVersion: RefToEntityWithVersion[Note] =
         RefToEntityWithVersion.fromEntityIdentity(x.props.noteID)
       // CONTINUE HERE
+      // add update text / title methods
 
       val p: GetEntityReq.Par[Note] =
         GetEntityReq.Par(refToEntityWithVersion)
