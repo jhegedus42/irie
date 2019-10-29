@@ -35,7 +35,8 @@ trait EntityCRUD {
 
   def getEntity(
     c:              Cache,
-    entityIdentity: EntityIdentity[V]
+    entityIdentity: EntityIdentity[V],
+
   )(
     implicit rc: ReadCache[ReadRequest, GetEntityReq[V]],
     decoder:     Decoder[GetEntityReq[V]#ResT],
@@ -59,7 +60,10 @@ trait EntityCRUD {
     r.toOption.flatMap(x => x.optionEntity)
   }
 
+
 }
+
+
 
 object NoteEditorComp {
 

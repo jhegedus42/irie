@@ -1,6 +1,10 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, ReRenderer}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  ReRenderer
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.components.MainPage
 import sodium.{Cell, StreamSink}
@@ -15,61 +19,93 @@ object SodiumWidgets {
   // based on this example :
   // https://japgolly.github.io/scalajs-react/#examples/todo
 
-
 //  Label is based on :
   // https://github.com/SodiumFRP/sodium/blob/89f40da2f62aed75201a86868e489f1564d667f6/book/swidgets/java/swidgets/src/swidgets/SLabel.java
 
-  case class SodiumLabel(val c:Cell[String]){
-   def s=c.sample()
-   val f=c.listen(x=>println(s"sodum label's cell is $x"))
-   private val comp = ScalaFnComponent[String] { props =>
-      println("sodium label was re-rendered");
-      <.div(
-       props
-      )
-   }
-   def vdom=comp(s)
+  case class ReRenderTriggerer(f: Option[() => Unit]) {
+
+    def trigger(): Unit = {
+      if (f.isDefined) {
+        val r: () => Unit = f.get
+        r()
+      }
+    }
   }
 
+  case class SodiumLabel(val c: Cell[String]) {
+
+    def sampledValue = c.sample()
+
+    var state = "initial_state"
+
+    var stateSetter: ReRenderTriggerer = ReRenderTriggerer(None)
+
+    val f = c.listen(x => {
+      println(s"sodum label's cell is $x");
+      state = x
+      stateSetter.trigger()
+    })
+
+
+    val comp = ScalaComponent
+      .builder[Unit]("SodiumLabel")
+      .initialState("label")
+      .renderBackend[Backend]
+      .componentWillMount(f => {
+        val g = () => f.setState("bla").runNow()
+        Callback {
+          val s = ReRenderTriggerer(Some(g))
+          stateSetter = s
+        }
+      })
+      .build
+
+    class Backend($ : BackendScope[Unit, String]) {
+      def render(s: String) = {
+        <.div(
+          state
+        )
+      }
+    }
+  }
 
 //  trait SodiumNetworkHandler[EventType]
 //  {
 //    def handler:Stream[EventType] => ()
 //  }
 
-
-  trait HasCacheAndRouterCtrl{
-    def getCache:Cache
-    def getRouterCtrl:RouterCtl[MainPage]
+  trait HasCacheAndRouterCtrl {
+    def getCache:      Cache
+    def getRouterCtrl: RouterCtl[MainPage]
   }
 
-  case class SodiumLabelGeneral[StreamType](val c:Cell[StreamType],toVDOM:(StreamType=>VdomTagOf[Div])){
-    def s=c.sample()
-    val f=c.listen(x=>println(s"sodum label's cell is $x"))
-    private val comp = ScalaFnComponent[StreamType] { props:StreamType =>
-      println("sodium label was re-rendered");
-        toVDOM(s)
-    }
-    def vdom=comp(s)
-  }
+//  case class SodiumLabelGeneral[StreamType](
+//    val c:  Cell[StreamType],
+//    toVDOM: (StreamType => VdomTagOf[Div])) {
+//    def s = c.sample()
+//    val f = c.listen(x => println(s"sodum label's cell is $x"))
+//    private val comp = ScalaFnComponent[StreamType] {
+//      props: StreamType =>
+//        println("sodium label was re-rendered");
+//        toVDOM(s)
+//    }
+//    def vdom = comp(s)
+//  }
 
-
-
-
+  case class SodiumButtom() {
     val sClickedSink = new StreamSink[Unit]
-    println("The button was created")
 
-    val sodiumButton = ScalaFnComponent[Unit] { props: Unit =>
+    val getVDOM = ScalaFnComponent[Unit] { props: Unit =>
       <.div(
         <.button("String", ^.onClick --> Callback({
           println("I was pushed")
           sClickedSink.send(Unit)
-          ReRenderer.triggerReRender()
         }))
       )
     }
 
-
+  }
+  println("The button was created")
 
   // todo later - make a sodium button out of this
 //  https://github.com/SodiumFRP/sodium/blob/89f40da2f62aed75201a86868e489f1564d667f6/book/swidgets/java/swidgets/src/swidgets/SButton.java
