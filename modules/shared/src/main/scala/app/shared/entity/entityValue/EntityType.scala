@@ -12,7 +12,7 @@ import io.circe.{Encoder, Json}
   *
   * @tparam T
   */
-trait EntityType[T <: EntityType[T]] {}
+trait EntityType[+T <: EntityType[T]] {}
 
 object EntityType {
 

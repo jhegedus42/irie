@@ -1,27 +1,25 @@
 package app.client.ui.components.mainPages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController,
-  StaticTemplatePage
-}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
+import app.shared.entity.EntityWithRef
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
+import io.circe.{Decoder, Encoder}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
+import org.scalajs.dom.Node
 import org.scalajs.dom.html.Anchor
+
+import scala.reflect.ClassTag
 
 trait NoteEditorComp
     extends ToBeWrappedMainPageComponent[NoteEditorComp,
@@ -29,6 +27,37 @@ trait NoteEditorComp
 
   override type PropsT = NoteEditorComp.Props
   override type StateT = String
+
+}
+
+trait EntityCRUD {
+  type V <: EntityType[V]
+
+  def getEntity(
+    c:              Cache,
+    entityIdentity: EntityIdentity[V]
+  )(
+    implicit rc: ReadCache[ReadRequest, GetEntityReq[V]],
+    decoder:     Decoder[GetEntityReq[V]#ResT],
+    encoder:     Encoder[GetEntityReq[V]#ParT],
+    ct:          ClassTag[GetEntityReq[V]],
+    ct2:         ClassTag[GetEntityReq[V]#PayLoadT]
+  ): Option[EntityWithRef[V]] = {
+    // CONTINUE HERE
+    // add update text / title methods
+    val refToEntityWithVersion: RefToEntityWithVersion[V] =
+      RefToEntityWithVersion.fromEntityIdentity(entityIdentity)
+
+    val p: GetEntityReq.Par[V] =
+      GetEntityReq.Par(refToEntityWithVersion)
+
+    val r: ReadCacheEntryStates.ReadCacheEntryState[
+      ReadRequest,
+      GetEntityReq[V]
+    ] = c.readFromServer[ReadRequest, GetEntityReq[V]](p)
+
+    r.toOption.flatMap(x => x.optionEntity)
+  }
 
 }
 
@@ -43,22 +72,16 @@ object NoteEditorComp {
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
+    object VDOM extends EntityCRUD{
+      override type V = Note
+    }
+
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
-      //val
 
-      val refToEntityWithVersion: RefToEntityWithVersion[Note] =
-        RefToEntityWithVersion.fromEntityIdentity(x.props.noteID)
-      // CONTINUE HERE
-      // add update text / title methods
+      val e: Option[EntityWithRef[Note]] =VDOM.getEntity(x.cache,x.props.noteID)
 
-      val p: GetEntityReq.Par[Note] =
-        GetEntityReq.Par(refToEntityWithVersion)
-      val r: ReadCacheEntryStates.ReadCacheEntryState[
-        ReadRequest,
-        GetEntityReq[Note]
-      ] = x.cache.readFromServer[ReadRequest, GetEntityReq[Note]](p)
-//      <.div(x.props.toString, "  ")
-      r.toString
+      e.toString
+
     }
 
   }
