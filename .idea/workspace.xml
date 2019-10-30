@@ -7,9 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -433,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00410" summary="continuing working on login functionality&#10;&#10;now we have composable TextFields">
-      <created>1571485479233</created>
-      <option name="number" value="00410" />
-      <option name="presentableId" value="LOCAL-00410" />
-      <option name="project" value="LOCAL" />
-      <updated>1571485479233</updated>
-    </task>
     <task id="LOCAL-00411" summary="continuing working on login functionality&#10;&#10;login request button + REST API call works,&#10;&#10;request is sent to server and result is displayed in&#10;console, correctly for Alice">
       <created>1571508182634</created>
       <option name="number" value="00411" />
@@ -776,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572382883878</updated>
     </task>
-    <option name="localTasksCounter" value="459" />
+    <task id="LOCAL-00459" summary="Sodium example works.">
+      <created>1572387162635</created>
+      <option name="number" value="00459" />
+      <option name="presentableId" value="LOCAL-00459" />
+      <option name="project" value="LOCAL" />
+      <updated>1572387162635</updated>
+    </task>
+    <option name="localTasksCounter" value="460" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -823,7 +820,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Creating test data with notes." />
     <MESSAGE value="akka-http-testkit tests pass for Get user's notes request." />
     <MESSAGE value="Factoring out potentially common code from static root pages." />
     <MESSAGE value="For User List Component the factoring out has worked.&#10;&#10;The same should be done now for User Editor Component.&#10;&#10;It broke. Otherwise the code compiles and runs but the&#10;User Editor Component needs to be updated to work with the (a)&#10;new Base Component." />
@@ -848,6 +844,7 @@
     <MESSAGE value="User Note editor in progress." />
     <MESSAGE value="intermezzo commit" />
     <MESSAGE value="Note Editor in progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Note Editor in progress." />
+    <MESSAGE value="Sodium example works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sodium example works." />
   </component>
 </project>
