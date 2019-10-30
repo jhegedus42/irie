@@ -30,7 +30,6 @@ object MenuItems {
             Menu.apply("Login status", LoginPage),
             Menu.apply("Users", UserListPage()),
             Menu.apply("Notes", ListUsersAllNotesPage())
-            // todo-now 1 - CRUD Notes
           )
 
         case UserLoginStatus(None) =>

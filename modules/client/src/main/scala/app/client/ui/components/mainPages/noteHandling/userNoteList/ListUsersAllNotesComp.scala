@@ -128,15 +128,4 @@ object ListUsersAllNotesComp extends ListUsersAllNotesComp {
   case class StateImpl()
   case class PropsImpl()
 
-  // todo-now 1.1
-  //  create a Note List page, similar to User List Page
-  //  with CRU(D) capabilities
-
-  // todo-now 1.1.4
-  //  print list of note titles, and link to the their "editor page"
-
-  // todo-now 1.1.4 - 1
-  //  create a page that can edit a Note (to which we can link)
-  //  use the user editor page as "inspiration" for this
-  //  CURRENT FOCUS
 }

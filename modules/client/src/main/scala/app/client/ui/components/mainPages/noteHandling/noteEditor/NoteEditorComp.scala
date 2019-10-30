@@ -98,7 +98,7 @@ object NoteEditorComp {
 
         (titleS.streamOut).listen(println)
         button.sClickedSink.snapshot(cellOut).listen(println)
-        // todo-now create here a call to update the title of the note on the server side
+        // todo-now CONTINUE HERE
 
         <.div(
           titleS.component(),
@@ -124,13 +124,6 @@ object NoteEditorComp {
       .build
 
 //    .
-  // todo-now CONTINUE HERE
-  //  step 1
-  //  print uuidFromURL
-  //  step 2
-  //  navigate to this page from the note list comp using a link
-  //  step 3
-  //  print details for the note whose UUID is received from the NoteEditorPage
 
 }
 
