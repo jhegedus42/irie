@@ -85,16 +85,25 @@ object NoteEditorComp {
 
       val e: Option[EntityWithRef[Note]] =VDOM.getEntity(x.cache,x.props.noteID)
 
+
+     import sodium._
       if(e.isDefined){
         val r: EntityWithRef[Note] =e.get;
-        val title=r.entityValue.title
-        val titleS=STextArea(title)
+        val in : sodium.StreamSink[Option[Note]]=new StreamSink[Option[Note]]()
+        val titleS: STextArea =STextArea(Some(r.entityValue))
+        val cellOut: Cell[Option[Note]] =titleS.streamOut.hold(None)
+
+        in.send(Some(r.entityValue))
         val button=SButton()
-        button.sClickedSink.snapshot(titleS.cell).listen(println)
+
+        (titleS.streamOut).listen(println)
+        button.sClickedSink.snapshot(cellOut).listen(println)
+        // todo-now create here a call to update the title of the note on the server side
 
         <.div(
           titleS.component(),
           button.getVDOM()
+
         )
 
       } else
