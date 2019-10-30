@@ -6,11 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SButton.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/STextArea.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -434,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00412" summary="continuing working on login functionality&#10;&#10;&#10;login now &quot;works, partially&quot;, but still needs a &#10;bit of improvement, but, say 75% of the work for the&#10;login functionality is now complete &#10;(the &quot;log out&quot; functionality will be implemented by&#10;simply &quot;closing the window&quot; - for now)">
-      <created>1571508949589</created>
-      <option name="number" value="00412" />
-      <option name="presentableId" value="LOCAL-00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1571508949589</updated>
-    </task>
     <task id="LOCAL-00413" summary="Login functionality &quot;works&quot;, it could be improved, &#10;but at the moment it is fine for prototyping / &#10;&quot;design space exploration&quot; purposes.">
       <created>1571513332052</created>
       <option name="number" value="00413" />
@@ -777,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572395394213</updated>
     </task>
-    <option name="localTasksCounter" value="461" />
+    <task id="LOCAL-00461" summary="Alice note editing implementation is in progress using Sodium.">
+      <created>1572412776014</created>
+      <option name="number" value="00461" />
+      <option name="presentableId" value="LOCAL-00461" />
+      <option name="project" value="LOCAL" />
+      <updated>1572412776015</updated>
+    </task>
+    <option name="localTasksCounter" value="462" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -824,7 +820,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="akka-http-testkit tests pass for Get user's notes request." />
     <MESSAGE value="Factoring out potentially common code from static root pages." />
     <MESSAGE value="For User List Component the factoring out has worked.&#10;&#10;The same should be done now for User Editor Component.&#10;&#10;It broke. Otherwise the code compiles and runs but the&#10;User Editor Component needs to be updated to work with the (a)&#10;new Base Component." />
     <MESSAGE value="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now." />
@@ -849,6 +844,7 @@
     <MESSAGE value="intermezzo commit" />
     <MESSAGE value="Note Editor in progress." />
     <MESSAGE value="Sodium example works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sodium example works." />
+    <MESSAGE value="Alice note editing implementation is in progress using Sodium." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alice note editing implementation is in progress using Sodium." />
   </component>
 </project>
