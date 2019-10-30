@@ -1,14 +1,11 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  ReRenderer
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, ReRenderer}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.components.MainPage
 import sodium.{Cell, StreamSink}
-import japgolly.scalajs.react._
+import japgolly.scalajs.react.{CtorType, _}
+import japgolly.scalajs.react.component.ScalaFn.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import javax.swing.event.DocumentEvent.EventType
@@ -95,7 +92,7 @@ object SodiumWidgets {
   case class SodiumButtom() {
     val sClickedSink = new StreamSink[Unit]
 
-    val getVDOM = ScalaFnComponent[Unit] { props: Unit =>
+    val getVDOM: Component[Unit, CtorType.Nullary] = ScalaFnComponent[Unit] { props: Unit =>
       <.div(
         <.button("String", ^.onClick --> Callback({
           println("I was pushed")
@@ -105,6 +102,9 @@ object SodiumWidgets {
     }
 
   }
+
+
+
   println("The button was created")
 
   // todo later - make a sodium button out of this

@@ -4,6 +4,7 @@ import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
+import app.client.ui.components.sodium.{SButton, STextArea}
 import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
@@ -84,7 +85,20 @@ object NoteEditorComp {
 
       val e: Option[EntityWithRef[Note]] =VDOM.getEntity(x.cache,x.props.noteID)
 
-      e.toString
+      if(e.isDefined){
+        val r: EntityWithRef[Note] =e.get;
+        val title=r.entityValue.title
+        val titleS=STextArea(title)
+        val button=SButton()
+        button.sClickedSink.snapshot(titleS.cell).listen(println)
+
+        <.div(
+          titleS.component(),
+          button.getVDOM()
+        )
+
+      } else
+      <.div("Loading...")
 
     }
 
