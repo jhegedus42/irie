@@ -6,8 +6,9 @@ import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
-import app.shared.comm.{PostRequest, WriteRequest}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, UpdateReq}
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
+import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
 import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder}
@@ -27,7 +28,7 @@ trait WriteRequestHandlerTCImpl[
   RT  <: WriteRequest,
   Req <: PostRequest[RT]]
     extends WriteRequestHandlerTC[RT, Req] {
-  self: ReadCacheInvalidator[RT, Req] =>
+  self: WriteCacheInvalidator[RT, Req] =>
 
   type WR = PostRequest[RT]
 
@@ -101,53 +102,59 @@ trait WriteRequestHandlerTCImpl[
 
 object WriteRequestHandlerTCImpl {
 
-  trait UpdateReqUserCacheInvalidator
-      extends ReadCacheInvalidator[WriteRequest, UpdateReq[User]] {
-    self: WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]] =>
-    override def invalidateReadCache(): Unit = {
+  def getImpl[V<:EntityType[V]](
+                               implicit rc:ReadCache[ReadRequest,GetEntityReq[V]]
+                               ) = {
+    trait UpdateReqUserCacheInvalidator
+        extends WriteCacheInvalidator[WriteRequest, UpdateReq[V]] {
+      self: WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[
+       V
+      ]] =>
+      override def invalidateReadCache(): Unit = {
 
+        val s: WriteHandlerState[UpdateReq[V]] =
+          self.requestHandlerState
 
-      val s: WriteHandlerState[UpdateReq[User]] = self.requestHandlerState
+        s.getPar.foreach(par => {
 
-      s.getPar.foreach(par => {
+          val r: RefToEntityWithVersion[V] =
+            par.currentEntity.toRef
 
-        val r: RefToEntityWithVersion[User] =
-          par.currentEntity.toRef
+          val r1 = RefToEntityByID[V](r.entityIdentity)
 
-        val r1 = RefToEntityByID[User](r.entityIdentity)
+          invalidateEntry(r1)
+        })
 
-        ReadCache.getLatestUserCache.invalidateEntry(r1)
-      })
-
+      }
     }
+    val userUpdater
+    : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+      with UpdateReqUserCacheInvalidator =
+      new WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
+        with UpdateReqUserCacheInvalidator
+    userUpdater
   }
 
   // this is a TC instance
 
-
-  implicit val userUpdater
-    : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
-      with UpdateReqUserCacheInvalidator =
-    new WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
-    with UpdateReqUserCacheInvalidator
 
   // todo-now CONTINUE HERE --- use Sodium for cache invalidation
 
   object CreateEntityReq {
 
     trait ReadCacheInvalidatorForCreateEntityRequest
-        extends ReadCacheInvalidator[WriteRequest, CreateEntityReq[User]] {
+        extends WriteCacheInvalidator[WriteRequest, CreateEntityReq[
+          User
+        ]] {
       override def invalidateReadCache(): Unit = {
         getAllUsersReqCache.clearCache()
       }
     }
 
-
     val createUserEntityReqHandler =
-      new WriteRequestHandlerTCImpl[WriteRequest, CreateEntityReq[User]] with
-      ReadCacheInvalidatorForCreateEntityRequest
+      new WriteRequestHandlerTCImpl[WriteRequest, CreateEntityReq[
+        User
+      ]] with ReadCacheInvalidatorForCreateEntityRequest
   }
-
-
 
 }

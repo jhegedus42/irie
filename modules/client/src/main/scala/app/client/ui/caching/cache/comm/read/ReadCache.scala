@@ -163,6 +163,9 @@ private[caching] class ReadCacheImpl[
 
 object ReadCache {
 
+
+
+
   implicit val getLatestUserCache =
     new ReadCacheImpl[ReadRequest, GetLatestEntityByIDReq[User]]() {
 

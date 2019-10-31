@@ -8,7 +8,7 @@ import scala.reflect.ClassTag
 
 trait WriteRequestHandlerTC[
   RT  <: WriteRequest,
-  Req <: PostRequest[RT]] { self: ReadCacheInvalidator[RT, Req] =>
+  Req <: PostRequest[RT]] { self: WriteCacheInvalidator[RT, Req] =>
 
   val rci=self
 
