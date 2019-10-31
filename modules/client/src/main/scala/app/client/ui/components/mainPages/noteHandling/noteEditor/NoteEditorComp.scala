@@ -49,8 +49,6 @@ trait EntityCRUD {
     ct:          ClassTag[GetEntityReq[V]],
     ct2:         ClassTag[GetEntityReq[V]#PayLoadT]
   ): Option[EntityWithRef[V]] = {
-    // CONTINUE HERE
-    // add update text / title methods
     val refToEntityWithVersion: RefToEntityWithVersion[V] =
       RefToEntityWithVersion.fromEntityIdentity(entityIdentity)
 
