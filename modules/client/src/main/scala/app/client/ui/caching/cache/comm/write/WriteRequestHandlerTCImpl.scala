@@ -124,11 +124,14 @@ object WriteRequestHandlerTCImpl {
 
   // this is a TC instance
 
+
   implicit val userUpdater
     : WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
       with UpdateReqUserCacheInvalidator =
     new WriteRequestHandlerTCImpl[WriteRequest, UpdateReq[User]]
     with UpdateReqUserCacheInvalidator
+
+  // todo-now CONTINUE HERE --- use Sodium for cache invalidation
 
   object CreateEntityReq {
 
@@ -139,9 +142,12 @@ object WriteRequestHandlerTCImpl {
       }
     }
 
+
     val createUserEntityReqHandler =
       new WriteRequestHandlerTCImpl[WriteRequest, CreateEntityReq[User]] with
       ReadCacheInvalidatorForCreateEntityRequest
   }
+
+
 
 }

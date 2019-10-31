@@ -2,10 +2,23 @@ package app.client.ui.components.mainPages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.sodium.{SButton, STextArea}
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
+import app.client.ui.components.sodium.{
+  SButton,
+  STextArea,
+  SodiumWidgeSaveEntityToServer
+}
+import app.client.ui.components.{
+  MainPage,
+  MainPageInjectedWithCacheAndController,
+  StaticTemplatePage
+}
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetEntityReq
 import app.shared.entity.EntityWithRef
@@ -19,6 +32,10 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
 import org.scalajs.dom.Node
 import org.scalajs.dom.html.Anchor
+import io.circe.generic.auto._
+import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
 
 import scala.reflect.ClassTag
 
@@ -36,8 +53,7 @@ trait EntityCRUD {
 
   def getEntity(
     c:              Cache,
-    entityIdentity: EntityIdentity[V],
-
+    entityIdentity: EntityIdentity[V]
   )(
     implicit rc: ReadCache[ReadRequest, GetEntityReq[V]],
     decoder:     Decoder[GetEntityReq[V]#ResT],
@@ -61,10 +77,7 @@ trait EntityCRUD {
     r.toOption.flatMap(x => x.optionEntity)
   }
 
-
 }
-
-
 
 object NoteEditorComp {
 
@@ -77,37 +90,43 @@ object NoteEditorComp {
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
-    object VDOM extends EntityCRUD{
+    object VDOM extends EntityCRUD {
       override type V = Note
     }
 
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
 
-      val e: Option[EntityWithRef[Note]] =VDOM.getEntity(x.cache,x.props.noteID)
+      val e: Option[EntityWithRef[Note]] =
+        VDOM.getEntity(x.cache, x.props.noteID)
 
-
-     import sodium._
-      if(e.isDefined){
-        val r: EntityWithRef[Note] =e.get;
-        val in : sodium.StreamSink[Option[Note]]=new StreamSink[Option[Note]]()
-        val titleS: STextArea =STextArea(Some(r.entityValue))
-        val cellOut: Cell[Option[Note]] =titleS.streamOut.hold(None)
+      import sodium._
+      if (e.isDefined) {
+        val r: EntityWithRef[Note] = e.get;
+        val in: sodium.StreamSink[Option[Note]] =
+          new StreamSink[Option[Note]]()
+        val titleS:  STextArea          = STextArea(Some(r.entityValue))
+        val cellOut: Cell[Option[Note]] = titleS.streamOut.hold(None)
 
         in.send(Some(r.entityValue))
-        val button=SButton()
+        val button = SButton()
 
-        (titleS.streamOut).listen(println)
-        button.sClickedSink.snapshot(cellOut).listen(println)
+        import io.circe.generic.auto._
+//
+//        (titleS.streamOut).listen(println)
+//        val snapshot: Stream[Option[Note]] =
+          button.sClickedSink.snapshot(cellOut)
+        val stream1 = ???
+        val saver =
+          SodiumWidgeSaveEntityToServer[Note](stream1, x.cache)
         // todo-now CONTINUE HERE
 
         <.div(
           titleS.component(),
           button.getVDOM()
-
         )
 
       } else
-      <.div("Loading...")
+        <.div("Loading...")
 
     }
 
