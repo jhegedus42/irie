@@ -22,7 +22,7 @@ case class SodiumWidgeSaveEntityToServer[V <: EntityType[V]](
   val cache: Cache
 )(
   implicit
-  c:       WriteRequestHandlerTC[WriteRequest, UpdateReq[V]],
+  c:       WriteRequestHandlerTC[UpdateReq[V]],
   decoder: Decoder[UpdateReq[V]#ResT],
   encoder: Encoder[UpdateReq[V]#ParT],
   ct:      ClassTag[UpdateReq[V]],
@@ -31,7 +31,7 @@ case class SodiumWidgeSaveEntityToServer[V <: EntityType[V]](
   def saveEntity(
     par: UpdateReqPar[V]
   ): WriteRequestHandlerStates.WriteHandlerState[UpdateReq[V]] =
-    cache.writeToServer[WriteRequest, UpdateReq[V]](par)
+    cache.writeToServer[ UpdateReq[V]](par)
 
   stream.listen((x: UpdateReqPar[V]) => saveEntity(x))
 

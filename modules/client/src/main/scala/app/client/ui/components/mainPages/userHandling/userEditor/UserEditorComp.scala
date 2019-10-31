@@ -163,10 +163,10 @@ object UserEditorComp {
     ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
 
-        implicit val i: WriteRequestHandlerTCImpl[WriteRequest,
-                                                  UpdateReq[User]]
-          with WriteRequestHandlerTCImpl.UpdateReqUserCacheInvalidator =
-          WriteRequestHandlerTCImpl.userUpdater
+        implicit val i: WriteRequestHandlerTCImpl[
+                                                  UpdateReq[User]] = ??? // todo-now continue-here
+//          with WriteRequestHandlerTCImpl.UpdateReqUserCacheInvalidator =
+//          WriteRequestHandlerTCImpl.userUpdater
 
         import io.circe.generic.auto._
 
@@ -176,7 +176,7 @@ object UserEditorComp {
         val ur1 =
           UpdateReq.UpdateReqPar[User](currentEntityPar, newEntityVal)
 
-        cache.writeToServer[WriteRequest, UpdateReq[User]](ur1)
+        cache.writeToServer[ UpdateReq[User]](ur1)
 
       })
     }

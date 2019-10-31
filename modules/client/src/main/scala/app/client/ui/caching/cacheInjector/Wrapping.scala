@@ -71,22 +71,22 @@ case class CacheAndPropsAndRouterCtrl[Props](
 
 class Cache() {
 
-  def readFromServer[RT <: ReadRequest, Req <: PostRequest[RT]](
+  def readFromServer[Req <: PostRequest[ReadRequest]](
     par: Req#ParT
   )(
     implicit
-    c:       ReadCache[RT, Req],
+    c:       ReadCache[Req],
     decoder: Decoder[Req#ResT],
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[RT, Req] = c.getRequestResult(par)
+  ): ReadCacheEntryState[ Req] = c.getRequestResult(par)
 
-  def writeToServer[RT <: WriteRequest, Req <: PostRequest[RT]](
+  def writeToServer[Req <: PostRequest[WriteRequest]](
     par: Req#ParT
   )(
     implicit
-    c:       WriteRequestHandlerTC[RT, Req],
+    c:       WriteRequestHandlerTC[Req],
     decoder: Decoder[Req#ResT],
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],

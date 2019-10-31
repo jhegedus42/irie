@@ -7,16 +7,18 @@ import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequ
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
 import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, SumIntRoute}
-import app.shared.comm.{PostRequest, ReadRequest}
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder}
+import sodium.StreamSink
+import sodium._
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 import scala.util.Try
 
-trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
+trait ReadCache[Req <: PostRequest[ReadRequest]] {
   private[caching] def getRequestResult(
     par: Req#ParT
   )(
@@ -25,34 +27,48 @@ trait ReadCache[RT <: ReadRequest, Req <: PostRequest[RT]] {
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[RT, Req]
+  ): ReadCacheEntryState[Req]
 
-  private[caching] def setEntryToStale(
-    par: Req#ParT
-  )(
-    implicit
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
-  ): Unit
+//  private[caching] def setEntryToStale(
+//    par: Req#ParT
+//  )(
+//    implicit
+//    decoder: Decoder[Req#ResT],
+//    encoder: Encoder[Req#ParT],
+//    ct:      ClassTag[Req],
+//    ct2:     ClassTag[Req#PayLoadT]
+//  ): Unit
 
-  def clearCache() : Unit
+  def clearCache(): Unit
 }
 
 private[caching] class ReadCacheImpl[
-  RT  <: ReadRequest,
-  Req <: PostRequest[RT]]
-    extends ReadCache[RT, Req] {
+  Req <: PostRequest[ReadRequest]](val invalidator: Option[Stream[Req#ParT]])
+    extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
   protected[this] var map
-    : Map[Req#ParT, ReadCacheEntryState[RT, Req]] =
+    : Map[Req#ParT, ReadCacheEntryState[Req]] =
     Map()
 
-  override  def clearCache() : Unit = {map= Map()}
+  override def clearCache(): Unit = { map = Map() }
+
+
+//  val clearCacheStream = new StreamSink[Unit]()
+
+  if(invalidator.isDefined) invalidator.get.listen(setElementToStale)
+
+
+  private def setElementToStale(p: Req#ParT): Unit = {
+
+    val oldVal: Option[ReadCacheEntryState[ Req]] = map.get(p)
+    if (oldVal.isDefined) {
+      val newMap = map + (p -> oldVal.get.toStale.get)
+    }
+
+  }
 
   def getInFlight(
     param: Req#ParT
@@ -62,9 +78,9 @@ private[caching] class ReadCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): InFlight[RT, Req] = {
+  ): InFlight[ Req] = {
 
-    val loading = InFlight[RT, Req](param)
+    val loading = InFlight[ Req](param)
     this.map = map + (param -> loading)
 
     sendPostAjaxRequest[Req](AjaxCallPar(param))
@@ -95,12 +111,12 @@ private[caching] class ReadCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[RT, Req] = {
+  ): ReadCacheEntryState[ Req] = {
 
     if (!map.contains(par)) {
       getInFlight(par)
     } else {
-      val res: ReadCacheEntryState[RT, Req] = map(par)
+      val res: ReadCacheEntryState[ Req] = map(par)
 
       val res2 = res match {
         case InFlight(param)                      => res
@@ -116,122 +132,76 @@ private[caching] class ReadCacheImpl[
     }
   }
 
-  override private[caching] def setEntryToStale(
-    par: Req#ParT
-  )(
-    implicit decoder: Decoder[Req#ResT],
-    encoder:          Encoder[Req#ParT],
-    ct:               ClassTag[Req],
-    ct2:              ClassTag[Req#PayLoadT]
-  ): Unit = {
 
-    println(s"map: $map")
-
-    println(s"map's keys:\n")
-
-    map.keys.foreach(println)
-
-    println("8F3C7E78-00BB-4B7E-A503-FAB20E1BA3C6 - " +
-      "app.client.ui.caching.cache.comm.read.ReadCacheImpl.setEntryToStale " +
-      "was called.")
-
-    println(s"par: $par")
-
-    val oldVal: ReadCacheEntryState[RT, Req] = map(par)
-
-    oldVal match {
-      case InFlight(param)                      =>
-      case Returned(param, result)              => {
-
-        val newMap = map + (par -> oldVal.toStale.get)
-
-        map = newMap
-
-
-        ReRenderer.triggerReRender()
-
-      }
-      case Stale(param, result)                 =>
-      case ReadCacheEntryStates.TimedOut(param) =>
-      case ReadCacheEntryStates
-            .ReturnedWithError(param, descriptionOfError) =>
-    }
-
-  }
-
-}
-
-object ReadCache {
-
-
-
-
-  implicit val getLatestUserCache =
-    new ReadCacheImpl[ReadRequest, GetLatestEntityByIDReq[User]]() {
-
-      def invalidateEntry(par: RefToEntityByID[User]): Unit = {
-        println(
-          "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
-            "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
-        )
-        val p=GetLatestEntityByIDReq.Par(par)
-        setEntryToStale(p)
-        getAllUsersReqCache.clearCache()
-      }
-
-//      def invalidateEntry_old(par: RefToEntityWithVersion[User]): Unit = {
-//        println(
-//          "9CF6BB1D-469A-4764-9521-7A8D335A85CB - invalidateEntry() was called in " +
-//            "app.client.ui.caching.cache.comm.read.ReadCache.getLatestUserCache"
-//        )
+//  override private[caching] def setEntryToStale(
+//    par: Req#ParT
+//  )(
+//    implicit decoder: Decoder[Req#ResT],
+//    encoder:          Encoder[Req#ParT],
+//    ct:               ClassTag[Req],
+//    ct2:              ClassTag[Req#PayLoadT]
+//  ): Unit = {
 //
-//        val id = par.entityIdentity
+//    println(s"map: $map")
 //
-//        val keys_ = map.keys
+//    println(s"map's keys:\n")
 //
-//        val key = keys_.filter(
-//          p => p.refToEntityWithVersion.entityIdentity == id
-//        )
-//        val oldVal = map(key.head)
+//    map.keys.foreach(println)
 //
-//        val newMap = map + (key.head -> oldVal.toStale.get)
+//    println(
+//      "8F3C7E78-00BB-4B7E-A503-FAB20E1BA3C6 - " +
+//        "app.client.ui.caching.cache.comm.read.ReadCacheImpl.setEntryToStale " +
+//        "was called."
+//    )
+//
+//    println(s"par: $par")
+//
+//    val oldVal: ReadCacheEntryState[RT, Req] = map(par)
+//
+//    oldVal match {
+//      case InFlight(param) =>
+//      case Returned(param, result) => {
+//
+//        val newMap = map + (par -> oldVal.toStale.get)
 //
 //        map = newMap
 //
 //        ReRenderer.triggerReRender()
 //
 //      }
-    }
+//      case Stale(param, result)                 =>
+//      case ReadCacheEntryStates.TimedOut(param) =>
+//      case ReadCacheEntryStates
+//            .ReturnedWithError(param, descriptionOfError) =>
+//    }
+//
+//  }
+
+}
+
+//trait ReadCacheInvalidator[Req <: PostRequest[WriteRequest]] {}
+
+object ReadCache {
+
+  // todo-now CONTINUE HERE
+  // put invalidators here
+
+  implicit val getLatestUserCache =
+    new ReadCacheImpl[ GetLatestEntityByIDReq[User]](None)
 
   implicit val sumIntPostRequestResultCache =
-    new ReadCacheImpl[ReadRequest, SumIntRoute]()
+    new ReadCacheImpl[ SumIntRoute](None)
 
   implicit val getUserCache =
-    new ReadCacheImpl[ReadRequest, GetEntityReq[User]]() {
-
-//      def invalidateEntry(par: RefToEntityWithVersion[User]): Unit = {
-//        val id    = par.entityIdentity
-//        val keys_ = map.keys
-//        val key = keys_.filter(
-//          p => p.refToEntityWithVersion.entityIdentity == id
-//        )
-//        val oldVal = map(key.head)
-//        val newMap = map + (key.head -> oldVal.toStale.get)
-//        ReRenderer.triggerReRender()
-//      }
-
-    }
+    new ReadCacheImpl[ GetEntityReq[User]](None) {}
 
   implicit val getAllUsersReqCache =
-    new ReadCacheImpl[ReadRequest, GetAllUsersReq]()
-
+    new ReadCacheImpl[ GetAllUsersReq](None)
 
   implicit val getAllNotesCache =
-    new ReadCacheImpl[ReadRequest,GetUsersNotesReq]()
-
+    new ReadCacheImpl[ GetUsersNotesReq](None)
 
   implicit val getNoteCache =
-    new ReadCacheImpl[ReadRequest,GetEntityReq[Note]]()
-
+    new ReadCacheImpl[ GetEntityReq[Note]](None)
 
 }

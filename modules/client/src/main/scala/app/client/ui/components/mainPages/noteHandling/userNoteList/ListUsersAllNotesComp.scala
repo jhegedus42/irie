@@ -57,10 +57,9 @@ trait ListUsersAllNotesComp
         val par: Par = Par(r2)
 
         val res: ReadCacheEntryStates.ReadCacheEntryState[
-          ReadRequest,
           GetUsersNotesReq
         ] =
-          c.cache.readFromServer[ReadRequest, GetUsersNotesReq](par)
+          c.cache.readFromServer[GetUsersNotesReq](par)
 
         val helper = ListRenderHelper[Note, PropsT](c)
 

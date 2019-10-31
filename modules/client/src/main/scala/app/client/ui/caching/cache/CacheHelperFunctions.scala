@@ -22,7 +22,6 @@ object CacheHelperFunctions {
     cache:    Cache
   )(
     implicit postRequestResultCache: ReadCache[
-      ReadRequest,
       GetLatestEntityByIDReq[EV]
     ],
     decoder: Decoder[GetLatestEntityByIDReq[EV]#ResT],
@@ -35,9 +34,8 @@ object CacheHelperFunctions {
       GetLatestEntityByIDReq.Par[EV](RefToEntityByID(identity))
 
     val res: ReadCacheEntryStates.ReadCacheEntryState[
-      ReadRequest,
       GetLatestEntityByIDReq[EV]
-    ] = cache.readFromServer[ReadRequest, GetLatestEntityByIDReq[EV]]( par )
+    ] = cache.readFromServer[GetLatestEntityByIDReq[EV]]( par )
 
     val res2: Option[GetLatestEntityByIDReq.Res[EV]] =
       res.toOptionEither.flatMap(

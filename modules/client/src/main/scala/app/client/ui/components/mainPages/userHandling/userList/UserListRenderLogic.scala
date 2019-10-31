@@ -71,25 +71,23 @@ case class UserListRenderLogic[Props](
       val params: CreateEntityReq.CreateEntityReqPar[User] =
         CreateEntityReq.CreateEntityReqPar(entity)
 
-      implicit val writeReqHandler =
-        WriteRequestHandlerTCImpl.CreateEntityReq.createUserEntityReqHandler
+      implicit val writeReqHandler : WriteRequestHandlerTCImpl[CreateEntityReq[User]] = ???
 
       println(
         s"we gonna send the params for creating a user: $params"
       )
 
       cacheAndPropsAndRouterCtrl.cache
-        .writeToServer[WriteRequest, CreateEntityReq[User]](params)
+        .writeToServer[CreateEntityReq[User]](params)
 
     })
 
   def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
 
     def requestResultForRefToAllUsers
-      : ReadCacheEntryStates.ReadCacheEntryState[ReadRequest,
-                                                 GetAllUsersReq] =
+      : ReadCacheEntryStates.ReadCacheEntryState[ GetAllUsersReq] =
       cacheAndPropsAndRouterCtrl.cache
-        .readFromServer[ReadRequest, GetAllUsersReq](
+        .readFromServer[GetAllUsersReq](
           GetAllUsersReq.Par(AdminPassword("titok"))
         )
 

@@ -2,25 +2,13 @@ package app.client.ui.components.mainPages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.sodium.{
-  SButton,
-  STextArea,
-  SodiumWidgeSaveEntityToServer
-}
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController,
-  StaticTemplatePage
-}
-import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.GetEntityReq
+import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController, StaticTemplatePage}
+import app.shared.comm.{ReadRequest, WriteRequest}
+import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
@@ -55,7 +43,7 @@ trait EntityCRUD {
     c:              Cache,
     entityIdentity: EntityIdentity[V]
   )(
-    implicit rc: ReadCache[ReadRequest, GetEntityReq[V]],
+    implicit rc: ReadCache[GetEntityReq[V]],
     decoder:     Decoder[GetEntityReq[V]#ResT],
     encoder:     Encoder[GetEntityReq[V]#ParT],
     ct:          ClassTag[GetEntityReq[V]],
@@ -70,9 +58,8 @@ trait EntityCRUD {
       GetEntityReq.Par(refToEntityWithVersion)
 
     val r: ReadCacheEntryStates.ReadCacheEntryState[
-      ReadRequest,
       GetEntityReq[V]
-    ] = c.readFromServer[ReadRequest, GetEntityReq[V]](p)
+    ] = c.readFromServer[ GetEntityReq[V]](p)
 
     r.toOption.flatMap(x => x.optionEntity)
   }
@@ -115,10 +102,12 @@ object NoteEditorComp {
 //        (titleS.streamOut).listen(println)
 //        val snapshot: Stream[Option[Note]] =
           button.sClickedSink.snapshot(cellOut)
-        val stream1 = ???
+
+        val stream1 : Stream[UpdateReq.UpdateReqPar[Note]] = ???
+        //todo-now CONTINUE HERE
+
         val saver =
           SodiumWidgeSaveEntityToServer[Note](stream1, x.cache)
-        // todo-now CONTINUE HERE
 
         <.div(
           titleS.component(),

@@ -4,8 +4,7 @@ import app.shared.comm.{PostRequest, PostRequestType, ReadRequest}
 
 object ReadCacheEntryStates {
   sealed trait ReadCacheEntryState[
-    RT  <: ReadRequest,
-    Req <: PostRequest[RT]] {
+    Req <: PostRequest[ReadRequest]] {
 
     def isLoading: Boolean =
       this match {
@@ -36,7 +35,7 @@ object ReadCacheEntryStates {
         case Stale(_, res)    => Some(Left(res))
       }
 
-    def toStale: Option[Stale[RT, Req]] = this match {
+    def toStale: Option[Stale[Req]] = this match {
       case InFlight(param)                              => None
       case Returned(param, result)                      => Some(Stale(param, result))
       case Stale(param, result)                         => None
@@ -54,26 +53,25 @@ object ReadCacheEntryStates {
     *
     *
     * @param param
-    * @tparam RT
     * @tparam Req
     */
-  case class InFlight[RT <: ReadRequest, Req <: PostRequest[RT]](
+  case class InFlight[Req <: PostRequest[ReadRequest]](
     param: Req#ParT)
-      extends ReadCacheEntryState[RT, Req]
+      extends ReadCacheEntryState[Req]
 
-  case class Returned[RT <: ReadRequest, Req <: PostRequest[RT]](
+  case class Returned[Req <: PostRequest[ReadRequest]](
     param:  Req#ParT,
     result: Req#ResT)
-      extends ReadCacheEntryState[RT, Req]
+      extends ReadCacheEntryState[Req]
 
-  case class Stale[RT <: ReadRequest, Req <: PostRequest[RT]](
+  case class Stale[Req <: PostRequest[ReadRequest]](
     param:  Req#ParT,
     result: Req#ResT)
-      extends ReadCacheEntryState[RT, Req]
+      extends ReadCacheEntryState[Req]
 
-  case class TimedOut[RT <: ReadRequest, Req <: PostRequest[RT]](
+  case class TimedOut[Req <: PostRequest[ReadRequest]](
     param: Req#ParT)
-      extends ReadCacheEntryState[RT, Req]
+      extends ReadCacheEntryState[Req]
 
   /**
     *
@@ -91,14 +89,12 @@ object ReadCacheEntryStates {
     *
     * @param param
     * @param descriptionOfError
-    * @tparam RT
     * @tparam Req
     */
   case class ReturnedWithError[
-    RT  <: ReadRequest,
-    Req <: PostRequest[RT]
+    Req <: PostRequest[ReadRequest]
   ](param:              Req#ParT,
     descriptionOfError: String)
-      extends ReadCacheEntryState[RT, Req]
+      extends ReadCacheEntryState[Req]
 
 }

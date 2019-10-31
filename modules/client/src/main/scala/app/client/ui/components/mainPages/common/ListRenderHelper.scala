@@ -21,7 +21,7 @@ import scala.reflect.ClassTag
 case class ListRenderHelper[T <: EntityType[T], Props](
   cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props]
 )(
-  implicit c: ReadCache[ReadRequest, GetEntityReq[T]],
+  implicit c: ReadCache[GetEntityReq[T]],
   d:          Decoder[GetEntityReq[T]#ResT],
   e:          Encoder[GetEntityReq[T]#ParT],
   ct:         ClassTag[GetEntityReq[T]#PayLoadT]) {
@@ -32,7 +32,7 @@ case class ListRenderHelper[T <: EntityType[T], Props](
     val par_ = GetEntityReq.Par(r)
     val res_ : Option[GetEntityReq.Res[T]] =
       cacheAndPropsAndRouterCtrl.cache
-        .readFromServer[ReadRequest, GetEntityReq[T]](par_)
+        .readFromServer[GetEntityReq[T]](par_)
         .toOption
     val emptyResult: GetEntityReq.Res[T] =
       GetEntityReq.Res[T](None)

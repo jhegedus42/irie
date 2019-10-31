@@ -7,7 +7,6 @@ trait ReadRequest extends PostRequestType
 trait WriteRequest extends PostRequestType
 
 abstract class PostRequest[+RT <: PostRequestType] {
-  self : RT =>
 
 
   // this is covariant, otherwise the Write Request Handler
