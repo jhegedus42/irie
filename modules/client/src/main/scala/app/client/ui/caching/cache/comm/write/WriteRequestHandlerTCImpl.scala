@@ -1,31 +1,17 @@
 package app.client.ui.caching.cache.comm.write
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  sendPostAjaxRequest
-}
-import WriteRequestHandlerStates.{
-  NotCalledYet,
-  RequestError,
-  RequestSuccess,
-  WriteHandlerState
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
+import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{
-  CreateEntityReq,
-  GetEntityReq,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, UpdateReq}
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -83,7 +69,7 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
 
           requestHandlerState = RequestSuccess[Req](par, value.res)
 
-          writeAjaxReturnedStream.streamSink.send((par,value.res))
+          writeAjaxReturnedStream.send(Payload[Req](par,value.res))
 
         }
 

@@ -12,8 +12,12 @@ import app.client.ui.caching.cache.comm.AJAXCalls.{
   AjaxCallPar,
   sendPostAjaxRequest
 }
-import app.client.ui.caching.cache.comm.read.invalidation.ReadCacheInvalidator
-import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream
+import app.client.ui.caching.cache.comm.read.invalidation.ReadCacheInvalidatorStream
+import app.client.ui.caching.cache.comm.write.{
+  WriteAjaxReturnedStream,
+  WriteRequestHandlerTC
+}
+import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
 import app.shared.comm.postRequests.{
@@ -67,7 +71,7 @@ trait ReadCache[Req <: PostRequest[ReadRequest]] {
 }
 
 private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
-  val invalidator: Option[ReadCacheInvalidator[Req]])
+  val invalidator: Option[ReadCacheInvalidatorStream[Req]])
     extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -81,7 +85,7 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 //  val clearCacheStream = new StreamSink[Unit]()
 
   if (invalidator.isDefined) {
-    val in: Stream[Req#ParT] = invalidator.get.getStream
+    val in: Stream[Req#ParT] = invalidator.get.stream
     in.listen(x => setElementToStale(x))
   }
 
@@ -205,35 +209,23 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 
 object ReadCache {
 
-  // todo-now CONTINUE HERE
-  // put invalidators here
 
   import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC._
 
-  object GetLatestUserCacheInvalidator {
-    val s1: WriteAjaxReturnedStream[UpdateReq[User]] = ???
-
-    val inv1: ReadCacheInvalidator[GetLatestEntityByIDReq[User]] = ???
-
-    def g(
-      writeAjaxReturnedStream: WriteAjaxReturnedStream[
-        UpdateReq[User]
-      ]
-    ): ReadCacheInvalidator[GetLatestEntityByIDReq[User]] = {
-
-      val s: Stream[
-        (UpdateReq.UpdateReqPar[User], UpdateReq.UpdateReqRes[User])
-      ] = writeAjaxReturnedStream.getStream
-
-      val si: StreamSink[GetLatestEntityByIDReq[User]#ParT] = ???
-
-      ???
-    }
-  }
+  def getInvalidator[
+    WriteReq <: PostRequest[WriteRequest],
+    ReadReq  <: PostRequest[ReadRequest]
+  ](ws: WriteAjaxReturnedStream[WriteReq],
+    f:  Payload[WriteReq] => ReadReq#ParT
+  ) =
+    Some(new ReadCacheInvalidatorStream[ReadReq](ws.getStream.map(f)))
 
   implicit val getLatestUserCache =
     new ReadCacheImpl[GetLatestEntityByIDReq[User]](
-      None
+      getInvalidator(
+        WriteRequestHandlerTC.userUpdater.writeAjaxReturnedStream,
+        ???  // todo-now continue-here
+      )
     )
 
   implicit val sumIntPostRequestResultCache =
