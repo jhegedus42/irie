@@ -1,15 +1,39 @@
 package app.client.ui.caching.cache.comm.read
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  InFlight,
+  ReadCacheEntryState,
+  Returned,
+  Stale
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
+import app.client.ui.caching.cache.comm.read.invalidation.ReadCacheInvalidator
+import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, SumIntRoute}
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  GetLatestEntityByIDReq,
+  GetUsersNotesReq,
+  SumIntRoute,
+  UpdateReq
+}
+import app.shared.comm.{
+  PostRequest,
+  ReadRequest,
+  WriteRequest,
+  postRequests
+}
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import io.circe.{Decoder, Encoder}
 import sodium.StreamSink
 import sodium._
@@ -42,28 +66,28 @@ trait ReadCache[Req <: PostRequest[ReadRequest]] {
   def clearCache(): Unit
 }
 
-private[caching] class ReadCacheImpl[
-  Req <: PostRequest[ReadRequest]](val invalidator: Option[Stream[Req#ParT]])
+private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
+  val invalidator: Option[ReadCacheInvalidator[Req]])
     extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  protected[this] var map
-    : Map[Req#ParT, ReadCacheEntryState[Req]] =
+  protected[this] var map: Map[Req#ParT, ReadCacheEntryState[Req]] =
     Map()
 
   override def clearCache(): Unit = { map = Map() }
 
-
 //  val clearCacheStream = new StreamSink[Unit]()
 
-  if(invalidator.isDefined) invalidator.get.listen(setElementToStale)
-
+  if (invalidator.isDefined) {
+    val in: Stream[Req#ParT] = invalidator.get.getStream
+    in.listen(x => setElementToStale(x))
+  }
 
   private def setElementToStale(p: Req#ParT): Unit = {
 
-    val oldVal: Option[ReadCacheEntryState[ Req]] = map.get(p)
+    val oldVal: Option[ReadCacheEntryState[Req]] = map.get(p)
     if (oldVal.isDefined) {
       val newMap = map + (p -> oldVal.get.toStale.get)
     }
@@ -78,9 +102,9 @@ private[caching] class ReadCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): InFlight[ Req] = {
+  ): InFlight[Req] = {
 
-    val loading = InFlight[ Req](param)
+    val loading = InFlight[Req](param)
     this.map = map + (param -> loading)
 
     sendPostAjaxRequest[Req](AjaxCallPar(param))
@@ -111,12 +135,12 @@ private[caching] class ReadCacheImpl[
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[ Req] = {
+  ): ReadCacheEntryState[Req] = {
 
     if (!map.contains(par)) {
       getInFlight(par)
     } else {
-      val res: ReadCacheEntryState[ Req] = map(par)
+      val res: ReadCacheEntryState[Req] = map(par)
 
       val res2 = res match {
         case InFlight(param)                      => res
@@ -131,8 +155,6 @@ private[caching] class ReadCacheImpl[
       res2
     }
   }
-
-
 //  override private[caching] def setEntryToStale(
 //    par: Req#ParT
 //  )(
@@ -186,22 +208,47 @@ object ReadCache {
   // todo-now CONTINUE HERE
   // put invalidators here
 
+  import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC._
+
+  object GetLatestUserCacheInvalidator {
+    val s1: WriteAjaxReturnedStream[UpdateReq[User]] = ???
+
+    val inv1: ReadCacheInvalidator[GetLatestEntityByIDReq[User]] = ???
+
+    def g(
+      writeAjaxReturnedStream: WriteAjaxReturnedStream[
+        UpdateReq[User]
+      ]
+    ): ReadCacheInvalidator[GetLatestEntityByIDReq[User]] = {
+
+      val s: Stream[
+        (UpdateReq.UpdateReqPar[User], UpdateReq.UpdateReqRes[User])
+      ] = writeAjaxReturnedStream.getStream
+
+      val si: StreamSink[GetLatestEntityByIDReq[User]#ParT] = ???
+
+      ???
+    }
+  }
+
   implicit val getLatestUserCache =
-    new ReadCacheImpl[ GetLatestEntityByIDReq[User]](None)
+    new ReadCacheImpl[GetLatestEntityByIDReq[User]](
+      None
+    )
 
   implicit val sumIntPostRequestResultCache =
-    new ReadCacheImpl[ SumIntRoute](None)
+    new ReadCacheImpl[SumIntRoute](None)
 
   implicit val getUserCache =
-    new ReadCacheImpl[ GetEntityReq[User]](None) {}
+    new ReadCacheImpl[GetEntityReq[User]](None) {}
 
   implicit val getAllUsersReqCache =
-    new ReadCacheImpl[ GetAllUsersReq](None)
+    new ReadCacheImpl[GetAllUsersReq](None)
 
   implicit val getAllNotesCache =
-    new ReadCacheImpl[ GetUsersNotesReq](None)
+    new ReadCacheImpl[GetUsersNotesReq](None)
 
   implicit val getNoteCache =
-    new ReadCacheImpl[ GetEntityReq[Note]](None)
+    new ReadCacheImpl[GetEntityReq[Note]](None)
 
 }

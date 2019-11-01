@@ -1,16 +1,31 @@
 package app.client.ui.caching.cache.comm.write
 
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
+import WriteRequestHandlerStates.{
+  NotCalledYet,
+  RequestError,
+  RequestSuccess,
+  WriteHandlerState
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, UpdateReq}
+import app.shared.comm.postRequests.{
+  CreateEntityReq,
+  GetEntityReq,
+  UpdateReq
+}
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -25,12 +40,8 @@ import sodium._
   * This should be singleton.
   *
   */
-trait WriteRequestHandlerTCImpl[
-//  RT  <: WriteRequest,
-  Req <: PostRequest[WriteRequest]]
+trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
     extends WriteRequestHandlerTC[Req] {
-
-//  type WR = PostRequest[RT]
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -39,12 +50,6 @@ trait WriteRequestHandlerTCImpl[
     : WriteRequestHandlerStates.WriteHandlerState[Req] =
     NotCalledYet[Req]()
 
-  val postRequestReturned: StreamSink[
-    Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
-  ] =
-    new StreamSink[
-      Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
-    ]()
 
   def getState = requestHandlerState
 
@@ -66,7 +71,7 @@ trait WriteRequestHandlerTCImpl[
     def ajaxReturnHandler(
       r: Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
     ): Unit = {
-      postRequestReturned.send(r)
+//      sPostRequestReturnedWithSuccess.send(r)
 
       r match {
         case err @ Failure(exception) =>
@@ -78,9 +83,8 @@ trait WriteRequestHandlerTCImpl[
 
           requestHandlerState = RequestSuccess[Req](par, value.res)
 
-//          rci.invalidateReadCache() // todo-now => replace this with something "better"
+          writeAjaxReturnedStream.streamSink.send((par,value.res))
 
-          ReRenderer.triggerReRender()
         }
 
       }
@@ -111,4 +115,3 @@ trait WriteRequestHandlerTCImpl[
   }
 
 }
-
