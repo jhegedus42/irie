@@ -7,9 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userEditor/UserEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -433,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00423" summary="GetUsersNotesReq is now in place.&#10;&#10;Logic + test needs to be implemented for it.">
-      <created>1571596530436</created>
-      <option name="number" value="00423" />
-      <option name="presentableId" value="LOCAL-00423" />
-      <option name="project" value="LOCAL" />
-      <updated>1571596530436</updated>
-    </task>
     <task id="LOCAL-00424" summary="Before refactoring - moving code from server to shared.">
       <created>1571673295282</created>
       <option name="number" value="00424" />
@@ -776,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572655989875</updated>
     </task>
-    <option name="localTasksCounter" value="472" />
+    <task id="LOCAL-00472" summary="Cache invalidation implementation is in progress.">
+      <created>1572658698383</created>
+      <option name="number" value="00472" />
+      <option name="presentableId" value="LOCAL-00472" />
+      <option name="project" value="LOCAL" />
+      <updated>1572658698383</updated>
+    </task>
+    <option name="localTasksCounter" value="473" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -823,7 +820,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="For User List Component the factoring out has worked.&#10;&#10;The same should be done now for User Editor Component.&#10;&#10;It broke. Otherwise the code compiles and runs but the&#10;User Editor Component needs to be updated to work with the (a)&#10;new Base Component." />
     <MESSAGE value="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now." />
     <MESSAGE value="All app works now with the new BaseComp." />
     <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
@@ -848,6 +844,7 @@
     <MESSAGE value="Sodium example works." />
     <MESSAGE value="Alice note editing implementation is in progress using Sodium." />
     <MESSAGE value="Alice note editing implementation is in progress using Sodium.&#10;&#10;Trying to sort out cache invalidation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alice note editing implementation is in progress using Sodium.&#10;&#10;Trying to sort out cache invalidation." />
+    <MESSAGE value="Cache invalidation implementation is in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cache invalidation implementation is in progress." />
   </component>
 </project>
