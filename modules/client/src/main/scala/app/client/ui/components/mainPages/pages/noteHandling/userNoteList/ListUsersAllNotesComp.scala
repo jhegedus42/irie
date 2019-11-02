@@ -2,7 +2,8 @@ package app.client.ui.components.mainPages.pages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import japgolly.scalajs.react.vdom.{TagOf, VdomElement, html_<^}
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
-import app.client.ui.components.{ListUsersAllNotesPage, StaticTemplatePage}
+import app.client.ui.components.mainPages.generator.StaticTemplateComp.StaticTemplatePage
+import app.client.ui.components.{ListUsersAllNotesPage }
 import app.client.ui.components.mainPages.helpers.ListRenderHelper
 import app.client.ui.components.mainPages.pages.login.LoginPageComp.State
 import app.client.ui.components.mainPages.pages.login.UserLoginStatus
@@ -71,11 +72,13 @@ trait ListUsersAllNotesComp
         def linkToEditorPage(
           id: EntityIdentity[Note]
         ): VdomTagOf[Anchor] = {
+
           val link = <.a(
             "edit",
-            ^.href := ctl.urlFor(StaticTemplatePage).value,
+            ^.href := ctl.urlFor( NoteEditorPage(id.uuid) ).value,
             ctl.setOnLinkClick(NoteEditorPage(id.uuid))
           )
+
           link
         }
 

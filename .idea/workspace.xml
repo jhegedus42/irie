@@ -7,12 +7,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/MainPages.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/StaticTemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/generator/StaticTemplateComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/TemplateComp.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/demos/ThieveryDemoComp.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/generator/StaticTemplateComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/generator/StaticTemplateComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -436,13 +436,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00425" summary="Code compiles - after moving some files into the shared space.">
-      <created>1571674596978</created>
-      <option name="number" value="00425" />
-      <option name="presentableId" value="LOCAL-00425" />
-      <option name="project" value="LOCAL" />
-      <updated>1571674596979</updated>
-    </task>
     <task id="LOCAL-00426" summary="Creating test data with notes.">
       <created>1571679746533</created>
       <option name="number" value="00426" />
@@ -779,7 +772,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572659341988</updated>
     </task>
-    <option name="localTasksCounter" value="474" />
+    <task id="LOCAL-00474" summary="refactoring pages">
+      <created>1572733212034</created>
+      <option name="number" value="00474" />
+      <option name="presentableId" value="LOCAL-00474" />
+      <option name="project" value="LOCAL" />
+      <updated>1572733212035</updated>
+    </task>
+    <option name="localTasksCounter" value="475" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -826,7 +826,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now." />
     <MESSAGE value="All app works now with the new BaseComp." />
     <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
     <MESSAGE value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
@@ -851,6 +850,7 @@
     <MESSAGE value="Alice note editing implementation is in progress using Sodium." />
     <MESSAGE value="Alice note editing implementation is in progress using Sodium.&#10;&#10;Trying to sort out cache invalidation." />
     <MESSAGE value="Cache invalidation implementation is in progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cache invalidation implementation is in progress." />
+    <MESSAGE value="refactoring pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring pages" />
   </component>
 </project>

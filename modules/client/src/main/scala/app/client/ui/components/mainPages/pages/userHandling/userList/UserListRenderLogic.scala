@@ -3,24 +3,12 @@ package app.client.ui.components.mainPages.pages.userHandling.userList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.generator.StaticTemplateComp.StaticTemplatePage
 import app.client.ui.components.mainPages.helpers.ListRenderHelper
 import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.{
-  MainPage,
-  StaticTemplatePage,
-  UserListPage
-}
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.read.{
-  AdminPassword,
-  GetAllUsersReq
-}
+import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
 import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
@@ -33,12 +21,7 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import org.scalajs.dom
 import org.scalajs.dom.html.{Anchor, Div}
 

@@ -66,7 +66,6 @@ case class UserListPage()
     extends MainPageInjectedWithCacheAndController[UserListComp,
                                                    UserListPage]
 
-case object StaticTemplatePage extends MainPage
 
 case class ListUsersAllNotesPage()
     extends MainPageInjectedWithCacheAndController[

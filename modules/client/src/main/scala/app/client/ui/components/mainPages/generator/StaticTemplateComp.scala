@@ -1,12 +1,14 @@
 package app.client.ui.components.mainPages.generator
 
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.{MainPage, StaticTemplatePage}
+import app.client.ui.components.{MainPage }
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.vdom.html_<^._
 
 object StaticTemplateComp {
+
+  case object StaticTemplatePage extends MainPage
 
   import bootstrap4.TB.C
 
