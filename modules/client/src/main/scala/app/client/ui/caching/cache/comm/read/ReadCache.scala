@@ -210,7 +210,6 @@ object ReadCache {
     new ReadCacheImpl[GetUsersNotesReq]
   }
 
-  implicit val getNoteCache =
-    new ReadCacheImpl[GetEntityReq[Note]]
+  implicit val getNoteCache = new ReadCacheImpl[GetEntityReq[Note]]
 
 }

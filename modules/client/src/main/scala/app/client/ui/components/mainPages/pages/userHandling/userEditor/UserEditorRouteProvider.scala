@@ -1,8 +1,8 @@
-package app.client.ui.components.mainPages.userHandling.userEditor
+package app.client.ui.components.mainPages.pages.userHandling.userEditor
 
 import app.client.ui.caching.cacheInjector.{Cache, MainPageReactCompWrapper}
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.shared.utils.UUID_Utils.EntityIdentity
 
 object UserEditorRouteProvider {

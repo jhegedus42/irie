@@ -1,5 +1,5 @@
-package app.client.ui.components.mainPages.login
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.Helpers
+package app.client.ui.components.mainPages.pages.login
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.Helpers
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^.{^, _}
 import japgolly.scalajs.react.extra._

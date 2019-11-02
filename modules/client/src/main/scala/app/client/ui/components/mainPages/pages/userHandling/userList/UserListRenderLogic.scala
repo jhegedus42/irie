@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.userHandling.userList
+package app.client.ui.components.mainPages.pages.userHandling.userList
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
@@ -9,8 +9,8 @@ import app.client.ui.caching.cacheInjector.{
   MainPageReactCompWrapper,
   ToBeWrappedMainPageComponent
 }
-import app.client.ui.components.mainPages.common.ListRenderHelper
-import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
+import app.client.ui.components.mainPages.helpers.ListRenderHelper
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.client.ui.components.{
   MainPage,
   StaticTemplatePage,

@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.NoteHandling.NoteEditor
+package app.client.ui.components.mainPages.pages.userHandling.userEditor
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cache.{
@@ -13,13 +13,16 @@ import app.client.ui.caching.cacheInjector.{
   ToBeWrappedMainPageComponent
 }
 
-import app.client.ui.components.mainPages.login.LoginPageComp.{
+import app.client.ui.components.mainPages.pages.login.LoginPageComp.{
   Props,
   State
 }
-import app.client.ui.components.mainPages.NoteHandling.NoteEditor.NoteEditorComp.{
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.{
+  TextFieldWithButtonAndHandler => TBH
+}
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.{
   Props,
-  NoteEditorPage
+  UserEditorPage
 }
 import app.client.ui.components.{
   MainPage,
@@ -28,7 +31,7 @@ import app.client.ui.components.{
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.Note
+import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
@@ -45,11 +48,10 @@ import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Div, Input}
 
-
-trait NoteEditorComp
+trait UserEditorComp
     extends ToBeWrappedMainPageComponent[
-      NoteEditorComp,
-      NoteEditorPage
+      UserEditorComp,
+      UserEditorPage
     ] {
 
   /**
@@ -58,42 +60,42 @@ trait NoteEditorComp
     * an abstract type to be overriden.
     *
     */
-  override type PropsT = NoteEditorComp.Props
+  override type PropsT = UserEditorComp.Props
 //  override type BackendT =
-//    NoteEditorComp.Backend[NoteEditorComp.Props]
-  override type StateT = NoteEditorComp.State
+//    UserEditorComp.Backend[UserEditorComp.Props]
+  override type StateT = UserEditorComp.State
 
 }
 
-object NoteEditorComp {
+object UserEditorComp {
 
-  case class NoteEditorPage(paramFromURL: String)
-      extends MainPageInjectedWithCacheAndController[NoteEditorComp,
-                                                     NoteEditorPage]
+  case class UserEditorPage(paramFromURL: String)
+      extends MainPageInjectedWithCacheAndController[UserEditorComp,
+                                                     UserEditorPage]
 
-  case class UpdatedNote(
-    resultOfNoteUpdateRequest: Option[EntityWithRef[Note]])
+  case class UpdatedUser(
+    resultOfUserUpdateRequest: Option[EntityWithRef[User]])
 
   /**
     *
     * This should be used by the textfield
     *
-    * @param value this is the name to which the Note's name
+    * @param value this is the name to which the User's name
     *              should change after the update request has
     *              completed (so this stores our "intention")
     */
   case class IntendedNewName(value: Option[String] = None)
 
   /**
-    * @param updatedNote
+    * @param updatedUser
     * @param intendedNewName
     */
   case class State(
     counter:         Int,
-    updatedNote:     UpdatedNote,
+    updatedUser:     UpdatedUser,
     intendedNewName: IntendedNewName = IntendedNewName())
 
-  case class Props( NoteIdentity: EntityIdentity[Note] )
+  case class Props(userIdentity: EntityIdentity[User])
 
   val component: Component[
     CacheAndPropsAndRouterCtrl[Props],
@@ -103,10 +105,10 @@ object NoteEditorComp {
   ] = {
     ScalaComponent
       .builder[CacheAndPropsAndRouterCtrl[Props]](
-        "This is a NoteEditor page. It demonstrates all crucial functionality."
+        "This is a userEditor page. It demonstrates all crucial functionality."
       )
       .initialState(
-        State(counter = 0, updatedNote = UpdatedNote(None))
+        State(counter = 0, updatedUser = UpdatedUser(None))
       )
       .renderBackend[Backend[Props]]
       .build
@@ -154,29 +156,25 @@ object NoteEditorComp {
       )
     }
 
-//    def handleUpdateNoteButon(
-//      cache:            Cache,
-//      currentEntityPar: EntityWithRef[Note]
-//    ): String => CallbackTo[Unit] = { newNoteName: String =>
-//      Callback({
-//
-//        implicit val i: WriteRequestHandlerTCImpl[WriteRequest,
-//                                                  UpdateReq[Note]]
-//          with WriteRequestHandlerTCImpl.UpdateReqNoteCacheInvalidator =
-//          WriteRequestHandlerTCImpl.NoteUpdater
-//
-//        import io.circe.generic.auto._
-//
-//        val newEntityVal =
-//          currentEntityPar.entityValue.lens(_.name).set(newNoteName)
-//
-//        val ur1 =
-//          UpdateReq.UpdateReqPar[Note](currentEntityPar, newEntityVal)
-//
-//        cache.writeToServer[WriteRequest, UpdateReq[Note]](ur1)
-//
-//      })
-//    }
+    def handleUpdateUserButon(
+      cache:            Cache,
+      currentEntityPar: EntityWithRef[User]
+    ): String => CallbackTo[Unit] = { newUserName: String =>
+      Callback({
+
+
+        import io.circe.generic.auto._
+
+        val newEntityVal =
+          currentEntityPar.entityValue.lens(_.name).set(newUserName)
+
+        val ur1 =
+          UpdateReq.UpdateReqPar[User](currentEntityPar, newEntityVal)
+
+        cache.writeToServer[UpdateReq[User]](ur1)
+
+      })
+    }
   }
 
   class Backend[Properties](
@@ -189,13 +187,13 @@ object NoteEditorComp {
 
       println(
         "render was called in" +
-        " Note Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
+          " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
       )
 
-      def entityOption: Option[EntityWithRef[Note]] =
-        CacheHelperFunctions.getEntity[Note](
-          cacheAndProps.props.NoteIdentity,
-          cacheAndProps.cache //CONTINUE HERE
+      def entityOption: Option[EntityWithRef[User]] =
+        CacheHelperFunctions.getEntity[User](
+          cacheAndProps.props.userIdentity,
+          cacheAndProps.cache
         )
 
       import org.scalajs.dom.html.{Anchor, Div}
@@ -205,28 +203,28 @@ object NoteEditorComp {
 
       def currentName: String =
         entityOption.map(_.entityValue.name).getOrElse("Loading...")
-//
-//      def buttonOpt: VdomTagOf[Div] =
-//        if (entityOption.nonEmpty) {
-//          <.div(
-//            Helpers.saveButton(
-//              Helpers.handleUpdateNoteButon(cacheAndProps.cache,
-//                                            entityOption.get)(newName)
-//            )
-//          )
-//
-//        } else <.div("  No entity, no button !")
-//
+
+      def buttonOpt: VdomTagOf[Div] =
+        if (entityOption.nonEmpty) {
+          <.div(
+            Helpers.saveButton(
+              Helpers.handleUpdateUserButon(cacheAndProps.cache,
+                                            entityOption.get)(newName)
+            )
+          )
+
+        } else <.div("  No entity, no button !")
+
       <.div(
-        <.h1("This is the NoteEditor Page"),
+        <.h1("This is the UserEditor Page"),
         <.br,
-        "Current name of the Note " + currentName,
+        "Current name of the User " + currentName,
         <.br,
 //        s"our entity option is :",
 //        <.br,
 //        s"$entityOption",
         <.br,
-        "Intended new name for the Note (NoteEditorComp implementation): ",
+        "Intended new name for the user (UserEditorComp implementation): ",
         <.input.text(
           ^.onChange.==>(Helpers.onChangeIntendedNewName($)),
           ^.value.:=(s.intendedNewName.value.getOrElse("None"))

@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.userHandling.userEditor
+package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import japgolly.scalajs.react.vdom.html_<^.{

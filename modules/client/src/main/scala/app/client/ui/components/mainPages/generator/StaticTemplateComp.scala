@@ -1,7 +1,7 @@
-package app.client.ui.components.mainPages.demos
+package app.client.ui.components.mainPages.generator
 
 import app.client.ui.components.router.RouterComp
-import app.client.ui.components.{StaticTemplatePage, MainPage}
+import app.client.ui.components.{MainPage, StaticTemplatePage}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.vdom.html_<^._

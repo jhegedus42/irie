@@ -6,7 +6,7 @@ import app.client.ui.components.{
   UserListPage
 }
 import app.client.ui.components.mainPageLayout.TopNavComp.Menu
-import app.client.ui.components.mainPages.login.{
+import app.client.ui.components.mainPages.pages.login.{
   LoginPageComp,
   UserLoginStatus
 }

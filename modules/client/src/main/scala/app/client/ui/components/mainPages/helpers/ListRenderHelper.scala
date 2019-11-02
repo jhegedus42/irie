@@ -1,4 +1,4 @@
-package app.client.ui.components.mainPages.common
+package app.client.ui.components.mainPages.helpers
 
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl

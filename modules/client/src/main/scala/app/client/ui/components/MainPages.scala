@@ -1,8 +1,8 @@
 package app.client.ui.components
 
 import app.client.ui.caching.cacheInjector.ToBeWrappedMainPageComponent
-import app.client.ui.components.mainPages.userHandling.userList.UserListComp
-import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp
+import app.client.ui.components.mainPages.pages.userHandling.userList.UserListComp
+import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp
 
 /**
   *
@@ -74,4 +74,3 @@ case class ListUsersAllNotesPage()
       ListUsersAllNotesPage
     ]
 
-case class ItemPage(id: Int) extends MainPage

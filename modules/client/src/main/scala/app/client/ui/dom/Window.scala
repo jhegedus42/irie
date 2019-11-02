@@ -1,6 +1,6 @@
 package app.client.ui.dom
 
-import app.client.ui.components.mainPages.login.UserLoginStatus
+import app.client.ui.components.mainPages.pages.login.UserLoginStatus
 import app.shared.entity.EntityWithRef
 import app.shared.entity.asString.EntityWithRefAsJSON
 import app.shared.entity.entityValue.values.User

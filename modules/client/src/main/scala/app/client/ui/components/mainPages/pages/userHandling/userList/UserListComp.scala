@@ -1,9 +1,9 @@
-package app.client.ui.components.mainPages.userHandling.userList
+package app.client.ui.components.mainPages.pages.userHandling.userList
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.mainPages.userHandling.userList
-import app.client.ui.components.mainPages.userHandling.userList.UserListComp.{Props$, State$}
+import app.client.ui.components.mainPages.pages.userHandling.userList
+import app.client.ui.components.mainPages.pages.userHandling.userList.UserListComp.{Props$, State$}
 import app.client.ui.components.sodium.SodiumWidgets
 import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
 import app.shared.comm.WriteRequest

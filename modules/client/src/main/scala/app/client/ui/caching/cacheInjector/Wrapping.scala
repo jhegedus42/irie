@@ -13,7 +13,7 @@ import japgolly.scalajs.react.vdom.html_<^.<
 import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ReRenderer}
-import app.client.ui.components.mainPages.login.LoginPageComp
+import app.client.ui.components.mainPages.pages.login.LoginPageComp
 import app.client.ui.components.{LoginPage, MainPage, MainPageInjectedWithCacheAndController, UserListPage}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala

@@ -1,13 +1,13 @@
-package app.client.ui.components.mainPages.noteHandling.userNoteList
+package app.client.ui.components.mainPages.pages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import japgolly.scalajs.react.vdom.{TagOf, VdomElement, html_<^}
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
 import app.client.ui.components.{ListUsersAllNotesPage, StaticTemplatePage}
-import app.client.ui.components.mainPages.common.ListRenderHelper
-import app.client.ui.components.mainPages.login.LoginPageComp.State
-import app.client.ui.components.mainPages.login.UserLoginStatus
-import app.client.ui.components.mainPages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.mainPages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
+import app.client.ui.components.mainPages.helpers.ListRenderHelper
+import app.client.ui.components.mainPages.pages.login.LoginPageComp.State
+import app.client.ui.components.mainPages.pages.login.UserLoginStatus
+import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
+import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.client.ui.dom.Window
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq

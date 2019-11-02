@@ -1,10 +1,10 @@
-package app.client.ui.components.mainPages.login
+package app.client.ui.components.mainPages.pages.login
 
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.AjaxCallPar
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.login.LoginPageComp.State.{
+import app.client.ui.components.mainPages.pages.login.LoginPageComp.State.{
   LoginPageCompState,
 }
 import app.client.ui.dom.Window
