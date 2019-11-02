@@ -48,7 +48,6 @@ import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Div, Input}
 
-
 trait UserEditorComp
     extends ToBeWrappedMainPageComponent[
       UserEditorComp,
@@ -96,7 +95,7 @@ object UserEditorComp {
     updatedUser:     UpdatedUser,
     intendedNewName: IntendedNewName = IntendedNewName())
 
-  case class Props( userIdentity: EntityIdentity[User] )
+  case class Props(userIdentity: EntityIdentity[User])
 
   val component: Component[
     CacheAndPropsAndRouterCtrl[Props],
@@ -163,10 +162,6 @@ object UserEditorComp {
     ): String => CallbackTo[Unit] = { newUserName: String =>
       Callback({
 
-        implicit val i: WriteRequestHandlerTCImpl[
-                                                  UpdateReq[User]] = ??? // todo-now continue-here
-//          with WriteRequestHandlerTCImpl.UpdateReqUserCacheInvalidator =
-//          WriteRequestHandlerTCImpl.userUpdater
 
         import io.circe.generic.auto._
 
@@ -176,7 +171,7 @@ object UserEditorComp {
         val ur1 =
           UpdateReq.UpdateReqPar[User](currentEntityPar, newEntityVal)
 
-        cache.writeToServer[ UpdateReq[User]](ur1)
+        cache.writeToServer[UpdateReq[User]](ur1)
 
       })
     }
@@ -192,7 +187,7 @@ object UserEditorComp {
 
       println(
         "render was called in" +
-        " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
+          " User Editor Comp - 7841813D-31B2-48F2-9481-A1240013FBEB"
       )
 
       def entityOption: Option[EntityWithRef[User]] =

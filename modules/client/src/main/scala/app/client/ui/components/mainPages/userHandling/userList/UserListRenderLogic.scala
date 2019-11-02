@@ -3,12 +3,24 @@ package app.client.ui.components.mainPages.userHandling.userList
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.common.ListRenderHelper
 import app.client.ui.components.mainPages.userHandling.userEditor.UserEditorComp.UserEditorPage
-import app.client.ui.components.{MainPage, StaticTemplatePage, UserListPage}
+import app.client.ui.components.{
+  MainPage,
+  StaticTemplatePage,
+  UserListPage
+}
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
+import app.shared.comm.postRequests.read.{
+  AdminPassword,
+  GetAllUsersReq
+}
 import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
@@ -21,13 +33,16 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import org.scalajs.dom
 import org.scalajs.dom.html.{Anchor, Div}
 
 import scala.reflect.ClassTag
-
-
 
 case class UserListRenderLogic[Props](
   cacheAndPropsAndRouterCtrl: CacheAndPropsAndRouterCtrl[Props]) {
@@ -71,7 +86,8 @@ case class UserListRenderLogic[Props](
       val params: CreateEntityReq.CreateEntityReqPar[User] =
         CreateEntityReq.CreateEntityReqPar(entity)
 
-      implicit val writeReqHandler : WriteRequestHandlerTCImpl[CreateEntityReq[User]] = ???
+//      implicit val writeReqHandler
+//        : WriteRequestHandlerTCImpl[CreateEntityReq[User]] = ???
 
       println(
         s"we gonna send the params for creating a user: $params"
@@ -85,7 +101,7 @@ case class UserListRenderLogic[Props](
   def refToAllUsersOption: Option[GetAllUsersReq.Res] = {
 
     def requestResultForRefToAllUsers
-      : ReadCacheEntryStates.ReadCacheEntryState[ GetAllUsersReq] =
+      : ReadCacheEntryStates.ReadCacheEntryState[GetAllUsersReq] =
       cacheAndPropsAndRouterCtrl.cache
         .readFromServer[GetAllUsersReq](
           GetAllUsersReq.Par(AdminPassword("titok"))
@@ -134,7 +150,7 @@ case class UserListRenderLogic[Props](
       )
       res3 = res2.map(helper.ref2EntityOption(_))
 //      res4 = res3.map(x => x.optionEntity)
-      res5 = helper.getEntityListAsVDOM(res3,optEntity2VDOM)
+      res5 = helper.getEntityListAsVDOM(res3, optEntity2VDOM)
     } yield (res5)
 
   }
