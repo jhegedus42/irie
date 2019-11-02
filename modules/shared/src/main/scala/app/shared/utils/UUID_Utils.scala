@@ -1,6 +1,7 @@
 package app.shared.utils
 
 import app.shared.entity.entityValue.EntityType
+import app.shared.entity.refs.RefToEntityByID
 //import io.circe.generic.JsonCodec
 import monocle.macros.Lenses
 import scalaz.\/
@@ -18,6 +19,10 @@ object UUID_Utils {
 @Lenses
 case class EntityIdentity[V<:EntityType[V]](uuid: String=java.util.UUID.randomUUID().toString){
     def stripType:EntityIdentityUntyped=EntityIdentityUntyped(uuid)
+  }
+
+  object EntityIdentity {
+    implicit def toRefToEntityByID[V<:EntityType[V]](id: EntityIdentity[V]) = RefToEntityByID(id)
   }
 
   val uuid00="00000000-0000-0000-0000-000000000000"
