@@ -2,6 +2,7 @@ package app.client.ui.components.router
 
 import app.client.ui.caching.cacheInjector.Cache
 import app.client.ui.components.mainPages.generator.StaticTemplateComp
+import app.client.ui.components.mainPages.pages.login.UserLoginStatus
 import app.client.ui.components.{ListUsersAllNotesPage, UserListPage}
 import app.client.ui.components.mainPages.pages.noteHandling
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorRouteProvider
@@ -31,7 +32,16 @@ case class RouterComp() {
           }
         )
 
-        val userIsLoggedIn =
+        def userIsNotLoggedIn =
+
+          (trimSlashes
+            | loginRoute)
+
+            .notFound(
+              redirectToPage(LoginPage)(Redirect.Replace)
+            )
+
+        def userIsLoggedIn: RouterConfig[MainPage] =
           (trimSlashes
             | loginRoute
 
@@ -49,11 +59,18 @@ case class RouterComp() {
               ListUsersAllNotesPage()
             )(cache)(dsl)
 
-            | StaticTemplateComp.getRoute(dsl))
+//            | StaticTemplateComp.getRoute(dsl)
+            )
 
             .notFound(
               redirectToPage(LoginPage)(Redirect.Replace)
             )
+
+        def route: RouterConfig[MainPage] ={
+          val u = LoginPageComp.isUserLoggedIn.userOption.isDefined
+          if(u) userIsLoggedIn
+          else userIsNotLoggedIn
+        }
 
         userIsLoggedIn.renderWith(f = RouterLayout.layout)
 

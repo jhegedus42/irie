@@ -9,8 +9,8 @@ import org.scalajs.dom.html.Div
 
 object RouterLayout{
   def layout(
-              c: RouterCtl[MainPage],
-              r: Resolution[MainPage]
+              c:  RouterCtl[MainPage],
+              r:  Resolution[MainPage]
             ): TagOf[Div] = {
 
     def tnc =

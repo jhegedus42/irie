@@ -4,7 +4,6 @@ import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
-import app.client.ui.components.mainPages.generator.StaticTemplateComp.StaticTemplatePage
 import app.client.ui.components.mainPages.helpers.ListRenderHelper
 import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.shared.comm.{ReadRequest, WriteRequest}
@@ -109,7 +108,7 @@ case class UserListRenderLogic[Props](
       id: EntityIdentity[User]
     ): VdomTagOf[Anchor] =
       <.a("edit",
-          ^.href := ctl.urlFor(StaticTemplatePage).value,
+//          ^.href := ctl.urlFor(StaticTemplatePage).value,
           ctl.setOnLinkClick(UserEditorPage(id.uuid)))
 
     if (user.isDefined) {

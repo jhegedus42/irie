@@ -1,12 +1,11 @@
 package app.client.ui.components.mainPages.pages.login
 
+import app.client.Main
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.AjaxCallPar
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.client.ui.components.MainPage
-import app.client.ui.components.mainPages.pages.login.LoginPageComp.State.{
-  LoginPageCompState,
-}
+import app.client.ui.components.{LoginPage, MainPage}
+import app.client.ui.components.mainPages.pages.login.LoginPageComp.State.LoginPageCompState
 import app.client.ui.dom.Window
 import app.shared.comm.postRequests.LoginReq
 import app.shared.entity.EntityWithRef
@@ -15,6 +14,7 @@ import bootstrap4.TB.C
 import cats.Functor
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import monocle.macros.Lenses
 
@@ -72,6 +72,7 @@ object LoginPageComp {
       //
 
       val refresh: Callback = p.routerCtl.refresh
+//      val refresh: Callback =
 
       println(s"our current login name is: ${loginNameComp.state}")
       println(s"our current password is: ${passwordComp.state}")
@@ -96,17 +97,27 @@ object LoginPageComp {
 
               val newState  = UserLoginStatus(optUser)
               val newState2 = LoginPageCompState(newState)
-              val cb        = $.setState(newState2) >> refresh
+              val cb        = $.setState(newState2) >>
+              p.routerCtl.set(LoginPage)
+
+//              val x: Id[Unit] =  Main.routedApp.modState(identity(_))
+
+
               State.setUserLoggedIn(optUser)
+
+              ReRenderer.triggerReRender()
               cb.runNow()
+              Main.start()
 
             }
           }
         )
 
-//      ReRenderer.triggerReRender()
+      ReRenderer.triggerReRender()
 
-      refresh
+      Main.start()
+
+      refresh >> Callback(Main.start())
     }
 
     def render(

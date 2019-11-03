@@ -1,6 +1,7 @@
 package app.client
 import app.client.ui.components.router.RouterComp
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
+import japgolly.scalajs.react.extra.router
 import org.scalajs.dom.{Window, document}
 import org.scalajs.dom.raw.Element
 
@@ -16,7 +17,7 @@ object Main extends js.JSApp {
 
   @JSExport
   def main(): Unit = {
-    routedApp()
+    start()
 //    outWatchDemo()
   }
 
@@ -29,7 +30,8 @@ object Main extends js.JSApp {
 //    OutWatch.renderReplace("#rootComp", myComponent).unsafeRunSync()
   }
 
-  def routedApp(): Unit = {
+
+   def start() : Unit = {
     val e: Element = document.getElementById("rootComp")
 
     println(
@@ -48,8 +50,7 @@ object Main extends js.JSApp {
 
 //    RouterWrapper.component().renderIntoDOM( e )
 
-    router.renderIntoDOM(e)
-
+    val l =router.renderIntoDOM(e)
   }
 }
 
