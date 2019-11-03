@@ -71,7 +71,7 @@ object LoginPageComp {
 
       //
 
-      val refresh: Callback = p.routerCtl.refresh
+      def refresh: Callback = p.routerCtl.refresh
 //      val refreshMain = Callback { Main.reDrawWrapper.reFresh() }
 
       println(s"our current login name is: ${loginNameComp.state}")
@@ -87,7 +87,7 @@ object LoginPageComp {
       implicit def executionContext: ExecutionContextExecutor =
         scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-      val startAJAX  = Callback { AJAXCalls
+      def startAJAX() : Unit =  AJAXCalls
         .sendPostAjaxRequest[LoginReq](aPar).onComplete(
           res => {
             println(res)
@@ -96,21 +96,24 @@ object LoginPageComp {
 
             if (optUser.isDefined) {
 
-              val updateWindowState= Callback{State.setUserLoggedIn(optUser)}
+              State.setUserLoggedIn(optUser)
 
-              val updateState= $.setState(LoginPageCompState(UserLoginStatus(optUser)))
+              LoginPageCompState(UserLoginStatus(optUser))
 
+              Main.loginSwitcher.setLoggedIn()
+              println("setLoggedIn was executed")
 
-              val cb =  updateWindowState >> updateState >> updateWindowState >> refresh >>
-                p.routerCtl.set(LoginPage)
+//              refresh
 
-              cb.runNow()
+//              p.routerCtl.set(LoginPage).runNow()
+
             }
           }
         )
-      }
 
-      startAJAX
+
+      Callback{startAJAX()}
+
     }
 
     def render(
@@ -120,7 +123,7 @@ object LoginPageComp {
 
 //      val isUserLoggedIn: Boolean = isUserLoggedIn.userOption.isDefined
 
-      val login =
+      def login =
         if (isUserLoggedIn.userOption.isDefined)
           <.div(
             <.p(
@@ -162,9 +165,9 @@ object LoginPageComp {
     }
   }
 
-  val initState: LoginPageCompState = LoginPageCompState()
+  def initState: LoginPageCompState = LoginPageCompState()
 
-  val component =
+  def component =
     ScalaComponent
       .builder[Props]("Login Page")
       .initialState(initState)

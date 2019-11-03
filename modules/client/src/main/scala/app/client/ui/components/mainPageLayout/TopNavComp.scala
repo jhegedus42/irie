@@ -52,10 +52,10 @@ object TopNavComp {
 
   private def pagesInNavbar(props: Props): TagMod = {
 
-    val x: Menu => VdomTagOf[LI] = { item: Menu =>
+    def x: Menu => VdomTagOf[LI] = { item: Menu =>
       //      println(s" Start $item, ${item.route}")
 
-      val res = <.li(
+      def res = <.li(
         C.navItem,
         C.navLink,
         C.pb1,
@@ -76,11 +76,11 @@ object TopNavComp {
     }
 
     def logout = {
-      val item = Menu("Logout", LoginPage)
+      def item = Menu("Logout", LoginPage)
 
       //  CURRENT FOCUS => put this into the event handler for clicking the link
 
-      val cb = props.ctrl.set(LoginPage) >> Callback {
+      def cb = props.ctrl.set(LoginPage) >> Callback {
         Window.setLoggedInUser(UserLoginStatus(None))
       }
 
@@ -90,7 +90,7 @@ object TopNavComp {
         ^.onClick ==> go
       }
 
-      val res = <.li(
+      def res = <.li(
         C.navItem,
         C.navLink,
         C.pb1,
@@ -144,7 +144,7 @@ object TopNavComp {
     )
   }
 
-  val component = ScalaComponent
+  def component = ScalaComponent
     .builder[Props]("TopNav")
     .render_P { P: Props =>
       navBar(P)

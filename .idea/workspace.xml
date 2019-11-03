@@ -6,13 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/sandbox/monix/MonixDemo.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/ReDrawWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -436,13 +434,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00429" summary="For User List Component the factoring out has worked.&#10;&#10;The same should be done now for User Editor Component.&#10;&#10;It broke. Otherwise the code compiles and runs but the&#10;User Editor Component needs to be updated to work with the (a)&#10;new Base Component.">
-      <created>1571752477212</created>
-      <option name="number" value="00429" />
-      <option name="presentableId" value="LOCAL-00429" />
-      <option name="project" value="LOCAL" />
-      <updated>1571752477216</updated>
-    </task>
     <task id="LOCAL-00430" summary="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now.">
       <created>1571757281315</created>
       <option name="number" value="00430" />
@@ -779,7 +770,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572807790226</updated>
     </task>
-    <option name="localTasksCounter" value="478" />
+    <task id="LOCAL-00478" summary="login works">
+      <created>1572814246174</created>
+      <option name="number" value="00478" />
+      <option name="presentableId" value="LOCAL-00478" />
+      <option name="project" value="LOCAL" />
+      <updated>1572814246175</updated>
+    </task>
+    <option name="localTasksCounter" value="479" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -826,7 +824,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="All app works now with the new BaseComp." />
     <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
     <MESSAGE value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
     <MESSAGE value="Hello world for list of user notes works." />
@@ -851,6 +848,7 @@
     <MESSAGE value="Alice note editing implementation is in progress using Sodium.&#10;&#10;Trying to sort out cache invalidation." />
     <MESSAGE value="Cache invalidation implementation is in progress." />
     <MESSAGE value="refactoring pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring pages" />
+    <MESSAGE value="login works" />
+    <option name="LAST_COMMIT_MESSAGE" value="login works" />
   </component>
 </project>

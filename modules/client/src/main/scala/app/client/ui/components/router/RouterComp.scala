@@ -26,7 +26,7 @@ case class RouterComp() {
       dsl: RouterConfigDsl[MainPage] =>
         import dsl._
 
-        val loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
+        def loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
           renderR { x =>
             LoginPageComp.component(LoginPageComp.Props(x))
           }
@@ -48,7 +48,7 @@ case class RouterComp() {
       dsl: RouterConfigDsl[MainPage] =>
         import dsl._
 
-        val loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
+        def loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
           renderR { x =>
             LoginPageComp.component(LoginPageComp.Props(x))
           }
@@ -76,18 +76,18 @@ case class RouterComp() {
             .notFound(
               redirectToPage(LoginPage)(Redirect.Replace)
             )
-  userIsLoggedIn.renderWith(f = RouterLayout.layout)
 
+            userIsLoggedIn.renderWith(f = RouterLayout.layout)
 
 }
 
-  val baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
+  def baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
 
-  def routerCompNotLoggedIn =
-    Router.apply(baseUrl, routerConfigNotLoggedIng)
-
-  def routerCompLoggedIn =
-    Router.apply(baseUrl, routerConfigLoggedIng)
+  def router =
+    if(LoginPageComp.isUserLoggedIn.userOption.isDefined)
+      Router.apply(baseUrl, routerConfigLoggedIng)
+    else
+      Router.apply(baseUrl, routerConfigNotLoggedIng)
 }
 
 object RouterComp {
