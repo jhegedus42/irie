@@ -105,19 +105,20 @@ object LoginPageComp {
 
               State.setUserLoggedIn(optUser)
 
-              ReRenderer.triggerReRender()
+//              ReRenderer.triggerReRender()
               cb.runNow()
-              Main.start()
+//              Main.start()
+              Main.reDrawWrapper.reFresh()
 
             }
           }
         )
 
-      ReRenderer.triggerReRender()
+//      ReRenderer.triggerReRender()
 
-      Main.start()
+//      Main.start()
 
-      refresh >> Callback(Main.start())
+      refresh
     }
 
     def render(

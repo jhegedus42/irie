@@ -108,7 +108,7 @@ case class UserListRenderLogic[Props](
       id: EntityIdentity[User]
     ): VdomTagOf[Anchor] =
       <.a("edit",
-//          ^.href := ctl.urlFor(StaticTemplatePage).value,
+          ^.href := ctl.urlFor(UserEditorPage(id.uuid)).value,
           ctl.setOnLinkClick(UserEditorPage(id.uuid)))
 
     if (user.isDefined) {

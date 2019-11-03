@@ -1,7 +1,10 @@
 package app.client
 import app.client.ui.components.router.RouterComp
+import app.client.ui.components.sodium.wrappers.ReDrawWrapper
 import app.shared.utils.macros.compilationTime.AppendCompilationTimeToString
 import japgolly.scalajs.react.extra.router
+import japgolly.scalajs.react.vdom.VdomElement
+import javax.xml.ws.RequestWrapper
 import org.scalajs.dom.{Window, document}
 import org.scalajs.dom.raw.Element
 
@@ -15,9 +18,11 @@ object Main extends js.JSApp {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
+  var reDrawWrapper:ReDrawWrapper= _
+
   @JSExport
   def main(): Unit = {
-    start()
+    reDrawWrapper=start()
 //    outWatchDemo()
   }
 
@@ -31,16 +36,23 @@ object Main extends js.JSApp {
   }
 
 
-   def start() : Unit = {
+   def start() : ReDrawWrapper= {
     val e: Element = document.getElementById("rootComp")
 
-    println(
-      s"Main.routedApp() : Router is just about to be mounted into a DIV."
-    )
-    MonixDemo.monixExample()
-    MonixDemo.monixDemo2()
+//    println(
+//      s"Main.routedApp() : Router is just about to be mounted into a DIV."
+//    )
+//    MonixDemo.monixExample()
+//    MonixDemo.monixDemo2()
+//
+    val router = () => RouterComp().routerComp().vdomElement
+//    val v = router.apply()
 
-    val router = RouterComp().routerComp()
+    val r = new ReDrawWrapper(router)
+    val c=r.comp(1)
+    c.renderIntoDOM(e)
+     r
+
     // todo-later ^^^ have a login page first, when the page loads / reloads
     // if the user is logged in, then it mounts the router
     // if the user is not logged in then it mounts the log in page
@@ -48,9 +60,9 @@ object Main extends js.JSApp {
 
     // or the router itself is a child of a react component
 
-//    RouterWrapper.component().renderIntoDOM( e )
 
-    val l =router.renderIntoDOM(e)
+//    RouterWrapper.component().renderIntoDOM( e )
+//     router.renderIntoDOM(e)
   }
 }
 
