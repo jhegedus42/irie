@@ -27,14 +27,13 @@ object MenuItems {
 
         case UserLoginStatus(Some(u)) =>
           Vector.apply(
-            Menu.apply("Login status", LoginPage),
             Menu.apply("Users", UserListPage()),
             Menu.apply("Notes", ListUsersAllNotesPage())
           )
 
         case UserLoginStatus(None) =>
           Vector.apply(
-            Menu.apply("Login status", LoginPage)
+            Menu.apply("Login", LoginPage)
           )
       }
 
@@ -77,7 +76,7 @@ object TopNavComp {
     }
 
     def logout = {
-      val item = Menu("logout", LoginPage)
+      val item = Menu("Logout", LoginPage)
 
       //  CURRENT FOCUS => put this into the event handler for clicking the link
 

@@ -14,6 +14,7 @@ import app.client.ui.caching.cacheInjector.{
   ReRenderer
 }
 import app.client.ui.components.mainPages.pages.login.LoginPageComp
+import app.client.ui.components.router.RouterComp
 import app.client.ui.components.{
   LoginPage,
   MainPage,
@@ -27,24 +28,31 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^._
-import sodium.StreamSink
+import sodium.{Stream, StreamSink}
 
-class ReDrawWrapper(component : () => VdomElement ) {
-  private var reRender = new StreamSink[Unit]()
+case class LoginSwitcher() {
+  val reRender    = new StreamSink[Boolean]()
+  def notLoggedIn = RouterComp().routerCompNotLoggedIn
+  def loggedIn    = RouterComp().routerCompLoggedIn
 
-  val comp=ScalaComponent
+  val comp = ScalaComponent
     .builder[Int]("wrapped")
-    .initialState(0)
+    .initialState(false)
     .render_PS(
-      (p: Int, s: Int) => {
-        val x = <.div(p, s, <.br, component() ,"string")
-        x
+      (p: Int, s: Boolean) => {
+
+        val r =
+          if (s)
+            notLoggedIn()
+          else loggedIn()
+
+        r
       }
     ).componentDidMount($ => {
       Callback {
-        reRender.listen(x => $.modState(s => s + 1).runNow())
+        reRender.listen(x => $.setState(x))
       }
     }).build
-
-  def reFresh() : Unit =reRender.send(Unit)
+  def setLoggedIn():  Unit = reRender.send(true)
+  def setLoggedOut(): Unit = reRender.send(false)
 }

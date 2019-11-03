@@ -72,7 +72,7 @@ object LoginPageComp {
       //
 
       val refresh: Callback = p.routerCtl.refresh
-//      val refresh: Callback =
+//      val refreshMain = Callback { Main.reDrawWrapper.reFresh() }
 
       println(s"our current login name is: ${loginNameComp.state}")
       println(s"our current password is: ${passwordComp.state}")
@@ -87,38 +87,30 @@ object LoginPageComp {
       implicit def executionContext: ExecutionContextExecutor =
         scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-      AJAXCalls
+      val startAJAX  = Callback { AJAXCalls
         .sendPostAjaxRequest[LoginReq](aPar).onComplete(
           res => {
             println(res)
             val optUser: Option[EntityWithRef[User]] =
               res.toOption.flatMap(x => x.res.optionUserRef)
+
             if (optUser.isDefined) {
 
-              val newState  = UserLoginStatus(optUser)
-              val newState2 = LoginPageCompState(newState)
-              val cb        = $.setState(newState2) >>
-              p.routerCtl.set(LoginPage)
+              val updateWindowState= Callback{State.setUserLoggedIn(optUser)}
 
-//              val x: Id[Unit] =  Main.routedApp.modState(identity(_))
+              val updateState= $.setState(LoginPageCompState(UserLoginStatus(optUser)))
 
 
-              State.setUserLoggedIn(optUser)
+              val cb =  updateWindowState >> updateState >> updateWindowState >> refresh >>
+                p.routerCtl.set(LoginPage)
 
-//              ReRenderer.triggerReRender()
               cb.runNow()
-//              Main.start()
-              Main.reDrawWrapper.reFresh()
-
             }
           }
         )
+      }
 
-//      ReRenderer.triggerReRender()
-
-//      Main.start()
-
-      refresh
+      startAJAX
     }
 
     def render(

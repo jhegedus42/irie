@@ -21,7 +21,7 @@ case class RouterComp() {
 
   lazy val cache: Cache = new Cache()
 
-  def routerConfig: RouterConfig[MainPage] =
+  def routerConfigNotLoggedIng: RouterConfig[MainPage] =
     RouterConfigDsl[MainPage].buildConfig {
       dsl: RouterConfigDsl[MainPage] =>
         import dsl._
@@ -36,10 +36,24 @@ case class RouterComp() {
 
           (trimSlashes
             | loginRoute)
-
             .notFound(
               redirectToPage(LoginPage)(Redirect.Replace)
             )
+
+        userIsNotLoggedIn.renderWith(f = RouterLayout.layout)
+    }
+
+  def routerConfigLoggedIng: RouterConfig[MainPage] =
+    RouterConfigDsl[MainPage].buildConfig {
+      dsl: RouterConfigDsl[MainPage] =>
+        import dsl._
+
+        val loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
+          renderR { x =>
+            LoginPageComp.component(LoginPageComp.Props(x))
+          }
+        )
+
 
         def userIsLoggedIn: RouterConfig[MainPage] =
           (trimSlashes
@@ -53,34 +67,27 @@ case class RouterComp() {
               cache
             )(dsl)
 
-
             | ListUsersAllNotesComp.getStaticRoute(
               "userNoteList",
               ListUsersAllNotesPage()
             )(cache)(dsl)
-
 //            | StaticTemplateComp.getRoute(dsl)
             )
-
             .notFound(
               redirectToPage(LoginPage)(Redirect.Replace)
             )
+  userIsLoggedIn.renderWith(f = RouterLayout.layout)
 
-        def route: RouterConfig[MainPage] ={
-          val u = LoginPageComp.isUserLoggedIn.userOption.isDefined
-          if(u) userIsLoggedIn
-          else userIsNotLoggedIn
-        }
 
-        userIsLoggedIn.renderWith(f = RouterLayout.layout)
-
-    }
+}
 
   val baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
 
-  def routerComp =
-    Router.apply(baseUrl, routerConfig)
+  def routerCompNotLoggedIn =
+    Router.apply(baseUrl, routerConfigNotLoggedIng)
 
+  def routerCompLoggedIn =
+    Router.apply(baseUrl, routerConfigLoggedIng)
 }
 
 object RouterComp {
