@@ -1,20 +1,45 @@
 package app.client.ui.caching.cache.comm.read
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  InFlight,
+  ReadCacheEntryState,
+  Returned,
+  Stale
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
 import app.client.ui.caching.cache.comm.read.invalidation.ReadCacheInvalidatorStream
-import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
+import app.client.ui.caching.cache.comm.write.{
+  WriteAjaxReturnedStream,
+  WriteRequestHandlerTC
+}
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, SumIntRoute, UpdateReq}
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest, postRequests}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  GetLatestEntityByIDReq,
+  GetUsersNotesReq,
+  SumIntRoute,
+  UpdateReq
+}
+import app.shared.comm.{
+  PostRequest,
+  ReadRequest,
+  WriteRequest,
+  postRequests
+}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import sodium.StreamSink
@@ -49,8 +74,7 @@ trait ReadCache[Req <: PostRequest[ReadRequest]] {
 }
 
 private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
-)(
-  implicit val invalidator: Option[ReadCacheInvalidatorStream[Req]])
+  val invalidator: Option[ReadCacheInvalidatorStream[Req]])
     extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -75,7 +99,7 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
     val oldVal: Option[ReadCacheEntryState[Req]] = map.get(p)
     if (oldVal.isDefined) {
       val newMap = map + (p -> oldVal.get.toStale.get)
-      map=newMap
+      map = newMap
       ReRenderer.triggerReRender()
     }
 
@@ -142,15 +166,13 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
     }
   }
 
-
 }
 
-object Invalidation{
+object Invalidation {
 
   sealed trait InvalidationType
   case class SingleEntry() extends InvalidationType
   case class FullReset() extends InvalidationType
-
 
   def getInvalidator[
     WriteReq <: PostRequest[WriteRequest],
@@ -161,25 +183,26 @@ object Invalidation{
     Some(new ReadCacheInvalidatorStream[ReadReq](ws.getStream.map(f)))
 }
 
-
 object ReadCache {
 
   import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC._
 
   implicit val getLatestUserCache = {
-    implicit val cacheInvalidatorStream =
-      Invalidation.getInvalidator[UpdateReq[User], GetLatestEntityByIDReq[User]](
-        WriteRequestHandlerTC.userUpdater.writeAjaxReturnedStream, {
-          p: Payload[UpdateReq[User]] =>
-            GetLatestEntityByIDReq.Par[User](
-              p.par.currentEntity.toRef.entityIdentity
-            )
-        }
+    val f = { p: Payload[UpdateReq[User]] => GetLatestEntityByIDReq.Par[User](
+        p.par.currentEntity.toRef.entityIdentity
       )
-    new ReadCacheImpl[GetLatestEntityByIDReq[User]]()
+    }
+    new ReadCacheImpl[GetLatestEntityByIDReq[User]](
+      Some(
+        ReadCacheInvalidatorStream[GetLatestEntityByIDReq[User]](
+          WriteRequestHandlerTC.userUpdater.writeAjaxReturnedStream.getStream
+            .map(f)
+        )
+      )
+    )
   }
 
-  implicit def getEntityReqInvaliator[V <: EntityType[V]](
+  def getEntityReqInvaliator[V <: EntityType[V]](
     implicit wrh: WriteRequestHandlerTC[UpdateReq[V]]
   ): Option[ReadCacheInvalidatorStream[GetEntityReq[V]]] = {
     def f: Payload[UpdateReq[V]] => GetEntityReq[V]#ParT = {
@@ -194,22 +217,21 @@ object ReadCache {
   }
 
   implicit val getUserCache =
-    new ReadCacheImpl[GetEntityReq[User]]
+    new ReadCacheImpl[GetEntityReq[User]](getEntityReqInvaliator)
 
   implicit val getAllUsersReqCache = {
     implicit val x = None //todo-now continue here
     // create user triggers this
     // create a clear cache on any user change
     // use Full Reset
-    new ReadCacheImpl[GetAllUsersReq]
+    new ReadCacheImpl[GetAllUsersReq](None)
   }
 
   implicit val getAllNotesCache = {
-    implicit val x = None //todo-later
-    // create note, triggers this
-    new ReadCacheImpl[GetUsersNotesReq]
+    new ReadCacheImpl[GetUsersNotesReq](None)
   }
 
-  implicit val getNoteCache = new ReadCacheImpl[GetEntityReq[Note]]
+  implicit val getNoteCache =
+    new ReadCacheImpl[GetEntityReq[Note]](getEntityReqInvaliator)
 
 }
