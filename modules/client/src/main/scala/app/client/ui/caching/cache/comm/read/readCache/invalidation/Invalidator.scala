@@ -2,22 +2,33 @@ package app.client.ui.caching.cache.comm.read.readCache.invalidation
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
+import app.client.ui.caching.cache.comm.write.{
+  WriteAjaxReturnedStream,
+  WriteRequestHandlerTC
+}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, UpdateReq}
-import app.shared.comm.{PostRequest, ReadRequest}
+import app.shared.comm.postRequests.{
+  CreateEntityReq,
+  GetEntityReq,
+  GetLatestEntityByIDReq,
+  GetUsersNotesReq,
+  UpdateReq
+}
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.entityValue.values.User
+import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.entity.refs.RefToEntityWithVersion
-import sodium.Stream
+import sodium.{Stream, StreamSink}
+import WriteRequestHandlerTC._
 
 trait Invalidator[Req <: PostRequest[ReadRequest]] {
   type M = Map[Req#ParT, ReadCacheEntryState[Req]]
 
   def listen(
     g: () => M,
-    f: M  => Unit
+    f: M => Unit,
+    h: () => Unit
   ): Unit
 
   def setElementToStale(
@@ -30,65 +41,76 @@ trait Invalidator[Req <: PostRequest[ReadRequest]] {
       newMap
     } else oldMap
   }
+
 }
 
 object Invalidator {
 
-  implicit def getUsersNotesReq: Invalidator[GetUsersNotesReq] = ???
-
-  implicit def getLatestEntityByIDReq
-    : Invalidator[GetLatestEntityByIDReq[User]] = ???
-  // todo-now
-
-  implicit def getEntityInvalidator[V <: EntityType[V]](
-    implicit wc: WriteRequestHandlerTC[UpdateReq[V]]
-  ): Invalidator[GetEntityReq[V]] = {
-    type R = GetEntityReq[V]
-    type W = UpdateReq[V]
+  def generalInvalidator[
+    Read  <: PostRequest[ReadRequest],
+    Write <: PostRequest[WriteRequest]
+  ](
+  )(
+    implicit wc: WriteRequestHandlerTC[Write],
+    adapter:     Adapter[Read, Write]
+  ): Invalidator[Read] = {
+    type R = Read
+    type W = Write
 
     new Invalidator[R] {
 
-      val s = wc.stream
-
-      val a: Adapter[R, W] = implicitly[Adapter[R, W]]
-
-      val s1: Stream[GetEntityReq.Par[V]] = s.map(a.write2read)
+      val s1: Stream[Read#ParT] = wc.stream.map(adapter.write2read)
 
       override def listen(
         g: () => M,
-        f: M  => Unit
+        f: M => Unit,
+        h: () => Unit
       ): Unit = {
-        s1.listen({ (x: GetEntityReq.Par[V]) =>
+        s1.listen({ (x: Read#ParT) =>
           val oldMap: M = g()
           val newMap = setElementToStale(x, oldMap)
           f(newMap)
+          h()
+        })
+      }
+    }
+  }
+
+  implicit def getUsersNotesReq(
+    implicit wc: WriteRequestHandlerTC[UpdateReq[Note]]
+  ): Invalidator[GetUsersNotesReq] =
+    new Invalidator[GetUsersNotesReq] {
+      val s1: StreamSink[UpdateReq.UpdateReqPar[Note]] = wc.stream
+
+      override def listen(
+        g: () => M,
+        f: M => Unit,
+        h: () => Unit
+      ): Unit = {
+        val m: M = g()
+        val newMap = m.empty
+        s1.listen({ (_) =>
+          f(newMap)
+          h()
         })
       }
     }
 
-  }
+  implicit def getLatestEntityByIDReq
+    : Invalidator[GetLatestEntityByIDReq[User]] =
+    generalInvalidator[GetLatestEntityByIDReq[User], UpdateReq[
+      User
+    ]]()
+
+  implicit def getEntityInvalidator[V <: EntityType[V]](
+    implicit wc: WriteRequestHandlerTC[UpdateReq[V]]
+  ) = { generalInvalidator[GetEntityReq[V], UpdateReq[V]]() }
+
 
   implicit def getAllUsersReqInvalidator
     : Invalidator[GetAllUsersReq] =
-    new Invalidator[GetAllUsersReq] {
+    generalInvalidator[GetAllUsersReq, UpdateReq[User]]()
 
-      val w = implicitly[WriteRequestHandlerTC[UpdateReq[User]]]
+  // todo-now add invalidator for creating user
 
-      val s = w.stream
-
-      val a = implicitly[Adapter[GetAllUsersReq, UpdateReq[User]]]
-
-      val s1: Stream[GetAllUsersReq.Par] = s.map(a.write2read)
-
-      override def listen(
-        g: () => M,
-        f: M  => Unit
-      ): Unit = {
-        s1.listen({ (x: GetAllUsersReq.Par) =>
-          val oldMap: M = g()
-          val newMap = setElementToStale(x, oldMap)
-          f(newMap)
-        })
-      }
-    }
 }

@@ -1,10 +1,21 @@
 package app.client.ui.caching.cache.comm.read.readCache
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{
+  InFlight,
+  ReadCacheEntryState,
+  Returned,
+  Stale
+}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
-import app.client.ui.caching.cache.comm.read.readCache.invalidation.{Invalidator, InvalidatorStream}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
+import app.client.ui.caching.cache.comm.read.readCache.invalidation.{
+  Invalidator,
+  InvalidatorStream
+}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.{PostRequest, ReadRequest}
 import cats.syntax.writer
@@ -17,7 +28,11 @@ import scala.util.Try
 
 private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 )(
-  implicit val invalidator: Invalidator[Req])
+  implicit invalidator: Invalidator[Req],
+  decoder:              Decoder[Req#ResT],
+  encoder:              Encoder[Req#ParT],
+  ct:                   ClassTag[Req],
+  ct2:                  ClassTag[Req#PayLoadT])
     extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -28,19 +43,13 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 
   override def clearCache(): Unit = { map = Map() }
 
-  invalidator.listen(()=>map , x => map=x )
+  invalidator.listen(
+    () => map,
+    x  => map = x,
+    () => { ReRenderer.triggerReRender() }
+  )
 
-
-
-  def getInFlight(
-    param: Req#ParT
-  )(
-    implicit
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
-  ): InFlight[Req] = {
+  def getInFlight(param: Req#ParT): InFlight[Req] = {
 
     val loading = InFlight[Req](param)
     this.map = map + (param -> loading)
@@ -66,12 +75,6 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 
   override def getRequestResult(
     par: Req#ParT
-  )(
-    implicit
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
   ): ReadCacheEntryState[Req] = {
 
     if (!map.contains(par)) {

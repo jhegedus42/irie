@@ -24,15 +24,7 @@ import io.circe.{Decoder, Encoder}
 import scala.reflect.ClassTag
 
 trait ReadCache[Req <: PostRequest[ReadRequest]] {
-  private[caching] def getRequestResult(
-    par: Req#ParT
-  )(
-    implicit
-    decoder: Decoder[Req#ResT],
-    encoder: Encoder[Req#ParT],
-    ct:      ClassTag[Req],
-    ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[Req]
+  private[caching] def getRequestResult( par: Req#ParT ) : ReadCacheEntryState[Req]
 
   def clearCache(): Unit
 }
