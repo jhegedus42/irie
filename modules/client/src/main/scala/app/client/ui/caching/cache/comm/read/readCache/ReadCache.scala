@@ -40,6 +40,7 @@ trait ReadCache[Req <: PostRequest[ReadRequest]] {
 
 object ReadCache {
 
+
   import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC._
 
   implicit val getLatestUserCache = {
@@ -57,7 +58,10 @@ object ReadCache {
   implicit val getAllUsersReqCache = {
 
 
-    implicit val x = None //todo-now continue here
+
+//    implicit val x = None
+
+    //todo-now continue here
     // create user triggers this
     // create a clear cache on any user change
     // use Full Reset

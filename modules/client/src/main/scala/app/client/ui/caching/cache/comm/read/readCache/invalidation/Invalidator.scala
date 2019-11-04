@@ -12,12 +12,15 @@ import app.shared.entity.refs.RefToEntityWithVersion
 trait Invalidator[Req<:PostRequest[ReadRequest]]{
   type M=Map[Req#ParT, ReadCacheEntryState[Req]]
   def getNewMap(map:M):M
+  def getUpdateStream:Stream[Req#ParT]
 }
 
 object Invalidator {
   implicit def generalInvalidator[Req<:PostRequest[ReadRequest]] : Invalidator[Req] = {
     new Invalidator[Req] {
       override def getNewMap(map: M): M = map
+
+      override def getUpdateStream: Stream[Req#ParT] = ???
     }
   }
 }

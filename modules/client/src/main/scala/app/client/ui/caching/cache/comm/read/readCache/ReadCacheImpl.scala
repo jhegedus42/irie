@@ -1,23 +1,13 @@
 package app.client.ui.caching.cache.comm.read.readCache
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{
-  InFlight,
-  ReadCacheEntryState,
-  Returned,
-  Stale
-}
+import app.client.ui.caching.cache.ReadCacheEntryStates.{InFlight, ReadCacheEntryState, Returned, Stale}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{
-  AjaxCallPar,
-  sendPostAjaxRequest
-}
-import app.client.ui.caching.cache.comm.read.readCache.invalidation.{
-  Invalidator,
-  InvalidatorStream
-}
+import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.read.readCache.invalidation.{Invalidator, InvalidatorStream}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.{PostRequest, ReadRequest}
+import cats.syntax.writer
 import io.circe.{Decoder, Encoder}
 import sodium.Stream
 
@@ -39,7 +29,7 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 
   override def clearCache(): Unit = { map = Map() }
 
-//  val clearCacheStream = new StreamSink[Unit]()
+
 
   if (invalidator.isDefined) {
     val in: Stream[Req#ParT] = invalidator.get.stream
