@@ -3,8 +3,7 @@ package app.client.ui.caching.cache.comm.write
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
 import WriteRequestHandlerStates.{NotCalledYet, RequestError, RequestSuccess, WriteHandlerState}
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.read.ReadCache
-import app.client.ui.caching.cache.comm.read.ReadCache.getAllUsersReqCache
+import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, UpdateReq}

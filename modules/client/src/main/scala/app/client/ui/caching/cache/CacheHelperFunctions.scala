@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache
 
-import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cacheInjector.Cache
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetLatestEntityByIDReq

@@ -1,7 +1,7 @@
 package app.client.ui.components.mainPages.pages.userHandling.userList
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.helpers.ListRenderHelper

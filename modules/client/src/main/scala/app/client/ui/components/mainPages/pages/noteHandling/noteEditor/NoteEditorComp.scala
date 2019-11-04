@@ -1,12 +1,12 @@
 package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController }
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef

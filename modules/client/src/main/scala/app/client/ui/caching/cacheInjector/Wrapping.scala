@@ -1,6 +1,6 @@
 package app.client.ui.caching.cacheInjector
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
-import app.client.ui.caching.cache.comm.read.ReadCache
+import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerStates.WriteHandlerState
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer

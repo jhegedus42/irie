@@ -6,11 +6,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/ReadCache.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/ReadCacheImpl.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Helper.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/InvalidationTypes.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Invalidator.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPageLayout/TopNavComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/CacheHelperFunctions.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/ReadCache.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/invalidation/ReadCacheInvalidatorStream.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/InvalidatorStream.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cacheInjector/Wrapping.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/helpers/ListRenderHelper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/helpers/ListRenderHelper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListRenderLogic.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListRenderLogic.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,9 +65,9 @@
       <list>
         <option value="Package Object" />
         <option value="ScalaTest Class" />
+        <option value="Scala Class" />
         <option value="Scala Object" />
         <option value="Scala Trait" />
-        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -112,7 +121,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -131,19 +140,18 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FunSuite" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common" />
-      <recent name="$PROJECT_DIR$/www/assets/js" />
-      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
-      <recent name="$PROJECT_DIR$/bash_scripts/running" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation" />
+      <recent name="app.client.ui.caching.cache.comm.read" />
       <recent name="app.client" />
       <recent name="app.client.ui.components.mainPages.userHandling.userList" />
       <recent name="sodium" />
-      <recent name="app.client.ui.components.mainPages.login" />
-      <recent name="app.client.ui.caching.cache.comm.write" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -152,11 +160,15 @@
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/common" />
+      <recent name="$PROJECT_DIR$/www/assets/js" />
+      <recent name="$PROJECT_DIR$/bash_scripts/testing" />
+      <recent name="$PROJECT_DIR$/bash_scripts/running" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -433,13 +445,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00430" summary="User List Comp works fine now with the new refactored BaseComp class.&#10;&#10;It has a state, and a counter, with a button. It displays the&#10;users correctly, as it did before.&#10;&#10;The User Editor Component needs to be fixed now.">
-      <created>1571757281315</created>
-      <option name="number" value="00430" />
-      <option name="presentableId" value="LOCAL-00430" />
-      <option name="project" value="LOCAL" />
-      <updated>1571757281319</updated>
     </task>
     <task id="LOCAL-00431" summary="All app works now with the new BaseComp.">
       <created>1571757600120</created>
@@ -777,7 +782,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572814246175</updated>
     </task>
-    <option name="localTasksCounter" value="479" />
+    <task id="LOCAL-00479" summary="login really works">
+      <created>1572821074652</created>
+      <option name="number" value="00479" />
+      <option name="presentableId" value="LOCAL-00479" />
+      <option name="project" value="LOCAL" />
+      <updated>1572821074652</updated>
+    </task>
+    <option name="localTasksCounter" value="480" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -824,7 +836,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Wrote todo list for List Note Component's implementation steps." />
     <MESSAGE value="Code for User List Component has been simplified even more.&#10;&#10;Code works. User List and User Editor, both components work." />
     <MESSAGE value="Hello world for list of user notes works." />
     <MESSAGE value="Wrote todo list for next task : print the list of references to a user's notes." />
@@ -849,6 +860,7 @@
     <MESSAGE value="Cache invalidation implementation is in progress." />
     <MESSAGE value="refactoring pages" />
     <MESSAGE value="login works" />
-    <option name="LAST_COMMIT_MESSAGE" value="login works" />
+    <MESSAGE value="login really works" />
+    <option name="LAST_COMMIT_MESSAGE" value="login really works" />
   </component>
 </project>
