@@ -2,7 +2,6 @@ package app.client.ui.caching.cache.comm.read.readCache
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
 import app.client.ui.caching.cache.comm.read.readCache.invalidation.{
-  Helper,
   InvalidationTypes,
   Invalidator,
   InvalidatorStream
@@ -44,7 +43,6 @@ object ReadCache {
   import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC._
 
   implicit val getLatestUserCache = {
-
     new ReadCacheImpl[GetLatestEntityByIDReq[User]]
   }
 
@@ -52,17 +50,6 @@ object ReadCache {
     new ReadCacheImpl[GetEntityReq[User]]
 
   implicit val getAllUsersReqCache = {
-
-
-
-//    implicit val x = None
-
-    //todo-now continue here
-    // create user triggers this
-    // create a clear cache on any user change
-    // use Full Reset
-
-
     new ReadCacheImpl[GetAllUsersReq]
   }
 

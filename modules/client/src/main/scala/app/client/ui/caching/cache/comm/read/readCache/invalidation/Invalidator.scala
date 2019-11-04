@@ -12,6 +12,7 @@ import app.shared.comm.postRequests.{
   CreateEntityReq,
   GetEntityReq,
   GetLatestEntityByIDReq,
+  GetUsersNotesReq,
   UpdateReq
 }
 import app.shared.comm.{PostRequest, ReadRequest}
@@ -23,15 +24,10 @@ import sodium.Stream
 trait Invalidator[Req <: PostRequest[ReadRequest]] {
   type M = Map[Req#ParT, ReadCacheEntryState[Req]]
 
-
-
-
   def listen(
     g: () => M,
-    f: M  => Unit
+    f: M => Unit
   ): Unit
-
-
 
   def setElementToStale(
     p:      Req#ParT,
@@ -46,16 +42,31 @@ trait Invalidator[Req <: PostRequest[ReadRequest]] {
 }
 
 object Invalidator {
-  implicit def generalInvalidator[
-    Req <: PostRequest[ReadRequest]
-  ]: Invalidator[Req] = {
-    new Invalidator[Req] {
-      override def listen(g: () => M, f: M => Unit): Unit =
-        {}
+
+  implicit def getUsersNotesReq: Invalidator[GetUsersNotesReq] = ???
+
+  implicit def getLatestEntityByIDReq
+    : Invalidator[GetLatestEntityByIDReq[User]] = ???
+
+  implicit def getEntityInvalidator[
+    V <: EntityType[V]
+  ]: Invalidator[GetEntityReq[V]] = {
+    type R = GetEntityReq[V]
+    type W = UpdateReq[V]
+
+    new Invalidator[R] {
+      override def listen(
+        g: () => M,
+        f: M => Unit
+      ): Unit = {}
     }
+
+    // todo-now
+
   }
 
-  implicit def entityUpdateInvalidator: Invalidator[GetAllUsersReq] =
+  implicit def getAllUsersReqInvalidator
+    : Invalidator[GetAllUsersReq] =
     new Invalidator[GetAllUsersReq] {
 
       val w = implicitly[WriteRequestHandlerTC[UpdateReq[User]]]
@@ -64,16 +75,17 @@ object Invalidator {
 
       val a = implicitly[Adapter[GetAllUsersReq, UpdateReq[User]]]
 
-      val s1: Stream[GetAllUsersReq.Par] =s.map(a.write2read)
+      val s1: Stream[GetAllUsersReq.Par] = s.map(a.write2read)
 
-      override def listen(g: () => M, f: M => Unit): Unit = {
-         s1.listen({
-           (x: GetAllUsersReq.Par) =>
-             val oldMap: M =g()
-             val newMap=setElementToStale(x,oldMap)
-             f(newMap)
-         }
-         )
+      override def listen(
+        g: () => M,
+        f: M => Unit
+      ): Unit = {
+        s1.listen({ (x: GetAllUsersReq.Par) =>
+          val oldMap: M = g()
+          val newMap = setElementToStale(x, oldMap)
+          f(newMap)
+        })
       }
     }
 }
