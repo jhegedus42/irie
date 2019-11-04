@@ -12,14 +12,6 @@ import sodium.Stream
 
 import scala.reflect.ClassTag
 
-case class WriteAjaxReturnedStream[Req <: PostRequest[WriteRequest]](
-  val s: StreamSink[Payload[Req]] = new StreamSink[Payload[Req]]()){
-
-  def getStream:Stream[Payload[Req]]=s
-
-  def send(p:Payload[Req]): Unit= s.send(p)
-}
-
 object WriteAjaxReturnedStream {
 
   case class Payload[Req <: PostRequest[WriteRequest]](
@@ -40,8 +32,7 @@ trait WriteRequestHandlerTC[Req <: PostRequest[WriteRequest]] {
     ct2:     ClassTag[Req#PayLoadT]
   ): WriteHandlerState[Req]
 
-  val writeAjaxReturnedStream: WriteAjaxReturnedStream[Req] =
-    WriteAjaxReturnedStream[Req]()
+  val stream: StreamSink[Req#ParT] = new StreamSink[Req#ParT]()
 
 }
 

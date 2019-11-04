@@ -45,15 +45,11 @@ object ReadCache {
 
   implicit val getLatestUserCache = {
 
-    new ReadCacheImpl[GetLatestEntityByIDReq[User]](
-      Helper.getLatestEntityByIDReqInvalidator
-    )
+    new ReadCacheImpl[GetLatestEntityByIDReq[User]]
   }
 
   implicit val getUserCache =
-    new ReadCacheImpl[GetEntityReq[User]](
-      Helper.getEntityReqInvaliator
-    )
+    new ReadCacheImpl[GetEntityReq[User]]
 
   implicit val getAllUsersReqCache = {
 
@@ -67,16 +63,13 @@ object ReadCache {
     // use Full Reset
 
 
-    new ReadCacheImpl[GetAllUsersReq](None)
+    new ReadCacheImpl[GetAllUsersReq]
   }
 
   implicit val getAllNotesCache = {
-    new ReadCacheImpl[GetUsersNotesReq](None)
+    new ReadCacheImpl[GetUsersNotesReq]
   }
 
-  implicit val getNoteCache =
-    new ReadCacheImpl[GetEntityReq[Note]](
-      Helper.getEntityReqInvaliator
-    )
+  implicit val getNoteCache = new ReadCacheImpl[GetEntityReq[Note]]
 
 }

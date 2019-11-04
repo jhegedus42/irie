@@ -16,9 +16,8 @@ import scala.reflect.ClassTag
 import scala.util.Try
 
 private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
-  val invalidator: Option[InvalidatorStream[Req]]
 )(
-  implicit val invalidator2: Invalidator[Req])
+  implicit val invalidator: Invalidator[Req])
     extends ReadCache[Req] {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -29,25 +28,9 @@ private[caching] class ReadCacheImpl[Req <: PostRequest[ReadRequest]](
 
   override def clearCache(): Unit = { map = Map() }
 
+  invalidator.listen(()=>map , x => map=x )
 
 
-  if (invalidator.isDefined) {
-    val in: Stream[Req#ParT] = invalidator.get.stream
-
-    in.listen(x => { setElementToStale(x) })
-
-  }
-
-  private def setElementToStale(p: Req#ParT): Unit = {
-
-    val oldVal: Option[ReadCacheEntryState[Req]] = map.get(p)
-    if (oldVal.isDefined) {
-      val newMap = map + (p -> oldVal.get.toStale.get)
-      map = newMap
-      ReRenderer.triggerReRender()
-    }
-
-  }
 
   def getInFlight(
     param: Req#ParT

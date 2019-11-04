@@ -68,7 +68,7 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
 
           requestHandlerState = RequestSuccess[Req](par, value.res)
 
-          writeAjaxReturnedStream.send(Payload[Req](par,value.res))
+          stream.send(par)
 
         }
 
