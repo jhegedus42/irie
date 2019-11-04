@@ -14,6 +14,7 @@ trait Adapter[
 }
 
 object Adapter {
+
   implicit def entityUpdateAdapter[
     V <: EntityType[V]
   ]: Adapter[GetEntityReq[V], UpdateReq[V]] =

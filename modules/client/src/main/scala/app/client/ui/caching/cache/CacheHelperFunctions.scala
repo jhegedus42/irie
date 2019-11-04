@@ -21,9 +21,8 @@ object CacheHelperFunctions {
     identity: EntityIdentity[EV],
     cache:    Cache
   )(
-    implicit postRequestResultCache: ReadCache[
-      GetLatestEntityByIDReq[EV]
-    ],
+    implicit
+    postRequestResultCache: ReadCache[ GetLatestEntityByIDReq[EV] ],
     decoder: Decoder[GetLatestEntityByIDReq[EV]#ResT],
     encoder: Encoder[GetLatestEntityByIDReq[EV]#ParT],
     ct:      ClassTag[GetLatestEntityByIDReq[EV]],

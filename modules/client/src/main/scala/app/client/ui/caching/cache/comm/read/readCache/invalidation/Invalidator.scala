@@ -2,19 +2,10 @@ package app.client.ui.caching.cache.comm.read.readCache.invalidation
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import app.client.ui.caching.cache.comm.write.{
-  WriteAjaxReturnedStream,
-  WriteRequestHandlerTC
-}
+import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{
-  CreateEntityReq,
-  GetEntityReq,
-  GetLatestEntityByIDReq,
-  GetUsersNotesReq,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, UpdateReq}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
@@ -26,7 +17,7 @@ trait Invalidator[Req <: PostRequest[ReadRequest]] {
 
   def listen(
     g: () => M,
-    f: M => Unit
+    f: M  => Unit
   ): Unit
 
   def setElementToStale(
@@ -47,21 +38,33 @@ object Invalidator {
 
   implicit def getLatestEntityByIDReq
     : Invalidator[GetLatestEntityByIDReq[User]] = ???
+  // todo-now
 
-  implicit def getEntityInvalidator[
-    V <: EntityType[V]
-  ]: Invalidator[GetEntityReq[V]] = {
+  implicit def getEntityInvalidator[V <: EntityType[V]](
+    implicit wc: WriteRequestHandlerTC[UpdateReq[V]]
+  ): Invalidator[GetEntityReq[V]] = {
     type R = GetEntityReq[V]
     type W = UpdateReq[V]
 
     new Invalidator[R] {
+
+      val s = wc.stream
+
+      val a: Adapter[R, W] = implicitly[Adapter[R, W]]
+
+      val s1: Stream[GetEntityReq.Par[V]] = s.map(a.write2read)
+
       override def listen(
         g: () => M,
-        f: M => Unit
-      ): Unit = {}
+        f: M  => Unit
+      ): Unit = {
+        s1.listen({ (x: GetEntityReq.Par[V]) =>
+          val oldMap: M = g()
+          val newMap = setElementToStale(x, oldMap)
+          f(newMap)
+        })
+      }
     }
-
-    // todo-now
 
   }
 
@@ -79,7 +82,7 @@ object Invalidator {
 
       override def listen(
         g: () => M,
-        f: M => Unit
+        f: M  => Unit
       ): Unit = {
         s1.listen({ (x: GetAllUsersReq.Par) =>
           val oldMap: M = g()
