@@ -90,7 +90,9 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
-//      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
+      //      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
+      "org.apache.spark"                        %% "spark-sql" % "2.4.4",
+      "com.stripe"                              %% "rainier-core" % "0.2.3",
       "org.slf4j"                               % "slf4j-simple" % "1.7.25",
       "com.typesafe.akka"                       %% "akka-slf4j" % versions.akka,
       "com.typesafe.akka"                       %% "akka-actor" % versions.akka,

@@ -8,7 +8,8 @@
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/STextArea.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -422,13 +423,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00439" summary="Wrote todo list for next task : print the list of references to a user's notes.">
-      <created>1571764150930</created>
-      <option name="number" value="00439" />
-      <option name="presentableId" value="LOCAL-00439" />
-      <option name="project" value="LOCAL" />
-      <updated>1571764150930</updated>
-    </task>
     <task id="LOCAL-00440" summary="We can now print Alice's Notes.">
       <created>1571768823107</created>
       <option name="number" value="00440" />
@@ -765,7 +759,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572883690380</updated>
     </task>
-    <option name="localTasksCounter" value="488" />
+    <task id="LOCAL-00488" summary="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work.">
+      <created>1572888853383</created>
+      <option name="number" value="00488" />
+      <option name="presentableId" value="LOCAL-00488" />
+      <option name="project" value="LOCAL" />
+      <updated>1572888853383</updated>
+    </task>
+    <option name="localTasksCounter" value="489" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -812,7 +813,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="We can now print Alice's Notes." />
     <MESSAGE value="Implementation of listing Alice's note's contents is in progress." />
     <MESSAGE value="We can print now Alice's notes." />
     <MESSAGE value="Started to work on Note Editor Page." />
@@ -837,6 +837,7 @@
     <MESSAGE value="invalidation framwork is in progress" />
     <MESSAGE value="Invalidation framework is in good shape.&#10;&#10;Note editor UI is the text step." />
     <MESSAGE value="Sodium + React =&gt; figure it out how it works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sodium + React =&gt; figure it out how it works." />
+    <MESSAGE value="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work." />
   </component>
 </project>

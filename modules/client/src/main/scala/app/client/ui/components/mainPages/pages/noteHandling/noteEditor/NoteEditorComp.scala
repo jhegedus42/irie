@@ -6,6 +6,7 @@ import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteR
 import monocle.macros.Lenses
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
+import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
 import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
 import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.{ReadRequest, WriteRequest}
@@ -85,6 +86,7 @@ object NoteEditorComp {
 
       val e: Option[EntityWithRef[Note]] =
         VDOM.getEntity(x.cache, x.props.noteID)
+      // todo-now ^^^ we need to get the latest version
 
       import sodium._
       if (e.isDefined) {
@@ -102,7 +104,10 @@ object NoteEditorComp {
 
         <.div(
           titleS.component(),
-          button.getVDOM()
+          button.getVDOM(),
+          "For debug:",
+          <.br,
+          <.pre(HelperPrint.prettyPrint(e))
         )
 
       } else

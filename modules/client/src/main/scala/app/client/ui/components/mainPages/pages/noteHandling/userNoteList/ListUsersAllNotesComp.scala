@@ -1,14 +1,25 @@
 package app.client.ui.components.mainPages.pages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import japgolly.scalajs.react.vdom.{TagOf, VdomElement, html_<^}
-import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
+import japgolly.scalajs.react.vdom.{
+  TagMod,
+  TagOf,
+  VdomElement,
+  html_<^
+}
+import app.client.ui.caching.cacheInjector.{
+  CacheAndPropsAndRouterCtrl,
+  ToBeWrappedMainPageComponent
+}
 import app.client.ui.components.mainPages.generator.StaticTemplateComp.StaticTemplatePage
-import app.client.ui.components.{ListUsersAllNotesPage }
+import app.client.ui.components.ListUsersAllNotesPage
 import app.client.ui.components.mainPages.helpers.ListRenderHelper
 import app.client.ui.components.mainPages.pages.login.LoginPageComp.State
 import app.client.ui.components.mainPages.pages.login.UserLoginStatus
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
+import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{
+  PropsImpl,
+  StateImpl
+}
 import app.client.ui.dom.Window
 import app.shared.comm.ReadRequest
 import app.shared.comm.postRequests.GetUsersNotesReq
@@ -19,9 +30,43 @@ import app.shared.initialization.testing.TestEntitiesForUsers
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.BackendScope
 import japgolly.scalajs.react.vdom.html_<^.<
-import org.scalajs.dom.html.{Anchor, Div}
+import org.scalajs.dom.html.{Anchor, Div, Pre}
 
 import scala.collection.immutable
+
+object HelperPrint {
+
+  def prettyPrint(p: Option[EntityWithRef[Note]]): String = {
+    val s: String =
+      p match {
+        case Some(value) => {
+          s"""
+             |-------------------------------------------
+             | Title:
+             | ${value.entityValue.title}
+             |
+             | Content:
+             |
+             | ${value.entityValue.content}
+             |
+             | Ref to owner:
+             | ${value.entityValue.owner.entityIdentity}
+             | ${value.entityValue.owner.entityVersion}
+             | ${value.entityValue.owner.entityValueTypeAsString}
+             |
+             | Version of Note:
+             | ${value.toRef.entityVersion}
+             | ${value.toRef.entityValueTypeAsString}
+             | ${value.toRef.entityIdentity}
+             |
+             |""".stripMargin
+        }
+        case None => "None"
+      }
+    s
+  }
+
+}
 
 trait ListUsersAllNotesComp
     extends ToBeWrappedMainPageComponent[
@@ -75,19 +120,20 @@ trait ListUsersAllNotesComp
 
           val link = <.a(
             "edit",
-            ^.href := ctl.urlFor( NoteEditorPage(id.uuid) ).value,
+            ^.href := ctl.urlFor(NoteEditorPage(id.uuid)).value,
             ctl.setOnLinkClick(NoteEditorPage(id.uuid))
           )
 
           link
         }
 
-        x => {
+        x: Option[EntityWithRef[Note]] => {
           val res =
             x match {
               case Some(value) => {
                 val title = value.entityValue.title
-                <.div(title,
+                <.div(<.pre(HelperPrint.prettyPrint(x)),
+                      title,
                       "  ",
                       linkToEditorPage(value.toRef.entityIdentity),
                       <.br)
@@ -111,6 +157,7 @@ trait ListUsersAllNotesComp
 
           val r3: html_<^.TagMod =
             Helper.helper.getEntityListAsVDOM(r2, g)
+
           r3
 
         } else {
