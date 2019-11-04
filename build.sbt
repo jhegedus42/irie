@@ -59,6 +59,8 @@ lazy val client: Project = (project in file("modules/client"))
   .enablePlugins(ScalaJSPlugin)
   .dependsOn(shared_js % "compile->compile;test->test")
 
+//val s="/usr/local/lib/python3.7/site-packages/jep"
+
 lazy val server =
   (project in file("modules/server"))
     .settings(
@@ -67,7 +69,9 @@ lazy val server =
       scalaVersion := Settings.versions.scala,
       libraryDependencies ++= paradisePlugin.value,
       scalacOptions ++= Settings.scalacOptions,
-      libraryDependencies ++= Settings.jvmDependencies.value
+      libraryDependencies ++= Settings.jvmDependencies.value,
+//        fork := true,
+//      javaOptions += s"-Djava.library.path=$s"
     )
     .dependsOn(shared_jvm % "compile->compile;test->test")
 
@@ -77,3 +81,4 @@ scalaJSUseMainModuleInitializer in Compile := true
 
 cancelable in Global := true
 logLevel := Level.Error
+

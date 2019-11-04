@@ -30,7 +30,7 @@ import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Input}
 
-case class STextArea(init: Option[Note]) {
+case class STextArea(init: Note) {
 
 //  var note:Option[Note]= init
 
@@ -39,8 +39,8 @@ case class STextArea(init: Option[Note]) {
 //      ReRenderer.triggerReRender()
 //  });
 
-  val streamOut: StreamSink[Option[Note]] =
-    new StreamSink[Option[Note]]()
+  val streamOut: StreamSink[Note] =
+    new StreamSink[Note]()
 
   class Backend($ : BackendScope[Unit, Option[Note]]) {
 
@@ -51,9 +51,9 @@ case class STextArea(init: Option[Note]) {
         def onChange(e: ReactEventFromInput): Callback = {
           println("callback called")
           val newValue: String = e.target.value
-          val newNote:  Note   = s.get.lens(_.title).set(newValue)
+          val newNote:  (Note   = s.get.lens(_.title).set(newValue)
           $.setState(Some(newNote)) >> Callback {
-            streamOut.send(Some(newNote))} >> Callback { println(s"state is $newNote")}
+            streamOut.send(newNote)} >> Callback { println(s"state is $newNote")}
 
         }
 
@@ -69,7 +69,7 @@ case class STextArea(init: Option[Note]) {
 
   val component = ScalaComponent
     .builder[Unit]("STextArea")
-    .initialState(init)
+    .initialState(Some(init))
     .renderBackend[Backend]
     .build
 
