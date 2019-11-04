@@ -38,6 +38,10 @@ object ReadCache {
     new ReadCacheImpl[GetLatestEntityByIDReq[User]]
   }
 
+  implicit val getLatestNoteCache = {
+    new ReadCacheImpl[GetLatestEntityByIDReq[Note]]
+  }
+
   implicit val getUserCache =
     new ReadCacheImpl[GetEntityReq[User]]
 

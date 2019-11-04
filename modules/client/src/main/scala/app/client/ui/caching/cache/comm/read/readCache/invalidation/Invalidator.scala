@@ -59,7 +59,6 @@ object Invalidator {
 
     new Invalidator[R] {
 
-      //todo-now combine two invalidators
 
       val s1: Stream[Read#ParT] = wc.stream.map(adapter.write2read)
 
@@ -98,10 +97,16 @@ object Invalidator {
       }
     }
 
-  implicit def getLatestEntityByIDReq
+  implicit def getLatestUserEntityByIDReq
     : Invalidator[GetLatestEntityByIDReq[User]] =
     generalInvalidator[GetLatestEntityByIDReq[User], UpdateReq[
       User
+    ]]()
+
+  implicit def getLatestNoteByIDReq
+  : Invalidator[GetLatestEntityByIDReq[Note]] =
+    generalInvalidator[GetLatestEntityByIDReq[Note], UpdateReq[
+      Note
     ]]()
 
   implicit def getEntityInvalidator[V <: EntityType[V]](
@@ -113,7 +118,6 @@ object Invalidator {
     type Read = GetAllUsersReq
     new Invalidator[Read] {
 
-      //todo-now combine two invalidators
 
       val update: StreamSink[UpdateReq.UpdateReqPar[User]] =
         implicitly[WriteRequestHandlerTC[UpdateReq[User]]].stream
@@ -150,6 +154,5 @@ object Invalidator {
 //  : Invalidator[GetAllUsersReq] =
 //    generalInvalidator[GetAllUsersReq, CreateEntityReq[User]]()
 
-  // todo-now add invalidator for creating user
 
 }
