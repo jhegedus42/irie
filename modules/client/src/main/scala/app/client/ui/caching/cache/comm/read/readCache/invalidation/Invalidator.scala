@@ -59,6 +59,8 @@ object Invalidator {
 
     new Invalidator[R] {
 
+      //todo-now combine two invalidators
+
       val s1: Stream[Read#ParT] = wc.stream.map(adapter.write2read)
 
       override def listen(
@@ -106,10 +108,47 @@ object Invalidator {
     implicit wc: WriteRequestHandlerTC[UpdateReq[V]]
   ) = { generalInvalidator[GetEntityReq[V], UpdateReq[V]]() }
 
+  implicit def getAllUsersReqUpateInvalidator
+    : Invalidator[GetAllUsersReq] = {
+    type Read = GetAllUsersReq
+    new Invalidator[Read] {
 
-  implicit def getAllUsersReqInvalidator
-    : Invalidator[GetAllUsersReq] =
-    generalInvalidator[GetAllUsersReq, UpdateReq[User]]()
+      //todo-now combine two invalidators
+
+      val update: StreamSink[UpdateReq.UpdateReqPar[User]] =
+        implicitly[WriteRequestHandlerTC[UpdateReq[User]]].stream
+      val create
+        : StreamSink[CreateEntityReq.CreateEntityReqPar[User]] =
+        implicitly[WriteRequestHandlerTC[CreateEntityReq[User]]].stream
+
+      def g(
+        f: Unit,
+        g: Unit
+      ) = Unit
+      val s1: Stream[Unit.type] = Stream.merge(
+        List(update.map(x => Unit), create.map(x => Unit)),
+        g(_, _)
+      )
+
+      override def listen(
+        g: () => M,
+        f: M => Unit,
+        h: () => Unit
+      ): Unit = {
+        s1.listen({ (x: Unit.type) =>
+          val oldMap: M = g()
+          val newMap = oldMap.empty
+          f(newMap)
+          h()
+        })
+      }
+    }
+  }
+  //    generalInvalidator[GetAllUsersReq, UpdateReq[User]]()
+
+//  implicit def getAllUsersReqCreateInvalidator
+//  : Invalidator[GetAllUsersReq] =
+//    generalInvalidator[GetAllUsersReq, CreateEntityReq[User]]()
 
   // todo-now add invalidator for creating user
 
