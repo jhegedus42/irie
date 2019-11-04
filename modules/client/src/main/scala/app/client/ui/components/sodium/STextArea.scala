@@ -29,47 +29,35 @@ import japgolly.scalajs.react.{
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Input}
+import sodium._
 
-case class STextArea(init: Note) {
+case class STextArea(init: String) {
 
-//  var note:Option[Note]= init
+  private val stream:StreamSink[String] = new StreamSink[String]()
+  val cell: Cell[String] = stream.hold(init)
 
-//  streamIn.listen({
-//    x=> note=x;
-//      ReRenderer.triggerReRender()
-//  });
+  class Backend($ : BackendScope[Unit, String]) {
 
-  val streamOut: StreamSink[Note] =
-    new StreamSink[Note]()
-
-  class Backend($ : BackendScope[Unit, Option[Note]]) {
-
-    def render(s: Option[Note]) = {
-
-      if (s.isDefined) {
-
+    def render(text: String) = {
         def onChange(e: ReactEventFromInput): Callback = {
           println("callback called")
           val newValue: String = e.target.value
-          val newNote:  (Note   = s.get.lens(_.title).set(newValue)
-          $.setState(Some(newNote)) >> Callback {
-            streamOut.send(newNote)} >> Callback { println(s"state is $newNote")}
+
+          Callback(stream.send(newValue))>>
+          $.setState(newValue) >> Callback { println(s"state is $newValue")}
 
         }
 
-        def title = s.get.lens(_.title).get
-
         <.div(
-          <.textarea(^.onChange ==> onChange, ^.value := title)
+          <.textarea(^.onChange ==> onChange, ^.value := cell.sample())
         )
-      } else <.div("loading")
     }
 
   }
 
   val component = ScalaComponent
     .builder[Unit]("STextArea")
-    .initialState(Some(init))
+    .initialState(init)
     .renderBackend[Backend]
     .build
 

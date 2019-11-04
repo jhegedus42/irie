@@ -2,24 +2,12 @@ package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
-import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
+import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteRequestHandlerTC}
 import monocle.macros.Lenses
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.sodium.{
-  SButton,
-  STextArea,
-  SodiumWidgeSaveEntityToServer
-}
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController
-}
+import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
 import app.shared.entity.EntityWithRef
@@ -37,8 +25,8 @@ import io.circe.generic.auto._
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
-
 import monocle.macros.syntax.lens._
+
 import scala.reflect.ClassTag
 
 trait NoteEditorComp
@@ -100,20 +88,17 @@ object NoteEditorComp {
 
       import sodium._
       if (e.isDefined) {
-        val r: EntityWithRef[Note] = e.get;
-          val titleS:  STextArea          = STextArea(r.entityValue)
-        val cellOut: Cell[Note] = titleS.streamOut.hold(r.entityValue)
+        val r:      EntityWithRef[Note] = e.get;
+        val titleS: STextArea           = STextArea(r.entityValue.title)
         val button = SButton()
 
-        val s: Stream[Note] = button.sClickedSink.snapshot(cellOut)
+        val s = button.sClickedSink.snapshot(titleS.cell)
 
-        val stream1: Stream[UpdateReq.UpdateReqPar[Note]] = {
-          s.map((x: Note) => UpdateReq.UpdateReqPar[Note]( r.lens(_.entityValue).set(x),x))
-        }
+        s.listen( (p: String) =>{
+          val n: Note =r.entityValue.lens(_.title).set(p)
+          x.cache.writeToServer[UpdateReq[Note]](UpdateReq.UpdateReqPar(r,n))
+        })
 
-
-        val saver =
-          SodiumWidgeSaveEntityToServer[Note](stream1, x.cache)
 
         <.div(
           titleS.component(),

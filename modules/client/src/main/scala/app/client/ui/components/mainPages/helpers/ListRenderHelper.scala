@@ -32,7 +32,7 @@ case class ListRenderHelper[T <: EntityType[T], Props](
     val par_ = GetEntityReq.Par(r)
     val res_ : Option[GetEntityReq.Res[T]] =
       cacheAndPropsAndRouterCtrl.cache
-        .readFromServer[GetEntityReq[T]](par_)
+        .readFromServer[GetEntityReq[T]](par_)  // todo-now fix the versioning error in the list
         .toOption
     val emptyResult: GetEntityReq.Res[T] =
       GetEntityReq.Res[T](None)
