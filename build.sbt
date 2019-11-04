@@ -8,6 +8,8 @@ ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
 ThisBuild / resolvers += "jitpack" at "https://jitpack.io"
+ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
+
 
 lazy val macroVersion = "2.1.1"
 

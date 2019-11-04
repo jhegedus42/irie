@@ -91,6 +91,10 @@ object Settings {
   val jvmDependencies = Def.setting(
     Seq(
       //      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
+      "com.cibo"                                %% "scalastan" % "0.9.0",
+      "org.scalanlp"                            %% "breeze" % "1.0",
+      "org.scalanlp"                            %% "breeze-natives" % "1.0",
+      "org.scalanlp"                            %% "breeze-viz" % "1.0",
       "org.apache.spark"                        %% "spark-sql" % "2.4.4",
       "com.stripe"                              %% "rainier-core" % "0.2.3",
       "org.slf4j"                               % "slf4j-simple" % "1.7.25",
