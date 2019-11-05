@@ -6,9 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/generator/staticPageGenerator/PlotComponent.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/post/routeLogicImpl/persistentActor/logic/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/wrappers/LoginSwitcher.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -318,16 +327,8 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
@@ -336,6 +337,14 @@
               <ExternalProjectPojo>
                 <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -352,11 +361,11 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7841412718148" />
-        <entry key="$PROJECT_DIR$/build.sbt" value="1631533900" />
+        <entry key="$PROJECT_DIR$" value="7841439631490" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="3997574537" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="1789897431" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="2626881508" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="3743763501" />
       </map>
@@ -382,13 +391,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00444" summary="Sodium works on Scala.js (at least one test passes.)">
-      <created>1571881647739</created>
-      <option name="number" value="00444" />
-      <option name="presentableId" value="LOCAL-00444" />
-      <option name="project" value="LOCAL" />
-      <updated>1571881647742</updated>
     </task>
     <task id="LOCAL-00445" summary="Testing Memory Leak in Node.js for Sodium.">
       <created>1571884685965</created>
@@ -726,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572913729659</updated>
     </task>
-    <option name="localTasksCounter" value="493" />
+    <task id="LOCAL-00493" summary="Mukodik a CRU. Note taker application. Multi User !">
+      <created>1572918333506</created>
+      <option name="number" value="00493" />
+      <option name="presentableId" value="LOCAL-00493" />
+      <option name="project" value="LOCAL" />
+      <updated>1572918333507</updated>
+    </task>
+    <option name="localTasksCounter" value="494" />
     <servers />
   </component>
   <component name="UnknownFeatures">

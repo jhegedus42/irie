@@ -13,13 +13,17 @@ object Main extends js.JSApp {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  val loginSwitcher= LoginSwitcher()
+  val loginSwitcher = LoginSwitcher()
 
   @JSExport
   def main(): Unit = {
+//    EvilTest.test();
     val e: Element = document.getElementById("rootComp")
     loginSwitcher.comp(10).renderIntoDOM(e)
   }
 
+}
+
+object EvilTest {
 
 }

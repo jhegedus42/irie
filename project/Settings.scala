@@ -92,6 +92,7 @@ object Settings {
     Seq(
       //      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
 //      "org.platanios"                           % "tensorflow-api_2.12" % "0.4.1"  ,
+//      "org.vegas-viz"                           %% "vegas" % "0.3.11",
       "com.cibo"                                %% "scalastan" % "0.9.0",
       "org.scalanlp"                            %% "breeze" % "1.0",
       "org.scalanlp"                            %% "breeze-natives" % "1.0",
@@ -119,6 +120,7 @@ object Settings {
   /** Dependencies only used by the JS project (note the use of %%% instead of %%) */
   val scalajsDependencies = Def.setting(
     Seq(
+      "com.cibo" %%% "evilplot" % "0.6.3", // Use %%% instead of %% if you're using ScalaJS
       "com.lihaoyi" %%% "pprint"                      % "0.5.3",
       "com.github.japgolly.scalajs-react" %%% "core"  % versions.scalajsReact,
       "com.github.japgolly.scalajs-react" %%% "extra" % versions.scalajsReact,

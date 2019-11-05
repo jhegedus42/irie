@@ -5,6 +5,7 @@ import japgolly.scalajs.react.vdom.html_<^.<
 import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ReRenderer}
+import app.client.ui.components.mainPages.generator.staticPageGenerator.PlotComponent
 import app.client.ui.components.mainPages.pages.login.LoginPageComp
 import app.client.ui.components.mainPages.pages.login.LoginPageComp.{Props, State}
 import app.client.ui.components.router.RouterComp
@@ -38,7 +39,6 @@ case class LoginSwitcher() {
         if (isLoggedIn.userOption.isDefined) {
           <.div(p,"logged in", router())
         } else <.div(p,"not logged in", router())
-
       <.div(r,"test: "+s)
     }
   }
