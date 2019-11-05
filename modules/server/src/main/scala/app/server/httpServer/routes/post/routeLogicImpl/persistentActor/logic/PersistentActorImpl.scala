@@ -91,7 +91,7 @@ private[persistentActor] class PersistentActorImpl(id: String)
 
   override def receiveRecover: Receive = {
 
-    case evt: EventToBeSavedIntoJournal => {
+    case evt:EventToBeSavedIntoJournal => {
       applyEvent(evt)
     }
 

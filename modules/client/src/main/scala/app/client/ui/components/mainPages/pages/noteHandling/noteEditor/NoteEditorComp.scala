@@ -19,7 +19,7 @@ import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{BackendScope, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import org.scalajs.dom.Node
 import org.scalajs.dom.html.Anchor
 import io.circe.generic.auto._
@@ -115,7 +115,8 @@ object NoteEditorComp {
           button.getVDOM(),
           "For debug:",
           <.br,
-          <.pre(HelperPrint.prettyPrint(e2))
+          <.pre(HelperPrint.prettyPrint(e2)),
+          <.button("upload",^.`type`:="file",^.onClick-->Callback(println("upload clicked")))
         )
 
       } else
