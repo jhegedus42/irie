@@ -2,31 +2,66 @@ package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
-import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteRequestHandlerTC}
+import app.client.ui.caching.cache.comm.write.{
+  WriteRequestHandlerStates,
+  WriteRequestHandlerTC
+}
 import monocle.macros.Lenses
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
+import org.scalajs.dom.File
+import org.scalajs.dom._
+
+
+
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
-import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
+import app.client.ui.components.sodium.{
+  SButton,
+  STextArea,
+  SodiumWidgeSaveEntityToServer
+}
+import app.client.ui.components.{
+  MainPage,
+  MainPageInjectedWithCacheAndController
+}
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, UpdateReq}
+import app.shared.comm.postRequests.{
+  GetEntityReq,
+  GetLatestEntityByIDReq,
+  UpdateReq
+}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import org.scalajs.dom.Node
 import org.scalajs.dom.html.Anchor
 import io.circe.generic.auto._
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
+import japgolly.scalajs.react.raw.SyntheticEvent
+import japgolly.scalajs.react.vdom.Attr
 import monocle.macros.syntax.lens._
+import org.scalajs.dom.raw.EventTarget
 
 import scala.reflect.ClassTag
 
@@ -76,7 +111,6 @@ object NoteEditorComp {
 
   case class Props(noteID: EntityIdentity[Note])
 
-
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
@@ -86,14 +120,17 @@ object NoteEditorComp {
 
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
 
-
-      val p: EntityIdentity[Note] =x.props.noteID
-      val r: RefToEntityByID[Note] =RefToEntityByID(p)
-      val e: ReadCacheEntryStates.ReadCacheEntryState[GetLatestEntityByIDReq[Note]] =
-        x.cache.readFromServer[GetLatestEntityByIDReq[Note]](GetLatestEntityByIDReq.Par(r))
+      val p: EntityIdentity[Note]  = x.props.noteID
+      val r: RefToEntityByID[Note] = RefToEntityByID(p)
+      val e: ReadCacheEntryStates.ReadCacheEntryState[
+        GetLatestEntityByIDReq[Note]
+      ] =
+        x.cache.readFromServer[GetLatestEntityByIDReq[Note]](
+          GetLatestEntityByIDReq.Par(r)
+        )
 
       val ee: Option[GetLatestEntityByIDReq.Res[Note]] = e.toOption
-      val e2: Option[EntityWithRef[Note]] =ee.flatMap(_.optionEntity)
+      val e2: Option[EntityWithRef[Note]]              = ee.flatMap(_.optionEntity)
 
       import sodium._
       if (e2.isDefined) {
@@ -110,15 +147,16 @@ object NoteEditorComp {
           )
         })
 
+        import scalatags.JsDom.all._
+
         <.div(
           titleS.component(),
           button.getVDOM(),
           "For debug:",
           <.br,
           <.pre(HelperPrint.prettyPrint(e2)),
-          <.button("upload",^.`type`:="file",^.onClick-->Callback(println("upload clicked")))
+              <.input( ^.`type`:="file", ^.name:="name"),
         )
-
       } else
         <.div("Loading...")
 
