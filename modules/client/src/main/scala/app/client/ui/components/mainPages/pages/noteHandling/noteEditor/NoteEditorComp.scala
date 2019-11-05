@@ -155,14 +155,18 @@ object NoteEditorComp {
                 val d: js.Dynamic = x.asInstanceOf[js.Dynamic]
                 Callback {
                   val file: js.Dynamic = d.target.files.item(0)
-                  console.warn("inputLazy onChange", file )
+                  console.warn("inputLazy onChange", file)
                   val fr: FileReader = new FileReader()
-                  val b=file.asInstanceOf[Blob]
+                  val b = file.asInstanceOf[Blob]
                   fr.readAsDataURL(b)
                   import scala.scalajs.js
                   import js.JSConverters._
 
-                  fr.onload=(e)=>console.warn("file loaded",e)
+                  fr.onload = (e) =>
+                    console.warn(
+                      "file loaded",
+                      e.asInstanceOf[js.Dynamic].target.result
+                    )
                 }
               }
             }
