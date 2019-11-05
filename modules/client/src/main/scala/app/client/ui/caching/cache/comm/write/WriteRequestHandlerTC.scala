@@ -3,7 +3,8 @@ package app.client.ui.caching.cache.comm.write
 import WriteRequestHandlerStates.WriteHandlerState
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import app.shared.comm.postRequests.{CreateEntityReq, UpdateReq}
+import app.shared.comm.postRequests.CreateEntityReq
+import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.entityValue.values.{Note, User}
 import io.circe.{Decoder, Encoder}

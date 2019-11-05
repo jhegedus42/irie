@@ -3,8 +3,8 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.UpdateReq
-import app.shared.comm.postRequests.UpdateReq.{UpdateReqPar, UpdateReqRes}
+import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.write.UpdateReq.{UpdateReqPar, UpdateReqRes}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
@@ -14,13 +14,13 @@ import scala.reflect.ClassTag
 
 case class UpdateEntityLogic[V <: EntityType[V]](
 )(
-                                                   implicit
-                                                   paw:             PersistentActorWhisperer,
-                                                   decoderEntityV:  Decoder[EntityWithRef[V]],
-                                                   encoderEntityV:  Encoder[EntityWithRef[V]],
-                                                   _encoderV:       Encoder[V],
-                                                   classTag:        ClassTag[V],
-                                                   contextExecutor: ExecutionContextExecutor)
+  implicit
+  paw:             PersistentActorWhisperer,
+  decoderEntityV:  Decoder[EntityWithRef[V]],
+  encoderEntityV:  Encoder[EntityWithRef[V]],
+  _encoderV:       Encoder[V],
+  classTag:        ClassTag[V],
+  contextExecutor: ExecutionContextExecutor)
     extends RouteLogic[UpdateReq[V]] {
 
   override def getHttpReqResult(

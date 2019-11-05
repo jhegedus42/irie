@@ -2,15 +2,16 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq, CreateEntityReq, UpdateReq}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic.{GetEntityLogic, GetLatestEntityByIDLogic, CreateEntityLogic, UpdateEntityLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic.{CreateEntityLogic, GetEntityLogic, GetLatestEntityByIDLogic, UpdateEntityLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.comm.{ReadRequest, WriteRequest}
 
 import scala.concurrent.ExecutionContextExecutor

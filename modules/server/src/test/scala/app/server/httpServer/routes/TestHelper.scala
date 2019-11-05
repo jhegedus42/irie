@@ -17,7 +17,8 @@ import akka.io.dns.DnsProtocol.RequestType
 import app.shared.comm.postRequests.GetEntityReq.{Par, Res}
 import app.shared.comm.postRequests.marshall.JSONEncodersDecoders.{decodeResult, encodeParameters, encodeResult}
 import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, ResetRequest, UpdateReq}
+import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, ResetRequest}
 import app.shared.comm.{PostRequest, RouteName}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType

@@ -14,8 +14,7 @@ import app.shared.comm.postRequests.{
   GetEntityReq,
   GetUsersNotesReq,
   LoginReq,
-  ResetRequest,
-  UpdateReq
+  ResetRequest
 }
 import app.shared.comm.postRequests.GetEntityReq._
 import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqRes

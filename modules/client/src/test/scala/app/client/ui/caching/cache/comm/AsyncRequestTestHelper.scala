@@ -2,13 +2,14 @@ package app.client.ui.caching.cache.comm
 
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.{GetEntityReq, ResetRequest, UpdateReq}
+import app.shared.comm.postRequests.{GetEntityReq, ResetRequest}
 import app.shared.comm.postRequests.GetEntityReq.Par
-import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
+import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.write.UpdateReq.UpdateReqPar
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.{RefToEntityWithVersion }
+import app.shared.entity.refs.RefToEntityWithVersion
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.auto._
 import org.scalatest.{Assertion, AsyncFunSuite}

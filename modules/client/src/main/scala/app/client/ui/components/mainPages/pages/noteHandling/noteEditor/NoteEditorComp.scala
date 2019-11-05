@@ -2,53 +2,27 @@ package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
-import app.client.ui.caching.cache.comm.write.{
-  WriteRequestHandlerStates,
-  WriteRequestHandlerTC
-}
+import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteRequestHandlerTC}
 import monocle.macros.Lenses
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import org.scalajs.dom.File
 import org.scalajs.dom._
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
-import app.client.ui.components.sodium.{
-  SButton,
-  STextArea,
-  SodiumWidgeSaveEntityToServer
-}
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController
-}
+import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
+import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  GetLatestEntityByIDReq,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import org.scalajs.dom.Node
 import org.scalajs.dom.html.{Anchor, Input}
 import io.circe.generic.auto._

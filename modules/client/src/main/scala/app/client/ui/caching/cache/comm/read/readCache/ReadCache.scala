@@ -12,8 +12,7 @@ import app.shared.comm.postRequests.read.GetAllUsersReq
 import app.shared.comm.postRequests.{
   GetEntityReq,
   GetLatestEntityByIDReq,
-  GetUsersNotesReq,
-  UpdateReq
+  GetUsersNotesReq
 }
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.EntityType

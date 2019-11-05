@@ -1,35 +1,15 @@
 package app.client.ui.components.mainPages.pages.userHandling.userEditor
 
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
-import app.client.ui.caching.cache.{
-  CacheHelperFunctions,
-  ReadCacheEntryStates
-}
-
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  MainPageReactCompWrapper,
-  ToBeWrappedMainPageComponent
-}
-
-import app.client.ui.components.mainPages.pages.login.LoginPageComp.{
-  Props,
-  State
-}
-import app.client.ui.components.mainPages.pages.userHandling.userEditor.{
-  TextFieldWithButtonAndHandler => TBH
-}
-import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.{
-  Props,
-  UserEditorPage
-}
-import app.client.ui.components.{
-  MainPage,
-  MainPageInjectedWithCacheAndController
-}
+import app.client.ui.caching.cache.{CacheHelperFunctions, ReadCacheEntryStates}
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.components.mainPages.pages.login.LoginPageComp.{Props, State}
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.{TextFieldWithButtonAndHandler => TBH}
+import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.{Props, UserEditorPage}
+import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
+import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.utils.UUID_Utils.EntityIdentity
@@ -37,13 +17,7 @@ import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  CallbackTo,
-  CtorType,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, CtorType, ScalaComponent}
 import monocle.macros.syntax.lens._
 import org.scalajs.dom
 import org.scalajs.dom.html.{Button, Div, Input}

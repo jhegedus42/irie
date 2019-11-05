@@ -1,13 +1,10 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cache.comm.write.{
-  WriteRequestHandlerStates,
-  WriteRequestHandlerTC
-}
+import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteRequestHandlerTC}
 import app.client.ui.caching.cacheInjector.Cache
 import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.UpdateReq
-import app.shared.comm.postRequests.UpdateReq.UpdateReqPar
+import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.write.UpdateReq.UpdateReqPar
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion
