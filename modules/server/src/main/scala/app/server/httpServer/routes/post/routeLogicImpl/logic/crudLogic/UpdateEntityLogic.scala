@@ -12,6 +12,10 @@ import io.circe.{Decoder, Encoder}
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
+case class CoderImplicits[V<:EntityType[V]](){
+
+}
+
 case class UpdateEntityLogic[V <: EntityType[V]](
 )(
   implicit

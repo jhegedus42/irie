@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post
 
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{GetAllUsersLogic, GetUsersNotesLogic, LoginLogic, SumIntLogic}
+import app.server.httpServer.routes.post.routeLogicImpl.logic.read.{GetAllUsersLogic, GetUsersNotesLogic, LoginLogic}
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.shared.comm.postRequests.GetUsersNotesReq
 import app.shared.comm.{PostRequest, PostRequestType}
@@ -37,7 +37,6 @@ trait RouteLogic[Req <: PostRequest[_]] {
 }
 
 object RouteLogic {
-  implicit val sumIntInstance = SumIntLogic
 
   implicit def getResetLogic(
     implicit paw:    PersistentActorWhisperer,
