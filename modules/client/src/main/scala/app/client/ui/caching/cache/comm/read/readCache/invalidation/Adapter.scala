@@ -16,7 +16,6 @@ trait Adapter[
 
 object Adapter {
 
-
 //  implicit def getUserNotesReqAdapter:Adapter[GetUsersNotesReq,UpdateReq[Note]]=
 //    new Adapter[GetUsersNotesReq,UpdateReq[Note]] {
 //      override def write2read: UpdateReq.UpdateReqPar[Note] => GetUsersNotesReq.Par =

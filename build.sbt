@@ -4,11 +4,15 @@ name := "root"
 
 import sbt.Keys._
 
+//https://www.scala-sbt.org/1.x/docs/Resolvers.html
 ThisBuild / resolvers += Resolver.jcenterRepo
 ThisBuild / resolvers += Resolver.JCenterRepository
 ThisBuild / resolvers += Resolver.bintrayRepo("naftoligug", "maven")
 ThisBuild / resolvers += "jitpack" at "https://jitpack.io"
 ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
+ThisBuild / resolvers += Resolver.sonatypeRepo("public")
+ThisBuild / resolvers += Resolver.sonatypeRepo("releases")
+
 
 
 lazy val macroVersion = "2.1.1"

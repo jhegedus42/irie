@@ -2,19 +2,10 @@ package app.client.ui.caching.cache.comm.read.readCache.invalidation
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import app.client.ui.caching.cache.comm.write.{
-  WriteAjaxReturnedStream,
-  WriteRequestHandlerTC
-}
+import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{
-  CreateEntityReq,
-  GetEntityReq,
-  GetLatestEntityByIDReq,
-  GetUsersNotesReq,
-  UpdateReq
-}
+import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq, UpdateReq}
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
@@ -45,12 +36,10 @@ trait Invalidator[Req <: PostRequest[ReadRequest]] {
 }
 
 object Invalidator {
-
   def generalInvalidator[
     Read  <: PostRequest[ReadRequest],
     Write <: PostRequest[WriteRequest]
-  ](
-  )(
+  ]( )(
     implicit wc: WriteRequestHandlerTC[Write],
     adapter:     Adapter[Read, Write]
   ): Invalidator[Read] = {
@@ -78,10 +67,14 @@ object Invalidator {
   }
 
   implicit def getUsersNotesReq(
-    implicit wc: WriteRequestHandlerTC[UpdateReq[Note]]
+    implicit wc: WriteRequestHandlerTC[UpdateReq[Note]],
+    wc2: WriteRequestHandlerTC[CreateEntityReq[Note]]
   ): Invalidator[GetUsersNotesReq] =
     new Invalidator[GetUsersNotesReq] {
-      val s1: StreamSink[UpdateReq.UpdateReqPar[Note]] = wc.stream
+      val s1  =  wc.stream.map(x=>Unit)
+      val s2  = wc2.stream.map(x=>Unit)
+
+      val s: Stream[Unit.type] =s1.orElse(s2)
 
       override def listen(
         g: () => M,
@@ -90,7 +83,7 @@ object Invalidator {
       ): Unit = {
         val m: M = g()
         val newMap = m.empty
-        s1.listen({ (_) =>
+        s.listen({ (_) =>
           f(newMap)
           h()
         })
@@ -153,6 +146,4 @@ object Invalidator {
 //  implicit def getAllUsersReqCreateInvalidator
 //  : Invalidator[GetAllUsersReq] =
 //    generalInvalidator[GetAllUsersReq, CreateEntityReq[User]]()
-
-
 }

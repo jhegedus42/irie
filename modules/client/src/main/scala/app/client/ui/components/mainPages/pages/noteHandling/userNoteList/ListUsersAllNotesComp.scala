@@ -1,5 +1,6 @@
 package app.client.ui.components.mainPages.pages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
+import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import japgolly.scalajs.react.vdom.{
   TagMod,
   TagOf,
@@ -20,12 +21,17 @@ import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUs
   PropsImpl,
   StateImpl
 }
+import app.client.ui.components.router.RouterComp
+import app.client.ui.components.sodium.SButton
 import app.client.ui.dom.Window
 import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.GetUsersNotesReq
+import app.shared.comm.postRequests.{
+  CreateEntityReq,
+  GetUsersNotesReq
+}
 import app.shared.comm.postRequests.GetUsersNotesReq.Par
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.Note
+import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.initialization.testing.TestEntitiesForUsers
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.BackendScope
@@ -51,8 +57,6 @@ object HelperPrint {
              |
              | Ref to owner:
              | ${value.entityValue.owner.entityIdentity}
-             | ${value.entityValue.owner.entityVersion}
-             | ${value.entityValue.owner.entityValueTypeAsString}
              |
              | Version of Note:
              | ${value.toRef.entityVersion}
@@ -85,6 +89,17 @@ trait ListUsersAllNotesComp
 
   import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
   import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
+
+  val createButton = SButton("Create Node")
+
+  val id: EntityIdentity[User] =
+    Window.getUserLoginStatus.userOption.get.toRef.entityIdentity
+
+  val par: CreateEntityReq.CreateEntityReqPar[Note] =
+    CreateEntityReq.CreateEntityReqPar(Note("note", "text", id))
+  createButton.sClickedSink.listen(
+    x => RouterComp.cache.writeToServer[CreateEntityReq[Note]](par)
+  )
 
   override def getVDOM(
     c:            CacheAndPropsAndRouterCtrl[PropsT],
@@ -164,7 +179,8 @@ trait ListUsersAllNotesComp
           <.div("List is Loading ...")
         }
 
-      <.div(<.br, noteList)
+      <.div(<.br, noteList, <.br, createButton.getVDOM())
+
     }
 
     r3

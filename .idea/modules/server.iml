@@ -15,6 +15,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: org.typelevel:macro-compat_2.12:1.1.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: junit:junit:3.8.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.google.protobuf:protobuf-java:2.5.0:jar" level="project" />
     <orderEntry type="module-library">
       <library name="sbt: unmanaged-sources-and-docs">
         <CLASSES />
@@ -158,7 +160,6 @@
     <orderEntry type="library" name="sbt: net.sf.opencsv:opencsv:2.3:jar" level="project" />
     <orderEntry type="library" name="sbt: net.razorvine:pyrolite:4.13:jar" level="project" />
     <orderEntry type="library" name="sbt: log4j:log4j:1.2.17:jar" level="project" />
-    <orderEntry type="library" name="sbt: junit:junit:3.8.1:jar" level="project" />
     <orderEntry type="library" name="sbt: joda-time:joda-time:2.9.9:jar" level="project" />
     <orderEntry type="library" name="sbt: jline:jline:0.9.94:jar" level="project" />
     <orderEntry type="library" name="sbt: javax.xml.stream:stax-api:1.0-2:jar" level="project" />
@@ -200,7 +201,6 @@
     <orderEntry type="library" name="sbt: com.ning:compress-lzf:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lowagie:itext:2.1.5:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:sourcecode_2.12:0.1.6:jar" level="project" />
-    <orderEntry type="library" name="sbt: com.google.protobuf:protobuf-java:2.5.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.inject:guice:3.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.flogger:flogger-system-backend:0.3.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.google.flogger:flogger:0.3.1:jar" level="project" />

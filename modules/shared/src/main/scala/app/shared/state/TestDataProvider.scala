@@ -10,7 +10,7 @@ object TestEntitiesForNotes {
   val a1: EntityWithRef[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
-  val aliceRef: RefToEntityWithVersion[User] = a1.toRef
+  val aliceRef  = a1.toRef.entityIdentity
 
   val note01Alice = Note("Alice note 1", "Super deep story.", aliceRef)
 

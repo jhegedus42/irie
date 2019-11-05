@@ -7,7 +7,7 @@ import com.cibo.scalastan.StanModel
 
 import com.cibo.scalastan.models.NaiveBayes
 
-object NaiveBayesExample extends App {
+object NaiveBayesExample{ // extends App {
 
   // Mapping from group -> document -> words
   val documents = Seq[Map[Int, Set[Int]]](

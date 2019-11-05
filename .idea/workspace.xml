@@ -5,18 +5,22 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/ml/stan/NaiveBayesExample.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_modules_scala_parser_combinators_2_12_1_1_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/modules-sources.iml" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="1. merfoldko majdnem elerve, mar csak a create note hianyzik&#10;es szevasz, megvan az alap note lista">
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/ml/tf/TFExample.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Adapter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Adapter.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Invalidator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation/Invalidator.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/write/WriteRequestHandlerTC.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/RouterComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/learn/ml/stan/NaiveBayesExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/learn/ml/stan/NaiveBayesExample.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/CreateEntityReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/state/TestDataProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/state/TestDataProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -181,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NaiveBayesExample">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="MyApp" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.ml.stan.MyApp" />
       <module name="server" />
@@ -198,6 +202,13 @@
     </configuration>
     <configuration name="ScalaPy" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.scalaPy.ScalaPy" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TFExample" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="learn.ml.tf.TFExample" />
       <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -265,26 +276,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="client" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="testKind" value="Class" />
-      <option name="envs">
-        <map />
-      </option>
-      <option name="javaOptions" value="" />
-      <option name="jrePath" />
-      <option name="searchTest" value="Across module dependencies" />
-      <option name="showProgressMessages" value="true" />
-      <option name="testArgs" value="" />
-      <option name="testClassPath" value="app.client.MainTest" />
-      <option name="useSbt" value="false" />
-      <option name="useUiWithSbt" value="false" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StreamTester" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="client" />
       <option name="allowRunningInParallel" value="false" />
@@ -307,23 +298,23 @@
     </configuration>
     <list>
       <item itemvalue="Application.ScalaPy" />
+      <item itemvalue="Application.MyApp" />
+      <item itemvalue="Application.NaiveBayesExample" />
+      <item itemvalue="Application.TFExample" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.MainTest" />
       <item itemvalue="sbt Task.NodeTester" />
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
-      <item itemvalue="ScalaTest.MainTest" />
       <item itemvalue="ScalaTest.StreamTester" />
-      <item itemvalue="Application.MyApp" />
-      <item itemvalue="Application.NaiveBayesExample" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TFExample" />
         <item itemvalue="Application.NaiveBayesExample" />
         <item itemvalue="Application.MyApp" />
         <item itemvalue="Application.ScalaPy" />
         <item itemvalue="ScalaTest.StreamTester" />
-        <item itemvalue="ScalaTest.MainTest" />
       </list>
     </recent_temporary>
   </component>
@@ -340,12 +331,12 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
@@ -356,8 +347,8 @@
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -374,7 +365,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/build.sbt" value="289108844" />
+        <entry key="$PROJECT_DIR$/build.sbt" value="1631533900" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
         <entry key="$PROJECT_DIR$/project/Settings.scala" value="1789897431" />
@@ -403,13 +394,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00442" summary="We can print now Alice's notes.">
-      <created>1571859888180</created>
-      <option name="number" value="00442" />
-      <option name="presentableId" value="LOCAL-00442" />
-      <option name="project" value="LOCAL" />
-      <updated>1571859888184</updated>
     </task>
     <task id="LOCAL-00443" summary="Started to work on Note Editor Page.">
       <created>1571860074287</created>
@@ -747,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572896984505</updated>
     </task>
-    <option name="localTasksCounter" value="491" />
+    <task id="LOCAL-00491" summary="1. merfoldko majdnem elerve, mar csak a create note hianyzik&#10;es szevasz, megvan az alap note lista">
+      <created>1572905127704</created>
+      <option name="number" value="00491" />
+      <option name="presentableId" value="LOCAL-00491" />
+      <option name="project" value="LOCAL" />
+      <updated>1572905127705</updated>
+    </task>
+    <option name="localTasksCounter" value="492" />
     <servers />
   </component>
   <component name="UnknownFeatures">

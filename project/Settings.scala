@@ -91,6 +91,7 @@ object Settings {
   val jvmDependencies = Def.setting(
     Seq(
       //      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
+//      "org.platanios"                           % "tensorflow-api_2.12" % "0.4.1"  ,
       "com.cibo"                                %% "scalastan" % "0.9.0",
       "org.scalanlp"                            %% "breeze" % "1.0",
       "org.scalanlp"                            %% "breeze-natives" % "1.0",

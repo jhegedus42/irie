@@ -18,8 +18,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 
 
 case class RouterComp() {
-
-  lazy val cache: Cache = new Cache()
+  import RouterComp.cache
 
   def routerConfigNotLoggedIng: RouterConfig[MainPage] =
     RouterConfigDsl[MainPage].buildConfig {
@@ -91,6 +90,7 @@ case class RouterComp() {
 }
 
 object RouterComp {
+  lazy val cache: Cache = new Cache()
   type RoutingRule = RouterConfigDsl[MainPage] => Rule[MainPage]
 
 }

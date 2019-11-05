@@ -47,4 +47,6 @@ object WriteRequestHandlerTC {
   implicit val createUser =
     new WriteRequestHandlerTCImpl[CreateEntityReq[User]] {}
 
+  implicit val createNote =
+    new WriteRequestHandlerTCImpl[CreateEntityReq[Note]] {}
 }
