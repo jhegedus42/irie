@@ -112,7 +112,6 @@ object NoteEditorComp {
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
-
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
 
       val p: EntityIdentity[Note]  = x.props.noteID
@@ -149,18 +148,25 @@ object NoteEditorComp {
 
         lazy val inputLazy: VdomTagOf[Input] =
           <.input(
-          ^.`type` := "file",
-          ^.name := "file",
-          ^.onChange ==> {
-            x: ^.onChange.Event =>
-            {
-              val d: js.Dynamic = x.asInstanceOf[js.Dynamic]
-              Callback {
-                console.warn("inputLazy onChange", d.target.files)
+            ^.`type` := "file",
+            ^.name := "file",
+            ^.onChange ==> { x: ^.onChange.Event =>
+              {
+                val d: js.Dynamic = x.asInstanceOf[js.Dynamic]
+                Callback {
+                  val file: js.Dynamic = d.target.files.item(0)
+                  console.warn("inputLazy onChange", file )
+                  val fr: FileReader = new FileReader()
+                  val b=file.asInstanceOf[Blob]
+                  fr.readAsDataURL(b)
+                  import scala.scalajs.js
+                  import js.JSConverters._
+
+                  fr.onload=(e)=>console.warn("file loaded",e)
+                }
               }
             }
-          }
-        )
+          )
 
         lazy val formLazy =
           <.form(
