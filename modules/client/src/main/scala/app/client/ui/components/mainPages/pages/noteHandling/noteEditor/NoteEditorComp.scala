@@ -15,9 +15,6 @@ import app.client.ui.caching.cacheInjector.{
 }
 import org.scalajs.dom.File
 import org.scalajs.dom._
-
-
-
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
 import app.client.ui.components.sodium.{
@@ -45,7 +42,7 @@ import app.shared.entity.refs.{
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import japgolly.scalajs.react.component.Scala.Component
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.{
   BackendScope,
   Callback,
@@ -53,14 +50,14 @@ import japgolly.scalajs.react.{
   ScalaComponent
 }
 import org.scalajs.dom.Node
-import org.scalajs.dom.html.Anchor
+import org.scalajs.dom.html.{Anchor, Input}
 import io.circe.generic.auto._
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
+import japgolly.scalajs.react.component.ReactForwardRef
 import japgolly.scalajs.react.raw.SyntheticEvent
 import japgolly.scalajs.react.vdom.Attr
-import monocle.macros.syntax.lens._
 import org.scalajs.dom.raw.EventTarget
 
 import scala.reflect.ClassTag
@@ -141,6 +138,7 @@ object NoteEditorComp {
         val s = button.sClickedSink.snapshot(titleS.cell)
 
         s.listen((p: String) => {
+          import monocle.macros.syntax.lens._
           val n: Note = r.entityValue.lens(_.title).set(p)
           x.cache.writeToServer[UpdateReq[Note]](
             UpdateReq.UpdateReqPar(r, n)
@@ -149,14 +147,28 @@ object NoteEditorComp {
 
         import scalatags.JsDom.all._
 
+//        var
+
+        val i =
+          <.form(
+            ^.onSubmit ==> { x: Attr.Event[SyntheticEvent]#Event =>
+              Callback { println("we should submit now the 'thing'") }
+            },
+            <.label("Upload file:", <.input(^.`type` := "file")),
+            <.br,
+            <.button(^.`type` := "submit")
+          )
+
         <.div(
           titleS.component(),
           button.getVDOM(),
           "For debug:",
           <.br,
           <.pre(HelperPrint.prettyPrint(e2)),
-              <.input( ^.`type`:="file", ^.name:="name"),
+          i,
+          s"files: ${i.apply("files")}"
         )
+
       } else
         <.div("Loading...")
 

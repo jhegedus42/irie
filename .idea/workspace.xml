@@ -6,8 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jupyterlab/.ipynb_checkpoints/test01-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jupyterlab/test01.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala" afterDir="false" />
     </list>
@@ -384,13 +382,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00446" summary="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done.">
-      <created>1571958391918</created>
-      <option name="number" value="00446" />
-      <option name="presentableId" value="LOCAL-00446" />
-      <option name="project" value="LOCAL" />
-      <updated>1571958391919</updated>
-    </task>
     <task id="LOCAL-00447" summary="trying out some simple sodium code in scalajs-react">
       <created>1572018105188</created>
       <option name="number" value="00447" />
@@ -727,7 +718,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572928029437</updated>
     </task>
-    <option name="localTasksCounter" value="495" />
+    <task id="LOCAL-00495" summary="File Chooser muxik.">
+      <created>1572936708779</created>
+      <option name="number" value="00495" />
+      <option name="presentableId" value="LOCAL-00495" />
+      <option name="project" value="LOCAL" />
+      <updated>1572936708779</updated>
+    </task>
+    <option name="localTasksCounter" value="496" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -774,7 +772,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Started to work on Note Editor Page." />
     <MESSAGE value="Sodium works on Scala.js (at least one test passes.)" />
     <MESSAGE value="Testing Memory Leak in Node.js for Sodium." />
     <MESSAGE value="Started working on Note Editor Comp.&#10;&#10;Stub + todo has been done." />
@@ -799,6 +796,7 @@
     <MESSAGE value="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work." />
     <MESSAGE value="1. merfoldko majdnem elerve, mar csak a create note hianyzik&#10;es szevasz, megvan az alap note lista" />
     <MESSAGE value="Mukodik a CRU. Note taker application. Multi User !" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mukodik a CRU. Note taker application. Multi User !" />
+    <MESSAGE value="File Chooser muxik." />
+    <option name="LAST_COMMIT_MESSAGE" value="File Chooser muxik." />
   </component>
 </project>
