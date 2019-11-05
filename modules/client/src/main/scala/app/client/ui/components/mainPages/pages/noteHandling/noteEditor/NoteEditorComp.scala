@@ -61,6 +61,7 @@ import japgolly.scalajs.react.vdom.Attr
 import org.scalajs.dom.raw.EventTarget
 
 import scala.reflect.ClassTag
+import scala.scalajs._
 
 trait NoteEditorComp
     extends ToBeWrappedMainPageComponent[NoteEditorComp,
@@ -111,9 +112,6 @@ object NoteEditorComp {
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
-//    object VDOM extends EntityCRUD {
-//      override type V = Note
-//    }
 
     def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
 
@@ -147,14 +145,33 @@ object NoteEditorComp {
 
         import scalatags.JsDom.all._
 
-//        var
+        var files: Option[Any] = None
 
-        val i =
+        lazy val inputLazy: VdomTagOf[Input] =
+          <.input(
+          ^.`type` := "file",
+          ^.name := "file",
+          ^.onChange ==> {
+            x: ^.onChange.Event =>
+            {
+              val d: js.Dynamic = x.asInstanceOf[js.Dynamic]
+              Callback {
+                console.warn("inputLazy onChange", d.target.files)
+              }
+            }
+          }
+        )
+
+        lazy val formLazy =
           <.form(
-            ^.onSubmit ==> { x: Attr.Event[SyntheticEvent]#Event =>
-              Callback { println("we should submit now the 'thing'") }
+            ^.onSubmit ==> { x =>
+              Callback {
+                println(
+                  s"we should submit now the 'thing', which is $x"
+                )
+              }
             },
-            <.label("Upload file:", <.input(^.`type` := "file")),
+            <.label("Upload file:", inputLazy()),
             <.br,
             <.button(^.`type` := "submit")
           )
@@ -165,8 +182,7 @@ object NoteEditorComp {
           "For debug:",
           <.br,
           <.pre(HelperPrint.prettyPrint(e2)),
-          i,
-          s"files: ${i.apply("files")}"
+          formLazy
         )
 
       } else
