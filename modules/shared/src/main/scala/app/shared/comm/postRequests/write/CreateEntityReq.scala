@@ -1,7 +1,7 @@
-package app.shared.comm.postRequests
+package app.shared.comm.postRequests.write
 
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.CreateEntityReq.{CreateEntityReqPar, CreateEntityReqRes}
+import app.shared.comm.postRequests.write.CreateEntityReq.{CreateEntityReqPar, CreateEntityReqRes}
+import app.shared.comm.{PostRequest, WriteRequest}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import io.circe.generic.JsonCodec

@@ -4,15 +4,14 @@ import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.comm.postRequests.read.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.entity.refs.RefToEntityWithVersion
 import sodium.{Stream, StreamSink}
 import WriteRequestHandlerTC._
-import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
 
 trait Invalidator[Req <: PostRequest[ReadRequest]] {
   type M = Map[Req#ParT, ReadCacheEntryState[Req]]

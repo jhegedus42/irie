@@ -8,9 +8,9 @@ import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerS
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.read.GetAllUsersReq
+import app.shared.comm.postRequests.read.{GetAllUsersReq, GetUsersNotesReq}
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{GetUsersNotesReq, LoginReq, ResetRequest }
+import app.shared.comm.postRequests.{LoginReq, ResetRequest}
 import app.shared.entity.entityValue.values.{Note, User}
 
 import scala.concurrent.ExecutionContextExecutor

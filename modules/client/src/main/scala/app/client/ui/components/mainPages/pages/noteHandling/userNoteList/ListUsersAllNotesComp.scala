@@ -1,44 +1,22 @@
 package app.client.ui.components.mainPages.pages.noteHandling.userNoteList
 import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
-import japgolly.scalajs.react.vdom.{
-  TagMod,
-  TagOf,
-  VdomElement,
-  html_<^
-}
-import app.client.ui.caching.cacheInjector.{
-  CacheAndPropsAndRouterCtrl,
-  ToBeWrappedMainPageComponent
-}
-import app.client.ui.components.mainPages.generator.StaticTemplateComp.StaticTemplatePage
+import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ToBeWrappedMainPageComponent}
 import app.client.ui.components.ListUsersAllNotesPage
 import app.client.ui.components.mainPages.helpers.ListRenderHelper
-import app.client.ui.components.mainPages.pages.login.LoginPageComp.State
 import app.client.ui.components.mainPages.pages.login.UserLoginStatus
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
-import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{
-  PropsImpl,
-  StateImpl
-}
+import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import app.client.ui.components.router.RouterComp
 import app.client.ui.components.sodium.SButton
 import app.client.ui.dom.Window
-import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.{
-  CreateEntityReq,
-  GetUsersNotesReq
-}
-import app.shared.comm.postRequests.GetUsersNotesReq.Par
+import app.shared.comm.postRequests.read.GetUsersNotesReq
+import app.shared.comm.postRequests.read.GetUsersNotesReq.Par
+import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.initialization.testing.TestEntitiesForUsers
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.BackendScope
-import japgolly.scalajs.react.vdom.html_<^.<
-import org.scalajs.dom.html.{Anchor, Div, Pre}
-
-import scala.collection.immutable
+import org.scalajs.dom.html.Anchor
 
 object HelperPrint {
 

@@ -1,19 +1,10 @@
 package app.client.ui.caching.cache.comm.read.readCache
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
-import app.client.ui.caching.cache.comm.read.readCache.invalidation.{
-  InvalidationTypes,
-  Invalidator,
-  InvalidatorStream
-}
+import app.client.ui.caching.cache.comm.read.readCache.invalidation.{InvalidationTypes, Invalidator, InvalidatorStream}
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
-import app.shared.comm.postRequests.read.GetAllUsersReq
-import app.shared.comm.postRequests.{
-  GetEntityReq,
-  GetLatestEntityByIDReq,
-  GetUsersNotesReq
-}
+import app.shared.comm.postRequests.read.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
 import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}

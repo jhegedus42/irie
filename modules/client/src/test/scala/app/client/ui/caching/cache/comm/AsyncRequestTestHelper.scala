@@ -2,8 +2,9 @@ package app.client.ui.caching.cache.comm
 
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
 import app.shared.comm.PostRequest
-import app.shared.comm.postRequests.{GetEntityReq, ResetRequest}
-import app.shared.comm.postRequests.GetEntityReq.Par
+import app.shared.comm.postRequests.ResetRequest
+import app.shared.comm.postRequests.read.GetEntityReq
+import app.shared.comm.postRequests.read.GetEntityReq.Par
 import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.comm.postRequests.write.UpdateReq.UpdateReqPar
 import app.shared.entity.EntityWithRef

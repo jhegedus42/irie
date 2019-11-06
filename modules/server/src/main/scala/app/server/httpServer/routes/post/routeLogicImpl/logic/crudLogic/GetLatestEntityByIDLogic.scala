@@ -2,14 +2,14 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.postRequests.GetLatestEntityByIDReq
-import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.GetLatestEntityByIDReq.{Par, Res}
+import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
+import app.shared.comm.postRequests.read.GetLatestEntityByIDReq.{Par, Res}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import io.circe.Decoder
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+
 
 case class GetLatestEntityByIDLogic[V <: EntityType[V]](
 )(

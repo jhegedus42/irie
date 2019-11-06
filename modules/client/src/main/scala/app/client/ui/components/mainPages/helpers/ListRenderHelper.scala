@@ -3,7 +3,7 @@ package app.client.ui.components.mainPages.helpers
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cacheInjector.CacheAndPropsAndRouterCtrl
 import app.shared.comm.ReadRequest
-import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.read.GetEntityReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion

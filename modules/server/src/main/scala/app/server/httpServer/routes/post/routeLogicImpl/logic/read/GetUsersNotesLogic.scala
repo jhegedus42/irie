@@ -2,7 +2,7 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.read
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.postRequests.GetUsersNotesReq
+import app.shared.comm.postRequests.read.GetUsersNotesReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.Note
 

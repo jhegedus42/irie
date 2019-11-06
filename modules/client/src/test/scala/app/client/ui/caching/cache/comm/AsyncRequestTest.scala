@@ -1,10 +1,11 @@
 package app.client.ui.caching.cache.comm
 
 import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, PostAJAXRequestSuccessfulResponse}
-import app.shared.comm.postRequests.CreateEntityReq.CreateEntityReqPar
+import app.shared.comm.postRequests.write.CreateEntityReq.CreateEntityReqPar
 import app.shared.comm.postRequests.write.UpdateReq.UpdateReqPar
 import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
-import app.shared.comm.postRequests.{CreateEntityReq, ResetRequest}
+import app.shared.comm.postRequests.ResetRequest
+import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntitiesForUsers

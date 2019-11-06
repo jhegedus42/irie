@@ -5,9 +5,9 @@ import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, M
 import app.client.ui.components.mainPages.pages.userHandling.userList
 import app.client.ui.components.mainPages.pages.userHandling.userList.UserListComp.{Props$, State$}
 import app.client.ui.components.sodium.SodiumWidgets
-import app.client.ui.components.{MainPage,  UserListPage}
+import app.client.ui.components.{MainPage, UserListPage}
 import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.CreateEntityReq
+import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntitiesForUsers
 import japgolly.scalajs.react.component.Scala.Component

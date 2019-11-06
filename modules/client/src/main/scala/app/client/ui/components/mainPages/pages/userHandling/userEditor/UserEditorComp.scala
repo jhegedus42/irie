@@ -8,7 +8,7 @@ import app.client.ui.components.mainPages.pages.userHandling.userEditor.{TextFie
 import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.{Props, UserEditorPage}
 import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
 import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.GetEntityReq
+import app.shared.comm.postRequests.read.GetEntityReq
 import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User

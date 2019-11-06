@@ -8,7 +8,7 @@ import app.client.ui.components.mainPages.helpers.ListRenderHelper
 import app.client.ui.components.mainPages.pages.userHandling.userEditor.UserEditorComp.UserEditorPage
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq}
+import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User

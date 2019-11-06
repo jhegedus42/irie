@@ -1,17 +1,15 @@
-package app.shared.comm.postRequests
+package app.shared.comm.postRequests.read
 
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
-import app.shared.entity.entityValue.EntityType
-import app.shared.entity.EntityWithRef
+import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.entityValue.values.{Note, User}
 import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.generic.JsonCodec
 
 object GetUsersNotesReq {
+  import io.circe.generic.JsonCodec
   import io.circe.generic.auto._
   import io.circe.syntax._
-  import io.circe.generic.JsonCodec
 
   @JsonCodec
   case class Par(userID: EntityIdentity[User])

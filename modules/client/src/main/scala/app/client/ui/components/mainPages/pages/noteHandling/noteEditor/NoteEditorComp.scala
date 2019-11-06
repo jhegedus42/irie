@@ -11,9 +11,9 @@ import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEdit
 import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
 import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
 import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
+import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
 import app.shared.comm.postRequests.write.UpdateReq
 import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{GetEntityReq, GetLatestEntityByIDReq}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}

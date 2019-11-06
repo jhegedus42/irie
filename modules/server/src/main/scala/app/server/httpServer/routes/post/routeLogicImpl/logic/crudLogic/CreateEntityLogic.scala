@@ -2,15 +2,12 @@ package app.server.httpServer.routes.post.routeLogicImpl.logic.crudLogic
 
 import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
-import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.CreateEntityReq
-import app.shared.comm.postRequests.CreateEntityReq.{
-  CreateEntityReqPar,
-  CreateEntityReqRes
-}
+import app.shared.comm.postRequests.write.CreateEntityReq
+import app.shared.comm.postRequests.write.CreateEntityReq.{CreateEntityReqPar, CreateEntityReqRes}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
+
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 

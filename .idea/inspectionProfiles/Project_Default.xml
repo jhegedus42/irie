@@ -354,13 +354,10 @@
     <inspection_tool class="EditorConfigHeaderUniqueness" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigKeyCorrectness" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigNoMatchingFiles" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="EditorConfigNumerousWildcards" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigOptionRedundancy" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="EditorConfigPartialOverride" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigPatternRedundancy" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigShadowedOption" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigShadowingOption" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="EditorConfigSpaceInHeader" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigUnusedDeclaration" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EditorConfigWildcardRedundancy" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="EmptyCheck" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
@@ -805,6 +802,7 @@
     </inspection_tool>
     <inspection_tool class="MultipleTopLevelClassesInFile" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="MultipleTypedDeclaration" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="MultipleVariablesInDeclaration" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="MultiplyOrDivideByPowerOfTwo" enabled="false" level="WEAK WARNING" enabled_by_default="false">
       <option name="checkDivision" value="false" />
     </inspection_tool>
@@ -1075,7 +1073,7 @@
     <inspection_tool class="RegExpRepeatedSpace" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RegExpSingleCharAlternation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RegExpUnexpectedAnchor" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="RelativeImport" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="RelativeImport" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RemoveRedundantReturn" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="ReplaceAllDot" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="ReplaceAssignmentWithOperatorAssignment" enabled="false" level="WEAK WARNING" enabled_by_default="false">
@@ -1134,6 +1132,8 @@
     <inspection_tool class="ScalaUnnecessaryParentheses" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="ScalaUnnecessarySemicolon" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="ScalaUnreachableCode" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="ScalaUnusedExpression" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="ScalaUnusedSymbol" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="ScheduledForRemoval" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="SerialPersistentFieldsWithWrongSignature" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="SerialVersionUIDNotStaticFinal" enabled="false" level="WEAK WARNING" enabled_by_default="false" />

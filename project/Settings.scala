@@ -1,7 +1,7 @@
-import sbt._
-import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
+import java.io.{Console => _}
 
-import java.io.{Console => _, _}
+import org.portablescala.sbtplatformdeps.PlatformDepsPlugin.autoImport._
+import sbt._
 
 object Settings {
 
@@ -99,6 +99,7 @@ object Settings {
       "org.scalanlp"                            %% "breeze-viz" % "1.0",
       "org.apache.spark"                        %% "spark-sql" % "2.4.4",
       "com.stripe"                              %% "rainier-core" % "0.2.3",
+//      "com.stripe"                              %% "rainier-repl" % "0.2.2",
       "org.slf4j"                               % "slf4j-simple" % "1.7.25",
       "com.typesafe.akka"                       %% "akka-slf4j" % versions.akka,
       "com.typesafe.akka"                       %% "akka-actor" % versions.akka,

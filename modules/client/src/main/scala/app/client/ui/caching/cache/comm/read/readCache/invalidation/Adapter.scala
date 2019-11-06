@@ -1,8 +1,7 @@
 package app.client.ui.caching.cache.comm.read.readCache.invalidation
 
-import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq}
-import app.shared.comm.postRequests.write.UpdateReq
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest, postRequests}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}

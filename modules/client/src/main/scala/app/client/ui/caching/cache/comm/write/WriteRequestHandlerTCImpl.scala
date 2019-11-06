@@ -6,7 +6,7 @@ import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.postRequests.{CreateEntityReq, GetEntityReq}
+import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.{Note, User}

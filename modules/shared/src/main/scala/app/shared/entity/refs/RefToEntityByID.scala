@@ -1,6 +1,6 @@
 package app.shared.entity.refs
 
-import app.shared.comm.postRequests.GetLatestEntityByIDReq
+import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
 import app.shared.entity.asString.EntityValueTypeAsString
 import app.shared.entity.entityValue.EntityType
 import app.shared.utils.UUID_Utils.EntityIdentity

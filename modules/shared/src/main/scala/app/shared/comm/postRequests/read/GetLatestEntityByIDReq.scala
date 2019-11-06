@@ -1,19 +1,16 @@
-package app.shared.comm.postRequests
+package app.shared.comm.postRequests.read
 
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
-import app.shared.entity.entityValue.EntityType
+import app.shared.comm.{PostRequest, ReadRequest}
 import app.shared.entity.EntityWithRef
-import app.shared.entity.refs.{
-  RefToEntityByID,
-  RefToEntityWithVersion
-}
+import app.shared.entity.entityValue.EntityType
+import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
 import io.circe.generic.JsonCodec
 
 object GetLatestEntityByIDReq {
 
+  import io.circe.generic.JsonCodec
   import io.circe.generic.auto._
   import io.circe.syntax._
-  import io.circe.generic.JsonCodec
 
   @JsonCodec
   case class Par[V <: EntityType[V]](
