@@ -3,7 +3,7 @@ package learn.ml.rainier
 import com.stripe.rainier.repl._
 import com.stripe.rainier.compute.Real
 import com.stripe.rainier.core.{LogNormal, Poisson, Predictor, RandomVariable}
-object RainierDemo extends App {
+object RainierDemo { // extends App {
   val data = List(
     (0, 8),
     (1, 12),

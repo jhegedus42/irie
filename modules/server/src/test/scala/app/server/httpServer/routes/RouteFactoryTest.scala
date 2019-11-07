@@ -69,7 +69,7 @@ class RouteFactoryTest
 
   test("get user note list") {
     val a = TestEntitiesForUsers.aliceEntity_with_UUID0
-    import GetUsersNotesReq._
+    import app.shared.comm.postRequests.read.GetUsersNotesReq._
 
     val par: Par = Par(a.toRef.entityIdentity)
 

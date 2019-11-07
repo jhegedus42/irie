@@ -90,3 +90,5 @@ scalaJSUseMainModuleInitializer in Compile := true
 cancelable in Global := true
 logLevel := Level.Error
 
+
+mainClass in (Compile,run) := Some("app.server.Main")
