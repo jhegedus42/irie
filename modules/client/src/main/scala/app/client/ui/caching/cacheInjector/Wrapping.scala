@@ -4,23 +4,42 @@ import app.client.ui.caching.cache.comm.read.readCache.ReadCache
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerStates.WriteHandlerState
 import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTC
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.shared.comm.{PostRequest, PostRequestType, ReadRequest, WriteRequest}
+import app.shared.comm.{
+  PostRequest,
+  PostRequestType,
+  ReadRequest,
+  WriteRequest
+}
 import io.circe.{Decoder, Encoder}
 
 import scala.reflect.ClassTag
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
-import app.client.ui.caching.cacheInjector.{CacheAndPropsAndRouterCtrl, ReRenderer}
+import app.client.ui.caching.cacheInjector.{
+  CacheAndPropsAndRouterCtrl,
+  ReRenderer
+}
 import app.client.ui.components.mainPages.pages.login.LoginPageComp
-import app.client.ui.components.{LoginPage, MainPage, MainPageInjectedWithCacheAndController, UserListPage}
+import app.client.ui.components.{
+  LoginPage,
+  MainPage,
+  MainPageInjectedWithCacheAndController,
+  UserListPage
+}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Scala
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^._
+import sodium.StreamSink
 
 class WrapperHOC[Props, State](
   toBeWrapped: Component[CacheAndPropsAndRouterCtrl[Props], State, _, CtorType.Props]) {
@@ -80,7 +99,7 @@ class Cache() {
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): ReadCacheEntryState[ Req] = c.getRequestResult(par)
+  ): ReadCacheEntryState[Req] = c.getRequestResult(par)
 
   def writeToServer[Req <: PostRequest[WriteRequest]](
     par: Req#ParT
@@ -91,7 +110,24 @@ class Cache() {
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): WriteHandlerState[Req] = c.executeRequest(par)
+  ): sodium.Stream[WriteHandlerState[Req]] = c.executeRequest(par)
+
+  case class Writer[Req <: PostRequest[WriteRequest]](
+  )(
+    implicit
+    c: WriteRequestHandlerTC[Req]) {
+    def getStream: StreamSink[WriteHandlerState[Req]] = c.streamState
+
+    def writeToServer(
+      par: Req#ParT
+    )(
+      implicit decoder: Decoder[Req#ResT],
+      encoder:          Encoder[Req#ParT],
+      ct:               ClassTag[Req],
+      ct2:              ClassTag[Req#PayLoadT]
+    ): sodium.Stream[WriteHandlerState[Req]] = c.executeRequest(par)
+
+  }
 
 }
 
@@ -102,7 +138,11 @@ trait ToBeWrappedMainPageComponent[
   type StateT
   type BackendT = Backend
 
-  def getStaticRoute(routeName:String,p:Page)(cache: Cache) = {
+  def getStaticRoute(
+    routeName: String,
+    p:         Page
+  )(cache:     Cache
+  ) = {
 
     import japgolly.scalajs.react.extra.router._
 
@@ -156,8 +196,9 @@ trait ToBeWrappedMainPageComponent[
   def getVDOM(
     c: CacheAndPropsAndRouterCtrl[Comp#PropsT],
     s: Comp#StateT,
-    backendScope: BackendScope[CacheAndPropsAndRouterCtrl[Comp#PropsT],Comp#StateT]
-
+    backendScope: BackendScope[CacheAndPropsAndRouterCtrl[
+      Comp#PropsT
+    ], Comp#StateT]
   ): VdomElement
 
 //  def component :
@@ -192,7 +233,7 @@ trait ToBeWrappedMainPageComponent[
       s: Comp#StateT
     ): VdomElement = {
 
-      getVDOM(cacheAndPropsAndRouterCtrl, s,$)
+      getVDOM(cacheAndPropsAndRouterCtrl, s, $)
     }
 
   }

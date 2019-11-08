@@ -11,7 +11,7 @@ import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.read.{GetAllUsersReq, GetUsersNotesReq}
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.comm.postRequests.{LoginReq, ResetRequest}
-import app.shared.entity.entityValue.values.{Note, User}
+import app.shared.entity.entityValue.values.{Image, Note, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -39,7 +39,8 @@ private[httpServer] case class RouteFactory(
       getPostRoute[ResetRequest].route ~
       getPostRoute[GetAllUsersReq].route ~
       getPostRoute[LoginReq].route ~
-      getPostRoute[GetUsersNotesReq].route
+      getPostRoute[GetUsersNotesReq].route ~
+      crudRouteFactory.route[Image]
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

@@ -7,31 +7,31 @@ object WriteRequestHandlerStates {
   type WR = PostRequest[WriteRequest]
 
   sealed trait WriteHandlerState[Req <: WR] {
-    def getPar: Option[Req#ParT]
+    def getRes: Option[Req#ResT]
   }
 
   case class NotCalledYet[Req <: WR]()
       extends WriteHandlerState[Req] {
-    override def getPar = None
+    override def getRes = None
   }
 
   case class RequestPending[Req <: WR](par: Req#ParT)
       extends WriteHandlerState[Req] {
-    override def getPar: Option[Req#ParT] = None
+    override def getRes: Option[Req#ResT] = None
   }
 
   trait RequestArrived[Req <: WR] extends WriteHandlerState[Req]
 
   case class RequestError[Req <: WR](errorDescription: String)
       extends RequestArrived[Req] {
-    override def getPar: Option[Req#ParT] = None
+    override def getRes: Option[Req#ResT] = None
   }
 
   case class RequestSuccess[Req <: WR](
     par: Req#ParT,
     res: Req#ResT)
       extends RequestArrived[Req] {
-    override def getPar: Option[Req#ParT] = Some(par)
+    override def getRes: Option[Req#ResT] = Some(res)
   }
 
   def toInt[R <: WR](ra: WriteHandlerState[R]): Int = {

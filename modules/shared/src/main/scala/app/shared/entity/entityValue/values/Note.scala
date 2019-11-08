@@ -12,5 +12,6 @@ import io.circe.generic.JsonCodec
 case class Note(
                title:String,
   content: String,
-  owner:   EntityIdentity[User])
+  owner:   EntityIdentity[User]
+               )
     extends EntityType[Note]

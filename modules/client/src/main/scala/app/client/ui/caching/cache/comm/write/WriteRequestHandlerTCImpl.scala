@@ -36,6 +36,7 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
     NotCalledYet[Req]()
 
 
+
   def getState = requestHandlerState
 
   /**
@@ -51,7 +52,7 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): WriteHandlerState[Req] = {
+  ): Stream[WriteHandlerState[Req]] = {
 
     def ajaxReturnHandler(
       r: Try[AJAXCalls.PostAJAXRequestSuccessfulResponse[Req]]
@@ -69,6 +70,7 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
           requestHandlerState = RequestSuccess[Req](par, value.res)
 
           stream.send(par)
+          streamState.send(requestHandlerState)
 
         }
 
@@ -96,7 +98,8 @@ trait WriteRequestHandlerTCImpl[Req <: PostRequest[WriteRequest]]
       }
     }
 
-    requestHandlerState
+//    requestHandlerState
+    streamState
   }
 
 }

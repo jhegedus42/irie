@@ -27,7 +27,7 @@ case class SodiumWidgeSaveEntityToServer[V <: EntityType[V]](
 
   def saveEntity(
     par: UpdateReqPar[V]
-  ): WriteRequestHandlerStates.WriteHandlerState[UpdateReq[V]] =
+  ): Stream[WriteRequestHandlerStates.WriteHandlerState[UpdateReq[V]]] =
     cache.writeToServer[ UpdateReq[V]](par)
 
   stream.listen((x: UpdateReqPar[V]) => saveEntity(x))

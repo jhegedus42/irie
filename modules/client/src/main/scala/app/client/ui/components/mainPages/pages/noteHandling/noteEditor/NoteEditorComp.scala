@@ -2,28 +2,53 @@ package app.client.ui.components.mainPages.pages.noteHandling.noteEditor
 
 import app.client.ui.caching.cache.ReadCacheEntryStates
 import app.client.ui.caching.cache.comm.read.readCache.ReadCache
-import app.client.ui.caching.cache.comm.write.{WriteRequestHandlerStates, WriteRequestHandlerTC}
+import app.client.ui.caching.cache.comm.write.{
+  WriteRequestHandlerStates,
+  WriteRequestHandlerTC
+}
 import monocle.macros.Lenses
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  MainPageReactCompWrapper,
+  ToBeWrappedMainPageComponent
+}
 import org.scalajs.dom.File
 import org.scalajs.dom._
 import app.client.ui.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.HelperPrint
-import app.client.ui.components.sodium.{SButton, STextArea, SodiumWidgeSaveEntityToServer}
-import app.client.ui.components.{MainPage, MainPageInjectedWithCacheAndController}
+import app.client.ui.components.sodium.SodiumWidgets.SodiumLabel
+import app.client.ui.components.sodium.{
+  SButton,
+  STextArea,
+  SodiumWidgeSaveEntityToServer
+}
+import app.client.ui.components.{
+  MainPage,
+  MainPageInjectedWithCacheAndController
+}
 import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
-import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
 import app.shared.comm.{ReadRequest, WriteRequest}
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
-import app.shared.entity.entityValue.values.{Note, User}
-import app.shared.entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import app.shared.entity.entityValue.values.{Image, Note, User}
+import app.shared.entity.refs.{
+  RefToEntityByID,
+  RefToEntityWithVersion
+}
 import app.shared.utils.UUID_Utils.EntityIdentity
-import io.circe.{Decoder, Encoder}
+import io.circe.JsonObject
 import japgolly.scalajs.react.component.Scala.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CtorType,
+  ScalaComponent
+}
 import org.scalajs.dom.Node
+import org.scalajs.dom.File
 import org.scalajs.dom.html.{Anchor, Input}
 import io.circe.generic.auto._
 import io.circe.generic.auto._
@@ -86,14 +111,14 @@ object NoteEditorComp {
   class Backend[PropsBE](
     $ : BackendScope[CacheAndPropsAndRouterCtrl[Props], String]) {
 
-    def render(x: CacheAndPropsAndRouterCtrl[Props]) = {
+    def render(props: CacheAndPropsAndRouterCtrl[Props]) = {
 
-      val p: EntityIdentity[Note]  = x.props.noteID
+      val p: EntityIdentity[Note]  = props.props.noteID
       val r: RefToEntityByID[Note] = RefToEntityByID(p)
       val e: ReadCacheEntryStates.ReadCacheEntryState[
         GetLatestEntityByIDReq[Note]
       ] =
-        x.cache.readFromServer[GetLatestEntityByIDReq[Note]](
+        props.cache.readFromServer[GetLatestEntityByIDReq[Note]](
           GetLatestEntityByIDReq.Par(r)
         )
 
@@ -104,21 +129,37 @@ object NoteEditorComp {
       if (e2.isDefined) {
         val r:      EntityWithRef[Note] = e2.get;
         val titleS: STextArea           = STextArea(r.entityValue.title)
-        val button = SButton()
+        val button       = SButton()
+        val uploadButton = SButton()
 
         val s = button.sClickedSink.snapshot(titleS.cell)
 
         s.listen((p: String) => {
           import monocle.macros.syntax.lens._
           val n: Note = r.entityValue.lens(_.title).set(p)
-          x.cache.writeToServer[UpdateReq[Note]](
+          props.cache.writeToServer[UpdateReq[Note]](
             UpdateReq.UpdateReqPar(r, n)
           )
         })
 
         import scalatags.JsDom.all._
 
-        var files: Option[Any] = None
+        var file: Option[File] = None
+
+        case class ImageWriter(n: EntityWithRef[Note]) {
+
+          val writer = props.cache.Writer[CreateEntityReq[Image]]()
+
+          def writeImage(image: String) = {
+            val par = CreateEntityReq.CreateEntityReqPar(
+              Image("elso", image, Some(r.toRef.entityIdentity))
+            )
+            writer.writeToServer(par)
+          }
+
+        }
+
+        def imageWriter = ImageWriter(r)
 
         lazy val inputLazy: VdomTagOf[Input] =
           <.input(
@@ -135,12 +176,20 @@ object NoteEditorComp {
                   fr.readAsDataURL(b)
                   import scala.scalajs.js
                   import js.JSConverters._
+                  val g = js.Dynamic.global
 
-                  fr.onload = (e) =>
+                  fr.onload = (e) => {
                     console.warn(
                       "file loaded",
                       e.asInstanceOf[js.Dynamic].target.result
                     )
+                    g.myX = e.asInstanceOf[js.Dynamic].target.result
+                    val s = g.myX.asInstanceOf[String]
+                    imageWriter.writeImage(s)
+                  }
+
+//                  println(s"bla: $x");
+
                 }
               }
             }
@@ -153,11 +202,14 @@ object NoteEditorComp {
                 println(
                   s"we should submit now the 'thing', which is $x"
                 )
+                val y = x
+                println(y)
+
               }
             },
             <.label("Upload file:", inputLazy()),
             <.br,
-            <.button(^.`type` := "submit")
+            <.button("Upload", ^.`type` := "submit")
           )
 
         <.div(
@@ -166,7 +218,22 @@ object NoteEditorComp {
           "For debug:",
           <.br,
           <.pre(HelperPrint.prettyPrint(e2)),
-          formLazy
+          formLazy,
+          "---------------------------------",
+          <.br,
+          "result: ",
+          SodiumLabel(
+            imageWriter.writer.getStream
+              .map(
+                x =>
+                  x.getRes.map(
+                    x =>
+                      s"${x.entity.entityValue.title} ${x.entity.entityValue.reference}"
+                  )
+              ).hold(
+                None
+              ).map(_.toString)
+          ).comp()
         )
 
       } else

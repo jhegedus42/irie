@@ -9,11 +9,11 @@ import app.client.ui.components.mainPages.pages.noteHandling.userNoteList.ListUs
 import app.client.ui.components.router.RouterComp
 import app.client.ui.components.sodium.SButton
 import app.client.ui.dom.Window
-import app.shared.comm.postRequests.read.GetUsersNotesReq
+import app.shared.comm.postRequests.read.{GetLatestEntityByIDReq, GetUsersNotesReq}
 import app.shared.comm.postRequests.read.GetUsersNotesReq.Par
 import app.shared.comm.postRequests.write.CreateEntityReq
 import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.values.{Note, User}
+import app.shared.entity.entityValue.values.{Image, Note, User}
 import app.shared.utils.UUID_Utils.EntityIdentity
 import japgolly.scalajs.react.BackendScope
 import org.scalajs.dom.html.Anchor
@@ -129,6 +129,9 @@ trait ListUsersAllNotesComp
                       title,
                       "  ",
                       linkToEditorPage(value.toRef.entityIdentity),
+                  //   c.cache.readFromServer[Req[Image]]()
+                  //  todo-now - implement - get all latest entities request
+                  //
                       <.br)
 
               }

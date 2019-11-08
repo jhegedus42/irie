@@ -5,7 +5,7 @@ import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
 import app.shared.comm.{PostRequest, WriteRequest}
-import app.shared.entity.entityValue.values.{Note, User}
+import app.shared.entity.entityValue.values.{Image, Note, User}
 import io.circe.{Decoder, Encoder}
 import sodium.StreamSink
 import sodium.Stream
@@ -30,9 +30,10 @@ trait WriteRequestHandlerTC[Req <: PostRequest[WriteRequest]] {
     encoder: Encoder[Req#ParT],
     ct:      ClassTag[Req],
     ct2:     ClassTag[Req#PayLoadT]
-  ): WriteHandlerState[Req]
+  ): Stream[WriteHandlerState[Req]]
 
   val stream: StreamSink[Req#ParT] = new StreamSink[Req#ParT]()
+  val streamState: StreamSink[WriteHandlerState[Req]] = new StreamSink[WriteHandlerState[Req]]()
 
 }
 
@@ -50,6 +51,8 @@ object WriteRequestHandlerTC {
   implicit val createNote =
     new WriteRequestHandlerTCImpl[CreateEntityReq[Note]] {}
 
+  implicit val createImage =
+    new WriteRequestHandlerTCImpl[CreateEntityReq[Image]] {}
 
 
 }
