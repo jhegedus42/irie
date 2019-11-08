@@ -15,7 +15,11 @@ import sodium._
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.Try
 
+sealed trait SodiumRequest[V<:EntityType[V]]
+case class Update()
+
 object AJAXModul{
+
 
 
   val routeName: SodiumRouteName= ???
@@ -29,6 +33,8 @@ object AJAXModul{
   val headers: Map[String, String] = Map(
     "Content-Type" -> "application/json"
   )
+
+  val json_line = ???
 
   val res1: Future[] =
     Ajax
