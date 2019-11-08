@@ -6,10 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumReq.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumRouteNames.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/LatestEntitySodiumCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/LatestEntitySodiumCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/entity/entityValue/values/Note.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -372,13 +370,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00457" summary="Note Editor in progress.">
-      <created>1572374097568</created>
-      <option name="number" value="00457" />
-      <option name="presentableId" value="LOCAL-00457" />
-      <option name="project" value="LOCAL" />
-      <updated>1572374097568</updated>
-    </task>
     <task id="LOCAL-00458" summary="Note Editor in progress.">
       <created>1572382883877</created>
       <option name="number" value="00458" />
@@ -715,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573181496973</updated>
     </task>
-    <option name="localTasksCounter" value="506" />
+    <task id="LOCAL-00506" summary="Sodium based caching implementation is in progress.">
+      <created>1573189845198</created>
+      <option name="number" value="00506" />
+      <option name="presentableId" value="LOCAL-00506" />
+      <option name="project" value="LOCAL" />
+      <updated>1573189845199</updated>
+    </task>
+    <option name="localTasksCounter" value="507" />
     <servers />
   </component>
   <component name="UnknownFeatures">
