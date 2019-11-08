@@ -6,10 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteFactory.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumRouteName.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/LatestEntitySodiumCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/LatestEntitySodiumCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumCRUDReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumRouteNames.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium/SodiumRouteNameProvider.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,10 +56,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="ScalaTest Class" />
-        <option value="Scala Class" />
         <option value="Scala Object" />
-        <option value="Scala Trait" />
         <option value="Package Object" />
+        <option value="Scala Trait" />
+        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -111,7 +113,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/comm/read/readCache/invalidation" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/sodium" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -120,6 +122,9 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="org.scalatest.FunSuite" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="app.server.httpServer.routes" />
       <recent name="app.server.httpServer.routes.post.routeLogicImpl.persistenceService.persistentActor" />
@@ -130,22 +135,12 @@
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="org.scalatest.FunSuite" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="app.shared.comm.sodium" />
+      <recent name="app.server.httpServer.routes.sodium" />
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation" />
       <recent name="app.client.ui.caching.cache.comm.read" />
       <recent name="app.client" />
-      <recent name="app.client.ui.components.mainPages.userHandling.userList" />
-      <recent name="sodium" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
-      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -153,6 +148,13 @@
       <recent name="app.client.ui.components.router.mainPageComponents.adminPage" />
       <recent name="app.client.ui.caching.viewCache" />
       <recent name="app.client.ui.routing.canBeRoutedTo.components.cacheTestCompAndRelatedStuff" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/userEditor" />
+      <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/router/mainPageComponents/template" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/layer_V_JS_client/src/main/scala/app/client/ui/routing/cache/hidden" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/noteHandling/noteEditor" />
@@ -371,13 +373,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00459" summary="Sodium example works.">
-      <created>1572387162635</created>
-      <option name="number" value="00459" />
-      <option name="presentableId" value="LOCAL-00459" />
-      <option name="project" value="LOCAL" />
-      <updated>1572387162635</updated>
     </task>
     <task id="LOCAL-00460" summary="Sodium example works.">
       <created>1572395394213</created>
@@ -715,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573216440722</updated>
     </task>
-    <option name="localTasksCounter" value="508" />
+    <task id="LOCAL-00508" summary="Sodium based caching implementation is in progress.">
+      <created>1573230519193</created>
+      <option name="number" value="00508" />
+      <option name="presentableId" value="LOCAL-00508" />
+      <option name="project" value="LOCAL" />
+      <updated>1573230519193</updated>
+    </task>
+    <option name="localTasksCounter" value="509" />
     <servers />
   </component>
   <component name="UnknownFeatures">
