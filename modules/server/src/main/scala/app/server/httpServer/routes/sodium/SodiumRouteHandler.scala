@@ -76,6 +76,7 @@ sealed trait SodiumCRUDRoute[
 //  implicit def e:ClassTag[E]
 
   def url: String = SodiumRouteNameProvider.getRouteName[E, RT]().name
+  println(s"path for Sodium CRUD is :$url")
   def getPaw: PersistentActorWhisperer
 
   def logic(
