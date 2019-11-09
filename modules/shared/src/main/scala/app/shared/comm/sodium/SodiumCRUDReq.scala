@@ -2,7 +2,6 @@ package app.shared.comm.sodium
 
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
-import app.shared.comm.{PostRequest, PostRequestType}
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec

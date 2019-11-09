@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
 import akka.actor.ActorSystem
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.ShutdownActor
+import Commands.ShutdownActor
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.values.User
 import app.shared.initialization.testing.TestEntitiesForUsers

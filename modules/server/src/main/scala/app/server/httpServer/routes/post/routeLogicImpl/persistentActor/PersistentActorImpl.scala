@@ -1,15 +1,11 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
-import akka.actor.{ActorLogging, ActorSystem, Props}
+import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, ShutdownActor, UpdateEntityCommand}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.{EventToBeSavedIntoJournal, InsertEvent, UpdateEvent}
-import app.shared.entity.entityValue.EntityType
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Commands._
 import app.shared.state.UntypedEntityWithRef
 
 import scala.language.postfixOps
-import scala.reflect.ClassTag
 
 private[persistentActor] class PersistentActorImpl(id: String)
     extends PersistentActor

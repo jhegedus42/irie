@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache.comm.read.readCache.invalidation
 
-import app.client.ui.caching.cache.ReadCacheEntryStates.ReadCacheEntryState
+import .ReadCacheEntryState
 import app.client.ui.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
 import app.client.ui.caching.cache.comm.write.{WriteAjaxReturnedStream, WriteRequestHandlerTC}
 import app.client.ui.caching.cacheInjector.ReRenderer

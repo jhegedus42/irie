@@ -1,12 +1,5 @@
 package app.client.ui.caching.cache.comm.read.readCache
 
-import app.client.ui.caching.cache.ReadCacheEntryStates
-import app.client.ui.caching.cache.ReadCacheEntryStates.{
-  InFlight,
-  ReadCacheEntryState,
-  Returned,
-  Stale
-}
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.{
   AjaxCallPar,

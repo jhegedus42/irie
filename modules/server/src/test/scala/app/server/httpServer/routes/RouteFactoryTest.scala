@@ -12,8 +12,6 @@ import app.shared.comm.{PostRequest, RouteName}
 import app.shared.comm.postRequests.{LoginReq, ResetRequest}
 import app.shared.comm.postRequests.read.GetEntityReq._
 import app.shared.comm.postRequests.write.CreateEntityReq.CreateEntityReqRes
-import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
-import app.shared.comm.postRequests.marshall.{JSONEncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import app.shared.comm.postRequests.read.GetUsersNotesReq
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType

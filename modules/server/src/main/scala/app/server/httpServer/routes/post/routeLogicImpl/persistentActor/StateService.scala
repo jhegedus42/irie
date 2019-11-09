@@ -1,15 +1,8 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.UpdateEntityCommand
 import app.server.initialization.Config
-import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON}
+import app.shared.entity.asString.EntityAndItsValueAsJSON
 import app.shared.state.{StateMapSnapshot, TestDataProvider, UntypedEntityWithRef, UntypedRef}
-
-sealed trait DidOperationSucceed
-case class StateServiceOperationSucceeded(m: String)
-    extends DidOperationSucceed
-case class StateServiceOperationFailed(m: String)
-    extends DidOperationSucceed
 
 /**
   * This is used by the PersistentActorImpl
@@ -30,7 +23,7 @@ private[logic] case class StateService() {
   def updateEntity(
     refToLatestVersion: UntypedRef,
     newValue:           EntityAndItsValueAsJSON
-  ): DidOperationSucceed = {
+  ): Unit = {
 
     val currentState = getState
 
@@ -47,7 +40,6 @@ private[logic] case class StateService() {
 
     setNewState(newState.get)
 
-    StateServiceOperationSucceeded("this is lie :) ... or not")
   }
 
   val areWeTesting = Config.getDefaultConfig.areWeTesting
@@ -89,11 +81,10 @@ private[logic] case class StateService() {
     printStateInSimpleFormat()
   }
 
-  def insertNewEntity(se: UntypedEntityWithRef): DidOperationSucceed = {
+  def insertNewEntity(se: UntypedEntityWithRef): Unit = {
     val oldState = getState
     val newState = oldState.insertVirginEntity(se)
     setNewState(newState)
-    StateServiceOperationSucceeded("insertNewEntity inserted : $se")
   }
 
   // todo-later - this is where the OCC should come

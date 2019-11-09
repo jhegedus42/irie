@@ -1,7 +1,6 @@
 package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
 import akka.actor.{ActorRef, ActorSystem, Props}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.PersistentActorImpl
 
 case class PersistentActorFactory(
   actorSystemForPersistentActor: ActorSystem) {

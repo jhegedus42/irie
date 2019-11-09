@@ -1,6 +1,6 @@
 package app.client.ui.caching.cache.sodiumCache
 
-import app.client.ui.caching.cache.ReadCacheEntryStates.Returned
+import .Returned
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.{
   AjaxCallPar,

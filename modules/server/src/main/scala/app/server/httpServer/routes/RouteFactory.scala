@@ -3,7 +3,6 @@ package app.server.httpServer.routes
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteFactory._
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.sodium.SodiumCRUDRoute

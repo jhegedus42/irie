@@ -1,9 +1,6 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic
+package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{
-  InsertNewEntityCommand,
-  UpdateEntityCommand
-}
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Commands.{InsertNewEntityCommand, UpdateEntityCommand}
 
 case class CommandMessgeHandler(val stateService: StateService) {
 

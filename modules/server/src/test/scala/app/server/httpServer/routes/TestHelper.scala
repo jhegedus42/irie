@@ -10,13 +10,9 @@ import akka.http.scaladsl.server._
 import Directives._
 import app.shared.comm.{PostRequest, RouteName, WriteRequest}
 import app.shared.comm.postRequests.write.CreateEntityReq.CreateEntityReqRes
-import app.shared.comm.postRequests.marshall.JSONEncodersDecoders._
-import app.shared.comm.postRequests.marshall.{JSONEncodersDecoders, ParametersAsJSON, ResultOptionAsJSON}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.io.dns.DnsProtocol.RequestType
 import app.shared.comm.postRequests.read.GetEntityReq.{Par, Res}
-import app.shared.comm.postRequests.marshall.JSONEncodersDecoders.{decodeResult, encodeParameters, encodeResult}
-import app.shared.comm.postRequests.marshall.{ParametersAsJSON, ResultOptionAsJSON}
 import app.shared.comm.postRequests.read.GetEntityReq
 import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
 import app.shared.comm.postRequests.ResetRequest

@@ -1,7 +1,7 @@
 package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.PostRouteFactory.getPostRoute
+import .getPostRoute
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.RefToEntityWithVersion

@@ -3,9 +3,9 @@ package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.data.Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.{DidOperationSucceed, PersistentActorImpl}
+import Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
+import Responses.GetStateResponse
+import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.PersistentActorImpl
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityByID, RefToEntityWithVersion}
