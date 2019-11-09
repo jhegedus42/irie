@@ -1,6 +1,10 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, ReRenderer}
+import app.client.ui.caching.cacheInjector.{
+  Cache,
+  CacheAndPropsAndRouterCtrl,
+  ReRenderer
+}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.components.MainPage
 import sodium.{Cell, StreamSink}
@@ -43,7 +47,6 @@ object SodiumWidgets {
       stateSetter.trigger()
     })
 
-
     val comp = ScalaComponent
       .builder[Unit]("SodiumLabel")
       .initialState("label")
@@ -58,6 +61,7 @@ object SodiumWidgets {
       .build
 
     class Backend($ : BackendScope[Unit, String]) {
+
       def render(s: String) = {
         <.div(
           state
@@ -89,21 +93,21 @@ object SodiumWidgets {
 //    def vdom = comp(s)
 //  }
 
-  case class SodiumButtom() {
-    val sClickedSink = new StreamSink[Unit]
+  case class SodiumButtom(
+    name:           String           = "Button",
+    val streamSink: StreamSink[Unit] = new StreamSink[Unit]()) {
 
-    val getVDOM: Component[Unit, CtorType.Nullary] = ScalaFnComponent[Unit] { props: Unit =>
-      <.div(
-        <.button("String", ^.onClick --> Callback({
-          println("I was pushed")
-          sClickedSink.send(Unit)
-        }))
-      )
-    }
+    val getVDOM: Component[Unit, CtorType.Nullary] =
+      ScalaFnComponent[Unit] { props: Unit =>
+        <.div(
+          <.button(name, ^.onClick --> Callback({
+            println("I was pushed")
+            streamSink.send(Unit)
+          }))
+        )
+      }
 
   }
-
-
 
   println("The button was created")
 

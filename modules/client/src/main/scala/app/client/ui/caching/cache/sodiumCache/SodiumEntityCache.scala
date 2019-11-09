@@ -67,8 +67,21 @@ trait SodiumEntityCache[V <: EntityType[V]] {
 
 //  val cell = new Cell[Map[Key, Value]](initMap)
 
+  val cellHoldStream=new Cell(Stream[Unit])
+
+
+  val loadMapFromServer=new StreamSink[Unit]()
+
+  def loadFromServer(trigger:Stream[Unit]):Unit={
+      //continue here
+  }
+
   val streamSink = new StreamSink[CellMap]()
+
+  loadMapFromServer.listen( /// todo now ... )
+
   val cell = streamSink.hold(initMap)
+
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

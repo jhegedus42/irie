@@ -3,9 +3,12 @@ package app.client.ui.components.mainPages.pages.login
 import app.client.Main
 import app.client.ui.caching.cache.comm.AJAXCalls
 import app.client.ui.caching.cache.comm.AJAXCalls.AjaxCallPar
+import app.client.ui.caching.cache.sodiumCache.SodiumEntityCache
 import app.client.ui.caching.cacheInjector.ReRenderer
 import app.client.ui.components.{LoginPage, MainPage}
 import app.client.ui.components.mainPages.pages.login.LoginPageComp.State.LoginPageCompState
+import app.client.ui.components.sodium.SButton
+import app.client.ui.components.sodium.SodiumWidgets.SodiumButtom
 import app.client.ui.dom.Window
 import app.shared.comm.postRequests.LoginReq
 import app.shared.entity.EntityWithRef
@@ -87,34 +90,39 @@ object LoginPageComp {
       implicit def executionContext: ExecutionContextExecutor =
         scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-      def startAJAX() : Unit =  AJAXCalls
-        .sendPostAjaxRequest[LoginReq](aPar).onComplete(
-          res => {
-            println(res)
-            val optUser: Option[EntityWithRef[User]] =
-              res.toOption.flatMap(x => x.res.optionUserRef)
+      def startAJAX(): Unit =
+        AJAXCalls
+          .sendPostAjaxRequest[LoginReq](aPar).onComplete(
+            res => {
+              println(res)
+              val optUser: Option[EntityWithRef[User]] =
+                res.toOption.flatMap(x => x.res.optionUserRef)
 
-            if (optUser.isDefined) {
+              if (optUser.isDefined) {
 
-              State.setUserLoggedIn(optUser)
+                State.setUserLoggedIn(optUser)
 
-              LoginPageCompState(UserLoginStatus(optUser))
+                LoginPageCompState(UserLoginStatus(optUser))
 
-              Main.loginSwitcher.setLoggedIn()
-              println("setLoggedIn was executed")
+                Main.loginSwitcher.setLoggedIn()
+                println("setLoggedIn was executed")
 
 //              refresh
 
 //              p.routerCtl.set(LoginPage).runNow()
 
+              }
             }
-          }
-        )
+          )
 
-
-      Callback{startAJAX()}
+      Callback { startAJAX() }
 
     }
+
+    val sbutton = new SodiumButtom(
+      "test cache",
+      SodiumEntityCache.userCache.loadMapFromServer
+    )
 
     def render(
       p: Props,
@@ -157,7 +165,9 @@ object LoginPageComp {
             C.textCenter,
             <.h1("Login page"),
             <.br,
-            login
+            login,
+            <.hr(),
+            sbutton.getVDOM()
           )
         )
       )
