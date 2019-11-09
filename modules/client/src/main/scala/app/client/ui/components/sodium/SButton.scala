@@ -7,15 +7,16 @@ import japgolly.scalajs.react.{CtorType, _}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import sodium.StreamSink
 
-case class SButton(val name:String="Button"){
+case class SButton(val name: String = "Button") {
   val sClickedSink = new StreamSink[Unit]
 
-  val getVDOM: Component[Unit, CtorType.Nullary] = ScalaFnComponent[Unit] { props: Unit =>
-    <.div(
-      <.button(name, ^.onClick --> Callback({
-        sClickedSink.send(Unit)
-      }))
-    )
-  }
+  val getVDOM: Component[Unit, CtorType.Nullary] =
+    ScalaFnComponent[Unit] { props: Unit =>
+      <.div(
+        <.button(name, ^.onClick --> Callback({
+          sClickedSink.send(Unit)
+        }))
+      )
+    }
 
 }

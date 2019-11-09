@@ -1,7 +1,6 @@
 package app.client.ui.components.sodium
 
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.client.ui.components.sodium.SodiumWidgets.ReRenderTriggerer
 import app.shared.entity.entityValue.values.Note
 import japgolly.scalajs.react.component.ScalaFn.Component
 import japgolly.scalajs.react.{

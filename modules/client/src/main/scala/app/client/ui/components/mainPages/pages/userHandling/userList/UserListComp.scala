@@ -4,7 +4,7 @@ import app.client.ui.caching.cache.comm.write.WriteRequestHandlerTCImpl
 import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import app.client.ui.components.mainPages.pages.userHandling.userList
 import app.client.ui.components.mainPages.pages.userHandling.userList.UserListComp.{Props$, State$}
-import app.client.ui.components.sodium.SodiumWidgets
+import app.client.ui.components.sodium.{SodiumButtom, SodiumLabel}
 import app.client.ui.components.{MainPage, UserListPage}
 import app.shared.comm.WriteRequest
 import app.shared.comm.postRequests.write.CreateEntityReq
@@ -32,12 +32,12 @@ trait UserListComp
   override def propsProvider_ : Unit => PropsT = _ => Props$("hello")
 
   object FRP {
-    val sbutton = SodiumWidgets.SodiumButtom()
+    val sbutton = SodiumButtom()
 
     val cell: Cell[String] =
       sbutton.streamSink.map(x => "bello").hold("hello")
 
-    val label: SodiumWidgets.SodiumLabel =SodiumWidgets.SodiumLabel(cell)
+    val label: SodiumLabel =SodiumLabel(cell)
 
     val vdom= <.div(
       sbutton.getVDOM(),

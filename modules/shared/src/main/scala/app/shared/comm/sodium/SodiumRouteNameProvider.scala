@@ -7,9 +7,11 @@ import scala.reflect.ClassTag
 class ClassTagPrivoders[
   RT <: SodiumCRUDReq[V],
   V  <: EntityType[V]
-]() {
-  implicit def ct: ClassTag[RT] = implicitly[ClassTag[RT]]
-  implicit def e:  ClassTag[V]  = implicitly[ClassTag[V]]
+](
+  implicit val ct: ClassTag[RT],
+  implicit val e:  ClassTag[V]
+){
+
 }
 
 object SodiumRouteNameProvider {
