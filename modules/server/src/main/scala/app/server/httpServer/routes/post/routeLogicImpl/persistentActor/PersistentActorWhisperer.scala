@@ -42,6 +42,8 @@ case class PersistentActorWhisperer(
   )
   val actor = paFactory.actor
 
+  def getExecutionContext: ExecutionContextExecutor = executionContext
+
   object WriteOps {
 
     def resetTheState(): Future[String] = {

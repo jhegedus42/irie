@@ -2,9 +2,18 @@ package app.client.ui.caching.cache.sodiumCache
 
 import app.client.ui.caching.cache.ReadCacheEntryStates.Returned
 import app.client.ui.caching.cache.comm.AJAXCalls
-import app.client.ui.caching.cache.comm.AJAXCalls.{AjaxCallPar, sendPostAjaxRequest}
+import app.client.ui.caching.cache.comm.AJAXCalls.{
+  AjaxCallPar,
+  sendPostAjaxRequest
+}
 import app.client.ui.caching.cacheInjector.ReRenderer
-import app.shared.comm.sodium.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverterImpl, SodiumRouteName, SodiumRouteNameProvider}
+import app.shared.comm.sodium.{
+  ClassTagPrivoders,
+  SodiumCRUDReq,
+  SodiumParamConverters,
+  SodiumRouteName,
+  SodiumRouteNameProvider
+}
 
 import scala.reflect.ClassTag
 import app.shared.comm.{PostRequest, RouteName}
@@ -16,10 +25,14 @@ import sodium._
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.Try
-
+//import io.circe.generic.auto._
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+import io.circe.parser._
+import io.circe.{Decoder, Error, _}
 
 trait AJAXModul[RT <: SodiumCRUDReq[V], V <: EntityType[V]] {
-  self: SodiumParamConverterImpl[RT, V] with ClassTagPrivoders[RT,V]=>
+  self: SodiumParamConverters[RT, V] with ClassTagPrivoders[RT, V] =>
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -41,7 +54,12 @@ trait AJAXModul[RT <: SodiumCRUDReq[V], V <: EntityType[V]] {
       .post(url, json_line, headers = headers)
       .map(_.responseText)
 
-  val query: RT#Par => Future[RT#Resp] = ajaxCall(_).map(stringToResp)
+  def query(
+    par: RT#Par
+  )(
+    implicit decoder: Decoder[RT#Resp],
+    encoder:          Encoder[RT#Par]
+  ): Future[RT#Resp] = ajaxCall(parToString(par)).map(stringToResp)
 
 }
 

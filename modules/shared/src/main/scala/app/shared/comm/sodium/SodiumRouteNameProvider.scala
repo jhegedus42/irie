@@ -4,7 +4,7 @@ import app.shared.entity.entityValue.EntityType
 
 import scala.reflect.ClassTag
 
-case class ClassTagPrivoders[
+class ClassTagPrivoders[
   RT <: SodiumCRUDReq[V],
   V  <: EntityType[V]
 ]() {

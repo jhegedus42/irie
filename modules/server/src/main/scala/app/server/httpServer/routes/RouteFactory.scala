@@ -6,6 +6,8 @@ import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.PostRouteFactory._
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.server.httpServer.routes.sodium.SodiumCRUDRoute
+import app.server.httpServer.routes.sodium.SodiumExampleRoutes.GetAllUsersSodiumRoute
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import app.shared.comm.postRequests.read.{GetAllUsersReq, GetUsersNotesReq}
@@ -40,7 +42,9 @@ private[httpServer] case class RouteFactory(
       getPostRoute[GetAllUsersReq].route ~
       getPostRoute[LoginReq].route ~
       getPostRoute[GetUsersNotesReq].route ~
-      crudRouteFactory.route[Image]
+      crudRouteFactory.route[Image] ~
+      GetAllUsersSodiumRoute(paw).getRoute
+
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
