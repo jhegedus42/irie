@@ -5,10 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="upgrade to sodium cache is in progress`">
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/login/LoginPageComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/mainPages/pages/userHandling/userList/UserListComp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/app/client/ui/components/sodium/SodiumWidgets.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -372,13 +373,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00463" summary="Alice note editing implementation is in progress using Sodium.">
-      <created>1572427181709</created>
-      <option name="number" value="00463" />
-      <option name="presentableId" value="LOCAL-00463" />
-      <option name="project" value="LOCAL" />
-      <updated>1572427181709</updated>
-    </task>
     <task id="LOCAL-00464" summary="Alice note editing implementation is in progress using Sodium.">
       <created>1572450349112</created>
       <option name="number" value="00464" />
@@ -715,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573270280903</updated>
     </task>
-    <option name="localTasksCounter" value="512" />
+    <task id="LOCAL-00512" summary="upgrade to sodium cache is in progress`">
+      <created>1573276232434</created>
+      <option name="number" value="00512" />
+      <option name="presentableId" value="LOCAL-00512" />
+      <option name="project" value="LOCAL" />
+      <updated>1573276232435</updated>
+    </task>
+    <option name="localTasksCounter" value="513" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -762,7 +763,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="User Note editor in progress." />
     <MESSAGE value="intermezzo commit" />
     <MESSAGE value="Note Editor in progress." />
     <MESSAGE value="Sodium example works." />
@@ -787,6 +787,7 @@
     <MESSAGE value="View dummy compiled." />
     <MESSAGE value="Sodium based caching implementation is in progress." />
     <MESSAGE value="upgrade to sodium cache is in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade to sodium cache is in progress" />
+    <MESSAGE value="upgrade to sodium cache is in progress`" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade to sodium cache is in progress`" />
   </component>
 </project>

@@ -66,6 +66,13 @@ object LoginPageComp {
 //      State.IsUserLoggedIn(false)
 //  }
 
+
+  val sbutton = new SodiumButtom(
+    "test cache"
+  )
+
+  SodiumEntityCache.userCache.streamUpdater.send(sbutton.streamSink)
+
   class LoginPageBackend[P](
     $ : BackendScope[Props, State.LoginPageCompState]) {
 
@@ -119,10 +126,6 @@ object LoginPageComp {
 
     }
 
-    val sbutton = new SodiumButtom(
-      "test cache",
-      SodiumEntityCache.userCache.loadMapFromServer
-    )
 
     def render(
       p: Props,

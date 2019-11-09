@@ -67,7 +67,7 @@ trait SodiumEntityCache[V <: EntityType[V]] {
 
 //  val cell = new Cell[Map[Key, Value]](initMap)
 
-  val cellHoldStream=new Cell(Stream[Unit])
+  val cellHoldStream=new Cell(new Stream[Unit])
 
 
   val loadMapFromServer=new StreamSink[Unit]()
@@ -78,13 +78,23 @@ trait SodiumEntityCache[V <: EntityType[V]] {
 
   val streamSink = new StreamSink[CellMap]()
 
-  loadMapFromServer.listen( /// todo now ... )
+//  loadMapFromServer.listen( /// todo now ... )
 
   val cell = streamSink.hold(initMap)
 
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+  val streamUpdater=new StreamSink[Stream[Unit]]()
+
+  val streamHolderCell=streamUpdater.hold(new Stream[Unit]())
+
+  val latestStream: Stream[Unit] =Cell.switchS(streamHolderCell)
+
+  latestStream.listen(x=>println("button has fired"))
+
+
 
 }
 

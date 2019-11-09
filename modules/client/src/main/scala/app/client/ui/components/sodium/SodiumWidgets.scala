@@ -1,10 +1,7 @@
 package app.client.ui.components.sodium
 
-import app.client.ui.caching.cacheInjector.{
-  Cache,
-  CacheAndPropsAndRouterCtrl,
-  ReRenderer
-}
+import app.client.ui.caching.cache.sodiumCache.SodiumEntityCache
+import app.client.ui.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, ReRenderer}
 import app.client.ui.caching.cacheInjector.ReRenderer.ReRenderTriggerer
 import app.client.ui.components.MainPage
 import sodium.{Cell, StreamSink}
@@ -93,9 +90,9 @@ object SodiumWidgets {
 //    def vdom = comp(s)
 //  }
 
-  case class SodiumButtom(
-    name:           String           = "Button",
-    val streamSink: StreamSink[Unit] = new StreamSink[Unit]()) {
+  case class SodiumButtom(name: String = "Button") {
+
+    val streamSink = new StreamSink[Unit]()
 
     val getVDOM: Component[Unit, CtorType.Nullary] =
       ScalaFnComponent[Unit] { props: Unit =>
@@ -108,6 +105,7 @@ object SodiumWidgets {
       }
 
   }
+
 
   println("The button was created")
 

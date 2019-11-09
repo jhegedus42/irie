@@ -35,7 +35,7 @@ trait UserListComp
     val sbutton = SodiumWidgets.SodiumButtom()
 
     val cell: Cell[String] =
-      sbutton.sClickedSink.map(x => "bello").hold("hello")
+      sbutton.streamSink.map(x => "bello").hold("hello")
 
     val label: SodiumWidgets.SodiumLabel =SodiumWidgets.SodiumLabel(cell)
 
