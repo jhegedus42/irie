@@ -1,11 +1,7 @@
 package refs.asString
 
-import refs.entityValue.EntityType
 //import io.circe.generic.JsonCodec
-import monocle.macros.Lenses
-
-import scala.reflect.ClassTag
-import monocle.macros.Lenses
+import refs.EntityType
 
 import scala.reflect.ClassTag
 

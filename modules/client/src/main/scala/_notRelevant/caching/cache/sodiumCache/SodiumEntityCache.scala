@@ -1,28 +1,13 @@
 package _notRelevant.caching.cache.sodiumCache
 
-import sodiumComm.{
-  ClassTagPrivoders,
-  SodiumCRUDReq,
-  SodiumParamConverters,
-  SodiumRouteName,
-  SodiumRouteNameProvider
-}
-
-import scala.reflect.ClassTag
-import refs.EntityWithRef
-import refs.entityValue.EntityType
 import dataModel.User
-import utils.UUID_Utils.EntityIdentity
-import org.scalajs.dom.ext.Ajax
+import refs.{EntityIdentity, EntityType, EntityWithRef}
 import sodium._
 
-import scala.concurrent.{ExecutionContextExecutor, Future}
-import scala.util.Try
+import scala.concurrent.ExecutionContextExecutor
 //import io.circe.generic.auto._
-import io.circe.syntax._
 import io.circe.generic.JsonCodec
-import io.circe.parser._
-import io.circe.{Decoder, Error, _}
+import io.circe.syntax._
 
 //case class EntityCreator[V <: EntityType[V]]() {
 //

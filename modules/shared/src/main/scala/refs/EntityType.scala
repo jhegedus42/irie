@@ -1,11 +1,18 @@
 package refs
 
-/**
-  *
-  * This is the supertype of the possible types of the value
-  * which an entity can contain. Every entity contains only
-  * one value.
-  *
-  * @tparam T
-  */
 trait EntityType[+T <: EntityType[T]] {}
+
+import io.circe.Encoder
+import io.circe.generic.JsonCodec
+import refs.asString.EntityValueAsJSON
+
+object EntityType {
+
+  implicit def toJSON[T <: EntityType[T]](
+    v: T
+  )(
+    implicit encoder: Encoder[T]
+  ): EntityValueAsJSON =
+    EntityValueAsJSON(encoder.apply(v))
+
+}

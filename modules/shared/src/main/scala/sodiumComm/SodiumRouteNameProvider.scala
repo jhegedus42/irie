@@ -1,6 +1,7 @@
 package sodiumComm
 
-import refs.entityValue.EntityType
+
+import refs.EntityType
 
 import scala.reflect.ClassTag
 

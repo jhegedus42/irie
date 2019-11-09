@@ -1,16 +1,14 @@
 package refs
 
-import refs.asString.{EntityAndItsValueAsJSON, EntityValueAsJSON, EntityValueTypeAsString, EntityWithRefAsJSON}
-import refs.entityValue.EntityType
 import io.circe._
-import monocle.macros.Lenses
-
-import scala.reflect.ClassTag
+import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import io.circe.generic.JsonCodec
+import refs.asString.EntityValueTypeAsString
 
-@Lenses
+import scala.reflect.ClassTag
+
+//@Lenses
 @JsonCodec
 case class EntityWithRef[E <: EntityType[E]](
   entityValue: E,

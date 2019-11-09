@@ -1,6 +1,5 @@
 package refs
 
-import refs.entityValue.EntityType
 //import entity.view.{View, ViewSet}
 //import monocle.macros.Lenses
 

@@ -1,7 +1,7 @@
 package dataModel
 
-import refs.RefToEntityWithVersion
-import refs.entityValue.EntityType
+import io.circe.generic.JsonCodec
+import refs.{EntityType, RefToEntityWithVersion}
 
 /**
   * This is a folder that contains the user's notes.

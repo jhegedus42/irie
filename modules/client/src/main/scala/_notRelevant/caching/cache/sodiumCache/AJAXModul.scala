@@ -1,9 +1,9 @@
 package _notRelevant.caching.cache.sodiumCache
 
 import sodiumComm.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverters, SodiumRouteNameProvider}
-import refs.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
+import refs.EntityType
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 

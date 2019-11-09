@@ -1,44 +1,17 @@
 package app.server.httpServer.routes.sodium
 
-import akka.http.scaladsl.server.Directives.{
-  as,
-  complete,
-  entity,
-  path,
-  post
-}
+import akka.http.scaladsl.server.Directives.{as, complete, entity, path, post}
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.persistentActor.PersistentActorWhisperer
-import app.server.httpServer.routes.sodium.SodiumExampleRoutes.{
-  ReqQ,
-  VV
-}
-import sodiumComm.{
-  ClassTagPrivoders,
-  GetAllLatestEntities,
-  SodiumCRUDReq,
-  SodiumParamConverters,
-  SodiumRouteName,
-  SodiumRouteNameProvider
-}
-import refs.EntityWithRef
-import refs.entityValue.EntityType
 import dataModel.User
-
-import scala.reflect.ClassTag
-import scala.concurrent.Future
-import io.circe.parser._
-import io.circe.{Decoder, Error, _}
-import io.circe.parser._
-import io.circe.{Decoder, Encoder, Error, _}
-import org.bouncycastle.ocsp.Req
+import io.circe.{Decoder, Encoder}
+import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import io.circe.generic.JsonCodec
-import io.circe.parser._
-import io.circe.{Decoder, Error, _}
+import refs.{EntityType, EntityWithRef}
+import sodiumComm._
 
-import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.concurrent.Future
 
 trait SodiumCRUDLogic[RT <: SodiumCRUDReq[E], E <: EntityType[E]] {
   self: SodiumParamConverters[RT, E] =>
@@ -98,7 +71,7 @@ sealed trait SodiumCRUDRoute[
 
 }
 
-import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.concurrent.Future
 
 object SodiumExampleRoutes {
   val getAllUsersRoute = ???

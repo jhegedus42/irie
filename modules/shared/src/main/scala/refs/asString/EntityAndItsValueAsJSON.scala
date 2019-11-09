@@ -1,7 +1,6 @@
 package refs.asString
 
-import refs.EntityWithRef
-import refs.entityValue.EntityType
+import refs.{EntityType, EntityWithRef}
 import io.circe.Encoder
 import monocle.macros.Lenses
 

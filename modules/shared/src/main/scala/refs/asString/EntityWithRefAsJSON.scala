@@ -1,7 +1,6 @@
 package refs.asString
 
-import refs.EntityWithRef
-import refs.entityValue.EntityType
+import refs.{EntityType, EntityWithRef}
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Encoder, Json}
 

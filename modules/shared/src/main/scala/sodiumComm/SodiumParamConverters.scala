@@ -1,8 +1,8 @@
 package sodiumComm
 
-import refs.entityValue.EntityType
 import io.circe.parser.decode
 import io.circe.{Decoder, Encoder}
+import refs.EntityType
 
 trait SodiumParamConverters[
   Req <: SodiumCRUDReq[V],

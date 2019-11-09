@@ -1,9 +1,7 @@
 package state
 
-import refs.{EntityVersion, RefToEntityWithVersion}
+import refs.{EntityIdentityUntyped, EntityType, EntityVersion, RefToEntityWithVersion}
 import refs.asString.EntityValueTypeAsString
-import refs.entityValue.EntityType
-import utils.UUID_Utils.EntityIdentityUntyped
 import monocle.macros.Lenses
 
 @Lenses

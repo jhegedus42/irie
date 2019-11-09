@@ -1,23 +1,17 @@
 package app.server.httpServer.routes.persistentActor
 
-import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.util.Timeout
-import Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
-import Responses.GetStateResponse
-import refs.{EntityWithRef, RefToEntityWithVersion}
-import refs.entityValue.EntityType
-import io.circe.{Decoder, Encoder, Json}
+import app.server.httpServer.routes.persistentActor.Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.persistentActor.Responses.GetStateResponse
+import dataModel.User
+import io.circe.{Decoder, Encoder}
+import refs.asString.EntityValueAsJSON
+import refs.{EntityIdentity, EntityType, EntityWithRef, RefToEntityWithVersion}
+import state.{StateMapSnapshot, UntypedEntityWithRef, UntypedRef}
 
 import scala.concurrent.duration._
-import refs.asString.{EntityValueAsJSON, EntityValueTypeAsString}
-import refs.collection.LatestVersionEntitySet
-import dataModel.User
-import state.{StateMapSnapshot, UntypedEntityWithRef, UntypedRef}
-import utils.UUID_Utils.EntityIdentity
-import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
-import io.circe.Decoder.Result
-
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
@@ -222,7 +216,6 @@ case class PersistentActorWhisperer(
     implicit d: Decoder[EntityWithRef[V]]
   ): Option[List[EntityWithRef[V]]] = {
     import cats.implicits._
-    import cats.Applicative
     val r1: List[Option[EntityWithRef[V]]] = stateMapSnapshot
       .getAllEntitiesWithGivenEntityType[V].map(
         UntypedEntityWithRef.toTypedEntityWithRef[V]

@@ -5,7 +5,34 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistentActor/PersistentActorWhisperer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/persistentActor/PersistentActorWhisperer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/AdminUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/AdminUser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Image.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Image.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Note.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/NoteFolder.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/User.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityIdentity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityIdentity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntitySet.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntitySet.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/EntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/RefToEntityWithVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/RefToEntityWithVersion.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityAndItsValueAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityAndItsValueAsJSON.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityValueTypeAsString.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityValueTypeAsString.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityWithRefAsJSON.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/asString/EntityWithRefAsJSON.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumCRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumCRUDReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumParamConverters.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumParamConverters.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumRouteName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumRouteName.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumRouteNameProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/sodiumComm/SodiumRouteNameProvider.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/state/UntypedEntityWithRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/state/UntypedEntityWithRef.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/state/UntypedRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/state/UntypedRef.scala" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +46,10 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -97,6 +128,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -112,7 +144,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -732,6 +764,23 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/joco/dev/im/irie/modules/shared/src/main/scala" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="TEXT_FILTER_SETTINGS">
+                <TextFilterSettings>
+                  <option name="REGEX" value="true" />
+                </TextFilterSettings>
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -745,6 +794,17 @@
             <list />
           </value>
         </entry>
+        <entry key="Paths">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="dir:/Users/joco/dev/im/irie/modules/shared/src/main/scala" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <list />
@@ -756,6 +816,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Alice note editing implementation is in progress using Sodium." />
     <MESSAGE value="Alice note editing implementation is in progress using Sodium.&#10;&#10;Trying to sort out cache invalidation." />

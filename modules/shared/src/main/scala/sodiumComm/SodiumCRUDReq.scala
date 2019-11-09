@@ -1,7 +1,6 @@
 package sodiumComm
 
-import refs.EntityWithRef
-import refs.entityValue.EntityType
+import refs.{EntityType, EntityWithRef}
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec

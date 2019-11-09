@@ -1,7 +1,6 @@
 package refs
 
 import refs.asString.EntityValueTypeAsString
-import utils.UUID_Utils.EntityIdentity
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._

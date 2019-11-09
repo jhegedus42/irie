@@ -1,12 +1,11 @@
 package dataModel
 
-import refs.entityValue.EntityType
 
 import io.circe._
-
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
+import refs.EntityType
 
 @JsonCodec
 case class User(

@@ -1,8 +1,7 @@
 package state
 
-import refs.EntityWithRef
+import refs.{EntityType, EntityWithRef}
 import refs.asString.EntityAndItsValueAsJSON
-import refs.entityValue.EntityType
 import io.circe.{Decoder, Encoder}
 import monocle.macros.Lenses
 
