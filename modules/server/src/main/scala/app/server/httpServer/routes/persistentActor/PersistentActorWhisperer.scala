@@ -5,18 +5,16 @@ import akka.pattern.ask
 import akka.util.Timeout
 import Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
 import Responses.GetStateResponse
-import app.server.httpServer.routes.persistentActor.logic.PersistentActorImpl
-import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityType
-import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityByID, RefToEntityWithVersion}
+import refs.{EntityWithRef, RefToEntityWithVersion}
+import refs.entityValue.EntityType
 import io.circe.{Decoder, Encoder, Json}
 
 import scala.concurrent.duration._
-import app.shared.entity.asString.{EntityValueAsJSON, EntityValueTypeAsString}
-import app.shared.entity.collection.{EntitySet, LatestVersionEntitySet}
-import app.shared.entity.entityValue.values.User
-import app.shared.state.{StateMapSnapshot, UntypedEntityWithRef, UntypedRef}
-import app.shared.utils.UUID_Utils.EntityIdentity
+import refs.asString.{EntityValueAsJSON, EntityValueTypeAsString}
+import refs.collection.LatestVersionEntitySet
+import dataModel.User
+import state.{StateMapSnapshot, UntypedEntityWithRef, UntypedRef}
+import utils.UUID_Utils.EntityIdentity
 import com.sun.org.apache.bcel.internal.classfile.StackMapEntry
 import io.circe.Decoder.Result
 
@@ -174,7 +172,7 @@ case class PersistentActorWhisperer(
   }
 
   def getEntityWithLatestVersion[EV <: EntityType[EV]](
-    ref: RefToEntityByID[EV]
+    ref: EntityWithRef[EV]
   )(
     implicit d: Decoder[EV]
   ): Future[Option[EntityWithRef[EV]]] = {

@@ -3,16 +3,12 @@ package app.server.httpServer.routes
 import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
 import app.server.httpServer.routes.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.sodium.SodiumCRUDRoute
 import app.server.httpServer.routes.sodium.SodiumExampleRoutes.GetAllUsersSodiumRoute
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import app.shared.comm.postRequests.read.{GetAllUsersReq, GetUsersNotesReq}
-import app.shared.comm.{ReadRequest, WriteRequest}
-import app.shared.comm.postRequests.{LoginReq, ResetRequest}
-import app.shared.entity.entityValue.values.{Image, Note, User}
+import dataModel.{Image, Note, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -32,35 +28,10 @@ private[httpServer] case class RouteFactory(
 
   private def allRoutes: Route =
       getStaticRoute(rootPageHtml) ~
-      simplePostRouteHelloWorld ~
-      ping_pong ~
       GetAllUsersSodiumRoute(paw).getRoute
 
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
-
-  private def simplePostRouteHelloWorld: Route = {
-    import akka.http.scaladsl.server.Directives._
-    post {
-      path("hello_world") {
-        complete("Hello world !")
-      }
-    }
-  }
-
-  private def ping_pong: Route = {
-    import akka.http.scaladsl.server.Directives._
-    post {
-      path("ping_pong") {
-        entity(as[String]) { s =>
-          complete(s)
-        }
-      }
-    }
-  }
-
-
-
 
 }

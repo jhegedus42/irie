@@ -1,6 +1,6 @@
 package app.server.httpServer.routes.persistentActor
 
-import app.shared.state.UntypedEntityWithRef
+import state.UntypedEntityWithRef
 
 trait EventToBeSavedIntoJournal
 

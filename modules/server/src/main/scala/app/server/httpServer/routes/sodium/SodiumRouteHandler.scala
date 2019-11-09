@@ -8,14 +8,12 @@ import akka.http.scaladsl.server.Directives.{
   post
 }
 import akka.http.scaladsl.server.Route
-import app.server.httpServer.routes.post.RouteLogic
 import app.server.httpServer.routes.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.sodium.SodiumExampleRoutes.{
   ReqQ,
   VV
 }
-import app.shared.comm.RouteName
-import app.shared.comm.sodium.{
+import sodiumComm.{
   ClassTagPrivoders,
   GetAllLatestEntities,
   SodiumCRUDReq,
@@ -23,9 +21,9 @@ import app.shared.comm.sodium.{
   SodiumRouteName,
   SodiumRouteNameProvider
 }
-import app.shared.entity.EntityWithRef
-import app.shared.entity.entityValue.EntityType
-import app.shared.entity.entityValue.values.User
+import refs.EntityWithRef
+import refs.entityValue.EntityType
+import dataModel.User
 
 import scala.reflect.ClassTag
 import scala.concurrent.Future
@@ -34,7 +32,6 @@ import io.circe.{Decoder, Error, _}
 import io.circe.parser._
 import io.circe.{Decoder, Encoder, Error, _}
 import org.bouncycastle.ocsp.Req
-import app.shared.comm.{PostRequest, PostRequestType}
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec

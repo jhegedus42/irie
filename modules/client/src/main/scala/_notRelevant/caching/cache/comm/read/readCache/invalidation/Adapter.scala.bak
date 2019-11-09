@@ -1,0 +1,85 @@
+package _notRelevant.caching.cache.comm.read.readCache.invalidation
+
+import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq}
+import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
+import app.shared.comm.{PostRequest, ReadRequest, WriteRequest, postRequests}
+import entity.entityValue.EntityType
+import app.shared.values.{Note, User}
+import entity.refs.{RefToEntityByID, RefToEntityWithVersion}
+import utils.UUID_Utils.EntityIdentity
+
+trait Adapter[
+  ReadReq  <: PostRequest[ReadRequest],
+  WriteReq <: PostRequest[WriteRequest]] {
+  def write2read: WriteReq#ParT => ReadReq#ParT
+}
+
+object Adapter {
+
+//  implicit def getUserNotesReqAdapter:Adapter[GetUsersNotesReq,UpdateReq[Note]]=
+//    new Adapter[GetUsersNotesReq,UpdateReq[Note]] {
+//      override def write2read: UpdateReq.UpdateReqPar[Note] => GetUsersNotesReq.Par =
+//        (x: UpdateReq.UpdateReqPar[Note]) => {
+////          x.currentEntity.toRef.entityIdentity
+//          GetUsersNotesReq.Par()
+//        }
+//    }
+
+  implicit def entityUpdateAdapter[
+    V <: EntityType[V]
+  ]: Adapter[GetEntityReq[V], UpdateReq[V]] =
+    new Adapter[GetEntityReq[V], UpdateReq[V]] {
+      override def write2read
+        : UpdateReq.UpdateReqPar[V] => GetEntityReq.Par[V] = {
+        par: UpdateReq.UpdateReqPar[V] =>
+          {
+            val p = par.currentEntity.toRef
+            val x: GetEntityReq.Par[V] = GetEntityReq.Par(p)
+            x
+          }
+
+      }
+    }
+
+  implicit def getAllUsersReqUpdateAdapter
+    : Adapter[GetAllUsersReq, UpdateReq[User]] =
+    new Adapter[GetAllUsersReq, UpdateReq[User]] {
+      override def write2read
+        : UpdateReq.UpdateReqPar[User] => GetAllUsersReq.Par = { x =>
+        GetAllUsersReq.Par(AdminPassword("titok"))
+      }
+    }
+
+  implicit def getAllUsersReqCreateAdapter
+  : Adapter[GetAllUsersReq, CreateEntityReq[User]] =
+    new Adapter[GetAllUsersReq, CreateEntityReq[User]] {
+      override def write2read
+      : CreateEntityReq.CreateEntityReqPar[User] => GetAllUsersReq.Par = { x =>
+        GetAllUsersReq.Par(AdminPassword("titok"))
+      }
+    }
+
+  //  implicit def getAllUsersReqCreateAdapter
+//    : Adapter[GetAllUsersReq, CreateEntityReq[User]] = ???
+
+  implicit def getLatestEntityByIDReq[
+    V <: EntityType[V]
+  ]: Adapter[GetLatestEntityByIDReq[V], UpdateReq[V]] = {
+    new Adapter[GetLatestEntityByIDReq[V], UpdateReq[V]] {
+
+      override def write2read
+        : UpdateReq.UpdateReqPar[V] => GetLatestEntityByIDReq.Par[V] = {
+        (up: UpdateReq.UpdateReqPar[V]) =>
+          val ei: EntityIdentity[V] =up.currentEntity.toRef.entityIdentity
+
+          val r: RefToEntityByID[V] =RefToEntityByID[V](ei)
+          val le: GetLatestEntityByIDReq.Par[V] =  GetLatestEntityByIDReq.Par[V](r)
+          println(s"getLatestEntityByIDReq cache invalidation for :$le")
+          le
+      }
+
+    }
+
+  }
+
+}

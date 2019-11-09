@@ -1,7 +1,7 @@
 package app.server.httpServer.routes.persistentActor
 
-import app.shared.entity.refs.RefToEntityWithVersion
-import app.shared.state.{StateMapSnapshot, UntypedEntityWithRef}
+import refs.RefToEntityWithVersion
+import state.{StateMapSnapshot, UntypedEntityWithRef}
 
 object Commands {
   sealed trait Command
@@ -30,22 +30,4 @@ object Responses {
       extends PersistentActorResponse
 }
 
-object Payloads {
-//  case class UntypedRefWithoutVersion(
-//      entityValueTypeAsString: EntityValueTypeAsString,
-//      entityIdentity:          EntityIdentity = EntityIdentity()
-//  )
 
-//  object UntypedRefWithoutVersion {
-//    implicit def makeFromRefToEntity[T <: EntityValue[T]](
-//        refToEntity: RefToEntityWithVersion[T]
-//    ): UntypedRefWithoutVersion = {
-//      UntypedRefWithoutVersion(
-//        entityValueTypeAsString = refToEntity.entityValueTypeAsString,
-//        entityIdentity          = refToEntity.entityIdentity
-//      )
-//    }
-//
-//  }
-
-}

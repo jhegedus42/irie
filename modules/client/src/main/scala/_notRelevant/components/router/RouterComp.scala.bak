@@ -1,0 +1,96 @@
+package _notRelevant.components.router
+
+import _notRelevant.caching.cacheInjector.Cache
+import _notRelevant.components.mainPages.generator.StaticTemplateComp
+import _notRelevant.components.mainPages.pages.login.UserLoginStatus
+import _notRelevant.components.{ListUsersAllNotesPage, UserListPage}
+import _notRelevant.components.mainPages.pages.noteHandling
+import _notRelevant.components.mainPages.pages.noteHandling.noteEditor.NoteEditorRouteProvider
+import _notRelevant.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp
+//import _notRelevant.components.mainPages.demos.{StaticTemplateComp, TemplateComp}
+import _notRelevant.components.mainPages.pages.login.LoginPageComp
+import _notRelevant.components.mainPages.pages.userHandling.userEditor.UserEditorRouteProvider
+import _notRelevant.components.mainPages.pages.userHandling.userList.UserListComp
+import _notRelevant.components.{ LoginPage, MainPage}
+import japgolly.scalajs.react.extra.router.StaticDsl.Rule
+import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
+import japgolly.scalajs.react.vdom.html_<^._
+
+
+case class RouterComp() {
+  import RouterComp.cache
+
+  def routerConfigNotLoggedIng: RouterConfig[MainPage] =
+    RouterConfigDsl[MainPage].buildConfig {
+      dsl: RouterConfigDsl[MainPage] =>
+        import dsl._
+
+        def loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
+          renderR { x =>
+            LoginPageComp.component(LoginPageComp.Props(x))
+          }
+        )
+
+        def userIsNotLoggedIn =
+
+          (trimSlashes
+            | loginRoute)
+            .notFound(
+              redirectToPage(LoginPage)(Redirect.Replace)
+            )
+
+        userIsNotLoggedIn.renderWith(f = RouterLayout.layout)
+    }
+
+  def routerConfigLoggedIng: RouterConfig[MainPage] =
+    RouterConfigDsl[MainPage].buildConfig {
+      dsl: RouterConfigDsl[MainPage] =>
+        import dsl._
+
+        def loginRoute: dsl.Rule = staticRoute(root, LoginPage).~>(
+          renderR { x =>
+            LoginPageComp.component(LoginPageComp.Props(x))
+          }
+        )
+
+
+        def userIsLoggedIn: RouterConfig[MainPage] =
+          (trimSlashes
+            | loginRoute
+
+            | UserEditorRouteProvider.getRoute(cache)(dsl)
+
+            | NoteEditorRouteProvider.getRoute(cache)(dsl)
+
+            | UserListComp.getStaticRoute("userList", UserListPage())(
+              cache
+            )(dsl)
+
+            | ListUsersAllNotesComp.getStaticRoute(
+              "userNoteList",
+              ListUsersAllNotesPage()
+            )(cache)(dsl)
+//            | StaticTemplateComp.getRoute(dsl)
+            )
+            .notFound(
+              redirectToPage(LoginPage)(Redirect.Replace)
+            )
+
+            userIsLoggedIn.renderWith(f = RouterLayout.layout)
+
+}
+
+  def baseUrl: BaseUrl = BaseUrl.fromWindowOrigin_/
+
+  def router =
+    if(LoginPageComp.isUserLoggedIn.userOption.isDefined)
+      Router.apply(baseUrl, routerConfigLoggedIng)
+    else
+      Router.apply(baseUrl, routerConfigNotLoggedIng)
+}
+
+object RouterComp {
+  lazy val cache: Cache = new Cache()
+  type RoutingRule = RouterConfigDsl[MainPage] => Rule[MainPage]
+
+}
