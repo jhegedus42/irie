@@ -1,0 +1,19 @@
+[app-server-httpServer-routes-RouteFactoryTest-akka.actor.default-dispatcher-2] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[default-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[app-server-httpServer-routes-TestHelper-akka.actor.default-dispatcher-2] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[default-akka.actor.default-dispatcher-5] INFO app.server.httpServer.routes.persistentActor.PersistentActorImpl - Recovery completed
+
+State is:
+StateMapSnapshot(Map(UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000000),EntityVersion(0)) -> UntypedEntity(UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000000),EntityVersion(0)),EntityValueAsJSON({
+  "name" : "Alice",
+  "favoriteNumber" : 38,
+  "password" : "titok"
+})), UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000001),EntityVersion(0)) -> UntypedEntity(UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000001),EntityVersion(0)),EntityValueAsJSON({
+  "name" : "Bob",
+  "favoriteNumber" : 45,
+  "password" : "titok"
+})), UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000002),EntityVersion(0)) -> UntypedEntity(UntypedRef(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000002),EntityVersion(0)),EntityValueAsJSON({
+  "name" : "MeresiHiba",
+  "favoriteNumber" : 369,
+  "password" : "titok"
+}))),OCCVersion(1))

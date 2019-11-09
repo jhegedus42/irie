@@ -1,0 +1,544 @@
+[0m[[0m[0minfo[0m] [0m[0mLoading global plugins from /Users/joco/.sbt/1.0/plugins[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project irie-build from plugins.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading project definition from /Users/joco/dev/im/irie/project[0m
+[0m[[0m[0minfo[0m] [0m[0mLoading settings for project irie from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mSet current project to root (in build file:/Users/joco/dev/im/irie/)[0m
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+
+
+--------------------------------------------------
+ Route
+ route_ResetRequest_String_auto_generated
+ was called
+ with :
+ {
+    
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par()
+debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
+1C6C8F45 - we reset the state now - its value before reset is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "message" : "Minden kiraly!"
+}
+{
+    "message" : "Minden kiraly!"
+}
+
+
+--------------------------------------------------
+ Route
+ route_InsertReq_User_auto_generated
+ was called
+ with :
+ {
+    "value" : {
+        "name" : "JetiLabnyom",
+        "favoriteNumber" : 46,
+        "password" : "titok"
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - InsertReqPar(User(JetiLabnyom,46,titok))
+debug 76FB201E : debug 319CCAEA2DE4 - insert logic
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"JetiLabnyom","favoriteNumber":46,"password":"titok"} EntityVersion(0) d00880aa-a383-4040-b9c4-f89fe27983ea
+debug : 0547B2B6 - we return :
+ {
+    "entity" : {
+        "entityValue" : {
+            "name" : "JetiLabnyom",
+            "favoriteNumber" : 46,
+            "password" : "titok"
+        },
+        "refToEntity" : {
+            "entityValueTypeAsString" : {
+                "type_as_string" : "User"
+            },
+            "entityIdentity" : {
+                "uuid" : "d00880aa-a383-4040-b9c4-f89fe27983ea"
+            },
+            "entityVersion" : {
+                "versionNumberLong" : 0
+            }
+        },
+        "entityDeletedFlag" : {
+            "isDeleted" : false
+        }
+    }
+}
+{
+    "entity" : {
+        "entityValue" : {
+            "name" : "JetiLabnyom",
+            "favoriteNumber" : 46,
+            "password" : "titok"
+        },
+        "refToEntity" : {
+            "entityValueTypeAsString" : {
+                "type_as_string" : "User"
+            },
+            "entityIdentity" : {
+                "uuid" : "d00880aa-a383-4040-b9c4-f89fe27983ea"
+            },
+            "entityVersion" : {
+                "versionNumberLong" : 0
+            }
+        },
+        "entityDeletedFlag" : {
+            "isDeleted" : false
+        }
+    }
+}
+
+
+--------------------------------------------------
+ Route
+ route_GetEntityReq_User_auto_generated
+ was called
+ with :
+ {
+    "refToEntityWithVersion" : {
+        "entityValueTypeAsString" : {
+            "type_as_string" : "User"
+        },
+        "entityIdentity" : {
+            "uuid" : "d00880aa-a383-4040-b9c4-f89fe27983ea"
+        },
+        "entityVersion" : {
+            "versionNumberLong" : 0
+        }
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par(RefToEntityWithVersion(EntityValueTypeAsString(User),EntityIdentity(d00880aa-a383-4040-b9c4-f89fe27983ea),EntityVersion(0)))
+debug 76FB201E : debug 319CCAEA2DE4 - get route logic
+handling the GetSnapshot command
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"JetiLabnyom","favoriteNumber":46,"password":"titok"} EntityVersion(0) d00880aa-a383-4040-b9c4-f89fe27983ea
+debug : 0547B2B6 - we return :
+ {
+    "optionEntity" : null
+}
+
+
+--------------------------------------------------
+ Route
+ route_ResetRequest_String_auto_generated
+ was called
+ with :
+ {
+    
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par()
+debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
+1C6C8F45 - we reset the state now - its value before reset is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"JetiLabnyom","favoriteNumber":46,"password":"titok"} EntityVersion(0) d00880aa-a383-4040-b9c4-f89fe27983ea
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "message" : "Minden kiraly!"
+}
+{
+    "message" : "Minden kiraly!"
+}
+
+
+--------------------------------------------------
+ Route
+ route_InsertReq_User_auto_generated
+ was called
+ with :
+ {
+    "value" : {
+        "name" : "TerezAnya",
+        "favoriteNumber" : 666,
+        "password" : "titok"
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - InsertReqPar(User(TerezAnya,666,titok))
+debug 76FB201E : debug 319CCAEA2DE4 - insert logic
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"TerezAnya","favoriteNumber":666,"password":"titok"} EntityVersion(0) 95540c24-8f27-4f07-baa2-76e7387566d9
+debug : 0547B2B6 - we return :
+ {
+    "entity" : {
+        "entityValue" : {
+            "name" : "TerezAnya",
+            "favoriteNumber" : 666,
+            "password" : "titok"
+        },
+        "refToEntity" : {
+            "entityValueTypeAsString" : {
+                "type_as_string" : "User"
+            },
+            "entityIdentity" : {
+                "uuid" : "95540c24-8f27-4f07-baa2-76e7387566d9"
+            },
+            "entityVersion" : {
+                "versionNumberLong" : 0
+            }
+        },
+        "entityDeletedFlag" : {
+            "isDeleted" : false
+        }
+    }
+}
+{
+    "entity" : {
+        "entityValue" : {
+            "name" : "TerezAnya",
+            "favoriteNumber" : 666,
+            "password" : "titok"
+        },
+        "refToEntity" : {
+            "entityValueTypeAsString" : {
+                "type_as_string" : "User"
+            },
+            "entityIdentity" : {
+                "uuid" : "95540c24-8f27-4f07-baa2-76e7387566d9"
+            },
+            "entityVersion" : {
+                "versionNumberLong" : 0
+            }
+        },
+        "entityDeletedFlag" : {
+            "isDeleted" : false
+        }
+    }
+}
+
+
+--------------------------------------------------
+ Route
+ route_GetEntityReq_User_auto_generated
+ was called
+ with :
+ {
+    "refToEntityWithVersion" : {
+        "entityValueTypeAsString" : {
+            "type_as_string" : "User"
+        },
+        "entityIdentity" : {
+            "uuid" : "95540c24-8f27-4f07-baa2-76e7387566d9"
+        },
+        "entityVersion" : {
+            "versionNumberLong" : 0
+        }
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par(RefToEntityWithVersion(EntityValueTypeAsString(User),EntityIdentity(95540c24-8f27-4f07-baa2-76e7387566d9),EntityVersion(0)))
+debug 76FB201E : debug 319CCAEA2DE4 - get route logic
+handling the GetSnapshot command
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"TerezAnya","favoriteNumber":666,"password":"titok"} EntityVersion(0) 95540c24-8f27-4f07-baa2-76e7387566d9
+debug : 0547B2B6 - we return :
+ {
+    "optionEntity" : null
+}
+
+
+--------------------------------------------------
+ Route
+ route_ResetRequest_String_auto_generated
+ was called
+ with :
+ {
+    
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par()
+debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
+1C6C8F45 - we reset the state now - its value before reset is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+ OCCVersion(1) {"name":"TerezAnya","favoriteNumber":666,"password":"titok"} EntityVersion(0) 95540c24-8f27-4f07-baa2-76e7387566d9
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "message" : "Minden kiraly!"
+}
+{
+    "message" : "Minden kiraly!"
+}
+
+
+--------------------------------------------------
+ Route
+ route_GetEntityReq_User_auto_generated
+ was called
+ with :
+ {
+    "refToEntityWithVersion" : {
+        "entityValueTypeAsString" : {
+            "type_as_string" : "User"
+        },
+        "entityIdentity" : {
+            "uuid" : "00000000-0000-0000-0000-000000000000"
+        },
+        "entityVersion" : {
+            "versionNumberLong" : 0
+        }
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par(RefToEntityWithVersion(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000000),EntityVersion(0)))
+debug 76FB201E : debug 319CCAEA2DE4 - get route logic
+handling the GetSnapshot command
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "optionEntity" : null
+}
+
+
+--------------------------------------------------
+ Route
+ route_ResetRequest_String_auto_generated
+ was called
+ with :
+ {
+    
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par()
+debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
+1C6C8F45 - we reset the state now - its value before reset is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+
+
+State was set to:
+
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "message" : "Minden kiraly!"
+}
+{
+    "message" : "Minden kiraly!"
+}
+
+
+--------------------------------------------------
+ Route
+ route_GetEntityReq_User_auto_generated
+ was called
+ with :
+ {
+    "refToEntityWithVersion" : {
+        "entityValueTypeAsString" : {
+            "type_as_string" : "User"
+        },
+        "entityIdentity" : {
+            "uuid" : "00000000-0000-0000-0000-000000000002"
+        },
+        "entityVersion" : {
+            "versionNumberLong" : 0
+        }
+    }
+}
+--------------------------------------------------
+
+               
+debug A310F8F2 - Par(RefToEntityWithVersion(EntityValueTypeAsString(User),EntityIdentity(00000000-0000-0000-0000-000000000002),EntityVersion(0)))
+debug 76FB201E : debug 319CCAEA2DE4 - get route logic
+handling the GetSnapshot command
+def getState is called in StateService.
+State in simple format is:
+ OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
+ OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
+ OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
+debug : 0547B2B6 - we return :
+ {
+    "optionEntity" : null
+}
+{
+    "optionEntity" : null
+}
+[0m[[0m[0minfo[0m] [0m[0m[32mRouteFactoryTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- testsimplePostRouteHelloWorldRoute[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- test insert route[User] *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  "...   "optionEntity" : [null][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" did not equal "...   "optionEntity" : [{[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityValue" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "name" : "JetiLabnyom",[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "favoriteNumber" : 46,[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "password" : "titok"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "refToEntity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityValueTypeAsString" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "type_as_string" : "User"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityIdentity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "uuid" : "d00880aa-a383-4040-b9c4-f89fe27983ea"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityVersion" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "versionNumberLong" : 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityDeletedFlag" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "isDeleted" : false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      }][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" (TestHelper.scala:274)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- test update route *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  "...   "optionEntity" : [null][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" did not equal "...   "optionEntity" : [{[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityValue" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "name" : "TerezAnya",[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "favoriteNumber" : 666,[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "password" : "titok"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "refToEntity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityValueTypeAsString" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "type_as_string" : "User"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityIdentity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "uuid" : "95540c24-8f27-4f07-baa2-76e7387566d9"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityVersion" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "versionNumberLong" : 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityDeletedFlag" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "isDeleted" : false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      }][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" (TestHelper.scala:274)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- test get route[User] *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  "...   "optionEntity" : [null][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" did not equal "...   "optionEntity" : [{[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityValue" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "name" : "Alice",[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "favoriteNumber" : 38,[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "password" : "titok"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "refToEntity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityValueTypeAsString" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "type_as_string" : "User"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityIdentity" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "uuid" : "00000000-0000-0000-0000-000000000000"[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "entityVersion" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                  "versionNumberLong" : 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          },[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          "entityDeletedFlag" : {[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m              "isDeleted" : false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          }[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      }][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  }" (TestHelper.scala:274)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- ping_pong[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- test reset route *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.util.NoSuchElementException: None.get[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.None$.get(Option.scala:366)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.None$.get(Option.scala:364)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at app.server.httpServer.routes.TestHelper.getLatestEntity(TestHelper.scala:236)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at app.server.httpServer.routes.TestHelper.assertUserFavoriteNumber(TestHelper.scala:63)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at app.server.httpServer.routes.RouteFactoryTest.$anonfun$new$9(RouteFactoryTest.scala:136)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 2 seconds, 557 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 6[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 2, failed 4, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 4 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	app.server.httpServer.routes.RouteFactoryTest[0m
+[0m[[0m[31merror[0m] [0m[0m(server / Test / [31mtestOnly[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 5 s, completed Oct 6, 2019 10:58:41 PM[0m

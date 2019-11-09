@@ -1,0 +1,17 @@
+package entity.refs
+
+import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
+import entity.asString.EntityValueTypeAsString
+import entity.entityValue.EntityType
+import utils.UUID_Utils.EntityIdentity
+import monocle.macros.Lenses
+
+@Lenses
+case class RefToEntityByID[T <: EntityType[T]](
+  entityIdentity: EntityIdentity[T] = EntityIdentity())
+
+object RefToEntityByID {
+  implicit def toGetLatestEntityByIDReqPar[V <: EntityType[V]](
+    r: RefToEntityByID[V]
+  ): GetLatestEntityByIDReq.Par[V] = GetLatestEntityByIDReq.Par[V](r)
+}
