@@ -46,7 +46,7 @@ private[routes] object IndexDotHtml {
               src := "./modules/client/target/scala-2.12/client-fastopt.js"
             ),
 //            script("sourceMapSupport.install()"), //todo-later
-            script( "app.client.Main().main()" ) // this starts the client
+            script( "Main().main()" ) // this starts the client
           )
         )
     index_html

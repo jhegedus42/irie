@@ -8,7 +8,7 @@ import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 import sodium.StreamSink
 
-case class SodiumButtom(name: String = "Button") {
+case class SodiumButton(name: String = "Button") {
 
   val streamSink = new StreamSink[Unit]()
 

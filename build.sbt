@@ -12,7 +12,7 @@ ThisBuild / resolvers += "jitpack" at "https://jitpack.io"
 ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
 ThisBuild / resolvers += Resolver.sonatypeRepo("public")
 ThisBuild / resolvers += Resolver.sonatypeRepo("releases")
-ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
+//ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
 
 
 

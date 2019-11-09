@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
+    <option name="explainTypeErrors" value="true" />
     <option name="incrementalityType" value="SBT" />
     <profile name="sbt 1" modules="irie_5551,layer_X_JVM_stateAccess,layer_Y_JVM_persistence" />
     <profile name="sbt 10" modules="shared_js">

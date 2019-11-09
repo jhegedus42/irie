@@ -5,7 +5,6 @@ import sbt._
 
 object Settings {
 
-//  val ex=exclude("com.chuusai","shapeless")
   /** The name of your application */
   /** The version of your application */
   val version = "1.1.4"
@@ -52,8 +51,6 @@ object Settings {
     val scalaZ       = "7.2.26"
 
     val akka              = "2.5.23"
-    val in_memory_journal = "2.5.15.2"
-
     val akkaHttp = "10.1.9"
 
     val monocleVersion   = "1.5.0"
@@ -75,10 +72,7 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
-      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
-      "org.typelevel" %%% "cats-core"                  % "2.0.0",
-      "io.monix" %%% "monix"                           % "3.0.0",
-      "org.typelevel"                                  %% "simulacrum" % "1.0.0"
+      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -90,29 +84,12 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
-      //      "me.shadaj"                               %% "scalapy-core" % "0.3.0",
-//      "org.platanios"                           % "tensorflow-api_2.12" % "0.4.1"  ,
-//      "org.vegas-viz"                           %% "vegas" % "0.3.11",
-      "com.cibo"                                %% "scalastan" % "0.9.0",
-      "org.scalanlp"                            %% "breeze" % "1.0",
-      "org.scalanlp"                            %% "breeze-natives" % "1.0",
-      "org.scalanlp"                            %% "breeze-viz" % "1.0",
-      "org.apache.spark"                        %% "spark-sql" % "2.4.4",
-      "com.stripe"                              %% "rainier-core" % "0.2.3",
-//      "com.stripe"                              %% "rainier-repl" % "0.2.2",
       "org.slf4j"                               % "slf4j-simple" % "1.7.25",
       "com.typesafe.akka"                       %% "akka-slf4j" % versions.akka,
       "com.typesafe.akka"                       %% "akka-actor" % versions.akka,
       "com.typesafe.akka"                       %% "akka-stream-testkit" % versions.akka,
       "com.typesafe.akka"                       %% "akka-http" % versions.akkaHttp,
       "com.typesafe.akka"                       %% "akka-http-testkit" % versions.akkaHttp,
-      "de.heikoseeberger" %%% "akka-http-circe" % "1.27.0",
-      // akka-persistence :
-      "com.typesafe.akka"   %% "akka-persistence"          % versions.akka,
-      "com.github.dnvriend" %% "akka-persistence-inmemory" % versions.in_memory_journal,
-      // leveldb :
-      "org.iq80.leveldb"          % "leveldb"        % "0.10",
-      "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
       // test:
       "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
     )
@@ -121,8 +98,6 @@ object Settings {
   /** Dependencies only used by the JS project (note the use of %%% instead of %%) */
   val scalajsDependencies = Def.setting(
     Seq(
-      "com.cibo" %%% "evilplot" % "0.6.3", // Use %%% instead of %% if you're using ScalaJS
-      "com.lihaoyi" %%% "pprint"                      % "0.5.3",
       "com.github.japgolly.scalajs-react" %%% "core"  % versions.scalajsReact,
       "com.github.japgolly.scalajs-react" %%% "extra" % versions.scalajsReact,
       "com.github.japgolly.scalacss" %%% "ext-react"  % versions.scalaCSS,
@@ -130,7 +105,6 @@ object Settings {
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
       "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" //,
-      //      "com.github.outwatch.outwatch" %%% "outwatch"   % "f7c3081"
     )
   )
 
