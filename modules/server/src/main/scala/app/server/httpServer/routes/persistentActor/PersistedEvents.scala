@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import app.shared.state.UntypedEntityWithRef
 

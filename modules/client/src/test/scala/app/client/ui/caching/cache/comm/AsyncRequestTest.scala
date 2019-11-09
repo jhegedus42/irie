@@ -192,7 +192,7 @@ class AsyncRequestTest extends AsyncFunSuite {
     length.map(l => assert(l === 3))
 
     // todo-later
-    //  move app.server.httpServer.routes.post.routeLogicImpl.persistentActor.state.TestDataProvider
+    //  move app.server.httpServer.routes.persistentActor.state.TestDataProvider
     //  to shared module
     //  and calculate from that directly that number 3 ^^^
     //  which is in this test ^^^

@@ -1,8 +1,8 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Commands._
+import app.server.httpServer.routes.persistentActor.Commands._
 import app.shared.state.UntypedEntityWithRef
 
 import scala.language.postfixOps

@@ -5,7 +5,6 @@ import app.shared.entity.asString.{EntityAndItsValueAsJSON, EntityValueTypeAsStr
 import app.shared.entity.collection.EntitySet
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.entityValue.values.User
-import app.shared.entity.refs.RefToEntityByID
 import app.shared.utils.UUID_Utils.EntityIdentity
 import io.circe.{Decoder, Encoder}
 import monocle.macros.Lenses
@@ -147,14 +146,14 @@ case class StateMapSnapshot(
   }
 
   def getEntityWithLatestVersion[V <: EntityType[V]](
-    r: RefToEntityByID[V]
+    r: EntityWithRef[V]
   ): Option[UntypedEntityWithRef] = {
 //    map.get(r)
 
     def getRes: UntypedEntityWithRef =
       map
         .filterKeys(
-          utr => utr.entityIdentity.uuid == r.entityIdentity.uuid
+          utr => utr.entityIdentity.uuid == r.toRef.entityIdentity.uuid
         )
         .values
         .toSet

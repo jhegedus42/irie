@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.routeLogicImpl.logic.write.ResetServerStateLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.server.httpServer.routes.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.sodium.SodiumCRUDRoute
 import app.server.httpServer.routes.sodium.SodiumExampleRoutes.GetAllUsersSodiumRoute
 import app.server.httpServer.routes.static.IndexDotHtml
@@ -29,19 +29,11 @@ private[httpServer] case class RouteFactory(
 
   import io.circe.generic.auto._
 
-  lazy val crudRouteFactory: CRUDRouteFactory = CRUDRouteFactory()
 
   private def allRoutes: Route =
-    crudRouteFactory.route[User] ~
-      crudRouteFactory.route[Note] ~
       getStaticRoute(rootPageHtml) ~
       simplePostRouteHelloWorld ~
       ping_pong ~
-      getPostRoute[ResetRequest].route ~
-      getPostRoute[GetAllUsersReq].route ~
-      getPostRoute[LoginReq].route ~
-      getPostRoute[GetUsersNotesReq].route ~
-      crudRouteFactory.route[Image] ~
       GetAllUsersSodiumRoute(paw).getRoute
 
 

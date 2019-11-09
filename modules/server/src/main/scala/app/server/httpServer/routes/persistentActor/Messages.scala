@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import app.shared.entity.refs.RefToEntityWithVersion
 import app.shared.state.{StateMapSnapshot, UntypedEntityWithRef}

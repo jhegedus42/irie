@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import akka.actor.ActorSystem
 import Commands.ShutdownActor

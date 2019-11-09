@@ -1,4 +1,4 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import app.server.initialization.Config
 import app.shared.entity.asString.EntityAndItsValueAsJSON

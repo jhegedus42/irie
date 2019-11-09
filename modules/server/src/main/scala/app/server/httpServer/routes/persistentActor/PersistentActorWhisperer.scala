@@ -1,11 +1,11 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
 import Commands.{GetStateSnapshot, InsertNewEntityCommand, ResetStateCommand, UpdateEntityCommand}
 import Responses.GetStateResponse
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.logic.PersistentActorImpl
+import app.server.httpServer.routes.persistentActor.logic.PersistentActorImpl
 import app.shared.entity.EntityWithRef
 import app.shared.entity.entityValue.EntityType
 import app.shared.entity.refs.{EntityDeletedFlag, RefToEntityByID, RefToEntityWithVersion}
@@ -146,14 +146,14 @@ case class PersistentActorWhisperer(
         stateMapSnapshot.getEntity(ref)
 
       println(
-        s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res "
+        s"B18BF645-7656-432D-9BA4-67D7DE596597 - debug - app.server.httpServer.routes.persistentActor.PersistentActorWhisperer.getEntityWithVersion :$res "
       )
 
       val ent: Option[EntityWithRef[V]] =
         res.head.entityAndItsValueAsJSON.entityWithRefAsJSON.toEntityWithRef
 
       println(
-        s"410B699E-40CC-4973-8020-AB6944A643FD - $ent - ent in app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion"
+        s"410B699E-40CC-4973-8020-AB6944A643FD - $ent - ent in app.server.httpServer.routes.persistentActor.PersistentActorWhisperer.getEntityWithVersion"
       )
 
       ent
@@ -165,7 +165,7 @@ case class PersistentActorWhisperer(
     val res = sh.map(snapshot2res(_))
 
     println(
-      "D7545812-E527-4FE6-A4CF-966C01407333 - debug - app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer.getEntityWithVersion "
+      "D7545812-E527-4FE6-A4CF-966C01407333 - debug - app.server.httpServer.routes.persistentActor.PersistentActorWhisperer.getEntityWithVersion "
     )
 
     val res2 = res

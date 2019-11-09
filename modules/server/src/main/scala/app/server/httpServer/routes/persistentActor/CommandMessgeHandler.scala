@@ -1,12 +1,12 @@
-package app.server.httpServer.routes.post.routeLogicImpl.persistentActor
+package app.server.httpServer.routes.persistentActor
 
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.Commands.{InsertNewEntityCommand, UpdateEntityCommand}
+import app.server.httpServer.routes.persistentActor.Commands.{InsertNewEntityCommand, UpdateEntityCommand}
 
 case class CommandMessgeHandler(val stateService: StateService) {
 
   def handleUpdate(
     message: UpdateEntityCommand
-  ): DidOperationSucceed = {
+  ) : Unit = {
     stateService.updateEntity(
       message.updatedCurrentEntity.untypedRef,
       message.newEntity.entityAndItsValueAsJSON
@@ -15,7 +15,7 @@ case class CommandMessgeHandler(val stateService: StateService) {
 
   def handleInsert(
     command: InsertNewEntityCommand
-  ): DidOperationSucceed = {
+   ) : Unit = {
     stateService.insertNewEntity(command.newEntity)
   }
 

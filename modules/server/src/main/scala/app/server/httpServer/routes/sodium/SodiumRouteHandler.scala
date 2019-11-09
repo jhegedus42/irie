@@ -9,7 +9,7 @@ import akka.http.scaladsl.server.Directives.{
 }
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.post.RouteLogic
-import app.server.httpServer.routes.post.routeLogicImpl.persistentActor.PersistentActorWhisperer
+import app.server.httpServer.routes.persistentActor.PersistentActorWhisperer
 import app.server.httpServer.routes.sodium.SodiumExampleRoutes.{
   ReqQ,
   VV
