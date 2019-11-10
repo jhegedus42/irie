@@ -1,7 +1,6 @@
 package _notRelevant.caching.cache.sodiumCache
 
-import dataModel.User
-import entity.{EntityType, Entity, Ref}
+import entity.{Entity, EntityType, Ref, User}
 import sodium.core.{Cell, StreamSink}
 import sodium.{core, _}
 

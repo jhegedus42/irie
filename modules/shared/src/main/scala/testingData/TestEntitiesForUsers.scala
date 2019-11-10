@@ -1,7 +1,7 @@
 package testingData
 
-import entity.Entity
-import dataModel.{EntityValueType, Note, User}
+import entity.{Entity }
+import dataModel.{EntityValueType, User}
 import io.circe.Decoder
 
 import scala.reflect.ClassTag

@@ -1,13 +1,14 @@
 package syncedNormalizedState.comm
 
 
-import entity.EntityType
+
+import dataModel.EntityValueType
 
 import scala.reflect.ClassTag
 
 class ClassTagPrivoders[
   RT <: SodiumCRUDReq[V],
-  V  <: EntityType[V]
+  V  <: EntityValueType[V]
 ](
   implicit val ct: ClassTag[RT],
   implicit val e:  ClassTag[V]
@@ -18,7 +19,7 @@ class ClassTagPrivoders[
 object SodiumRouteNameProvider {
 
 
-  def getRouteName[V<:EntityType[V],Req<:SodiumCRUDReq[V]](
+  def getRouteName[V<:EntityValueType[V],Req<:SodiumCRUDReq[V]](
   )(
     implicit
     ct_pl:  ClassTag[V],

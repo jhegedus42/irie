@@ -1,13 +1,13 @@
-import entity.Entity
-import dataModel.User
+import entity.{Entity }
 import io.circe.parser._
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 
 //import io.circe.generic.JsonCodec
-import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
+import io.circe.parser._
+import io.circe.generic.JsonCodec
 
 //@Lenses
 

@@ -5,7 +5,7 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import dataModel.{Image, Note, User}
+import _root_.entity.Note
 
 import scala.concurrent.ExecutionContextExecutor
 

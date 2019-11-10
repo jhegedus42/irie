@@ -1,6 +1,6 @@
 package syncedNormalizedState.comm
 
-import entity.EntityType
+import dataModel.EntityValueType
 
 
-case class SodiumRouteName[Req<:SodiumCRUDReq[V],V<:EntityType[V]](name: String)
+case class SodiumRouteName[Req<:SodiumCRUDReq[V],V<:EntityValueType[V]](name: String)

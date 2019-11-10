@@ -6,34 +6,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/StateHolder.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Ref.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Image.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Note.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/NoteFolder.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/User.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/RouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteFactory.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/SodiumRouteHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/sodium/routes/GetRoute.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/initialization/Config.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/Config.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/utils/GetTimeOnJVM.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/AdminUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/AdminUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityType.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Image.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Image.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Note.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Note.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/NoteFolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/NoteFolder.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/User.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/User.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/Identity.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/IdentityAndVersion.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/ValueWithIdentityAndVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Entity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/refs/Version.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/StateHolder.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/AdminUser.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Image.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/Note.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/NoteFolder.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/User.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Entity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Ref.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumParamConverters.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumParamConverters.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteName.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteNameProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteNameProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" afterDir="false" />
@@ -144,7 +135,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/utils" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/entity" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -404,13 +395,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00473" summary="Cache invalidation implementation is in progress.">
-      <created>1572659341988</created>
-      <option name="number" value="00473" />
-      <option name="presentableId" value="LOCAL-00473" />
-      <option name="project" value="LOCAL" />
-      <updated>1572659341988</updated>
     </task>
     <task id="LOCAL-00474" summary="refactoring pages">
       <created>1572733212034</created>
@@ -748,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573350664922</updated>
     </task>
-    <option name="localTasksCounter" value="522" />
+    <task id="LOCAL-00522" summary="Mar csak 30 compiler hiba van hatra....">
+      <created>1573397077129</created>
+      <option name="number" value="00522" />
+      <option name="presentableId" value="LOCAL-00522" />
+      <option name="project" value="LOCAL" />
+      <updated>1573397077129</updated>
+    </task>
+    <option name="localTasksCounter" value="523" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -824,7 +815,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactoring pages" />
     <MESSAGE value="login works" />
     <MESSAGE value="login really works" />
     <MESSAGE value="invalidation framwork is in progress" />
@@ -849,6 +839,18 @@
     <MESSAGE value="code has been pruned heavily - but at least, it compiles" />
     <MESSAGE value="code is still under heavy cleaning up.... and simplification....&#10;&#10;both sides will be based on some sort of reactive solutions." />
     <MESSAGE value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
-    <option name="LAST_COMMIT_MESSAGE" value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
+    <MESSAGE value="Mar csak 30 compiler hiba van hatra...." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mar csak 30 compiler hiba van hatra...." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
