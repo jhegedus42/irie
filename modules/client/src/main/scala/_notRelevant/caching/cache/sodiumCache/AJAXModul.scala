@@ -10,7 +10,9 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 trait AJAXModul[RT <: SodiumCRUDReq[V], V <: EntityValueType[V]] {
   self: SodiumParamConverters[RT, V] with ClassTagPrivoders[RT, V] =>
 
-  import self.converters._
+
+  import converters._
+
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 

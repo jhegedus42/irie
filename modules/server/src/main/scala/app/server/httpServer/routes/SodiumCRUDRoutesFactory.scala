@@ -4,12 +4,15 @@ import akka.http.scaladsl.server.Directives.{as, complete, entity, path, post}
 import akka.http.scaladsl.server.Route
 import app.server.StateHolder
 import dataModel.{EntityValueType, User}
-import io.circe.generic.JsonCodec
-import io.circe.generic.auto._
+import io.circe.{Decoder, Encoder}
 import io.circe.syntax._
+import io.circe.generic.auto._
+import io.circe.generic._
+import io.circe.generic.JsonCodec
 import syncedNormalizedState.comm.{GetAllLatestEntities, _}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.reflect.ClassTag
 
 trait StateHolderProvider {
   implicit def stateholder: StateHolder
@@ -20,17 +23,30 @@ trait StateHolderProvider {
 trait SodiumCRUDRoute[
   RT <: SodiumCRUDReq[E],
   E  <: EntityValueType[E]] {
-  self: SodiumParamConverters[RT, E] with StateHolderProvider =>
+  self: SodiumParamConverters[RT, E]
+    with StateHolderProvider
+    with ClassTagPrivoders[RT, E] =>
 
-  import self.converters._
+  import io.circe.syntax._
+  import io.circe.generic.auto._
+  import io.circe.generic.JsonCodec
+
 
   implicit def stateholder:      StateHolder
   implicit def executionContext: ExecutionContextExecutor
 
-  def getLogicS(par: String)(): Future[String] = {
-    def f(x: RT#Resp): String = x
-    stateholder.handleCDUDRequest[RT, E](par).map(f)
+//  val imp1=implicitly[Encoder[RT#Resp]]
+//  val imp2=implicitly[Encoder[RT#Resp]]
+
+  def getLogicS(par: String): Future[String] = {
+    def f(x: RT#Resp): String = converters.respToString(x)
+    val p=converters.stringToPar(par)
+    stateholder.handleCDUDRequest[RT, E](p).map(f(_))
   }
+
+  implicit def ct: ClassTag[RT]
+
+  implicit def e: ClassTag[E]
 
   def url: String = SodiumRouteNameProvider.getRouteName[E, RT]().name
 
