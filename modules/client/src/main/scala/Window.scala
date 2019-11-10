@@ -1,4 +1,5 @@
-import entity.{Entity }
+import dataModel.User
+import entity.Entity
 import io.circe.parser._
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window

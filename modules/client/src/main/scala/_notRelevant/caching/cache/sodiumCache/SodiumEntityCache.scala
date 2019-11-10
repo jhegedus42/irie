@@ -1,6 +1,7 @@
 package _notRelevant.caching.cache.sodiumCache
 
-import entity.{Entity, EntityType, Ref, User}
+import dataModel.{EntityValueType, User}
+import entity.{Entity, Ref}
 import sodium.core.{Cell, StreamSink}
 import sodium.{core, _}
 
@@ -15,7 +16,7 @@ import io.circe.syntax._
 //
 //}
 
-trait SodiumEntityCache[V <: EntityType[V]] {
+trait SodiumEntityCache[V <: EntityValueType[V]] {
 
 //  val entityUpdatedStream = ???
 //

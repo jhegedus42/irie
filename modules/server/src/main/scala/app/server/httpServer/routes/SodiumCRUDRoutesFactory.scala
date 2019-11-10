@@ -1,10 +1,9 @@
 package app.server.httpServer.routes
 
-import _root_.entity.{Entity, User}
 import akka.http.scaladsl.server.Directives.{as, complete, entity, path, post}
 import akka.http.scaladsl.server.Route
 import app.server.StateHolder
-import dataModel.EntityValueType
+import dataModel.{EntityValueType, User}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._

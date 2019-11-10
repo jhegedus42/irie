@@ -1,6 +1,7 @@
 package sodium.core
 
 import sodium.core
+import sodium.core.Node.Target
 
 /**
   * Represents a value of type A that changes over time.

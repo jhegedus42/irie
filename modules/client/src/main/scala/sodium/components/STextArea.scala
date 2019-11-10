@@ -2,7 +2,6 @@ package sodium.components
 
 import japgolly.scalajs.react.vdom.html_<^.{<, ^}
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import sodium.{Cell, StreamSink}
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterConfigDsl
 import japgolly.scalajs.react.extra.router.StaticDsl.Rule

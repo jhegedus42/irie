@@ -1,11 +1,18 @@
 package sodium.core
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.scalajs.js
+
+
+
 
 object MemoryTest1 extends js.JSApp {
 //  def main(args: Array[String]): Unit = {
 //  }
+
+implicit def executionContext: ExecutionContextExecutor =
+  scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
   override def main(): Unit = {
 
 //    new Thread() {
