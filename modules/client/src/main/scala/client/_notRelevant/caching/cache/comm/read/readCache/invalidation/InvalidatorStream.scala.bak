@@ -1,0 +1,11 @@
+package client._notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation
+
+import client._notRelevant.caching.cache.syncedState.comm.AJAXCalls
+import app.shared.syncedState.comm.{PostRequest, ReadRequest, WriteRequest}
+import client.sodium.core.StreamSink
+import client.sodium.core.Stream
+
+
+case class InvalidatorStream[Req <: PostRequest[ReadRequest]](
+  stream: Stream [Req#ParT] )
+

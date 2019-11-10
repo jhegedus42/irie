@@ -23,7 +23,7 @@ State in simple format is:
                
 debug A310F8F2 - Par()
 debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
-1C6C8F45 - we reset the state now - its value before reset is:
+1C6C8F45 - we reset the client.state now - its value before reset is:
  OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
  OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
  OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
@@ -171,7 +171,7 @@ debug : 0547B2B6 - we return :
                
 debug A310F8F2 - Par()
 debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
-1C6C8F45 - we reset the state now - its value before reset is:
+1C6C8F45 - we reset the client.state now - its value before reset is:
  OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
  OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
  OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
@@ -320,7 +320,7 @@ debug : 0547B2B6 - we return :
                
 debug A310F8F2 - Par()
 debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
-1C6C8F45 - we reset the state now - its value before reset is:
+1C6C8F45 - we reset the client.state now - its value before reset is:
  OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
  OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
  OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002
@@ -389,7 +389,7 @@ debug : 0547B2B6 - we return :
                
 debug A310F8F2 - Par()
 debug 76FB201E : debug 319CCAEA2DE4 - reset server logic
-1C6C8F45 - we reset the state now - its value before reset is:
+1C6C8F45 - we reset the client.state now - its value before reset is:
  OCCVersion(1) {"name":"Alice","favoriteNumber":38,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000000
  OCCVersion(1) {"name":"Bob","favoriteNumber":45,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000001
  OCCVersion(1) {"name":"MeresiHiba","favoriteNumber":369,"password":"titok"} EntityVersion(0) 00000000-0000-0000-0000-000000000002

@@ -1,0 +1,48 @@
+package client._notRelevant.caching.cache.syncedState.comm.read.readCache
+
+import .ReadCacheEntryState
+import client._notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation.{InvalidationTypes, Invalidator, InvalidatorStream}
+import client._notRelevant.caching.cache.syncedState.comm.write.WriteAjaxReturnedStream.Payload
+import client._notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTC
+import app.shared.syncedState.comm.postRequests.read.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.syncedState.comm.{PostRequest, ReadRequest}
+import entity.entityValue.EntityType
+import app.shared.values.{Note, User}
+import entity.RefToEntityWithVersion
+import io.circe.{Decoder, Encoder}
+
+import scala.reflect.ClassTag
+
+trait ReadCache[Req <: PostRequest[ReadRequest]] {
+  private[caching] def getRequestResult( par: Req#ParT ) : ReadCacheEntryState[Req]
+
+  def clearCache(): Unit
+}
+
+object ReadCache {
+
+
+  import client._notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTC._
+
+  implicit val getLatestUserCache = {
+    new ReadCacheImpl[GetLatestEntityByIDReq[User]]
+  }
+
+  implicit val getLatestNoteCache = {
+    new ReadCacheImpl[GetLatestEntityByIDReq[Note]]
+  }
+
+  implicit val getUserCache =
+    new ReadCacheImpl[GetEntityReq[User]]
+
+  implicit val getAllUsersReqCache = {
+    new ReadCacheImpl[GetAllUsersReq]
+  }
+
+  implicit val getAllNotesCache = {
+    new ReadCacheImpl[GetUsersNotesReq]
+  }
+
+  implicit val getNoteCache = new ReadCacheImpl[GetEntityReq[Note]]
+
+}

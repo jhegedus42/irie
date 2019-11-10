@@ -6,11 +6,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumList.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumParamConverters.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumParamConverters.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/AJAXCalls.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/AJAXCalls.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/ReadCache.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/ReadCache.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/ReadCacheImpl.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/ReadCacheImpl.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/invalidation/Adapter.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/Adapter.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidationTypes.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidationTypes.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/invalidation/Invalidator.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/Invalidator.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidatorStream.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidatorStream.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/write/WriteRequestHandlerStates.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerStates.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTC.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTC.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/MainPages.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/MainPages.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPageLayout/FooterComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPageLayout/FooterComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPageLayout/TopNavComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPageLayout/TopNavComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/generator/StaticTemplateComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/generator/StaticTemplateComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/login/LoginPageComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/login/LoginPageComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorCompOld.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorCompOld.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/noteHandling/userNoteList/ListUsersAllNotesComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/userHandling/userEditor/TextFieldWithButtonAndHandler.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/TextFieldWithButtonAndHandler.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorRouteProvider.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorRouteProvider.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/components/mainPages/pages/userHandling/userList/UserListComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userList/UserListComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/userEditor/TextFieldWithButtonAndHandler.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/TextFieldWithButtonAndHandler.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/userEditor/UserEditorComp.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/UserEditorComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/_notRelevant/userEditor/UserEditorRouteProvider.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/UserEditorRouteProvider.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/ReRenderTriggerer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/ReRenderTriggerer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/STextArea.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/SodiumButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/SodiumLabel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumLabel.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/components/SodiumList.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Behavior.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Behavior.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/BehaviorLoop.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/BehaviorLoop.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/BehaviorSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/BehaviorSink.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Cell.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Cell.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/CellLoop.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/CellLoop.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/CellSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/CellSink.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/CoalesceHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/CoalesceHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Lazy.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Lazy.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/LazyBehavior.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/LazyBehavior.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Listener.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Listener.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/MemoryTest1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/MemoryTest1.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Node.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Node.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Operational.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Operational.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Stream.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Stream.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/StreamLoop.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/StreamLoop.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/StreamSink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/StreamSink.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/StreamWithSend.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/StreamWithSend.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/Transaction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/Transaction.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/core/TransactionHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/core/TransactionHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/sodium/wrappers/LoginSwitcher.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/wrappers/LoginSwitcher.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/BehaviorTester.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/BehaviorTester.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/CellTester.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/CellTester.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/MemoryTest3.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/MemoryTest3.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/MemoryTest4.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/MemoryTest4.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/MemoryTest5.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/MemoryTest5.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/NodeTester.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/NodeTester.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/StreamTester.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/StreamTester.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/test/scala/sodium/TestCommon.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/test/scala/client/sodium/TestCommon.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out" beforeDir="false" afterPath="$PROJECT_DIR$/out" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +184,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -140,11 +201,11 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="client" />
       <recent name="entity" />
       <recent name="app.shared.utils" />
       <recent name="" />
       <recent name="app.server.httpServer.routes" />
-      <recent name="app.server.httpServer.routes.post.routeLogicImpl.persistentActor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -377,13 +438,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00476" summary="refactoring pages">
-      <created>1572744775029</created>
-      <option name="number" value="00476" />
-      <option name="presentableId" value="LOCAL-00476" />
-      <option name="project" value="LOCAL" />
-      <updated>1572744775030</updated>
     </task>
     <task id="LOCAL-00477" summary="refactoring pages">
       <created>1572807790226</created>
@@ -721,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573402347065</updated>
     </task>
-    <option name="localTasksCounter" value="525" />
+    <task id="LOCAL-00525" summary="lefordul, van 1 gomb">
+      <created>1573406030359</created>
+      <option name="number" value="00525" />
+      <option name="presentableId" value="LOCAL-00525" />
+      <option name="project" value="LOCAL" />
+      <updated>1573406030359</updated>
+    </task>
+    <option name="localTasksCounter" value="526" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -797,7 +858,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="login works" />
     <MESSAGE value="login really works" />
     <MESSAGE value="invalidation framwork is in progress" />
     <MESSAGE value="Invalidation framework is in good shape.&#10;&#10;Note editor UI is the text step." />
@@ -822,7 +882,8 @@
     <MESSAGE value="code is still under heavy cleaning up.... and simplification....&#10;&#10;both sides will be based on some sort of reactive solutions." />
     <MESSAGE value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
     <MESSAGE value="Mar csak 30 compiler hiba van hatra...." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mar csak 30 compiler hiba van hatra...." />
+    <MESSAGE value="lefordul, van 1 gomb" />
+    <option name="LAST_COMMIT_MESSAGE" value="lefordul, van 1 gomb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
