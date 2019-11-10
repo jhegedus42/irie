@@ -1,6 +1,6 @@
-package _notRelevant.caching.cache.comm.write
+package _notRelevant.caching.cache.syncedState.comm.write
 
-import app.shared.comm.{PostRequest, WriteRequest}
+import app.shared.syncedState.comm.{PostRequest, WriteRequest}
 
 object WriteRequestHandlerStates {
 

@@ -1,9 +1,9 @@
-package _notRelevant.caching.cache.comm.read.readCache.invalidation
+package _notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation
 
-import _notRelevant.caching.cache.comm.AJAXCalls
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
-import sodium.StreamSink
-import sodium.Stream
+import _notRelevant.caching.cache.syncedState.comm.AJAXCalls
+import app.shared.syncedState.comm.{PostRequest, ReadRequest, WriteRequest}
+import sodium.core.StreamSink
+import sodium.core.Stream
 
 
 case class InvalidatorStream[Req <: PostRequest[ReadRequest]](

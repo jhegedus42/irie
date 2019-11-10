@@ -1,6 +1,6 @@
 package _notRelevant.caching.cache.sodiumCache
 
-import sodiumComm.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverters, SodiumRouteNameProvider}
+import syncedNormalizedState.comm.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverters, SodiumRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 import refs.EntityType

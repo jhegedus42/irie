@@ -1,7 +1,7 @@
 package dataModel
 
 import io.circe.generic.JsonCodec
-import refs.{EntityType, RefToEntityWithVersion}
+import refs.{EntityType, IdentityAndVersion}
 
 /**
   * This is a folder that contains the user's notes.
@@ -10,6 +10,6 @@ import refs.{EntityType, RefToEntityWithVersion}
   * @param name
   */
 case class NoteFolder(
-  user: RefToEntityWithVersion[User],
-  name: String)
+                       user: IdentityAndVersion[User],
+                       name: String)
     extends EntityType[NoteFolder]

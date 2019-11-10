@@ -1,4 +1,4 @@
-import refs.EntityWithRef
+import refs.ValueWithIdentityAndVersion
 import dataModel.User
 import io.circe.parser._
 import io.circe.{Decoder, Encoder}
@@ -13,7 +13,7 @@ import io.circe.syntax._
 
 @JsonCodec
 case class UserLoginStatus(
-                            userOption: Option[EntityWithRef[User]] = None) {}
+                            userOption: Option[ValueWithIdentityAndVersion[User]] = None) {}
 object Window {
 
   def setLoggedInUser(

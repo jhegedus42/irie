@@ -1,7 +1,7 @@
 package _notRelevant.components.mainPages.pages.noteHandling.noteEditor
 
-import _notRelevant.caching.cache.comm.read.readCache.ReadCache
-import _notRelevant.caching.cache.comm.write.{
+import _notRelevant.caching.cache.syncedState.comm.read.readCache.ReadCache
+import _notRelevant.caching.cache.syncedState.comm.write.{
   WriteRequestHandlerStates,
   WriteRequestHandlerTC
 }
@@ -26,9 +26,9 @@ import _notRelevant.components.{
   MainPage,
   MainPageInjectedWithCacheAndController
 }
-import app.shared.comm.postRequests.read.GetLatestEntityByIDReq
-import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
-import app.shared.comm.{ReadRequest, WriteRequest}
+import app.shared.syncedState.comm.postRequests.read.GetLatestEntityByIDReq
+import app.shared.syncedState.comm.postRequests.write.{CreateEntityReq, UpdateReq}
+import app.shared.syncedState.comm.{ReadRequest, WriteRequest}
 import entity.EntityWithRef
 import entity.entityValue.EntityType
 import app.shared.values.{Image, Note, User}

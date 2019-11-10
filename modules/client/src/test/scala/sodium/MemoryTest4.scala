@@ -1,5 +1,7 @@
 package sodium
 
+import sodium.core.{Cell, Stream, StreamSink}
+
 object MemoryTest4 {
   def main(args: Array[String]): Unit = {
     new Thread() {

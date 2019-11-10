@@ -2,9 +2,9 @@ package sodium
 
 //import org.junit.Assert.assertTrue
 //import org.junit.Test
-import sodium.Node.Target
-
+import sodium.core.Node.Target
 import org.scalatest.FunSuite
+import sodium.core.Node
 class NodeTester extends FunSuite {
   test("test node")  {
     val a = new Node(0)

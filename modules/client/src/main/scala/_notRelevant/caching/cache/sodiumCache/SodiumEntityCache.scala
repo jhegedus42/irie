@@ -1,8 +1,9 @@
 package _notRelevant.caching.cache.sodiumCache
 
 import dataModel.User
-import refs.{EntityIdentity, EntityType, EntityWithRef}
-import sodium._
+import refs.{EntityType, ValueWithIdentityAndVersion, Identity}
+import sodium.core.{Cell, StreamSink}
+import sodium.{core, _}
 
 import scala.concurrent.ExecutionContextExecutor
 //import io.circe.generic.auto._
@@ -35,8 +36,8 @@ trait SodiumEntityCache[V <: EntityType[V]] {
 
 //  def fillUp(s: Set[Value]) =
 
-  type Key   = EntityIdentity[V]
-  type Value = EntityWithRef[V]
+  type Key   = Identity[V]
+  type Value = ValueWithIdentityAndVersion[V]
   val initMap = Map[Key, Value]()
   type CellMap=Map[Key,Value]
 
@@ -44,12 +45,12 @@ trait SodiumEntityCache[V <: EntityType[V]] {
 
 //  val cell = new Cell[Map[Key, Value]](initMap)
 
-  val cellHoldStream=new Cell(new Stream[Unit])
+  val cellHoldStream=new Cell(new core.Stream[Unit])
 
 
   val loadMapFromServer=new StreamSink[Unit]()
 
-  def loadFromServer(trigger:Stream[Unit]):Unit={
+  def loadFromServer(trigger:core.Stream[Unit]):Unit={
       //continue here
   }
 
@@ -63,11 +64,11 @@ trait SodiumEntityCache[V <: EntityType[V]] {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  val streamUpdater=new StreamSink[Stream[Unit]]()
+  val streamUpdater=new StreamSink[core.Stream[Unit]]()
 
-  val streamHolderCell=streamUpdater.hold(new Stream[Unit]())
+  val streamHolderCell=streamUpdater.hold(new core.Stream[Unit]())
 
-  val latestStream: Stream[Unit] =Cell.switchS(streamHolderCell)
+  val latestStream: core.Stream[Unit] =Cell.switchS(streamHolderCell)
 
   latestStream.listen(x=>println("button has fired"))
 

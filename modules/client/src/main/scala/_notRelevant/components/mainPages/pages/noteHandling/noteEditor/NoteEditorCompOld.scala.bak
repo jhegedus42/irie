@@ -1,6 +1,6 @@
 package _notRelevant.components.mainPages.NoteHandling.NoteEditor
 
-import _notRelevant.caching.cache.comm.write.WriteRequestHandlerTCImpl
+import _notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTCImpl
 import _notRelevant.caching.cache.{
   CacheHelperFunctions,
   ReadCacheEntryStates
@@ -25,8 +25,8 @@ import _notRelevant.components.{
   MainPage,
   MainPageInjectedWithCacheAndController
 }
-import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.{GetEntityReq, UpdateReq}
+import app.shared.syncedState.comm.WriteRequest
+import app.shared.syncedState.comm.postRequests.{GetEntityReq, UpdateReq}
 import entity.EntityWithRef
 import app.shared.values.Note
 import utils.UUID_Utils.EntityIdentity

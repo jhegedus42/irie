@@ -1,11 +1,11 @@
-package _notRelevant.caching.cache.comm.read.readCache
+package _notRelevant.caching.cache.syncedState.comm.read.readCache
 
 import .ReadCacheEntryState
-import _notRelevant.caching.cache.comm.read.readCache.invalidation.{InvalidationTypes, Invalidator, InvalidatorStream}
-import _notRelevant.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import _notRelevant.caching.cache.comm.write.WriteRequestHandlerTC
-import app.shared.comm.postRequests.read.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
-import app.shared.comm.{PostRequest, ReadRequest}
+import _notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation.{InvalidationTypes, Invalidator, InvalidatorStream}
+import _notRelevant.caching.cache.syncedState.comm.write.WriteAjaxReturnedStream.Payload
+import _notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTC
+import app.shared.syncedState.comm.postRequests.read.{GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.syncedState.comm.{PostRequest, ReadRequest}
 import entity.entityValue.EntityType
 import app.shared.values.{Note, User}
 import entity.RefToEntityWithVersion
@@ -22,7 +22,7 @@ trait ReadCache[Req <: PostRequest[ReadRequest]] {
 object ReadCache {
 
 
-  import _notRelevant.caching.cache.comm.write.WriteRequestHandlerTC._
+  import _notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTC._
 
   implicit val getLatestUserCache = {
     new ReadCacheImpl[GetLatestEntityByIDReq[User]]

@@ -8,8 +8,8 @@ import io.circe.{Decoder, Encoder}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import refs.{EntityType, EntityWithRef}
-import sodiumComm._
+import refs.{EntityType, ValueWithIdentityAndVersion}
+import syncedNormalizedState.comm._
 
 import scala.concurrent.Future
 
@@ -87,7 +87,7 @@ object SodiumExampleRoutes {
     override def getLogic(
       paw: PersistentActorWhisperer
     ): Par => Future[Resp[VV]] = { _ =>
-      val res: Future[Option[Set[EntityWithRef[VV]]]] = paw.getNewestEntitiesWithGivenEntityType[VV]
+      val res: Future[Option[Set[ValueWithIdentityAndVersion[VV]]]] = paw.getNewestEntitiesWithGivenEntityType[VV]
 
       implicit val e=paw.getExecutionContext
       res.map(Resp(_))

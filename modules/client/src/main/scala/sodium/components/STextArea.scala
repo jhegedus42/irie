@@ -10,6 +10,7 @@ import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.extra.router.StaticDsl.Rule
 import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
+import sodium.core.{Cell, StreamSink}
 
 case class STextArea(init: String) {
 

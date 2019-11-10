@@ -8,9 +8,9 @@ import _notRelevant.components.mainPages.pages.noteHandling.userNoteList.ListUse
 import _notRelevant.components.router.RouterComp
 import sodium.components.SButton
 import _notRelevant.ui.dom.Window
-import app.shared.comm.postRequests.read.{GetLatestEntityByIDReq, GetUsersNotesReq}
-import app.shared.comm.postRequests.read.GetUsersNotesReq.Par
-import app.shared.comm.postRequests.write.CreateEntityReq
+import app.shared.syncedState.comm.postRequests.read.{GetLatestEntityByIDReq, GetUsersNotesReq}
+import app.shared.syncedState.comm.postRequests.read.GetUsersNotesReq.Par
+import app.shared.syncedState.comm.postRequests.write.CreateEntityReq
 import entity.EntityWithRef
 import app.shared.values.{Image, Note, User}
 import utils.UUID_Utils.EntityIdentity

@@ -1,8 +1,8 @@
-package _notRelevant.caching.cache.comm.read.readCache.invalidation
+package _notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation
 
-import app.shared.comm.postRequests.read.{AdminPassword, GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq}
-import app.shared.comm.postRequests.write.{CreateEntityReq, UpdateReq}
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest, postRequests}
+import app.shared.syncedState.comm.postRequests.read.{AdminPassword, GetAllUsersReq, GetEntityReq, GetLatestEntityByIDReq}
+import app.shared.syncedState.comm.postRequests.write.{CreateEntityReq, UpdateReq}
+import app.shared.syncedState.comm.{PostRequest, ReadRequest, WriteRequest, postRequests}
 import entity.entityValue.EntityType
 import app.shared.values.{Note, User}
 import entity.refs.{RefToEntityByID, RefToEntityWithVersion}

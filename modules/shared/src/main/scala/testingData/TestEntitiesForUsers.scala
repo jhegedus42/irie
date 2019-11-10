@@ -1,6 +1,6 @@
 package testingData
 
-import refs.EntityWithRef
+import refs.ValueWithIdentityAndVersion
 import dataModel.{Note, User}
 
 object TestEntitiesForUsers {
@@ -15,26 +15,26 @@ object TestEntitiesForUsers {
   val terezAnya   = User(name = "TerezAnya", favoriteNumber   = 666)
   val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
-  val aliceEntity: EntityWithRef[User] =
-    EntityWithRef.makeFromValue(alice)
+  val aliceEntity: ValueWithIdentityAndVersion[User] =
+    ValueWithIdentityAndVersion.makeFromValue(alice)
 
-  val bobEntity: EntityWithRef[User] =
-    EntityWithRef.makeFromValue(bob)
+  val bobEntity: ValueWithIdentityAndVersion[User] =
+    ValueWithIdentityAndVersion.makeFromValue(bob)
 
-  val meresiHibaEntity: EntityWithRef[User] =
-    EntityWithRef.makeFromValue(meresiHiba)
+  val meresiHibaEntity: ValueWithIdentityAndVersion[User] =
+    ValueWithIdentityAndVersion.makeFromValue(meresiHiba)
   import monocle.macros.syntax.lens._
 
   val aliceEntity_with_UUID0 = aliceEntity
-    .lens(_.toRef.entityIdentity.uuid)
+    .lens(_.ref.entityIdentity.uuid)
     .set(UUIDs.uuid00)
 
   val bobEntity_with_UUID1 = bobEntity
-    .lens(_.toRef.entityIdentity.uuid)
+    .lens(_.ref.entityIdentity.uuid)
     .set(UUIDs.uuid01)
 
   val meresiHiba_with_UUID2 = meresiHibaEntity
-    .lens(_.toRef.entityIdentity.uuid)
+    .lens(_.ref.entityIdentity.uuid)
     .set(UUIDs.uuid02)
 
 }

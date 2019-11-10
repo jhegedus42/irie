@@ -6,7 +6,7 @@ import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
 import japgolly.scalajs.react.extra.router.StaticDsl.Rule
 import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
-import sodium.StreamSink
+import sodium.core.StreamSink
 
 case class SButton(val name: String = "Button") {
   val sClickedSink = new StreamSink[Unit]

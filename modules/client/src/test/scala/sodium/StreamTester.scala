@@ -1,8 +1,10 @@
 package sodium
 
 import org.scalatest.{Assertion, AsyncFunSuite}
+
 import scala.collection.mutable.ListBuffer
 import org.scalatest.FunSuite
+import sodium.core.StreamSink
 
 class StreamTester extends FunSuite {
 

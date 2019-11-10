@@ -1,9 +1,9 @@
-package _notRelevant.caching.cache.comm.read.readCache.invalidation
+package _notRelevant.caching.cache.syncedState.comm.read.readCache.invalidation
 
 import .ReadCacheEntryState
-import _notRelevant.caching.cache.comm.write.WriteAjaxReturnedStream
-import _notRelevant.caching.cache.comm.write.WriteAjaxReturnedStream.Payload
-import app.shared.comm.{PostRequest, ReadRequest, WriteRequest}
+import _notRelevant.caching.cache.syncedState.comm.write.WriteAjaxReturnedStream
+import _notRelevant.caching.cache.syncedState.comm.write.WriteAjaxReturnedStream.Payload
+import app.shared.syncedState.comm.{PostRequest, ReadRequest, WriteRequest}
 
 object InvalidationTypes {
 

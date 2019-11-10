@@ -1,13 +1,13 @@
 package _notRelevant.components.mainPages.pages.userHandling.userList
 
-import _notRelevant.caching.cache.comm.write.WriteRequestHandlerTCImpl
+import _notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTCImpl
 import _notRelevant.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import _notRelevant.components.mainPages.pages.userHandling.userList
 import _notRelevant.components.mainPages.pages.userHandling.userList.UserListComp.{Props$, State$}
 import sodium.{SodiumButtom, SodiumLabel}
 import _notRelevant.components.{MainPage, UserListPage}
-import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.write.CreateEntityReq
+import app.shared.syncedState.comm.WriteRequest
+import app.shared.syncedState.comm.postRequests.write.CreateEntityReq
 import app.shared.values.User
 import entity.testing.TestEntitiesForUsers
 import japgolly.scalajs.react.component.Scala.Component
@@ -16,7 +16,7 @@ import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.{BackendScope, Callback, CtorType, ScalaComponent}
 import org.scalajs.dom
-import sodium.Cell
+import sodium.core.Cell
 
 trait UserListComp
     extends ToBeWrappedMainPageComponent[

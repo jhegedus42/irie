@@ -1,6 +1,6 @@
-package _notRelevant.caching.cache.comm
+package _notRelevant.caching.cache.syncedState.comm
 
-import app.shared.comm.{PostRequest, PostRequestType, RouteName}
+import app.shared.syncedState.comm.{PostRequest, PostRequestType, RouteName}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 

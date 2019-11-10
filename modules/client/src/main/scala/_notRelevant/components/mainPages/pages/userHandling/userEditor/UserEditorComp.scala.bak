@@ -1,14 +1,14 @@
 package _notRelevant.components.mainPages.pages.userHandling.userEditor
 
-import _notRelevant.caching.cache.comm.write.WriteRequestHandlerTCImpl
+import _notRelevant.caching.cache.syncedState.comm.write.WriteRequestHandlerTCImpl
 import _notRelevant.caching.cacheInjector.{Cache, CacheAndPropsAndRouterCtrl, MainPageReactCompWrapper, ToBeWrappedMainPageComponent}
 import _notRelevant.components.mainPages.pages.login.LoginPageComp.{Props, State}
 import _notRelevant.components.mainPages.pages.userHandling.userEditor.{TextFieldWithButtonAndHandler => TBH}
 import _notRelevant.components.mainPages.pages.userHandling.userEditor.UserEditorComp.{Props, UserEditorPage}
 import _notRelevant.components.{MainPage, MainPageInjectedWithCacheAndController}
-import app.shared.comm.WriteRequest
-import app.shared.comm.postRequests.read.GetEntityReq
-import app.shared.comm.postRequests.write.UpdateReq
+import app.shared.syncedState.comm.WriteRequest
+import app.shared.syncedState.comm.postRequests.read.GetEntityReq
+import app.shared.syncedState.comm.postRequests.write.UpdateReq
 import entity.EntityWithRef
 import app.shared.values.User
 import utils.UUID_Utils.EntityIdentity
