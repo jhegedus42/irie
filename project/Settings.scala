@@ -104,7 +104,11 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" //,
+      "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" ,
+       "me.shadaj" %%% "slinky-core" % "0.6.3",
+       "me.shadaj" %%% "slinky-web" % "0.6.3"
+
+
     )
   )
 
