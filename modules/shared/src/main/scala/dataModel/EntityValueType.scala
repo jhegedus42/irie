@@ -1,12 +1,19 @@
 package dataModel
 
-import entity.{Entity, Ref}
+import entity.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
 
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 
 import io.circe.parser._
+
+/**
+  *
+  * This is the type of the value that an entity holds.
+  *
+  * @tparam T
+  */
 
 //@JsonCodec
 sealed trait EntityValueType[T <: EntityValueType[T]]
@@ -15,22 +22,22 @@ sealed trait EntityValueType[T <: EntityValueType[T]]
 object EntityValueType {
   implicit def makeFromValue[V <: EntityValueType[V]](
     v: V
-  ): Entity[V] =
-    Entity(v)
+  ): EntityValueWithVersionAndIdentity[V] =
+    EntityValueWithVersionAndIdentity(v)
 }
 
 @JsonCodec
 case class Note(
   title:   String,
   content: String,
-  owner:   Ref[User])
+  owner:   EntityVersionAndEntityIdentity[User])
     extends EntityValueType[Note]
 
 @JsonCodec
 case class Image(
   title:     String,
   content:   String,
-  reference: Option[Ref[Note]])
+  reference: Option[EntityVersionAndEntityIdentity[Note]])
     extends EntityValueType[Image]
 
 
@@ -44,6 +51,6 @@ case class User(
 
 @JsonCodec
 case class NoteFolder(
-  user: Ref[User],
-  name: String)
+                       user: EntityVersionAndEntityIdentity[User],
+                       name: String)
     extends EntityValueType[NoteFolder]

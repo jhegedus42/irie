@@ -1,7 +1,7 @@
 package client._notRelevant.caching.cache.sodiumCache
 
 import dataModel.{EntityValueType, User}
-import entity.{Entity, Ref}
+import entity.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
 import client.sodium.core.{Cell, StreamSink}
 import client.sodium.{core, _}
 
@@ -36,8 +36,8 @@ trait SodiumEntityCache[V <: EntityValueType[V]] {
 
 //  def fillUp(s: Set[Value]) =
 
-  type Key   = Ref[V]
-  type Value = Entity[V]
+  type Key   = EntityVersionAndEntityIdentity[V]
+  type Value = EntityValueWithVersionAndIdentity[V]
   val initMap = Map[Key, Value]()
   type CellMap=Map[Key,Value]
 

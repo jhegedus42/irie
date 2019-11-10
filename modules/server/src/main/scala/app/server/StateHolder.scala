@@ -2,7 +2,7 @@ package app.server
 
 import app.server.httpServer.routes.SodiumCRUDRoute
 import dataModel.EntityValueType
-import entity.Ref
+import entity.EntityVersionAndEntityIdentity
 import syncedNormalizedState.comm.SodiumCRUDReq
 
 import scala.concurrent.Future

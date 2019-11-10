@@ -10,8 +10,6 @@ import io.circe.generic.JsonCodec
 import io.circe.syntax._
 
 @JsonCodec
-case class Entity[E <: EntityValueType[E]](
+case class EntityValueWithVersionAndIdentity[E <: EntityValueType[E]](
   entityValue: E,
-  ref:         Ref[E] = Ref[E]())
-
-object Entity {}
+  ref:         EntityVersionAndEntityIdentity[E] = EntityVersionAndEntityIdentity[E]())

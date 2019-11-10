@@ -1,6 +1,6 @@
 package testingData
 
-import entity.{Entity }
+import entity.{EntityValueWithVersionAndIdentity }
 import dataModel.{EntityValueType, User}
 import io.circe.Decoder
 
@@ -19,11 +19,11 @@ object TestEntitiesForUsers {
   val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
 
-  val aliceEntity: Entity[User] = alice
+  val aliceEntity: EntityValueWithVersionAndIdentity[User] = alice
 
-  val bobEntity: Entity[User] = bob
+  val bobEntity: EntityValueWithVersionAndIdentity[User] = bob
 
-  val meresiHibaEntity: Entity[User] = meresiHiba
+  val meresiHibaEntity: EntityValueWithVersionAndIdentity[User] = meresiHiba
 
   import monocle.macros.syntax.lens._
 

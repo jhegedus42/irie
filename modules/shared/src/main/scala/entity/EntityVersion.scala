@@ -13,8 +13,8 @@ import io.circe.generic.JsonCodec
 
 //@Lenses
 @JsonCodec
-case class Version[V<:EntityValueType[V]](versionNumberLong: Long = 0 ) {
+case class EntityVersion[V<:EntityValueType[V]](versionNumberLong: Long = 0 ) {
 
-  def bumpVersion(): Version[V] =
+  def bumpVersion(): EntityVersion[V] =
     this.copy( versionNumberLong = this.versionNumberLong + 1 )
 }

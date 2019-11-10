@@ -1,7 +1,7 @@
 package syncedNormalizedState.comm
 
 import dataModel.EntityValueType
-import entity.Entity
+import entity.EntityValueWithVersionAndIdentity
 
 import io.circe.parser._
 import io.circe.{Decoder, Error, _}
@@ -37,7 +37,7 @@ object GetAllLatestEntities {
   case class Par[V<:EntityValueType[V]]() extends ParT
 
   @JsonCodec
-  case class Resp[V<:EntityValueType[V]](resp:Option[Set[Entity[V]]])
+  case class Resp[V<:EntityValueType[V]](resp:Option[Set[EntityValueWithVersionAndIdentity[V]]])
 }
 
 

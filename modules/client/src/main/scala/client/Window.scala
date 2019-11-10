@@ -1,7 +1,7 @@
 package client
 
 import dataModel.User
-import entity.Entity
+import entity.EntityValueWithVersionAndIdentity
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 
@@ -15,7 +15,7 @@ import io.circe.syntax._
 
 @JsonCodec
 case class UserLoginStatus(
-                            userOption: Option[Entity[User]] = None) {}
+                            userOption: Option[EntityValueWithVersionAndIdentity[User]] = None) {}
 object Window {
 
   def setLoggedInUser(

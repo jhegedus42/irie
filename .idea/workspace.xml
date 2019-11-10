@@ -6,7 +6,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityIdentity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/StateHolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/StateHolder.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Entity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityValueWithVersionAndIdentity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Image.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Note.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/NoteFolder.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityVersionAndEntityIdentity.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/User.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityVersion.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +134,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="extensionJars" value="$USER_HOME$/.ivy2/cache/me.shadaj/slinky-core-ijext_2.12/jars/slinky-core-ijext_2.12-0.6.3.jar" />
+    <property name="extensionJars" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/entity" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -137,8 +158,8 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="client" />
       <recent name="entity" />
+      <recent name="client" />
       <recent name="app.shared.utils" />
       <recent name="" />
       <recent name="app.server.httpServer.routes" />
@@ -177,7 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.fastOptJS">
+  <component name="RunManager" selected="Scala Console.Scala Console">
     <configuration name="MyApp" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.ml.stan.MyApp" />
       <module name="server" />
@@ -194,13 +215,6 @@
     </configuration>
     <configuration name="RainierDemo" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="learn.ml.rainier.RainierDemo" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScalaPy" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="learn.scalaPy.ScalaPy" />
       <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -275,8 +289,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="root" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="javaOptions" value="-Djline.terminal=NONE" />
+      <option name="myConsoleArgs" value="" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.ScalaPy" />
       <item itemvalue="Application.MyApp" />
       <item itemvalue="Application.NaiveBayesExample" />
       <item itemvalue="Application.TFExample" />
@@ -286,14 +309,15 @@
       <item itemvalue="sbt Task.NodeTester" />
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
+      <item itemvalue="Scala Console.Scala Console" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Scala Console.Scala Console" />
         <item itemvalue="Application.RainierDemo" />
         <item itemvalue="Application.TFExample" />
         <item itemvalue="Application.NaiveBayesExample" />
         <item itemvalue="Application.MyApp" />
-        <item itemvalue="Application.ScalaPy" />
       </list>
     </recent_temporary>
   </component>
@@ -310,16 +334,12 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
@@ -328,6 +348,10 @@
               <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -347,7 +371,7 @@
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="3693563515" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="4282164485" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="3743763501" />
       </map>
@@ -373,13 +397,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00479" summary="login really works">
-      <created>1572821074652</created>
-      <option name="number" value="00479" />
-      <option name="presentableId" value="LOCAL-00479" />
-      <option name="project" value="LOCAL" />
-      <updated>1572821074652</updated>
     </task>
     <task id="LOCAL-00480" summary="invalidation framwork is in progress">
       <created>1572828117548</created>
@@ -717,7 +734,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573425662975</updated>
     </task>
-    <option name="localTasksCounter" value="528" />
+    <task id="LOCAL-00528" summary="ditching slinky for now... continuing with scalajs-react">
+      <created>1573426091465</created>
+      <option name="number" value="00528" />
+      <option name="presentableId" value="LOCAL-00528" />
+      <option name="project" value="LOCAL" />
+      <updated>1573426091465</updated>
+    </task>
+    <option name="localTasksCounter" value="529" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -793,7 +817,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="invalidation framwork is in progress" />
     <MESSAGE value="Invalidation framework is in good shape.&#10;&#10;Note editor UI is the text step." />
     <MESSAGE value="Sodium + React =&gt; figure it out how it works." />
     <MESSAGE value="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work." />
@@ -818,13 +841,14 @@
     <MESSAGE value="Mar csak 30 compiler hiba van hatra...." />
     <MESSAGE value="lefordul, van 1 gomb" />
     <MESSAGE value="dealbreaker for slinky ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="dealbreaker for slinky ?" />
+    <MESSAGE value="ditching slinky for now... continuing with scalajs-react" />
+    <option name="LAST_COMMIT_MESSAGE" value="ditching slinky for now... continuing with scalajs-react" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/modules/shared/src/main/scala/entity/Version.scala</url>
+          <url>file://$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityVersion.scala</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
