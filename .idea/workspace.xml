@@ -6,14 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala.bak" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -381,13 +374,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00478" summary="login works">
-      <created>1572814246174</created>
-      <option name="number" value="00478" />
-      <option name="presentableId" value="LOCAL-00478" />
-      <option name="project" value="LOCAL" />
-      <updated>1572814246175</updated>
-    </task>
     <task id="LOCAL-00479" summary="login really works">
       <created>1572821074652</created>
       <option name="number" value="00479" />
@@ -724,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573418750454</updated>
     </task>
-    <option name="localTasksCounter" value="527" />
+    <task id="LOCAL-00527" summary="dealbreaker for slinky ?">
+      <created>1573425662975</created>
+      <option name="number" value="00527" />
+      <option name="presentableId" value="LOCAL-00527" />
+      <option name="project" value="LOCAL" />
+      <updated>1573425662975</updated>
+    </task>
+    <option name="localTasksCounter" value="528" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -800,7 +793,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="login really works" />
     <MESSAGE value="invalidation framwork is in progress" />
     <MESSAGE value="Invalidation framework is in good shape.&#10;&#10;Note editor UI is the text step." />
     <MESSAGE value="Sodium + React =&gt; figure it out how it works." />
@@ -825,7 +817,8 @@
     <MESSAGE value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
     <MESSAGE value="Mar csak 30 compiler hiba van hatra...." />
     <MESSAGE value="lefordul, van 1 gomb" />
-    <option name="LAST_COMMIT_MESSAGE" value="lefordul, van 1 gomb" />
+    <MESSAGE value="dealbreaker for slinky ?" />
+    <option name="LAST_COMMIT_MESSAGE" value="dealbreaker for slinky ?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
