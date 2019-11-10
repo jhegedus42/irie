@@ -1,4 +1,4 @@
-package app.server.initialization
+package app.server
 
 case class Config(
   val port : Int = 8080,

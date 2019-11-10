@@ -1,7 +1,7 @@
 package syncedNormalizedState.comm
 
 
-import refs.EntityType
+import entity.EntityType
 
 import scala.reflect.ClassTag
 

@@ -3,7 +3,7 @@ package _notRelevant.caching.cache.sodiumCache
 import syncedNormalizedState.comm.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverters, SodiumRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
-import refs.EntityType
+import entity.EntityType
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 

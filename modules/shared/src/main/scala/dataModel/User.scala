@@ -5,14 +5,13 @@ import io.circe._
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
-import refs.EntityType
 
 @JsonCodec
 case class User(
   name:           String,
   favoriteNumber: Int,
   password:       String="titok")
-    extends EntityType[User]
+    extends EntityValueType[User]
 
 
 // todo-next-0 admin page for users (CRUD for User Entity):

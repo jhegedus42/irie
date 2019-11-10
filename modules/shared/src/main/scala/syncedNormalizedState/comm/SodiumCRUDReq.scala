@@ -1,6 +1,6 @@
 package syncedNormalizedState.comm
 
-import refs.{EntityType, ValueWithIdentityAndVersion}
+import entity.{EntityType, Entity}
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.generic.JsonCodec
@@ -27,7 +27,7 @@ object GetAllLatestEntities {
   @JsonCodec
   case class Par()
   @JsonCodec
-  case class Resp[V<:EntityType[V]](resp:Option[Set[ValueWithIdentityAndVersion[V]]])
+  case class Resp[V<:EntityType[V]](resp:Option[Set[Entity[V]]])
 }
 
 
