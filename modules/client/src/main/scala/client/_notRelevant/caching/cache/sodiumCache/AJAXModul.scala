@@ -1,13 +1,14 @@
 package client._notRelevant.caching.cache.sodiumCache
 
-import dataModel.EntityValueType
-import syncedNormalizedState.comm.{ClassTagPrivoders, SodiumCRUDReq, SodiumParamConverters, SodiumRouteNameProvider}
+import comm.crudRequests.CRUDReq
+import dataStorage.normalizedDataModel.EntityValueType
+import comm.{ClassTagPrivoders, SodiumParamConverters, SodiumRouteNameProvider}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-trait AJAXModul[RT <: SodiumCRUDReq[V], V <: EntityValueType[V]] {
+trait AJAXModul[RT <: CRUDReq[V], V <: EntityValueType[V]] {
   self: SodiumParamConverters[RT, V] with ClassTagPrivoders[RT, V] =>
 
 

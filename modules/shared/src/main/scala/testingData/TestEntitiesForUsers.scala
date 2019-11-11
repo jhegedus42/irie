@@ -1,7 +1,7 @@
 package testingData
 
-import entity.{EntityValueWithVersionAndIdentity }
-import dataModel.{EntityValueType, User}
+import dataStorage.RelationalAndVersionedDataRepresentationFramework.{EntityValueWithVersionAndIdentity }
+import dataStorage.normalizedDataModel.{EntityValueType, User}
 import io.circe.Decoder
 
 import scala.reflect.ClassTag

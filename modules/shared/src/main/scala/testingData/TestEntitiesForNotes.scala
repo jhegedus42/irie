@@ -1,7 +1,7 @@
 package testingData
 
-import dataModel.{Note, User}
-import entity.EntityValueWithVersionAndIdentity
+import dataStorage.normalizedDataModel.{Note, User}
+import dataStorage.RelationalAndVersionedDataRepresentationFramework.EntityValueWithVersionAndIdentity
 
 object TestEntitiesForNotes {
 

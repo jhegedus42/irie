@@ -1,6 +1,6 @@
-package dataModel
+package dataStorage.normalizedDataModel
 
-import entity.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
+import dataStorage.RelationalAndVersionedDataRepresentationFramework.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
 
 import io.circe.syntax._
 import io.circe.generic.auto._

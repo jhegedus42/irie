@@ -1,7 +1,7 @@
 package client
 
-import dataModel.User
-import entity.EntityValueWithVersionAndIdentity
+import dataStorage.normalizedDataModel.User
+import dataStorage.RelationalAndVersionedDataRepresentationFramework.EntityValueWithVersionAndIdentity
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 

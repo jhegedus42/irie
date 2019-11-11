@@ -1,10 +1,10 @@
-package entity
-import dataModel.EntityValueType
+package dataStorage.RelationalAndVersionedDataRepresentationFramework
+import dataStorage.normalizedDataModel.EntityValueType
 
 /**
   * Created by joco on 28/04/2017.
   */
-import dataModel.EntityValueType
+import dataStorage.normalizedDataModel.EntityValueType
 import io.circe._
 
 import scala.reflect.ClassTag

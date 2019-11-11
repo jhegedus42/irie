@@ -1,13 +1,14 @@
-package syncedNormalizedState.comm
+package comm
 
 
 
-import dataModel.EntityValueType
+import comm.crudRequests.CRUDReq
+import dataStorage.normalizedDataModel.EntityValueType
 
 import scala.reflect.ClassTag
 
 class ClassTagPrivoders[
-  RT <: SodiumCRUDReq[V],
+  RT <: CRUDReq[V],
   V  <: EntityValueType[V]
 ](
   implicit val ct: ClassTag[RT],
@@ -19,7 +20,7 @@ class ClassTagPrivoders[
 object SodiumRouteNameProvider {
 
 
-  def getRouteName[V<:EntityValueType[V],Req<:SodiumCRUDReq[V]](
+  def getRouteName[V<:EntityValueType[V],Req<:CRUDReq[V]](
   )(
     implicit
     ct_pl:  ClassTag[V],

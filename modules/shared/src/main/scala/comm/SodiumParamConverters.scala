@@ -1,7 +1,8 @@
-package syncedNormalizedState.comm
+package comm
 
 import com.sun.javafx.scene.layout.region.Margins.Converter
-import dataModel.EntityValueType
+import comm.crudRequests.CRUDReq
+import dataStorage.normalizedDataModel.EntityValueType
 import io.circe.parser.decode
 import io.circe.{Decoder, Encoder}
 import io.circe.syntax._
@@ -9,7 +10,7 @@ import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 
 trait SodiumParamConverters[
-  Req <: SodiumCRUDReq[V],
+  Req <: CRUDReq[V],
   V   <: EntityValueType[V]] {
 
   implicit def decoder : Decoder[Req#Par] = implicitly[Decoder[Req#Par]]

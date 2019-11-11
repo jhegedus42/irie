@@ -1,6 +1,6 @@
-package entity
+package dataStorage.RelationalAndVersionedDataRepresentationFramework
 
-import dataModel.EntityValueType
+import dataStorage.normalizedDataModel.EntityValueType
 
 import io.circe._
 import io.circe.generic.auto._

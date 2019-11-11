@@ -2,14 +2,15 @@ package app.server.httpServer.routes
 
 import akka.http.scaladsl.server.Directives.{as, complete, entity, path, post}
 import akka.http.scaladsl.server.Route
-import app.server.StateHolder
-import dataModel.{EntityValueType, User}
+import app.server.httpServer.StateHolder
+import comm.crudRequests.{GetAllLatestEntities, CRUDReq}
+import dataStorage.normalizedDataModel.{EntityValueType, User}
 import io.circe.{Decoder, Encoder}
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic._
 import io.circe.generic.JsonCodec
-import syncedNormalizedState.comm.{GetAllLatestEntities, _}
+import comm.{GetAllLatestEntities, _}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
@@ -21,7 +22,7 @@ trait StateHolderProvider {
 }
 
 trait SodiumCRUDRoute[
-  RT <: SodiumCRUDReq[E],
+  RT <: CRUDReq[E],
   E  <: EntityValueType[E]] {
   self: SodiumParamConverters[RT, E]
     with StateHolderProvider

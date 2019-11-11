@@ -1,7 +1,7 @@
 package client._notRelevant.caching.cache.sodiumCache
 
-import dataModel.{EntityValueType, User}
-import entity.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
+import dataStorage.normalizedDataModel.{EntityValueType, User}
+import dataStorage.RelationalAndVersionedDataRepresentationFramework.{EntityValueWithVersionAndIdentity, EntityVersionAndEntityIdentity}
 import client.sodium.core.{Cell, StreamSink}
 import client.sodium.{core, _}
 
