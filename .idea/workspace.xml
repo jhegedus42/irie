@@ -7,23 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/slinky/TestCode.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/slinky/TestCode.scala.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/StateHolder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/StateHolder.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataModel/EntityValueType.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/normalizedDataModel/EntityValueType.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityIdentity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityIdentity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityValueWithVersionAndIdentity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityValueWithVersionAndIdentity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityVersion.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityVersion.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/entity/EntityVersionAndEntityIdentity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityVersionAndEntityIdentity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumCRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CRUDReq.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumParamConverters.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumParamConverters.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumRouteName.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/syncedNormalizedState/comm/SodiumRouteNameProvider.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumRouteNameProvider.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -394,13 +377,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00481" summary="invalidation framwork is in progress">
-      <created>1572841652912</created>
-      <option name="number" value="00481" />
-      <option name="presentableId" value="LOCAL-00481" />
-      <option name="project" value="LOCAL" />
-      <updated>1572841652913</updated>
-    </task>
     <task id="LOCAL-00482" summary="invalidation framwork is in progress">
       <created>1572850163055</created>
       <option name="number" value="00482" />
@@ -737,7 +713,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573427280967</updated>
     </task>
-    <option name="localTasksCounter" value="530" />
+    <task id="LOCAL-00530" summary="slow progress, hopefully without any big surprises">
+      <created>1573440782017</created>
+      <option name="number" value="00530" />
+      <option name="presentableId" value="LOCAL-00530" />
+      <option name="project" value="LOCAL" />
+      <updated>1573440782017</updated>
+    </task>
+    <option name="localTasksCounter" value="531" />
     <servers />
   </component>
   <component name="UnknownFeatures">
