@@ -1,5 +1,8 @@
 package client
 
+import client.sodium.core.StreamSink
+import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
+import dataStorage.stateHolder.UserMap
 import org.scalajs.dom.document
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.Element
@@ -28,6 +31,14 @@ object Main extends js.JSApp {
 
   button.streamSink.listen((x: Unit) => makeTestRequest())
 
+  val umap = new StreamSink[UserMap]()
+  val cellUmap=umap.hold(UserMap())
+  cellUmap.listen(
+        (a:UserMap)=> {
+          val b= a.list.map(_._1)
+          b.foreach(println)
+    }
+  )
 }
 
 object TestAjaxRequest {
@@ -51,12 +62,16 @@ object TestAjaxRequest {
       |}
       |""".stripMargin
 
-  def query()= {
+  def query() {
+    val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
     Ajax
       .post("http://localhost:8080/GetAllEntityiesForUser",
             json,
             headers = headers)
-      .map(_.responseText).onComplete((x: Try[String]) =>println(x))
+      .map(_.responseText).map(i.getObject(_)).onComplete(x=>{
+      val res1: UserMap =x.toOption.get.res.get
+      Main.umap.send(res1)
+    })
   }
 
 }

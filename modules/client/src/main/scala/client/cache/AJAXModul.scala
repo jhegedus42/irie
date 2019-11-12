@@ -13,16 +13,6 @@ object AJAXModul {
     "Content-Type" -> "application/json"
   )
 
-//  def query(
-//  )(
-//    implicit decoder: Decoder[RT#Resp],
-//    encoder:          Encoder[RT#Par]
-//  ): Future[RT#Resp] = {
-//      Ajax
-//        .post(url, json_line, headers = headers)
-//        .map(_.responseText)
-//
-//  }
 
 }
 
