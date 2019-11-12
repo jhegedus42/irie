@@ -129,7 +129,6 @@ trait ListUsersAllNotesComp
                       "  ",
                       linkToEditorPage(value.toRef.entityIdentity),
                   //   c.cache.readFromServer[Req[Image]]()
-                  //  todo-now - implement - get all latest entities request
                   //
                       <.br)
 
