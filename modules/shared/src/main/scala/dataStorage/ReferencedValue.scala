@@ -19,3 +19,4 @@ case class ReferencedValue[E <: Value[E]](
 //    this.copy[E](ref = ref.addClassName)
 
 }
+

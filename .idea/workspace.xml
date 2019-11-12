@@ -5,26 +5,16 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/GetAllEntityiesForUser.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/UserRef.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
+    <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="slow progress, code compiles">
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CRUDReq.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/GetAllEntityiesForUser.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UsersEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UsersEntities.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UsersEntities.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,8 +65,8 @@
         <option value="ScalaTest Class" />
         <option value="Package Object" />
         <option value="Scala Trait" />
-        <option value="Scala Object" />
         <option value="Scala Class" />
+        <option value="Scala Object" />
       </list>
     </option>
   </component>
@@ -132,7 +122,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extensionJars" value="" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/testingData" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -155,11 +145,11 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="TestDataStore" />
+      <recent name="testingData" />
       <recent name="dataStorage" />
       <recent name="comm.crudRequests" />
       <recent name="dataStorage.stateHolder" />
-      <recent name="dataStorage.refs" />
-      <recent name="entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -211,14 +201,14 @@
       </method>
     </configuration>
     <configuration name="TestApp (1)" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="testingData.TestApp" />
+      <option name="MAIN_CLASS_NAME" value="testingData.TestDataStore" />
       <module name="modules-sources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TestApp" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="testingData.TestApp" />
+      <option name="MAIN_CLASS_NAME" value="testingData.TestDataStore" />
       <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -365,6 +355,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7842486197108" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -394,13 +385,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00487" summary="Sodium + React =&gt; figure it out how it works.">
-      <created>1572883690380</created>
-      <option name="number" value="00487" />
-      <option name="presentableId" value="LOCAL-00487" />
-      <option name="project" value="LOCAL" />
-      <updated>1572883690380</updated>
     </task>
     <task id="LOCAL-00488" summary="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work.">
       <created>1572888853383</created>
@@ -738,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573553878135</updated>
     </task>
-    <option name="localTasksCounter" value="536" />
+    <task id="LOCAL-00536" summary="slow progress, code compiles">
+      <created>1573575729471</created>
+      <option name="number" value="00536" />
+      <option name="presentableId" value="LOCAL-00536" />
+      <option name="project" value="LOCAL" />
+      <updated>1573575729472</updated>
+    </task>
+    <option name="localTasksCounter" value="537" />
     <servers />
   </component>
   <component name="UnknownFeatures">

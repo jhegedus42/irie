@@ -1,6 +1,6 @@
 package testingData
 
-import dataStorage.stateHolder.UsersEntities
+import dataStorage.stateHolder.EntityStorage
 import dataStorage.{Ref, ReferencedValue, User, Value}
 import io.circe.{Decoder, Json}
 import io.circe.generic.JsonCodec
@@ -9,26 +9,7 @@ import io.circe.syntax._
 
 import scala.reflect.ClassTag
 
-object TestApp extends App{
 
-  val alice: Value[User] = TestEntitiesForUsers.alice
-  println(alice)
-
-  val res: Json =io.circe.Encoder[Value[User]].apply(alice)
-
-  println(res)
-
-  println(io.circe.Decoder[Value[User]].decodeJson(res))
-
-  val ae=io.circe.Encoder[ReferencedValue[User]].apply(TestEntitiesForUsers.aliceEntity)
-  println(ae)
-
-//  println(Ref.name2[User])
-
-  val ue=UsersEntities()
-//  ue.insertR(TestEntitiesForUsers.aliceEntity)
-
-}
 
 
 import io.circe.generic.JsonCodec
