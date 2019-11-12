@@ -13,14 +13,15 @@ import scala.reflect.ClassTag
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import akka.util.Timeout
-import comm.crudRequests.{Command, GetAllEntityiesForUser, RouteName, ShutDown}
+import comm.crudRequests.{Command, GetAllEntityiesForUser, JSONConvertable, RouteName, ShutDown}
 import dataStorage.UserRef
-import dataStorage.stateHolder.EntityStorage
+import dataStorage.stateHolder.{EntityStorage, UserMap}
 import testingData.{TestDataStore, TestEntitiesForUsers}
 
 class PersistentActorImpl(id: String)
-    extends PersistentActor
-    with ActorLogging {
+//    extends PersistentActor
+extends PersistentActor
+with ActorLogging {
 
   var state = TestDataStore.testData
 
@@ -30,8 +31,9 @@ class PersistentActorImpl(id: String)
       context.stop(self)
 
     case GetAllEntityiesForUser(userRef: UserRef, resp) => {
-      println("user uuid is : $uuid")
-      sender ! state.getUserMap(userRef)
+      println(s"user uuid is : ${userRef.uuid}")
+      val umap: UserMap = state.getUserMap(userRef)
+      sender ! GetAllEntityiesForUser(userRef,Some(umap))
     }
   }
 
@@ -71,25 +73,36 @@ case class RouteFactory(
   import io.circe.generic.auto._
 
   private def allRoutes: Route =
-    getStaticRoute(rootPageHtml)
+    getStaticRoute(rootPageHtml)~
+    GetEntitiesForUser.getEntitiesRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
 
   object GetEntitiesForUser {
     val rnProvider = implicitly[RouteName[GetAllEntityiesForUser]]
-    val rn=rnProvider.getRouteName
+    val rn         = rnProvider.getRouteName
+
     def getEntitiesRoute: Route = {
-          post {
-            path(rn) {
-              entity(as[String]) { ??? // s: String =>.
-              }
+      post {
+        path(rn) {
+          entity(as[String]) {
+            s => {
+              val i: JSONConvertable[GetAllEntityiesForUser] =
+                implicitly[JSONConvertable[GetAllEntityiesForUser]]
+              val getAllEntityiesForUser: GetAllEntityiesForUser = i.getObject(s)
+              val f=getEntitiesFuture(getAllEntityiesForUser)
+              val fs=f.map(x=>i.getJSON(x))
+              complete(fs)
             }
           }
-      //todo-now CONTINUE HERE
+        }
+      }
     }
 
-    def getEntitiesFuture(msg:Command): Future[GetAllEntityiesForUser] =  {
+    def getEntitiesFuture(
+      msg: Command
+    ): Future[GetAllEntityiesForUser] = {
       import scala.concurrent.Future
       import akka.pattern.ask
       import scala.concurrent.duration._

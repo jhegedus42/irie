@@ -44,6 +44,7 @@ object Settings {
 
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
+    val in_memory_journal = "2.5.15.2"
     val scala        = "2.12.8"
     val scalaDom     = "0.9.6"
     val scalajsReact = "1.3.1"
@@ -95,6 +96,12 @@ object Settings {
       "com.typesafe.akka" %% "akka-http"           % versions.akkaHttp,
       "com.typesafe.akka" %% "akka-http-testkit"   % versions.akkaHttp,
       "com.typesafe.akka" %% "akka-persistence"    % versions.akka,
+      // akka-persistence :
+      "com.typesafe.akka"   %% "akka-persistence"          % versions.akka,
+      "com.github.dnvriend" %% "akka-persistence-inmemory" % versions.in_memory_journal,
+      // leveldb :
+      "org.iq80.leveldb"          % "leveldb"        % "0.10",
+      "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
       // test:
       "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
     )

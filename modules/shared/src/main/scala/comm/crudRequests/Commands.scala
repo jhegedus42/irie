@@ -26,7 +26,7 @@ object GetAllEntityiesForUser {
   implicit val jSONConvertable =
     new JSONConvertable[GetAllEntityiesForUser] {
       override def getJSON(v: GetAllEntityiesForUser): String =
-        v.asJson.toString()
+        v.asJson.spaces4
 
       override def getObject(json: String): GetAllEntityiesForUser = {
         val jsonParsed: Either[ParsingFailure, Json] = parse(json)
@@ -54,4 +54,6 @@ trait JSONConvertable[V] {
   def getObject(json: String): V
 }
 
-object JSONConvertable {}
+object JSONConvertable {
+
+}

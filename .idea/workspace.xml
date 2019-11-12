@@ -6,8 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAlice.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAliceUsingCURL.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/resources/application_resources.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/resources/test.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +124,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="Project Files" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Scala Worksheet" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -121,7 +135,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -178,24 +192,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestApp">
-    <configuration name="RainierDemo" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="learn.ml.rainier.RainierDemo" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="JSONsForPostRequests (1)" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="comm.crudRequests.testing.JSONsForPostRequests" />
       <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TFExample" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="learn.ml.tf.TFExample" />
+    <configuration name="JSONsForPostRequests" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="comm.crudRequests.testing.JSONsForPostRequests" />
       <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestApp (1)" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="testingData.TestDataStore" />
-      <module name="modules-sources" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="app.server.Main" />
+      <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -203,6 +217,19 @@
     <configuration name="TestApp" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="testingData.TestDataStore" />
       <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="askForAliceUsingCURL.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="root" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAliceUsingCURL.sh" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -269,35 +296,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="root" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="javaOptions" value="-Djline.terminal=NONE" />
-      <option name="myConsoleArgs" value="" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.TFExample" />
-      <item itemvalue="Application.RainierDemo" />
       <item itemvalue="Application.TestApp" />
-      <item itemvalue="Application.TestApp (1)" />
+      <item itemvalue="Application.JSONsForPostRequests" />
+      <item itemvalue="Application.JSONsForPostRequests (1)" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.MainTest" />
       <item itemvalue="sbt Task.NodeTester" />
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
-      <item itemvalue="Scala Console.Scala Console" />
+      <item itemvalue="Bash.askForAliceUsingCURL.sh" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Bash.askForAliceUsingCURL.sh" />
+        <item itemvalue="Application.JSONsForPostRequests (1)" />
+        <item itemvalue="Application.JSONsForPostRequests" />
         <item itemvalue="Application.TestApp" />
-        <item itemvalue="Application.TestApp (1)" />
-        <item itemvalue="Scala Console.Scala Console" />
-        <item itemvalue="Application.RainierDemo" />
-        <item itemvalue="Application.TFExample" />
       </list>
     </recent_temporary>
   </component>
@@ -314,24 +331,24 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -348,11 +365,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7842486197108" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="3871169087" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="2286484635" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="3743763501" />
       </map>
@@ -378,13 +394,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00489" summary="Sodium + React =&gt; figure it out how it works.&#10;&#10;Versioning Error Needs To Work.">
-      <created>1572894706311</created>
-      <option name="number" value="00489" />
-      <option name="presentableId" value="LOCAL-00489" />
-      <option name="project" value="LOCAL" />
-      <updated>1572894706312</updated>
     </task>
     <task id="LOCAL-00490" summary="1. merfoldko majdnem elerve, mar csak a create note hianyzik&#10;es szevasz, megvan az alap note lista">
       <created>1572896984505</created>
@@ -722,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573584240907</updated>
     </task>
-    <option name="localTasksCounter" value="538" />
+    <task id="LOCAL-00538" summary="now we have json decoding/encoding">
+      <created>1573588744812</created>
+      <option name="number" value="00538" />
+      <option name="presentableId" value="LOCAL-00538" />
+      <option name="project" value="LOCAL" />
+      <updated>1573588744812</updated>
+    </task>
+    <option name="localTasksCounter" value="539" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -797,7 +813,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1. merfoldko majdnem elerve, mar csak a create note hianyzik&#10;es szevasz, megvan az alap note lista" />
     <MESSAGE value="Mukodik a CRU. Note taker application. Multi User !" />
     <MESSAGE value="File Chooser muxik." />
     <MESSAGE value="So-so." />
@@ -822,7 +837,12 @@
     <MESSAGE value="slow progress, hopefully without any big surprises" />
     <MESSAGE value="things got a bit simpler" />
     <MESSAGE value="slow progress, code compiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="slow progress, code compiles" />
+    <MESSAGE value="now we have json decoding/encoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="now we have json decoding/encoding" />
+  </component>
+  <component name="WorksheetDefaultProjectSettings">
+    <option name="compilerProfileName" value="Default" />
+    <option name="moduleName" value="root" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

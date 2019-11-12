@@ -17,26 +17,26 @@ import scala.reflect.ClassTag
 
 object TestDataStore extends App{
 
-  val alice: Value[User] = TestEntitiesForUsers.alice
+  lazy val alice: Value[User] = TestEntitiesForUsers.alice
   println(alice)
 
-  val res: Json =io.circe.Encoder[Value[User]].apply(alice)
+  lazy val res: Json =io.circe.Encoder[Value[User]].apply(alice)
 
   println(res)
 
   println(io.circe.Decoder[Value[User]].decodeJson(res))
 
-  val ae=io.circe.Encoder[ReferencedValue[User]].apply(TestEntitiesForUsers.aliceEntity)
+  lazy val ae=io.circe.Encoder[ReferencedValue[User]].apply(TestEntitiesForUsers.aliceEntity)
   println(ae)
 
 //  println(Ref.name2[User])
 
-  val ue=EntityStorage()
+  lazy val ue=EntityStorage()
 
-  val aliceEnt=TestEntitiesForUsers.aliceEntity
+  lazy val aliceEnt=TestEntitiesForUsers.aliceEntity
 
   import TestEntitiesForUsers._
-  lazy val testData: EntityStorage = ue.
+  def testData: EntityStorage = ue.
     insert(aliceEnt.ref.unTypedRef,aliceEnt.asJson).
     insertHelper(bobEntity)
     .insertHelper(meresiHibaEntity)
