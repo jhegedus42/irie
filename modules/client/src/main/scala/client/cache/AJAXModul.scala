@@ -1,10 +1,6 @@
-package client._notRelevant.caching.cache.sodiumCache
+package client.cache
 
-import dataStorage.Value
-import io.circe.{Decoder, Encoder}
-import org.scalajs.dom.ext.Ajax
-
-import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.concurrent.ExecutionContextExecutor
 
 object AJAXModul {
 

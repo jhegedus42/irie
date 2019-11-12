@@ -1,12 +1,12 @@
-package client._notRelevant.caching.cache.sodiumCache
+package client.cache
 
+import client.sodium.core
 import client.sodium.core.{Cell, StreamSink}
-import client.sodium.{core, _}
 import dataStorage.{Ref, ReferencedValue, User, Value}
-
-import scala.concurrent.ExecutionContextExecutor
 import io.circe.generic.JsonCodec
 import io.circe.syntax._
+
+import scala.concurrent.ExecutionContextExecutor
 
 //case class EntityCreator[V <: EntityType[V]]() {
 //
