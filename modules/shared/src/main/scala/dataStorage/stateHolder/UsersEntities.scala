@@ -2,7 +2,11 @@ package dataStorage.stateHolder
 
 import dataStorage.{Ref, ReferencedValue, User, Value}
 import io.circe._
+import io.circe.syntax._
 import io.circe.generic.JsonCodec
+
+
+
 
 case class UsersEntities() {
 
@@ -16,10 +20,11 @@ case class UsersEntities() {
     map = newMap
   }
 
-  def getUserEntities(r: Ref[User]): Map[(String, String), Json] = {
+  def getUserMap(r: Ref[User]): UserMap = {
     val res: Map[(String, String), Json] =
       map.filterKeys(_._1 == r.uuid)
-    res
+    val list=map.toList
+    UserMap(list)
   }
 
   def insert(

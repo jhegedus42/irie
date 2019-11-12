@@ -22,8 +22,8 @@ class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case Commands.GetState =>
-      println("do nothing")
+    case Commands.GetUsersEntities(uuid:String) =>
+      println("user uuid is : $uuid")
   }
 
   override def persistenceId: String = id

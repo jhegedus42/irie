@@ -1,6 +1,7 @@
 package comm.crudRequests
 
-import dataStorage.{Ref, Note, ReferencedValue, User, Value}
+import dataStorage.stateHolder.UserMap
+import dataStorage.{Note, Ref, ReferencedValue, User, Value}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
@@ -20,20 +21,22 @@ sealed trait CRUDReq[V <: Value[V]] {
     s"route_${name_req}_${name_pl}_auto_generated"
   }
 
+  def getPersActorCommand:Commands.Command
+
 }
 
+@JsonCodec
 case class GetAllEntityiesForUser[V <: Value[V]](
   par: Ref[User],
-  res: Option[ReferencedValue[V]])
-    extends CRUDReq[V]
-
-object GetAllEntityiesForUser {
-
+  res: UserMap)
+    extends CRUDReq[V] {
+  override def getPersActorCommand: Commands.Command = ???
 }
+
 
 
 object Commands{
   sealed trait Command
   case object ShutDown extends Command
-  case object GetState extends Command
+  case class GetUsersEntities(uuid:String) extends Command
 }
