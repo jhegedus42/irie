@@ -21,7 +21,19 @@ sealed trait CRUDReq[V <: Value[V]] {
   }
 
 }
+
 case class GetAllEntityiesForUser[V <: Value[V]](
   par: Ref[User],
   res: Option[ReferencedValue[V]])
     extends CRUDReq[V]
+
+object GetAllEntityiesForUser {
+
+}
+
+
+object Commands{
+  sealed trait Command
+  case object ShutDown extends Command
+  case object GetState extends Command
+}

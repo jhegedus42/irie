@@ -8,4 +8,5 @@ import io.circe.syntax._
 @JsonCodec
 case class ReferencedValue[E <: Value[E]](
   entityValue: E,
-  ref:         Ref[E] = Ref[E]())
+  ref:         Ref[E] = Ref[E]()
+  )

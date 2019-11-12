@@ -50,7 +50,7 @@ object Settings {
     val scalaCSS     = "0.5.5"
     val scalaZ       = "7.2.26"
 
-    val akka              = "2.5.23"
+    val akka     = "2.5.23"
     val akkaHttp = "10.1.9"
 
     val monocleVersion   = "1.5.0"
@@ -84,12 +84,13 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
-      "org.slf4j"                               % "slf4j-simple" % "1.7.25",
-      "com.typesafe.akka"                       %% "akka-slf4j" % versions.akka,
-      "com.typesafe.akka"                       %% "akka-actor" % versions.akka,
-      "com.typesafe.akka"                       %% "akka-stream-testkit" % versions.akka,
-      "com.typesafe.akka"                       %% "akka-http" % versions.akkaHttp,
-      "com.typesafe.akka"                       %% "akka-http-testkit" % versions.akkaHttp,
+      "org.slf4j"         % "slf4j-simple"         % "1.7.25",
+      "com.typesafe.akka" %% "akka-slf4j"          % versions.akka,
+      "com.typesafe.akka" %% "akka-actor"          % versions.akka,
+      "com.typesafe.akka" %% "akka-stream-testkit" % versions.akka,
+      "com.typesafe.akka" %% "akka-http"           % versions.akkaHttp,
+      "com.typesafe.akka" %% "akka-http-testkit"   % versions.akkaHttp,
+      "com.typesafe.akka" %% "akka-persistence"    % versions.akka,
       // test:
       "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
     )
@@ -107,8 +108,6 @@ object Settings {
       "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test" //,
 //       "me.shadaj" %%% "slinky-core" % "0.6.3",
 //       "me.shadaj" %%% "slinky-web" % "0.6.3"
-
-
     )
   )
 
