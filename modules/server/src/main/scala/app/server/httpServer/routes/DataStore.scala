@@ -12,18 +12,24 @@ import scala.reflect.ClassTag
 import scala.concurrent.ExecutionContextExecutor
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import comm.crudRequests.Commands
+import dataStorage.stateHolder.UsersEntities
 
 class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
+
+  val state=UsersEntities()
 
   override def receiveCommand: Receive = {
     case Commands.ShutDown =>
       println("shutting down persistent actor")
       context.stop(self)
 
-    case Commands.GetUsersEntities(uuid:String) =>
-      println("user uuid is : $uuid")
+    case Commands.GetUsersEntities(uuid:String,resp) =>
+      {
+        println("user uuid is : $uuid")
+        state.getUserMap(uuid)
+      }
   }
 
   override def persistenceId: String = id

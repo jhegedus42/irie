@@ -20,9 +20,9 @@ case class UsersEntities() {
     map = newMap
   }
 
-  def getUserMap(r: Ref[User]): UserMap = {
+  def getUserMap(uuid:String): UserMap = {
     val res: Map[(String, String), Json] =
-      map.filterKeys(_._1 == r.uuid)
+      map.filterKeys(_._1 == uuid)
     val list=map.toList
     UserMap(list)
   }

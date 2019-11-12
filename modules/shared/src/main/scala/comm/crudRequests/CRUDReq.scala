@@ -21,7 +21,7 @@ sealed trait CRUDReq[V <: Value[V]] {
     s"route_${name_req}_${name_pl}_auto_generated"
   }
 
-  def getPersActorCommand:Commands.Command
+  def getPersActorCommand: Commands.Command
 
 }
 
@@ -33,10 +33,14 @@ case class GetAllEntityiesForUser[V <: Value[V]](
   override def getPersActorCommand: Commands.Command = ???
 }
 
+object Commands {
 
-
-object Commands{
   sealed trait Command
+
   case object ShutDown extends Command
-  case class GetUsersEntities(uuid:String) extends Command
+
+  case class GetUsersEntities(
+    uuid: String,
+    resp: Option[UserMap])
+      extends Command
 }
