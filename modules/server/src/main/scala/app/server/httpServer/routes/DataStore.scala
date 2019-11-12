@@ -12,6 +12,7 @@ import scala.reflect.ClassTag
 import scala.concurrent.ExecutionContextExecutor
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import comm.crudRequests.Commands
+import dataStorage.UserRef
 import dataStorage.stateHolder.UsersEntities
 
 class PersistentActorImpl(id: String)
@@ -28,7 +29,7 @@ class PersistentActorImpl(id: String)
     case Commands.GetUsersEntities(uuid:String,resp) =>
       {
         println("user uuid is : $uuid")
-        state.getUserMap(uuid)
+        state.getUserMap(UserRef(uuid))
       }
   }
 

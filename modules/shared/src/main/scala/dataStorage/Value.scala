@@ -4,6 +4,8 @@ import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 
+import scala.reflect.ClassTag
+
 /**
   *
   * This is the type of the value that an entity holds.
@@ -11,10 +13,15 @@ import io.circe.syntax._
   * @tparam T
   */
 //@JsonCodec
-sealed trait Value[T <: Value[T]]
+sealed trait Value[T <: Value[T]] {
+
+//  def getName(implicit classTag: ClassTag[T]):String = classTag.getClass.getSimpleName
+
+}
 
 //@JsonCodec
-object Value {}
+object Value {
+}
 
 @JsonCodec
 case class Note(

@@ -1,19 +1,21 @@
 package dataStorage
 
+import io.circe.Json
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
+import shapeless.Typeable
 
 import scala.ref.Reference
+import scala.reflect.ClassTag
 
-case class UserRef(uuid:String=java.util.UUID.randomUUID().toString)
+import io.circe._, io.circe.generic.semiauto._
 
 @JsonCodec
-case class Ref[V <: Value[V]](
-  uuid: String = java.util.UUID.randomUUID().toString,
-  user: UserRef=UserRef()){
-  def ref2tuple: (String, String) =(this.uuid,user.uuid)
-  def tuple2ref(t:(String, String)) = {
-    Ref[V](t._1,UserRef(t._2))
-  }
-}
+case class Ref[V <: Value[V]](unTypedRef: UnTypedRef=UnTypedRef())
+
+@JsonCodec
+case class UnTypedRef(
+  uuid:    String  = java.util.UUID.randomUUID().toString,
+  userRef: UserRef = UserRef())
+

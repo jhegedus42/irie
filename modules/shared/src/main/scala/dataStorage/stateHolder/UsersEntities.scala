@@ -1,38 +1,58 @@
 package dataStorage.stateHolder
 
-import dataStorage.{Ref, ReferencedValue, User, Value}
-import io.circe._
+import dataStorage.stateHolder.UsersEntities.RefMap
+import dataStorage.{Ref, ReferencedValue, UnTypedRef, User, UserRef, Value}
+import io.circe.{Json, KeyDecoder, KeyEncoder}
 import io.circe.syntax._
+import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 
-
-
+//object UsersEntities {
+//  type Key       = Ref[_]
+//  type EntityMap = Map[Key, Json]
+//}
+object MapHolder{
+}
 
 case class UsersEntities() {
 
-  var map = Map[(String, String), Json]()
+  type Key = UnTypedRef
+  var refMap: RefMap = RefMap()
 
   def update(
-    t:    (String, String),
+    t:    Key,
     json: Json
   ): Unit = {
-    val newMap: Map[(String, String), Json] = map.updated(t, json)
-    map = newMap
+    val newMap = RefMap(refMap.map.updated(t, json))
+    refMap = newMap
   }
 
-  def getUserMap(uuid:String): UserMap = {
-    val res: Map[(String, String), Json] =
-      map.filterKeys(_._1 == uuid)
-    val list=map.toList
-    UserMap(list)
+  def getUserMap(ref: UserRef): UserMap = {
+    val res  =
+      refMap.map.filterKeys(_.userRef.uuid == ref.uuid)
+    UserMap(ref,refMap.map.toList)
   }
+
 
   def insert(
-    t:    (String, String),
+    t:    Key,
     json: Json
   ): Unit = {
-    val newMap: Map[(String, String), Json] = map + ((t, json))
-    map = newMap
+    val newMap  = refMap.map + ((t, json))
+    refMap = RefMap(newMap)
   }
+
+}
+
+object UsersEntities {
+
+  import dataStorage.stateHolder.UsersEntities.RefMap
+  import dataStorage.{Ref, ReferencedValue, User, UserRef, Value}
+  import io.circe.{Json, KeyEncoder}
+  import io.circe.syntax._
+  import io.circe.generic.auto._
+  import io.circe.generic.JsonCodec
+
+  case class RefMap(map:Map[UnTypedRef, Json]= Map[UnTypedRef,Json]())
 
 }

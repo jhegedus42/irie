@@ -1,13 +1,12 @@
 package client._notRelevant.caching.cache.sodiumCache
 
-import comm.crudRequests.CRUDReq
 import dataStorage.Value
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.ext.Ajax
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-trait AJAXModul[RT <: CRUDReq[V], V <: Value[V]] {
+object AJAXModul {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -31,6 +30,3 @@ trait AJAXModul[RT <: CRUDReq[V], V <: Value[V]] {
 
 }
 
-object AJAXModul {
-
-}

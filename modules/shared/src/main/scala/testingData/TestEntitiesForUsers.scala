@@ -1,9 +1,39 @@
 package testingData
 
-import dataStorage.{ReferencedValue, User}
-import io.circe.Decoder
+import dataStorage.stateHolder.UsersEntities
+import dataStorage.{Ref, ReferencedValue, User, Value}
+import io.circe.{Decoder, Json}
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.syntax._
 
 import scala.reflect.ClassTag
+
+object TestApp extends App{
+
+  val alice: Value[User] = TestEntitiesForUsers.alice
+  println(alice)
+
+  val res: Json =io.circe.Encoder[Value[User]].apply(alice)
+
+  println(res)
+
+  println(io.circe.Decoder[Value[User]].decodeJson(res))
+
+  val ae=io.circe.Encoder[ReferencedValue[User]].apply(TestEntitiesForUsers.aliceEntity)
+  println(ae)
+
+//  println(Ref.name2[User])
+
+  val ue=UsersEntities()
+//  ue.insertR(TestEntitiesForUsers.aliceEntity)
+
+}
+
+
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.syntax._
 
 object TestEntitiesForUsers {
 
@@ -29,15 +59,15 @@ object TestEntitiesForUsers {
 
 
   val aliceEntity_with_UUID0 = aliceEntity
-    .lens(_.ref.uuid)
+    .lens(_.ref.unTypedRef.uuid)
     .set(UUIDs.uuid00)
 
   val bobEntity_with_UUID1 = bobEntity
-    .lens(_.ref.uuid)
+    .lens(_.ref.unTypedRef.uuid)
     .set(UUIDs.uuid01)
 
   val meresiHiba_with_UUID2 = meresiHibaEntity
-    .lens(_.ref.uuid)
+    .lens(_.ref.unTypedRef.uuid)
     .set(UUIDs.uuid02)
 
 }
