@@ -1,7 +1,6 @@
 package testingData
 
-import dataStorage.RelationalAndVersionedDataRepresentationFramework.{EntityValueWithVersionAndIdentity }
-import dataStorage.normalizedDataModel.{EntityValueType, User}
+import dataStorage.{ReferencedValue, User}
 import io.circe.Decoder
 
 import scala.reflect.ClassTag
@@ -19,26 +18,26 @@ object TestEntitiesForUsers {
   val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
 
-  val aliceEntity: EntityValueWithVersionAndIdentity[User] = alice
+  val aliceEntity: ReferencedValue[User] = ReferencedValue(alice)
 
-  val bobEntity: EntityValueWithVersionAndIdentity[User] = bob
+  val bobEntity: ReferencedValue[User] = ReferencedValue(bob)
 
-  val meresiHibaEntity: EntityValueWithVersionAndIdentity[User] = meresiHiba
+  val meresiHibaEntity: ReferencedValue[User] = ReferencedValue(meresiHiba)
 
   import monocle.macros.syntax.lens._
 
 
 
   val aliceEntity_with_UUID0 = aliceEntity
-    .lens(_.ref.identity.uuid)
+    .lens(_.ref.uuid)
     .set(UUIDs.uuid00)
 
   val bobEntity_with_UUID1 = bobEntity
-    .lens(_.ref.identity.uuid)
+    .lens(_.ref.uuid)
     .set(UUIDs.uuid01)
 
   val meresiHiba_with_UUID2 = meresiHibaEntity
-    .lens(_.ref.identity.uuid)
+    .lens(_.ref.uuid)
     .set(UUIDs.uuid02)
 
 }

@@ -1,22 +1,27 @@
 package comm.crudRequests
 
-import dataStorage.RelationalAndVersionedDataRepresentationFramework.EntityValueWithVersionAndIdentity
-import dataStorage.normalizedDataModel.{EntityValueType, User}
+import dataStorage.{Ref, Note, ReferencedValue, User, Value}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import sun.java2d.pipe.SpanShapeRenderer.Simple
 
-trait Req[V <: EntityValueType[V]] {}
+import scala.reflect.ClassTag
 
-@JsonCodec
-case class Write[V <: EntityValueType[V]](
-  par: EntityValueWithVersionAndIdentity[V],
-  r:   Option[EntityValueWithVersionAndIdentity[V]])
-    extends Req[V]
+sealed trait CRUDReq[V <: Value[V]] {
 
-@JsonCodec
-case class GetAllLatestEntitiesForOneUser[V <: EntityValueType[V]](
-  p:   EntityValueWithVersionAndIdentity[User],
-  res: Option[List[EntityValueWithVersionAndIdentity[V]]])
-    extends Req[V]
+  def getRouteName[Req <: CRUDReq[V]](
+  )(
+    implicit
+    ct_pl:  ClassTag[V],
+    ct_req: ClassTag[Req]
+  ): String = {
+    val name_req = ct_req.runtimeClass.getSimpleName
+    val name_pl  = ct_pl.runtimeClass.getSimpleName
+    s"route_${name_req}_${name_pl}_auto_generated"
+  }
+
+}
+case class GetAllEntityiesForUser[V <: Value[V]](
+  par: Ref[User],
+  res: Option[ReferencedValue[V]])
+    extends CRUDReq[V]

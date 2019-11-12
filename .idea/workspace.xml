@@ -6,7 +6,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/DataStore.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/AJAXCalls.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/ReadCache.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/ReadCacheImpl.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/Adapter.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidationTypes.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/Invalidator.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/read/readCache/invalidation/InvalidatorStream.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerStates.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTC.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/comm/write/WriteRequestHandlerTCImpl.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/AJAXModul.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/caching/cache/sodiumCache/SodiumEntityCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorComp.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/noteHandling/noteEditor/NoteEditorCompOld.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/slinky/TestCode.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/StateHolder.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/SodiumCRUDRoutesFactory.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumParamConverters.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumRouteName.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/SodiumRouteNameProvider.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CRUDReq.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CRUDReq.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityIdentity.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityValueWithVersionAndIdentity.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityVersion.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityVersionAndEntityIdentity.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/normalizedDataModel/EntityValueType.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForNotes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +90,8 @@
         <option value="ScalaTest Class" />
         <option value="Package Object" />
         <option value="Scala Object" />
-        <option value="Scala Trait" />
         <option value="Scala Class" />
+        <option value="Scala Trait" />
       </list>
     </option>
   </component>
@@ -114,7 +147,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extensionJars" value="" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/entity" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/refs" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -137,11 +170,11 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dataStorage.refs" />
       <recent name="entity" />
       <recent name="client" />
       <recent name="app.shared.utils" />
       <recent name="" />
-      <recent name="app.server.httpServer.routes" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -347,6 +380,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7842348162744" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -376,13 +410,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00482" summary="invalidation framwork is in progress">
-      <created>1572850163055</created>
-      <option name="number" value="00482" />
-      <option name="presentableId" value="LOCAL-00482" />
-      <option name="project" value="LOCAL" />
-      <updated>1572850163055</updated>
     </task>
     <task id="LOCAL-00483" summary="invalidation framwork is in progress">
       <created>1572850788149</created>
@@ -720,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573440782017</updated>
     </task>
-    <option name="localTasksCounter" value="531" />
+    <task id="LOCAL-00531" summary="slow progress, hopefully without any big surprises">
+      <created>1573450607610</created>
+      <option name="number" value="00531" />
+      <option name="presentableId" value="LOCAL-00531" />
+      <option name="project" value="LOCAL" />
+      <updated>1573450607610</updated>
+    </task>
+    <option name="localTasksCounter" value="532" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -827,7 +861,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RelationalAndVersionedDataRepresentationFramework/EntityVersion.scala</url>
+          <url>file://$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/refs/Version.scala</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
