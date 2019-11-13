@@ -92,3 +92,18 @@ For testing a single test containing `testgetSnapshot` :
 server/testOnly **.TypeSafeAccessToPersistentActorProviderTest -- -z "testgetSnapshot"
 ```
 See https://sgeb.io/posts/2016/11/til-sbt-testonly/ for details.
+
+# Ackowledgement
+
+The development of this open source project has been kindly supperted 
+by [JetBrains](https://www.jetbrains.com/). 
+They offer [free open source licenses](https://www.jetbrains.com/community/opensource/) 
+for helping the developers of actively developed open-source, non-commertial products, 
+which meet the [open source defitition](https://opensource.org/docs/osd). 
+In my case this project is licensed under [MIT license](https://opensource.org/licenses/MIT).
+
+I am now able to use IntelliJ Ultimate version which 
+has [built in support for Scala.js](https://plugins.jetbrains.com/plugin/1347-scala/), 
+in which large portion of this project is written.
+Their support is gratelfully appreciated. 
+

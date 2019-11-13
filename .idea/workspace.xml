@@ -6,12 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/SodiumEntityCache.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +117,7 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extensionJars" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/testingData" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/shared/src/main/scala/app/shared/comm/postRequests/read" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
@@ -302,7 +298,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Bash.askForAliceUsingCURL.sh" />
         <item itemvalue="Application.JSONsForPostRequests (1)" />
         <item itemvalue="Application.JSONsForPostRequests" />
         <item itemvalue="Application.TestApp" />
@@ -386,13 +381,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00493" summary="Mukodik a CRU. Note taker application. Multi User !">
-      <created>1572918333506</created>
-      <option name="number" value="00493" />
-      <option name="presentableId" value="LOCAL-00493" />
-      <option name="project" value="LOCAL" />
-      <updated>1572918333507</updated>
     </task>
     <task id="LOCAL-00494" summary="Mukodik a CRU. Note taker application. Multi User !">
       <created>1572928029436</created>
@@ -730,8 +718,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573601439631</updated>
     </task>
-    <option name="localTasksCounter" value="542" />
+    <task id="LOCAL-00542" summary="reactive, cell based, sodium cache implementation on client side is in progress">
+      <created>1573612855527</created>
+      <option name="number" value="00542" />
+      <option name="presentableId" value="LOCAL-00542" />
+      <option name="project" value="LOCAL" />
+      <updated>1573612855527</updated>
+    </task>
+    <option name="localTasksCounter" value="543" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
@@ -805,7 +803,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="part of the file upload problem is solved" />
     <MESSAGE value="We loaded a file into memory." />
     <MESSAGE value="Starting to write a server side API that saves the data to the filesystem." />
     <MESSAGE value="Refactoring the directory system." />
@@ -830,7 +827,8 @@
     <MESSAGE value="curl route test passes" />
     <MESSAGE value="ajax call works from client" />
     <MESSAGE value="sodium + ajax seems to work on simple tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="sodium + ajax seems to work on simple tests" />
+    <MESSAGE value="reactive, cell based, sodium cache implementation on client side is in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="reactive, cell based, sodium cache implementation on client side is in progress" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
