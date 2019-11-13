@@ -96,6 +96,8 @@ See https://sgeb.io/posts/2016/11/til-sbt-testonly/ for details.
 
 # Ackowledgement
 
+<a href="url"><img src="https://github.com/jhegedus42/irie/blob/f455e53cbd2ed7bfb68a079107eb29daeddbee07/jetbrains.png?raw=true" align="center" height="300"  ></a>
+
 The development of this open source project has been kindly supperted 
 by [JetBrains](https://www.jetbrains.com/). 
 They offer [free open source licenses](https://www.jetbrains.com/community/opensource/) 
@@ -109,4 +111,3 @@ in which large portion of this project is written.
 Their support is gratelfully appreciated. 
 
 
-<a href="url"><img src="https://github.com/jhegedus42/irie/blob/f455e53cbd2ed7bfb68a079107eb29daeddbee07/jetbrains.png?raw=true" align="center" height="100"  ></a>
