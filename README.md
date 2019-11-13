@@ -96,7 +96,7 @@ See https://sgeb.io/posts/2016/11/til-sbt-testonly/ for details.
 
 # Ackowledgement
 
-<
+
 <div style="center {margin:auto}" align="center">
 <a href="https://www.jetbrains.com/"><img src="https://github.com/jhegedus42/irie/blob/f455e53cbd2ed7bfb68a079107eb29daeddbee07/jetbrains.png?raw=true"  width="300"  ></a>
 </div>
