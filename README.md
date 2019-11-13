@@ -110,7 +110,7 @@ which meet the [open source defitition](https://opensource.org/docs/osd).
 In my case this project is licensed under [MIT license](https://opensource.org/licenses/MIT).
 
 I am now able to use IntelliJ Ultimate version which 
-has [built in support for Scala.js](https://plugins.jetbrains.com/plugin/1347-scala/), 
+has [built in support for Scala.js](https://plugins.jetbrains.com/plugin/1347-scala/) 
 in which large portion of this project is written.
 Their support is gratelfully appreciated. 
 
