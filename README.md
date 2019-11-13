@@ -96,7 +96,11 @@ See https://sgeb.io/posts/2016/11/til-sbt-testonly/ for details.
 
 # Ackowledgement
 
-<a href="url"><img src="https://github.com/jhegedus42/irie/blob/f455e53cbd2ed7bfb68a079107eb29daeddbee07/jetbrains.png?raw=true" align="center" height="300"  ></a>
+<
+<div style="center {margin:auto}" align="center">
+<a href="https://www.jetbrains.com/"><img src="https://github.com/jhegedus42/irie/blob/f455e53cbd2ed7bfb68a079107eb29daeddbee07/jetbrains.png?raw=true"  width="300"  ></a>
+</div>
+
 
 The development of this open source project has been kindly supperted 
 by [JetBrains](https://www.jetbrains.com/). 
