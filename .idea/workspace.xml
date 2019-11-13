@@ -6,9 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXModul.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/SodiumEntityCache.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -288,13 +291,13 @@
       <item itemvalue="Application.TestApp" />
       <item itemvalue="Application.JSONsForPostRequests" />
       <item itemvalue="Application.JSONsForPostRequests (1)" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Bash.askForAliceUsingCURL.sh" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.MainTest" />
       <item itemvalue="sbt Task.NodeTester" />
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
-      <item itemvalue="Bash.askForAliceUsingCURL.sh" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -353,6 +356,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="7842513993189" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
@@ -382,13 +386,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00492" summary="Mukodik a CRU. Note taker application. Multi User !">
-      <created>1572913729658</created>
-      <option name="number" value="00492" />
-      <option name="presentableId" value="LOCAL-00492" />
-      <option name="project" value="LOCAL" />
-      <updated>1572913729659</updated>
     </task>
     <task id="LOCAL-00493" summary="Mukodik a CRU. Note taker application. Multi User !">
       <created>1572918333506</created>
@@ -726,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573600403832</updated>
     </task>
-    <option name="localTasksCounter" value="541" />
+    <task id="LOCAL-00541" summary="sodium + ajax seems to work on simple tests">
+      <created>1573601439631</created>
+      <option name="number" value="00541" />
+      <option name="presentableId" value="LOCAL-00541" />
+      <option name="project" value="LOCAL" />
+      <updated>1573601439631</updated>
+    </task>
+    <option name="localTasksCounter" value="542" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -801,7 +805,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="So-so." />
     <MESSAGE value="part of the file upload problem is solved" />
     <MESSAGE value="We loaded a file into memory." />
     <MESSAGE value="Starting to write a server side API that saves the data to the filesystem." />
@@ -826,7 +829,8 @@
     <MESSAGE value="now we have json decoding/encoding" />
     <MESSAGE value="curl route test passes" />
     <MESSAGE value="ajax call works from client" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajax call works from client" />
+    <MESSAGE value="sodium + ajax seems to work on simple tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="sodium + ajax seems to work on simple tests" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

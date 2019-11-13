@@ -12,10 +12,18 @@ import scala.reflect.ClassTag
 import io.circe._, io.circe.generic.semiauto._
 
 @JsonCodec
-case class Ref[V <: Value[V]](unTypedRef: UnTypedRef=UnTypedRef())
+case class Ref[V <: Value[V]](unTypedRef: UnTypedRef = UnTypedRef())
+
 
 @JsonCodec
 case class UnTypedRef(
-  uuid:    String  = java.util.UUID.randomUUID().toString,
-  userRef: UserRef = UserRef())
+  typeName: Option[TypeName]=None,
+  uuid:     String = java.util.UUID.randomUUID().toString,
+  userRef:  UserRef = UserRef())
+{
+  def addTypeInfo[V<:Value[V]](implicit typeable: Typeable[V]):UnTypedRef={
+    val name: String = implicitly[Typeable[V]].describe.toString
+    this.copy(typeName=Some(TypeName(name)))
+  }
+}
 

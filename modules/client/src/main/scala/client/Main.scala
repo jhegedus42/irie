@@ -41,6 +41,8 @@ object Main extends js.JSApp {
   )
 }
 
+
+
 object TestAjaxRequest {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -75,3 +77,5 @@ object TestAjaxRequest {
   }
 
 }
+
+//todo-now , put the type in

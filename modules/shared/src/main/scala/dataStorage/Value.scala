@@ -13,15 +13,17 @@ import scala.reflect.ClassTag
   * @tparam T
   */
 //@JsonCodec
-sealed trait Value[T <: Value[T]] {
-
-//  def getName(implicit classTag: ClassTag[T]):String = classTag.getClass.getSimpleName
-
-}
+sealed trait Value[T <: Value[T]] {}
 
 //@JsonCodec
 object Value {
+
+  def getName[T <: Value[T]](implicit classTag: ClassTag[T]): String =
+    classTag.getClass.getSimpleName
 }
+
+@JsonCodec
+case class TypeName(s: String)
 
 @JsonCodec
 case class Note(
