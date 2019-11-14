@@ -1,21 +1,16 @@
 package dataStorage.stateHolder
 
 import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
-import dataStorage.{
-  Ref,
-  ReferencedValue,
-  UnTypedRef,
-  User,
-  UserRef,
-  Value
-}
+import dataStorage.{Ref, ReferencedValue, UnTypedRef, User, UserRef, Value}
 import io.circe.{Encoder, Json, KeyDecoder, KeyEncoder}
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 import testingData.TestDataStore.ue
-
-import cats.implicits._, cats._, cats.derived._
+import cats.implicits._
+import cats._
+import cats.derived._
+import shapeless.Typeable
 
 case class EntityStorage(
   val untypedJSONMap: UntypedJSONMap = UntypedJSONMap()) {
@@ -49,10 +44,13 @@ case class EntityStorage(
   def insertHelper[V <: Value[V]](
     r: ReferencedValue[V]
   )(
-    implicit enc: Encoder[ReferencedValue[V]]
-  ): EntityStorage = {
+    implicit enc: Encoder[ReferencedValue[V]],
+    typeable: Typeable[V])
+  : EntityStorage = {
+    //todo-now
+    r.addTypeInfo()
     val j = r.asJson
-    this.insert(r.ref.unTypedRef, j)
+    this.insert(r.ref.unTypedRef.addTypeInfo[V](typeable), j)
   }
 
 }
