@@ -53,6 +53,7 @@ object TestAjaxRequest {
 
   import io.circe.syntax._
 
+
   val headers: Map[String, String] = Map(
     "Content-Type" -> "application/json"
   )
@@ -68,11 +69,12 @@ object TestAjaxRequest {
       |""".stripMargin
 
   def query() {
+
+    val ip="commserver.asuscomm.com"
+
     val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
-    Ajax
-      .post("http://localhost:8080/GetAllEntityiesForUser",
-            json,
-            headers = headers)
+
+    Ajax.post(s"http://$ip:8080/GetAllEntityiesForUser", json, headers = headers)
       .map(_.responseText).map(i.getObject(_)).onComplete(x=>{
       val res1: UserMap =x.toOption.get.res.get
       NormalizedStateHolder.setNormalizedState.send(res1)
@@ -81,4 +83,3 @@ object TestAjaxRequest {
 
 }
 
-//todo-now , put the type in

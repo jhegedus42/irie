@@ -9,9 +9,6 @@ object AJAXModul {
 
   import io.circe.syntax._
 
-  val headers: Map[String, String] = Map(
-    "Content-Type" -> "application/json"
-  )
 
 
 }
