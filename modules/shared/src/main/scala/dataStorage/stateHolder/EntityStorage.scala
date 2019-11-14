@@ -6,7 +6,7 @@ import dataStorage.{
   ReferencedValue,
   UnTypedRef,
   User,
-  UserRef,
+  RefToEntityOwningUser,
   Value
 }
 import io.circe.{Encoder, Json, KeyDecoder, KeyEncoder}
@@ -29,14 +29,16 @@ case class EntityStorage(
     json: Json
   ): Unit = {
     val newMap = UntypedJSONMap(
-      untypedJSONMap.untypedMap.updated(t, json)
+            untypedJSONMap.untypedMap.updated(t, json)
     )
     EntityStorage(newMap)
   }
 
-  def getUserMap(ref: UserRef): UserMap = {
+  def getUserMap(ref: RefToEntityOwningUser): UserMap = {
     val res: Map[Key, Json] =
-      untypedJSONMap.untypedMap.filterKeys(_.userRef.uuid == ref.uuid)
+      untypedJSONMap.untypedMap.filterKeys(
+              _.refToEntityOwningUser.uuid == ref.uuid
+      )
     UserMap(ref, untypedJSONMap.untypedMap.toList)
   }
 
@@ -51,8 +53,9 @@ case class EntityStorage(
   def insertHelper[V <: Value[V]](
     r: ReferencedValue[V]
   )(
-    implicit enc: Encoder[ReferencedValue[V]],
-    typeable:     Typeable[V]
+    implicit
+    enc:      Encoder[ReferencedValue[V]],
+    typeable: Typeable[V]
   ): EntityStorage = {
     val r2: ReferencedValue[V] = r.addTypeInfo()
     val j = r2.asJson
@@ -64,7 +67,13 @@ case class EntityStorage(
 object EntityStorage {
 
   import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
-  import dataStorage.{Ref, ReferencedValue, User, UserRef, Value}
+  import dataStorage.{
+    Ref,
+    ReferencedValue,
+    User,
+    RefToEntityOwningUser,
+    Value
+  }
   import io.circe.{Json, KeyEncoder}
   import io.circe.syntax._
   import io.circe.generic.auto._

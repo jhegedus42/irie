@@ -6,10 +6,15 @@ import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 
 import scala.collection.Map
-import dataStorage.{Ref, ReferencedValue, UnTypedRef, UserRef}
+import dataStorage.{
+  Ref,
+  ReferencedValue,
+  UnTypedRef,
+  RefToEntityOwningUser
+}
 import io.circe.Json
 
 @JsonCodec
 case class UserMap(
-  user: UserRef                  = UserRef(),
+  user: RefToEntityOwningUser    = RefToEntityOwningUser(),
   list: List[(UnTypedRef, Json)] = List())

@@ -16,38 +16,31 @@ import scala.reflect.ClassTag
 sealed trait Value[T <: Value[T]] {}
 
 //@JsonCodec
-object Value {
-
-  def getName[T <: Value[T]](implicit classTag: ClassTag[T]):TypeName =
-    TypeName(classTag.getClass.getSimpleName)
-}
+//object Value {
+//
+//  def getName[T <: Value[T]](implicit classTag: ClassTag[T]):TypeName =
+//    TypeName(classTag.getClass.getSimpleName)
+//}
 
 @JsonCodec
 case class TypeName(s: String)
 
 @JsonCodec
-case class Note(
-  title:   String,
-  content: String,
-  owner:   Ref[User])
+case class Note(title: String, content: String, owner: Ref[User])
     extends Value[Note]
 
 @JsonCodec
-case class Image(
-  title:     String,
-  content:   String,
-  reference: Option[Ref[Note]])
+case class Image(title:     String,
+                 content:   String,
+                 reference: Option[Ref[Note]])
     extends Value[Image]
 
 @JsonCodec
-case class User(
-  name:           String,
-  favoriteNumber: Int,
-  password:       String = "titok")
+case class User(name:           String,
+                favoriteNumber: Int,
+                password:       String = "titok")
     extends Value[User]
 
 @JsonCodec
-case class NoteFolder(
-  user: Ref[User],
-  name: String)
+case class NoteFolder(user: Ref[User], name: String)
     extends Value[NoteFolder]

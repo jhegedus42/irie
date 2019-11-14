@@ -19,6 +19,8 @@ import cats.implicits._
 import cats._
 import cats.derived._
 import io.circe.Decoder.Result
+import shapeless.Typeable
+import shapeless.syntax.typeable
 
 import scala.collection.immutable
 import scala.concurrent.ExecutionContextExecutor
@@ -26,28 +28,61 @@ import scala.reflect.ClassTag
 
 case class CacheMap[V <: Value[V]](
   map: Map[Ref[V], ReferencedValue[V]] =
-    Map[Ref[V], ReferencedValue[V]]()
-) {}
+    Map[Ref[V], ReferencedValue[V]]()) {
+
+  def getPrettyPrintedString: String = {
+    map.foldLeft("")(
+            (s, v) =>
+              s + s"${v._1.unTypedRef.typeName} ${v._1.unTypedRef.uuid}  ${v._2.entityValue}\n"
+    )
+  }
+}
 
 object CacheMap {}
 
-case class Cache[V <: Value[V]](cell: Cell[CacheMap[V]], name: String)
+case class Cache[V <: Value[V]](
+  cell: (Cell[CacheMap[V]]),
+  name: String)
 
 case class CacheMaker[V <: Value[V]](
-  streamSink: StreamSink[UserMap]
-) {
+  streamSink: StreamSink[UserMap]) {
+
+  var x = "a";
+
+  def getCache(
+  )(
+    implicit
+    decoder:  Decoder[ReferencedValue[V]],
+    ct:       ClassTag[V],
+    typeable: Typeable[V]
+  ): Cache[V] = {
+
+    val setCache: Stream[CacheMap[V]] = streamSink.map(makeFrom)
+
+    val name: String = UnTypedRef.getName[V]
+
+    val cell = setCache.hold(CacheMap[V]())
+
+    val cache = Cache(cell, name)
+
+    println(s"cache is ready: ${cache.cell}")
+
+    cache
+  }
 
   def makeFrom(
     um: UserMap
   )(
-    implicit c: ClassTag[V],
-    d:          Decoder[ReferencedValue[V]]
+    implicit
+    c:        ClassTag[V],
+    d:        Decoder[ReferencedValue[V]],
+    typeable: Typeable[V]
   ): CacheMap[V] = {
 
-    val name = Value.getName[V]
+    val name = UnTypedRef.getName[V]
 
     def g(t: (UnTypedRef, _)): Boolean = {
-      t._1.typeName.get.s == name.s
+      t._1.typeName.get.s == name
     }
 
     def h(t: (UnTypedRef, Json)): (Ref[V], ReferencedValue[V]) = {
@@ -59,7 +94,9 @@ case class CacheMaker[V <: Value[V]](
       val refV = referencedValueV.toOption.get
       // we dare to do this becuase this supposed to be filtered
       // down already to the correct type by g() above
-      (r, refV)
+      val res = (r, refV)
+      println(s"we are the robots: $res")
+      res
     }
 
     def f(userMap: UserMap): CacheMap[V] = {
@@ -74,27 +111,11 @@ case class CacheMaker[V <: Value[V]](
     f(um)
   }
 
-  def getCache()(implicit
-                 decoder: Decoder[ReferencedValue[V]],
-                 ct:      ClassTag[V]): Cache[V] = {
-
-    val setCache: Stream[CacheMap[V]] = streamSink.map(makeFrom)
-
-    val name = Value.getName[V].s
-
-    val cell = setCache.hold(CacheMap[V]())
-
-    val cache = Cache(cell, name)
-
-    println(s"cache is ready: $cache.cell")
-
-    cache
-  }
 }
 
 object NormalizedStateHolder {
 
-  val streamToSetInitialCacheState = new StreamSink[UserMap]()
+  lazy val streamToSetInitialCacheState = new StreamSink[UserMap]()
 
   val user: Cache[User] =
     CacheMaker(streamToSetInitialCacheState).getCache()

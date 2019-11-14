@@ -6,20 +6,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumRootComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/UserRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RefToEntityOwningUser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -350,12 +354,8 @@
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
@@ -366,8 +366,12 @@
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />

@@ -3,5 +3,5 @@ package dataStorage
 import io.circe.generic.JsonCodec
 
 @JsonCodec
-case class UserRef(
+case class RefToEntityOwningUser(
   uuid: String = java.util.UUID.randomUUID().toString)

@@ -10,8 +10,6 @@ import client.sodium.core._
 
 case class SodiumPreformattedText(s: Stream[String]) {
 
-  val c = s.hold("init")
-
   val comp = ScalaComponent
     .builder[Unit]("SodiumPreformattedText")
     .initialState("label")
@@ -19,7 +17,7 @@ case class SodiumPreformattedText(s: Stream[String]) {
     .componentWillMount(f => {
 
       Callback {
-        c.listen(x => {
+        s.listen(x => {
           println(s"sodum label's cell is $x");
           f.setState(x).runNow()
         })

@@ -34,31 +34,16 @@ object Main extends js.JSApp {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val userCache = NormalizedStateHolder.user
-
-  val snapshot = new StreamSink[Unit]()
-
-  val textValue = snapshot
-    .snapshot(NormalizedStateHolder.user.cell).map(_.toString)
+  lazy val userCache: Cache[User] = NormalizedStateHolder.user
 
   @JSExport
   def main(): Unit = {
     val e: Element = document.getElementById("rootComp")
-    SodiumPreformattedText(textValue).comp().renderIntoDOM(e)
-    TestAjaxRequest.query(snapshot)
+    val s = userCache.cell
+      .updates().map((c: CacheMap[User]) => c.getPrettyPrintedString)
+    SodiumPreformattedText(s).comp().renderIntoDOM(e)
+    TestAjaxRequest.query()
   }
-
-//  button.streamSink.listen((x: Unit) => makeTestRequest())
-
-//  val umap = new StreamSink[UserMap]()
-//  val cellUmap=umap.hold(UserMap())
-//
-//  cellUmap.listen(
-//        (a:UserMap)=> {
-//          val b= a.list.map(_._1)
-//          b.foreach(println)
-//    }
-//  )
 
 }
 
@@ -70,7 +55,7 @@ object TestAjaxRequest {
   import io.circe.syntax._
 
   val headers: Map[String, String] = Map(
-    "Content-Type" -> "application/json"
+          "Content-Type" -> "application/json"
   )
 
   val json =
@@ -83,7 +68,7 @@ object TestAjaxRequest {
       |}
       |""".stripMargin
 
-  def query(updateRootPage: StreamSink[Unit]): Unit = {
+  def query(): Unit = {
 
     val ip = "commserver.asuscomm.com"
 
@@ -96,7 +81,9 @@ object TestAjaxRequest {
       .map(_.responseText).map(i.getObject(_)).onComplete(x => {
         val res1: UserMap = x.toOption.get.res.get
         NormalizedStateHolder.streamToSetInitialCacheState.send(res1)
-        snapshot.send(())
+        println(res1)
+        NormalizedStateHolder.user.cell
+          .listen(x => println(s"udate:$x"))
       })
 
   }

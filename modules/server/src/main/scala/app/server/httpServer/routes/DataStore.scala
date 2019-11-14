@@ -13,15 +13,21 @@ import scala.reflect.ClassTag
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import akka.util.Timeout
-import comm.crudRequests.{Command, GetAllEntityiesForUser, JSONConvertable, RouteName, ShutDown}
-import dataStorage.UserRef
+import comm.crudRequests.{
+  Command,
+  GetAllEntityiesForUser,
+  JSONConvertable,
+  RouteName,
+  ShutDown
+}
+import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.{EntityStorage, UserMap}
 import testingData.{TestDataStore, TestEntitiesForUsers}
 
 class PersistentActorImpl(id: String)
 //    extends PersistentActor
-extends PersistentActor
-with ActorLogging {
+    extends PersistentActor
+    with ActorLogging {
 
   var state = TestDataStore.testData
 
@@ -30,10 +36,11 @@ with ActorLogging {
       println("shutting down persistent actor")
       context.stop(self)
 
-    case GetAllEntityiesForUser(userRef: UserRef, resp) => {
+    case GetAllEntityiesForUser(userRef: RefToEntityOwningUser,
+                                resp) => {
       println(s"user uuid is : ${userRef.uuid}")
       val umap: UserMap = state.getUserMap(userRef)
-      sender ! GetAllEntityiesForUser(userRef,Some(umap))
+      sender ! GetAllEntityiesForUser(userRef, Some(umap))
     }
   }
 
@@ -43,7 +50,7 @@ with ActorLogging {
 
     case RecoveryCompleted => {
       log.info(
-        "Recovery completed \n\nState is:\n"
+              "Recovery completed \n\nState is:\n"
       )
     }
 
@@ -52,7 +59,8 @@ with ActorLogging {
 }
 
 case class RouteFactory(
-  implicit actorSystem:     ActorSystem,
+  implicit
+  actorSystem:              ActorSystem,
   executionContextExecutor: ExecutionContextExecutor) {
 
   private def getActor(
@@ -64,8 +72,8 @@ case class RouteFactory(
     Props(new PersistentActorImpl(id))
 
   val actor: ActorRef = getActor(
-    "the_one_and_only_parsistent_actor",
-    actorSystem
+          "the_one_and_only_parsistent_actor",
+          actorSystem
   )
 
   val route: Route = allRoutes
@@ -73,8 +81,8 @@ case class RouteFactory(
   import io.circe.generic.auto._
 
   private def allRoutes: Route =
-    getStaticRoute(rootPageHtml)~
-    GetEntitiesForUser.getEntitiesRoute
+    getStaticRoute(rootPageHtml) ~
+      GetEntitiesForUser.getEntitiesRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
@@ -87,14 +95,17 @@ case class RouteFactory(
       post {
         path(rn) {
           entity(as[String]) {
-            s => {
-              val i: JSONConvertable[GetAllEntityiesForUser] =
-                implicitly[JSONConvertable[GetAllEntityiesForUser]]
-              val getAllEntityiesForUser: GetAllEntityiesForUser = i.getObject(s)
-              val f=getEntitiesFuture(getAllEntityiesForUser)
-              val fs=f.map(x=>i.getJSON(x))
-              complete(fs)
-            }
+            s =>
+
+              {
+                val i: JSONConvertable[GetAllEntityiesForUser] =
+                  implicitly[JSONConvertable[GetAllEntityiesForUser]]
+                val getAllEntityiesForUser: GetAllEntityiesForUser =
+                  i.getObject(s)
+                val f  = getEntitiesFuture(getAllEntityiesForUser)
+                val fs = f.map(x => i.getJSON(x))
+                complete(fs)
+              }
           }
         }
       }

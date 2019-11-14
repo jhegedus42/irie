@@ -1,12 +1,12 @@
 package comm.crudRequests
 
-import dataStorage.UserRef
+import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 import io.circe._
-import dataStorage.UserRef
+import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import io.circe.Decoder.Result
 import io.circe.parser._
@@ -18,13 +18,15 @@ case object ShutDown extends Command
 
 @JsonCodec
 case class GetAllEntityiesForUser(
-  par: UserRef,
+  par: RefToEntityOwningUser,
   res: Option[UserMap])
     extends Command
 
 object GetAllEntityiesForUser {
+
   implicit val jSONConvertable =
     new JSONConvertable[GetAllEntityiesForUser] {
+
       override def getJSON(v: GetAllEntityiesForUser): String =
         v.asJson.spaces4
 
@@ -44,6 +46,7 @@ trait RouteName[V] {
 }
 
 object RouteName {
+
   implicit val users = new RouteName[GetAllEntityiesForUser] {
     override def getRouteName: String = "GetAllEntityiesForUser"
   }
@@ -54,6 +57,4 @@ trait JSONConvertable[V] {
   def getObject(json: String): V
 }
 
-object JSONConvertable {
-
-}
+object JSONConvertable {}
