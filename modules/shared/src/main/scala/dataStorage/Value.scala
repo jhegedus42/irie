@@ -18,8 +18,8 @@ sealed trait Value[T <: Value[T]] {}
 //@JsonCodec
 object Value {
 
-  def getName[T <: Value[T]](implicit classTag: ClassTag[T]): String =
-    classTag.getClass.getSimpleName
+  def getName[T <: Value[T]](implicit classTag: ClassTag[T]):TypeName =
+    TypeName(classTag.getClass.getSimpleName)
 }
 
 @JsonCodec

@@ -1,5 +1,6 @@
 package client
 
+import client.cache.{Cache, NormalizedStateHolder}
 import client.sodium.core.StreamSink
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
 import dataStorage.stateHolder.UserMap
@@ -31,14 +32,16 @@ object Main extends js.JSApp {
 
   button.streamSink.listen((x: Unit) => makeTestRequest())
 
-  val umap = new StreamSink[UserMap]()
-  val cellUmap=umap.hold(UserMap())
-  cellUmap.listen(
-        (a:UserMap)=> {
-          val b= a.list.map(_._1)
-          b.foreach(println)
-    }
-  )
+//  val umap = new StreamSink[UserMap]()
+//  val cellUmap=umap.hold(UserMap())
+//
+//  cellUmap.listen(
+//        (a:UserMap)=> {
+//          val b= a.list.map(_._1)
+//          b.foreach(println)
+//    }
+//  )
+
 }
 
 
@@ -72,7 +75,7 @@ object TestAjaxRequest {
             headers = headers)
       .map(_.responseText).map(i.getObject(_)).onComplete(x=>{
       val res1: UserMap =x.toOption.get.res.get
-      Main.umap.send(res1)
+      NormalizedStateHolder.setNormalizedState.send(res1)
     })
   }
 
