@@ -7,9 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -384,13 +384,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00500" summary="Starting to write a server side API that saves the data to the filesystem.">
-      <created>1572968255045</created>
-      <option name="number" value="00500" />
-      <option name="presentableId" value="LOCAL-00500" />
-      <option name="project" value="LOCAL" />
-      <updated>1572968255045</updated>
-    </task>
     <task id="LOCAL-00501" summary="Refactoring the directory system.">
       <created>1572977327060</created>
       <option name="number" value="00501" />
@@ -727,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573674137567</updated>
     </task>
-    <option name="localTasksCounter" value="549" />
+    <task id="LOCAL-00549" summary="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture">
+      <created>1573695300930</created>
+      <option name="number" value="00549" />
+      <option name="presentableId" value="LOCAL-00549" />
+      <option name="project" value="LOCAL" />
+      <updated>1573695300931</updated>
+    </task>
+    <option name="localTasksCounter" value="550" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -805,7 +805,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Starting to write a server side API that saves the data to the filesystem." />
     <MESSAGE value="Refactoring the directory system." />
     <MESSAGE value="View dummy compiled." />
     <MESSAGE value="Sodium based caching implementation is in progress." />
@@ -830,7 +829,8 @@
     <MESSAGE value="sodium + ajax seems to work on simple tests" />
     <MESSAGE value="reactive, cell based, sodium cache implementation on client side is in progress" />
     <MESSAGE value="jetbrains acknowledgement" />
-    <option name="LAST_COMMIT_MESSAGE" value="jetbrains acknowledgement" />
+    <MESSAGE value="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

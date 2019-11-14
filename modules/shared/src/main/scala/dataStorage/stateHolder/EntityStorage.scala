@@ -1,6 +1,6 @@
 package dataStorage.stateHolder
 
-import dataStorage.stateHolder.EntityStorage.RefMap
+import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
 import dataStorage.{
   Ref,
   ReferencedValue,
@@ -15,7 +15,10 @@ import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
 import testingData.TestDataStore.ue
 
-case class EntityStorage(val refMap: RefMap = RefMap()) {
+import cats.implicits._, cats._, cats.derived._
+
+case class EntityStorage(
+  val untypedJSONMap: UntypedJSONMap = UntypedJSONMap()) {
 
   type Key = UnTypedRef
 
@@ -23,22 +26,24 @@ case class EntityStorage(val refMap: RefMap = RefMap()) {
     t:    UnTypedRef,
     json: Json
   ): Unit = {
-    val newMap = RefMap(refMap.map.updated(t, json))
+    val newMap = UntypedJSONMap(
+      untypedJSONMap.untypedMap.updated(t, json)
+    )
     EntityStorage(newMap)
   }
 
   def getUserMap(ref: UserRef): UserMap = {
-    val res =
-      refMap.map.filterKeys(_.userRef.uuid == ref.uuid)
-    UserMap(ref, refMap.map.toList)
+    val res: Map[Key, Json] =
+      untypedJSONMap.untypedMap.filterKeys(_.userRef.uuid == ref.uuid)
+    UserMap(ref, untypedJSONMap.untypedMap.toList)
   }
 
   def insert(
     t:    UnTypedRef,
     json: Json
   ): EntityStorage = {
-    val newMap = refMap.map + ((t, json))
-    EntityStorage(RefMap(newMap))
+    val newMap = untypedJSONMap.untypedMap + ((t, json))
+    EntityStorage(UntypedJSONMap(newMap))
   }
 
   def insertHelper[V <: Value[V]](
@@ -54,14 +59,29 @@ case class EntityStorage(val refMap: RefMap = RefMap()) {
 
 object EntityStorage {
 
-  import dataStorage.stateHolder.EntityStorage.RefMap
+  import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
   import dataStorage.{Ref, ReferencedValue, User, UserRef, Value}
   import io.circe.{Json, KeyEncoder}
   import io.circe.syntax._
   import io.circe.generic.auto._
   import io.circe.generic.JsonCodec
+  import cats.implicits._, cats._, cats.derived._
+  import cats.derived
+  import cats.derived.auto.functor
+  import derived.cached.show._
 
-  case class RefMap(
-    map: Map[UnTypedRef, Json] = Map[UnTypedRef, Json]())
+
+  /**
+    * the JSON contains a ReferencedValue[V] type
+    * where V is Value[V]
+    * @param untypedMap
+    */
+  case class UntypedJSONMap(
+    untypedMap: Map[UnTypedRef, Json] = Map[UnTypedRef, Json]())
+
+
+
+
+
 
 }

@@ -1,6 +1,6 @@
 package dataStorage.stateHolder
 
-import dataStorage.stateHolder.EntityStorage.RefMap
+import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
