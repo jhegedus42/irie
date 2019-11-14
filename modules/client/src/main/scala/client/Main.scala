@@ -3,8 +3,9 @@ package client
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
 import client.sodium.core.StreamSink
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
-import dataStorage.User
+import dataStorage.{RefToEntityOwningUser, User}
 import dataStorage.stateHolder.UserMap
+import io.circe.Json
 import org.scalajs.dom.document
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.Element
@@ -27,6 +28,7 @@ import japgolly.scalajs.react.internal.Effect.Id
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import org.scalajs.dom.html.Div
 import sodium.core._
+import testingData.TestEntitiesForUsers
 
 @JSExport("Main")
 object Main extends js.JSApp {
@@ -49,34 +51,33 @@ object Main extends js.JSApp {
 
 object TestAjaxRequest {
 
-  implicit def executionContext: ExecutionContextExecutor =
-    scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-
-  import io.circe.syntax._
-
-  val headers: Map[String, String] = Map(
-          "Content-Type" -> "application/json"
-  )
-
-  val json =
-    """
-      |{
-      |    "par" : {
-      |        "uuid" : "53e69a57-5da3-44a7-bb67-e98752ca9a9c"
-      |    },
-      |    "res" : null
-      |}
-      |""".stripMargin
-
   def query(): Unit = {
+
+    implicit def executionContext: ExecutionContextExecutor =
+      scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+    import io.circe.syntax._
+
+    val headers: Map[String, String] = Map(
+            "Content-Type" -> "application/json"
+    )
 
     val ip = "commserver.asuscomm.com"
 
-    val i        = implicitly[JSONConvertable[GetAllEntityiesForUser]]
-    val snapshot = new StreamSink[Unit]()
+    val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
+
+    val owner: RefToEntityOwningUser =
+      RefToEntityOwningUser.makeFromRef(
+              TestEntitiesForUsers.aliceEntity.ref
+      )
+
+    val q = GetAllEntityiesForUser(owner, None)
+
+    val j: Json = q.asJson
+
     Ajax
       .post(s"http://$ip:8080/GetAllEntityiesForUser",
-            json,
+            j.spaces4,
             headers = headers)
       .map(_.responseText).map(i.getObject(_)).onComplete(x => {
         val res1: UserMap = x.toOption.get.res.get

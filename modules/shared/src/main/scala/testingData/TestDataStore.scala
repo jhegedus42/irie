@@ -24,18 +24,20 @@ object TestDataStore extends App {
 
   println(io.circe.Decoder[Value[User]].decodeJson(res))
 
-  lazy val ae = io.circe
-    .Encoder[ReferencedValue[User]]
-    .apply(TestEntitiesForUsers.aliceEntity)
-  println(ae)
+//  lazy val ae = io.circe
+//    .Encoder[ReferencedValue[User]]
+//    .apply(TestEntitiesForUsers.aliceEntity)
+//  println(ae)
 
 //  println(Ref.name2[User])
 
   lazy val ue = EntityStorage()
 
-  lazy val aliceEnt: ReferencedValue[User] = TestEntitiesForUsers.aliceEntity
+  lazy val aliceEnt: ReferencedValue[User] =
+    TestEntitiesForUsers.aliceEntity_with_UUID0
 
   import TestEntitiesForUsers._
+
   def testData: EntityStorage =
     ue.insertHelper(aliceEnt)
       .insertHelper(bobEntity)

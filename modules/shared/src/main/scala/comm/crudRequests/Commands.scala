@@ -1,7 +1,5 @@
 package comm.crudRequests
 
-import dataStorage.RefToEntityOwningUser
-import dataStorage.stateHolder.UserMap
 import io.circe.syntax._
 import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
@@ -10,7 +8,6 @@ import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import io.circe.Decoder.Result
 import io.circe.parser._
-import jdk.nashorn.internal.parser.JSONParser
 
 sealed trait Command
 

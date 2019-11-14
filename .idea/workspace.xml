@@ -6,24 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/UserRef.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RefToEntityOwningUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Value.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/UserMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RefToEntityOwningUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/RefToEntityOwningUser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -423,13 +410,6 @@
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
     </task>
-    <task id="LOCAL-00504" summary="Sodium based caching implementation is in progress.">
-      <created>1573178892038</created>
-      <option name="number" value="00504" />
-      <option name="presentableId" value="LOCAL-00504" />
-      <option name="project" value="LOCAL" />
-      <updated>1573178892038</updated>
-    </task>
     <task id="LOCAL-00505" summary="Sodium based caching implementation is in progress.">
       <created>1573181496972</created>
       <option name="number" value="00505" />
@@ -766,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573708083990</updated>
     </task>
-    <option name="localTasksCounter" value="553" />
+    <task id="LOCAL-00553" summary="List of users populating works">
+      <created>1573773547800</created>
+      <option name="number" value="00553" />
+      <option name="presentableId" value="LOCAL-00553" />
+      <option name="project" value="LOCAL" />
+      <updated>1573773547800</updated>
+    </task>
+    <option name="localTasksCounter" value="554" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,7 +831,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Sodium based caching implementation is in progress." />
     <MESSAGE value="upgrade to sodium cache is in progress" />
     <MESSAGE value="upgrade to sodium cache is in progress`" />
     <MESSAGE value="Mielott mindent szetbaszok." />
@@ -869,7 +855,8 @@
     <MESSAGE value="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture" />
     <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser" />
     <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress" />
+    <MESSAGE value="List of users populating works" />
+    <option name="LAST_COMMIT_MESSAGE" value="List of users populating works" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
