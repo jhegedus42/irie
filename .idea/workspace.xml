@@ -6,9 +6,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumPreformattedText.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/components/SodiumRootComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/Ref.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/ReferencedValue.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/plugins.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugins.sbt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +97,17 @@
       </set>
     </option>
   </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -119,11 +141,21 @@
     <property name="extensionJars" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/testingData" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Scala" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -318,8 +350,16 @@
           <value>
             <list>
               <ExternalProjectPojo>
+                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
@@ -328,14 +368,6 @@
               <ExternalProjectPojo>
                 <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
-                <option name="name" value="client [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -352,18 +384,22 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7842513993189" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
         <entry key="$PROJECT_DIR$/project/Settings.scala" value="2286484635" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
-        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="3743763501" />
+        <entry key="$PROJECT_DIR$/project/plugins.sbt" value="1990742216" />
       </map>
     </option>
   </component>
   <component name="ScalaProjectSettings">
     <option name="groupPackageObjectWithPackage" value="true" />
+    <option name="intInjectionMapping">
+      <map>
+        <entry key="xml" value="XML" />
+      </map>
+    </option>
     <option name="projectViewHighlighting" value="true" />
     <option name="showArgumentsToByNameParams" value="true" />
   </component>
@@ -382,13 +418,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561512520495</updated>
-    </task>
-    <task id="LOCAL-00503" summary="View dummy compiled.">
-      <created>1573158877153</created>
-      <option name="number" value="00503" />
-      <option name="presentableId" value="LOCAL-00503" />
-      <option name="project" value="LOCAL" />
-      <updated>1573158877153</updated>
     </task>
     <task id="LOCAL-00504" summary="Sodium based caching implementation is in progress.">
       <created>1573178892038</created>
@@ -726,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573706262564</updated>
     </task>
-    <option name="localTasksCounter" value="552" />
+    <task id="LOCAL-00552" summary="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress">
+      <created>1573708083988</created>
+      <option name="number" value="00552" />
+      <option name="presentableId" value="LOCAL-00552" />
+      <option name="project" value="LOCAL" />
+      <updated>1573708083990</updated>
+    </task>
+    <option name="localTasksCounter" value="553" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -804,7 +840,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="View dummy compiled." />
     <MESSAGE value="Sodium based caching implementation is in progress." />
     <MESSAGE value="upgrade to sodium cache is in progress" />
     <MESSAGE value="upgrade to sodium cache is in progress`" />
@@ -829,7 +864,8 @@
     <MESSAGE value="jetbrains acknowledgement" />
     <MESSAGE value="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture" />
     <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug: type name is null in the returned JSON for GetAllEntitesForUser" />
+    <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

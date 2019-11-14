@@ -1,7 +1,14 @@
 package dataStorage.stateHolder
 
 import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
-import dataStorage.{Ref, ReferencedValue, UnTypedRef, User, UserRef, Value}
+import dataStorage.{
+  Ref,
+  ReferencedValue,
+  UnTypedRef,
+  User,
+  UserRef,
+  Value
+}
 import io.circe.{Encoder, Json, KeyDecoder, KeyEncoder}
 import io.circe.syntax._
 import io.circe.generic.auto._
@@ -33,7 +40,7 @@ case class EntityStorage(
     UserMap(ref, untypedJSONMap.untypedMap.toList)
   }
 
-  def insert(
+  private def insert(
     t:    UnTypedRef,
     json: Json
   ): EntityStorage = {
@@ -45,12 +52,11 @@ case class EntityStorage(
     r: ReferencedValue[V]
   )(
     implicit enc: Encoder[ReferencedValue[V]],
-    typeable: Typeable[V])
-  : EntityStorage = {
-    //todo-now
-    r.addTypeInfo()
-    val j = r.asJson
-    this.insert(r.ref.unTypedRef.addTypeInfo[V](typeable), j)
+    typeable:     Typeable[V]
+  ): EntityStorage = {
+    val r2: ReferencedValue[V] = r.addTypeInfo()
+    val j = r2.asJson
+    this.insert(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
   }
 
 }
@@ -68,7 +74,6 @@ object EntityStorage {
   import cats.derived.auto.functor
   import derived.cached.show._
 
-
   /**
     * the JSON contains a ReferencedValue[V] type
     * where V is Value[V]
@@ -76,10 +81,5 @@ object EntityStorage {
     */
   case class UntypedJSONMap(
     untypedMap: Map[UnTypedRef, Json] = Map[UnTypedRef, Json]())
-
-
-
-
-
 
 }
