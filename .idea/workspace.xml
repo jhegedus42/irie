@@ -6,9 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/TestAjaxRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -830,7 +828,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Mielott mindent szetbaszok." />
     <MESSAGE value="removed half of the code" />
     <MESSAGE value="heavy changes" />
     <MESSAGE value="code has been pruned heavily - but at least, it compiles" />
@@ -855,7 +852,8 @@
     <MESSAGE value="List of users populating works" />
     <MESSAGE value="abstracting Sodium Component Creation" />
     <MESSAGE value="SodiumStringList implemented, code compiles, not tested yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="SodiumStringList implemented, code compiles, not tested yet" />
+    <MESSAGE value="Cleaning up code + root react component, which can contain&#10;several other (Sodium) components." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up code + root react component, which can contain&#10;several other (Sodium) components." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
