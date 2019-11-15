@@ -11,7 +11,6 @@ import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.Element
 import sodium.components.{
   SodiumButton,
-  SodiumList,
   SodiumPreformattedText,
   SodiumRootComp
 }
