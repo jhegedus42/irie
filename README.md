@@ -114,5 +114,3 @@ has [built in support for Scala.js](https://plugins.jetbrains.com/plugin/1347-sc
 in which large portion of this project is written.
 Their support is gratelfully appreciated. 
 
-
-# fpr-neural-network
