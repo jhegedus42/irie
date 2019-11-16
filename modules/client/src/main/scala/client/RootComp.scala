@@ -1,6 +1,6 @@
 package client
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
-import client.sodium.components.SodiumPreformattedText
+import client.sodium.app.reactComponents.SodiumPreformattedText
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
@@ -20,12 +20,16 @@ object RootComp {
 
     val sc = SodiumPreformattedText(s).comp
 
-    val Hello =
+    val rootComp =
       ScalaComponent
         .builder[String]("Hello")
         .render_P(name => <.div("Hello there ", name, sc()))
         .build
-    Hello
+
+    rootComp
   }
+
+  // todo-now, add new user
+  // SodiumAction - Insert New Entity
 
 }

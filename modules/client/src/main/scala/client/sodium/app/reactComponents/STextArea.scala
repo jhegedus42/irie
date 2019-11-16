@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import japgolly.scalajs.react.vdom.html_<^.{<, ^}
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
@@ -13,24 +13,27 @@ import client.sodium.core.{Cell, StreamSink}
 
 case class STextArea(init: String) {
 
-  private val stream:StreamSink[String] = new StreamSink[String]()
-  val cell: Cell[String] = stream.hold(init)
+  private val stream: StreamSink[String] = new StreamSink[String]()
+  val cell:           Cell[String]       = stream.hold(init)
 
   class Backend($ : BackendScope[Unit, String]) {
 
     def render(text: String) = {
-        def onChange(e: ReactEventFromInput): Callback = {
-          println("callback called")
-          val newValue: String = e.target.value
+      def onChange(e: ReactEventFromInput): Callback = {
+        println("callback called")
+        val newValue: String = e.target.value
 
-          Callback(stream.send(newValue))>>
-          $.setState(newValue) >> Callback { println(s"client.state is $newValue")}
-
+        Callback(stream.send(newValue)) >>
+          $.setState(newValue) >> Callback {
+          println(s"client.state is $newValue")
         }
 
-        <.div(
-          <.textarea(^.onChange ==> onChange, ^.value := cell.sample())
-        )
+      }
+
+      <.div(
+              <.textarea(^.onChange ==> onChange,
+                         ^.value := cell.sample())
+      )
     }
 
   }

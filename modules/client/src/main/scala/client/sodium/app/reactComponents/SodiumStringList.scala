@@ -1,7 +1,7 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import client.sodium.core._
-import client.sodium.components.SodiumStringList.State
+import client.sodium.app.reactComponents.SodiumStringList.State
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.vdom.html_<^.<

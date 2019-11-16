@@ -7,8 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -830,7 +829,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="heavy changes" />
     <MESSAGE value="code has been pruned heavily - but at least, it compiles" />
     <MESSAGE value="code is still under heavy cleaning up.... and simplification....&#10;&#10;both sides will be based on some sort of reactive solutions." />
     <MESSAGE value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
@@ -855,7 +853,8 @@
     <MESSAGE value="SodiumStringList implemented, code compiles, not tested yet" />
     <MESSAGE value="Cleaning up code + root react component, which can contain&#10;several other (Sodium) components." />
     <MESSAGE value="Some more slow progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some more slow progress." />
+    <MESSAGE value="Back button effect is disabled (&quot;simple router&quot;)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Back button effect is disabled (&quot;simple router&quot;)." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

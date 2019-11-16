@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import japgolly.scalajs.react.component.ScalaFn.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, ^}
@@ -12,12 +12,14 @@ case class SButton(val name: String = "Button") {
   val sClickedSink = new StreamSink[Unit]
 
   val getVDOM: Component[Unit, CtorType.Nullary] =
-    ScalaFnComponent[Unit] { props: Unit =>
-      <.div(
-        <.button(name, ^.onClick --> Callback({
-          sClickedSink.send(Unit)
-        }))
-      )
+    ScalaFnComponent[Unit] {
+      props: Unit =>
+
+        <.div(
+                <.button(name, ^.onClick --> Callback({
+                  sClickedSink.send(Unit)
+                }))
+        )
     }
 
 }

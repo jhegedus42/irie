@@ -7,7 +7,7 @@ import client._notRelevant.caching.cache.sodiumCache.SodiumEntityCache
 import client._notRelevant.caching.cacheInjector.ReRenderer
 import client._notRelevant.components.{LoginPage, MainPage}
 import client._notRelevant.components.mainPages.pages.login.LoginPageComp.State.LoginPageCompState
-import client.sodium.components.SButton
+import client.sodium.app.components.SButton
 import client.sodium.SodiumWidgets.SodiumButtom
 import client._notRelevant.ui.dom.Window
 import app.shared.syncedState.comm.postRequests.LoginReq

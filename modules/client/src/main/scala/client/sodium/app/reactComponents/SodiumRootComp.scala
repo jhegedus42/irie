@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.<
@@ -35,7 +35,10 @@ case class SodiumRootComp(val vdom: VdomTagOf[Div]) {
 
   class Backend($ : BackendScope[Int, String]) {
 
-    def render(i: Int, s: String): VdomElement = vdom
+    def render(
+      i: Int,
+      s: String
+    ): VdomElement = vdom
 
   }
 }

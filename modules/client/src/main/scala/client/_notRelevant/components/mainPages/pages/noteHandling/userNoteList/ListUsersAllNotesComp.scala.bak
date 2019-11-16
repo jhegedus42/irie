@@ -6,7 +6,7 @@ import client._notRelevant.components.mainPages.pages.login.UserLoginStatus
 import client._notRelevant.components.mainPages.pages.noteHandling.noteEditor.NoteEditorComp.NoteEditorPage
 import client._notRelevant.components.mainPages.pages.noteHandling.userNoteList.ListUsersAllNotesComp.{PropsImpl, StateImpl}
 import client._notRelevant.components.router.RouterComp
-import client.sodium.components.SButton
+import client.sodium.app.components.SButton
 import client._notRelevant.ui.dom.Window
 import app.shared.syncedState.comm.postRequests.read.{GetLatestEntityByIDReq, GetUsersNotesReq}
 import app.shared.syncedState.comm.postRequests.read.GetUsersNotesReq.Par

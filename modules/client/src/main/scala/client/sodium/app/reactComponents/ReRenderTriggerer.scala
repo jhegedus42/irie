@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 case class ReRenderTriggerer(f: Option[() => Unit]) {
 

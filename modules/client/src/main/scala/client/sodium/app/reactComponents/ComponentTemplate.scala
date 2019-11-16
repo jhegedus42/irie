@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import client.sodium.core.Stream
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}

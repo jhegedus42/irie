@@ -1,4 +1,4 @@
-package client.sodium.components
+package client.sodium.app.reactComponents
 
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.<
@@ -28,7 +28,10 @@ case class SodiumPreformattedText(s: Stream[String]) {
 
   class Backend($ : BackendScope[Unit, String]) {
 
-    def render(i: Unit, text: String): VdomElement = <.pre(text)
+    def render(
+      i:    Unit,
+      text: String
+    ): VdomElement = <.pre(text)
 
   }
 }
