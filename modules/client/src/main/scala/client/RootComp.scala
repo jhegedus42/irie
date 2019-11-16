@@ -29,6 +29,7 @@ object RootComp {
     val createNewUserButton = SodiumButton("Create New User")
     val text                = createNewUserButton.streamSink.snapshot(userName.cell)
     val writeToConsole      = SodiumActionWriteToConsole(text)
+    // todo-now => create a user ...
 
     def render(s: String): VdomElement = {
       <.div("Hello there ",
