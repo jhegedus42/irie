@@ -12,7 +12,7 @@ case class SodiumButton(name: String = "Button") {
 
   val streamSink = new StreamSink[Unit]()
 
-  val getVDOM: Component[Unit, CtorType.Nullary] =
+  val vdom: Component[Unit, CtorType.Nullary] =
     ScalaFnComponent[Unit] {
       props: Unit =>
 

@@ -1,6 +1,11 @@
 package client
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
-import client.sodium.app.reactComponents.SodiumPreformattedText
+import client.sodium.app.actions.SodiumActionWriteToConsole
+import client.sodium.app.reactComponents.{
+  STextArea,
+  SodiumButton,
+  SodiumPreformattedText
+}
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
@@ -20,10 +25,23 @@ object RootComp {
 
     val sc = SodiumPreformattedText(s).comp
 
+    val userName            = STextArea("init_text")
+    val createNewUserButton = SodiumButton("Create New User")
+    val text                = createNewUserButton.streamSink.snapshot(userName.cell)
+    val writeToConsole      = SodiumActionWriteToConsole(text)
+
+    def render(s: String): VdomElement = {
+      <.div("Hello there ",
+            s,
+            sc(),
+            userName.vdom(),
+            createNewUserButton.vdom())
+    }
+
     val rootComp =
       ScalaComponent
         .builder[String]("Hello")
-        .render_P(name => <.div("Hello there ", name, sc()))
+        .render_P(render)
         .build
 
     rootComp

@@ -38,7 +38,7 @@ case class STextArea(init: String) {
 
   }
 
-  val component = ScalaComponent
+  val vdom = ScalaComponent
     .builder[Unit]("STextArea")
     .initialState(init)
     .renderBackend[Backend]
