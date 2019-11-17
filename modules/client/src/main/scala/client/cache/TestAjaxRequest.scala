@@ -1,6 +1,5 @@
-package client
+package client.cache
 
-import client.cache.NormalizedStateHolder
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap

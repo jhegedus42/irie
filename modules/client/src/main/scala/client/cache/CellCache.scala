@@ -36,13 +36,14 @@ case class CacheMap[V <: Value[V]](
               s + s"${v._1.unTypedRef.typeName} ${v._1.unTypedRef.uuid}  ${v._2.entityValue}\n"
     )
   }
+
 }
 
 object CacheMap {}
 
 case class Cache[V <: Value[V]](
   cell: (Cell[CacheMap[V]]),
-  name: String)
+  name: String) {}
 
 case class CacheMaker[V <: Value[V]](
   streamSink: StreamSink[UserMap]) {

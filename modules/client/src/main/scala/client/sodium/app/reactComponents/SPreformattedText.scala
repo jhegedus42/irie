@@ -8,7 +8,7 @@ import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 import client.sodium.core._
 
-case class SodiumPreformattedText(s: Stream[String]) {
+case class SPreformattedText(s: Stream[String]) {
 
   val comp = ScalaComponent
     .builder[Unit]("SodiumPreformattedText")

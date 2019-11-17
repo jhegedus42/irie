@@ -14,8 +14,8 @@ case class SodiumStringList(input: Stream[State]) {
   }
 
   val ct
-    : (Stream[State], String, State, State => VdomElement) => ComponentTemplate[State] =
-    ComponentTemplate[State]
+    : (Stream[State], String, State, State => VdomElement) => SComponentTemplate[State] =
+    SComponentTemplate[State]
 
   val comp = ct(input, "SodiumStringList", State(), renderer(_))
 

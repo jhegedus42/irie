@@ -1,10 +1,11 @@
-package client
+package client.ui
+
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
 import client.sodium.app.actions.SodiumActionWriteToConsole
 import client.sodium.app.reactComponents.{
   STextArea,
   SodiumButton,
-  SodiumPreformattedText
+  SPreformattedText
 }
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
@@ -23,7 +24,7 @@ object RootComp {
     val s = userCache.cell
       .updates().map((c: CacheMap[User]) => c.getPrettyPrintedString)
 
-    val sc = SodiumPreformattedText(s).comp
+    val sc = SPreformattedText(s).comp
 
     val userName            = STextArea("init_text")
     val createNewUserButton = SodiumButton("Create New User")

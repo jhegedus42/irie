@@ -5,7 +5,7 @@ import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.<
 
-case class ComponentTemplate[V](
+case class SComponentTemplate[V](
   input:         Stream[V],
   componentName: String,
   initialState:  V,

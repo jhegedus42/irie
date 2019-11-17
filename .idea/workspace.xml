@@ -6,15 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/package.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SodiumActionCreateNewEntity.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SodiumActionWriteToConsole.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/package.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/Router.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/login/UserLoginStatus.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SodiumCreateNewEntityAction.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/STextArea.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/TestAjaxRequest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Window.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/login/Window.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/package.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/ComponentTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SComponentTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumLabel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SLabel.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SPreformattedText.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumRootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumRootComp.scala.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumStringList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumStringList.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/wrappers/LoginSwitcher.scala.bak" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/wrappers/LoginSwitcher.scala.bak" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,9 +70,9 @@
       <list>
         <option value="ScalaTest Class" />
         <option value="Scala Trait" />
-        <option value="Scala Class" />
-        <option value="Scala Object" />
         <option value="Package Object" />
+        <option value="Scala Object" />
+        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -134,7 +140,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extensionJars" value="" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/client" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/login" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -167,11 +173,11 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="client.ui.login" />
       <recent name="client" />
       <recent name="TestDataStore" />
       <recent name="testingData" />
       <recent name="dataStorage" />
-      <recent name="comm.crudRequests" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -836,8 +842,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="code is still under heavy cleaning up.... and simplification....&#10;&#10;both sides will be based on some sort of reactive solutions." />
-    <MESSAGE value="code has been nuked to death, and now I am trying&#10;to build it out again based on Sodium and very simple&#10;server logic that only stores normalized data,&#10;denormalization will only take place on the client,&#10;the client will send back CRUD or sets of (CRUD sommands)&#10;executeded in a single transation" />
     <MESSAGE value="Mar csak 30 compiler hiba van hatra...." />
     <MESSAGE value="lefordul, van 1 gomb" />
     <MESSAGE value="dealbreaker for slinky ?" />
@@ -861,7 +865,9 @@
     <MESSAGE value="Some more slow progress." />
     <MESSAGE value="Back button effect is disabled (&quot;simple router&quot;)." />
     <MESSAGE value="Refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring." />
+    <MESSAGE value="Create User Button." />
+    <MESSAGE value="Create new user is in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create new user is in progress." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

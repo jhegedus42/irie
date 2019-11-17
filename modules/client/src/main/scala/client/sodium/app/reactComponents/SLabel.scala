@@ -8,7 +8,7 @@ import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
 import japgolly.scalajs.react.vdom.html_<^._
 import client.sodium.core.Cell
 
-case class SodiumLabel(val c: Cell[String]) {
+case class SLabel(val c: Cell[String]) {
 
   def sampledValue = c.sample()
 

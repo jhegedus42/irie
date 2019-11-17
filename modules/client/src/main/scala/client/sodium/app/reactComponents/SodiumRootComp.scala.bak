@@ -21,7 +21,7 @@ case class SodiumRootComp(val vdom: VdomTagOf[Div]) {
   lazy val updateRootPage = new StreamSink[Unit]()
 
   val comp = ScalaComponent
-    .builder[Int]("SodiumLabel")
+    .builder[Int]("SodiumRootComp")
     .initialState("label")
     .renderBackend[Backend]
     .componentWillMount(f => {
