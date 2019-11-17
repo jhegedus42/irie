@@ -2,10 +2,14 @@ package client.ui
 
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
 import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponents.atomicElements.{
+import client.sodium.app.reactComponents.atomicComponents.{
   SButton,
   SPreformattedText,
   STextArea
+}
+import client.sodium.app.reactComponents.compositeComponents.{
+  CounterExample,
+  HelloWorldTemplate
 }
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
@@ -28,7 +32,7 @@ object RootComp {
 
     val userName            = STextArea("init_text")
     val createNewUserButton = SButton("Create New User")
-    val text                = createNewUserButton.streamSink.snapshot(userName.cell)
+    val text                = createNewUserButton.getClick.snapshot(userName.cell)
     val writeToConsole      = SActionWriteToConsole(text)
     // todo-now => create a user ...
 
@@ -36,8 +40,12 @@ object RootComp {
       <.div("Hello there ",
             s,
             sc(),
-            userName.vdom(),
-            createNewUserButton.vdom())
+            userName.comp(),
+            createNewUserButton.vdom(),
+            <.br,
+            HelloWorldTemplate().getComp(),
+            <.br,
+            CounterExample().getComp())
     }
 
     val rootComp =

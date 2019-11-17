@@ -1,6 +1,8 @@
-package client.ui
-import scala.scalajs.js
+package client.ui.router
+
 import org.scalajs.{dom => d}
+
+import scala.scalajs.js
 
 object Router {
   // https://stackoverflow.com/questions/25806608/how-to-detect-browser-back-button-event-cross-browser

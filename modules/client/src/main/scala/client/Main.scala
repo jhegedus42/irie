@@ -1,7 +1,8 @@
 package client
 
 import client.cache.TestAjaxRequest
-import client.ui.{RootComp, Router}
+import client.ui.RootComp
+import client.ui.router.Router
 import org.scalajs.{dom => d}
 import org.scalajs.dom.raw.Element
 

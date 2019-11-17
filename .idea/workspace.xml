@@ -6,17 +6,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/CellTemplate.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/CounterExample.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/HelloWorldTemplate.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SodiumActionCreateNewEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SActionCreateNewEntity.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SodiumActionWriteToConsole.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SActionWriteToConsole.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/ReRenderTriggerer.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SButton.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SComponentTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SComponentTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/STextArea.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SButton.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/SodiumStringList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SStringList.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/SButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SComponentTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/StreamTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/SPreformattedText.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/SStringList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/SStringList.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicElements/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/STextArea.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/Router.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/router/Router.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -838,7 +840,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ditching slinky for now... continuing with scalajs-react" />
     <MESSAGE value="slow progress, hopefully without any big surprises" />
     <MESSAGE value="things got a bit simpler" />
     <MESSAGE value="slow progress, code compiles" />
@@ -863,7 +864,8 @@
     <MESSAGE value="After some refactoring and cleanup." />
     <MESSAGE value="Before." />
     <MESSAGE value="After." />
-    <option name="LAST_COMMIT_MESSAGE" value="After." />
+    <MESSAGE value="Snapshot." />
+    <option name="LAST_COMMIT_MESSAGE" value="Snapshot." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

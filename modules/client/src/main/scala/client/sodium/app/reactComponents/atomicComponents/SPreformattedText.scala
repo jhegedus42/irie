@@ -1,4 +1,4 @@
-package client.sodium.app.reactComponents.atomicElements
+package client.sodium.app.reactComponents.atomicComponents
 
 import client.sodium.core._
 import japgolly.scalajs.react.vdom.VdomElement
