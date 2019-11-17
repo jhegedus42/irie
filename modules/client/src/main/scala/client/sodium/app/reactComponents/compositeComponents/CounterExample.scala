@@ -1,6 +1,6 @@
 package client.sodium.app.reactComponents.compositeComponents
 
-import client.cache.{Cache, CacheMap, NormalizedStateHolder}
+import client.cache.{Cache, CacheMap, CacheProvider}
 import client.sodium.app.actions.SActionWriteToConsole
 import client.sodium.app.reactComponents.atomicComponents.{
   CellTemplate,

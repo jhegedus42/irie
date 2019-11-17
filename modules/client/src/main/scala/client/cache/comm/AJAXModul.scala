@@ -1,4 +1,4 @@
-package client.cache
+package client.cache.comm
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -9,7 +9,4 @@ object AJAXModul {
 
   import io.circe.syntax._
 
-
-
 }
-

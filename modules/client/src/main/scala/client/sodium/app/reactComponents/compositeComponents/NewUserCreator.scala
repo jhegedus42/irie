@@ -1,6 +1,6 @@
 package client.sodium.app.reactComponents.compositeComponents
 
-import client.cache.{Cache, CacheMap, NormalizedStateHolder}
+import client.cache.{Cache, CacheMap, CacheProvider}
 import client.sodium.app.actions.SActionWriteToConsole
 import client.sodium.app.reactComponents.atomicComponents.{
   SButton,
@@ -18,7 +18,7 @@ case class NewUserCreator() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val userCache: Cache[User] = NormalizedStateHolder.user
+  lazy val userCache: Cache[User] = Cache.user
 
   def getComp = {
     val s = userCache.cell

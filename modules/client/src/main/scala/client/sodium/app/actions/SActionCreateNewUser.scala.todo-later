@@ -1,0 +1,15 @@
+package client.sodium.app.actions
+
+import client.cache.CacheProvider
+import dataStorage.{User, Value}
+import client.sodium.core._
+
+case class SActionCreateNewUser(userName: Stream[String]) {
+
+//  def test[V:CacheProvider]():String={
+//    val c: CacheProvider[V] = implicitly[CacheProvider[V]]
+//    println(c)
+//    "ot"
+//  }
+
+}

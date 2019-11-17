@@ -1,52 +1,16 @@
 package client.cache
 
-import client.sodium.core._
-import client.sodium.core.{Cell, StreamSink}
+import client.sodium.core.{Stream, StreamSink}
 import dataStorage.stateHolder.UserMap
-import dataStorage.{
-  Image,
-  Note,
-  Ref,
-  ReferencedValue,
-  UnTypedRef,
-  User,
-  Value
-}
-import io.circe.{Decoder, Json}
-import io.circe.generic.JsonCodec
-import io.circe.syntax._
-import cats.implicits._
-import cats._
-import cats.derived._
+import dataStorage.{Ref, ReferencedValue, UnTypedRef, Value}
 import io.circe.Decoder.Result
+import io.circe.{Decoder, Json}
 import shapeless.Typeable
-import shapeless.syntax.typeable
 
 import scala.collection.immutable
-import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.ClassTag
 
-case class CacheMap[V <: Value[V]](
-  map: Map[Ref[V], ReferencedValue[V]] =
-    Map[Ref[V], ReferencedValue[V]]()) {
-
-  def getPrettyPrintedString: String = {
-    map.foldLeft("")(
-            (s, v) =>
-              s + s"${v._1.unTypedRef.typeName} ${v._1.unTypedRef.uuid}  ${v._2.entityValue}\n"
-    )
-  }
-
-}
-
-object CacheMap {}
-
-case class Cache[V <: Value[V]](
-  cell: (Cell[CacheMap[V]]),
-  name: String) {}
-
-case class CacheMaker[V <: Value[V]](
-  streamSink: StreamSink[UserMap]) {
+case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
 
   var x = "a";
 
@@ -112,35 +76,4 @@ case class CacheMaker[V <: Value[V]](
     f(um)
   }
 
-}
-
-object NormalizedStateHolder {
-
-  lazy val streamToSetInitialCacheState = new StreamSink[UserMap]()
-
-  val user: Cache[User] =
-    CacheMaker(streamToSetInitialCacheState).getCache()
-
-//  val note:  Cache[Note]  = CacheMaker(s).makeCache[Note]()
-//  val image: Cache[Image] = CacheMaker(s).makeCache[Image]()
-
-}
-
-trait CellCacheProvider[P <: Value[P]] {
-  def getCellCache: Cache[P]
-}
-
-object CellCacheProvider {
-
-  implicit val user = new CellCacheProvider[User] {
-    override def getCellCache = NormalizedStateHolder.user
-  }
-
-//  implicit val note = new CellCacheProvider[Note] {
-//    override def getCellCache = NormalizedStateHolder.note
-//  }
-//
-//  implicit val image = new CellCacheProvider[Image] {
-//    override def getCellCache = NormalizedStateHolder.image
-//  }
 }

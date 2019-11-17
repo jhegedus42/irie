@@ -1,5 +1,6 @@
-package client.cache
+package client.cache.comm
 
+import client.cache.{Cache, CacheProvider}
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
@@ -19,7 +20,7 @@ object TestAjaxRequest {
     import io.circe.syntax._
 
     val headers: Map[String, String] = Map(
-            "Content-Type" -> "application/json"
+      "Content-Type" -> "application/json"
     )
 
     val ip = "commserver.asuscomm.com"
@@ -28,7 +29,7 @@ object TestAjaxRequest {
 
     val owner: RefToEntityOwningUser =
       RefToEntityOwningUser.makeFromRef(
-              TestEntitiesForUsers.aliceEntity.ref
+        TestEntitiesForUsers.aliceEntity.ref
       )
 
     val q = GetAllEntityiesForUser(owner, None)
@@ -41,9 +42,9 @@ object TestAjaxRequest {
             headers = headers)
       .map(_.responseText).map(i.getObject(_)).onComplete(x => {
         val res1: UserMap = x.toOption.get.res.get
-        NormalizedStateHolder.streamToSetInitialCacheState.send(res1)
+        Cache.streamToSetInitialCacheState.send(res1)
         println(res1)
-        NormalizedStateHolder.user.cell
+        Cache.user.cell
           .listen(x => println(s"udate:$x"))
       })
 
