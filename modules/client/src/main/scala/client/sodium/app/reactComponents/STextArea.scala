@@ -14,7 +14,14 @@ import client.sodium.core.{Cell, StreamSink}
 case class STextArea(init: String) {
 
   private val stream: StreamSink[String] = new StreamSink[String]()
-  val cell:           Cell[String]       = stream.hold(init)
+
+  val cell: Cell[String] = stream.hold(init)
+
+  val vdom = ScalaComponent
+    .builder[Unit]("STextArea")
+    .initialState(init)
+    .renderBackend[Backend]
+    .build
 
   class Backend($ : BackendScope[Unit, String]) {
 
@@ -27,21 +34,12 @@ case class STextArea(init: String) {
           $.setState(newValue) >> Callback {
           println(s"client.state is $newValue")
         }
-
       }
-
       <.div(
               <.textarea(^.onChange ==> onChange,
                          ^.value := cell.sample())
       )
     }
-
   }
-
-  val vdom = ScalaComponent
-    .builder[Unit]("STextArea")
-    .initialState(init)
-    .renderBackend[Backend]
-    .build
 
 }

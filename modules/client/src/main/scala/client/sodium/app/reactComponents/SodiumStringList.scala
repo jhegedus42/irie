@@ -9,15 +9,17 @@ import japgolly.scalajs.react.vdom.VdomElement
 
 case class SodiumStringList(input: Stream[State]) {
 
+//  val ct
+//    : (Stream[State], String, State, State => VdomElement) => SComponentTemplate[State] =
+
+  val comp = SComponentTemplate[State](input,
+                                       "SodiumStringList",
+                                       State(),
+                                       renderer(_))
+
   def renderer(state: State): VdomElement = {
     <.div(state.string.toString())
   }
-
-  val ct
-    : (Stream[State], String, State, State => VdomElement) => SComponentTemplate[State] =
-    SComponentTemplate[State]
-
-  val comp = ct(input, "SodiumStringList", State(), renderer(_))
 
   def getComp = comp.comp()
 
