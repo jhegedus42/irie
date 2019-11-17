@@ -1,9 +1,8 @@
-package client.sodium.app.reactComponents
+package client.sodium.app.reactComponents.atomicElements
 
 import client.sodium.core.Stream
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.<
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 
 case class SComponentTemplate[V](
   input:         Stream[V],

@@ -1,12 +1,9 @@
-package client.sodium.app.reactComponents
+package client.sodium.app.reactComponents.atomicElements
 
-import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-import japgolly.scalajs.react.extra.router.StaticDsl.Rule
-import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
-import japgolly.scalajs.react.vdom.html_<^._
 import client.sodium.core._
+import japgolly.scalajs.react.vdom.VdomElement
+import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 
 case class SPreformattedText(s: Stream[String]) {
 

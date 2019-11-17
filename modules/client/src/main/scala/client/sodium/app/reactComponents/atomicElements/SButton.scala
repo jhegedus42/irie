@@ -1,14 +1,11 @@
-package client.sodium.app.reactComponents
+package client.sodium.app.reactComponents.atomicElements
 
-import japgolly.scalajs.react.component.ScalaFn.Component
-import japgolly.scalajs.react.vdom.html_<^.{<, ^}
-import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
-import japgolly.scalajs.react.extra.router.StaticDsl.Rule
-import japgolly.scalajs.react.extra.router.{RouterConfigDsl, _}
-import japgolly.scalajs.react.vdom.html_<^._
 import client.sodium.core.StreamSink
+import japgolly.scalajs.react.component.ScalaFn.Component
+import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
+import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
 
-case class SodiumButton(name: String = "Button") {
+case class SButton(name: String = "Button") {
 
   val streamSink = new StreamSink[Unit]()
 
