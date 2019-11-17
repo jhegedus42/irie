@@ -34,6 +34,7 @@ case class CounterExample() {
       lazy val counterValue: CellLoop[Int] = new CellLoop[Int]()
 
       counterValue.loop(afterUpdate.hold(0))
+
       counterValue
     }
   )
