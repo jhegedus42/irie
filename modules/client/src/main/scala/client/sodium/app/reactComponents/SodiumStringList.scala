@@ -9,9 +9,6 @@ import japgolly.scalajs.react.vdom.VdomElement
 
 case class SodiumStringList(input: Stream[State]) {
 
-//  val ct
-//    : (Stream[State], String, State, State => VdomElement) => SComponentTemplate[State] =
-
   val comp = SComponentTemplate[State](input,
                                        "SodiumStringList",
                                        State(),
