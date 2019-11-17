@@ -12,6 +12,8 @@ case class CacheMap[V <: Value[V]](
     )
   }
 
+  def getNumberOfEntries: Int = map.size
+
 }
 
 object CacheMap {}

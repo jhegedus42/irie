@@ -6,20 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheProvider.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXModul.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/AJAXModul.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CellCache.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SActionCreateNewEntity.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/actions/SActionCreateNewUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/CounterExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/CounterExample.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/HelloWorldTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/HelloWorldTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/NewUserCreator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/NewUserCreator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -841,7 +830,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="slow progress, code compiles" />
     <MESSAGE value="now we have json decoding/encoding" />
     <MESSAGE value="curl route test passes" />
     <MESSAGE value="ajax call works from client" />
@@ -866,7 +854,8 @@
     <MESSAGE value="Snapshot." />
     <MESSAGE value="Counter works." />
     <MESSAGE value="Create new user widget was created." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create new user widget was created." />
+    <MESSAGE value="Cleaning up code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up code." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
