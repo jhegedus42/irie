@@ -1,4 +1,4 @@
-package client.ui
+package client.sodium.app.reactComponents.compositeComponents
 
 import client.cache.{Cache, CacheMap, NormalizedStateHolder}
 import client.sodium.app.actions.SActionWriteToConsole
@@ -7,18 +7,13 @@ import client.sodium.app.reactComponents.atomicComponents.{
   SPreformattedText,
   STextArea
 }
-import client.sodium.app.reactComponents.compositeComponents.{
-  CounterExample,
-  HelloWorldTemplate,
-  NewUserCreator
-}
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 
 import scala.concurrent.ExecutionContextExecutor
 
-object RootComp {
+case class NewUserCreator() {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -26,9 +21,23 @@ object RootComp {
   lazy val userCache: Cache[User] = NormalizedStateHolder.user
 
   def getComp = {
+    val s = userCache.cell
+      .updates().map((c: CacheMap[User]) => c.getPrettyPrintedString)
+
+    val listOfUsers = SPreformattedText(s).comp
+
+    val userName            = STextArea("init_text")
+    val createNewUserButton = SButton("Create New User")
+    val text                = createNewUserButton.getClick.snapshot(userName.cell)
+    val writeToConsole      = SActionWriteToConsole(text)
+    // todo-now => create a user ...
 
     def render: Unit => VdomElement = { _ =>
-      <.div(NewUserCreator().getComp(), <.br, CounterExample().getComp())
+      <.div(
+        listOfUsers(),
+        userName.comp(),
+        createNewUserButton.vdom()
+      )
     }
 
     val rootComp =
@@ -39,8 +48,5 @@ object RootComp {
 
     rootComp
   }
-
-  // todo-now, add new user
-  // SodiumAction - Insert New Entity
 
 }

@@ -20,7 +20,7 @@ object Main extends js.JSApp {
     val e: Element = d.document
       .getElementById("rootComp")
 
-    RootComp.getComp("Joco3").renderIntoDOM(e)
+    RootComp.getComp().renderIntoDOM(e)
 
     TestAjaxRequest.query()
   }
