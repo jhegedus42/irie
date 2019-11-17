@@ -1,6 +1,6 @@
 package client.sodium.app.reactComponents.compositeComponents
 
-import client.cache.{Cache, CacheMap, CacheProvider}
+import client.cache.{Cache, CacheMap}
 import client.sodium.app.actions.SActionWriteToConsole
 import client.sodium.app.reactComponents.atomicComponents.{
   CellTemplate,
@@ -24,20 +24,23 @@ case class CounterExample() {
 
   lazy val button = SButton("Inc")
 
-  val counter_ = Transaction.apply[CellTemplate[Int]]({ _ =>
-    lazy val afterUpdate: Stream[Int] = button.getClick.snapshot(counterValue, {
-      (_, c: Int) =>
-        c + 1
-    })
+  val counterCellLoop = Transaction.apply[CellLoop[Int]](
+    { _ =>
+      lazy val afterUpdate: Stream[Int] =
+        button.getClick.snapshot(counterValue, { (_, c: Int) =>
+          c + 1
+        })
 
-    lazy val counterValue: CellLoop[Int] = new CellLoop[Int]()
+      lazy val counterValue: CellLoop[Int] = new CellLoop[Int]()
 
-    counterValue.loop(afterUpdate.hold(0))
+      counterValue.loop(afterUpdate.hold(0))
+      counterValue
+    }
+  )
 
-    lazy val counter: CellTemplate[Int] = CellTemplate[Int](counterValue, { i =>
+  lazy val counterComp: CellTemplate[Int] = CellTemplate[Int](counterCellLoop, {
+    i =>
       <.div(s"value is: $i")
-    })
-    counter
   })
 
   def getComp = {
@@ -45,7 +48,7 @@ case class CounterExample() {
     val render: Unit => VdomElement = { _ =>
       <.div(s"This is the counter example",
             <.br,
-            counter_.getComp(),
+            counterComp.getComp(),
             button.vdom())
     }
 

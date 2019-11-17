@@ -1,6 +1,6 @@
 package client.ui
 
-import client.cache.{Cache, CacheMap, CacheProvider}
+import client.cache.{Cache, CacheMap}
 import client.sodium.app.actions.SActionWriteToConsole
 import client.sodium.app.reactComponents.atomicComponents.{
   SButton,

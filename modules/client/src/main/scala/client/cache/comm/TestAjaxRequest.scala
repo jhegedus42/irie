@@ -1,6 +1,6 @@
 package client.cache.comm
 
-import client.cache.{Cache, CacheProvider}
+import client.cache.{Cache}
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
