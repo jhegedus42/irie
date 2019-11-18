@@ -16,4 +16,16 @@ case class CacheMap[V <: Value[V]](
 
 }
 
-object CacheMap {}
+object CacheMap {
+
+  def insertReferencedValue[V <: Value[V]](
+    rv: ReferencedValue[V]
+  ): CacheMap[V] => CacheMap[V] = { m =>
+    {
+      val oldMap = m.map
+      val newMap = oldMap + (rv.ref -> rv)
+      CacheMap(newMap)
+    }
+  }
+
+}

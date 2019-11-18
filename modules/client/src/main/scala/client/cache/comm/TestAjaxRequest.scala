@@ -44,7 +44,7 @@ object TestAjaxRequest {
         val res1: UserMap = x.toOption.get.res.get
         Cache.streamToSetInitialCacheState.send(res1)
         println(res1)
-        Cache.user.cell
+        Cache.user.cellLoop
           .listen(x => println(s"udate:$x"))
       })
 

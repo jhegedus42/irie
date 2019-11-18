@@ -22,15 +22,16 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
     typeable: Typeable[V]
   ): Cache[V] = {
 
-    val setCache: Stream[CacheMap[V]] = streamSink.map(makeFrom)
+    val setter: Stream[CacheMap[V]] = streamSink.map(makeFrom)
+
+    val updaterFromSetter: Stream[CacheMap[V] => CacheMap[V]] =
+      setter.map((y: CacheMap[V]) => { x: CacheMap[V] => y })
 
     val name: String = UnTypedRef.getName[V]
 
-    val cell = setCache.hold(CacheMap[V]())
+    val cache = Cache(updaterFromSetter, name)
 
-    val cache = Cache(cell, name)
-
-    println(s"cache is ready: ${cache.cell}")
+    println(s"cache is ready: ${cache.cellLoop}")
 
     cache
   }

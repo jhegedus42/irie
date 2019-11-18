@@ -22,12 +22,14 @@ case class CounterExample() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val button1 = SButton("Inc 5")
-  lazy val button2 = SButton("Dec 2")
+  lazy val button1 = SButton("Inc 5", () => println("Inc 5 was pressed"))
+  lazy val button2 = SButton("Dec 2", () => println("Dec 2 was presssed"))
 
-  val buttonWithFunction1 = button1.getClick.map(_ => { (x: Int) => x + 5 })
-  val buttonWithFunction2 = button2.getClick.map(_ => { (x: Int) => x - 2 })
-  val buttonWithFunction  = buttonWithFunction1.orElse(buttonWithFunction2)
+//  val buttonWithFunction1 = button1.getClick.map(_ => { (x: Int) => x + 5 })
+//  val buttonWithFunction2 = button2.getClick.map(_ => { (x: Int) => x - 2 })
+
+  val buttonWithFunction: Stream[Int => Int] = new StreamSink[Int => Int]()
+//    buttonWithFunction1.orElse(buttonWithFunction2)
 
   // todo-now => use this to rewrite the cache architecture...
   // a stream for every function, set, update

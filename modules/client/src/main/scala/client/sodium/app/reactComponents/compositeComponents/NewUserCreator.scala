@@ -9,11 +9,11 @@ import client.sodium.app.reactComponents.atomicComponents.{
   STextArea
 }
 import client.sodium.core
-import dataStorage.User
+import client.sodium.core._
+import dataStorage.{ReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-
 import scala.concurrent.ExecutionContextExecutor
 
 case class NewUserCreator() {
@@ -25,21 +25,35 @@ case class NewUserCreator() {
 
   def getComp = {
     val listOfUsers = SPreformattedText(
-      userCache.cell
+      userCache.cellLoop
         .updates().map((c: CacheMap[User]) => c.getPrettyPrintedString)
     ).comp
 
     val nrOfUsers = SPreformattedText(
-      userCache.cell
+      userCache.cellLoop
         .map(c => s"number of users : ${c.getNumberOfEntries.toString}").updates()
     ).comp
 
-    val userName            = STextArea("init_text")
-    val createNewUserButton = SButton("Create New User")
-    val text                = createNewUserButton.getClick.snapshot(userName.cell)
-    val writeToConsole      = SActionWriteToConsole(text)
+    val userName: STextArea = STextArea("init_text")
 
-    // todo-now => create a user ...
+//    def inserter : StreamSink
+
+    val createNewUserButton =
+      SButton("Create New User", () => println("i was pusssshed"))
+
+//    val text: core.Stream[String] =
+//      createNewUserButton.getClick.snapshot(userName.cell)
+//    `
+//    val newUser: core.Stream[ReferencedValue[User]] =
+//      text.map(n => ReferencedValue(User(name = n, favoriteNumber = 46)))
+//    val writeToConsole = SActionWriteToConsole(newUser.map(x => x.toString()))
+
+//    userCache.inserterStream.
+//    newUser.listen(
+//      (v: ReferencedValue[User]) => userCache.inserterStream.send(v)
+//    )
+
+    // todo-now => create a user ... FIX THIS ^^^^
 
     def render: Unit => VdomElement = { _ =>
       <.div(
