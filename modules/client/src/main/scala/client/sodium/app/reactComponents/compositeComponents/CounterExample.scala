@@ -22,13 +22,18 @@ case class CounterExample() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val button = SButton("Inc")
+  lazy val button1 = SButton("Inc 5")
+  lazy val button2 = SButton("Dec 2")
+
+  val buttonWithFunction1 = button1.getClick.map(_ => { (x: Int) => x + 5 })
+  val buttonWithFunction2 = button2.getClick.map(_ => { (x: Int) => x - 2 })
+  val buttonWithFunction  = buttonWithFunction1.orElse(buttonWithFunction2)
 
   val counterCellLoop = Transaction.apply[CellLoop[Int]](
     { _ =>
       lazy val afterUpdate: Stream[Int] =
-        button.getClick.snapshot(counterValue, { (_, c: Int) =>
-          c + 1
+        buttonWithFunction.snapshot(counterValue, { (f, c: Int) =>
+          f(c)
         })
 
       lazy val counterValue: CellLoop[Int] = new CellLoop[Int]()
@@ -50,7 +55,8 @@ case class CounterExample() {
       <.div(s"This is the counter example",
             <.br,
             counterComp.getComp(),
-            button.vdom())
+            button1.vdom(),
+            button2.vdom())
     }
 
     val rootComp =
