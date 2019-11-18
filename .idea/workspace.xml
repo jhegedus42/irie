@@ -6,12 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/CellLoopWithUpdaterStream.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/CellPreformattedText.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/TodoList.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/SPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/atomicComponents/SPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/CellLoopWithUpdaterStream.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/CellLoopWithUpdaterStream.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/TodoList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponents/compositeComponents/TodoList.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -833,7 +830,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="jetbrains acknowledgement" />
     <MESSAGE value="slow but steady progress with the Sodium based data flow / state machine&#10;handling architecture" />
     <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser" />
     <MESSAGE value="bug: type name is null in the returned JSON for GetAllEntitesForUser&#10;&#10;bug fixing is in progress" />
@@ -858,7 +854,8 @@
     <MESSAGE value="Cache refactoring in progress." />
     <MESSAGE value="Different ways of transforming a Cell's value." />
     <MESSAGE value="Going towards inserting a new user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Going towards inserting a new user." />
+    <MESSAGE value="Simple todo list example is in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simple todo list example is in progress." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

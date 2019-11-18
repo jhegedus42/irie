@@ -4,7 +4,7 @@ import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 
 case class CellLoopWithUpdaterStream[V](initValue: V) {
 
-  val updaterStream: Stream[V => V] = new StreamSink[V => V]()
+  val updaterStream: StreamSink[V => V] = new StreamSink[V => V]()
 
   val cellLoop = Transaction.apply[CellLoop[V]](
     { _ =>

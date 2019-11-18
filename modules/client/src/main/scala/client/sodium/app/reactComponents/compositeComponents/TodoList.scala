@@ -51,21 +51,28 @@ case class TodoList() {
     //    def inserter : StreamSink
 
     val addTodoElementButton =
-      SButton("Add New Todo", () => println("i was pusssshed"))
-
-    //    val text: core.Stream[String] =
-    //      createNewUserButton.getClick.snapshot(userName.cell)
-    //    `
-    //    val newUser: core.Stream[ReferencedValue[User]] =
-    //      text.map(n => ReferencedValue(User(name = n, favoriteNumber = 46)))
-    //    val writeToConsole = SActionWriteToConsole(newUser.map(x => x.toString()))
-
-    //    userCache.inserterStream.
-    //    newUser.listen(
-    //      (v: ReferencedValue[User]) => userCache.inserterStream.send(v)
-    //    )
-
-    // todo-now => create a user ... FIX THIS ^^^^
+      SButton(
+        "Add New Todo",
+        () => {
+          val td = todoElementName.cell.sample()
+          println(s"i was pusssshed, todo text is $td")
+          val transformer: List[String] => List[String] = { (l: List[String]) =>
+            td :: l
+          }
+          val startList       = List("egy")
+          val transFormedList = transformer(startList)
+          println(s"""
+                     |
+                     | startList:
+                     | $startList
+                     | 
+                     | transFormedList:
+                     | $transFormedList
+                     |
+                     |""".stripMargin)
+          todoLoop.updaterStream.send(transformer)
+        }
+      )
 
     def render: Unit => VdomElement = { _ =>
       <.div(
