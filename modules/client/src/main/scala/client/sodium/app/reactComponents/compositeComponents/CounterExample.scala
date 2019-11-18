@@ -29,6 +29,9 @@ case class CounterExample() {
   val buttonWithFunction2 = button2.getClick.map(_ => { (x: Int) => x - 2 })
   val buttonWithFunction  = buttonWithFunction1.orElse(buttonWithFunction2)
 
+  // todo-now => use this to rewrite the cache architecture...
+  // a stream for every function, set, update
+
   val counterCellLoop = Transaction.apply[CellLoop[Int]](
     { _ =>
       lazy val afterUpdate: Stream[Int] =
