@@ -10,7 +10,8 @@ import client.sodium.app.reactComponents.atomicComponents.{
 import client.sodium.app.reactComponents.compositeComponents.{
   CounterExample,
   HelloWorldTemplate,
-  NewUserCreator
+  NewUserCreator,
+  TodoList
 }
 import dataStorage.User
 import japgolly.scalajs.react.ScalaComponent
@@ -26,7 +27,11 @@ object RootComp {
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
-      <.div(NewUserCreator().getComp(), <.br, CounterExample().getComp())
+      <.div(NewUserCreator().getComp(),
+            <.br,
+            CounterExample().getComp(),
+            <.br,
+            TodoList().getComp())
     }
 
     val rootComp =

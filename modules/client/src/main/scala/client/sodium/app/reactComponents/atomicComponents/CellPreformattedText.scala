@@ -1,22 +1,23 @@
 package client.sodium.app.reactComponents.atomicComponents
-
-import client.sodium.core._
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 
-case class SPreformattedText(
-  s:            Stream[String],
-  initialState: String = "default init state of SPreformattedText") {
+import client.sodium.core.{Cell, Stream}
+import japgolly.scalajs.react.vdom.VdomElement
+import japgolly.scalajs.react.vdom.html_<^.<
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+
+case class CellPreformattedText(cell: Cell[String]) {
 
   val comp = ScalaComponent
     .builder[Unit]("SodiumPreformattedText")
-    .initialState(initialState)
+    .initialState(cell.sample())
     .renderBackend[Backend]
     .componentWillMount(f => {
 
       Callback {
-        s.listen(x => {
+        cell.listen(x => {
           println(s"sodium label's cell is $x");
           f.setState(x).runNow()
         })
@@ -33,4 +34,5 @@ case class SPreformattedText(
     ): VdomElement = <.pre(text)
 
   }
+
 }
