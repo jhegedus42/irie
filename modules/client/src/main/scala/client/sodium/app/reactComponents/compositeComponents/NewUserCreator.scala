@@ -52,8 +52,6 @@ case class NewUserCreator() {
         }
       )
 
-    // todo-now => create a user ... FIX THIS ^^^^
-
     def render: Unit => VdomElement = { _ =>
       <.div(
         listOfUsers(),

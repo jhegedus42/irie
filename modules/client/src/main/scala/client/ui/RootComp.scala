@@ -43,7 +43,4 @@ object RootComp {
     rootComp
   }
 
-  // todo-now, add new user
-  // SodiumAction - Insert New Entity
-
 }

@@ -22,4 +22,10 @@ case class ReferencedValue[E <: Value[E]](
     ReferencedValue(entityValue, r)
   }
 
+  def addEntityOwnerInfo(r: Ref[User]): ReferencedValue[E] = {
+    ReferencedValue(this.entityValue, this.ref.addEntityOwnerInfo(r))
+  }
+
 }
+
+object ReferencedValue {}

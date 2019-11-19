@@ -15,6 +15,11 @@ import io.circe.syntax._
 
 //@Lenses
 
+/**
+  * Describes who is logged in, if anybody (None vs Some).
+  *
+  * @param userOption
+  */
+
 @JsonCodec
-case class UserLoginStatus(
-  userOption: Option[ReferencedValue[User]] = None) {}
+case class UserLoginStatus(userOption: Option[ReferencedValue[User]] = None) {}

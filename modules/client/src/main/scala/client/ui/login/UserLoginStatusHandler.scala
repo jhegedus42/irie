@@ -4,6 +4,7 @@ import dataStorage.{ReferencedValue, User}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 import org.scalajs.{dom => d}
+import testingData.TestEntitiesForUsers
 
 import scala.scalajs.js
 
@@ -15,7 +16,7 @@ import io.circe.syntax._
 
 //@Lenses
 
-object Window {
+object UserLoginStatusHandler {
 
   def setLoggedInUser(
     user: UserLoginStatus
@@ -33,6 +34,12 @@ object Window {
     window.name = newName
   }
 
+  // for now we assume that only 1 user uses the system:
+  // Alice
+  //
+  def getUserLoginStatusDev: UserLoginStatus =
+    UserLoginStatus(Some(TestEntitiesForUsers.aliceEntity_with_UUID0))
+
   def getUserLoginStatus(
     implicit
     dec: Decoder[UserLoginStatus]
@@ -47,7 +54,7 @@ object Window {
     val x: UserLoginStatus = ej2
     println(s"login status:$x")
 
-    Window.setLoggedInUser(x)
+    UserLoginStatusHandler.setLoggedInUser(x)
 
     x
   }

@@ -1,6 +1,7 @@
 package client.cache
 
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
+import client.ui.login.UserLoginStatusHandler
 import dataStorage.{ReferencedValue, User, Value}
 import dataStorage.stateHolder.UserMap
 import shapeless.Typeable
@@ -19,19 +20,47 @@ case class Cache[V <: Value[V]](
 
 //  val updateStarter: StreamSink[Unit] = new StreamSink[Unit]()
 
+  /**
+    *
+    * We assume here that alice is the only user, hence we use:
+    * `getUserLoginStatusDev` for defining the owning User.
+    *
+    * @param rv
+    * @param typeable
+    * @return
+    */
   private def inserter(
     rv: ReferencedValue[V]
   )(
     implicit
     typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] =
-    CacheMap.insertReferencedValue[V](rv.addTypeInfo())
+    CacheMap.insertReferencedValue[V](
+      rv.addTypeInfo().addEntityOwnerInfo(
+          UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
+        )
+    )
 
   val inserterStream: StreamSink[ReferencedValue[V]] =
     new StreamSink[ReferencedValue[V]]()
 
+  // todo-now =>
+  //  1. listen to this stream ^^^
+  //     and send updates to the server, to mirror the changes made on
+  //     the client
+  //  2. show status of "syncing" / "synced" somewhere on the
+  //     console / screen (can be even a state in a Cell, later)
+
   private def ins1: Stream[CacheMap[V] => CacheMap[V]] =
     inserterStream.map(inserter)
+
+  ins1.listen(
+    x =>
+      println(
+        s"here we should send an AJAX request to insert this new" +
+          s"value into the servers data store: $x"
+      )
+  )
 
   val transformer: Stream[CacheMap[V] => CacheMap[V]] =
     transformerConstructor.orElse(ins1)
