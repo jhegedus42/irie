@@ -36,6 +36,8 @@ object TestDataStore extends App {
   lazy val aliceEnt: ReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
+  lazy val mh = TestEntitiesForUsers.meresiHiba_with_UUID2.ref
+
   lazy val ar = aliceEnt.ref
 
   import TestEntitiesForUsers._
@@ -43,6 +45,7 @@ object TestDataStore extends App {
   def testData: EntityStorage =
     ue.insertHelper(aliceEnt.addEntityOwnerInfo(ar))
       .insertHelper(bobEntity.addEntityOwnerInfo(ar))
-      .insertHelper(meresiHibaEntity.addEntityOwnerInfo(ar))
+      .insertHelper(terezAnyaEntity.addEntityOwnerInfo(ar))
+      .insertHelper(jetiLabnyomEntity.addEntityOwnerInfo(mh))
 
 }

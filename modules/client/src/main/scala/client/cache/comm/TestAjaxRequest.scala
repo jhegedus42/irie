@@ -1,6 +1,7 @@
 package client.cache.comm
 
-import client.cache.{Cache}
+import client.cache.Cache
+import client.ui.login.UserLoginStatusHandler
 import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
@@ -27,12 +28,12 @@ object TestAjaxRequest {
 
     val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
 
-    val owner: RefToEntityOwningUser =
+    lazy val owner: RefToEntityOwningUser =
       RefToEntityOwningUser.makeFromRef(
-        TestEntitiesForUsers.aliceEntity.ref
+        UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
       )
 
-    val q = GetAllEntityiesForUser(owner, None)
+    lazy val q = GetAllEntityiesForUser(owner, None)
 
     val j: Json = q.asJson
 

@@ -30,6 +30,10 @@ object TestEntitiesForUsers {
 
   val meresiHibaEntity: ReferencedValue[User] = ReferencedValue(meresiHiba)
 
+  val terezAnyaEntity: ReferencedValue[User] = ReferencedValue(terezAnya)
+
+  val jetiLabnyomEntity: ReferencedValue[User] = ReferencedValue(jetiLabnyom)
+
   import monocle.macros.syntax.lens._
 
   val aliceEntity_with_UUID0 = aliceEntity

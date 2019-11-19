@@ -4,29 +4,27 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import app.server.Config
-import app.server.httpServer.routes.RouteFactory
+import app.server.httpServer.routes.crud.RouteAssembler
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class HttpServer( actorSystem: ActorSystem ) {
-
+case class HttpServer(actorSystem: ActorSystem) {
 
   implicit val actorSystemAsImplicit = actorSystem
 
   implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
-  val routes = RouteFactory()
+  val routes = RouteAssembler()
 
-  def startServer( host: String ): Unit = {
-
+  def startServer(host: String): Unit = {
 
     implicit val materializer = ActorMaterializer()
 
     val bindingFuture: Future[Http.ServerBinding] =
-      Http().bindAndHandle( routes.route, host, Config.getDefaultConfig.port )
+      Http().bindAndHandle(routes.route, host, Config.getDefaultConfig.port)
 
-    println( s"listening on $host:${Config.getDefaultConfig.port}" )
+    println(s"listening on $host:${Config.getDefaultConfig.port}")
   }
 
 }

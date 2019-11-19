@@ -29,7 +29,7 @@ case class EntityStorage(
     json: Json
   ): Unit = {
     val newMap = UntypedJSONMap(
-            untypedJSONMap.untypedMap.updated(t, json)
+      untypedJSONMap.untypedMap.updated(t, json)
     )
     EntityStorage(newMap)
   }
@@ -37,9 +37,10 @@ case class EntityStorage(
   def getUserMap(ref: RefToEntityOwningUser): UserMap = {
     val res: Map[Key, Json] =
       untypedJSONMap.untypedMap.filterKeys(
-              _.refToEntityOwningUser.uuid == ref.uuid
+        _.refToEntityOwningUser.uuid == ref.uuid
       )
-    UserMap(ref, untypedJSONMap.untypedMap.toList)
+//    UserMap(ref, untypedJSONMap.untypedMap.toList)
+    UserMap(ref, res.toList)
   }
 
   private def insert(
@@ -67,13 +68,7 @@ case class EntityStorage(
 object EntityStorage {
 
   import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
-  import dataStorage.{
-    Ref,
-    ReferencedValue,
-    User,
-    RefToEntityOwningUser,
-    Value
-  }
+  import dataStorage.{Ref, ReferencedValue, User, RefToEntityOwningUser, Value}
   import io.circe.{Json, KeyEncoder}
   import io.circe.syntax._
   import io.circe.generic.auto._
