@@ -12,7 +12,7 @@ import scala.concurrent.ExecutionContextExecutor
 
 object TestAjaxRequest {
 
-  def query(): Unit = {
+  def populateUserEntityCache(): Unit = {
 
     implicit def executionContext: ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

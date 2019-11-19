@@ -22,6 +22,6 @@ object Main extends js.JSApp {
 
     RootComp.getComp().renderIntoDOM(e)
 
-    TestAjaxRequest.query()
+//    TestAjaxRequest.populateUserEntityCache()
   }
 }
