@@ -11,6 +11,8 @@ import shapeless.Typeable
 import client.sodium.core.Cell
 import dataStorage.Value
 
+case class CacheInserter()
+
 case class Cache[V <: Value[V]](
   transformerConstructor: Stream[CacheMap[V] => CacheMap[V]],
   typeName:               String
@@ -35,11 +37,7 @@ case class Cache[V <: Value[V]](
     implicit
     typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] =
-    CacheMap.insertReferencedValue[V](
-      rv.addTypeInfo().addEntityOwnerInfo(
-          UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
-        )
-    )
+    CacheMap.insertReferencedValue[V](rv)
 
   val inserterStream: StreamSink[ReferencedValue[V]] =
     new StreamSink[ReferencedValue[V]]()
@@ -51,11 +49,17 @@ case class Cache[V <: Value[V]](
   //  2. show status of "syncing" / "synced" somewhere on the
   //     console / screen (can be even a state in a Cell, later)
 
-  private def ins1: Stream[CacheMap[V] => CacheMap[V]] =
-    inserterStream.map(inserter)
+  val ins1: Stream[ReferencedValue[V]] = inserterStream.map(
+    _.addTypeInfo().addEntityOwnerInfo(
+      UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
+    )
+  )
+
+  private def ins2: Stream[CacheMap[V] => CacheMap[V]] =
+    ins1.map(inserter)
 
   ins1.listen(
-    x =>
+    (x: ReferencedValue[V]) =>
       println(
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"
@@ -63,7 +67,7 @@ case class Cache[V <: Value[V]](
   )
 
   val transformer: Stream[CacheMap[V] => CacheMap[V]] =
-    transformerConstructor.orElse(ins1)
+    transformerConstructor.orElse(ins2)
 
   val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>

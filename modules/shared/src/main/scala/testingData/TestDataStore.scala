@@ -36,7 +36,7 @@ object TestDataStore extends App {
   lazy val aliceEnt: ReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
-  val ar = aliceEnt.ref
+  lazy val ar = aliceEnt.ref
 
   import TestEntitiesForUsers._
 

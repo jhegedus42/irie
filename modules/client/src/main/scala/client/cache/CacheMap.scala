@@ -5,10 +5,17 @@ import dataStorage.{Ref, ReferencedValue, Value}
 case class CacheMap[V <: Value[V]](
   map: Map[Ref[V], ReferencedValue[V]] = Map[Ref[V], ReferencedValue[V]]()) {
 
+  // https://dzone.com/articles/java-string-format-examples
+
   def getPrettyPrintedString: String = {
     map.foldLeft("")(
       (s, v) =>
-        s + s"${v._1.unTypedRef.typeName} ${v._1.unTypedRef.uuid}  ${v._2.entityValue}\n"
+        s + "value: " + s"${v._2.entityValue}, ".formatted("%40s") +
+          s"type: ${v._1.unTypedRef.typeName
+            .map(_.s).getOrElse("not-typed error !!!")}, " +
+          s"owner: ${v._1.unTypedRef.refToEntityOwningUser.uuid}, " +
+          s"uuid: ${v._1.unTypedRef.uuid} " +
+          s" \n"
     )
   }
 
