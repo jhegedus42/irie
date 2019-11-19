@@ -3,6 +3,7 @@ package client.cache
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import dataStorage.{ReferencedValue, User, Value}
 import dataStorage.stateHolder.UserMap
+import shapeless.Typeable
 
 //object CacheProvider {}
 
@@ -11,20 +12,24 @@ import dataStorage.Value
 
 case class Cache[V <: Value[V]](
   transformerConstructor: Stream[CacheMap[V] => CacheMap[V]],
-  typeName:               String) {
+  typeName:               String
+)(
+  implicit
+  typeable: Typeable[V]) {
 
 //  val updateStarter: StreamSink[Unit] = new StreamSink[Unit]()
 
-  private def inserter(rv: ReferencedValue[V]): CacheMap[V] => CacheMap[V] =
-    CacheMap.insertReferencedValue[V](rv)
+  private def inserter(
+    rv: ReferencedValue[V]
+  )(
+    implicit
+    typeable: Typeable[V]
+  ): CacheMap[V] => CacheMap[V] =
+    CacheMap.insertReferencedValue[V](rv.addTypeInfo())
 
   val inserterStream: StreamSink[ReferencedValue[V]] =
     new StreamSink[ReferencedValue[V]]()
 
-//  def inserterStreamTransformer(
-//    s: ReferencedValue[V]
-//  ): Stream[CacheMap[V] => CacheMap[V]] = s.map(r => inserter(r))
-//
   private def ins1: Stream[CacheMap[V] => CacheMap[V]] =
     inserterStream.map(inserter)
 

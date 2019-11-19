@@ -36,22 +36,21 @@ case class NewUserCreator() {
 
     val userName: STextArea = STextArea("init_text")
 
-//    def inserter : StreamSink
-
     val createNewUserButton =
-      SButton("Create New User", () => println("i was pusssshed"))
+      SButton(
+        "Create New User",
+        () => {
+          println("i was pusssshed")
 
-//    val text: core.Stream[String] =
-//      createNewUserButton.getClick.snapshot(userName.cell)
-//    `
-//    val newUser: core.Stream[ReferencedValue[User]] =
-//      text.map(n => ReferencedValue(User(name = n, favoriteNumber = 46)))
-//    val writeToConsole = SActionWriteToConsole(newUser.map(x => x.toString()))
+          val text = userName.cell.sample()
 
-//    userCache.inserterStream.
-//    newUser.listen(
-//      (v: ReferencedValue[User]) => userCache.inserterStream.send(v)
-//    )
+          val newUser =
+            ReferencedValue[User](User(name = text, favoriteNumber = 46))
+
+          userCache.inserterStream.send(newUser)
+
+        }
+      )
 
     // todo-now => create a user ... FIX THIS ^^^^
 

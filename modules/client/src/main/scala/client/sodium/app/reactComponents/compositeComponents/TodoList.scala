@@ -55,6 +55,7 @@ case class TodoList() {
         "Add New Todo",
         () => {
           val td = todoElementName.cell.sample()
+
           println(s"i was pusssshed, todo text is $td")
           val transformer: List[String] => List[String] = { (l: List[String]) =>
             td :: l

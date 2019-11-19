@@ -1,10 +1,16 @@
 package client.sodium
 
-import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
+import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
 
 case class CellLoopWithUpdaterStream[V](initValue: V) {
 
   val updaterStream: StreamSink[V => V] = new StreamSink[V => V]()
+
+  val snapshotter: StreamSink[Unit] = new StreamSink[Unit]()
+
+//  def merge(c: Cell[V]):
+
+//  val setter:StreamSink[V]=new StreamSink[V]()
 
   val cellLoop = Transaction.apply[CellLoop[V]](
     { _ =>
@@ -20,4 +26,5 @@ case class CellLoopWithUpdaterStream[V](initValue: V) {
       counterValue
     }
   )
+
 }
