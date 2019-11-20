@@ -12,7 +12,7 @@ import comm.crudRequests.{CanProvideRouteName, JSONConvertable}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class GetAllEntitiesForUser(
+case class GetAllEntitiesForUserRouteFactory(
   val actor: ActorRef
 )(
   implicit

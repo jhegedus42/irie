@@ -5,7 +5,7 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import akka.util.Timeout
-import app.server.httpServer.routes.crud.routes.GetAllEntitiesForUser
+import app.server.httpServer.routes.crud.routes.GetAllEntitiesForUserRouteFactory
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import comm.crudRequests._
@@ -39,7 +39,7 @@ case class RouteAssembler(
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
-      GetAllEntitiesForUser(actor).getAllEntitiesRoute
+      GetAllEntitiesForUserRouteFactory(actor).getAllEntitiesRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
