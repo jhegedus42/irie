@@ -13,7 +13,7 @@ import dataStorage.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class RouteFactoryForPersActorCMD[V <: Value[V]](
+case class InsertEntityRouteFactory[V <: Value[V]](
   val actor: ActorRef
 )(
   implicit
@@ -22,7 +22,7 @@ case class RouteFactoryForPersActorCMD[V <: Value[V]](
   val rnProvider = implicitly[CanProvideRouteName[GetAllEntityiesForUser]]
   val rn         = rnProvider.getRouteName
 
-  def getAllEntitiesRoute: Route = {
+  def getRoute: Route = {
     post {
       path(rn) {
         entity(as[String]) { s =>
