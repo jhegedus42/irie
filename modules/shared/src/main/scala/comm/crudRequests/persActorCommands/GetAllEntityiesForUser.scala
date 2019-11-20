@@ -1,27 +1,29 @@
-package comm.crudRequests
+package comm.crudRequests.persActorCommands
 
-import io.circe.syntax._
-import io.circe.generic.auto._
-import io.circe.generic.JsonCodec
-import io.circe._
+import comm.crudRequests.{CanProvideRouteName, JSONConvertable}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import io.circe.Decoder.Result
+import io.circe._
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
 import io.circe.parser._
-
-sealed trait Command
-
-case object ShutDown extends Command
+import io.circe.syntax._
 
 @JsonCodec
 case class GetAllEntityiesForUser(
   par: RefToEntityOwningUser,
   res: Option[UserMap])
-    extends Command
+    extends PersActorCommand
 
 object GetAllEntityiesForUser {
 
-  implicit val jSONConvertable =
+  implicit val users: CanProvideRouteName[GetAllEntityiesForUser] =
+    new CanProvideRouteName[GetAllEntityiesForUser] {
+      override def getRouteName: String = "GetAllEntityiesForUser"
+    }
+
+  implicit val jSONConvertable: JSONConvertable[GetAllEntityiesForUser] =
     new JSONConvertable[GetAllEntityiesForUser] {
 
       override def getJSON(v: GetAllEntityiesForUser): String =
@@ -35,23 +37,6 @@ object GetAllEntityiesForUser {
           decoder.decodeJson(res1)
         res2.toOption.get
       }
+
     }
 }
-
-trait RouteName[V] {
-  def getRouteName: String
-}
-
-object RouteName {
-
-  implicit val users = new RouteName[GetAllEntityiesForUser] {
-    override def getRouteName: String = "GetAllEntityiesForUser"
-  }
-}
-
-trait JSONConvertable[V] {
-  def getJSON(v:      V):      String
-  def getObject(json: String): V
-}
-
-object JSONConvertable {}

@@ -6,29 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUser.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/RouteFactoryForPersActorCMD.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CanProvideRouteName.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/PersActorCommand.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/addTwoInts/addTwoInts.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/addTwoInts/addTwoInts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/addTwoInts/addTwoIntsUsingCURL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/addTwoInts/addTwoIntsUsingCURL.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/createEntity/createBob.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/createEntity/createBob.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/createEntity/createBobUsingCURL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/createEntity/createBobUsingCURL.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/getEntity/askForAlice.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/getEntity/askForAlice.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/getEntity/askForAliceUsingCURL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/getEntity/askForAliceUsingCURL.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/pingPong/testPingPong.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/pingPong/testPingPong.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/pingPong/testPingPong.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/pingPong/testPingPong.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAlice.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_new/sodiumGet/askForAlice.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAliceUsingCURL.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_new/sodiumGet/askForAliceUsingCURL.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/testHelloWorldRoute.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/testHelloWorldRoute.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/updateEntity/updateAlice.json" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/updateEntity/updateAlice.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash_scripts/testing/curl/updateEntity/updateAliceToBeEvil.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/testing/curl_old/updateEntity/updateAliceToBeEvil.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/HttpServer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/DataStore.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestDataStore.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/testingData/TestEntitiesForUsers.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUser.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/ShutDown.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,9 +65,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="ScalaTest Class" />
-        <option value="Scala Trait" />
         <option value="Package Object" />
         <option value="Scala Object" />
+        <option value="Scala Trait" />
         <option value="Scala Class" />
       </list>
     </option>
@@ -148,7 +136,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.ScalaTest" value="org.scalatest.FunSuite" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="extensionJars" value="" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -181,11 +169,11 @@
       <recent name="app.client.ui.caching.cache.comm.read.readCache.invalidation.Helper$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="comm.crudRequests.persActorCommands" />
+      <recent name="comm.crudRequests" />
       <recent name="app.server.httpServer.routes.crud" />
       <recent name="client.cache" />
       <recent name="client.ui.login" />
-      <recent name="client" />
-      <recent name="TestDataStore" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="app.shared.comm.postRequests" />
@@ -850,7 +838,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="SodiumStringList implemented, code compiles, not tested yet" />
     <MESSAGE value="Cleaning up code + root react component, which can contain&#10;several other (Sodium) components." />
     <MESSAGE value="Some more slow progress." />
     <MESSAGE value="Back button effect is disabled (&quot;simple router&quot;)." />
@@ -875,7 +862,8 @@
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress." />
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress.&#10;&#10;It throws an exception of : &#10;&#9;&quot;at dataStorage.RefToEntityOwningUser$.makeFromRef(RefToEntityOwningUser.scala:12)&quot;&#10;&#9;&#10;This needs to be fixed." />
     <MESSAGE value="Insert User logic &quot;works&quot; on the client side." />
-    <option name="LAST_COMMIT_MESSAGE" value="Insert User logic &quot;works&quot; on the client side." />
+    <MESSAGE value="Improving Get All User's Entities Route (fixing some bugs there)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improving Get All User's Entities Route (fixing some bugs there)." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

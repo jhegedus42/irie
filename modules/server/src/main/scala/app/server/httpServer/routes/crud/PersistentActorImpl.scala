@@ -2,7 +2,7 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import comm.crudRequests.{GetAllEntityiesForUser, ShutDown}
+import comm.crudRequests.persActorCommands.{GetAllEntityiesForUser, ShutDown}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import testingData.TestDataStore

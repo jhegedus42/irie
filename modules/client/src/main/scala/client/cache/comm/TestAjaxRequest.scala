@@ -2,7 +2,8 @@ package client.cache.comm
 
 import client.cache.Cache
 import client.ui.login.UserLoginStatusHandler
-import comm.crudRequests.{GetAllEntityiesForUser, JSONConvertable}
+import comm.crudRequests.JSONConvertable
+import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import io.circe.Json

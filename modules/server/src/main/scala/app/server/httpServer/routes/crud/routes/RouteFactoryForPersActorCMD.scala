@@ -9,10 +9,11 @@ import comm.crudRequests.persActorCommands.{
   PersActorCommand
 }
 import comm.crudRequests.{CanProvideRouteName, JSONConvertable}
+import dataStorage.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-case class GetAllEntitiesForUser(
+case class RouteFactoryForPersActorCMD[V <: Value[V]](
   val actor: ActorRef
 )(
   implicit
@@ -30,7 +31,7 @@ case class GetAllEntitiesForUser(
               implicitly[JSONConvertable[GetAllEntityiesForUser]]
             val getAllEntityiesForUser: GetAllEntityiesForUser =
               i.getObject(s)
-            val f  = getAllEntitiesFuture(getAllEntityiesForUser)
+            val f  = getResult(getAllEntityiesForUser)
             val fs = f.map(x => i.getJSON(x))
             complete(fs)
           }
@@ -39,9 +40,7 @@ case class GetAllEntitiesForUser(
     }
   }
 
-  def getAllEntitiesFuture(
-    msg: PersActorCommand
-  ): Future[GetAllEntityiesForUser] = {
+  def getResult(msg: PersActorCommand): Future[GetAllEntityiesForUser] = {
     import akka.pattern.ask
 
     import scala.concurrent.duration._
