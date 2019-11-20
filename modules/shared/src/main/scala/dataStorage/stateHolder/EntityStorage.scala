@@ -39,7 +39,6 @@ case class EntityStorage(
       untypedJSONMap.untypedMap.filterKeys(
         _.refToEntityOwningUser.uuid == ref.uuid
       )
-//    UserMap(ref, untypedJSONMap.untypedMap.toList)
     UserMap(ref, res.toList)
   }
 
