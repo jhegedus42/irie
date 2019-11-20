@@ -6,17 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/RouteFactoryForPersActorCMD.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/CanProvideRouteName.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/PersActorCommand.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/Commands.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/ShutDown.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -838,10 +828,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Cleaning up code + root react component, which can contain&#10;several other (Sodium) components." />
     <MESSAGE value="Some more slow progress." />
     <MESSAGE value="Back button effect is disabled (&quot;simple router&quot;)." />
-    <MESSAGE value="Refactoring." />
     <MESSAGE value="Create User Button." />
     <MESSAGE value="Create new user is in progress." />
     <MESSAGE value="After some refactoring and cleanup." />
@@ -863,7 +851,9 @@
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress.&#10;&#10;It throws an exception of : &#10;&#9;&quot;at dataStorage.RefToEntityOwningUser$.makeFromRef(RefToEntityOwningUser.scala:12)&quot;&#10;&#9;&#10;This needs to be fixed." />
     <MESSAGE value="Insert User logic &quot;works&quot; on the client side." />
     <MESSAGE value="Improving Get All User's Entities Route (fixing some bugs there)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improving Get All User's Entities Route (fixing some bugs there)." />
+    <MESSAGE value="Refactoring." />
+    <MESSAGE value="InsertEntityRouteFactory impl. in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="InsertEntityRouteFactory impl. in progress." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
