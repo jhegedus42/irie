@@ -25,7 +25,8 @@ object TestAjaxRequest {
       "Content-Type" -> "application/json"
     )
 
-    val ip = "commserver.asuscomm.com"
+//    val ip = "commserver.asuscomm.com"
+    val ip = "localhost"
 
     val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
 

@@ -19,17 +19,18 @@ import shapeless.Typeable
 sealed trait RequestState
 
 @JsonCodec
-case class OnItsWayTowardsServer() extends RequestState
+case class RequestIsOnItsWayTowardsServer() extends RequestState
 
 @JsonCodec
-case class RequestSuccessFull() extends RequestState
+case class RequestSuccessfullyReturned() extends RequestState
 
 @JsonCodec
-case class RequestError(errorDescription: String) extends RequestState
+case class RequestReturnedWithError(errorDescription: String)
+    extends RequestState
 
 /**
   * @param unTypedReferencedValue
-  * @param res this contains a `None` if there was no problem.
+  * @param res
   */
 
 @JsonCodec
@@ -49,7 +50,8 @@ object InsertEntityIntoDataStore {
   ): InsertEntityIntoDataStore = {
     val unTypedReferencedValue =
       UnTypedReferencedValue.fromReferencedValue[V](r)
-    InsertEntityIntoDataStore(unTypedReferencedValue, OnItsWayTowardsServer())
+    InsertEntityIntoDataStore(unTypedReferencedValue,
+                              RequestIsOnItsWayTowardsServer())
   }
 
   implicit val jSONConvertable: JSONConvertable[InsertEntityIntoDataStore] =
