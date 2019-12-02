@@ -1,6 +1,11 @@
 package client.cache
 
-import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
+import client.sodium.core.{
+  CellLoop,
+  Stream,
+  StreamSink,
+  Transaction
+}
 import client.ui.login.UserLoginStatusHandler
 import dataStorage.{TypedReferencedValue, User, Value}
 import dataStorage.stateHolder.UserMap
@@ -14,8 +19,10 @@ import dataStorage.Value
 case class CacheInserter()
 
 case class Cache[V <: Value[V]](
-  transformerConstructor: Stream[CacheMap[V] => CacheMap[V]],
-  typeName:               String
+  transformerConstructor: Stream[
+    CacheMap[V] => CacheMap[V]
+  ],
+  typeName: String
 )(
   implicit
   typeable: Typeable[V]) {
@@ -42,14 +49,20 @@ case class Cache[V <: Value[V]](
   val inserterStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
-  // todo-now =>
-  //  1. listen to this stream ^^^
+  //  todo-now
+  //   1. make inserting new user work
+
+  //  todo-now
+  //     1.1. listen to this stream ^^^
   //     and send updates to the server, to mirror the changes made on
   //     the client
-  //  2. show status of "syncing" / "synced" somewhere on the
+
+  //  todo-now
+  //     1.2. show status of "syncing" / "synced" somewhere on the
   //     console / screen (can be even a state in a Cell, later)
 
-  val ins1: Stream[TypedReferencedValue[V]] = inserterStream.map(
+  val ins1
+    : Stream[TypedReferencedValue[V]] = inserterStream.map(
     _.addTypeInfo().addEntityOwnerInfo(
       UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
     )
@@ -64,6 +77,11 @@ case class Cache[V <: Value[V]](
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"
       )
+
+    // todo-now CONTINUE THIS NOW
+    //  1.1.1 launch AJAX request to
+    //  insert/create TypedReferencedValue[V]
+    //  on the server, too
   )
 
   val transformer: Stream[CacheMap[V] => CacheMap[V]] =
@@ -78,7 +96,8 @@ case class Cache[V <: Value[V]](
           }
         )
 
-      lazy val counterValue: CellLoop[CacheMap[V]] = new CellLoop[CacheMap[V]]()
+      lazy val counterValue: CellLoop[CacheMap[V]] =
+        new CellLoop[CacheMap[V]]()
 
       counterValue.loop(afterUpdate.hold(CacheMap[V]()))
 
@@ -89,7 +108,9 @@ case class Cache[V <: Value[V]](
 }
 
 object Cache {
-  lazy val streamToSetInitialCacheState = new StreamSink[UserMap]()
+
+  lazy val streamToSetInitialCacheState =
+    new StreamSink[UserMap]()
 
   implicit val user: Cache[User] =
     CacheMaker(streamToSetInitialCacheState).getCache()

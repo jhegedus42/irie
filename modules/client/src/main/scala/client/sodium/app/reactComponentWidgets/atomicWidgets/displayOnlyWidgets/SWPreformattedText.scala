@@ -2,7 +2,7 @@ package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
 
 import client.sodium.core._
 
-case class SPreformattedText(
+case class SWPreformattedText(
   s: Stream[String],
   initialState: String =
     "default init state of SPreformattedText") {

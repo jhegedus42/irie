@@ -7,13 +7,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/SButton.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/CounterExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/CounterExample.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/HelloWorldTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/HelloWorldTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWPreformattedText.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SStreamStringListFromTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWStreamStringListFromTemplate.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWPreformattedTextFromTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWPreformattedTextFromTemplate.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/NewUserCreator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/NewUserCreator.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/TodoList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/TodoList.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -836,7 +834,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Back button effect is disabled (&quot;simple router&quot;)." />
     <MESSAGE value="Create User Button." />
     <MESSAGE value="Create new user is in progress." />
     <MESSAGE value="After some refactoring and cleanup." />
@@ -861,7 +858,8 @@
     <MESSAGE value="Refactoring." />
     <MESSAGE value="InsertEntityRouteFactory impl. in progress." />
     <MESSAGE value="InsertEntityRouteFactory impl. in progress.&#10;&#10;(side track / refactoring, implementing &#10;Sodium Widget : SWPreformattedTextFromTemplate)" />
-    <option name="LAST_COMMIT_MESSAGE" value="InsertEntityRouteFactory impl. in progress.&#10;&#10;(side track / refactoring, implementing &#10;Sodium Widget : SWPreformattedTextFromTemplate)" />
+    <MESSAGE value="Refactoring: creating widgets from widget templates. (rewriting an existing widget, SPreformattedText) to be implemented using a Widget Template." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring: creating widgets from widget templates. (rewriting an existing widget, SPreformattedText) to be implemented using a Widget Template." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

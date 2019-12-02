@@ -1,7 +1,7 @@
 package client.sodium.app.reactComponentWidgets.compositeWidgets
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SPreformattedText
+import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SWPreformattedText
 import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
   STextArea
@@ -21,14 +21,14 @@ case class NewUserCreator() {
 
   def getComp = {
 
-    val listOfUsers = SPreformattedText(
+    val listOfUsers = SWPreformattedText(
       userCache.cellLoop
         .updates().map(
           (c: CacheMap[User]) => c.getPrettyPrintedString
         )
     ).comp
 
-    val nrOfUsers = SPreformattedText(
+    val nrOfUsers = SWPreformattedText(
       userCache.cellLoop
         .map(
           c =>

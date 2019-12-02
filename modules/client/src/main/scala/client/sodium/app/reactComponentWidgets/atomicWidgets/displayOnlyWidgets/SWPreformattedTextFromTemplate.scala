@@ -14,11 +14,6 @@ import japgolly.scalajs.react.{
   ScalaComponent
 }
 
-// TODO-now continue here
-//  write this based on `SStreamStringListFromTemplate`
-//  but in a way so that `SPreformattedText` can be
-//  replaced with it
-
 case class SWPreformattedTextFromTemplate(
   input: Stream[State],
   initialState: String =
