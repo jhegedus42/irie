@@ -2,12 +2,8 @@ package client.ui
 
 import client.cache.{Cache, CacheMap}
 import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponents.atomicComponents.{
-  SButton,
-  SPreformattedText,
-  STextArea
-}
-import client.sodium.app.reactComponents.compositeComponents.{
+import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SPreformattedText
+import client.sodium.app.reactComponentWidgets.compositeWidgets.{
   CounterExample,
   HelloWorldTemplate,
   NewUserCreator,

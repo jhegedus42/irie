@@ -1,13 +1,21 @@
-package client.sodium.app.reactComponents.atomicComponents
+package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
 
 import client.sodium.core._
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  ScalaComponent
+}
+
+// TODO-now, replace this with `SWPreformattedTextFromTemplate`
+//  after that, delete it completely
 
 case class SPreformattedText(
-  s:            Stream[String],
-  initialState: String = "default init state of SPreformattedText") {
+  s: Stream[String],
+  initialState: String =
+    "default init state of SPreformattedText") {
 
   val comp = ScalaComponent
     .builder[Unit]("SodiumPreformattedText")

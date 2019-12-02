@@ -1,7 +1,7 @@
 package testingData
 
 import dataStorage.stateHolder.EntityStorage
-import dataStorage.{Ref, ReferencedValue, User, Value}
+import dataStorage.{Ref, TypedReferencedValue, User, Value}
 import io.circe.{Decoder, Json}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -24,15 +24,21 @@ object TestEntitiesForUsers {
   val terezAnya   = User(name = "TerezAnya", favoriteNumber   = 666)
   val jetiLabnyom = User(name = "JetiLabnyom", favoriteNumber = 46)
 
-  val aliceEntity: ReferencedValue[User] = ReferencedValue(alice)
+  val aliceEntity: TypedReferencedValue[User] = TypedReferencedValue(alice)
 
-  val bobEntity: ReferencedValue[User] = ReferencedValue(bob)
+  val bobEntity: TypedReferencedValue[User] = TypedReferencedValue(bob)
 
-  val meresiHibaEntity: ReferencedValue[User] = ReferencedValue(meresiHiba)
+  val meresiHibaEntity: TypedReferencedValue[User] = TypedReferencedValue(
+    meresiHiba
+  )
 
-  val terezAnyaEntity: ReferencedValue[User] = ReferencedValue(terezAnya)
+  val terezAnyaEntity: TypedReferencedValue[User] = TypedReferencedValue(
+    terezAnya
+  )
 
-  val jetiLabnyomEntity: ReferencedValue[User] = ReferencedValue(jetiLabnyom)
+  val jetiLabnyomEntity: TypedReferencedValue[User] = TypedReferencedValue(
+    jetiLabnyom
+  )
 
   import monocle.macros.syntax.lens._
 

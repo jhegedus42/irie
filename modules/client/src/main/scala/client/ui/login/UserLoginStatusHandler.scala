@@ -1,6 +1,6 @@
 package client.ui.login
 
-import dataStorage.{ReferencedValue, User}
+import dataStorage.{TypedReferencedValue, User}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 import org.scalajs.{dom => d}

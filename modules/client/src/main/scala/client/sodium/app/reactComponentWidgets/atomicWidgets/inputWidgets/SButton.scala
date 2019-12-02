@@ -1,10 +1,12 @@
-package client.sodium.app.reactComponents.atomicComponents
+package client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets
 
-import client.sodium.core.StreamSink
-import client.sodium.core.Stream
 import japgolly.scalajs.react.component.ScalaFn.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
+import japgolly.scalajs.react.{
+  Callback,
+  CtorType,
+  ScalaFnComponent
+}
 
 case class SButton(
   name:     String = "Button",

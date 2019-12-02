@@ -1,9 +1,10 @@
 package client.cache
 
-import dataStorage.{Ref, ReferencedValue, Value}
+import dataStorage.{Ref, TypedReferencedValue, Value}
 
 case class CacheMap[V <: Value[V]](
-  map: Map[Ref[V], ReferencedValue[V]] = Map[Ref[V], ReferencedValue[V]]()) {
+  map: Map[Ref[V], TypedReferencedValue[V]] =
+    Map[Ref[V], TypedReferencedValue[V]]()) {
 
   // https://dzone.com/articles/java-string-format-examples
 
@@ -26,7 +27,7 @@ case class CacheMap[V <: Value[V]](
 object CacheMap {
 
   def insertReferencedValue[V <: Value[V]](
-    rv: ReferencedValue[V]
+    rv: TypedReferencedValue[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
       val oldMap = m.map

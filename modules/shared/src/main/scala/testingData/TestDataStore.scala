@@ -1,11 +1,11 @@
 package testingData
 
 import dataStorage.stateHolder.EntityStorage
-import dataStorage.{ReferencedValue, User, Value}
+import dataStorage.{TypedReferencedValue, User, Value}
 import io.circe.Json
 
 import dataStorage.stateHolder.EntityStorage
-import dataStorage.{Ref, ReferencedValue, User, Value}
+import dataStorage.{Ref, TypedReferencedValue, User, Value}
 import io.circe.{Decoder, Json}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -33,7 +33,7 @@ object TestDataStore extends App {
 
   lazy val ue = EntityStorage()
 
-  lazy val aliceEnt: ReferencedValue[User] =
+  lazy val aliceEnt: TypedReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
   lazy val mh = TestEntitiesForUsers.meresiHiba_with_UUID2.ref

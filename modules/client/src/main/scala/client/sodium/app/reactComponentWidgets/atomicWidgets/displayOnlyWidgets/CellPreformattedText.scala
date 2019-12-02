@@ -1,12 +1,13 @@
-package client.sodium.app.reactComponents.atomicComponents
+package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
+
+import client.sodium.core.Cell
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
-
-import client.sodium.core.{Cell, Stream}
-import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.<
-import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  ScalaComponent
+}
 
 case class CellPreformattedText(cell: Cell[String]) {
 

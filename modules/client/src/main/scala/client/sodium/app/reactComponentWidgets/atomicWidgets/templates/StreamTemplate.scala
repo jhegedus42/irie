@@ -1,6 +1,6 @@
-package client.sodium.app.reactComponents.atomicComponents
+package client.sodium.app.reactComponentWidgets.atomicWidgets.templates
 
-import client.sodium.core.{Stream, StreamSink}
+import client.sodium.core.Stream
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 

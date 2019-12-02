@@ -2,7 +2,7 @@ package client.cache
 
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.login.UserLoginStatusHandler
-import dataStorage.{ReferencedValue, User, Value}
+import dataStorage.{TypedReferencedValue, User, Value}
 import dataStorage.stateHolder.UserMap
 import shapeless.Typeable
 
@@ -32,15 +32,15 @@ case class Cache[V <: Value[V]](
     * @return
     */
   private def inserter(
-    rv: ReferencedValue[V]
+    rv: TypedReferencedValue[V]
   )(
     implicit
     typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] =
     CacheMap.insertReferencedValue[V](rv)
 
-  val inserterStream: StreamSink[ReferencedValue[V]] =
-    new StreamSink[ReferencedValue[V]]()
+  val inserterStream: StreamSink[TypedReferencedValue[V]] =
+    new StreamSink[TypedReferencedValue[V]]()
 
   // todo-now =>
   //  1. listen to this stream ^^^
@@ -49,7 +49,7 @@ case class Cache[V <: Value[V]](
   //  2. show status of "syncing" / "synced" somewhere on the
   //     console / screen (can be even a state in a Cell, later)
 
-  val ins1: Stream[ReferencedValue[V]] = inserterStream.map(
+  val ins1: Stream[TypedReferencedValue[V]] = inserterStream.map(
     _.addTypeInfo().addEntityOwnerInfo(
       UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
     )
@@ -59,7 +59,7 @@ case class Cache[V <: Value[V]](
     ins1.map(inserter)
 
   ins1.listen(
-    (x: ReferencedValue[V]) =>
+    (x: TypedReferencedValue[V]) =>
       println(
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"

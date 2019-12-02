@@ -1,19 +1,19 @@
-package client.sodium.app.reactComponents.compositeComponents
+package client.sodium.app.reactComponentWidgets.compositeWidgets
 
 import client.cache.{Cache, CacheMap}
 import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponents.atomicComponents.{
-  CellTemplate,
+import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SPreformattedText
+import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
-  SPreformattedText,
   STextArea
 }
 import client.sodium.core
 import client.sodium.core._
-import dataStorage.{ReferencedValue, User}
+import dataStorage.{TypedReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
+
 import scala.concurrent.ExecutionContextExecutor
 
 case class NewUserCreator() {
@@ -26,12 +26,17 @@ case class NewUserCreator() {
   def getComp = {
     val listOfUsers = SPreformattedText(
       userCache.cellLoop
-        .updates().map((c: CacheMap[User]) => c.getPrettyPrintedString)
+        .updates().map(
+          (c: CacheMap[User]) => c.getPrettyPrintedString
+        )
     ).comp
 
     val nrOfUsers = SPreformattedText(
       userCache.cellLoop
-        .map(c => s"number of users : ${c.getNumberOfEntries.toString}").updates()
+        .map(
+          c =>
+            s"number of users : ${c.getNumberOfEntries.toString}"
+        ).updates()
     ).comp
 
     val userName: STextArea = STextArea("init_text")
@@ -45,7 +50,9 @@ case class NewUserCreator() {
           val text = userName.cell.sample()
 
           val newUser =
-            ReferencedValue[User](User(name = text, favoriteNumber = 46))
+            TypedReferencedValue[User](
+              User(name = text, favoriteNumber = 46)
+            )
 
           userCache.inserterStream.send(newUser)
 

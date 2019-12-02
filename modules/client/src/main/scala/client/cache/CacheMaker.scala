@@ -2,7 +2,7 @@ package client.cache
 
 import client.sodium.core.{Stream, StreamSink}
 import dataStorage.stateHolder.UserMap
-import dataStorage.{Ref, ReferencedValue, UnTypedRef, Value}
+import dataStorage.{Ref, TypedReferencedValue, UnTypedRef, Value}
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Json}
 import shapeless.Typeable
@@ -17,7 +17,7 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
   def getCache(
   )(
     implicit
-    decoder:  Decoder[ReferencedValue[V]],
+    decoder:  Decoder[TypedReferencedValue[V]],
     ct:       ClassTag[V],
     typeable: Typeable[V]
   ): Cache[V] = {
@@ -41,7 +41,7 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
   )(
     implicit
     c:        ClassTag[V],
-    d:        Decoder[ReferencedValue[V]],
+    d:        Decoder[TypedReferencedValue[V]],
     typeable: Typeable[V]
   ): CacheMap[V] = {
 
@@ -51,11 +51,11 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
       t._1.typeName.get.s == name
     }
 
-    def h(t: (UnTypedRef, Json)): (Ref[V], ReferencedValue[V]) = {
+    def h(t: (UnTypedRef, Json)): (Ref[V], TypedReferencedValue[V]) = {
       val ur   = t._1
       val json = t._2
       val r    = Ref[V](ur)
-      val referencedValueV: Result[ReferencedValue[V]] =
+      val referencedValueV: Result[TypedReferencedValue[V]] =
         d.decodeJson(json)
       val refV = referencedValueV.toOption.get
       // we dare to do this becuase this supposed to be filtered
@@ -69,8 +69,8 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
       val u = userMap.user
       val l: immutable.Seq[(UnTypedRef, Json)] = userMap.list
       val lf = l.filter(g)
-      val ln: immutable.Seq[(Ref[V], ReferencedValue[V])] = lf.map(h)
-      val m:  Map[Ref[V], ReferencedValue[V]]             = ln.toMap
+      val ln: immutable.Seq[(Ref[V], TypedReferencedValue[V])] = lf.map(h)
+      val m:  Map[Ref[V], TypedReferencedValue[V]]             = ln.toMap
       CacheMap[V](m)
     }
 

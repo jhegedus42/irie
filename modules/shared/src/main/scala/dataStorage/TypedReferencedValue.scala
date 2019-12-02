@@ -9,7 +9,7 @@ import cats.implicits._
 import shapeless.Typeable
 
 @JsonCodec
-case class ReferencedValue[E <: Value[E]](
+case class TypedReferencedValue[E <: Value[E]](
   entityValue: E,
   ref:         Ref[E] = Ref[E]()) {
 
@@ -17,15 +17,15 @@ case class ReferencedValue[E <: Value[E]](
   )(
     implicit
     typeable: Typeable[E]
-  ): ReferencedValue[E] = {
+  ): TypedReferencedValue[E] = {
     val r: Ref[E] = ref.addTypeInfo()(typeable)
-    ReferencedValue(entityValue, r)
+    TypedReferencedValue(entityValue, r)
   }
 
-  def addEntityOwnerInfo(r: Ref[User]): ReferencedValue[E] = {
-    ReferencedValue(this.entityValue, this.ref.addEntityOwnerInfo(r))
+  def addEntityOwnerInfo(r: Ref[User]): TypedReferencedValue[E] = {
+    TypedReferencedValue(this.entityValue, this.ref.addEntityOwnerInfo(r))
   }
 
 }
 
-object ReferencedValue {}
+object TypedReferencedValue {}

@@ -1,17 +1,19 @@
-package client.sodium.app.reactComponents.compositeComponents
+package client.sodium.app.reactComponentWidgets.compositeWidgets
 
 import client.cache.{Cache, CacheMap}
+import client.sodium.app.CellLoopWithUpdaterStream
 import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponents.atomicComponents.{
+import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.{
   CellPreformattedText,
-  CellTemplate,
+  SPreformattedText
+}
+import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
-  SPreformattedText,
   STextArea
 }
-import client.sodium.{CellLoopWithUpdaterStream, core}
+import client.sodium.core
 import client.sodium.core._
-import dataStorage.{ReferencedValue, User}
+import dataStorage.{TypedReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
@@ -25,7 +27,8 @@ case class TodoList() {
 
   lazy val initTodo = List("pet cat", "go for a walk")
 
-  lazy val todoLoop = CellLoopWithUpdaterStream[List[String]](initTodo)
+  lazy val todoLoop =
+    CellLoopWithUpdaterStream[List[String]](initTodo)
 
 //  val todos = new Cell[List[String]](initTodo)
 
@@ -57,8 +60,9 @@ case class TodoList() {
           val td = todoElementName.cell.sample()
 
           println(s"i was pusssshed, todo text is $td")
-          val transformer: List[String] => List[String] = { (l: List[String]) =>
-            td :: l
+          val transformer: List[String] => List[String] = {
+            (l: List[String]) =>
+              td :: l
           }
           val startList       = List("egy")
           val transFormedList = transformer(startList)

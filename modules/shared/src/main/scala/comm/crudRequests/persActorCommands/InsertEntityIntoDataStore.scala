@@ -3,7 +3,7 @@ package comm.crudRequests.persActorCommands
 import comm.crudRequests.{CanProvideRouteName, JSONConvertable}
 import dataStorage.{
   RefToEntityOwningUser,
-  ReferencedValue,
+  TypedReferencedValue,
   UnTypedReferencedValue,
   Value
 }
@@ -42,14 +42,14 @@ case class InsertEntityIntoDataStore(
 object InsertEntityIntoDataStore {
 
   def fromReferencedValue[V <: Value[V]](
-    r: ReferencedValue[V]
+    r: TypedReferencedValue[V]
   )(
     implicit
-    enc:      Encoder[ReferencedValue[V]],
+    enc:      Encoder[TypedReferencedValue[V]],
     typeable: Typeable[V]
   ): InsertEntityIntoDataStore = {
     val unTypedReferencedValue =
-      UnTypedReferencedValue.fromReferencedValue[V](r)
+      UnTypedReferencedValue.fromTypedReferencedValue[V](r)
     InsertEntityIntoDataStore(unTypedReferencedValue,
                               RequestIsOnItsWayTowardsServer())
   }

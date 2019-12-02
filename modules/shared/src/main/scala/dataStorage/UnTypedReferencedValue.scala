@@ -13,14 +13,14 @@ case class UnTypedReferencedValue(
 
 object UnTypedReferencedValue {
 
-  def fromReferencedValue[V <: Value[V]](
-    r: ReferencedValue[V]
+  def fromTypedReferencedValue[V <: Value[V]](
+    r: TypedReferencedValue[V]
   )(
     implicit
-    enc:      Encoder[ReferencedValue[V]],
+    enc:      Encoder[TypedReferencedValue[V]],
     typeable: Typeable[V]
   ): UnTypedReferencedValue = {
-    val r2: ReferencedValue[V] = r.addTypeInfo()
+    val r2: TypedReferencedValue[V] = r.addTypeInfo()
     val j = r2.asJson
     UnTypedReferencedValue(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
   }

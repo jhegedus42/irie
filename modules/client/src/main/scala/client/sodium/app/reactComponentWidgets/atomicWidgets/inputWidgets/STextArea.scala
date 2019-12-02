@@ -1,13 +1,8 @@
-package client.sodium.app.reactComponents.atomicComponents
+package client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets
 
 import client.sodium.core.{Cell, StreamSink}
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  ScalaComponent,
-  _
-}
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent, _}
 
 case class STextArea(init: String) {
 
@@ -36,8 +31,7 @@ case class STextArea(init: String) {
       }
 
       <.div(
-              <.textarea(^.onChange ==> onChange,
-                         ^.value := cell.sample())
+        <.textarea(^.onChange ==> onChange, ^.value := cell.sample())
       )
     }
   }

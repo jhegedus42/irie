@@ -8,7 +8,7 @@ import io.circe.generic.JsonCodec
 import scala.collection.Map
 import dataStorage.{
   Ref,
-  ReferencedValue,
+  TypedReferencedValue,
   UnTypedRef,
   RefToEntityOwningUser
 }
