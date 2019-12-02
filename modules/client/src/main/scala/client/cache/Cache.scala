@@ -77,7 +77,6 @@ case class Cache[V <: Value[V]](
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"
       )
-
     // todo-now CONTINUE THIS NOW
     //  1.1.1 launch AJAX request to
     //  insert/create TypedReferencedValue[V]
