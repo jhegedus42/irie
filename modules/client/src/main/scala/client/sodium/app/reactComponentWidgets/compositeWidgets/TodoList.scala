@@ -1,22 +1,13 @@
 package client.sodium.app.reactComponentWidgets.compositeWidgets
 
-import client.cache.{Cache, CacheMap}
 import client.sodium.app.CellLoopWithUpdaterStream
-import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.{
-  CellPreformattedText,
-  SPreformattedText
-}
+import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.CellPreformattedText
 import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
   STextArea
 }
-import client.sodium.core
-import client.sodium.core._
-import dataStorage.{TypedReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 

@@ -1,13 +1,8 @@
 package client.sodium.app.reactComponentWidgets.compositeWidgets
 
-import client.cache.{Cache, CacheMap}
-import client.sodium.app.actions.SActionWriteToConsole
-import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SPreformattedText
-import client.sodium.app.reactComponentWidgets.atomicWidgets.templates.CellTemplate
 import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.SButton
-import client.sodium.core.StreamSink
-import client.sodium.core._
-import dataStorage.User
+import client.sodium.app.reactComponentWidgets.atomicWidgets.templates.CellTemplate
+import client.sodium.core.{StreamSink, _}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
@@ -18,25 +13,30 @@ case class CounterExample() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
+//  val buttonWithFunction: Stream[Int => Int] =
+//    new StreamSink[Int => Int]()
+
   lazy val button1 =
     SButton("Inc 5", () => println("Inc 5 was pressed"))
 
   lazy val button2 =
     SButton("Dec 2", () => println("Dec 2 was presssed"))
 
-//  val buttonWithFunction1 = button1.getClick.map(_ => { (x: Int) => x + 5 })
-//  val buttonWithFunction2 = button2.getClick.map(_ => { (x: Int) => x - 2 })
+  val buttonWithFunction1 = button1.getClick.map(_ => {
+    (x: Int) => x + 5
+  })
 
-  val buttonWithFunction: Stream[Int => Int] =
-    new StreamSink[Int => Int]()
-//    buttonWithFunction1.orElse(buttonWithFunction2)
+  val buttonWithFunction2 = button2.getClick.map(_ => {
+    (x: Int) => x - 2
+  })
+
+  val b = buttonWithFunction1.orElse(buttonWithFunction2)
 
   val counterCellLoop = Transaction.apply[CellLoop[Int]](
     { _ =>
       lazy val afterUpdate: Stream[Int] =
-        buttonWithFunction.snapshot(counterValue, {
-          (f, c: Int) =>
-            f(c)
+        b.snapshot(counterValue, { (f, c: Int) =>
+          f(c)
         })
 
       lazy val counterValue: CellLoop[Int] =

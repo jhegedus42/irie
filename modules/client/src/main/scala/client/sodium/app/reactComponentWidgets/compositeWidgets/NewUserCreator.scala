@@ -1,18 +1,14 @@
 package client.sodium.app.reactComponentWidgets.compositeWidgets
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.app.actions.SActionWriteToConsole
 import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SPreformattedText
 import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
   STextArea
 }
-import client.sodium.core
-import client.sodium.core._
 import dataStorage.{TypedReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -24,6 +20,7 @@ case class NewUserCreator() {
   lazy val userCache: Cache[User] = Cache.user
 
   def getComp = {
+
     val listOfUsers = SPreformattedText(
       userCache.cellLoop
         .updates().map(
@@ -39,7 +36,7 @@ case class NewUserCreator() {
         ).updates()
     ).comp
 
-    val userName: STextArea = STextArea("init_text")
+    val userNameInput: STextArea = STextArea("init_text")
 
     val createNewUserButton =
       SButton(
@@ -47,7 +44,7 @@ case class NewUserCreator() {
         () => {
           println("i was pusssshed")
 
-          val text = userName.cell.sample()
+          val text = userNameInput.cell.sample()
 
           val newUser =
             TypedReferencedValue[User](
@@ -62,7 +59,7 @@ case class NewUserCreator() {
     def render: Unit => VdomElement = { _ =>
       <.div(
         listOfUsers(),
-        userName.comp(),
+        userNameInput.comp(),
         createNewUserButton.vdom(),
         <.br,
         nrOfUsers()
