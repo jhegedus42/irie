@@ -2,15 +2,22 @@ package client.cache
 
 import client.sodium.core.{Stream, StreamSink}
 import dataStorage.stateHolder.UserMap
-import dataStorage.{Ref, TypedReferencedValue, UnTypedRef, Value}
+import dataStorage.{
+  Ref,
+  TypedReferencedValue,
+  UnTypedRef,
+  Value
+}
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Json}
 import shapeless.Typeable
 
 import scala.collection.immutable
+import scala.collection.immutable.HashMap
 import scala.reflect.ClassTag
 
-case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
+case class CacheMaker[V <: Value[V]](
+  streamSink: StreamSink[UserMap]) {
 
   var x = "a";
 
@@ -22,10 +29,14 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
     typeable: Typeable[V]
   ): Cache[V] = {
 
-    val setter: Stream[CacheMap[V]] = streamSink.map(makeFrom)
+    val setter: Stream[CacheMap[V]] =
+      streamSink.map(makeFrom)
 
-    val updaterFromSetter: Stream[CacheMap[V] => CacheMap[V]] =
-      setter.map((y: CacheMap[V]) => { x: CacheMap[V] => y })
+    val updaterFromSetter
+      : Stream[CacheMap[V] => CacheMap[V]] =
+      setter.map(
+        (y: CacheMap[V]) => { x: CacheMap[V] => y }
+      )
 
     val name: String = UnTypedRef.getName[V]
 
@@ -51,11 +62,14 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
       t._1.typeName.get.s == name
     }
 
-    def h(t: (UnTypedRef, Json)): (Ref[V], TypedReferencedValue[V]) = {
+    def h(
+      t: (UnTypedRef, Json)
+    ): (Ref[V], TypedReferencedValue[V]) = {
       val ur   = t._1
       val json = t._2
       val r    = Ref[V](ur)
-      val referencedValueV: Result[TypedReferencedValue[V]] =
+      val referencedValueV
+        : Result[TypedReferencedValue[V]] =
         d.decodeJson(json)
       val refV = referencedValueV.toOption.get
       // we dare to do this becuase this supposed to be filtered
@@ -67,11 +81,29 @@ case class CacheMaker[V <: Value[V]](streamSink: StreamSink[UserMap]) {
 
     def f(userMap: UserMap): CacheMap[V] = {
       val u = userMap.user
-      val l: immutable.Seq[(UnTypedRef, Json)] = userMap.list
+
+      val l: immutable.Seq[(UnTypedRef, Json)] =
+        userMap.list
       val lf = l.filter(g)
-      val ln: immutable.Seq[(Ref[V], TypedReferencedValue[V])] = lf.map(h)
-      val m:  Map[Ref[V], TypedReferencedValue[V]]             = ln.toMap
-      CacheMap[V](m)
+
+      val ln
+        : immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
+        lf.map(h)
+
+      val hm: HashMap[Ref[V], TypedReferencedValue[V]] = {
+
+        // todo CONTINUE this NOW
+
+        ???
+
+      }
+
+//      val m: HashMap[Ref[V], TypedReferencedValue[V]] =
+//        ln.toMap
+
+//      HashMap(m)
+
+      CacheMap[V](hm)
     }
 
     f(um)

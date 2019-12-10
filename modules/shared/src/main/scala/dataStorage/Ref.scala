@@ -12,9 +12,14 @@ import scala.reflect.ClassTag
 import io.circe._, io.circe.generic.semiauto._
 
 @JsonCodec
-case class Ref[V <: Value[V]](unTypedRef: UnTypedRef = UnTypedRef()) {
+case class Ref[V <: Value[V]](
+  unTypedRef: UnTypedRef = UnTypedRef()) {
 
-  def addTypeInfo()(implicit typeable: Typeable[V]): Ref[V] =
+  def addTypeInfo(
+  )(
+    implicit
+    typeable: Typeable[V]
+  ): Ref[V] =
     Ref(unTypedRef.addTypeInfo[V](typeable))
 
   def addEntityOwnerInfo(r: Ref[User]): Ref[V] = {
@@ -28,20 +33,23 @@ object Ref {
 
 @JsonCodec
 case class UnTypedRef(
-  typeName:              Option[TypeName]      = None,
-  uuid:                  String                = java.util.UUID.randomUUID().toString,
-  refToEntityOwningUser: RefToEntityOwningUser = RefToEntityOwningUser()) {
+  typeName: Option[TypeName] = None,
+  uuid:     String           = java.util.UUID.randomUUID().toString,
+  refToEntityOwningUser: RefToEntityOwningUser =
+    RefToEntityOwningUser()) {
 
   def addTypeInfo[V <: Value[V]](
     implicit
     typeable: Typeable[V]
   ): UnTypedRef = {
-    val name: String = implicitly[Typeable[V]].describe.toString
+    val name: String =
+      implicitly[Typeable[V]].describe.toString
     this.copy(typeName = Some(TypeName(name)))
   }
 
   def addEntityOwnerInfo(r: Ref[User]) = {
-    val entityOwningUser = RefToEntityOwningUser.makeFromRef(r)
+    val entityOwningUser =
+      RefToEntityOwningUser.makeFromRef(r)
     this.copy(refToEntityOwningUser = entityOwningUser)
   }
 }
@@ -60,6 +68,9 @@ object UnTypedRef {
 //    typeable: Typeable[V]
 //  ): UnTypedRef = UnTypedRef().addTypeInfo[V](typeable)
 
-  def getName[V <: Value[V]](implicit typeable: Typeable[V]): String =
+  def getName[V <: Value[V]](
+    implicit
+    typeable: Typeable[V]
+  ): String =
     implicitly[Typeable[V]].describe.toString
 }

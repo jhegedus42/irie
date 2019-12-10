@@ -6,9 +6,18 @@ import comm.crudRequests.JSONConvertable
 import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
-import io.circe.Json
 import org.scalajs.dom.ext.Ajax
 import testingData.TestEntitiesForUsers
+
+import scala.collection.immutable.HashMap
+import io.circe.Decoder.Result
+import io.circe._
+import io.circe.Json
+import io.circe.syntax._
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.parser._
+import shapeless.Typeable
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -16,7 +25,8 @@ object TestAjaxRequest {
 
   def populateUserEntityCache(): Unit = {
 
-    implicit def executionContext: ExecutionContextExecutor =
+    implicit def executionContext
+      : ExecutionContextExecutor =
       scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
     import io.circe.syntax._
@@ -28,7 +38,8 @@ object TestAjaxRequest {
 //    val ip = "commserver.asuscomm.com"
     val ip = "localhost"
 
-    val i = implicitly[JSONConvertable[GetAllEntityiesForUser]]
+    val i =
+      implicitly[JSONConvertable[GetAllEntityiesForUser]]
 
     lazy val owner: RefToEntityOwningUser =
       RefToEntityOwningUser.makeFromRef(
@@ -43,13 +54,15 @@ object TestAjaxRequest {
       .post(s"http://$ip:8080/GetAllEntityiesForUser",
             j.spaces4,
             headers = headers)
-      .map(_.responseText).map(i.getObject(_)).onComplete(x => {
-        val res1: UserMap = x.toOption.get.res.get
-        Cache.streamToSetInitialCacheState.send(res1)
-        println(res1)
-        Cache.user.cellLoop
-          .listen(x => println(s"udate:$x"))
-      })
+      .map(_.responseText).map(i.getObject(_)).onComplete(
+        x => {
+          val res1: UserMap = x.toOption.get.res.get
+          Cache.streamToSetInitialCacheState.send(res1)
+          println(res1)
+          Cache.user.cellLoop
+            .listen(x => println(s"udate:${x.toJSON}"))
+        }
+      )
 
   }
 }
