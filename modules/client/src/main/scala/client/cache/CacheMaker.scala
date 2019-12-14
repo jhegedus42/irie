@@ -91,29 +91,21 @@ case class CacheMaker[V <: Value[V]](
 
       val l: immutable.Seq[(UnTypedRef, Json)] =
         userMap.list
+
       val lf = l.filter(g)
 
       val ln
         : immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
         lf.map(h)
 
-      val hm: HashMap[Ref[V], TypedReferencedValue[V]] = {
+      val m: Map[Ref[V], TypedReferencedValue[V]] =
+        ln.toMap
 
-        // todo CONTINUE this NOW
-
-        ???
-
-      }
-
-//      val m: HashMap[Ref[V], TypedReferencedValue[V]] =
-//        ln.toMap
-
-//      HashMap(m)
-
-      CacheMap[V](hm)
+      CacheMap[V](m)
     }
 
     f(um)
+
   }
 
 }

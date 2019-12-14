@@ -45,11 +45,11 @@ object Settings {
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
     val in_memory_journal = "2.5.15.2"
-    val scala        = "2.12.8"
-    val scalaDom     = "0.9.6"
-    val scalajsReact = "1.3.1"
-    val scalaCSS     = "0.5.5"
-    val scalaZ       = "7.2.26"
+    val scala             = "2.12.8"
+    val scalaDom          = "0.9.6"
+    val scalajsReact      = "1.3.1"
+    val scalaCSS          = "0.5.5"
+    val scalaZ            = "7.2.26"
 
     val akka     = "2.5.23"
     val akkaHttp = "10.1.9"
@@ -65,7 +65,7 @@ object Settings {
     */
   val scalaTest = Seq()
 
-  val circeVersion = "0.11.1"
+  val circeVersion = "0.12.3"
 
   val sharedDependencies = Def.setting(
     Seq(
@@ -74,11 +74,9 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
       "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
-      "org.typelevel" %%% "cats-core"                 % "2.0.0",
-      "org.typelevel" %% "kittens" % "2.0.0"
-
-
-  ) ++
+      "org.typelevel" %%% "cats-core"                  % "2.0.0",
+      "org.typelevel"                                  %% "kittens" % "2.0.0"
+    ) ++
       Seq(
         "io.circe" %%% "circe-core",
         "io.circe" %%% "circe-generic",

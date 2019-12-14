@@ -6,10 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/get-all-entitie.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,6 +192,44 @@
       <recent name="$PROJECT_DIR$/www/assets/js" />
     </key>
   </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/GetAllEntityiesForUser" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;    &quot;par&quot; : {&#10;        &quot;uuid&quot; : &quot;00000000-0000-0000-0000-000000000000&quot;&#10;    },&#10;    &quot;res&quot; : null&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/GetAllEntityiesForUser/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;    &quot;par&quot; : {&#10;        &quot;uuid&quot; : &quot;00000000-0000-0000-0000-000000000000&quot;&#10;    },&#10;    &quot;res&quot; : null&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -204,7 +242,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.get-all-entitie#1">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="JSONsForPostRequests (1)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="comm.crudRequests.testing.JSONsForPostRequests" />
       <module name="server" />
@@ -226,14 +264,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestApp" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="testingData.TestDataStore" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="get-all-entitie#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/get-all-entitie.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="get-all-entities#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/get-all-entities.http">
       <method v="2" />
     </configuration>
     <configuration name="MainTest" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
@@ -299,7 +333,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestApp" />
       <item itemvalue="Application.JSONsForPostRequests" />
       <item itemvalue="Application.JSONsForPostRequests (1)" />
       <item itemvalue="Application.Main" />
@@ -309,14 +342,15 @@
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
       <item itemvalue="HTTP Request.get-all-entitie#1" />
+      <item itemvalue="HTTP Request.get-all-entities#1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.get-all-entities#1" />
         <item itemvalue="HTTP Request.get-all-entitie#1" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.JSONsForPostRequests (1)" />
         <item itemvalue="Application.JSONsForPostRequests" />
-        <item itemvalue="Application.TestApp" />
       </list>
     </recent_temporary>
   </component>
@@ -341,16 +375,16 @@
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/server" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -367,11 +401,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7844803736966" />
         <entry key="$PROJECT_DIR$/build.sbt" value="243723964" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="2286484635" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="975752018" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="1990742216" />
       </map>
@@ -824,7 +857,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="After." />
     <MESSAGE value="Snapshot." />
     <MESSAGE value="Counter works." />
     <MESSAGE value="Create new user widget was created." />
@@ -849,7 +881,8 @@
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;(pretty print &quot;Map&quot; - convert to JSON - side chain - impl. in progress)" />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;REST API: &quot;InsertEntityIntoDataStore&quot; pers. actor command has been&#10;  used for implementing the route." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;  &#10;Writing a general &quot;PersCommandRouteFactory&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;  &#10;Writing a general &quot;PersCommandRouteFactory&quot;." />
+    <MESSAGE value="Fixing some &quot;not implemented error&quot;..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing some &quot;not implemented error&quot;..." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
