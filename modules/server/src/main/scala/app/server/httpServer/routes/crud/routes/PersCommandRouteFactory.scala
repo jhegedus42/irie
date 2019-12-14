@@ -25,7 +25,7 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
 case class PersCommandRouteFactory[
-  V  <: Value[V],
+//  V  <: Value[V],
   PC <: PersActorCommand
 ](val actor: ActorRef
 )(

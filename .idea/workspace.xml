@@ -6,15 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/get-all-entitie.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUserRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUserRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/InsertEntityRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +62,7 @@
         <option value="Scala Object" />
         <option value="Scala Trait" />
         <option value="Scala Class" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
@@ -208,7 +204,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.fastOptJS">
+  <component name="RunManager" selected="HTTP Request.get-all-entitie#1">
     <configuration name="JSONsForPostRequests (1)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="comm.crudRequests.testing.JSONsForPostRequests" />
       <module name="server" />
@@ -237,18 +233,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="askForAliceUsingCURL.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
-      <module name="root" />
-      <option name="INTERPRETER_OPTIONS" value="bash" />
-      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
-      <option name="PROJECT_INTERPRETER" value="false" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bash_scripts/testing/curl/sodiumGet/askForAliceUsingCURL.sh" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="get-all-entitie#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/get-all-entitie.http">
+      <method v="2" />
     </configuration>
     <configuration name="MainTest" type="SbtRunConfiguration" factoryName="sbt Task" show_console_on_std_err="false" show_console_on_std_out="false">
       <option name="allowRunningInParallel" value="false" />
@@ -317,15 +303,16 @@
       <item itemvalue="Application.JSONsForPostRequests" />
       <item itemvalue="Application.JSONsForPostRequests (1)" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Bash.askForAliceUsingCURL.sh" />
       <item itemvalue="sbt Task.fastOptJS" />
       <item itemvalue="sbt Task.MainTest" />
       <item itemvalue="sbt Task.NodeTester" />
       <item itemvalue="sbt Task.StreamTester" />
       <item itemvalue="sbt Task.MemoryTest1" />
+      <item itemvalue="HTTP Request.get-all-entitie#1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.get-all-entitie#1" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.JSONsForPostRequests (1)" />
         <item itemvalue="Application.JSONsForPostRequests" />
@@ -837,7 +824,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Before." />
     <MESSAGE value="After." />
     <MESSAGE value="Snapshot." />
     <MESSAGE value="Counter works." />
@@ -862,7 +848,8 @@
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;(pretty print &quot;Map&quot; - convert to JSON - side chain - impl. in progress)" />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;REST API: &quot;InsertEntityIntoDataStore&quot; pers. actor command has been&#10;  used for implementing the route." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;REST API: &quot;InsertEntityIntoDataStore&quot; pers. actor command has been&#10;  used for implementing the route." />
+    <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;  &#10;Writing a general &quot;PersCommandRouteFactory&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;  &#10;Writing a general &quot;PersCommandRouteFactory&quot;." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
