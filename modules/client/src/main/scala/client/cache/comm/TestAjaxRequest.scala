@@ -31,7 +31,7 @@ object TestAjaxRequest {
   def populateUserEntityCache()
 //                             (
 //    implicit
-//    a: HashMap[Ref[User], TypedReferencedValue[User]]
+//    a: Map[Ref[User], TypedReferencedValue[User]]
 //  )
     : Unit = {
 
@@ -60,6 +60,13 @@ object TestAjaxRequest {
 
     val j: Json = q.asJson
 
+    import io.circe._
+    import io.circe.syntax._
+    //import io.circe.generic.JsonCodec
+    import io.circe.generic.auto._
+    import io.circe.parser._
+    import shapeless.Typeable
+
     Ajax
       .post(s"http://$ip:8080/GetAllEntityiesForUser",
             j.spaces4,
@@ -70,7 +77,9 @@ object TestAjaxRequest {
           Cache.streamToSetInitialCacheState.send(res1)
           println(res1)
           Cache.user.cellLoop
-            .listen(x => println(s"udate:${x}"))
+            .listen(
+              x => println(s"udate:${x}")
+            )
         }
       )
 

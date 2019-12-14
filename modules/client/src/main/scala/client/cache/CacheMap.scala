@@ -11,15 +11,15 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import shapeless.Typeable
 
-//@JsonCodec
+////@JsonCodec
 //case class Test[V <: Value[V]](
-//  map: HashMap[Ref[V], TypedReferencedValue[V]]) {
+//  map: Map[Ref[V], TypedReferencedValue[V]]) {
 //
 //  def toJSON(
 //    implicit
 //    enc: Encoder[V],
 //    encRefHM: Encoder[
-//      HashMap[Ref[V], TypedReferencedValue[V]]
+//      Map[Ref[V], TypedReferencedValue[V]]
 //    ],
 //    encRef: Encoder[Ref[V]]
 //  ): String = {
@@ -49,26 +49,26 @@ case class CacheMap[V <: Value[V]](
   }
 
   def getNumberOfEntries: Int = map.size
-
-  override def toString: String = {
-    map.asJson.spaces4
-
-  }
+//
+//  override def toString: String = {
+//    map.asJson.spaces4
+//
+//  }
 //  override def toString: String = {
 //
 //  }
 
-//  def toJSON(
-//    implicit
-//    enc: Encoder[V],
-//    encRefHM: Encoder[
-//      HashMap[Ref[V], TypedReferencedValue[V]]
-//    ],
-//    encRef: Encoder[Ref[V]]
-//  ): String = {
-////    implicitly[Encoder[V]]
-//    map.asJson.spaces4
-//  }
+  def toJSON(
+    implicit
+    enc: Encoder[V],
+    encRefHM: Encoder[
+      Map[Ref[V], TypedReferencedValue[V]]
+    ],
+    encRef: Encoder[Ref[V]]
+  ): String = {
+//    implicitly[Encoder[V]]
+    map.asJson.spaces4
+  }
 }
 
 object CacheMap {
