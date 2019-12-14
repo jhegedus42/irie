@@ -7,12 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/InsertEntityRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/InsertEntityRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUserRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/GetAllEntitiesForUserRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/InsertEntityRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/JSONConvertable.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/comm/crudRequests/testing/JSONsForPostRequests.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -835,7 +837,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="After some refactoring and cleanup." />
     <MESSAGE value="Before." />
     <MESSAGE value="After." />
     <MESSAGE value="Snapshot." />
@@ -860,7 +861,8 @@
     <MESSAGE value="Refactoring: creating widgets from widget templates. (rewriting an existing widget, SPreformattedText) to be implemented using a Widget Template." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;(pretty print &quot;Map&quot; - convert to JSON - side chain - impl. in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;(pretty print &quot;Map&quot; - convert to JSON - side chain - impl. in progress)" />
+    <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;REST API: &quot;InsertEntityIntoDataStore&quot; pers. actor command has been&#10;  used for implementing the route." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;REST API: &quot;InsertEntityIntoDataStore&quot; pers. actor command has been&#10;  used for implementing the route." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

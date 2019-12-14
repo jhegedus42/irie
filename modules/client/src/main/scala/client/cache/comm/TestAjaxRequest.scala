@@ -64,7 +64,7 @@ object TestAjaxRequest {
       .post(s"http://$ip:8080/GetAllEntityiesForUser",
             j.spaces4,
             headers = headers)
-      .map(_.responseText).map(i.getObject(_)).onComplete(
+      .map(_.responseText).map(i.fromJSONToObject(_)).onComplete(
         x => {
           val res1: UserMap = x.toOption.get.res.get
           Cache.streamToSetInitialCacheState.send(res1)

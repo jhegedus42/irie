@@ -68,12 +68,12 @@ object InsertEntityIntoDataStore {
     : JSONConvertable[InsertEntityIntoDataStore] =
     new JSONConvertable[InsertEntityIntoDataStore] {
 
-      override def getJSON(
+      override def toJSON(
         v: InsertEntityIntoDataStore
       ): String =
         v.asJson.spaces4
 
-      override def getObject(
+      override def fromJSONToObject(
         json: String
       ): InsertEntityIntoDataStore = {
         val jsonParsed: Either[ParsingFailure, Json] =

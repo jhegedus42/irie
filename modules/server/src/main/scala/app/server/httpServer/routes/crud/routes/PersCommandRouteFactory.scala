@@ -22,43 +22,31 @@ import comm.crudRequests.{
 import dataStorage.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.reflect.ClassTag
 
-case class InsertEntityRouteFactory[V <: Value[V]](
-  val actor: ActorRef
+case class PersCommandRouteFactory[
+  V  <: Value[V],
+  PC <: PersActorCommand
+](val actor: ActorRef
 )(
   implicit
   actorSystem:              ActorSystem,
-  executionContextExecutor: ExecutionContextExecutor) {
-
-  val rnProvider =
-    implicitly[CanProvideRouteName[
-      InsertEntityIntoDataStore
-    ]]
-
-  val rn = rnProvider.getRouteName
+  executionContextExecutor: ExecutionContextExecutor,
+  rnp:                      CanProvideRouteName[PC],
+  j:                        JSONConvertable[PC],
+  ct:                       ClassTag[PC]) {
 
   def getRoute: Route = {
     post {
-      path(rn) {
-        entity(as[String]) { s =>
+      path(rnp.getRouteName) {
+        entity(as[String]) { s: String =>
           {
-
-            val i
-              : JSONConvertable[InsertEntityIntoDataStore] =
-              implicitly[JSONConvertable[
-                InsertEntityIntoDataStore
-              ]]
 
             // todonow
             //  1.1.1.1 create insert entity route
 
-            val getAllEntityiesForUser
-              : InsertEntityIntoDataStore =
-              i.getObject(s)
-
-            val f = getResult(getAllEntityiesForUser)
-
-            val fs = f.map(x => i.getJSON(x))
+            val fs = getResult(j.fromJSONToObject(s))
+              .map(x => j.toJSON(x))
 
             complete(fs)
 
@@ -68,15 +56,13 @@ case class InsertEntityRouteFactory[V <: Value[V]](
     }
   }
 
-  def getResult(
-    msg: PersActorCommand
-  ): Future[InsertEntityIntoDataStore] = {
+  def getResult(msg: PersActorCommand): Future[PC] = {
     import akka.pattern.ask
 
     import scala.concurrent.duration._
     implicit val timeout = Timeout(5 seconds)
 
-    ask(actor, msg).mapTo[InsertEntityIntoDataStore]
+    ask(actor, msg).mapTo[PC]
 
   }
 

@@ -1,6 +1,11 @@
 package app.server.httpServer.routes.crud
 
-import akka.actor.{ActorLogging, ActorRef, ActorSystem, Props}
+import akka.actor.{
+  ActorLogging,
+  ActorRef,
+  ActorSystem,
+  Props
+}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.persistence.{PersistentActor, RecoveryCompleted}

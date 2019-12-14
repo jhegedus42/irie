@@ -1,6 +1,6 @@
 package comm.crudRequests
 
 trait JSONConvertable[V] {
-  def getJSON(v:      V):      String
-  def getObject(json: String): V
+  def toJSON(v:              V):      String
+  def fromJSONToObject(json: String): V
 }
