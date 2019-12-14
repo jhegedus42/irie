@@ -49,15 +49,15 @@ case class Cache[V <: Value[V]](
   val inserterStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
-  //  todo-now
+  //  todonow
   //   1. make inserting new user work
 
-  //  todo-now
+  //  todonow
   //     1.1. listen to this stream ^^^
   //     and send updates to the server, to mirror the changes made on
   //     the client
 
-  //  todo-now
+  //  todonow
   //     1.2. show status of "syncing" / "synced" somewhere on the
   //     console / screen (can be even a state in a Cell, later)
 
@@ -72,15 +72,19 @@ case class Cache[V <: Value[V]](
     ins1.map(inserter)
 
   ins1.listen(
-    (x: TypedReferencedValue[V]) =>
+    (x: TypedReferencedValue[V]) => {
+
       println(
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"
       )
-    // todo-now CONTINUE THIS NOW
-    //  1.1.1 launch AJAX request to
-    //  insert/create TypedReferencedValue[V]
-    //  on the server, too
+
+      // todonow
+      //  1.1.1 launch AJAX request to
+      //  insert/create TypedReferencedValue[V]
+      //  on the server, too
+
+    }
   )
 
   val transformer: Stream[CacheMap[V] => CacheMap[V]] =

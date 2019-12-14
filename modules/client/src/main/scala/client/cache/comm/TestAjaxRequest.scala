@@ -4,7 +4,12 @@ import client.cache.Cache
 import client.ui.login.UserLoginStatusHandler
 import comm.crudRequests.JSONConvertable
 import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
-import dataStorage.RefToEntityOwningUser
+import dataStorage.{
+  Ref,
+  RefToEntityOwningUser,
+  TypedReferencedValue,
+  User
+}
 import dataStorage.stateHolder.UserMap
 import org.scalajs.dom.ext.Ajax
 import testingData.TestEntitiesForUsers
@@ -23,7 +28,12 @@ import scala.concurrent.ExecutionContextExecutor
 
 object TestAjaxRequest {
 
-  def populateUserEntityCache(): Unit = {
+  def populateUserEntityCache()
+//                             (
+//    implicit
+//    a: HashMap[Ref[User], TypedReferencedValue[User]]
+//  )
+    : Unit = {
 
     implicit def executionContext
       : ExecutionContextExecutor =
@@ -60,7 +70,7 @@ object TestAjaxRequest {
           Cache.streamToSetInitialCacheState.send(res1)
           println(res1)
           Cache.user.cellLoop
-            .listen(x => println(s"udate:${x.toJSON}"))
+            .listen(x => println(s"udate:${x}"))
         }
       )
 

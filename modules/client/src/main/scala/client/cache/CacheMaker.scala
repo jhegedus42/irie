@@ -65,16 +65,23 @@ case class CacheMaker[V <: Value[V]](
     def h(
       t: (UnTypedRef, Json)
     ): (Ref[V], TypedReferencedValue[V]) = {
-      val ur   = t._1
+      val ur = t._1
+
       val json = t._2
-      val r    = Ref[V](ur)
+
+      val r = Ref[V](ur)
+
       val referencedValueV
         : Result[TypedReferencedValue[V]] =
         d.decodeJson(json)
+
       val refV = referencedValueV.toOption.get
+
       // we dare to do this becuase this supposed to be filtered
       // down already to the correct type by g() above
+
       val res = (r, refV)
+
       println(s"we are the robots: $res")
       res
     }

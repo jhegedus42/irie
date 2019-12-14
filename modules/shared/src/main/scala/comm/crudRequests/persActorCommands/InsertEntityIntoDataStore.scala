@@ -1,6 +1,9 @@
 package comm.crudRequests.persActorCommands
 
-import comm.crudRequests.{CanProvideRouteName, JSONConvertable}
+import comm.crudRequests.{
+  CanProvideRouteName,
+  JSONConvertable
+}
 import dataStorage.{
   RefToEntityOwningUser,
   TypedReferencedValue,
@@ -19,13 +22,16 @@ import shapeless.Typeable
 sealed trait RequestState
 
 @JsonCodec
-case class RequestIsOnItsWayTowardsServer() extends RequestState
+case class RequestIsOnItsWayTowardsServer()
+    extends RequestState
 
 @JsonCodec
-case class RequestSuccessfullyReturned() extends RequestState
+case class RequestSuccessfullyReturned()
+    extends RequestState
 
 @JsonCodec
-case class RequestReturnedWithError(errorDescription: String)
+case class RequestReturnedWithError(
+  errorDescription: String)
     extends RequestState
 
 /**
@@ -48,32 +54,46 @@ object InsertEntityIntoDataStore {
     enc:      Encoder[TypedReferencedValue[V]],
     typeable: Typeable[V]
   ): InsertEntityIntoDataStore = {
+
     val unTypedReferencedValue =
       UnTypedReferencedValue.fromTypedReferencedValue[V](r)
-    InsertEntityIntoDataStore(unTypedReferencedValue,
-                              RequestIsOnItsWayTowardsServer())
+
+    InsertEntityIntoDataStore(
+      unTypedReferencedValue,
+      RequestIsOnItsWayTowardsServer()
+    )
   }
 
-  implicit val jSONConvertable: JSONConvertable[InsertEntityIntoDataStore] =
+  implicit val jSONConvertable
+    : JSONConvertable[InsertEntityIntoDataStore] =
     new JSONConvertable[InsertEntityIntoDataStore] {
 
-      override def getJSON(v: InsertEntityIntoDataStore): String =
+      override def getJSON(
+        v: InsertEntityIntoDataStore
+      ): String =
         v.asJson.spaces4
 
-      override def getObject(json: String): InsertEntityIntoDataStore = {
-        val jsonParsed: Either[ParsingFailure, Json] = parse(json)
-        val res1:       Json                         = jsonParsed.toOption.get
-        val decoder = implicitly[Decoder[InsertEntityIntoDataStore]]
+      override def getObject(
+        json: String
+      ): InsertEntityIntoDataStore = {
+        val jsonParsed: Either[ParsingFailure, Json] =
+          parse(json)
+        val res1: Json = jsonParsed.toOption.get
+        val decoder =
+          implicitly[Decoder[InsertEntityIntoDataStore]]
         val res2: Result[InsertEntityIntoDataStore] =
           decoder.decodeJson(res1)
         res2.toOption.get
       }
 
-      implicit val users: CanProvideRouteName[InsertEntityIntoDataStore] =
-        new CanProvideRouteName[InsertEntityIntoDataStore] {
-          override def getRouteName: String = "InsertEntityIntoDataStore"
-        }
+    }
 
+  implicit val users
+    : CanProvideRouteName[InsertEntityIntoDataStore] =
+    new CanProvideRouteName[InsertEntityIntoDataStore] {
+
+      override def getRouteName: String =
+        "InsertEntityIntoDataStore"
     }
 
 }

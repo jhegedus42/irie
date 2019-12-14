@@ -12,6 +12,7 @@ import akka.http.scaladsl.server.Route
 import akka.util.Timeout
 import comm.crudRequests.persActorCommands.{
   GetAllEntityiesForUser,
+  InsertEntityIntoDataStore,
   PersActorCommand
 }
 import comm.crudRequests.{
@@ -22,8 +23,6 @@ import dataStorage.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-// todo-now 1.1.1.1
-//  handle AJAX
 case class InsertEntityRouteFactory[V <: Value[V]](
   val actor: ActorRef
 )(
@@ -32,7 +31,10 @@ case class InsertEntityRouteFactory[V <: Value[V]](
   executionContextExecutor: ExecutionContextExecutor) {
 
   val rnProvider =
-    implicitly[CanProvideRouteName[GetAllEntityiesForUser]]
+    implicitly[CanProvideRouteName[
+      InsertEntityIntoDataStore
+    ]]
+
   val rn = rnProvider.getRouteName
 
   def getRoute: Route = {
@@ -40,16 +42,26 @@ case class InsertEntityRouteFactory[V <: Value[V]](
       path(rn) {
         entity(as[String]) { s =>
           {
-            val i: JSONConvertable[GetAllEntityiesForUser] =
+
+            val i
+              : JSONConvertable[InsertEntityIntoDataStore] =
               implicitly[JSONConvertable[
-                GetAllEntityiesForUser
+                InsertEntityIntoDataStore
               ]]
+
+            // todonow
+            //  1.1.1.1 create insert entity route
+
             val getAllEntityiesForUser
-              : GetAllEntityiesForUser =
+              : InsertEntityIntoDataStore =
               i.getObject(s)
-            val f  = getResult(getAllEntityiesForUser)
+
+            val f = getResult(getAllEntityiesForUser)
+
             val fs = f.map(x => i.getJSON(x))
+
             complete(fs)
+
           }
         }
       }
@@ -58,13 +70,14 @@ case class InsertEntityRouteFactory[V <: Value[V]](
 
   def getResult(
     msg: PersActorCommand
-  ): Future[GetAllEntityiesForUser] = {
+  ): Future[InsertEntityIntoDataStore] = {
     import akka.pattern.ask
 
     import scala.concurrent.duration._
     implicit val timeout = Timeout(5 seconds)
 
-    ask(actor, msg).mapTo[GetAllEntityiesForUser]
+    ask(actor, msg).mapTo[InsertEntityIntoDataStore]
 
   }
+
 }
