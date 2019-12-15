@@ -15,6 +15,14 @@ import shapeless.Typeable
 import scala.collection.immutable
 import scala.collection.immutable.HashMap
 import scala.reflect.ClassTag
+import dataStorage.stateHolder.UserMap
+import io.circe.Decoder.Result
+import io.circe._
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.parser._
+import io.circe.syntax._
+import shapeless.Typeable
 
 case class CacheMaker[V <: Value[V]](
   streamSink: StreamSink[UserMap]) {

@@ -1,6 +1,6 @@
 package client
 
-import client.cache.comm.TestAjaxRequest
+import client.cache.AJAXCalls
 import client.ui.RootComp
 import client.ui.router.Router
 import org.scalajs.{dom => d}
@@ -38,6 +38,6 @@ object Main extends js.JSApp {
 
     RootComp.getComp().renderIntoDOM(e)
 
-    TestAjaxRequest.populateUserEntityCache()
+    AJAXCalls.populateUserEntityCache()
   }
 }

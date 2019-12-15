@@ -7,9 +7,18 @@ import client.sodium.core.{
   Transaction
 }
 import client.ui.login.UserLoginStatusHandler
+import comm.crudRequests.persActorCommands.InsertEntityIntoDataStore
 import dataStorage.{TypedReferencedValue, User, Value}
 import dataStorage.stateHolder.UserMap
 import shapeless.Typeable
+import io.circe.Decoder.Result
+import io.circe._
+import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.parser._
+import io.circe.syntax._
+
+import scala.util.Try
 
 //object CacheProvider {}
 
@@ -25,7 +34,8 @@ case class Cache[V <: Value[V]](
   typeName: String
 )(
   implicit
-  typeable: Typeable[V]) {
+  typeable: Typeable[V],
+  encoder:  Encoder[TypedReferencedValue[V]]) {
 
 //  val updateStarter: StreamSink[Unit] = new StreamSink[Unit]()
 
@@ -83,6 +93,14 @@ case class Cache[V <: Value[V]](
       //  1.1.1 launch AJAX request to
       //  insert/create TypedReferencedValue[V]
       //  on the server, too
+
+      val in: InsertEntityIntoDataStore =
+        InsertEntityIntoDataStore.fromReferencedValue(x)
+
+      AJAXCalls.ajaxCall(in, {
+        x: Try[InsertEntityIntoDataStore] =>
+          println(x)
+      })
 
     }
   )

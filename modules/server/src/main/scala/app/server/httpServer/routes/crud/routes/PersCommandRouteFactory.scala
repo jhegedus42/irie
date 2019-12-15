@@ -42,9 +42,6 @@ case class PersCommandRouteFactory[
         entity(as[String]) { s: String =>
           {
 
-            // todonow
-            //  1.1.1.1 create insert entity route
-
             val fs = getResult(j.fromJSONToObject(s))
               .map(x => j.toJSON(x))
 
