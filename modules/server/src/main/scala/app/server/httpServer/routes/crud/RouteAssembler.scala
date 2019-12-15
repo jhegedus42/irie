@@ -10,14 +10,14 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import akka.util.Timeout
-import app.server.httpServer.routes.crud.routes.{
-  GetAllEntitiesForUserRouteFactory,
-  PersCommandRouteFactory
-}
+import app.server.httpServer.routes.crud.routes.PersCommandRouteFactory
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import comm.crudRequests._
-import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
+import comm.crudRequests.persActorCommands.{
+  GetAllEntityiesForUser,
+  InsertEntityIntoDataStore
+}
 import dataStorage.RefToEntityOwningUser
 import dataStorage.stateHolder.UserMap
 import testingData.TestDataStore
@@ -48,8 +48,8 @@ case class RouteAssembler(
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
-//      GetAllEntitiesForUserRouteFactory(actor).getAllEntitiesRoute
       PersCommandRouteFactory[GetAllEntityiesForUser](actor).getRoute
+  PersCommandRouteFactory[InsertEntityIntoDataStore](actor).getRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

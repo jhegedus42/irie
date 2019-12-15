@@ -1,30 +1,19 @@
 package client.cache.comm
 
-import client.cache.Cache
+import client.cache.{Cache, CacheMap}
 import client.ui.login.UserLoginStatusHandler
 import comm.crudRequests.JSONConvertable
 import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
-import dataStorage.{
-  Ref,
-  RefToEntityOwningUser,
-  TypedReferencedValue,
-  User
-}
 import dataStorage.stateHolder.UserMap
-import org.scalajs.dom.ext.Ajax
-import testingData.TestEntitiesForUsers
-
-import scala.collection.immutable.HashMap
-import io.circe.Decoder.Result
-import io.circe._
+import dataStorage.{RefToEntityOwningUser, User}
 import io.circe.Json
-import io.circe.syntax._
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
-import io.circe.parser._
-import shapeless.Typeable
+import io.circe.syntax._
+import org.scalajs.dom.ext.Ajax
 
 import scala.concurrent.ExecutionContextExecutor
+import scala.util.Try
 
 object TestAjaxRequest {
 
@@ -60,25 +49,25 @@ object TestAjaxRequest {
 
     val j: Json = q.asJson
 
-    import io.circe._
     import io.circe.syntax._
     //import io.circe.generic.JsonCodec
     import io.circe.generic.auto._
-    import io.circe.parser._
-    import shapeless.Typeable
 
     Ajax
       .post(s"http://$ip:8080/GetAllEntityiesForUser",
             j.spaces4,
             headers = headers)
       .map(_.responseText).map(i.fromJSONToObject(_)).onComplete(
-        x => {
+        (x: Try[GetAllEntityiesForUser]) => {
           val res1: UserMap = x.toOption.get.res.get
+
           Cache.streamToSetInitialCacheState.send(res1)
           println(res1)
+
           Cache.user.cellLoop
             .listen(
-              x => println(s"udate:${x}")
+              (cacheMap: CacheMap[User]) =>
+                println(s"updated cacheMap:${cacheMap}")
             )
         }
       )
