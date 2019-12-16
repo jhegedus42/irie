@@ -13,8 +13,8 @@ import akka.util.Timeout
 import app.server.httpServer.routes.crud.routes.PersCommandRouteFactory
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import comm.crudRequests._
-import comm.crudRequests.persActorCommands.{
+import shared.crudRequests._
+import shared.crudRequests.persActorCommands.{
   GetAllEntityiesForUser,
   InsertEntityIntoDataStore
 }

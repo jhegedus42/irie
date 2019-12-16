@@ -7,7 +7,7 @@ import client.sodium.core.{
   Transaction
 }
 import client.ui.login.UserLoginStatusHandler
-import comm.crudRequests.persActorCommands.InsertEntityIntoDataStore
+import shared.crudRequests.persActorCommands.InsertEntityIntoDataStore
 import shapeless.Typeable
 import io.circe.Decoder.Result
 import io.circe._

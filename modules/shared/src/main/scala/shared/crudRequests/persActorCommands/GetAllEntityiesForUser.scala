@@ -1,6 +1,6 @@
-package comm.crudRequests.persActorCommands
+package shared.crudRequests.persActorCommands
 
-import comm.crudRequests.{
+import shared.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }

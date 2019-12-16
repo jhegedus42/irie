@@ -1,4 +1,4 @@
-package comm.crudRequests.persActorCommands
+package shared.crudRequests.persActorCommands
 
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._

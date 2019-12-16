@@ -1,8 +1,8 @@
 package client.cache
 
 import client.ui.login.UserLoginStatusHandler
-import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
-import comm.crudRequests.{
+import shared.crudRequests.persActorCommands.GetAllEntityiesForUser
+import shared.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }

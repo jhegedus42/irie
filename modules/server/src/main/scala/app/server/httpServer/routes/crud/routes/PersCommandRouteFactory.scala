@@ -10,12 +10,12 @@ import akka.http.scaladsl.server.Directives.{
 }
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
-import comm.crudRequests.persActorCommands.{
+import shared.crudRequests.persActorCommands.{
   GetAllEntityiesForUser,
   InsertEntityIntoDataStore,
   PersActorCommand
 }
-import comm.crudRequests.{
+import shared.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }
