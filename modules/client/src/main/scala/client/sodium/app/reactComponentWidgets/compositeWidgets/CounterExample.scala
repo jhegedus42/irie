@@ -56,10 +56,11 @@ case class CounterExample() {
   def getComp = {
 
     val render: Unit => VdomElement = { _ =>
-      <.div(s"This is the counter example",
+      <.div(<.p(s"This is the counter example:"),
             <.br,
             counterComp.getComp(),
             button1.vdom(),
+            <.br,
             button2.vdom())
     }
 

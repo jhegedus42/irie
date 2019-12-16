@@ -7,9 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/generator/StaticTemplateComp.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/TextFieldWithButtonAndHandler.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/UserEditorComp.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/userEditor/UserEditorRouteProvider.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/wrappers/LoginSwitcher.scala.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/SButton.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/CounterExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/CounterExample.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +263,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="sbt Task.fastOptJS">
     <configuration name="JSONsForPostRequests (1)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="shared.crudRequests.testing.JSONsForPostRequests" />
       <module name="server" />
@@ -869,7 +874,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Simplified counter loop." />
     <MESSAGE value="Cache refactoring in progress." />
     <MESSAGE value="Different ways of transforming a Cell's value." />
     <MESSAGE value="Going towards inserting a new user." />
@@ -894,7 +898,8 @@
     <MESSAGE value="[error] /Users/joco/dev/im/irie/modules/client/src/main/scala/client/cache/CacheMaker.scala:51:22: could not find implicit value for parameter encoder: io.circe.Encoder[dataStorage.TypedReferencedValue[V]]&#10;&#10;We are fixing this error now ^." />
     <MESSAGE value="Code compiles." />
     <MESSAGE value="Moving shared code into shared package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving shared code into shared package." />
+    <MESSAGE value="Insert new User works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Insert new User works." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

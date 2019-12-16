@@ -10,6 +10,8 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 
+import bootstrap4.TB.C
+
 object RootComp {
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -18,11 +20,16 @@ object RootComp {
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
-      <.div(NewUserCreator().getComp(),
-            <.br,
-            CounterExample().getComp(),
-            <.br,
-            TodoList().getComp())
+      <.div(
+        <.main(C.container, ^.role := "container")(
+          <.div(C.jumbotron)(<.h1("test page"),
+                             NewUserCreator().getComp(),
+                             <.br,
+                             CounterExample().getComp(),
+                             <.br,
+                             TodoList().getComp())
+        )
+      )
     }
 
     val rootComp =

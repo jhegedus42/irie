@@ -18,14 +18,14 @@ case class SButton(
 
   val vdom: Component[Unit, CtorType.Nullary] =
     ScalaFnComponent[Unit] { props: Unit =>
+      import bootstrap4.TB.C
+      import bootstrap4.TB.convertableToTagOfExtensionMethods
       <.div(
-        <.button(name, ^.onClick --> Callback({
-
-//          println("I was pushed")
-          streamSink.send(Unit)
-          callBack()
-
-        }))
+        <.button.btn.btnPrimary(name,
+                                ^.onClick --> Callback({
+                                  streamSink.send(Unit)
+                                  callBack()
+                                }))
       )
     }
 
