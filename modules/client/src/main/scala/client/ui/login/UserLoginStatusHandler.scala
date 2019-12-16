@@ -1,10 +1,9 @@
 package client.ui.login
 
-import dataStorage.{TypedReferencedValue, User}
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 import org.scalajs.{dom => d}
-import testingData.TestEntitiesForUsers
+import shared.testingData.TestEntitiesForUsers
 
 import scala.scalajs.js
 
@@ -38,7 +37,9 @@ object UserLoginStatusHandler {
   // Alice
   //
   def getUserLoginStatusDev: UserLoginStatus =
-    UserLoginStatus(Some(TestEntitiesForUsers.aliceEntity_with_UUID0))
+    UserLoginStatus(
+      Some(TestEntitiesForUsers.aliceEntity_with_UUID0)
+    )
 
   def getUserLoginStatus(
     implicit
@@ -46,8 +47,9 @@ object UserLoginStatusHandler {
   ): UserLoginStatus = {
     val s: String = window.name
     println(s"window name: $s")
-    val ej:  Option[UserLoginStatus] = decode(s).toOption
-    val ej2: UserLoginStatus         = ej.getOrElse(UserLoginStatus(None))
+    val ej: Option[UserLoginStatus] = decode(s).toOption
+    val ej2: UserLoginStatus =
+      ej.getOrElse(UserLoginStatus(None))
     println(s"win name: $s")
     println(s"decoded name: $ej")
 

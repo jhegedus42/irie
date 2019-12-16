@@ -18,3 +18,46 @@ Content-Type: application/json
 
 
 ###
+
+POST http://localhost:8080/InsertEntityIntoDataStore
+
+Content-Type: application/json
+
+{
+    "unTypedReferencedValue" : {
+        "t" : {
+            "typeName" : {
+                "s" : "User"
+            },
+            "uuid" : "ee54ddb0-1c28-4e53-acaa-22ad35dbb814",
+            "refToEntityOwningUser" : {
+                "uuid" : "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "json" : {
+            "entityValue" : {
+                "name" : "init_text",
+                "favoriteNumber" : 46,
+                "password" : "titok"
+            },
+            "ref" : {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "User"
+                    },
+                    "uuid" : "ee54ddb0-1c28-4e53-acaa-22ad35dbb814",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                }
+            }
+        }
+    },
+    "res" : {
+        "RequestIsOnItsWayTowardsServer" : {
+
+        }
+    }
+}
+
+###

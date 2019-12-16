@@ -1,17 +1,17 @@
-package dataStorage.stateHolder
+package shared.dataStorage.stateHolder
 
-import dataStorage.stateHolder.EntityStorage.UntypedJSONMap
-import dataStorage.{
-  RefToEntityOwningUser,
-  TypedReferencedValue,
-  UnTypedRef,
-  Value
-}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.{Encoder, Json}
 import shapeless.Typeable
+import shared.dataStorage.stateHolder.EntityStorage.UntypedJSONMap
+import shared.dataStorage.{
+  RefToEntityOwningUser,
+  TypedReferencedValue,
+  UnTypedRef,
+  Value
+}
 
 case class EntityStorage(
   val untypedJSONMap: UntypedJSONMap = UntypedJSONMap()) {
@@ -53,7 +53,8 @@ case class EntityStorage(
   ): EntityStorage = {
     val r2: TypedReferencedValue[V] = r.addTypeInfo()
     val j = r2.asJson
-    this.insert(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
+    this
+      .insert(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
   }
 
 }
@@ -71,6 +72,7 @@ object EntityStorage {
     * @param untypedMap
     */
   case class UntypedJSONMap(
-    untypedMap: Map[UnTypedRef, Json] = Map[UnTypedRef, Json]())
+    untypedMap: Map[UnTypedRef, Json] =
+      Map[UnTypedRef, Json]())
 
 }

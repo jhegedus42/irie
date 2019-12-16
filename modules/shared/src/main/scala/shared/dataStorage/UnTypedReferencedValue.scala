@@ -1,4 +1,4 @@
-package dataStorage
+package shared.dataStorage
 
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -22,7 +22,10 @@ object UnTypedReferencedValue {
   ): UnTypedReferencedValue = {
     val r2: TypedReferencedValue[V] = r.addTypeInfo()
     val j = r2.asJson
-    UnTypedReferencedValue(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
+    UnTypedReferencedValue(
+      r2.ref.unTypedRef.addTypeInfo[V](typeable),
+      j
+    )
   }
 
 }

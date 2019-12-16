@@ -1,4 +1,4 @@
-package dataStorage
+package shared.dataStorage
 
 import io.circe.generic.JsonCodec
 

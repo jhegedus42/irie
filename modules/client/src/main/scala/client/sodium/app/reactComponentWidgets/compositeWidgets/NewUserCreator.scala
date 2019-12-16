@@ -6,9 +6,9 @@ import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
   SButton,
   STextArea
 }
-import dataStorage.{TypedReferencedValue, User}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
+import shared.dataStorage.{TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 

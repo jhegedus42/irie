@@ -2,8 +2,7 @@ package comm.crudRequests.testing
 
 import comm.crudRequests.JSONConvertable
 import comm.crudRequests.persActorCommands.GetAllEntityiesForUser
-import dataStorage.{Ref, RefToEntityOwningUser, User}
-import testingData.TestDataStore
+import shared.testingData.TestDataStore
 
 object JSONsForPostRequests extends App {
 

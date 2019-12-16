@@ -6,13 +6,13 @@ import comm.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }
-import dataStorage.stateHolder.UserMap
-import dataStorage.{RefToEntityOwningUser, User}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
+import shared.dataStorage.{RefToEntityOwningUser, User}
+import shared.dataStorage.stateHolder.UserMap
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.util.Try
@@ -80,4 +80,5 @@ object AJAXCalls {
     ajaxCall(GetAllEntityiesForUser(owner, None), g)
 
   }
+
 }

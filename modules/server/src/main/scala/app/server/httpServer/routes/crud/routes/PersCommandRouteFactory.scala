@@ -19,7 +19,7 @@ import comm.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }
-import dataStorage.Value
+import shared.dataStorage.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag

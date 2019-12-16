@@ -1,13 +1,6 @@
 package client.cache
 
 import client.sodium.core.{Stream, StreamSink}
-import dataStorage.stateHolder.UserMap
-import dataStorage.{
-  Ref,
-  TypedReferencedValue,
-  UnTypedRef,
-  Value
-}
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Json}
 import shapeless.Typeable
@@ -15,7 +8,6 @@ import shapeless.Typeable
 import scala.collection.immutable
 import scala.collection.immutable.HashMap
 import scala.reflect.ClassTag
-import dataStorage.stateHolder.UserMap
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -23,6 +15,13 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
+import shared.dataStorage.{
+  Ref,
+  TypedReferencedValue,
+  UnTypedRef,
+  Value
+}
+import shared.dataStorage.stateHolder.UserMap
 
 case class CacheMaker[V <: Value[V]](
   streamSink: StreamSink[UserMap]
@@ -80,7 +79,7 @@ case class CacheMaker[V <: Value[V]](
 
       val json = t._2
 
-      val r = Ref[V](ur)
+      val r = shared.dataStorage.Ref[V](ur)
 
       val referencedValueV
         : Result[TypedReferencedValue[V]] =

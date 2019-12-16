@@ -4,13 +4,6 @@ import comm.crudRequests.{
   CanProvideRouteName,
   JSONConvertable
 }
-import dataStorage.{
-  RefToEntityOwningUser,
-  TypedReferencedValue,
-  UnTypedReferencedValue,
-  Value
-}
-import dataStorage.stateHolder.UserMap
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -18,6 +11,11 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
+import shared.dataStorage.{
+  TypedReferencedValue,
+  UnTypedReferencedValue,
+  Value
+}
 
 sealed trait RequestState
 
@@ -78,11 +76,15 @@ object InsertEntityIntoDataStore {
       ): InsertEntityIntoDataStore = {
         val jsonParsed: Either[ParsingFailure, Json] =
           parse(json)
+
         val res1: Json = jsonParsed.toOption.get
+
         val decoder =
           implicitly[Decoder[InsertEntityIntoDataStore]]
+
         val res2: Result[InsertEntityIntoDataStore] =
           decoder.decodeJson(res1)
+
         res2.toOption.get
       }
 

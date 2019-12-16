@@ -2,10 +2,14 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import comm.crudRequests.persActorCommands.{GetAllEntityiesForUser, ShutDown}
+import comm.crudRequests.persActorCommands.{
+  GetAllEntityiesForUser,
+  ShutDown
+}
 import dataStorage.RefToEntityOwningUser
-import dataStorage.stateHolder.UserMap
-import testingData.TestDataStore
+import shared.dataStorage.RefToEntityOwningUser
+import shared.dataStorage.stateHolder.UserMap
+import shared.testingData.TestDataStore
 
 class PersistentActorImpl(id: String)
     extends PersistentActor
@@ -18,7 +22,10 @@ class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case GetAllEntityiesForUser(userRef: RefToEntityOwningUser, resp) => {
+    case GetAllEntityiesForUser(
+        userRef: RefToEntityOwningUser,
+        resp
+        ) => {
       println(s"user uuid is : ${userRef.uuid}")
       val umap: UserMap = state.getUserMap(userRef)
       sender ! GetAllEntityiesForUser(userRef, Some(umap))

@@ -8,8 +8,6 @@ import client.sodium.core.{
 }
 import client.ui.login.UserLoginStatusHandler
 import comm.crudRequests.persActorCommands.InsertEntityIntoDataStore
-import dataStorage.{TypedReferencedValue, User, Value}
-import dataStorage.stateHolder.UserMap
 import shapeless.Typeable
 import io.circe.Decoder.Result
 import io.circe._
@@ -17,13 +15,18 @@ import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
+import shared.dataStorage.{
+  TypedReferencedValue,
+  User,
+  Value
+}
+import shared.dataStorage.stateHolder.UserMap
 
 import scala.util.Try
 
 //object CacheProvider {}
 
 import client.sodium.core.Cell
-import dataStorage.Value
 
 case class CacheInserter()
 

@@ -1,6 +1,6 @@
-package testingData
+package shared.testingData
 
-object UUIDs{
+object UUIDs {
   val uuid00 = "00000000-0000-0000-0000-000000000000"
   val uuid01 = "00000000-0000-0000-0000-000000000001"
   val uuid02 = "00000000-0000-0000-0000-000000000002"

@@ -1,4 +1,4 @@
-package dataStorage
+package shared.dataStorage
 
 import io.circe.Json
 import io.circe.syntax._

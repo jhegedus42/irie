@@ -1,6 +1,6 @@
 package client.cache
 
-import dataStorage.{Ref, TypedReferencedValue, Value}
+import shared.dataStorage.{Ref, TypedReferencedValue, Value}
 
 //import scala.collection.immutable.HashMap
 //import io.circe.Decoder.Result

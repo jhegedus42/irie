@@ -1,4 +1,4 @@
-package dataStorage
+package shared.dataStorage
 
 import io.circe.syntax._
 import io.circe.generic.auto._
@@ -22,8 +22,11 @@ case class TypedReferencedValue[E <: Value[E]](
     TypedReferencedValue(entityValue, r)
   }
 
-  def addEntityOwnerInfo(r: Ref[User]): TypedReferencedValue[E] = {
-    TypedReferencedValue(this.entityValue, this.ref.addEntityOwnerInfo(r))
+  def addEntityOwnerInfo(
+    r: Ref[User]
+  ): TypedReferencedValue[E] = {
+    TypedReferencedValue(this.entityValue,
+                         this.ref.addEntityOwnerInfo(r))
   }
 
 }

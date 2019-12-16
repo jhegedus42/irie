@@ -19,12 +19,12 @@ import comm.crudRequests.persActorCommands.{
   InsertEntityIntoDataStore
 }
 import dataStorage.RefToEntityOwningUser
-import dataStorage.stateHolder.UserMap
-import testingData.TestDataStore
+import shared.testingData.TestDataStore
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.language.postfixOps
 import io.circe.generic.auto._
+import shared.dataStorage.stateHolder.UserMap
 
 case class RouteAssembler(
   implicit
@@ -48,8 +48,10 @@ case class RouteAssembler(
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
-      PersCommandRouteFactory[GetAllEntityiesForUser](actor).getRoute
-  PersCommandRouteFactory[InsertEntityIntoDataStore](actor).getRoute
+      PersCommandRouteFactory[GetAllEntityiesForUser](actor).getRoute ~
+      PersCommandRouteFactory[InsertEntityIntoDataStore](
+        actor
+      ).getRoute
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
