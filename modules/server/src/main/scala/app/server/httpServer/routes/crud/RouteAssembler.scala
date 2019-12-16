@@ -18,7 +18,6 @@ import shared.crudRequests.persActorCommands.{
   GetAllEntityiesForUser,
   InsertEntityIntoDataStore
 }
-import dataStorage.RefToEntityOwningUser
 import shared.testingData.TestDataStore
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
@@ -31,17 +30,12 @@ case class RouteAssembler(
   actorSystem:              ActorSystem,
   executionContextExecutor: ExecutionContextExecutor) {
 
-  private def getActor(
-    id: String,
-    as: ActorSystem
-  ) = as.actorOf(props(id))
-
-  private def props(id: String): Props =
-    Props(new PersistentActorImpl(id))
-
-  val actor: ActorRef = getActor(
-    "the_one_and_only_parsistent_actor",
-    actorSystem
+  lazy val actor: ActorRef = actorSystem.actorOf(
+    Props(
+      new PersistentActorImpl(
+        "the_one_and_only_parsistent_actor"
+      )
+    )
   )
 
   val route: Route = allRoutes

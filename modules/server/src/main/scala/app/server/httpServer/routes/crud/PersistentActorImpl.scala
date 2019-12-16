@@ -4,18 +4,26 @@ import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import shared.crudRequests.persActorCommands.{
   GetAllEntityiesForUser,
+  InsertEntityIntoDataStore,
+  RequestState,
+  RequestSuccessfullyReturned,
   ShutDown
 }
-import dataStorage.RefToEntityOwningUser
-import shared.dataStorage.RefToEntityOwningUser
-import shared.dataStorage.stateHolder.UserMap
+import shared.dataStorage.{
+  RefToEntityOwningUser,
+  UnTypedReferencedValue
+}
+import shared.dataStorage.stateHolder.{
+  EntityStorage,
+  UserMap
+}
 import shared.testingData.TestDataStore
 
 class PersistentActorImpl(id: String)
     extends PersistentActor
     with ActorLogging {
 
-  var state = TestDataStore.testData
+  var state: EntityStorage = TestDataStore.testData
 
   override def receiveCommand: Receive = {
     case ShutDown =>
@@ -31,7 +39,19 @@ class PersistentActorImpl(id: String)
       sender ! GetAllEntityiesForUser(userRef, Some(umap))
     }
 
-    // todo now => insert entity for User
+    case InsertEntityIntoDataStore(
+        entityToInsert: UnTypedReferencedValue,
+        res:            RequestState
+        ) => {
+      println(s"entityToInsert is : ${entityToInsert}")
+      val u        = entityToInsert.t
+      val newState = state.insert(u, entityToInsert.json)
+      state = newState
+      sender ! InsertEntityIntoDataStore(
+        entityToInsert,
+        RequestSuccessfullyReturned()
+      )
+    }
 
   }
 

@@ -36,7 +36,7 @@ case class EntityStorage(
     UserMap(ref, res.toList)
   }
 
-  private def insert(
+  def insert(
     t:    UnTypedRef,
     json: Json
   ): EntityStorage = {
