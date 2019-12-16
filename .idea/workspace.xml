@@ -7,12 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMaker.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/AJAXModul.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/comm/TestAjaxRequest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXCalls.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -860,7 +856,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create new user widget was created." />
     <MESSAGE value="Cleaning up code." />
     <MESSAGE value="Added number of users. field." />
     <MESSAGE value="Simplified counter loop." />
@@ -885,7 +880,8 @@
     <MESSAGE value="Fixing some &quot;not implemented error&quot;..." />
     <MESSAGE value="Code compiles and runs.&#10;&#10;We have now generalized app route factory for all types of persistence&#10;commands requests." />
     <MESSAGE value="1 to 1 map between Persistent Actor Commands / Responses and REST calls." />
-    <option name="LAST_COMMIT_MESSAGE" value="1 to 1 map between Persistent Actor Commands / Responses and REST calls." />
+    <MESSAGE value="[error] /Users/joco/dev/im/irie/modules/client/src/main/scala/client/cache/CacheMaker.scala:51:22: could not find implicit value for parameter encoder: io.circe.Encoder[dataStorage.TypedReferencedValue[V]]&#10;&#10;We are fixing this error now ^." />
+    <option name="LAST_COMMIT_MESSAGE" value="[error] /Users/joco/dev/im/irie/modules/client/src/main/scala/client/cache/CacheMaker.scala:51:22: could not find implicit value for parameter encoder: io.circe.Encoder[dataStorage.TypedReferencedValue[V]]&#10;&#10;We are fixing this error now ^." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

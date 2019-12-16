@@ -134,7 +134,8 @@ object Cache {
     new StreamSink[UserMap]()
 
   implicit val user: Cache[User] =
-    CacheMaker(streamToSetInitialCacheState).getCache()
+    CacheMaker[User](streamToSetInitialCacheState)
+      .getCache()
 
   //  val note:  Cache[Note]  = CacheMaker(s).makeCache[Note]()
   //  val image: Cache[Image] = CacheMaker(s).makeCache[Image]()

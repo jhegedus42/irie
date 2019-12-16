@@ -25,7 +25,10 @@ import io.circe.syntax._
 import shapeless.Typeable
 
 case class CacheMaker[V <: Value[V]](
-  streamSink: StreamSink[UserMap]) {
+  streamSink: StreamSink[UserMap]
+)(
+  implicit
+  encoder: Encoder[TypedReferencedValue[V]]) {
 
   var x = "a";
 
