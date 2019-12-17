@@ -5,12 +5,10 @@ import client.ui.atomicWidgets.input.{SButton, STextArea}
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.sodium.core.CellLoop
 import client.ui.atomicWidgets.show.text.SWPreformattedText
+import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
-import japgolly.scalajs.react.vdom.html_<^.{
-  <,
-  VdomElement,
-  _
-}
+import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
+import org.scalajs.dom.html.Div
 import shared.dataStorage.{TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -31,25 +29,21 @@ case class UserController() {
         )
     ).comp
 
+    def user2VDOMList(u: User): List[VdomElement] = {
+      val name:      VdomTagOf[Div] = <.div(u.name)
+      val favNumber: VdomTagOf[Div] = <.div(u.favoriteNumber.toString)
+      val pwd = <.div(u.password)
+      List(name, favNumber, pwd)
+    }
+
     val listOfUsersWithCellTemplate = {
       val c: CellLoop[CacheMap[User]] = userCache.cellLoop
       val t = CellTemplate(
         c, { x: CacheMap[User] =>
           <.div(
-            <.pre(x.getPrettyPrintedString),
-            <.table(
-              <.tr(
-                <.td("1a"),
-                <.td("1b")
-              ),
-              <.tr(
-                <.td("2a"),
-                <.td("2b")
-              ),
-              <.tr(
-                <.td("3a"),
-                <.td("3b")
-              )
+            TableHelpers.getTableFromVdomElements(
+              x.map.values.toList
+                .map(_.entityValue).map(user2VDOMList)
             )
           )
         }
@@ -60,8 +54,7 @@ case class UserController() {
     val nrOfUsers = SWPreformattedText(
       userCache.cellLoop
         .map(
-          c =>
-            s"number of users : ${c.getNumberOfEntries.toString}"
+          c => s"number of users : ${c.getNumberOfEntries.toString}"
         ).updates()
     ).comp
 
@@ -87,7 +80,7 @@ case class UserController() {
 
     def render: Unit => VdomElement = { _ =>
       <.div(
-        listOfUsers(),
+//        listOfUsers(),
         userNameInput.comp(),
         createNewUserButton.vdom(),
         <.br,

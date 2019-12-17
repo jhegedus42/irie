@@ -6,35 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/CellTemplate.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/table/CanMakeTableRowFrom.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/table/TableHelpers.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/vdom/ComposingVDOM.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/MainPages.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/TextFieldWithButtonAndHandler.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorComp.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userEditor/UserEditorRouteProvider.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/_notRelevant/components/mainPages/pages/userHandling/userList/UserListComp.scala.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXCalls.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXCalls.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/CellPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/show/text/CellPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWPreformattedText.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/show/text/SWPreformattedText.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWPreformattedTextFromTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/show/text/SWPreformattedTextFromTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/displayOnlyWidgets/SWStreamStringListFromTemplate.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/SButton.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/inputWidgets/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/STextArea.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/templates/CellTemplate.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/atomicWidgets/templates/StreamTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/StreamTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/CounterExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/CounterExample.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/HelloWorldTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/HelloWorldTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/NewUserCreator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/sodium/app/reactComponentWidgets/compositeWidgets/TodoList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/TodoList.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/login/UserLoginStatus.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/login/UserLoginStatus.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/login/UserLoginStatusHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/login/UserLoginStatusHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/router/Router.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/Router.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scalafmt.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.scalafmt.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/table/TableHelpers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/helpers/table/TableHelpers.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -894,7 +869,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Different ways of transforming a Cell's value." />
     <MESSAGE value="Going towards inserting a new user." />
     <MESSAGE value="Simple todo list example is in progress." />
     <MESSAGE value="Todo list &quot;works&quot;." />
@@ -919,7 +893,8 @@
     <MESSAGE value="Moving shared code into shared package." />
     <MESSAGE value="Insert new User works." />
     <MESSAGE value="Adding styling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding styling." />
+    <MESSAGE value="&quot;getTableFromVdomElements&quot; is in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;getTableFromVdomElements&quot; is in progress" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />
