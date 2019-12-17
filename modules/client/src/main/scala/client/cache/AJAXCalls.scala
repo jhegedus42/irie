@@ -1,6 +1,6 @@
 package client.cache
 
-import client.ui.login.UserLoginStatusHandler
+import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRequests.persActorCommands.GetAllEntityiesForUser
 import shared.crudRequests.{
   CanProvideRouteName,

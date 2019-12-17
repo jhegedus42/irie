@@ -1,18 +1,21 @@
-package client.sodium.app.reactComponentWidgets.compositeWidgets
+package client.ui.compositeWidgets
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SWPreformattedText
-import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.{
-  SButton,
-  STextArea
-}
+import client.ui.atomicWidgets.input.{SButton, STextArea}
+import client.ui.atomicWidgets.templates.CellTemplate
+import client.sodium.core.CellLoop
+import client.ui.atomicWidgets.show.text.SWPreformattedText
 import japgolly.scalajs.react.ScalaComponent
-import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
+import japgolly.scalajs.react.vdom.html_<^.{
+  <,
+  VdomElement,
+  _
+}
 import shared.dataStorage.{TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
-case class NewUserCreator() {
+case class UserController() {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -27,6 +30,32 @@ case class NewUserCreator() {
           (c: CacheMap[User]) => c.getPrettyPrintedString
         )
     ).comp
+
+    val listOfUsersWithCellTemplate = {
+      val c: CellLoop[CacheMap[User]] = userCache.cellLoop
+      val t = CellTemplate(
+        c, { x: CacheMap[User] =>
+          <.div(
+            <.pre(x.getPrettyPrintedString),
+            <.table(
+              <.tr(
+                <.td("1a"),
+                <.td("1b")
+              ),
+              <.tr(
+                <.td("2a"),
+                <.td("2b")
+              ),
+              <.tr(
+                <.td("3a"),
+                <.td("3b")
+              )
+            )
+          )
+        }
+      )
+      t.getComp
+    }
 
     val nrOfUsers = SWPreformattedText(
       userCache.cellLoop
@@ -62,7 +91,8 @@ case class NewUserCreator() {
         userNameInput.comp(),
         createNewUserButton.vdom(),
         <.br,
-        nrOfUsers()
+        nrOfUsers(),
+        listOfUsersWithCellTemplate()
       )
     }
 

@@ -1,6 +1,7 @@
-package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
+package client.ui.atomicWidgets.show.text
 
 import client.sodium.core._
+import client.ui.atomicWidgets.show.text
 
 case class SWPreformattedText(
   s: Stream[String],
@@ -10,7 +11,8 @@ case class SWPreformattedText(
   val is =
     s.map(SWPreformattedTextFromTemplate.State.apply(_))
 
-  val ic = SWPreformattedTextFromTemplate(is, initialState)
+  val ic =
+    text.SWPreformattedTextFromTemplate(is, initialState)
 
   val comp = ic.comp.comp
 }

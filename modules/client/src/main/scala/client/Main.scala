@@ -2,7 +2,7 @@ package client
 
 import client.cache.AJAXCalls
 import client.ui.RootComp
-import client.ui.router.Router
+import client.ui.helpers.Router
 import org.scalajs.{dom => d}
 import org.scalajs.dom.raw.Element
 import org.scalajs.dom.ext.Ajax

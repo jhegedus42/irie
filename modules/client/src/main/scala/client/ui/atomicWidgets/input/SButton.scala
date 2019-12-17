@@ -1,4 +1,4 @@
-package client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets
+package client.ui.atomicWidgets.input
 
 import client.sodium.core.StreamSink
 import japgolly.scalajs.react.component.ScalaFn.Component

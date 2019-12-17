@@ -1,7 +1,7 @@
-package client.sodium.app.reactComponentWidgets.compositeWidgets
+package client.ui.compositeWidgets
 
-import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.SButton
-import client.sodium.app.reactComponentWidgets.atomicWidgets.templates.CellTemplate
+import client.ui.atomicWidgets.input.SButton
+import client.ui.atomicWidgets.templates.CellTemplate
 import client.sodium.core.{StreamSink, _}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}

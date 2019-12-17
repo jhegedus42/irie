@@ -1,18 +1,10 @@
-package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
+package client.ui.atomicWidgets.show.text
 
-import client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets.SWPreformattedTextFromTemplate.State
-import client.sodium.app.reactComponentWidgets.atomicWidgets.templates.StreamTemplate
 import client.sodium.core._
+import client.ui.atomicWidgets.show.text.SWPreformattedTextFromTemplate.State
+import client.ui.atomicWidgets.templates.StreamTemplate
 import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  ScalaComponent
-}
+import japgolly.scalajs.react.vdom.html_<^._
 
 case class SWPreformattedTextFromTemplate(
   input: Stream[State],

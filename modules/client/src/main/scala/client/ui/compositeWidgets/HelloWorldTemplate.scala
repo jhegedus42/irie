@@ -1,6 +1,6 @@
-package client.sodium.app.reactComponentWidgets.compositeWidgets
+package client.ui.compositeWidgets
 
-import client.sodium.app.reactComponentWidgets.atomicWidgets.inputWidgets.STextArea
+import client.ui.atomicWidgets.input.STextArea
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 

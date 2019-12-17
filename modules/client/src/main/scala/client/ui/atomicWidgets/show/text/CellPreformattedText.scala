@@ -1,4 +1,4 @@
-package client.sodium.app.reactComponentWidgets.atomicWidgets.displayOnlyWidgets
+package client.ui.atomicWidgets.show.text
 
 import client.sodium.core.Cell
 import japgolly.scalajs.react.vdom.VdomElement

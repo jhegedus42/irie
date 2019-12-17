@@ -6,7 +6,7 @@ import client.sodium.core.{
   StreamSink,
   Transaction
 }
-import client.ui.login.UserLoginStatusHandler
+import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRequests.persActorCommands.InsertEntityIntoDataStore
 import shapeless.Typeable
 import io.circe.Decoder.Result
@@ -62,18 +62,6 @@ case class Cache[V <: Value[V]](
   val inserterStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
-  //  todonow
-  //   1. make inserting new user work
-
-  //  todonow
-  //     1.1. listen to this stream ^^^
-  //     and send updates to the server, to mirror the changes made on
-  //     the client
-
-  //  todonow
-  //     1.2. show status of "syncing" / "synced" somewhere on the
-  //     console / screen (can be even a state in a Cell, later)
-
   val ins1
     : Stream[TypedReferencedValue[V]] = inserterStream.map(
     _.addTypeInfo().addEntityOwnerInfo(
@@ -91,11 +79,6 @@ case class Cache[V <: Value[V]](
         s"here we should send an AJAX request to insert this new" +
           s"value into the servers data store: $x"
       )
-
-      // todonow
-      //  1.1.1 launch AJAX request to
-      //  insert/create TypedReferencedValue[V]
-      //  on the server, too
 
       val in: InsertEntityIntoDataStore =
         InsertEntityIntoDataStore.fromReferencedValue(x)

@@ -1,4 +1,4 @@
-package client.ui.router
+package client.ui.helpers
 
 import org.scalajs.{dom => d}
 
@@ -14,11 +14,9 @@ object Router {
     val l1: js.Object with js.Dynamic = l("page" -> 1)
     d.window.history.pushState(l1, """, """)
 
-    d.window.onpopstate = {
-      a =>
-
-        println(a)
-        d.window.history.go(1)
+    d.window.onpopstate = { a =>
+      println(a)
+      d.window.history.go(1)
     }
   }
 }

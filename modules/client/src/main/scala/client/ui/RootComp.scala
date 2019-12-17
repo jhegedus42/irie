@@ -1,8 +1,8 @@
 package client.ui
 
-import client.sodium.app.reactComponentWidgets.compositeWidgets.{
+import client.ui.compositeWidgets.{
   CounterExample,
-  NewUserCreator,
+  UserController,
   TodoList
 }
 import japgolly.scalajs.react.ScalaComponent
@@ -22,12 +22,14 @@ object RootComp {
     def render: Unit => VdomElement = { _ =>
       <.div(
         <.main(C.container, ^.role := "container")(
-          <.div(C.jumbotron)(<.h1("test page"),
-                             NewUserCreator().getComp(),
-                             <.br,
-                             CounterExample().getComp(),
-                             <.br,
-                             TodoList().getComp())
+          <.div(C.jumbotron)(
+            <.h1("test page"),
+            UserController().getComp(),
+            <.br,
+            CounterExample().getComp(),
+            <.br,
+            TodoList().getComp()
+          )
         )
       )
     }

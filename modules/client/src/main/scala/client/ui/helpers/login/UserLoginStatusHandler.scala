@@ -1,4 +1,4 @@
-package client.ui.login
+package client.ui.helpers.login
 
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
