@@ -12,8 +12,7 @@ import scala.reflect.ClassTag
 import io.circe._, io.circe.generic.semiauto._
 
 @JsonCodec
-case class Ref[V <: Value[V]](
-  unTypedRef: UnTypedRef = UnTypedRef()) {
+case class Ref[V <: Value[V]](unTypedRef: UnTypedRef = UnTypedRef()) {
 
   def addTypeInfo(
   )(
@@ -28,7 +27,11 @@ case class Ref[V <: Value[V]](
 }
 
 object Ref {
-//  def make[]
+  //
+}
+
+case class EntityVersion(versionNumber: Integer = 0) {
+  def inc: EntityVersion = EntityVersion(versionNumber + 1)
 }
 
 @JsonCodec

@@ -1,11 +1,6 @@
 package client.cache
 
-import client.sodium.core.{
-  CellLoop,
-  Stream,
-  StreamSink,
-  Transaction
-}
+import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRequests.persActorCommands.InsertEntityIntoDataStore
 import shapeless.Typeable
@@ -15,11 +10,7 @@ import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
-import shared.dataStorage.{
-  TypedReferencedValue,
-  User,
-  Value
-}
+import shared.dataStorage.{TypedReferencedValue, User, Value}
 import shared.dataStorage.stateHolder.UserMap
 
 import scala.util.Try
@@ -40,59 +31,39 @@ case class Cache[V <: Value[V]](
   typeable: Typeable[V],
   encoder:  Encoder[TypedReferencedValue[V]]) {
 
-//  val updateStarter: StreamSink[Unit] = new StreamSink[Unit]()
+  lazy val inserterStream: StreamSink[TypedReferencedValue[V]] = {
+    val is = new StreamSink[TypedReferencedValue[V]]()
 
-  /**
-    *
-    * We assume here that alice is the only user, hence we use:
-    * `getUserLoginStatusDev` for defining the owning User.
-    *
-    * @param rv
-    * @param typeable
-    * @return
-    */
-  private def inserter(
-    rv: TypedReferencedValue[V]
-  )(
-    implicit
-    typeable: Typeable[V]
-  ): CacheMap[V] => CacheMap[V] =
-    CacheMap.insertReferencedValue[V](rv)
+    is.map(
+        _.addTypeInfo().addEntityOwnerInfo(
+          UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
+        )
+      ).listen(
+        (x: TypedReferencedValue[V]) => {
 
-  val inserterStream: StreamSink[TypedReferencedValue[V]] =
-    new StreamSink[TypedReferencedValue[V]]()
+          println(
+            s"here we should send an AJAX request to insert this new" +
+              s"value into the servers data store: $x"
+          )
 
-  val ins1
-    : Stream[TypedReferencedValue[V]] = inserterStream.map(
-    _.addTypeInfo().addEntityOwnerInfo(
-      UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
-    )
-  )
+          val in: InsertEntityIntoDataStore =
+            InsertEntityIntoDataStore.fromReferencedValue(x)
 
-  private def ins2: Stream[CacheMap[V] => CacheMap[V]] =
-    ins1.map(inserter)
+          AJAXCalls.ajaxCall(in, {
+            x: Try[InsertEntityIntoDataStore] =>
+              println(x)
+          })
 
-  ins1.listen(
-    (x: TypedReferencedValue[V]) => {
-
-      println(
-        s"here we should send an AJAX request to insert this new" +
-          s"value into the servers data store: $x"
+        }
       )
-
-      val in: InsertEntityIntoDataStore =
-        InsertEntityIntoDataStore.fromReferencedValue(x)
-
-      AJAXCalls.ajaxCall(in, {
-        x: Try[InsertEntityIntoDataStore] =>
-          println(x)
-      })
-
-    }
-  )
+    is
+  }
 
   val transformer: Stream[CacheMap[V] => CacheMap[V]] =
-    transformerConstructor.orElse(ins2)
+    transformerConstructor
+      .orElse(
+        inserterStream.map(CacheMap.insertReferencedValue[V](_))
+      )
 
   val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>

@@ -3,11 +3,7 @@ package client.ui.atomicWidgets.input
 import client.sodium.core.StreamSink
 import japgolly.scalajs.react.component.ScalaFn.Component
 import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
-import japgolly.scalajs.react.{
-  Callback,
-  CtorType,
-  ScalaFnComponent
-}
+import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
 
 case class SButton(
   name:     String = "Button",
@@ -21,11 +17,10 @@ case class SButton(
       import bootstrap4.TB.C
       import bootstrap4.TB.convertableToTagOfExtensionMethods
       <.div(
-        <.button.btn.btnPrimary(name,
-                                ^.onClick --> Callback({
-                                  streamSink.send(Unit)
-                                  callBack()
-                                }))
+        <.button.btn.btnPrimary(name, ^.onClick --> Callback({
+          streamSink.send(Unit)
+          callBack()
+        }))
       )
     }
 
