@@ -13,7 +13,17 @@ import scala.reflect.ClassTag
   * @tparam T
   */
 //@JsonCodec
-sealed trait Value[+T <: Value[T]] {}
+
+sealed trait Value[+T <: Value[T]]
+
+@JsonCodec
+case class VersionedValue[V <: Value[V]](
+  valueWithoutVersion: V,
+  version:             EntityVersion = EntityVersion())
+
+object VersionedValue {
+  implicit def conv[V <: Value[V]](v: V) = VersionedValue(v)
+}
 
 //@JsonCodec
 //object Value {

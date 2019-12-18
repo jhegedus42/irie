@@ -10,8 +10,8 @@ import shapeless.Typeable
 
 @JsonCodec
 case class TypedReferencedValue[E <: Value[E]](
-  entityValue: E,
-  ref:         Ref[E] = Ref[E]()) {
+  versionedEntityValue: VersionedValue[E],
+  ref:                  Ref[E] = Ref[E]()) {
 
   def addTypeInfo(
   )(
@@ -19,13 +19,11 @@ case class TypedReferencedValue[E <: Value[E]](
     typeable: Typeable[E]
   ): TypedReferencedValue[E] = {
     val r: Ref[E] = ref.addTypeInfo()(typeable)
-    TypedReferencedValue(entityValue, r)
+    TypedReferencedValue(versionedEntityValue, r)
   }
 
-  def addEntityOwnerInfo(
-    r: Ref[User]
-  ): TypedReferencedValue[E] = {
-    TypedReferencedValue(this.entityValue,
+  def addEntityOwnerInfo(r: Ref[User]): TypedReferencedValue[E] = {
+    TypedReferencedValue(this.versionedEntityValue,
                          this.ref.addEntityOwnerInfo(r))
   }
 

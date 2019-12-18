@@ -38,12 +38,13 @@ case class CacheMap[V <: Value[V]](
   def getPrettyPrintedString: String = {
     map.foldLeft("")(
       (s, v) =>
-        s + "value: " + s"${v._2.entityValue}, "
+        s + "value: " + s"${v._2.versionedEntityValue}, "
           .formatted("%40s") +
           s"type: ${v._1.unTypedRef.typeName
             .map(_.s).getOrElse("not-typed error !!!")}, " +
           s"owner: ${v._1.unTypedRef.refToEntityOwningUser.uuid}, " +
           s"uuid: ${v._1.unTypedRef.uuid} " +
+          s"version ${v._2.versionedEntityValue.version}" +
           s" \n"
     )
   }

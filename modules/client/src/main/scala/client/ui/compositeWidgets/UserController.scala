@@ -25,8 +25,7 @@ case class UserController() {
 
     // todonow 1 create UPDATE command in cache
 
-    <.div(
-      )
+    <.div()
 
   }
 
@@ -59,7 +58,9 @@ case class UserController() {
         <.div(
           TableHelpers.getTableFromVdomElements(
             x.map.values.toList
-              .map(_.entityValue).map(user2VDOMList)
+              .map(_.versionedEntityValue.valueWithoutVersion).map(
+                user2VDOMList
+              )
           )
         )
       }
@@ -88,7 +89,7 @@ case class UserController() {
           User(name = text, favoriteNumber = 46)
         )
 
-      userCache.inserterStream.send(newUser)
+      userCache.insertEntityStream.send(newUser)
 
     }
   )

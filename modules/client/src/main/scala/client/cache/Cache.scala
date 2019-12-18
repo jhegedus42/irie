@@ -19,10 +19,8 @@ import scala.util.Try
 
 import client.sodium.core.Cell
 
-case class CacheInserter()
-
 case class Cache[V <: Value[V]](
-  transformerConstructor: Stream[
+  injectedTransformer: Stream[
     CacheMap[V] => CacheMap[V]
   ],
   typeName: String
@@ -31,42 +29,55 @@ case class Cache[V <: Value[V]](
   typeable: Typeable[V],
   encoder:  Encoder[TypedReferencedValue[V]]) {
 
-  lazy val inserterStream: StreamSink[TypedReferencedValue[V]] = {
-    val is = new StreamSink[TypedReferencedValue[V]]()
+  lazy val insertEntityStream: StreamSink[TypedReferencedValue[V]] =
+    new StreamSink[TypedReferencedValue[V]]()
 
-    is.map(
-        _.addTypeInfo().addEntityOwnerInfo(
-          UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
-        )
-      ).listen(
-        (x: TypedReferencedValue[V]) => {
-
-          println(
-            s"here we should send an AJAX request to insert this new" +
-              s"value into the servers data store: $x"
-          )
-
-          val in: InsertEntityIntoDataStore =
-            InsertEntityIntoDataStore.fromReferencedValue(x)
-
-          AJAXCalls.ajaxCall(in, {
-            x: Try[InsertEntityIntoDataStore] =>
-              println(x)
-          })
-
-        }
-      )
-    is
-  }
-
-  val transformer: Stream[CacheMap[V] => CacheMap[V]] =
-    transformerConstructor
-      .orElse(
-        inserterStream.map(CacheMap.insertReferencedValue[V](_))
-      )
+  lazy val updateEntityStream: StreamSink[TypedReferencedValue[V]] =
+    new StreamSink[TypedReferencedValue[V]]()
 
   val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>
+      val insertEntityTransformer
+        : Stream[CacheMap[V] => CacheMap[V]] = {
+
+        val updateAjax = {
+          (x: TypedReferencedValue[V]) =>
+            {
+
+              println(
+                s"here we should send an AJAX request to insert this new" +
+                  s"value into the servers data store: $x"
+              )
+
+              val in: InsertEntityIntoDataStore =
+                InsertEntityIntoDataStore.fromReferencedValue(x)
+
+              AJAXCalls.ajaxCall(in, {
+                x: Try[InsertEntityIntoDataStore] =>
+                  println(x)
+              })
+
+            }
+
+        }
+
+        val addTypeInfo = { (x: TypedReferencedValue[V]) =>
+          x.addTypeInfo().addEntityOwnerInfo(
+              UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
+            )
+        }
+
+        val is2 = insertEntityStream.map(addTypeInfo)
+
+        is2.listen(updateAjax)
+
+        is2.map(CacheMap.insertReferencedValue[V](_))
+      }
+
+      lazy val transformer: Stream[CacheMap[V] => CacheMap[V]] =
+        injectedTransformer
+          .orElse(insertEntityTransformer)
+
       lazy val afterUpdate: Stream[CacheMap[V]] =
         transformer.snapshot(
           counterValue, { (f: CacheMap[V] => CacheMap[V], c: CacheMap[V]) =>
