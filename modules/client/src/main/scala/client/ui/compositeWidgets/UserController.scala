@@ -21,26 +21,65 @@ case class UserController() {
 
   lazy val selectedUser = new CellSink[Option[User]](None)
 
-  val updateUserNameComp = {
+  lazy val userNameUpdater = {
 
     // todonow 1 - update user
 
     // todonow 1.1 update user name component
-    //  - show textfield filled with currently selected user's name
-    //  - sh
+    //  - 1.1.1 show pre-textfield filled with currently selected user's name
+    //    - CONTINUE-NOW
+    //    - we need to copy the selected user component
+    //    - we need to search for a textfield
+    //  - 1.1.2 button, which, when clicked will send an update-request to the server
+    //
 
-    <.div()
+    lazy val nameOfSelectedUser = STextArea(
+      "",
+      selectedUser
+        .updates().map(
+          x => x.map(_.name).getOrElse("no user selected yet")
+        )
+    )
+
+    lazy val updateNameButton = SButton(
+      "update name",
+      () => {
+        selectedUser.listen({ (x: Option[User]) =>
+          val newName = nameOfSelectedUser.cell.sample()
+          println(
+            s"we should update $x 's name to $newName"
+          )
+
+        // todonow - CONTINUE HERE
+        //  send AJAX req to update user name on server
+        //  via the Cache
+
+        })
+
+      }
+    )
+
+    lazy val comp =
+      new CellTemplate[Option[User]](selectedUser, { x =>
+        <.div(
+          <.pre(s"selected user: $x"),
+          nameOfSelectedUser.comp(),
+          updateNameButton.comp()
+        )
+      })
+
+    comp
 
   }
 
-  lazy val listOfUsersComp = SWPreformattedText(
+  lazy val listOfUsers = SWPreformattedText(
     userCache.cellLoop
       .updates().map(
         (c: CacheMap[User]) => c.getPrettyPrintedString
       )
-  ).comp
+  )
 
-  lazy val listOfUsersWithCellTemplateComp = {
+  lazy val tableOfUsersWithSelectorButton = {
     val c: CellLoop[CacheMap[User]] = userCache.cellLoop
 
     def user2VDOMList(u: User): List[VdomElement] = {
@@ -54,7 +93,7 @@ case class UserController() {
 
       //todo now ^ add user selector button
 
-      List(name, favNumber, pwd, selectButton.vdom())
+      List(name, favNumber, pwd, selectButton.comp())
     }
 
     val t = CellTemplate(
@@ -69,24 +108,25 @@ case class UserController() {
         )
       }
     )
-    t.getComp
+
+    t
   }
 
-  lazy val nrOfUsersComp = SWPreformattedText(
+  lazy val nrOfUsers = SWPreformattedText(
     userCache.cellLoop
       .map(
         c => s"number of users : ${c.getNumberOfEntries.toString}"
       ).updates()
-  ).comp
+  )
 
-  lazy val userNameInputComp: STextArea = STextArea("init_text")
+  lazy val newUsersNameTextField: STextArea = STextArea("init_text")
 
-  lazy val createNewUserButtonComp = SButton(
+  lazy val createNewUserButton = SButton(
     "Create New User",
     () => {
       println("i was pusssshed")
 
-      val text = userNameInputComp.cell.sample()
+      val text = newUsersNameTextField.cell.sample()
 
       val newUser =
         TypedReferencedValue[User](
@@ -98,7 +138,7 @@ case class UserController() {
     }
   )
 
-  lazy val displaySelectedUserComp =
+  lazy val selectedUserAsText =
     new CellTemplate[Option[User]](selectedUser, { x =>
       <.pre(s"selected user: $x")
     })
@@ -107,16 +147,17 @@ case class UserController() {
 
     def render: Unit => VdomElement = { _ =>
       <.div(
-        <.h2("User Controller"),
+        <.h2("User Controller (new)"),
         <.hr,
         <.br,
-        listOfUsersComp(),
-        userNameInputComp.comp(),
-        createNewUserButtonComp.vdom(),
+        listOfUsers.comp(),
+        newUsersNameTextField.comp(),
+        createNewUserButton.comp(),
         <.br,
-        nrOfUsersComp(),
-        listOfUsersWithCellTemplateComp(),
-        displaySelectedUserComp.getComp(),
+        nrOfUsers.comp(),
+        tableOfUsersWithSelectorButton.comp(),
+        selectedUserAsText.comp(),
+        userNameUpdater.comp(),
         <.hr,
         <.br
       )

@@ -14,5 +14,5 @@ case class CellTemplate[V](
                    cell.sample(),
                    renderer)
 
-  def getComp = streamTemplate.comp
+  lazy val comp = streamTemplate.comp
 }

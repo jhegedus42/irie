@@ -2,11 +2,7 @@ package client.ui.atomicWidgets.templates
 
 import client.sodium.core.Stream
 import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.{
-  BackendScope,
-  Callback,
-  ScalaComponent
-}
+import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 
 case class StreamTemplate[V](
   input:         Stream[V],
@@ -14,7 +10,7 @@ case class StreamTemplate[V](
   initialState:  V,
   renderer:      V => VdomElement) {
 
-  val comp = ScalaComponent
+  lazy val comp = ScalaComponent
     .builder[Unit](componentName)
     .initialState(initialState)
     .renderBackend[Backend]

@@ -12,7 +12,7 @@ case class SButton(
   private val streamSink = new StreamSink[Unit]()
   def getClick           = streamSink
 
-  val vdom: Component[Unit, CtorType.Nullary] =
+  val comp: Component[Unit, CtorType.Nullary] =
     ScalaFnComponent[Unit] { props: Unit =>
       import bootstrap4.TB.C
       import bootstrap4.TB.convertableToTagOfExtensionMethods

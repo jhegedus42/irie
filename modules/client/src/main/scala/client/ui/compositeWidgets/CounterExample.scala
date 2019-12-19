@@ -58,10 +58,10 @@ case class CounterExample() {
     val render: Unit => VdomElement = { _ =>
       <.div(<.p(s"This is the counter example:"),
             <.br,
-            counterComp.getComp(),
-            button1.vdom(),
+            counterComp.comp(),
+            button1.comp(),
             <.br,
-            button2.vdom())
+            button2.comp())
     }
 
     val rootComp =

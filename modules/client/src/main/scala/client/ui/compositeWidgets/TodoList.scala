@@ -71,7 +71,7 @@ case class TodoList() {
       <.div(
         listOfTodos(),
         todoElementName.comp(),
-        addTodoElementButton.vdom(),
+        addTodoElementButton.comp(),
         <.br,
         nrOfTodos()
       )
