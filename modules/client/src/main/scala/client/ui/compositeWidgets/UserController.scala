@@ -23,7 +23,11 @@ case class UserController() {
 
   val updateUserNameComp = {
 
-    // todonow 1 create UPDATE command in cache
+    // todonow 1 - update user
+
+    // todonow 1.1 update user name component
+    //  - show textfield filled with currently selected user's name
+    //  - sh
 
     <.div()
 

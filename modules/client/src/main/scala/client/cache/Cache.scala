@@ -32,6 +32,8 @@ case class Cache[V <: Value[V]](
   lazy val insertEntityStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
+  //todonow 1.2 send update command into this
+
   lazy val updateEntityStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
