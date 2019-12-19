@@ -6,16 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/RootComp.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/SButton.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/SButton.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/STextArea.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/input/STextArea.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/CellTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/CellTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/StreamTemplate.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/atomicWidgets/templates/StreamTemplate.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/CounterExample.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/CounterExample.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/TodoList.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/TodoList.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +23,7 @@
     <option name="done" value="true" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="5523" />
+    <option name="totalTimeSeconds" value="5767" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -881,7 +872,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adding new user works." />
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress." />
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress.&#10;&#10;It throws an exception of : &#10;&#9;&quot;at dataStorage.RefToEntityOwningUser$.makeFromRef(RefToEntityOwningUser.scala:12)&quot;&#10;&#9;&#10;This needs to be fixed." />
     <MESSAGE value="Insert User logic &quot;works&quot; on the client side." />
@@ -906,7 +896,8 @@
     <MESSAGE value="Table for users works." />
     <MESSAGE value="Adding versioning to Entities - needed for updating entities (&quot;OCC&quot;)." />
     <MESSAGE value="Versioning has been added to Entities&#10;(basic), no OCC has been implemented though on server.&#10;&#10;Code compiles, app works (read/insert only)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Versioning has been added to Entities&#10;(basic), no OCC has been implemented though on server.&#10;&#10;Code compiles, app works (read/insert only)." />
+    <MESSAGE value="Updating user implementation is in progress." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating user implementation is in progress." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

@@ -32,7 +32,7 @@ case class STextArea(
     def render(text: String) = {
 
       def onChange(e: ReactEventFromInput): Callback = {
-        println("callback called")
+        println("callback called, now")
         val newValue: String = e.target.value
 
         Callback(internalUpdater.send(newValue)) >>
