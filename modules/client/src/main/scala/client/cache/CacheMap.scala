@@ -1,6 +1,12 @@
 package client.cache
 
-import shared.dataStorage.{Ref, TypedReferencedValue, Value}
+import shared.dataStorage.{
+  EntityVersion,
+  Ref,
+  TypedReferencedValue,
+  Value,
+  VersionedValue
+}
 
 //import scala.collection.immutable.HashMap
 //import io.circe.Decoder.Result
@@ -50,14 +56,6 @@ case class CacheMap[V <: Value[V]](
   }
 
   def getNumberOfEntries: Int = map.size
-//
-//  override def toString: String = {
-//    map.asJson.spaces4
-//
-//  }
-//  override def toString: String = {
-//
-//  }
 
   def toJSON(
     implicit
@@ -74,13 +72,47 @@ case class CacheMap[V <: Value[V]](
 
 object CacheMap {
 
-  def insertReferencedValue[V <: Value[V]](
+  case class UpdateEntityInCacheCommand[V <: Value[V]](
+    currentTypedReferencedValue: TypedReferencedValue[V],
+    newValue:                    V)
+
+  def insertReferencedValueTransformer[V <: Value[V]](
     rv: TypedReferencedValue[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
       val oldMap = m.map
       val newMap = oldMap + (rv.ref -> rv)
       CacheMap(newMap)
+    }
+  }
+
+  def updateReferencedValueTransformer[V <: Value[V]](
+    updateCommand: UpdateEntityInCacheCommand[V]
+  ): CacheMap[V] => CacheMap[V] = { m =>
+    {
+      //    todonow CONTINUE HERE
+      //      1.1.2.1 create update handler in cache CONTINUE-HERE
+      //      1.1.2.1.1 do version check if version is not OK then do not update but writen an
+      //        error to the console
+
+      val oldMap = m.map
+
+      // version check:
+      val currentVersion: EntityVersion = oldMap(
+        updateCommand.currentTypedReferencedValue.ref
+      ).versionedEntityValue.version
+
+      if (currentVersion == updateCommand.currentTypedReferencedValue.versionedEntityValue.version) {
+        val versionedValue =
+          VersionedValue(updateCommand.newValue, currentVersion.inc)
+        val newTypedReferencedValueInCache = TypedReferencedValue(
+          versionedValue,
+          updateCommand.currentTypedReferencedValue.ref
+        )
+        val newMap = oldMap + (updateCommand.currentTypedReferencedValue.ref -> newTypedReferencedValueInCache)
+
+        CacheMap(newMap)
+      } else CacheMap(oldMap)
     }
   }
 

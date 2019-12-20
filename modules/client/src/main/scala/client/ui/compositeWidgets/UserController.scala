@@ -27,7 +27,6 @@ case class UserController() {
 
     // todonow 1.1 update user name component
     //  - 1.1.1 show pre-textfield filled with currently selected user's name
-    //    - CONTINUE-NOW
     //    - we need to copy the selected user component
     //    - we need to search for a textfield
     //  - 1.1.2 button, which, when clicked will send an update-request to the server
@@ -50,9 +49,23 @@ case class UserController() {
             s"we should update $x 's name to $newName"
           )
 
-        // todonow - CONTINUE HERE
-        //  send AJAX req to update user name on server
-        //  via the Cache
+        //
+        // todonow - 1.1.2 CONTINUE HERE - implement update
+        //  1.1.2
+        //      1.1.2.1 create update handler in cache CONTINUE-HERE
+        //      1.1.2.2 create ajax update command case class for AJAX call
+        //      1.1.2.3 handle update request on server side
+        //      1.1.2.3.1 handle update request in persistent actor
+        //      1.1.2.3.2 create route for handling update request on server side
+        //      1.1.2.4 send ajax call to server to update an entity
+        //      1.1.2.5 implement OCC
+        //      1.1.2.5.1 per entity OCC
+        //      1.1.2.5.1.1 display state of sync on client
+        //      1.1.2.5.1.1.1 typed update queue per entity
+        //        (there can be only one AJAX req in flight at any given time)
+        //      1.1.2.5.1.1.1.1 states for syncing/updates (case class)
+        //      1.1.2.5.1.2 reject wrong updates on server
+        //      1.1.2.5.2 global OCC (implement later)
 
         })
 
@@ -134,7 +147,9 @@ case class UserController() {
         )
 
       userCache.insertEntityStream.send(newUser)
-
+      // todonow CONTINUE HERE ...
+      //   use this code to implement same type of
+      //   button handler code on line 51 in this file
     }
   )
 
