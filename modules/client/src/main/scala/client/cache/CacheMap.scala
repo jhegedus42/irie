@@ -90,10 +90,6 @@ object CacheMap {
     updateCommand: UpdateEntityInCacheCommand[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
-      //    todonow CONTINUE HERE
-      //      1.1.2.1 create update handler in cache CONTINUE-HERE
-      //      1.1.2.1.1 do version check if version is not OK then do not update but writen an
-      //        error to the console
 
       val oldMap = m.map
 

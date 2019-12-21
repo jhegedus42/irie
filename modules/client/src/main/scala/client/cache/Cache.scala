@@ -33,8 +33,6 @@ case class Cache[V <: Value[V]](
   lazy val insertEntityStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
-  //todonow 1.1.2.1 send update command into this
-
   lazy val updateEntityStream
     : StreamSink[UpdateEntityInCacheCommand[V]] =
     new StreamSink[UpdateEntityInCacheCommand[V]]()
@@ -78,6 +76,9 @@ case class Cache[V <: Value[V]](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
         updateEntityStream.map(
+          // todonow 1 SEND AJAX REQ TO UPDATE USER
+          //  use "val insertEntityTransformer" as a template
+          //  to send an update Entity value request to server
           CacheMap.updateReferencedValueTransformer[V](_)
         )
       }

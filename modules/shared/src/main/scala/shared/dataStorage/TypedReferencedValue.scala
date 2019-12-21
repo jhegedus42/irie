@@ -27,6 +27,15 @@ case class TypedReferencedValue[E <: Value[E]](
                          this.ref.addEntityOwnerInfo(r))
   }
 
+  def bumpVersion: TypedReferencedValue[E] = {
+    import monocle.macros.syntax.lens._
+    this
+      .lens(_.versionedEntityValue.version).set(
+        this.versionedEntityValue.version.inc
+      )
+
+  }
+
 }
 
 object TypedReferencedValue {}
