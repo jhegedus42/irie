@@ -19,11 +19,12 @@ import shared.dataStorage.{
   Ref,
   TypedReferencedValue,
   UnTypedRef,
+  UnTypedReferencedValue,
   Value
 }
 import shared.dataStorage.stateHolder.UserMap
 
-case class CacheMaker[V <: Value[V]](
+case class CacheMaker[V <: Value[V]: Encoder](
   streamSink: StreamSink[UserMap]
 )(
   implicit
@@ -42,13 +43,12 @@ case class CacheMaker[V <: Value[V]](
     val setter: Stream[CacheMap[V]] =
       streamSink.map(makeFrom)
 
-    val updaterFromSetter
-      : Stream[CacheMap[V] => CacheMap[V]] =
+    val updaterFromSetter: Stream[CacheMap[V] => CacheMap[V]] =
       setter.map(
         (y: CacheMap[V]) => { x: CacheMap[V] => y }
       )
 
-    val name: String = UnTypedRef.getName[V]
+    val name: String = UnTypedRef.getTypeNameAsString[V]
 
     val cache = Cache(updaterFromSetter, name)
 
@@ -66,23 +66,22 @@ case class CacheMaker[V <: Value[V]](
     typeable: Typeable[V]
   ): CacheMap[V] = {
 
-    val name = UnTypedRef.getName[V]
+    val typeName: String = UnTypedRef.getTypeNameAsString[V]
 
-    def g(t: (UnTypedRef, _)): Boolean = {
-      t._1.typeName.get.s == name
+    def g(t: UnTypedReferencedValue): Boolean = {
+      t.unTypedRef.typeName.get.s == typeName
     }
 
     def h(
-      t: (UnTypedRef, Json)
+      t: UnTypedReferencedValue
     ): (Ref[V], TypedReferencedValue[V]) = {
-      val ur = t._1
+      val ur: UnTypedRef = t.unTypedRef
 
-      val json = t._2
+      val json: Json = t.value.value.json
 
       val r = shared.dataStorage.Ref[V](ur)
 
-      val referencedValueV
-        : Result[TypedReferencedValue[V]] =
+      val referencedValueV: Result[TypedReferencedValue[V]] =
         d.decodeJson(json)
 
       val refV = referencedValueV.toOption.get
@@ -99,13 +98,12 @@ case class CacheMaker[V <: Value[V]](
     def f(userMap: UserMap): CacheMap[V] = {
       val u = userMap.user
 
-      val l: immutable.Seq[(UnTypedRef, Json)] =
+      val l: immutable.Seq[UnTypedReferencedValue] =
         userMap.list
 
-      val lf = l.filter(g)
+      val lf: immutable.Seq[UnTypedReferencedValue] = l.filter(g)
 
-      val ln
-        : immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
+      val ln: immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
         lf.map(h)
 
       val m: Map[Ref[V], TypedReferencedValue[V]] =

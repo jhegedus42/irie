@@ -5,47 +5,48 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 import io.circe.{Encoder, Json}
 import shapeless.Typeable
-import shared.dataStorage.stateHolder.EntityStorage.UntypedJSONMap
+import shared.dataStorage.stateHolder.EntityStorage.UntypedMap
 import shared.dataStorage.{
   EntityVersion,
   RefToEntityOwningUser,
   TypedReferencedValue,
   UnTypedRef,
+  UnTypedReferencedValue,
   Value
 }
 
-case class EntityStorage(
-  val untypedJSONMap: UntypedJSONMap = UntypedJSONMap()) {
+case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
   type Key = UnTypedRef
 
-  def update(
-    t:    UnTypedRef,
-    json: Json
-  ): Unit = {
-    val newMap = UntypedJSONMap(
-      untypedJSONMap.untypedMap.updated(t, json)
-    )
-    EntityStorage(newMap)
-  }
+//  def update(
+//    t:    UnTypedRef,
+//    json: Json
+//  ): Unit = {
+//    val newMap = UntypedMap(
+//      untypedMap.untypedMap.updated(t, json)
+//    )
+//    EntityStorage(newMap)
+//  }
 
   def getUserMap(ref: RefToEntityOwningUser): UserMap = {
-    val res: Map[Key, Json] =
-      untypedJSONMap.untypedMap.filterKeys(
-        _.refToEntityOwningUser.uuid == ref.uuid
-      )
+    val res =
+      untypedMap.untypedMap
+        .filterKeys(
+          _.refToEntityOwningUser.uuid == ref.uuid
+        ).values
     UserMap(ref, res.toList)
   }
 
   def insert(
     t:    UnTypedRef,
-    json: Json
+    json: UnTypedReferencedValue
   ): EntityStorage = {
-    val newMap = untypedJSONMap.untypedMap + ((t, json))
-    EntityStorage(UntypedJSONMap(newMap))
+    val newMap = untypedMap.untypedMap + ((t, json))
+    EntityStorage(UntypedMap(newMap))
   }
 
-  def insertHelper[V <: Value[V]](
+  def insertHelper[V <: Value[V]: Encoder](
     r: TypedReferencedValue[V]
   )(
     implicit
@@ -53,9 +54,11 @@ case class EntityStorage(
     typeable: Typeable[V]
   ): EntityStorage = {
     val r2: TypedReferencedValue[V] = r.addTypeInfo()
-    val j = r2.asJson
+    val unTypedReferencedValue =
+      UnTypedReferencedValue.fromTypedReferencedValue(r2)
+    val unTypedRef = r2.ref.unTypedRef.addTypeInfo[V](typeable)
     this
-      .insert(r2.ref.unTypedRef.addTypeInfo[V](typeable), j)
+      .insert(unTypedRef, unTypedReferencedValue)
   }
 
 }
@@ -68,12 +71,10 @@ object EntityStorage {
   import io.circe.syntax._
 
   /**
-    * the JSON contains a ReferencedValue[V] type
-    * where V is Value[V]
     * @param untypedMap
     */
-  case class UntypedJSONMap(
-    untypedMap: Map[UnTypedRef, (Json, EntityVersion)] =
-      Map[UnTypedRef, (Json, EntityVersion)]())
+  case class UntypedMap(
+    untypedMap: Map[UnTypedRef, UnTypedReferencedValue] =
+      Map[UnTypedRef, UnTypedReferencedValue]())
 
 }

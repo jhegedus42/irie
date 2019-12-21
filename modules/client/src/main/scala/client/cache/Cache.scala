@@ -20,7 +20,7 @@ import scala.util.Try
 
 import client.sodium.core.Cell
 
-case class Cache[V <: Value[V]](
+case class Cache[V <: Value[V]: Encoder](
   injectedTransformerStream: Stream[
     CacheMap[V] => CacheMap[V]
   ],
@@ -76,11 +76,12 @@ case class Cache[V <: Value[V]](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-        val updateHandler: UpdateEntityInCacheCommand[V] => Unit = {
-
-          ???
-
-        }
+//        lazy val updateHandler
+//          : UpdateEntityInCacheCommand[V] => Unit = {
+//
+//          ???
+//
+//        }
 
         updateEntityStream.map(
           // todonow 1 SEND AJAX REQ TO UPDATE USER

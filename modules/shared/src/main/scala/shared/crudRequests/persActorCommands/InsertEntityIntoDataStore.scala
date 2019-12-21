@@ -27,7 +27,7 @@ case class InsertEntityIntoDataStore(
 
 object InsertEntityIntoDataStore {
 
-  def fromReferencedValue[V <: Value[V]](
+  def fromReferencedValue[V <: Value[V]: Encoder](
     r: TypedReferencedValue[V]
   )(
     implicit

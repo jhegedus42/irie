@@ -71,7 +71,7 @@ object UnTypedRef {
 //    typeable: Typeable[V]
 //  ): UnTypedRef = UnTypedRef().addTypeInfo[V](typeable)
 
-  def getName[V <: Value[V]](
+  def getTypeNameAsString[V <: Value[V]](
     implicit
     typeable: Typeable[V]
   ): String =

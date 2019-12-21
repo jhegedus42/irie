@@ -42,7 +42,7 @@ class PersistentActorImpl(id: String)
         ) => {
       println(s"entityToInsert is : ${entityToInsert}")
       val u        = entityToInsert.unTypedRef
-      val newState = state.insert(u, entityToInsert.json)
+      val newState = state.insert(u, entityToInsert)
       state = newState
       sender ! InsertEntityIntoDataStore(
         entityToInsert,

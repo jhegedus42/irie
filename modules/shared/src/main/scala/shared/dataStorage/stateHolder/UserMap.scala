@@ -6,10 +6,11 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 import shared.dataStorage.{
   RefToEntityOwningUser,
-  UnTypedRef
+  UnTypedRef,
+  UnTypedReferencedValue
 }
 
 @JsonCodec
 case class UserMap(
-  user: RefToEntityOwningUser    = RefToEntityOwningUser(),
-  list: List[(UnTypedRef, Json)] = List())
+  user: RefToEntityOwningUser        = RefToEntityOwningUser(),
+  list: List[UnTypedReferencedValue] = List())
