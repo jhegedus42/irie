@@ -8,8 +8,8 @@ import shapeless.Typeable
 
 @JsonCodec
 case class UnTypedReferencedValue(
-  t:    UnTypedRef,
-  json: Json)
+  unTypedRef: UnTypedRef,
+  value:      UntypedVersionedValue)
 
 object UnTypedReferencedValue {
 
@@ -17,15 +17,25 @@ object UnTypedReferencedValue {
     r: TypedReferencedValue[V]
   )(
     implicit
-    enc:      Encoder[TypedReferencedValue[V]],
+    enc:      Encoder[V],
     typeable: Typeable[V]
   ): UnTypedReferencedValue = {
-    val r2: TypedReferencedValue[V] = r.addTypeInfo()
-    val j = r2.asJson
-    UnTypedReferencedValue(
-      r2.ref.unTypedRef.addTypeInfo[V](typeable),
-      j
-    )
+
+    val unTypedRef: UnTypedRef = {
+      val r2: TypedReferencedValue[V] = r.addTypeInfo()
+      r2.ref.unTypedRef.addTypeInfo[V](typeable)
+    }
+
+    val untypedVersionedValue =
+      UntypedVersionedValue(
+        r.versionedEntityValue.version,
+        UntypedValue.getFromValue(
+          r.versionedEntityValue.valueWithoutVersion
+        )
+      )
+
+    UnTypedReferencedValue(unTypedRef, untypedVersionedValue)
+
   }
 
 }

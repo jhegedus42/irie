@@ -13,10 +13,7 @@ import shared.dataStorage.{
   RefToEntityOwningUser,
   UnTypedReferencedValue
 }
-import shared.dataStorage.stateHolder.{
-  EntityStorage,
-  UserMap
-}
+import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
 
 class PersistentActorImpl(id: String)
@@ -44,7 +41,7 @@ class PersistentActorImpl(id: String)
         res:            RequestState
         ) => {
       println(s"entityToInsert is : ${entityToInsert}")
-      val u        = entityToInsert.t
+      val u        = entityToInsert.unTypedRef
       val newState = state.insert(u, entityToInsert.json)
       state = newState
       sender ! InsertEntityIntoDataStore(

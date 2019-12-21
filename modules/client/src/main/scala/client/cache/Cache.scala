@@ -75,6 +75,13 @@ case class Cache[V <: Value[V]](
 
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
+
+        val updateHandler: UpdateEntityInCacheCommand[V] => Unit = {
+
+          ???
+
+        }
+
         updateEntityStream.map(
           // todonow 1 SEND AJAX REQ TO UPDATE USER
           //  use "val insertEntityTransformer" as a template

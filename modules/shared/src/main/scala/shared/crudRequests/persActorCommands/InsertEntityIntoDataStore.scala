@@ -1,9 +1,6 @@
 package shared.crudRequests.persActorCommands
 
-import shared.crudRequests.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.crudRequests.{CanProvideRouteName, JSONConvertable}
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -16,21 +13,6 @@ import shared.dataStorage.{
   UnTypedReferencedValue,
   Value
 }
-
-sealed trait RequestState
-
-@JsonCodec
-case class RequestIsOnItsWayTowardsServer()
-    extends RequestState
-
-@JsonCodec
-case class RequestSuccessfullyReturned()
-    extends RequestState
-
-@JsonCodec
-case class RequestReturnedWithError(
-  errorDescription: String)
-    extends RequestState
 
 /**
   * @param unTypedReferencedValue
@@ -66,9 +48,7 @@ object InsertEntityIntoDataStore {
     : JSONConvertable[InsertEntityIntoDataStore] =
     new JSONConvertable[InsertEntityIntoDataStore] {
 
-      override def toJSON(
-        v: InsertEntityIntoDataStore
-      ): String =
+      override def toJSON(v: InsertEntityIntoDataStore): String =
         v.asJson.spaces4
 
       override def fromJSONToObject(
@@ -90,8 +70,7 @@ object InsertEntityIntoDataStore {
 
     }
 
-  implicit val users
-    : CanProvideRouteName[InsertEntityIntoDataStore] =
+  implicit val users: CanProvideRouteName[InsertEntityIntoDataStore] =
     new CanProvideRouteName[InsertEntityIntoDataStore] {
 
       override def getRouteName: String =

@@ -6,11 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/RequestState.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/UntypedValue.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/UntypedVersionedValue.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/TypedReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/TypedReferencedValue.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/UnTypedReferencedValue.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/UnTypedReferencedValue.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +32,7 @@
     <option name="done" value="true" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="13484" />
+    <option name="totalTimeSeconds" value="15685" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -892,7 +897,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress." />
     <MESSAGE value="Defaulting to Alice as the only user of the system now.&#10;&#10;She owns every entity.&#10;&#10;Server does not work now, in progress.&#10;&#10;It throws an exception of : &#10;&#9;&quot;at dataStorage.RefToEntityOwningUser$.makeFromRef(RefToEntityOwningUser.scala:12)&quot;&#10;&#9;&#10;This needs to be fixed." />
     <MESSAGE value="Insert User logic &quot;works&quot; on the client side." />
     <MESSAGE value="Improving Get All User's Entities Route (fixing some bugs there)." />
@@ -917,7 +921,8 @@
     <MESSAGE value="Adding versioning to Entities - needed for updating entities (&quot;OCC&quot;)." />
     <MESSAGE value="Versioning has been added to Entities&#10;(basic), no OCC has been implemented though on server.&#10;&#10;Code compiles, app works (read/insert only)." />
     <MESSAGE value="Updating user implementation is in progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating user implementation is in progress." />
+    <MESSAGE value="Update user name on client works.&#10;&#10;Next step : propagate this change to server. (Using AJAX call)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update user name on client works.&#10;&#10;Next step : propagate this change to server. (Using AJAX call)." />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

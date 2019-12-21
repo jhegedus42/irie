@@ -7,6 +7,7 @@ import io.circe.{Encoder, Json}
 import shapeless.Typeable
 import shared.dataStorage.stateHolder.EntityStorage.UntypedJSONMap
 import shared.dataStorage.{
+  EntityVersion,
   RefToEntityOwningUser,
   TypedReferencedValue,
   UnTypedRef,
@@ -72,7 +73,7 @@ object EntityStorage {
     * @param untypedMap
     */
   case class UntypedJSONMap(
-    untypedMap: Map[UnTypedRef, Json] =
-      Map[UnTypedRef, Json]())
+    untypedMap: Map[UnTypedRef, (Json, EntityVersion)] =
+      Map[UnTypedRef, (Json, EntityVersion)]())
 
 }

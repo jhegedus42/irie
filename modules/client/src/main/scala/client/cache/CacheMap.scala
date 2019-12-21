@@ -1,5 +1,6 @@
 package client.cache
 
+import io.circe.generic.JsonCodec
 import shared.dataStorage.{
   EntityVersion,
   Ref,
@@ -72,6 +73,7 @@ case class CacheMap[V <: Value[V]](
 
 object CacheMap {
 
+  @JsonCodec
   case class UpdateEntityInCacheCommand[V <: Value[V]](
     currentTypedReferencedValue: TypedReferencedValue[V],
     newValue:                    V)
