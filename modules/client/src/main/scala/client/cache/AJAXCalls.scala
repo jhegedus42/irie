@@ -2,10 +2,7 @@ package client.cache
 
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRequests.persActorCommands.GetAllEntityiesForUser
-import shared.crudRequests.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.crudRequests.{CanProvideRouteName, JSONConvertable}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -23,9 +20,8 @@ object AJAXCalls {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  def ajaxCall[
-    V: JSONConvertable: CanProvideRouteName: Encoder
-  ](in:            V,
+  def ajaxCall[V: JSONConvertable: CanProvideRouteName: Encoder](
+    in:            V,
     runOnComplete: (Try[V] => Unit)
   ): Unit = {
 
@@ -76,6 +72,10 @@ object AJAXCalls {
             )
         }
     }
+
+    // todonow continue here ...
+    //  something is not working here
+    //  cache is not populated on startup
 
     ajaxCall(GetAllEntityiesForUser(owner, None), g)
 
