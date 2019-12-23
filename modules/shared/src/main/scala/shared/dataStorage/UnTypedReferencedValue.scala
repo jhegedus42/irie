@@ -38,4 +38,22 @@ object UnTypedReferencedValue {
 
   }
 
+  def toTypedReferencedValue[V <: Value[V]](
+    unTypedReferencedValue: UnTypedReferencedValue
+  )(
+    implicit
+    d: Decoder[V]
+  ): Option[TypedReferencedValue[V]] = {
+
+    val veo: Option[VersionedValue[V]] = UntypedVersionedValue
+      .getVersionedValue[V](unTypedReferencedValue.value)
+
+    val r =
+      UnTypedRef.toTypedRef[V](unTypedReferencedValue.unTypedRef)
+    val res: Option[TypedReferencedValue[V]] = for {
+      ve <- veo
+    } yield (TypedReferencedValue[V](ve, r))
+    res
+  }
+
 }

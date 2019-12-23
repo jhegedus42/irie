@@ -56,7 +56,7 @@ case class UserController() {
               value.versionedEntityValue.valueWithoutVersion
                 .lens(_.name).set(newName)
 
-            userCache.updateEntityStream.send(
+            userCache.updateEntityCommandStream.send(
               UpdateEntityInCacheCommand(value, newUser)
             )
 

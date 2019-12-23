@@ -21,7 +21,7 @@ import scala.util.Try
 import client.sodium.core.Cell
 
 case class Cache[V <: Value[V]: Encoder](
-  injectedTransformerStream: Stream[
+  setInitialValueTransformerStream: Stream[
     CacheMap[V] => CacheMap[V]
   ],
   typeName: String
@@ -33,13 +33,13 @@ case class Cache[V <: Value[V]: Encoder](
   lazy val insertEntityStream: StreamSink[TypedReferencedValue[V]] =
     new StreamSink[TypedReferencedValue[V]]()
 
-  lazy val updateEntityStream
+  lazy val updateEntityCommandStream
     : StreamSink[UpdateEntityInCacheCommand[V]] =
     new StreamSink[UpdateEntityInCacheCommand[V]]()
 
   val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>
-      val insertEntityTransformer
+      val insertEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
         val insertHandler: TypedReferencedValue[V] => Unit = {
@@ -83,7 +83,7 @@ case class Cache[V <: Value[V]: Encoder](
 //
 //        }
 
-        updateEntityStream.map(
+        updateEntityCommandStream.map(
           // todonow 1 SEND AJAX REQ TO UPDATE USER
           //  use "val insertEntityTransformer" as a template
           //  to send an update Entity value request to server
@@ -91,25 +91,26 @@ case class Cache[V <: Value[V]: Encoder](
         )
       }
 
-      lazy val transformer: Stream[CacheMap[V] => CacheMap[V]] =
-        injectedTransformerStream
-          .orElse(insertEntityTransformer).orElse(
+      lazy val combinedCacheMapTransformerStream
+        : Stream[CacheMap[V] => CacheMap[V]] =
+        setInitialValueTransformerStream
+          .orElse(insertEntityTransformerStream).orElse(
             updateEntityTransformerStream
           )
 
-      lazy val afterUpdate: Stream[CacheMap[V]] =
-        transformer.snapshot(
-          counterValue, { (f: CacheMap[V] => CacheMap[V], c: CacheMap[V]) =>
+      lazy val updatedCacheMapStream: Stream[CacheMap[V]] =
+        combinedCacheMapTransformerStream.snapshot(
+          cacheMapCell, { (f: CacheMap[V] => CacheMap[V], c: CacheMap[V]) =>
             f(c)
           }
         )
 
-      lazy val counterValue: CellLoop[CacheMap[V]] =
+      lazy val cacheMapCell: CellLoop[CacheMap[V]] =
         new CellLoop[CacheMap[V]]()
 
-      counterValue.loop(afterUpdate.hold(CacheMap[V]()))
+      cacheMapCell.loop(updatedCacheMapStream.hold(CacheMap[V]()))
 
-      counterValue
+      cacheMapCell
     }
   )
 

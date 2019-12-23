@@ -57,7 +57,7 @@ object AJAXCalls {
         UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
       )
 
-    def g: Try[GetAllEntityiesForUser] => Unit = {
+    def ajaxReturnHandler: Try[GetAllEntityiesForUser] => Unit = {
       (x: Try[GetAllEntityiesForUser]) =>
         {
           val res1: UserMap = x.toOption.get.res.get
@@ -77,7 +77,7 @@ object AJAXCalls {
     //  something is not working here
     //  cache is not populated on startup
 
-    ajaxCall(GetAllEntityiesForUser(owner, None), g)
+    ajaxCall(GetAllEntityiesForUser(owner, None), ajaxReturnHandler)
 
   }
 

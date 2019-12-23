@@ -25,7 +25,7 @@ import shared.dataStorage.{
 import shared.dataStorage.stateHolder.UserMap
 
 case class CacheMaker[V <: Value[V]: Encoder](
-  streamSink: StreamSink[UserMap]
+  incomingInitialUserMapStream: StreamSink[UserMap]
 )(
   implicit
   encoder: Encoder[TypedReferencedValue[V]]) {
@@ -35,34 +35,35 @@ case class CacheMaker[V <: Value[V]: Encoder](
   def getCache(
   )(
     implicit
-    decoder:  Decoder[TypedReferencedValue[V]],
+    decoder:  Decoder[V],
     ct:       ClassTag[V],
     typeable: Typeable[V]
   ): Cache[V] = {
 
-    val setter: Stream[CacheMap[V]] =
-      streamSink.map(makeFrom)
+    lazy val cacheMapInitializerStream: Stream[CacheMap[V]] =
+      incomingInitialUserMapStream.map(userMap2CacheMap)
 
-    val updaterFromSetter: Stream[CacheMap[V] => CacheMap[V]] =
-      setter.map(
+    lazy val cacheMapInitializerTransformerStream
+      : Stream[CacheMap[V] => CacheMap[V]] =
+      cacheMapInitializerStream.map(
         (y: CacheMap[V]) => { x: CacheMap[V] => y }
       )
 
-    val name: String = UnTypedRef.getTypeNameAsString[V]
+    lazy val typeName: String = UnTypedRef.getTypeNameAsString[V]
 
-    val cache = Cache(updaterFromSetter, name)
+    val cache = Cache(cacheMapInitializerTransformerStream, typeName)
 
     println(s"cache is ready: ${cache.cellLoop}")
 
     cache
   }
 
-  def makeFrom(
+  def userMap2CacheMap(
     um: UserMap
   )(
     implicit
     c:        ClassTag[V],
-    d:        Decoder[TypedReferencedValue[V]],
+    d:        Decoder[V],
     typeable: Typeable[V]
   ): CacheMap[V] = {
 
@@ -75,38 +76,32 @@ case class CacheMaker[V <: Value[V]: Encoder](
     def h(
       t: UnTypedReferencedValue
     ): (Ref[V], TypedReferencedValue[V]) = {
-      val ur: UnTypedRef = t.unTypedRef
+      lazy val ur: UnTypedRef = t.unTypedRef
 
-      val json: Json = t.value.value.json
+      lazy val r: Ref[V] = shared.dataStorage.Ref[V](ur)
 
-      val r = shared.dataStorage.Ref[V](ur)
+      lazy val trv: Option[TypedReferencedValue[V]] =
+        UnTypedReferencedValue.toTypedReferencedValue[V](t)
 
-      val referencedValueV: Result[TypedReferencedValue[V]] =
-        d.decodeJson(json)
-
-      val refV = referencedValueV.toOption.get
-
+      lazy val res = (r, trv.get)
       // we dare to do this becuase this supposed to be filtered
       // down already to the correct type by g() above
-
-      val res = (r, refV)
 
       println(s"we are the robots: $res")
       res
     }
 
     def f(userMap: UserMap): CacheMap[V] = {
-      val u = userMap.user
 
-      val l: immutable.Seq[UnTypedReferencedValue] =
+      lazy val l: immutable.Seq[UnTypedReferencedValue] =
         userMap.list
 
-      val lf: immutable.Seq[UnTypedReferencedValue] = l.filter(g)
+      lazy val lf: immutable.Seq[UnTypedReferencedValue] = l.filter(g)
 
-      val ln: immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
+      lazy val ln: immutable.Seq[(Ref[V], TypedReferencedValue[V])] =
         lf.map(h)
 
-      val m: Map[Ref[V], TypedReferencedValue[V]] =
+      lazy val m: Map[Ref[V], TypedReferencedValue[V]] =
         ln.toMap
 
       CacheMap[V](m)

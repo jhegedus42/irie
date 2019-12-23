@@ -59,6 +59,10 @@ case class UnTypedRef(
 
 object UnTypedRef {
 
+  def toTypedRef[V <: Value[V]](unTypedRef: UnTypedRef): Ref[V] = {
+    Ref[V](unTypedRef)
+  }
+
   def make[V <: Value[V]](
     implicit
     typeable: Typeable[V]
