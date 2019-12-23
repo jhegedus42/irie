@@ -23,7 +23,7 @@ object RootComp {
       <.div(
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
-            <.h1("test page Thursday, 19 December 2019 22.21.42"),
+            <.h1("test page2"),
             UserController().getComp(),
             <.br,
             CounterExample().getComp(),
