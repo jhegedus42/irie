@@ -5,12 +5,12 @@ import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRequests.persActorCommands.InsertEntityIntoDataStore
 import shapeless.Typeable
-import io.circe.Decoder.Result
+//import io.circe.Decoder.Result
 import io.circe._
-import io.circe.generic.JsonCodec
-import io.circe.generic.auto._
-import io.circe.parser._
-import io.circe.syntax._
+//import io.circe.generic.JsonCodec
+//import io.circe.generic.auto._
+//import io.circe.parser._
+//import io.circe.syntax._
 import shared.dataStorage.{TypedReferencedValue, User, Value}
 import shared.dataStorage.stateHolder.UserMap
 
@@ -76,17 +76,20 @@ case class Cache[V <: Value[V]: Encoder](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-//        lazy val updateHandler
-//          : UpdateEntityInCacheCommand[V] => Unit = {
-//
-//          ???
-//
-//        }
+        lazy val updateHandler
+          : UpdateEntityInCacheCommand[V] => Unit = {
+          x: UpdateEntityInCacheCommand[V] =>
+            println(x)
+
+          // todonow 1 SEND AJAX REQ TO UPDATE USER
+
+          // todonow 1.1 create AJAX endpoint to update Entity
+
+        }
+
+        updateEntityCommandStream.listen(updateHandler)
 
         updateEntityCommandStream.map(
-          // todonow 1 SEND AJAX REQ TO UPDATE USER
-          //  use "val insertEntityTransformer" as a template
-          //  to send an update Entity value request to server
           CacheMap.updateReferencedValueTransformer[V](_)
         )
       }

@@ -14,10 +14,7 @@ ThisBuild / resolvers += Resolver.sonatypeRepo("public")
 ThisBuild / resolvers += Resolver.sonatypeRepo("releases")
 //ThisBuild / resolvers += Resolver.bintrayRepo("cibotech", "public")
 
-
-
-
-lazy val macroVersion = "2.1.1"
+lazy val macroVersion = "2.1.0"
 
 lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
   Seq(
@@ -27,9 +24,9 @@ lazy val paradisePlugin: Def.Initialize[Seq[ModuleID]] = Def.setting {
   )
 }
 
-addCompilerPlugin(
-  "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
-)
+//addCompilerPlugin(
+//  "org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full
+//)
 
 lazy val shared =
   (crossProject.crossType(CrossType.Pure) in file(
@@ -77,7 +74,7 @@ lazy val server =
       scalaVersion := Settings.versions.scala,
       libraryDependencies ++= paradisePlugin.value,
       scalacOptions ++= Settings.scalacOptions,
-      libraryDependencies ++= Settings.jvmDependencies.value,
+      libraryDependencies ++= Settings.jvmDependencies.value
 //        fork := true,
 //      javaOptions += s"-Djava.library.path=$s"
     )
@@ -90,5 +87,4 @@ scalaJSUseMainModuleInitializer in Compile := true
 cancelable in Global := true
 logLevel := Level.Error
 
-
-mainClass in (Compile,run) := Some("app.server.Main")
+mainClass in (Compile, run) := Some("app.server.Main")

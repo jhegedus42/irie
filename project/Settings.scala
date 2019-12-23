@@ -45,16 +45,16 @@ object Settings {
   /** Declare global dependency versions here to avoid mismatches in multi part dependencies */
   object versions {
     val in_memory_journal = "2.5.15.2"
-    val scala             = "2.12.8"
+    val scala             = "2.12.10"
     val scalaDom          = "0.9.6"
     val scalajsReact      = "1.3.1"
     val scalaCSS          = "0.5.5"
-    val scalaZ            = "7.2.26"
+//    val scalaZ            = "7.2.26"
 
     val akka     = "2.5.23"
     val akkaHttp = "10.1.9"
 
-    val monocleVersion   = "1.5.0"
+    val monocleVersion   = "2.0.0"
     val scalaTestVersion = "3.0.8"
 
   }
@@ -72,10 +72,10 @@ object Settings {
       "com.lihaoyi" %%% "scalatags"                    % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
-      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
-      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test",
-      "org.typelevel" %%% "cats-core"                  % "2.0.0",
-      "org.typelevel"                                  %% "kittens" % "2.0.0"
+//      "org.scalaz" %%% "scalaz-core"                   % versions.scalaZ,
+      "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
+//      "org.typelevel" %%% "cats-core" % "2.0.0",
+//      "org.typelevel" %% "kittens" % "2.0.0"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -87,7 +87,7 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
-      "org.slf4j"         % "slf4j-simple"         % "1.7.25",
+//      "org.slf4j"         % "slf4j-simple"         % "1.7.25",
       "com.typesafe.akka" %% "akka-slf4j"          % versions.akka,
       "com.typesafe.akka" %% "akka-actor"          % versions.akka,
       "com.typesafe.akka" %% "akka-stream-testkit" % versions.akka,

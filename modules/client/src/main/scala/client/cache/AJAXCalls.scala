@@ -25,7 +25,7 @@ object AJAXCalls {
     runOnComplete: (Try[V] => Unit)
   ): Unit = {
 
-    import io.circe.syntax._
+//    import io.circe.syntax._
 
     val headers: Map[String, String] = Map(
       "Content-Type" -> "application/json"
@@ -72,10 +72,6 @@ object AJAXCalls {
             )
         }
     }
-
-    // todonow continue here ...
-    //  something is not working here
-    //  cache is not populated on startup
 
     ajaxCall(GetAllEntityiesForUser(owner, None), ajaxReturnHandler)
 
