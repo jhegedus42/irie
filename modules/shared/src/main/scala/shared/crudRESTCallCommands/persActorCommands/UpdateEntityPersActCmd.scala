@@ -24,9 +24,9 @@ import shared.dataStorage.{
 
 @JsonCodec
 case class UpdateEntityPersActCmd(
-  unTypedReferencedValue: UnTypedReferencedValue,
-  newValue:               UntypedValue,
-  requestState:           RequestState)
+  currentUnTypedReferencedValue: UnTypedReferencedValue,
+  newUTPVal:                     UntypedValue,
+  requestState:                  RequestState)
     extends PersActorCommand
 
 object UpdateEntityPersActCmd {

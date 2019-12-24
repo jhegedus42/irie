@@ -25,18 +25,21 @@ object UpdateEntityInCacheCmd {
   def toUpdateEntityPersActCmd[V <: Value[V]: Encoder: Typeable](
     updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
   ): UpdateEntityPersActCmd = {
-    val trv: TypedReferencedValue[V] =
+    val currentTypedRefVal: TypedReferencedValue[V] =
       updateEntityInCacheCmd.currentTypedReferencedValue
 
-    val utrv: UnTypedReferencedValue =
-      UnTypedReferencedValue.fromTypedReferencedValue[V](trv)
+    val currentUntypedRefVal: UnTypedReferencedValue =
+      UnTypedReferencedValue.fromTypedReferencedValue[V](
+        currentTypedRefVal
+      )
 
-    val v   = trv.versionedEntityValue.valueWithoutVersion
-    val utv = UntypedValue.getFromValue(v)
+    val newVal =
+      updateEntityInCacheCmd.newValue
+    val newUntypedValue = UntypedValue.getFromValue(newVal)
     val updateEntityPersActCmd = UpdateEntityPersActCmd(
-      unTypedReferencedValue = utrv,
-      newValue               = utv,
-      requestState           = RequestIsOnItsWayTowardsServer()
+      currentUnTypedReferencedValue = currentUntypedRefVal,
+      newUTPVal                     = newUntypedValue,
+      requestState                  = RequestIsOnItsWayTowardsServer()
     )
     updateEntityPersActCmd
 

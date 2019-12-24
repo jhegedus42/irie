@@ -78,13 +78,7 @@ case class Cache[V <: Value[V]: Encoder](
 
         lazy val updateHandler: UpdateEntityInCacheCmd[V] => Unit = {
           x: UpdateEntityInCacheCmd[V] =>
-            println(x)
-
-            // todonow 1 SEND AJAX REQ TO UPDATE USER
-
             AJAXCalls.updateEntityOnServer(x)
-
-          // todonow 1.1 test AJAX endpoint to update Entity
 
         }
 
