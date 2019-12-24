@@ -98,6 +98,7 @@ object AJAXCalls {
         updateEntityInCacheCmd
       )
 
+    // test
     val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
     }
     // todo later, handle OCC error
