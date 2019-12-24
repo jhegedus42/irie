@@ -39,7 +39,6 @@ object Main extends js.JSApp {
     RootComp.getComp().renderIntoDOM(e)
 
     AJAXCalls.populateUserEntityCache()
-
     // todonow 1 Note CRUD
     // todonow 1.1 display set of notes on client (test data)
     // todonow 1.1.1 create cache for set of notes on client
