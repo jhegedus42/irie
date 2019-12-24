@@ -48,13 +48,16 @@ class PersistentActorImpl(id: String)
 
       if (newStateOpt.isDefined) {
         state = newStateOpt.get
-        sender ! UpdateEntityPersActCmd(
+        val toReturn = UpdateEntityPersActCmd(
           unTypedReferencedValue,
           newValue,
           RequestSuccessfullyProcessedInPersistentActor()
         )
+        println(s"update on server succeeded, we return:\n$toReturn")
+        sender ! toReturn
       } else {
-        sender ! UpdateEntityPersActCmd(
+
+        val toReturnToSender = UpdateEntityPersActCmd(
           unTypedReferencedValue,
           newValue,
           RequestReturnedWithError(
@@ -64,6 +67,8 @@ class PersistentActorImpl(id: String)
           )
         )
 
+        println(s"update on server failed:\n$toReturnToSender")
+        sender ! toReturnToSender
       }
 
     }

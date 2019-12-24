@@ -23,9 +23,11 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
       val vClient = unTypedReferencedValue.value.version.versionNumber
       if (vServer == vClient) {
         val newVersion = unTypedReferencedValue.value.version.inc
-        val newVal =
-          unTypedReferencedValue.lens(_.value.version).set(newVersion)
-        Some(newVal)
+        val newUntypedValWithBumpedVersion =
+          UntypedVersionedValue(newVersion, newValue)
+        val newUntypedRefValue = currentUntypedRefValue
+          .lens(_.value).set(newUntypedValWithBumpedVersion)
+        Some(newUntypedRefValue)
       } else None
     }
 

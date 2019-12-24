@@ -6,10 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_js.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_js.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/shared_jvm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/UpdateEntityInCacheCmd.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/UpdateEntityInCacheCmd.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/UpdateEntityPersActCmd.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/UpdateEntityPersActCmd.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Settings.scala" beforeDir="false" afterPath="$PROJECT_DIR$/project/Settings.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,7 @@
     <option name="done" value="true" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="33708" />
+    <option name="totalTimeSeconds" value="35030" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -253,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="sbt Task.fastOptJS">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="JSONsForPostRequests (1)" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="shared.crudRESTCallCommands.testing.JSONsForPostRequests" />
       <module name="server" />
@@ -374,6 +379,10 @@
           <value>
             <list>
               <ExternalProjectPojo>
+                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
                 <option name="name" value="sharedJS [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.js" />
               </ExternalProjectPojo>
@@ -382,16 +391,12 @@
                 <option name="path" value="$PROJECT_DIR$/modules/client" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$/modules/server" />
-              </ExternalProjectPojo>
-              <ExternalProjectPojo>
                 <option name="name" value="sharedJVM [file:/Users/joco/dev/im/irie/]" />
                 <option name="path" value="$PROJECT_DIR$/modules/shared/.jvm" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="irie [file:/Users/joco/dev/im/irie/]" />
-                <option name="path" value="$PROJECT_DIR$" />
+                <option name="name" value="server [file:/Users/joco/dev/im/irie/]" />
+                <option name="path" value="$PROJECT_DIR$/modules/server" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="modules-sources" />
@@ -408,11 +413,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7852084064963" />
         <entry key="$PROJECT_DIR$/build.sbt" value="1978304097" />
         <entry key="$PROJECT_DIR$/project/CustomJSDOMNODEJsEnv.scala" value="903351949" />
         <entry key="$PROJECT_DIR$/project/JSDOMNodeJSEnv2.scala" value="1002162427" />
-        <entry key="$PROJECT_DIR$/project/Settings.scala" value="1842267274" />
+        <entry key="$PROJECT_DIR$/project/Settings.scala" value="2418719489" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="1396028727" />
         <entry key="$PROJECT_DIR$/project/plugins.sbt" value="1990742216" />
       </map>
@@ -894,7 +898,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="InsertEntityRouteFactory impl. in progress.&#10;&#10;(side track / refactoring, implementing &#10;Sodium Widget : SWPreformattedTextFromTemplate)" />
     <MESSAGE value="Refactoring: creating widgets from widget templates. (rewriting an existing widget, SPreformattedText) to be implemented using a Widget Template." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress." />
     <MESSAGE value="Implementation of &quot;inserting new user&quot; functionality is in progress.&#10;&#10;(pretty print &quot;Map&quot; - convert to JSON - side chain - impl. in progress)" />
@@ -919,7 +922,8 @@
     <MESSAGE value="Update user name on client works.&#10;&#10;In progress : save new user name to server too." />
     <MESSAGE value="Code compiles in IntelliJ. &#10;&#10;In progress : create AJAX/REST endpoint for updating an Entity on the server." />
     <MESSAGE value="Code compiles in IntelliJ. &#10;&#10;In progress : create AJAX/REST endpoint for updating an Entity on the server.&#10;// todonow 1.1 test AJAX endpoint to update Entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code compiles in IntelliJ. &#10;&#10;In progress : create AJAX/REST endpoint for updating an Entity on the server.&#10;// todonow 1.1 test AJAX endpoint to update Entity" />
+    <MESSAGE value="Code compiles in IntelliJ. &#10;&#10;In progress : create AJAX/REST endpoint for updating an Entity on the server.&#10;&#10;Fixing bug : internal server error when trying to update." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code compiles in IntelliJ. &#10;&#10;In progress : create AJAX/REST endpoint for updating an Entity on the server.&#10;&#10;Fixing bug : internal server error when trying to update." />
   </component>
   <component name="WindowStateProjectService">
     <state x="456" y="212" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1577220817958">
@@ -930,22 +934,58 @@
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="528" y="289" width="409" height="290" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.833@0.23.1440.833" timestamp="1577219731751" />
-    <state x="372" y="31" key="CommitChangelistDialog2" timestamp="1577220890701">
+    <state x="372" y="25" key="CommitChangelistDialog2" timestamp="1577221774534">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state x="372" y="31" key="CommitChangelistDialog2/0.23.1440.833@0.23.1440.833" timestamp="1577220890701" />
+    <state x="372" y="25" key="CommitChangelistDialog2/0.23.1440.833@0.23.1440.833" timestamp="1577221774534" />
+    <state width="942" height="466" key="DebuggerActiveHint" timestamp="1577222633640">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="942" height="466" key="DebuggerActiveHint/0.23.1440.833@0.23.1440.833" timestamp="1577222633640" />
+    <state width="1355" height="199" key="GridCell.Tab.0.bottom" timestamp="1577222839839">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.0.bottom/0.23.1440.833@0.23.1440.833" timestamp="1577222839839" />
+    <state width="1355" height="199" key="GridCell.Tab.0.center" timestamp="1577222839837">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.0.center/0.23.1440.833@0.23.1440.833" timestamp="1577222839837" />
+    <state width="1355" height="199" key="GridCell.Tab.0.left" timestamp="1577222839835">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.0.left/0.23.1440.833@0.23.1440.833" timestamp="1577222839835" />
+    <state width="1355" height="199" key="GridCell.Tab.0.right" timestamp="1577222839838">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.0.right/0.23.1440.833@0.23.1440.833" timestamp="1577222839838" />
+    <state width="1355" height="199" key="GridCell.Tab.1.bottom" timestamp="1577222839655">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.1.bottom/0.23.1440.833@0.23.1440.833" timestamp="1577222839655" />
+    <state width="1355" height="199" key="GridCell.Tab.1.center" timestamp="1577222839654">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.1.center/0.23.1440.833@0.23.1440.833" timestamp="1577222839654" />
+    <state width="1355" height="199" key="GridCell.Tab.1.left" timestamp="1577222839654">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.1.left/0.23.1440.833@0.23.1440.833" timestamp="1577222839654" />
+    <state width="1355" height="199" key="GridCell.Tab.1.right" timestamp="1577222839655">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state width="1355" height="199" key="GridCell.Tab.1.right/0.23.1440.833@0.23.1440.833" timestamp="1577222839655" />
     <state x="236" y="78" key="SettingsEditor" timestamp="1577212495628">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="236" y="78" key="SettingsEditor/0.23.1440.833@0.23.1440.833" timestamp="1577212495628" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1577220792976">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1577222949796">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.833@0.23.1440.833" timestamp="1577220792976" />
-    <state x="320" y="179" key="Vcs.Push.Dialog.v2" timestamp="1577220894531">
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.833@0.23.1440.833" timestamp="1577222949796" />
+    <state x="320" y="179" key="Vcs.Push.Dialog.v2" timestamp="1577223003975">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state x="320" y="179" key="Vcs.Push.Dialog.v2/0.23.1440.833@0.23.1440.833" timestamp="1577220894531" />
+    <state x="320" y="179" key="Vcs.Push.Dialog.v2/0.23.1440.833@0.23.1440.833" timestamp="1577223003975" />
     <state x="548" y="219" key="chooseDestDirectoryDialog" timestamp="1577219731439">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
@@ -958,6 +998,10 @@
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="425" y="193" width="604" height="472" key="find.popup/0.23.1440.833@0.23.1440.833" timestamp="1577220601438" />
+    <state x="383" y="180" width="670" height="676" key="search.everywhere.popup" timestamp="1577221847698">
+      <screen x="0" y="23" width="1440" height="833" />
+    </state>
+    <state x="383" y="180" width="670" height="676" key="search.everywhere.popup/0.23.1440.833@0.23.1440.833" timestamp="1577221847698" />
   </component>
   <component name="WorksheetDefaultProjectSettings">
     <option name="compilerProfileName" value="Default" />

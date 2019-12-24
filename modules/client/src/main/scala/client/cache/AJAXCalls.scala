@@ -100,6 +100,7 @@ object AJAXCalls {
 
     val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
     }
+    // todo later, handle OCC error
     sendCommandToServerViaAJAXCall(updateEntityPersActCmd,
                                    handleReturn)
   }
