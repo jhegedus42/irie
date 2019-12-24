@@ -8,7 +8,8 @@ sealed trait RequestState
 case class RequestIsOnItsWayTowardsServer() extends RequestState
 
 @JsonCodec
-case class RequestSuccessfullyReturned() extends RequestState
+case class RequestSuccessfullyProcessedInPersistentActor()
+    extends RequestState
 
 @JsonCodec
 case class RequestReturnedWithError(errorDescription: String)

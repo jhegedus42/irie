@@ -92,10 +92,12 @@ object AJAXCalls {
   def updateEntityOnServer[V <: Value[V]: Encoder: Typeable](
     updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
   ): Unit = {
+
     val updateEntityPersActCmd: UpdateEntityPersActCmd =
       UpdateEntityInCacheCmd.toUpdateEntityPersActCmd(
         updateEntityInCacheCmd
       )
+
     val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
     }
     sendCommandToServerViaAJAXCall(updateEntityPersActCmd,

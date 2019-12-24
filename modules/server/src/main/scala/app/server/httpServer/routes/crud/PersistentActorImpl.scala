@@ -3,13 +3,15 @@ package app.server.httpServer.routes.crud
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
 import shared.crudRESTCallCommands.{
+  RequestReturnedWithError,
   RequestState,
-  RequestSuccessfullyReturned
+  RequestSuccessfullyProcessedInPersistentActor
 }
 import shared.crudRESTCallCommands.persActorCommands.{
   GetAllEntityiesForUserPersActCmd,
   InsertEntityPersActCmd,
-  ShutDown
+  ShutDown,
+  UpdateEntityPersActCmd
 }
 import shared.dataStorage.{
   RefToEntityOwningUser,
@@ -38,7 +40,36 @@ class PersistentActorImpl(id: String)
       sender ! GetAllEntityiesForUserPersActCmd(userRef, Some(umap))
     }
 
-    // todonow 1.1.1 create update handler in persistent actor
+    case UpdateEntityPersActCmd(unTypedReferencedValue,
+                                newValue,
+                                requestState) => {
+
+      // todonow 1.1.1 create update handler in persistent actor
+
+//      val u        = unTypedRef
+      val newStateOpt = state.update(unTypedReferencedValue, newValue)
+
+      if (newStateOpt.isDefined) {
+        state = newStateOpt.get
+        sender ! UpdateEntityPersActCmd(
+          unTypedReferencedValue,
+          newValue,
+          RequestSuccessfullyProcessedInPersistentActor()
+        )
+      } else {
+        sender ! UpdateEntityPersActCmd(
+          unTypedReferencedValue,
+          newValue,
+          RequestReturnedWithError(
+            s"OCC Error While Updating an Entity: \n" +
+              "the command was:\n" +
+              "$UpdateEntityPersActCmd"
+          )
+        )
+
+      }
+
+    }
 
     case InsertEntityPersActCmd(
         entityToInsert: UnTypedReferencedValue,
@@ -50,7 +81,7 @@ class PersistentActorImpl(id: String)
       state = newState
       sender ! InsertEntityPersActCmd(
         entityToInsert,
-        RequestSuccessfullyReturned()
+        RequestSuccessfullyProcessedInPersistentActor()
       )
     }
 

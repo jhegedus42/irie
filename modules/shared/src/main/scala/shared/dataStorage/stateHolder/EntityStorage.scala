@@ -12,22 +12,24 @@ import shared.dataStorage.{
   TypedReferencedValue,
   UnTypedRef,
   UnTypedReferencedValue,
+  UntypedValue,
   Value
 }
 
 case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
-  type Key = UnTypedRef
+  def update(
+    unTypedReferencedValue: UnTypedReferencedValue,
+    newValue:               UntypedValue
+  ): Option[EntityStorage] = {
+    // todonow 1.1.1.1 create update helper
 
-//  def update(
-//    t:    UnTypedRef,
-//    json: Json
-//  ): Unit = {
-//    val newMap = UntypedMap(
-//      untypedMap.untypedMap.updated(t, json)
-//    )
-//    EntityStorage(newMap)
-//  }
+    ???
+    // todonow 1.1.1.1.1 OCC version check - continue here ...
+
+  }
+
+  type Key = UnTypedRef
 
   def getUserMap(ref: RefToEntityOwningUser): UserMap = {
     val res =

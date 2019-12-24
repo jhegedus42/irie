@@ -6,24 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d0a7d2e-395c-4c40-b9d4-d84651ef7e8f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/UpdateEntityInCacheCmd.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/UpdateEntityPersActCmd.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXCalls.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/AJAXCalls.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/Cache.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/cache/CacheMap.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/client/src/main/scala/client/ui/compositeWidgets/UserController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/PersistentActorImpl.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/RouteAssembler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/server/src/main/scala/app/server/httpServer/routes/crud/routes/PersCommandRouteFactory.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/CanProvideRouteName.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/CanProvideRouteName.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/JSONConvertable.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/JSONConvertable.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/GetAllEntityiesForUser.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/GetAllEntityiesForUserPersActCmd.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/InsertEntityIntoDataStore.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/InsertEntityPersActCmd.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/PersActorCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/PersActorCommand.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/RequestState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/RequestState.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/persActorCommands/ShutDown.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/persActorCommands/ShutDown.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRequests/testing/JSONsForPostRequests.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/testing/JSONsForPostRequests.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/RequestState.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/crudRESTCallCommands/RequestState.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/modules/shared/src/main/scala/shared/dataStorage/stateHolder/EntityStorage.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +26,7 @@
     <option name="done" value="true" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="30597" />
+    <option name="totalTimeSeconds" value="31642" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -167,7 +154,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.23488602" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.Scala" />
     <property name="settings.editor.splitter.proportion" value="0.16845329" />
   </component>
   <component name="RecentsManager">
@@ -944,10 +931,10 @@
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="372" y="31" key="CommitChangelistDialog2/0.23.1440.833@0.23.1440.833" timestamp="1577100742066" />
-    <state x="236" y="78" key="SettingsEditor" timestamp="1577183086249">
+    <state x="236" y="78" key="SettingsEditor" timestamp="1577212495628">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state x="236" y="78" key="SettingsEditor/0.23.1440.833@0.23.1440.833" timestamp="1577183086249" />
+    <state x="236" y="78" key="SettingsEditor/0.23.1440.833@0.23.1440.833" timestamp="1577212495628" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1577183824566">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
@@ -960,10 +947,10 @@
       <screen x="0" y="23" width="1440" height="833" />
     </state>
     <state x="548" y="219" key="chooseDestDirectoryDialog/0.23.1440.833@0.23.1440.833" timestamp="1577183221526" />
-    <state x="427" y="272" key="com.intellij.ide.util.TipDialog" timestamp="1577146112356">
+    <state x="427" y="272" key="com.intellij.ide.util.TipDialog" timestamp="1577212010503">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
-    <state x="427" y="272" key="com.intellij.ide.util.TipDialog/0.23.1440.833@0.23.1440.833" timestamp="1577146112356" />
+    <state x="427" y="272" key="com.intellij.ide.util.TipDialog/0.23.1440.833@0.23.1440.833" timestamp="1577212010503" />
     <state x="425" y="193" width="604" height="472" key="find.popup" timestamp="1577183750248">
       <screen x="0" y="23" width="1440" height="833" />
     </state>
