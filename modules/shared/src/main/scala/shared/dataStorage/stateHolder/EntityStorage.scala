@@ -1,20 +1,13 @@
 package shared.dataStorage.stateHolder
 
+import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import io.circe.{Encoder, Json}
 import shapeless.Typeable
 import shared.dataStorage.stateHolder.EntityStorage.UntypedMap
-import shared.dataStorage.{
-  EntityVersion,
-  RefToEntityOwningUser,
-  TypedReferencedValue,
-  UnTypedRef,
-  UnTypedReferencedValue,
-  UntypedValue,
-  Value
-}
+import shared.dataStorage._
+import monocle.macros.syntax.lens._
 
 case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
@@ -22,10 +15,27 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
     unTypedReferencedValue: UnTypedReferencedValue,
     newValue:               UntypedValue
   ): Option[EntityStorage] = {
-    // todonow 1.1.1.1 create update helper
 
-    ???
-    // todonow 1.1.1.1.1 OCC version check - continue here ...
+    def newUntypedRefValueAfterOCCCheck(
+      currentUntypedRefValue: UnTypedReferencedValue
+    ): Option[UnTypedReferencedValue] = {
+      val vServer = currentUntypedRefValue.value.version.versionNumber
+      val vClient = unTypedReferencedValue.value.version.versionNumber
+      if (vServer == vClient) {
+        val newVersion = unTypedReferencedValue.value.version.inc
+        val newVal =
+          unTypedReferencedValue.lens(_.value.version).set(newVersion)
+        Some(newVal)
+      } else None
+    }
+
+    for {
+      r <- untypedMap.map.get(unTypedReferencedValue.unTypedRef)
+      nv <- newUntypedRefValueAfterOCCCheck(r)
+      newMap = untypedMap.map
+        .updated(unTypedReferencedValue.unTypedRef, nv)
+      newUTM = UntypedMap(newMap)
+    } yield EntityStorage(newUTM)
 
   }
 
@@ -33,7 +43,7 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
   def getUserMap(ref: RefToEntityOwningUser): UserMap = {
     val res =
-      untypedMap.untypedMap
+      untypedMap.map
         .filterKeys(
           _.refToEntityOwningUser.uuid == ref.uuid
         ).values
@@ -44,7 +54,7 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
     t:    UnTypedRef,
     json: UnTypedReferencedValue
   ): EntityStorage = {
-    val newMap = untypedMap.untypedMap + ((t, json))
+    val newMap = untypedMap.map + ((t, json))
     EntityStorage(UntypedMap(newMap))
   }
 
@@ -67,16 +77,15 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
 object EntityStorage {
 
-  import io.circe.Json
   import io.circe.generic.JsonCodec
   import io.circe.generic.auto._
   import io.circe.syntax._
 
   /**
-    * @param untypedMap
+    * @param map
     */
   case class UntypedMap(
-    untypedMap: Map[UnTypedRef, UnTypedReferencedValue] =
+    map: Map[UnTypedRef, UnTypedReferencedValue] =
       Map[UnTypedRef, UnTypedReferencedValue]())
 
 }

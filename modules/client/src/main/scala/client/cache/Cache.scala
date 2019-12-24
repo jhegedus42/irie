@@ -84,7 +84,7 @@ case class Cache[V <: Value[V]: Encoder](
 
             AJAXCalls.updateEntityOnServer(x)
 
-          // todonow 1.1 create AJAX endpoint to update Entity
+          // todonow 1.1 test AJAX endpoint to update Entity
 
         }
 

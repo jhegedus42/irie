@@ -11,7 +11,8 @@ import app.server.httpServer.routes.static.StaticRoutes._
 import shared.crudRESTCallCommands._
 import shared.crudRESTCallCommands.persActorCommands.{
   GetAllEntityiesForUserPersActCmd,
-  InsertEntityPersActCmd
+  InsertEntityPersActCmd,
+  UpdateEntityPersActCmd
 }
 import shared.testingData.TestDataStore
 
@@ -39,6 +40,9 @@ case class RouteAssembler(
     getStaticRoute(rootPageHtml) ~
       PersCommandRouteFactory[GetAllEntityiesForUserPersActCmd](actor).getRoute ~
       PersCommandRouteFactory[InsertEntityPersActCmd](
+        actor
+      ).getRoute ~
+      PersCommandRouteFactory[UpdateEntityPersActCmd](
         actor
       ).getRoute
 

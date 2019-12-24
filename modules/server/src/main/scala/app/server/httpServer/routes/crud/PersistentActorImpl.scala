@@ -44,9 +44,6 @@ class PersistentActorImpl(id: String)
                                 newValue,
                                 requestState) => {
 
-      // todonow 1.1.1 create update handler in persistent actor
-
-//      val u        = unTypedRef
       val newStateOpt = state.update(unTypedReferencedValue, newValue)
 
       if (newStateOpt.isDefined) {
@@ -96,4 +93,5 @@ class PersistentActorImpl(id: String)
       )
     }
   }
+
 }
