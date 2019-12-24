@@ -1,4 +1,4 @@
-package shared.crudRequests.persActorCommands
+package shared.crudRESTCallCommands
 
 import io.circe.generic.JsonCodec
 

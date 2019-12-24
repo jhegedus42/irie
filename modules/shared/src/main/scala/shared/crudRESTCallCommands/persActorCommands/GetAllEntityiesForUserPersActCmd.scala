@@ -1,6 +1,6 @@
-package shared.crudRequests.persActorCommands
+package shared.crudRESTCallCommands.persActorCommands
 
-import shared.crudRequests.{
+import shared.crudRESTCallCommands.{
   CanProvideRouteName,
   JSONConvertable
 }
@@ -14,39 +14,39 @@ import shared.dataStorage.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 
 @JsonCodec
-case class GetAllEntityiesForUser(
+case class GetAllEntityiesForUserPersActCmd(
   par: RefToEntityOwningUser,
   res: Option[UserMap])
     extends PersActorCommand
 
-object GetAllEntityiesForUser {
+object GetAllEntityiesForUserPersActCmd {
 
   implicit val users
-    : CanProvideRouteName[GetAllEntityiesForUser] =
-    new CanProvideRouteName[GetAllEntityiesForUser] {
+    : CanProvideRouteName[GetAllEntityiesForUserPersActCmd] =
+    new CanProvideRouteName[GetAllEntityiesForUserPersActCmd] {
 
       override def getRouteName: String =
         "GetAllEntityiesForUser"
     }
 
   implicit val jSONConvertable
-    : JSONConvertable[GetAllEntityiesForUser] =
-    new JSONConvertable[GetAllEntityiesForUser] {
+    : JSONConvertable[GetAllEntityiesForUserPersActCmd] =
+    new JSONConvertable[GetAllEntityiesForUserPersActCmd] {
 
       override def toJSON(
-        v: GetAllEntityiesForUser
+        v: GetAllEntityiesForUserPersActCmd
       ): String =
         v.asJson.spaces4
 
       override def fromJSONToObject(
         json: String
-      ): GetAllEntityiesForUser = {
+      ): GetAllEntityiesForUserPersActCmd = {
         val jsonParsed: Either[ParsingFailure, Json] =
           parse(json)
         val res1: Json = jsonParsed.toOption.get
         val decoder =
-          implicitly[Decoder[GetAllEntityiesForUser]]
-        val res2: Result[GetAllEntityiesForUser] =
+          implicitly[Decoder[GetAllEntityiesForUserPersActCmd]]
+        val res2: Result[GetAllEntityiesForUserPersActCmd] =
           decoder.decodeJson(res1)
         res2.toOption.get
       }

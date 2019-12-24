@@ -2,11 +2,13 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import shared.crudRequests.persActorCommands.{
-  GetAllEntityiesForUser,
-  InsertEntityIntoDataStore,
+import shared.crudRESTCallCommands.{
   RequestState,
-  RequestSuccessfullyReturned,
+  RequestSuccessfullyReturned
+}
+import shared.crudRESTCallCommands.persActorCommands.{
+  GetAllEntityiesForUserPersActCmd,
+  InsertEntityPersActCmd,
   ShutDown
 }
 import shared.dataStorage.{
@@ -27,16 +29,18 @@ class PersistentActorImpl(id: String)
       println("shutting down persistent actor")
       context.stop(self)
 
-    case GetAllEntityiesForUser(
+    case GetAllEntityiesForUserPersActCmd(
         userRef: RefToEntityOwningUser,
         resp
         ) => {
       println(s"user uuid is : ${userRef.uuid}")
       val umap: UserMap = state.getUserMap(userRef)
-      sender ! GetAllEntityiesForUser(userRef, Some(umap))
+      sender ! GetAllEntityiesForUserPersActCmd(userRef, Some(umap))
     }
 
-    case InsertEntityIntoDataStore(
+    // todonow 1.1.1 create update handler in persistent actor
+
+    case InsertEntityPersActCmd(
         entityToInsert: UnTypedReferencedValue,
         res:            RequestState
         ) => {
@@ -44,7 +48,7 @@ class PersistentActorImpl(id: String)
       val u        = entityToInsert.unTypedRef
       val newState = state.insert(u, entityToInsert)
       state = newState
-      sender ! InsertEntityIntoDataStore(
+      sender ! InsertEntityPersActCmd(
         entityToInsert,
         RequestSuccessfullyReturned()
       )

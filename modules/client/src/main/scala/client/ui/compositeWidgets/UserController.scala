@@ -1,7 +1,6 @@
 package client.ui.compositeWidgets
 
-import client.cache.CacheMap.UpdateEntityInCacheCommand
-import client.cache.{Cache, CacheMap}
+import client.cache.{Cache, CacheMap, UpdateEntityInCacheCmd}
 import client.ui.atomicWidgets.input.{SButton, STextArea}
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.sodium.core.{CellLoop, CellSink}
@@ -57,7 +56,7 @@ case class UserController() {
                 .lens(_.name).set(newName)
 
             userCache.updateEntityCommandStream.send(
-              UpdateEntityInCacheCommand(value, newUser)
+              UpdateEntityInCacheCmd(value, newUser)
             )
 
             selectedUserCell.send(None)

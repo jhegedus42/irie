@@ -1,14 +1,21 @@
 package client.cache
 
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRequests.persActorCommands.GetAllEntityiesForUser
-import shared.crudRequests.{CanProvideRouteName, JSONConvertable}
+import shared.crudRESTCallCommands.persActorCommands.{
+  GetAllEntityiesForUserPersActCmd,
+  UpdateEntityPersActCmd
+}
+import shared.crudRESTCallCommands.{
+  CanProvideRouteName,
+  JSONConvertable
+}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
-import shared.dataStorage.{RefToEntityOwningUser, User}
+import shapeless.Typeable
+import shared.dataStorage.{RefToEntityOwningUser, User, Value}
 import shared.dataStorage.stateHolder.UserMap
 
 import scala.concurrent.ExecutionContextExecutor
@@ -20,9 +27,10 @@ object AJAXCalls {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  def ajaxCall[V: JSONConvertable: CanProvideRouteName: Encoder](
-    in:            V,
-    runOnComplete: (Try[V] => Unit)
+  def sendCommandToServerViaAJAXCall[
+    Command: JSONConvertable: CanProvideRouteName: Encoder
+  ](in:            Command,
+    runOnComplete: (Try[Command] => Unit)
   ): Unit = {
 
 //    import io.circe.syntax._
@@ -36,13 +44,13 @@ object AJAXCalls {
 
     Ajax
       .post(
-        s"http://$ip:8080/${implicitly[CanProvideRouteName[V]].getRouteName}",
+        s"http://$ip:8080/${implicitly[CanProvideRouteName[Command]].getRouteName}",
         in.asJson.spaces4,
         headers = headers
       )
       .map(_.responseText)
       .map(
-        implicitly[JSONConvertable[V]].fromJSONToObject(_)
+        implicitly[JSONConvertable[Command]].fromJSONToObject(_)
       )
       .onComplete(runOnComplete)
 
@@ -57,8 +65,9 @@ object AJAXCalls {
         UserLoginStatusHandler.getUserLoginStatusDev.userOption.get.ref
       )
 
-    def ajaxReturnHandler: Try[GetAllEntityiesForUser] => Unit = {
-      (x: Try[GetAllEntityiesForUser]) =>
+    def ajaxReturnHandler
+      : Try[GetAllEntityiesForUserPersActCmd] => Unit = {
+      (x: Try[GetAllEntityiesForUserPersActCmd]) =>
         {
           val res1: UserMap = x.toOption.get.res.get
 
@@ -73,8 +82,24 @@ object AJAXCalls {
         }
     }
 
-    ajaxCall(GetAllEntityiesForUser(owner, None), ajaxReturnHandler)
+    sendCommandToServerViaAJAXCall(
+      GetAllEntityiesForUserPersActCmd(owner, None),
+      ajaxReturnHandler
+    )
 
+  }
+
+  def updateEntityOnServer[V <: Value[V]: Encoder: Typeable](
+    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
+  ): Unit = {
+    val updateEntityPersActCmd: UpdateEntityPersActCmd =
+      UpdateEntityInCacheCmd.toUpdateEntityPersActCmd(
+        updateEntityInCacheCmd
+      )
+    val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
+    }
+    sendCommandToServerViaAJAXCall(updateEntityPersActCmd,
+                                   handleReturn)
   }
 
 }

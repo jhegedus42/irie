@@ -1,3 +1,0 @@
-package shared.crudRequests.persActorCommands
-
-trait PersActorCommand

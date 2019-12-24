@@ -1,4 +1,4 @@
-package shared.crudRequests
+package shared.crudRESTCallCommands
 
 trait JSONConvertable[V] {
   def toJSON(v:              V):      String

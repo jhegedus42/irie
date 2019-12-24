@@ -1,13 +1,7 @@
 package client.cache
 
 import io.circe.generic.JsonCodec
-import shared.dataStorage.{
-  EntityVersion,
-  Ref,
-  TypedReferencedValue,
-  Value,
-  VersionedValue
-}
+import shared.dataStorage._
 
 //import scala.collection.immutable.HashMap
 //import io.circe.Decoder.Result
@@ -15,8 +9,6 @@ import io.circe._
 import io.circe.syntax._
 //import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
-import io.circe.parser._
-import shapeless.Typeable
 
 ////@JsonCodec
 //case class Test[V <: Value[V]](
@@ -34,6 +26,10 @@ import shapeless.Typeable
 //  }
 //
 //}
+/**
+  * @param map
+  * @tparam V
+  */
 
 //@JsonCodec
 case class CacheMap[V <: Value[V]](
@@ -73,11 +69,6 @@ case class CacheMap[V <: Value[V]](
 
 object CacheMap {
 
-  @JsonCodec
-  case class UpdateEntityInCacheCommand[V <: Value[V]](
-    currentTypedReferencedValue: TypedReferencedValue[V],
-    newValue:                    V)
-
   def insertReferencedValueTransformer[V <: Value[V]](
     rv: TypedReferencedValue[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
@@ -89,7 +80,7 @@ object CacheMap {
   }
 
   def updateReferencedValueTransformer[V <: Value[V]](
-    updateCommand: UpdateEntityInCacheCommand[V]
+    updateCommand: UpdateEntityInCacheCmd[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
 

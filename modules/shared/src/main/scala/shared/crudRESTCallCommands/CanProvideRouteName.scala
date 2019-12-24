@@ -1,4 +1,4 @@
-package shared.crudRequests
+package shared.crudRESTCallCommands
 
 trait CanProvideRouteName[V] {
   def getRouteName: String

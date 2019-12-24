@@ -1,6 +1,11 @@
-package shared.crudRequests.persActorCommands
+package shared.crudRESTCallCommands.persActorCommands
 
-import shared.crudRequests.{CanProvideRouteName, JSONConvertable}
+import shared.crudRESTCallCommands.{
+  CanProvideRouteName,
+  JSONConvertable,
+  RequestIsOnItsWayTowardsServer,
+  RequestState
+}
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -20,12 +25,12 @@ import shared.dataStorage.{
   */
 
 @JsonCodec
-case class InsertEntityIntoDataStore(
+case class InsertEntityPersActCmd(
   unTypedReferencedValue: UnTypedReferencedValue,
   res:                    RequestState)
     extends PersActorCommand
 
-object InsertEntityIntoDataStore {
+object InsertEntityPersActCmd {
 
   def fromReferencedValue[V <: Value[V]: Encoder](
     r: TypedReferencedValue[V]
@@ -33,36 +38,36 @@ object InsertEntityIntoDataStore {
     implicit
     enc:      Encoder[TypedReferencedValue[V]],
     typeable: Typeable[V]
-  ): InsertEntityIntoDataStore = {
+  ): InsertEntityPersActCmd = {
 
     val unTypedReferencedValue =
       UnTypedReferencedValue.fromTypedReferencedValue[V](r)
 
-    InsertEntityIntoDataStore(
+    InsertEntityPersActCmd(
       unTypedReferencedValue,
       RequestIsOnItsWayTowardsServer()
     )
   }
 
   implicit val jSONConvertable
-    : JSONConvertable[InsertEntityIntoDataStore] =
-    new JSONConvertable[InsertEntityIntoDataStore] {
+    : JSONConvertable[InsertEntityPersActCmd] =
+    new JSONConvertable[InsertEntityPersActCmd] {
 
-      override def toJSON(v: InsertEntityIntoDataStore): String =
+      override def toJSON(v: InsertEntityPersActCmd): String =
         v.asJson.spaces4
 
       override def fromJSONToObject(
         json: String
-      ): InsertEntityIntoDataStore = {
+      ): InsertEntityPersActCmd = {
         val jsonParsed: Either[ParsingFailure, Json] =
           parse(json)
 
         val res1: Json = jsonParsed.toOption.get
 
         val decoder =
-          implicitly[Decoder[InsertEntityIntoDataStore]]
+          implicitly[Decoder[InsertEntityPersActCmd]]
 
-        val res2: Result[InsertEntityIntoDataStore] =
+        val res2: Result[InsertEntityPersActCmd] =
           decoder.decodeJson(res1)
 
         res2.toOption.get
@@ -70,8 +75,8 @@ object InsertEntityIntoDataStore {
 
     }
 
-  implicit val users: CanProvideRouteName[InsertEntityIntoDataStore] =
-    new CanProvideRouteName[InsertEntityIntoDataStore] {
+  implicit val users: CanProvideRouteName[InsertEntityPersActCmd] =
+    new CanProvideRouteName[InsertEntityPersActCmd] {
 
       override def getRouteName: String =
         "InsertEntityIntoDataStore"

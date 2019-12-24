@@ -1,9 +1,8 @@
 package client.cache
 
-import client.cache.CacheMap.UpdateEntityInCacheCommand
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRequests.persActorCommands.InsertEntityIntoDataStore
+import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
 //import io.circe.Decoder.Result
 import io.circe._
@@ -34,8 +33,8 @@ case class Cache[V <: Value[V]: Encoder](
     new StreamSink[TypedReferencedValue[V]]()
 
   lazy val updateEntityCommandStream
-    : StreamSink[UpdateEntityInCacheCommand[V]] =
-    new StreamSink[UpdateEntityInCacheCommand[V]]()
+    : StreamSink[UpdateEntityInCacheCmd[V]] =
+    new StreamSink[UpdateEntityInCacheCmd[V]]()
 
   val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>
@@ -46,11 +45,12 @@ case class Cache[V <: Value[V]: Encoder](
           (x: TypedReferencedValue[V]) =>
             {
 
-              val in: InsertEntityIntoDataStore =
-                InsertEntityIntoDataStore.fromReferencedValue(x)
+              val in: InsertEntityPersActCmd =
+                InsertEntityPersActCmd
+                  .fromReferencedValue(x)
 
-              AJAXCalls.ajaxCall(in, {
-                x: Try[InsertEntityIntoDataStore] =>
+              AJAXCalls.sendCommandToServerViaAJAXCall(in, {
+                x: Try[InsertEntityPersActCmd] =>
                   println(x)
               })
 
@@ -76,12 +76,13 @@ case class Cache[V <: Value[V]: Encoder](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-        lazy val updateHandler
-          : UpdateEntityInCacheCommand[V] => Unit = {
-          x: UpdateEntityInCacheCommand[V] =>
+        lazy val updateHandler: UpdateEntityInCacheCmd[V] => Unit = {
+          x: UpdateEntityInCacheCmd[V] =>
             println(x)
 
-          // todonow 1 SEND AJAX REQ TO UPDATE USER
+            // todonow 1 SEND AJAX REQ TO UPDATE USER
+
+            AJAXCalls.updateEntityOnServer(x)
 
           // todonow 1.1 create AJAX endpoint to update Entity
 
