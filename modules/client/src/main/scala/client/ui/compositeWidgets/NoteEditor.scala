@@ -54,14 +54,14 @@ case class NoteEditor() {
 }
 
 // todonow 1 Note CRUD
-// todonow 1.1 display set of notes on client (test data)
+// todonow 1.1 display set of notes on client (test data) - DONE
 
-// todonow 1.1.1 create cache for set of notes on client - IN PROGRESS
-// todonow 1.1.1.1 populate Note Entity Cache on client
-// todonow 1.1.1.2 refactor Entity populater, abstract over
-//  entities
+// todonow 1.1.1 create cache for set of notes on client -  DONE
+// todonow 1.1.1.1 populate Note Entity Cache on client - DONE
+// todonow 1.1.1.2 refactor Entity populater, abstract over DONE
+//  entities - DONE
 
-// todonow 1.1.2 display list of notes for Alice
+// todonow 1.1.2 display list of notes for Alice - DONE
 
 // todonow 1.2 select a note from the list (use the User Selector
 //  Widget as template)
