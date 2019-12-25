@@ -1,6 +1,7 @@
 package client.cache
 
 import io.circe.generic.JsonCodec
+import shapeless.Typeable
 import shared.dataStorage._
 
 //import scala.collection.immutable.HashMap
@@ -34,7 +35,10 @@ import io.circe.generic.auto._
 //@JsonCodec
 case class CacheMap[V <: Value[V]](
   map: Map[Ref[V], TypedReferencedValue[V]] =
-    Map[Ref[V], TypedReferencedValue[V]]()) {
+    Map[Ref[V], TypedReferencedValue[V]]()
+)(
+  implicit
+  typeable: Typeable[V]) {
 
   // https://dzone.com/articles/java-string-format-examples
 
@@ -52,6 +56,9 @@ case class CacheMap[V <: Value[V]](
     )
   }
 
+  def getTypeName: String =
+    typeable.describe.toString
+
   def getNumberOfEntries: Int = map.size
 
   def toJSON(
@@ -63,7 +70,7 @@ case class CacheMap[V <: Value[V]](
     encRef: Encoder[Ref[V]]
   ): String = {
 //    implicitly[Encoder[V]]
-    map.asJson.spaces4
+    map.asJson.spaces4 //fixme
   }
 }
 
@@ -71,6 +78,9 @@ object CacheMap {
 
   def insertReferencedValueTransformer[V <: Value[V]](
     rv: TypedReferencedValue[V]
+  )(
+    implicit
+    typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
       val oldMap = m.map
@@ -81,6 +91,9 @@ object CacheMap {
 
   def updateReferencedValueTransformer[V <: Value[V]](
     updateCommand: UpdateEntityInCacheCmd[V]
+  )(
+    implicit
+    typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
 

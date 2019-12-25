@@ -22,7 +22,9 @@ case class HttpServer(actorSystem: ActorSystem) {
     implicit val materializer = ActorMaterializer()
 
     val bindingFuture: Future[Http.ServerBinding] =
-      Http().bindAndHandle(routes.route, host, Config.getDefaultConfig.port)
+      Http().bindAndHandle(routes.route,
+                           host,
+                           Config.getDefaultConfig.port)
 
     println(s"listening on $host:${Config.getDefaultConfig.port}")
   }

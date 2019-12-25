@@ -28,7 +28,8 @@ case class CacheMaker[V <: Value[V]: Encoder](
   incomingInitialUserMapStream: StreamSink[UserMap]
 )(
   implicit
-  encoder: Encoder[TypedReferencedValue[V]]) {
+  typeable: Typeable[V],
+  encoder:  Encoder[TypedReferencedValue[V]]) {
 
   var x = "a";
 

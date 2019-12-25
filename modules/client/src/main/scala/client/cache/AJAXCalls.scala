@@ -22,6 +22,7 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.util.Try
 
 object AJAXCalls {
+
   val ip = "localhost"
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -56,7 +57,7 @@ object AJAXCalls {
 
   }
 
-  def populateUserEntityCache(): Unit = {
+  def populateEntityCache[V <: Value[V]](c: Cache[V]): Unit = {
 
     import io.circe.syntax._
 
@@ -74,10 +75,18 @@ object AJAXCalls {
           Cache.streamToSetInitialCacheState.send(res1)
           println(res1)
 
-          Cache.user.cellLoop
+          c.cellLoop
             .listen(
-              (cacheMap: CacheMap[User]) =>
-                println(s"updated cacheMap:${cacheMap}")
+              (cacheMap: CacheMap[V]) => {
+                val cachesContent = cacheMap.getPrettyPrintedString
+                println(
+                  s"--------------------------------------\n" +
+                    s"updated cacheMap (with type: ${cacheMap.getTypeName})\n" +
+                    s"${cachesContent}\n" +
+                    s"${cacheMap.toString}\n" +
+                    s"------------------------------------\n"
+                )
+              }
             )
         }
     }

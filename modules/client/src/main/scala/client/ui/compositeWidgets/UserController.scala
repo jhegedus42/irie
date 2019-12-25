@@ -18,7 +18,7 @@ case class UserController() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val userCache: Cache[User] = Cache.user
+  lazy val userCache: Cache[User] = Cache.userCache
 
   lazy val selectedUserCell =
     new CellSink[Option[TypedReferencedValue[User]]](None)

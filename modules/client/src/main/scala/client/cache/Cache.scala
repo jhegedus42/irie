@@ -4,12 +4,8 @@ import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
-//import io.circe.Decoder.Result
+import shared.dataStorage.Note
 import io.circe._
-//import io.circe.generic.JsonCodec
-//import io.circe.generic.auto._
-//import io.circe.parser._
-//import io.circe.syntax._
 import shared.dataStorage.{TypedReferencedValue, User, Value}
 import shared.dataStorage.stateHolder.UserMap
 
@@ -119,11 +115,12 @@ object Cache {
   lazy val streamToSetInitialCacheState =
     new StreamSink[UserMap]()
 
-  implicit val user: Cache[User] =
+  implicit val userCache: Cache[User] =
     CacheMaker[User](streamToSetInitialCacheState)
       .getCache()
 
-  //  val note:  Cache[Note]  = CacheMaker(s).makeCache[Note]()
-  //  val image: Cache[Image] = CacheMaker(s).makeCache[Image]()
+  implicit val noteCache: Cache[Note] =
+    CacheMaker[Note](streamToSetInitialCacheState)
+      .getCache()
 
 }

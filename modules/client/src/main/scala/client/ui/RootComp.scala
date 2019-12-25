@@ -2,14 +2,14 @@ package client.ui
 
 import client.ui.compositeWidgets.{
   CounterExample,
-  UserController,
-  TodoList
+  NoteEditor,
+  TodoList,
+  UserController
 }
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
-
 import bootstrap4.TB.C
 
 object RootComp {
@@ -28,7 +28,9 @@ object RootComp {
             <.br,
             CounterExample().getComp(),
             <.br,
-            TodoList().getComp()
+            TodoList().getComp(),
+            <.br,
+            NoteEditor().getComp()
           )
         )
       )

@@ -21,14 +21,6 @@ More specifically, for me, building and running the app, using `node v12.7.0`, `
 
 - Step 2: open the browser at `http://localhost:8080/`
 
----
-# The "easy" way :
- 
-Intermittently, I am running the server on my laptop, <br> 
-          and at those times the running app can be viewed at <br>
-          http://commserver.asuscomm.com:8080/ <br>
-
-
 # Ackowledgement
 
 
