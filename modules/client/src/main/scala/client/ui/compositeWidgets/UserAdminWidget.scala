@@ -162,7 +162,7 @@ case class UserAdminWidget() {
     t
   }
 
-  lazy val selectedUserLabel =
+  lazy val selectedUserAsText =
     new CellTemplate[Option[TypedReferencedValue[User]]](
       selectedUserCell, { x =>
         <.pre(s"selected user: $x")
@@ -182,7 +182,7 @@ case class UserAdminWidget() {
         <.br,
         nrOfUsersLabel.comp(),
         tableOfUsersWithSelectorButton.comp(),
-        selectedUserLabel.comp(),
+        selectedUserAsText.comp(),
         userNameUpdaterTextAreaAndButton.comp(),
         <.hr,
         <.br

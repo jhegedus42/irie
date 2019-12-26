@@ -1,10 +1,15 @@
 package client.ui.compositeWidgets.note
 
 import client.cache.{Cache, CacheMap}
+import client.sodium.core.{CellLoop, CellSink}
+import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
+import client.ui.atomicWidgets.templates.CellTemplate
+import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
-import shared.dataStorage.Note
+import org.scalajs.dom.html.Div
+import shared.dataStorage.{Note, TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -15,12 +20,69 @@ case class NoteSelectorWidget() {
 
   lazy val noteCache: Cache[Note] = Cache.noteCache
 
+  lazy val noteCacheMap: CellLoop[CacheMap[Note]] = noteCache.cellLoop
+
   lazy val listOfNotes = SWPreformattedText(
     noteCache.cellLoop
       .updates().map(
         (c: CacheMap[Note]) => c.getPrettyPrintedString
       )
   )
+
+  lazy val selectedNote =
+    new CellSink[Option[TypedReferencedValue[Note]]](None)
+
+  lazy val tableOfNotesWithSelectorButton = {
+
+    def user2VDOMList(
+      u: TypedReferencedValue[Note]
+    ): List[VdomElement] = {
+//      val name: VdomTagOf[Div] =
+//        <.div(u.versionedEntityValue.valueWithoutVersion.name)
+
+//      val favNumber: VdomTagOf[Div] =
+//        <.div(
+//          u.versionedEntityValue.valueWithoutVersion.favoriteNumber.toString
+//        )
+
+//      val pwd =
+//        <.div(u.versionedEntityValue.valueWithoutVersion.password)
+
+      val title =
+        <.div(u.versionedEntityValue.valueWithoutVersion.title)
+
+      val selectButton = SButton("select", { () =>
+        selectedNote.send(Some(u))
+      })
+
+      //todo now ^ add user selector button
+
+      List(title, selectButton.comp())
+
+    }
+
+    val t = CellTemplate(
+      noteCacheMap, { x: CacheMap[Note] =>
+        <.div(
+          TableHelpers.getTableFromVdomElements(
+            x.map.values.toList
+              .map(
+                user2VDOMList
+              )
+          )
+        )
+      }
+    )
+
+    t
+  }
+
+  lazy val selectedNoteAsText =
+    new CellTemplate[Option[TypedReferencedValue[Note]]](
+      selectedNote, { x =>
+        <.pre(s"selected Note: $x")
+      }
+    )
 
   def getComp = {
 
@@ -31,6 +93,8 @@ case class NoteSelectorWidget() {
         <.hr,
         <.br,
         listOfNotes.comp(),
+        tableOfNotesWithSelectorButton.comp(),
+        selectedNoteAsText.comp(),
         <.hr,
         <.br
       )
