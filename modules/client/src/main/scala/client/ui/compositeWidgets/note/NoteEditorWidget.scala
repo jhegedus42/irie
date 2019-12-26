@@ -101,9 +101,3 @@ case class NoteEditorWidget(
   }
 
 }
-
-// todonow 1 Note CRUD
-
-// todonow 1.5 create a widget that creates a new note
-// todonow 1.6 create a widget that flags a note as "Moved to TrashCan"
-//   todonow 1.7 add trashcan field to a Note

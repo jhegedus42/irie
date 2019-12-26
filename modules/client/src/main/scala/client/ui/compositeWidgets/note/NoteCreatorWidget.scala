@@ -16,7 +16,6 @@ import scala.concurrent.ExecutionContextExecutor
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import shared.testingData.TestDataStore
 
-// todonow 1.5 create a new note with this widget
 case class NoteCreatorWidget() {
 
   lazy val createNewNoteButton = SButton(
