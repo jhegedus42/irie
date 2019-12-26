@@ -1,16 +1,16 @@
 package client.ui
 
 import client.ui.compositeWidgets.{
-  CounterExample,
-  NoteEditor,
+  CounterExampleWidget,
   TodoList,
-  UserController
+  UserAdminWidget
 }
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
+import client.ui.compositeWidgets.note.NoteSelectorWidget
 
 object RootComp {
 
@@ -24,13 +24,13 @@ object RootComp {
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
             <.h1("test page2"),
-            UserController().getComp(),
+            UserAdminWidget().getComp(),
             <.br,
-            CounterExample().getComp(),
+            CounterExampleWidget().getComp(),
             <.br,
             TodoList().getComp(),
             <.br,
-            NoteEditor().getComp()
+            NoteSelectorWidget().getComp()
           )
         )
       )

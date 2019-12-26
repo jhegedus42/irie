@@ -13,7 +13,7 @@ import shared.dataStorage.{TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
-case class UserController() {
+case class UserAdminWidget() {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -127,12 +127,15 @@ case class UserController() {
     ): List[VdomElement] = {
       val name: VdomTagOf[Div] =
         <.div(u.versionedEntityValue.valueWithoutVersion.name)
+
       val favNumber: VdomTagOf[Div] =
         <.div(
           u.versionedEntityValue.valueWithoutVersion.favoriteNumber.toString
         )
+
       val pwd =
         <.div(u.versionedEntityValue.valueWithoutVersion.password)
+
       val selectButton = SButton("select", { () =>
         selectedUserCell.send(Some(u))
       })
@@ -140,6 +143,7 @@ case class UserController() {
       //todo now ^ add user selector button
 
       List(name, favNumber, pwd, selectButton.comp())
+
     }
 
     val t = CellTemplate(

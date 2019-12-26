@@ -1,19 +1,14 @@
-package client.ui.compositeWidgets
+package client.ui.compositeWidgets.note
 
-import client.cache.{Cache, CacheMap, UpdateEntityInCacheCmd}
-import client.ui.atomicWidgets.input.{SButton, STextArea}
-import client.ui.atomicWidgets.templates.CellTemplate
-import client.sodium.core.{CellLoop, CellSink}
+import client.cache.{Cache, CacheMap}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
-import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
-import org.scalajs.dom.html.Div
-import shared.dataStorage.{Note, TypedReferencedValue, User}
+import shared.dataStorage.Note
 
 import scala.concurrent.ExecutionContextExecutor
 
-case class NoteEditor() {
+case class NoteSelectorWidget() {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
