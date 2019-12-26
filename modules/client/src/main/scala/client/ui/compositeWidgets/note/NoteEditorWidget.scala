@@ -1,7 +1,7 @@
 package client.ui.compositeWidgets.note
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.core.{CellLoop, CellSink}
+import client.sodium.core.{Cell, CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
@@ -13,73 +13,42 @@ import shared.dataStorage.{Note, TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
-case class NoteSelectorWidget() {
+case class NoteEditorWidget(
+  selectedNote: Cell[Option[TypedReferencedValue[Note]]]) {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
   lazy val noteCache: Cache[Note] = Cache.noteCache
 
-  lazy val noteCacheMap: CellLoop[CacheMap[Note]] = noteCache.cellLoop
-
-  lazy val selectedNote =
-    new CellSink[Option[TypedReferencedValue[Note]]](None)
-
-  lazy val noteSelectorTable = {
-
-    def note2VDOMList(
-      u: TypedReferencedValue[Note]
-    ): List[VdomElement] = {
-
-      val title =
-        <.div(u.versionedEntityValue.valueWithoutVersion.title)
-
-      val selectButton = SButton("select", { () =>
-        selectedNote.send(Some(u))
-      })
-
-      List(title, selectButton.comp())
-
-    }
-
-    val comp = CellTemplate(
-      noteCacheMap, { x: CacheMap[Note] =>
-        <.div(
-          TableHelpers.getTableFromVdomElements(
-            x.map.values.toList
-              .map(
-                note2VDOMList
-              )
-          )
-        )
+  lazy val selectedNoteAsText =
+    new CellTemplate[Option[TypedReferencedValue[Note]]](
+      selectedNote, { x =>
+        <.pre(s"selected Note: $x")
       }
     )
 
-    comp
-  }
-
-  def getComp = {
+  def comp = {
 
     def render: Unit => VdomElement = { _ =>
       <.div(
         <.hr,
-        <.h2("Note Selector"),
+        <.h2("Note Editor:"),
         <.hr,
         <.br,
-        noteSelectorTable.comp(),
-        NoteEditorWidget(selectedNote).comp(),
+        selectedNoteAsText.comp(),
         <.hr,
         <.br
       )
     }
 
-    val rootComp =
+    val comp =
       ScalaComponent
         .builder[Unit]("Hello")
         .render_P(render)
         .build
 
-    rootComp
+    comp
 
   }
 
