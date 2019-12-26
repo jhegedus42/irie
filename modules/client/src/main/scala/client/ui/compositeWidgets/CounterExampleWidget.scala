@@ -17,10 +17,10 @@ case class CounterExampleWidget() {
 //    new StreamSink[Int => Int]()
 
   lazy val button1 =
-    SButton("Inc 5", () => println("Inc 5 was pressed"))
+    SButton("Inc 5", Some(() => println("Inc 5 was pressed")))
 
   lazy val button2 =
-    SButton("Dec 2", () => println("Dec 2 was presssed"))
+    SButton("Dec 2", Some(() => println("Dec 2 was presssed")))
 
   val buttonWithFunction1 = button1.getClick.map(_ => {
     (x: Int) => x + 5

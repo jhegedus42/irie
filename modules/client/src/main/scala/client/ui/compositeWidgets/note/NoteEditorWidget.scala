@@ -1,8 +1,8 @@
 package client.ui.compositeWidgets.note
 
-import client.cache.{Cache, CacheMap}
+import client.cache.{Cache, CacheMap, UpdateEntityInCacheCmd}
 import client.sodium.core.{Cell, CellLoop, CellSink}
-import client.ui.atomicWidgets.input.SButton
+import client.ui.atomicWidgets.input.{SButton, STextArea}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.helpers.table.TableHelpers
@@ -10,11 +10,20 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.{Note, TypedReferencedValue, User}
+import monocle.macros.syntax.lens._
 
 import scala.concurrent.ExecutionContextExecutor
+import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 
 case class NoteEditorWidget(
-  selectedNote: Cell[Option[TypedReferencedValue[Note]]]) {
+  selectedNoteStream: Stream[Option[TypedReferencedValue[Note]]]) {
+
+  val internalUpdaterOfSelectedNote =
+    new StreamSink[Option[TypedReferencedValue[Note]]]()
+
+  val m = selectedNoteStream.orElse(internalUpdaterOfSelectedNote)
+
+  val internalSelectedNoteCell = m.hold(None)
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -23,10 +32,46 @@ case class NoteEditorWidget(
 
   lazy val selectedNoteAsText =
     new CellTemplate[Option[TypedReferencedValue[Note]]](
-      selectedNote, { x =>
+      internalSelectedNoteCell, { x =>
         <.pre(s"selected Note: $x")
       }
     )
+
+  val selectedNodesTitle = m.map(
+    _.map(_.versionedEntityValue.valueWithoutVersion.title)
+      .getOrElse("")
+  )
+
+  val noteTitleEditorField = STextArea("", selectedNodesTitle)
+
+  lazy val updateButton = SButton(
+    "update title",
+    Some({ () =>
+      {
+        val cmdOpt: Option[UpdateEntityInCacheCmd[Note]] = {
+          val newTitle            = noteTitleEditorField.cell.sample()
+          val currentSelectedNote = internalSelectedNoteCell.sample()
+          val res = currentSelectedNote.map(x => {
+            UpdateEntityInCacheCmd[Note](
+              x,
+              x.versionedEntityValue.valueWithoutVersion
+                .lens(
+                  _.title
+                ).set(newTitle)
+            )
+          })
+          res
+        }
+
+        if (cmdOpt.isDefined) {
+          val cmd = cmdOpt.get
+          noteCache.updateEntityCommandStream.send(cmd)
+          internalUpdaterOfSelectedNote.send(None)
+        }
+
+      }
+    })
+  )
 
   def comp = {
 
@@ -37,6 +82,9 @@ case class NoteEditorWidget(
         <.hr,
         <.br,
         selectedNoteAsText.comp(),
+        "new title:",
+        noteTitleEditorField.comp(),
+        updateButton.comp(),
         <.hr,
         <.br
       )
@@ -55,19 +103,7 @@ case class NoteEditorWidget(
 }
 
 // todonow 1 Note CRUD
-// todonow 1.1 display set of notes on client (test data) - DONE
 
-// todonow 1.1.1 create cache for set of notes on client -  DONE
-// todonow 1.1.1.1 populate Note Entity Cache on client - DONE
-// todonow 1.1.1.2 refactor Entity populater, abstract over DONE
-//  entities - DONE
-
-// todonow 1.1.2 display list of notes for Alice - DONE
-
-// todonow 1.2 select a note from the list (use the User Selector
-//  Widget as template)
-// todonow 1.3 display the content of the selected note
-// todonow 1.4 create a widget that updates the text of the note
 // todonow 1.5 create a widget that creates a new note
 // todonow 1.6 create a widget that flags a note as "Moved to TrashCan"
 //   todonow 1.7 add trashcan field to a Note

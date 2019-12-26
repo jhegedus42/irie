@@ -38,25 +38,25 @@ case class UserAdminWidget() {
 
     lazy val updateNameButton = SButton(
       "update name",
-      () => {
+      Some(() => {
 
         val user = {
           selectedUserCell.sample()
         }
 
         user match {
-          case Some(value) => {
+          case Some(trv) => {
             val newName = nameOfSelectedUser.cell.sample()
             println(
               s"we should update $user 's name to $newName"
             )
             import monocle.macros.syntax.lens._
             val newUser =
-              value.versionedEntityValue.valueWithoutVersion
+              trv.versionedEntityValue.valueWithoutVersion
                 .lens(_.name).set(newName)
 
             userCache.updateEntityCommandStream.send(
-              UpdateEntityInCacheCmd(value, newUser)
+              UpdateEntityInCacheCmd(trv, newUser)
             )
 
             selectedUserCell.send(None)
@@ -69,7 +69,7 @@ case class UserAdminWidget() {
           }
         }
 
-      }
+      })
     )
 
     lazy val comp =
@@ -89,7 +89,7 @@ case class UserAdminWidget() {
 
   lazy val createNewUserButton = SButton(
     "Create New User",
-    () => {
+    Some(() => {
       println("i was pusssshed")
 
       val text = newUsersNameTextField.cell.sample()
@@ -100,7 +100,7 @@ case class UserAdminWidget() {
         )
 
       userCache.insertEntityStream.send(newUser)
-    }
+    })
   )
 
   lazy val newUsersNameTextField: STextArea = STextArea("init_text")
@@ -136,8 +136,8 @@ case class UserAdminWidget() {
       val pwd =
         <.div(u.versionedEntityValue.valueWithoutVersion.password)
 
-      val selectButton = SButton("select", { () =>
-        selectedUserCell.send(Some(u))
+      val selectButton = SButton("select", {
+        Some(() => selectedUserCell.send(Some(u)))
       })
 
       //todo now ^ add user selector button

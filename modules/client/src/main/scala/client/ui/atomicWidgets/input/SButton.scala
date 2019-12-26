@@ -6,8 +6,8 @@ import japgolly.scalajs.react.vdom.html_<^.{<, ^, _}
 import japgolly.scalajs.react.{Callback, CtorType, ScalaFnComponent}
 
 case class SButton(
-  name:     String = "Button",
-  callBack: () => Unit) {
+  name:        String = "Button",
+  callBackOpt: Option[() => Unit]) {
 
   private val streamSink = new StreamSink[Unit]()
   def getClick           = streamSink
@@ -19,7 +19,10 @@ case class SButton(
       <.div(
         <.button.btn.btnPrimary(name, ^.onClick --> Callback({
           streamSink.send(Unit)
-          callBack()
+          if (callBackOpt.isDefined) {
+            val cb = callBackOpt.get
+            cb()
+          }
         }))
       )
     }

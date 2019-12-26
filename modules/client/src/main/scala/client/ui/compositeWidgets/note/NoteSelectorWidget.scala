@@ -34,8 +34,8 @@ case class NoteSelectorWidget() {
       val title =
         <.div(u.versionedEntityValue.valueWithoutVersion.title)
 
-      val selectButton = SButton("select", { () =>
-        selectedNote.send(Some(u))
+      val selectButton = SButton("select", {
+        Some(() => selectedNote.send(Some(u)))
       })
 
       List(title, selectButton.comp())
@@ -67,7 +67,8 @@ case class NoteSelectorWidget() {
         <.hr,
         <.br,
         noteSelectorTable.comp(),
-        NoteEditorWidget(selectedNote).comp(),
+        NoteCreatorWidget().createNewNoteButton.comp(),
+        NoteEditorWidget(selectedNote.updates()).comp(),
         <.hr,
         <.br
       )
@@ -84,21 +85,8 @@ case class NoteSelectorWidget() {
   }
 
 }
+// todonow 2 - add/update image to a note
+// todonow 2.1 upload image
 
-// todonow 1 Note CRUD
-// todonow 1.1 display set of notes on client (test data) - DONE
-
-// todonow 1.1.1 create cache for set of notes on client -  DONE
-// todonow 1.1.1.1 populate Note Entity Cache on client - DONE
-// todonow 1.1.1.2 refactor Entity populater, abstract over DONE
-//  entities - DONE
-
-// todonow 1.1.2 display list of notes for Alice - DONE
-
-// todonow 1.2 select a note from the list (use the User Selector
-//  Widget as template)
-// todonow 1.3 display the content of the selected note
-// todonow 1.4 create a widget that updates the text of the note
-// todonow 1.5 create a widget that creates a new note
-// todonow 1.6 create a widget that flags a note as "Moved to TrashCan"
-//   todonow 1.7 add trashcan field to a Note
+// todonow 3 - add / edit selected rectangle inside the added image
+// todonow 4 - notelist editor

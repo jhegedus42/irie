@@ -44,7 +44,7 @@ case class TodoList() {
     val addTodoElementButton =
       SButton(
         "Add New Todo",
-        () => {
+        Some(() => {
           val td = todoElementName.cell.sample()
 
           println(s"i was pusssshed, todo text is $td")
@@ -64,7 +64,7 @@ case class TodoList() {
                      |
                      |""".stripMargin)
           todoLoop.updaterStream.send(transformer)
-        }
+        })
       )
 
     def render: Unit => VdomElement = { _ =>
