@@ -10,7 +10,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
-import client.ui.compositeWidgets.note.NoteSelectorWidget
+import client.ui.compositeWidgets.note.NoteCreateReadUpdateWidget
 
 object RootComp {
 
@@ -30,7 +30,7 @@ object RootComp {
             <.br,
             TodoList().getComp(),
             <.br,
-            NoteSelectorWidget().getComp()
+            NoteCreateReadUpdateWidget().getComp()
           )
         )
       )

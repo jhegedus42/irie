@@ -13,7 +13,7 @@ import shared.dataStorage.{Note, TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 
-case class NoteSelectorWidget() {
+case class NoteCreateReadUpdateWidget() {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
