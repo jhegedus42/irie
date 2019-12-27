@@ -85,7 +85,12 @@ case class NoteCreateReadUpdateWidget() {
   }
 
 }
+
 // todonow 2 - add/update image to a note
+
+// use this :
+// https://github.com/knoldus/akka-http-file-upload/blob/master/src/main/scala/com/rishi/FileUpload.scala
+
 // todonow 2.1 upload image
 
 // todonow 3 - add / edit selected rectangle inside the added image
