@@ -13,6 +13,18 @@ import scala.concurrent.ExecutionContextExecutor
 
 // from https://github.com/knoldus/akka-http-file-upload/blob/master/src/main/scala/com/rishi/Boot.scala
 
+// https://github.com/scalajs-io/express-fileupload
+
+// https://stackoverflow.com/questions/44357501/how-to-upload-a-file-using-ajax-in-scalajs/47630262
+
+// https://gitlab.com/bullbytes/scala-js-example
+
+// https://gitter.im/scala-js/scala-js?at=59db182f177fb9fe7e55c63f
+
+// https://developer.mozilla.org/en-US/docs/Web/API/FormData
+
+// https://thoughtbot.com/blog/ridiculously-simple-ajax-uploads-with-formdata
+
 trait UploadingRoute {
 
   implicit val system: ActorSystem
@@ -33,7 +45,7 @@ trait UploadingRoute {
               HttpResponse(
                 StatusCodes.OK,
                 entity =
-                  s"File successfully uploaded. Fil size is $fileSize"
+                  s"File successfully uploaded. File size is $fileSize. it was saved to $filePath."
               )
             }.recover {
               case ex: Exception =>

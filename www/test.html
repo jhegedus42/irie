@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hello3.
+
+<!-- The HTML -->
+<input id="the-file" name="file" type="file">
+<input id="submit-btn" type="submit" value="Upload" />
+
+<!--<form id="the-form" action="/user/upload/" enctype="multipart/form-data">-->
+<!--    <input name="file" type="file">-->
+<!--    <input type="submit" value="Upload" />-->
+<!--</form>-->
+
+<script>
+
+    // The Javascript
+
+
+    //
+    // The Javascript
+    var form = document.getElementById('submit-btn');
+    form.onclick=  function() {
+
+        var fileInput = document.getElementById('the-file');
+        var file = fileInput.files[0];
+        var formData = new FormData();
+        formData.append('file', file);
+        var xhr = new XMLHttpRequest();
+        // Add any event handlers here...
+        xhr.open('POST', '/user/upload/file', true);
+        xhr.send(formData);
+
+        return false; // To avoid actual submission of the form
+    }
+
+
+</script>
+</body>
+</html>

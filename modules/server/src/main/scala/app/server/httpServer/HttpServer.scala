@@ -15,11 +15,11 @@ case class HttpServer(actorSystem: ActorSystem) {
   implicit lazy val executionContext: ExecutionContextExecutor =
     actorSystem.dispatcher
 
+  implicit val materializer = ActorMaterializer()
+
   val routes = RouteAssembler()
 
   def startServer(host: String): Unit = {
-
-    implicit val materializer = ActorMaterializer()
 
     val bindingFuture: Future[Http.ServerBinding] =
       Http().bindAndHandle(routes.route,
