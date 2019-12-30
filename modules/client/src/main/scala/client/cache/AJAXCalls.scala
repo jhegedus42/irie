@@ -23,7 +23,7 @@ import scala.util.Try
 
 object AJAXCalls {
 
-  val ip = "localhost"
+  val ip = "ec2-3-124-8-254.eu-central-1.compute.amazonaws.com"
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
