@@ -95,8 +95,8 @@ object Settings {
       "com.typesafe.akka"   %% "akka-persistence"          % versions.akka,
       "com.github.dnvriend" %% "akka-persistence-inmemory" % versions.in_memory_journal,
       // leveldb :
-      "org.iq80.leveldb"          % "leveldb"        % "0.10",
-      "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
+//      "org.iq80.leveldb"          % "leveldb"        % "0.10",
+//      "org.fusesource.leveldbjni" % "leveldbjni-all" % "1.8",
       // test:
       "org.scalatest" %%% "scalatest" % versions.scalaTestVersion % "test"
     )

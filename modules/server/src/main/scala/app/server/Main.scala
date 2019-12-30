@@ -2,18 +2,18 @@ package app.server
 
 import akka.actor.ActorSystem
 import app.server.httpServer.HttpServer
+import com.typesafe.config.ConfigFactory
 
 object Main extends App {
 
-  implicit lazy val actorSystem: ActorSystem =
-    ActorSystem(
-      "ActorSystem_for_all_Actors_in_the_app_created_in_Main_App_this_is_not_test" )
+  implicit lazy val app = ActorSystem(
+    "App"
+  )
 
-  val server=HttpServer(actorSystem)
+  val server = HttpServer(app)
 
-  val host: String = if(args.length==0) "localhost" else args(0)
+  val host: String = if (args.length == 0) "localhost" else args(0)
 
   server.startServer(host)
 
 }
-

@@ -30,7 +30,13 @@ object RootComp {
             <.br,
             TodoList().getComp(),
             <.br,
-            NoteCreateReadUpdateWidget().getComp()
+            NoteCreateReadUpdateWidget().getComp(),
+            <.input(^.id := "the-file",
+                    ^.name := "file",
+                    ^.`type` := "file"),
+            <.input(^.id := "submit-btn",
+                    ^.value := "Upload",
+                    ^.`type` := "submit")
           )
         )
       )
