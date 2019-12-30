@@ -16,7 +16,9 @@ object Operational {
     * that do not allow the caller to detect the cell updates.
     */
   def updates[A](b: Behavior[A]): Stream[A] =
-    Transaction(trans => b.updates().coalesce(trans, (_, right) => right))
+    Transaction(
+      trans => b.updates().coalesce(trans, (_, right) => right)
+    )
 
   /**
     * A stream that is guaranteed to fire once in the transaction where value() is invoked, giving
@@ -28,11 +30,12 @@ object Operational {
     * The rule with this primitive is that you should only use it in functions
     * that do not allow the caller to detect the cell updates.
     */
-  def value[A](b: Behavior[A]): Stream[A] = Transaction(trans => b.value(trans))
+  def value[A](b: Behavior[A]): Stream[A] =
+    Transaction(trans => b.value(trans))
 
   /**
     * Push each event onto a new transaction guaranteed to come before the next externally
-    * initiated transaction. Same as [[client.sodium.Operational.split* split(Stream)]] but it works on a single value.
+    * initiated transaction. Same as [[client.sodium.core.Operational.split* split(Stream)]] but it works on a single value.
     */
   final def defer[A](s: Stream[A]): Stream[A] =
     split(s.map(a => {
@@ -46,7 +49,7 @@ object Operational {
     * to come before the next externally initiated transaction. Note that the semantics
     * are such that two different invocations of split() can put events into the same
     * new transaction, so the resulting stream's events could be simultaneous with
-    * events output by split() or [[client.sodium.Operational.defer* defer(Stream)]] invoked elsewhere in the code.
+    * events output by split() or [[client.sodium.core.Operational.defer* defer(Stream)]] invoked elsewhere in the code.
     */
   def split[A, C <: Iterable[A]](s: Stream[C]): Stream[A] = {
     val out = new StreamWithSend[A]()
