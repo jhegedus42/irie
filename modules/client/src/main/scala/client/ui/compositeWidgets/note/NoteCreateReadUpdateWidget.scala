@@ -64,7 +64,6 @@ case class NoteCreateReadUpdateWidget() {
       <.div(
         <.hr,
         <.h2("Note Selector"),
-        <.hr,
         <.br,
         noteSelectorTable.comp(),
         NoteCreatorWidget().createNewNoteButton.comp(),

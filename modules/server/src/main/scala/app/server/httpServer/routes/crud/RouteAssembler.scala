@@ -57,7 +57,8 @@ case class RouteAssembler(
       ).getRoute ~
       PersCommandRouteFactory[UpdateEntityPersActCmd](
         actor
-      ).getRoute ~ ULR.uploadFile
+      ).getRoute ~
+      ULR.uploadFile
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

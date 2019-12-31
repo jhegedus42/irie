@@ -36,7 +36,7 @@ case class Note(
 @JsonCodec
 case class Image(
   title:     String,
-  content:   String,
+  fileName:  Option[String],
   reference: Option[Ref[Note]])
     extends Value[Image]
 
