@@ -1,8 +1,8 @@
-package client.ui.compositeWidgets
+package client.ui.compositeWidgets.archive
 
 import client.sodium.app.CellLoopWithUpdaterStream
-import client.ui.atomicWidgets.show.text.CellPreformattedText
 import client.ui.atomicWidgets.input.{SButton, STextArea}
+import client.ui.atomicWidgets.show.text.CellPreformattedText
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 

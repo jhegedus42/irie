@@ -30,13 +30,6 @@ case class NoteEditorWidget(
 
   lazy val noteCache: Cache[Note] = Cache.noteCache
 
-  lazy val selectedNoteAsText =
-    new CellTemplate[Option[TypedReferencedValue[Note]]](
-      internalSelectedNoteCell, { x =>
-        <.pre(s"selected Note: $x")
-      }
-    )
-
   val selectedNodesTitle = m.map(
     _.map(_.versionedEntityValue.valueWithoutVersion.title)
       .getOrElse("")
@@ -77,15 +70,10 @@ case class NoteEditorWidget(
 
     def render: Unit => VdomElement = { _ =>
       <.div(
-        <.hr,
-        <.h2("Note Editor:"),
-        <.hr,
         <.br,
-        selectedNoteAsText.comp(),
-        "new title:",
+        "title:",
         noteTitleEditorField.comp(),
         updateButton.comp(),
-        <.hr,
         <.br
       )
     }

@@ -1,8 +1,8 @@
-package client.ui.compositeWidgets
+package client.ui.compositeWidgets.archive
 
+import client.sodium.core._
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.sodium.core.{StreamSink, _}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 

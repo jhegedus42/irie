@@ -37,7 +37,7 @@ case class Cache[V <: Value[V]: Encoder](
     : StreamSink[UpdateEntityInCacheCmd[V]] =
     new StreamSink[UpdateEntityInCacheCmd[V]]()
 
-  val cellLoop = Transaction.apply[CellLoop[CacheMap[V]]](
+  val cellLoop: CellLoop[CacheMap[V]] = Transaction.apply[CellLoop[CacheMap[V]]](
     { _ =>
       val insertEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
