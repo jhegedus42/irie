@@ -28,13 +28,13 @@ import io.circe.generic.auto._
 //
 //}
 /**
-  * @param map
+  * @param cacheMap
   * @tparam V
   */
 
 //@JsonCodec
 case class CacheMap[V <: Value[V]](
-  map: Map[Ref[V], TypedReferencedValue[V]] =
+                                    cacheMap: Map[Ref[V], TypedReferencedValue[V]] =
     Map[Ref[V], TypedReferencedValue[V]]()
 )(
   implicit
@@ -43,7 +43,7 @@ case class CacheMap[V <: Value[V]](
   // https://dzone.com/articles/java-string-format-examples
 
   def getPrettyPrintedString: String = {
-    map.foldLeft("")(
+    cacheMap.foldLeft("")(
       (s, v) =>
         s + "value: " + s"${v._2.versionedEntityValue}, "
           .formatted("%40s") +
@@ -59,7 +59,7 @@ case class CacheMap[V <: Value[V]](
   def getTypeName: String =
     typeable.describe.toString
 
-  def getNumberOfEntries: Int = map.size
+  def getNumberOfEntries: Int = cacheMap.size
 
   def toJSON(
     implicit
@@ -70,7 +70,7 @@ case class CacheMap[V <: Value[V]](
     encRef: Encoder[Ref[V]]
   ): String = {
 //    implicitly[Encoder[V]]
-    map.asJson.spaces4 //fixme
+    cacheMap.asJson.spaces4 //fixme
   }
 }
 
@@ -83,7 +83,7 @@ object CacheMap {
     typeable: Typeable[V]
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
-      val oldMap = m.map
+      val oldMap = m.cacheMap
       val newMap = oldMap + (rv.ref -> rv)
       CacheMap(newMap)
     }
@@ -97,7 +97,7 @@ object CacheMap {
   ): CacheMap[V] => CacheMap[V] = { m =>
     {
 
-      val oldMap = m.map
+      val oldMap = m.cacheMap
 
       // version check:
       val currentVersion: EntityVersion = oldMap(

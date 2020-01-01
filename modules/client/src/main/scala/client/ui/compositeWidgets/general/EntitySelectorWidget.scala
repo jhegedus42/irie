@@ -14,10 +14,13 @@ case class EntitySelectorWidget[V <: Value[V]](
   c:            Cache[V],
   nameProvider: V => String) {
 
-//  lazy val updaterExp=CellSink
+  lazy val initCell = new Cell[Option[TypedReferencedValue[V]]](None)
 
-  lazy val selectedEntity =
-    new StreamSink[Option[Cell[TypedReferencedValue[V]]]]()
+  lazy val selectedEntityInjector =
+    new StreamSink[Cell[Option[TypedReferencedValue[V]]]]()
+
+  lazy val selectedEntity: Cell[Option[TypedReferencedValue[V]]] =
+    Cell.switchC(selectedEntityInjector.hold(initCell))
 
   lazy val selectorTable = {
 
@@ -29,9 +32,9 @@ case class EntitySelectorWidget[V <: Value[V]](
         )
 
       val selector = SButton("select", {
-        val ent: Cell[TypedReferencedValue[V]] =
-          c.cellLoop.map(_.map(u.ref))
-        Some(() => selectedEntity.send(Some(ent)))
+        val ent: Cell[Option[TypedReferencedValue[V]]] =
+          c.cellLoop.map(_.cacheMap.get(u.ref))
+        Some(() => selectedEntityInjector.send(ent))
       })
 
       List(name, selector.comp())
@@ -41,7 +44,7 @@ case class EntitySelectorWidget[V <: Value[V]](
     val comp = CellTemplate(
       c.cellLoop, { x: CacheMap[V] =>
         {
-          lazy val vdomList = x.map.values.toList.map(getDomList)
+          lazy val vdomList = x.cacheMap.values.toList.map(getDomList)
           <.div(TableHelpers.getTableFromVdomElements(vdomList))
         }
       }

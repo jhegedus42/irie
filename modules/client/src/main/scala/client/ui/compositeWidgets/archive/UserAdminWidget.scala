@@ -150,7 +150,7 @@ case class UserAdminWidget() {
       c, { x: CacheMap[User] =>
         <.div(
           TableHelpers.getTableFromVdomElements(
-            x.map.values.toList
+            x.cacheMap.values.toList
               .map(
                 user2VDOMList
               )

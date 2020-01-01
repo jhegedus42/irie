@@ -30,7 +30,7 @@ case class NotesWidget() {
 
   lazy val noteTitleEditor = TextFieldUpdaterWidget[Note](
     "title",
-    selector.selectedEntity.hold(None),
+    selector.selectedEntity,
     noteCache,
     {n:Note => n.title },
     {(n:Note,s:String) => n.copy(title = s)}
@@ -45,7 +45,6 @@ case class NotesWidget() {
         <.br,
         selector.selectorTable.comp(),
         NoteCreatorWidget().createNewNoteButton.comp(),
-//        NoteEditorWidget(selector.entitySelector.updates()).comp(),
         noteTitleEditor.comp(),
         <.hr,
         <.br
