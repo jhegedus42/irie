@@ -14,6 +14,7 @@ import monocle.macros.syntax.lens._
 
 import scala.concurrent.ExecutionContextExecutor
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
+import client.ui.compositeWidgets.general.TextFieldUpdaterWidget
 
 case class NoteEditorWidget(
   selectedNoteStream: Stream[Option[TypedReferencedValue[Note]]]) {
@@ -42,8 +43,12 @@ case class NoteEditorWidget(
     Some({ () =>
       {
         val cmdOpt: Option[UpdateEntityInCacheCmd[Note]] = {
-          val newTitle            = noteTitleEditorField.cell.sample()
-          val currentSelectedNote = internalSelectedNoteCell.sample()
+          val newTitle = noteTitleEditorField.cell.sample()
+
+          val currentSelectedNote
+            : Option[TypedReferencedValue[Note]] =
+            internalSelectedNoteCell.sample()
+
           val res = currentSelectedNote.map(x => {
             UpdateEntityInCacheCmd[Note](
               x,
@@ -65,6 +70,8 @@ case class NoteEditorWidget(
       }
     })
   )
+
+
 
   def comp = {
 

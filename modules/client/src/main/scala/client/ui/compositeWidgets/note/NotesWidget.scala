@@ -5,7 +5,10 @@ import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.EntitySelectorWidget
+import client.ui.compositeWidgets.general.{
+  EntitySelectorWidget,
+  TextFieldUpdaterWidget
+}
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
@@ -21,7 +24,17 @@ case class NotesWidget() {
 
   lazy val noteCache: Cache[Note] = Cache.noteCache
 
-  val selector= EntitySelectorWidget[Note](noteCache,{x:Note=>x.title})
+  val selector = EntitySelectorWidget[Note](noteCache, { x: Note =>
+    x.title
+  })
+
+  lazy val noteTitleEditor = TextFieldUpdaterWidget[Note](
+    "title",
+    selector.selectedEntity.hold(None),
+    noteCache,
+    {n:Note => n.title },
+    {(n:Note,s:String) => n.copy(title = s)}
+  )
 
   def getComp = {
 
@@ -32,7 +45,8 @@ case class NotesWidget() {
         <.br,
         selector.selectorTable.comp(),
         NoteCreatorWidget().createNewNoteButton.comp(),
-        NoteEditorWidget(selector.selectedEntity.updates()).comp(),
+//        NoteEditorWidget(selector.entitySelector.updates()).comp(),
+        noteTitleEditor.comp(),
         <.hr,
         <.br
       )
@@ -49,13 +63,3 @@ case class NotesWidget() {
   }
 
 }
-
-// todonow 2 - add/update image to a note
-
-// use this :
-// https://github.com/knoldus/akka-http-file-upload/blob/master/src/main/scala/com/rishi/FileUpload.scala
-
-// todonow 2.1 upload image
-
-// todonow 3 - add / edit selected rectangle inside the added image
-// todonow 4 - notelist editor

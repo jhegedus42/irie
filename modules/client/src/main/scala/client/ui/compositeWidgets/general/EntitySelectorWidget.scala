@@ -1,7 +1,7 @@
 package client.ui.compositeWidgets.general
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.core.CellSink
+import client.sodium.core.{Cell, CellSink, StreamSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.helpers.table.TableHelpers
@@ -14,8 +14,10 @@ case class EntitySelectorWidget[V <: Value[V]](
   c:            Cache[V],
   nameProvider: V => String) {
 
+//  lazy val updaterExp=CellSink
+
   lazy val selectedEntity =
-    new CellSink[Option[TypedReferencedValue[V]]](None)
+    new StreamSink[Option[Cell[TypedReferencedValue[V]]]]()
 
   lazy val selectorTable = {
 
@@ -27,7 +29,9 @@ case class EntitySelectorWidget[V <: Value[V]](
         )
 
       val selector = SButton("select", {
-        Some(() => selectedEntity.send(Some(u)))
+        val ent: Cell[TypedReferencedValue[V]] =
+          c.cellLoop.map(_.map(u.ref))
+        Some(() => selectedEntity.send(Some(ent)))
       })
 
       List(name, selector.comp())
@@ -36,14 +40,10 @@ case class EntitySelectorWidget[V <: Value[V]](
 
     val comp = CellTemplate(
       c.cellLoop, { x: CacheMap[V] =>
-        <.div(
-          TableHelpers.getTableFromVdomElements(
-            x.map.values.toList
-              .map(
-                getDomList
-              )
-          )
-        )
+        {
+          lazy val vdomList = x.map.values.toList.map(getDomList)
+          <.div(TableHelpers.getTableFromVdomElements(vdomList))
+        }
       }
     )
 
