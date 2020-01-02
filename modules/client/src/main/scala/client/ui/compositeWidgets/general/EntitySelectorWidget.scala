@@ -11,8 +11,8 @@ import shared.dataStorage.{Note, TypedReferencedValue, Value}
 import org.scalajs.dom.html.Div
 
 case class EntitySelectorWidget[V <: Value[V]](
-  c:            Cache[V],
-  nameProvider: V => String) {
+  nameProvider: V => String
+)( implicit c: Cache[V]) {
 
   lazy val initCell = new Cell[Option[TypedReferencedValue[V]]](None)
 
@@ -51,6 +51,7 @@ case class EntitySelectorWidget[V <: Value[V]](
     )
 
     comp
+
   }
 
 }

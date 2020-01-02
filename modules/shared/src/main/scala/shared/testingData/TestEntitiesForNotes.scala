@@ -11,22 +11,19 @@ object TestEntitiesForNotes {
 
   val note01Alice: Note =
     shared.dataStorage.Note("Alice note 1",
-                            "Super deep story.",
-                            aliceRef)
+                            "Super deep story.")
 
   val note01AliceWithRef = TypedReferencedValue(note01Alice)
 
   val note02Alice =
     shared.dataStorage.Note("Alice note 2",
-                            "Very boring story",
-                            aliceRef)
+                            "Very boring story")
 
   val note02AliceWithRef = TypedReferencedValue(note02Alice)
 
   val note03Alice =
     shared.dataStorage.Note("Alice note 3",
-                            "Alice in Wonderland",
-                            aliceRef)
+                            "Alice in Wonderland")
 
   val note03AliceWithRef = TypedReferencedValue(note03Alice)
 

@@ -6,7 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.archive.CounterExampleWidget
-import client.ui.compositeWidgets.image.ImageList
+import client.ui.compositeWidgets.image.{ImageList, ImagesWidget}
 import client.ui.compositeWidgets.note.NotesWidget
 
 object RootComp {
@@ -22,9 +22,7 @@ object RootComp {
           <.div(C.jumbotron)(
             NotesWidget().getComp(),
             <.br,
-            <.h2("Images"),
-            <.br,
-            ImageList.listOfImages.comp()
+            ImagesWidget().getComp()
           )
         )
       )

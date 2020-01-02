@@ -6,6 +6,7 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.compositeWidgets.general.{
+  EntityCreatorWidget,
   EntitySelectorWidget,
   TextFieldUpdaterWidget
 }
@@ -22,19 +23,25 @@ case class NotesWidget() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val noteCache: Cache[Note] = Cache.noteCache
+  implicit lazy val noteCache: Cache[Note] = Cache.noteCache
 
-  val selector = EntitySelectorWidget[Note](noteCache, { x: Note =>
+  val selector = EntitySelectorWidget[Note]( { x: Note =>
     x.title
   })
 
   lazy val noteTitleEditor = TextFieldUpdaterWidget[Note](
     "title",
     selector.selectedEntity,
-    noteCache,
-    {n:Note => n.title },
-    {(n:Note,s:String) => n.copy(title = s)}
+    noteCache, { n: Note =>
+      n.title
+    }, { (n: Note, s: String) =>
+      n.copy(title = s)
+    }
   )
+
+  lazy val noteCreator = EntityCreatorWidget({ () =>
+    Note("default title", "default content")
+  }, "Note")
 
   def getComp = {
 
@@ -44,7 +51,7 @@ case class NotesWidget() {
         <.h2("Notes"),
         <.br,
         selector.selectorTable.comp(),
-        NoteCreatorWidget().createNewNoteButton.comp(),
+        noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
         <.hr,
         <.br

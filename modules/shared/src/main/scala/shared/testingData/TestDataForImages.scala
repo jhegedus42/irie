@@ -10,13 +10,13 @@ object TestDataForImages {
 
   lazy val ar = aliceEnt.ref
 
-  val appleImage = TypedReferencedValue(Image("apple", None, None))
+  val appleImage = TypedReferencedValue(Image("apple", None,None))
     .addEntityOwnerInfo(ar)
 
-  val starImage = TypedReferencedValue(Image("star", None, None))
+  val starImage = TypedReferencedValue(Image("star", None,None))
     .addEntityOwnerInfo(ar)
 
-  val musicImage = TypedReferencedValue(Image("music", None, None))
+  val musicImage = TypedReferencedValue(Image("music", None,None))
     .addEntityOwnerInfo(ar)
 
 }

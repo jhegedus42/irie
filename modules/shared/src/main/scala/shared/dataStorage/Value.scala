@@ -29,15 +29,14 @@ case class TypeName(s: String)
 @JsonCodec
 case class Note(
   title:   String,
-  content: String,
-  owner:   Ref[User])
+  content: String)
     extends Value[Note]
 
 @JsonCodec
 case class Image(
-  title:     String,
-  fileName:  Option[String],
-  reference: Option[Ref[Note]])
+  title:           String,
+  referenceToNote: Option[Ref[Note]],
+  fileName:Option[String])
     extends Value[Image]
 
 @JsonCodec
@@ -52,3 +51,4 @@ case class NoteFolder(
   user: Ref[User],
   name: String)
     extends Value[NoteFolder]
+

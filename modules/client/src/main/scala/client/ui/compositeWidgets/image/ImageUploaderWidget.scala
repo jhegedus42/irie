@@ -12,19 +12,15 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^}
 case class ImageUploaderWidget(){
 
 
-  def render: Unit => VdomElement = { _ =>
+  def render: () => VdomElement = { () =>
     <.div(
-      <.main(C.container, ^.role := "container")(
-        <.div(C.jumbotron)(
-          <.h1("Image Uploader"),
+          <.h2("Image Uploader"),
           <.input(^.id := "the-file",
             ^.name := "file",
             ^.`type` := "file"),
           <.input(^.id := "submit-btn",
             ^.value := "Upload",
             ^.`type` := "submit")
-        )
-      )
     )
   }
 
