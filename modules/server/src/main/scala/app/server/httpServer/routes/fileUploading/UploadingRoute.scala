@@ -62,8 +62,12 @@ trait UploadingRoute {
     fileData: Multipart.FormData
   ) = {
     val fileOutput = new FileOutputStream(filePath)
+
     fileData.parts
       .mapAsync(1) { bodyPart ⇒
+
+
+
         def writeFileOnLocal(
           array:      Array[Byte],
           byteString: ByteString
@@ -72,10 +76,13 @@ trait UploadingRoute {
           fileOutput.write(byteArray)
           array ++ byteArray
         }
+
         bodyPart.entity.dataBytes.runFold(Array[Byte]())(
           writeFileOnLocal
         )
       }.runFold(0)(_ + _.length)
+
   }
+
 
 }
