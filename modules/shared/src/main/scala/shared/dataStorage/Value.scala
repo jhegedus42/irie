@@ -36,7 +36,7 @@ case class Note(
 case class Image(
   title:           String,
   referenceToNote: Option[Ref[Note]],
-  fileName:Option[String])
+  fileName:        Option[String])
     extends Value[Image]
 
 @JsonCodec
@@ -51,4 +51,6 @@ case class NoteFolder(
   user: Ref[User],
   name: String)
     extends Value[NoteFolder]
+
+
 

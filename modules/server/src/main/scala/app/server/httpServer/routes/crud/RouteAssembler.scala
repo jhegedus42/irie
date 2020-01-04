@@ -36,7 +36,7 @@ case class RouteAssembler(
 
   val route: Route = allRoutes
 
-  val uploadFileRoute = UploadFileRouteImpl()
+  lazy val uploadFileRoute = UploadFileRouteImpl()
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~

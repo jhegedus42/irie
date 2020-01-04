@@ -6,7 +6,7 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.compositeWidgets.general.{
-  EntityCreatorWidget,
+  OptionalEntityDisplayerWidget,
   EntitySelectorWidget,
   TextFieldUpdaterWidget
 }
