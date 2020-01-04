@@ -1,27 +1,24 @@
 package app.server.httpServer.routes.crud
 
-import akka.actor.{ActorLogging, ActorRef, ActorSystem, Props}
+import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import akka.persistence.{PersistentActor, RecoveryCompleted}
 import akka.stream.{ActorMaterializer, Materializer}
-import akka.util.Timeout
 import app.server.httpServer.routes.crud.routes.PersCommandRouteFactory
-import app.server.httpServer.routes.fileUploading.UploadingRoute
+import app.server.httpServer.routes.fileUploading.UploadFileRoute
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
-import shared.crudRESTCallCommands._
+import io.circe.generic.auto._
 import shared.crudRESTCallCommands.persActorCommands.{
   GetAllEntityiesForUserPersActCmd,
   InsertEntityPersActCmd,
   UpdateEntityPersActCmd
 }
-import shared.testingData.TestDataStore
 
-import scala.concurrent.{ExecutionContextExecutor, Future}
+import scala.concurrent.ExecutionContextExecutor
 import scala.language.postfixOps
-import io.circe.generic.auto._
-import shared.dataStorage.stateHolder.UserMap
+
+
 
 case class RouteAssembler(
   implicit
@@ -39,15 +36,7 @@ case class RouteAssembler(
 
   val route: Route = allRoutes
 
-  object ULR extends UploadingRoute {
-    override implicit val system: ActorSystem = actorSystem
-
-    override implicit def executor: ExecutionContextExecutor =
-      executionContextExecutor
-
-    override implicit val materializer: Materializer =
-      actorMaterializer
-  }
+  val uploadFileRoute = UploadFileRouteImpl()
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
@@ -58,7 +47,7 @@ case class RouteAssembler(
       PersCommandRouteFactory[UpdateEntityPersActCmd](
         actor
       ).getRoute ~
-      ULR.uploadFile
+      uploadFileRoute.route
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML

@@ -25,7 +25,7 @@ import scala.concurrent.ExecutionContextExecutor
 
 // https://thoughtbot.com/blog/ridiculously-simple-ajax-uploads-with-formdata
 
-trait UploadingRoute {
+trait UploadFileRoute {
 
   implicit val system: ActorSystem
 
@@ -33,7 +33,7 @@ trait UploadingRoute {
 
   implicit val materializer: Materializer
 
-  def uploadFile: Route = {
+  def route: Route = {
     path("user" / "upload" / "file") {
       (post & entity(as[Multipart.FormData])) { fileData =>
         complete {
@@ -45,7 +45,7 @@ trait UploadingRoute {
               HttpResponse(
                 StatusCodes.OK,
                 entity =
-                  s"File successfully uploaded. File size is $fileSize. it was saved to $filePath."
+                  s"$filePath"
               )
             }.recover {
               case ex: Exception =>

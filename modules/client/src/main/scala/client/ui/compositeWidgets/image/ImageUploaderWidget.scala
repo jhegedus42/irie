@@ -3,7 +3,7 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react._
 
-import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.{ExecutionContextExecutor, Future}
 import bootstrap4.TB.C
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.note.NotesWidget
@@ -11,6 +11,7 @@ import org.scalajs.dom.FormData
 import org.scalajs.dom._
 
 import scala.scalajs.js
+import scala.util.{Failure, Success, Try}
 //import scala.scalajs.js.
 
 import js.Dynamic.{global => g, newInstance => jsnew}
@@ -40,11 +41,27 @@ case class ImageUploaderWidget() {
             val file = files(0)
 
             val formData = new FormData()
-            formData.append("file",file)
+            formData.append("file", file)
             val xhr = new XMLHttpRequest()
-            xhr.open("POST","/user/upload/file")
-            xhr.send(formData)
 
+            val url = "/user/upload/file"
+
+
+            import org.scalajs.dom.ext.Ajax
+            val f: Future[XMLHttpRequest] = Ajax.post(url, formData)
+            implicit def executionContext: ExecutionContextExecutor =
+              scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+            f.map(_.responseText).onComplete((res: Try[String]) => res match {
+              case Failure(exception) => {
+                println(s"Failure: $exception")
+              }
+              case Success(value) => {
+                println(s"Success $value")
+              }
+            } )
+
+            // todo now, send image update with new file-name
 
           }
         }
@@ -52,13 +69,5 @@ case class ImageUploaderWidget() {
     )
   }
 
-  def handleSubmit(): Unit = {
-//    val fd= new FormData()
-//    val
-//    val fileInput: Element = document.getElementById("the-file")
-//    val file: Array[String] =propertiesOf(fileInput)
-//    val fileInputAttr: Attr = fileInput.getAttributeNode("files")
-//    fd.append("file",)
-  }
 
 }
