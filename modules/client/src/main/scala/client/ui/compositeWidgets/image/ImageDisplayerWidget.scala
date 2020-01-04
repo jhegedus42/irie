@@ -7,19 +7,19 @@ import shared.dataStorage.{Image, Value}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 case class ImageDisplayerWidget[V <: Value[V]](
-  img: Cell[Image]
+  img: Cell[Option[Image]]
 )(
   implicit
   cache: Cache[V]) {
 
-  lazy val comp = EntityDisplayerWidget[Image](img, { x: Image =>
-    <.div(
-      <.hr,
-      <.br,
-      s"Image's title: ${x.title}",
-      <.br,
-      <.hr,
-    <.br)
+  lazy val comp = OptionalEntityDisplayerWidget[Image](img, {
+    x: Image =>
+      <.div(<.hr,
+            <.br,
+            s"Image's title: ${x.title}",
+            <.br,
+            <.hr,
+            <.br)
   })
 
 }
