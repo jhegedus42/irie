@@ -20,27 +20,35 @@ import scalajs.js._
 
 case class ImageUploaderWidget() {
 
-
   def render: () => VdomElement = { () =>
     <.div(
-          <.h2("Image Uploader"),
-          <.input(^.id := "the-file",
-            ^.name := "file",
-            ^.`type` := "file"),
-          <.button("Submit",^.onClick --> {
-            Callback{
-              val fileInput=g.document.getElementById("the-file")
-              val fileInputD: js.Dynamic = fileInput
-              val files : js.Array[Dynamic] = fileInputD.files.asInstanceOf[js.Array[Dynamic]]
-              val file= files(0)
+      <.h2("Image Uploader"),
+      <.input(^.id := "the-file",
+              ^.name := "file",
+              ^.`type` := "file"),
+      <.button(
+        "Submit",
+        ^.onClick --> {
+          Callback {
+            val fileInput = g.document.getElementById("the-file")
+
+            val fileInputD: js.Dynamic = fileInput
+
+            val files: js.Array[Dynamic] =
+              fileInputD.files.asInstanceOf[js.Array[Dynamic]]
+
+            val file = files(0)
+
+            val formData = new FormData()
+            formData.append("file",file)
+            val xhr = new XMLHttpRequest()
+            xhr.open("POST","/user/upload/file")
+            xhr.send(formData)
 
 
-              println(s"I was clicked. File input is: $fileInput")
-              println(s"Files: $files")
-              println(s"File: $file")
-            }
-          })
-
+          }
+        }
+      )
     )
   }
 
