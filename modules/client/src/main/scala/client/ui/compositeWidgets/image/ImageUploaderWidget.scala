@@ -89,3 +89,4 @@ case class ImageUploaderWidget(
   }
 
 }
+
