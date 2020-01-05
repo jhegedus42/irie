@@ -10,12 +10,10 @@ import shared.testingData.TestDataStore
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
-case class OptionalEntityDisplayerWidget[V <: Value[V]](
+case class CellOptionDisplayerWidget[V <: Value[V]](
   entityOptCell: Cell[Option[V]],
   renderer:      V => VdomElement
-)(
-  implicit
-  cache: Cache[V]) {
+) {
 
   lazy val optRenderer = { x: Option[V] =>
     {

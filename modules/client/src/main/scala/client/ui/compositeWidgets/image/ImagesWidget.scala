@@ -6,7 +6,7 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.compositeWidgets.general.{
-  OptionalEntityDisplayerWidget,
+  CellOptionDisplayerWidget,
   EntitySelectorWidget,
   TextFieldUpdaterWidget
 }
@@ -30,15 +30,17 @@ case class ImagesWidget() {
 
   def getComp = {
 
+    val imgDisplayer=ImageDisplayerWidget(selector.selectedEntity)
+
     def render: Unit => VdomElement = { _ =>
       <.div(
         <.hr,
         <.h2("Images"),
         <.br,
         selector.selectorTable.comp(),
-        <.hr,
         <.br,
-        ImageUploaderWidget().render()
+        ImageUploaderWidget().render(),
+        imgDisplayer.imageDisplayer(),
       )
     }
 
