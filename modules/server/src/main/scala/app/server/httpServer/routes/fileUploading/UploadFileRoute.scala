@@ -37,9 +37,8 @@ trait UploadFileRoute {
     path("user" / "upload" / "file") {
       (post & entity(as[Multipart.FormData])) { fileData =>
         complete {
-          val fileName = UUID.randomUUID().toString
-          val temp     = System.getProperty("java.io.tmpdir")
-          val filePath = temp + "/" + fileName
+          val fileName = UUID.randomUUID().toString+".jpeg"
+          val filePath = "./" + fileName
           processFile(filePath, fileData)
             .map { fileSize =>
               HttpResponse(

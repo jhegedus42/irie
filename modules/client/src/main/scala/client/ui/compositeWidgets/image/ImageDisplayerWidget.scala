@@ -6,11 +6,9 @@ import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import shared.dataStorage.{Image, TypedReferencedValue, Value}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
-case class ImageDisplayerWidget[V <: Value[V]](
+case class ImageDisplayerWidget(
   img: Cell[Option[TypedReferencedValue[Image]]]
-)(
-  implicit
-  cache: Cache[V]) {
+) {
 
   lazy val cellOptionImage: Cell[Option[Image]] =
     img.map(_.map(_.versionedEntityValue.valueWithoutVersion))
@@ -24,6 +22,8 @@ case class ImageDisplayerWidget[V <: Value[V]](
             <.hr,
             <.br,
             s"Image's title: ${x.title}",
+            <.br,
+            s"Image's file name :${x.fileName}",
             <.br,
             <.hr,
             <.br

@@ -24,13 +24,12 @@ case class ImagesWidget() {
 
   implicit lazy val imgCache: Cache[Image] = Cache.imgCache
 
-  val selector = EntitySelectorWidget[Image]({ x: Image=>
+  val selector = EntitySelectorWidget[Image]({ x: Image =>
     x.title
   })
 
   def getComp = {
 
-    val imgDisplayer=ImageDisplayerWidget(selector.selectedEntity)
 
     def render: Unit => VdomElement = { _ =>
       <.div(
@@ -39,8 +38,9 @@ case class ImagesWidget() {
         <.br,
         selector.selectorTable.comp(),
         <.br,
-        ImageUploaderWidget().render(),
-        imgDisplayer.imageDisplayer(),
+        ImageUploaderWidget(selector.selectedEntity, imgCache)
+          .render(),
+        ImageDisplayerWidget(selector.selectedEntity).imageDisplayer()
       )
     }
 
