@@ -1,40 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Hello3.
+<!doctype html>
 
-<!-- The HTML -->
-<input id="the-file" name="file" type="file">
-<input id="submit-btn" type="submit" value="Upload" />
+<title>test</title>
 
-<script>
+<script src="../node/generated.js/bundle.js"></script>
+<!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
 
-    // The Javascript
+<div id="app"></div>
+<div id="crop"></div>
+
+<img src="https://www.gstatic.com/webp/gallery3/1.png">
+
+<script >
+
+    // todonow 2 https://github.com/clauderic/react-sortable-hoc
 
 
+    console.log('bla')
+    // https://github.com/fengyuanchen/cropperjs
+
+    // var el=React.createElement(ReactCrop);
+
+
+
+    // ReactDOM.render(el, document.getElementById("crop"))
+
+    // todonow 1.
+    //  https://github.com/DominicTobias/react-image-crop
+    //  write a simple react app that uses an external
+    //  react component, using my webpack
+    // todonow 1.1
+    //  write a simple react app here (in plain old JS)
+    //  that uses my webpack
     //
-    // The Javascript
-    var form = document.getElementById('submit-btn');
-    form.onclick=  function() {
-
-        var fileInput = document.getElementById('the-file');
-        var file = fileInput.files[0];
-
-        var formData = new FormData();
-        formData.append('file', file);
-        var xhr = new XMLHttpRequest();
-        // Add any event handlers here...
-        xhr.open('POST', '/user/upload/file', true);
-        xhr.send(formData);
-
-        return false; // To avoid actual submission of the form
-    }
-
 
 </script>
-</body>
-</html>
