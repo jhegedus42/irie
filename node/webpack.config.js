@@ -6,12 +6,13 @@ var webpack = require('webpack');
 module.exports = {
     devtool: "source-map",
     entry: {
-        index: './index.js',
+        bundle: './index.js',
+        test: './test.js'
     },
     output: {
         path: __dirname + '/generated.js/',
         publicPath: "/assets/",
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
