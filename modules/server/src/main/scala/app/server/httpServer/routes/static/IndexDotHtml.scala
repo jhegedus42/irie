@@ -25,10 +25,7 @@ private[routes] object IndexDotHtml {
           ),
           body( margin := 0 )(
             div( id := "rootComp" ),
-            script(
-              `type` := "text/javascript",
-              src := "./node/generated.js/bundle.js"
-            ),
+            div( id := "testComp" ),
             script(
               `type` := "text/javascript",
               src := "./www/assets/js/bootstrap/popper.min.js"
@@ -44,6 +41,10 @@ private[routes] object IndexDotHtml {
             script(
               `type` := "text/javascript",
               src := "./modules/client/target/scala-2.12/client-fastopt.js"
+            ),
+            script(
+              `type` := "text/javascript",
+              src := "./node/generated.js/bundle.js"
             ),
 //            script("sourceMapSupport.install()"), //todo-later
             script( "Main().main()" ) // this starts the client
