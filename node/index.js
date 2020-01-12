@@ -16,6 +16,7 @@ import 'react-tabs/style/react-tabs.css';
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css' // If using WebPack and style-loader.
 
+window.TagsInput=TagsInput
 
 const re= (
     <Tabs>
