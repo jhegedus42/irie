@@ -2,6 +2,7 @@
 var path = require('path');
 var root = './'
 var webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     devtool: "source-map",
@@ -16,11 +17,27 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.js$/,
+            {
+                test: /\.js$/,
                 enforce: "pre",
                 exclude: /node_modules/,
-                loader: "source-map-loader" }
-        ]
+                loader: "source-map-loader"
+
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+
+            },
+            {
+                test: /\.(css)$/,
+                use: ['css-loader' ],
+                sideEffects: true,
+            },
+
+        ],
+
     }
 };
 
