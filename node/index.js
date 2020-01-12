@@ -53,15 +53,15 @@ const c = {
     }
 }
 
-class Bork {
-    static a = 'foo';
-    static b;
+// class Bork {
+//     static a = 'foo';
+//     static b;
+//
+//     x = 'bar';
+//     y;
+// } // todo make this work
 
-    x = 'bar';
-    y;
-} // todo make this work
-
-class Demo extends React.PureComponent{
+class Demo extends React.PureComponent {
 
 
     // state = {
@@ -91,37 +91,91 @@ var reactElement2 = (
             Hello, world 42!
         </h1>
 
-        <ReactCrop src={"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"} onChange={newCrop => console.log(newCrop)}/>
+        <ReactCrop
+            src={"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"}
+            onChange={newCrop => console.log(newCrop)}
+        />
     </div>
 );
 
+const handler = newCrop => console.log(newCrop);
+
+class Clock extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date(),
+            crop: {
+                unit: 'px', // default, can be 'px' or '%'
+                x: 130,
+                y: 50,
+                width: 200,
+                height: 200
+            }
+        };
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Hello, world!</h1>
+                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <ReactCrop
+                    src={"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"}
+                    onChange = {crop => {
+                        this.setState({crop})}}
+                    crop={this.state.crop}
+                    />
+            </div>
+    );
+    }
+    }
+
+    const list =
+    React.createElement('div', {},
+    React.createElement('h1', {}, 'My favorite ice cream flavors'),
+    React.createElement('ul', {},
+    [
+    React.createElement('li', {}, 'Chocolate'),
+    React.createElement('li', {}, 'Vanilla'),
+    React.createElement('li', {}, 'Banana')
+    ]
+    ),
+    // React.createElement(ReactCrop,{
+        //    src:"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
+        //    onChange:handler
+        // }),
+        React.createElement(Clock, {date: new Date()})
+        );
+
 // import Croppr from 'croppr';
-var reactElement = React.createElement(
-    "h1",
+        var reactElement = React.createElement(
+        "h1",
     {
         className: "abc",
 
         style: {
-            textAlign: "center"
-        },
+        textAlign: "center"
+    },
 
         onClick: function () {
-            alert("click");
-        }
+        alert("click");
+    }
     },
-    "Hello, world!"
-);
+        "Hello, world!"
+        );
 
 // The second argument is the property object,
 // it has to be null if empty
-var anotherElement = React.createElement(
-    "p",
-    null,
-    "A nice text paragraph."
-);
+        var anotherElement = React.createElement(
+        "p",
+        null,
+        "A nice text paragraph."
+        );
 
-var renderTarget = document.getElementById("testComp");
+        var renderTarget = document.getElementById("testComp");
 
-window.ReactDOM.render(reactElement2, renderTarget);
+        window.ReactDOM.render(list, renderTarget);
 
 
