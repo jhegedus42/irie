@@ -8,11 +8,14 @@ import bootstrap4.TB.C
 import client.ui.compositeWidgets.archive.CounterExampleWidget
 import client.ui.compositeWidgets.image.{ImageList, ImagesWidget}
 import client.ui.compositeWidgets.note.NotesWidget
+import client.ui.wrappedReact.TagsInput
 
 object RootComp {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+
 
   def getComp = {
 
@@ -22,9 +25,12 @@ object RootComp {
           <.div(C.jumbotron)(
             NotesWidget().getComp(),
             <.br,
-            ImagesWidget().getComp()
+            ImagesWidget().getComp(),
+            <.br,
+              TagsInput(value = Seq("foo","bar"), onChange = TagsInput.handlerCore(_))
           )
         )
+
       )
     }
 

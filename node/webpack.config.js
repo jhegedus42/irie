@@ -32,9 +32,9 @@ module.exports = {
             },
             {
                 test: /\.(css)$/,
-                use: ['css-loader' ],
-                sideEffects: true,
+                use: ['style-loader', 'css-loader']
             },
+
 
         ],
 

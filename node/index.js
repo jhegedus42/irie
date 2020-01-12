@@ -12,7 +12,9 @@ import sum from './otherFile.js';
 
 console.log(sum(2, 5));
 
-// import 'react-tabs/style/react-tabs.css';
+import 'react-tabs/style/react-tabs.css';
+import TagsInput from 'react-tagsinput'
+import 'react-tagsinput/react-tagsinput.css' // If using WebPack and style-loader.
 
 
 const re= (
@@ -76,5 +78,4 @@ var anotherElement = React.createElement(
 var renderTarget = document.getElementById("testComp");
 
 window.ReactDOM.render(re, renderTarget);
-
 
