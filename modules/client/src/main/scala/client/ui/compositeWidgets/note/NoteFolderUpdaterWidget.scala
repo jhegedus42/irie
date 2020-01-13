@@ -32,7 +32,7 @@ case class NoteFolderUpdaterWidget(
       selectedNote.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
       ), { n: Note =>
-        <.div(n.title)
+        <.div(s"${n.title} ${n.folder}")
       }
     )
 
@@ -55,6 +55,7 @@ case class NoteFolderUpdaterWidget(
         selector.selectorTable.comp(),
         selectedNoteFolderDisplayer.displayer(),
         selectedNoteDisplayer.displayer(),
+        // todo now - add here updater button
         <.hr,
         <.br
       )
