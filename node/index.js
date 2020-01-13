@@ -43,6 +43,8 @@ import ReactCrop from 'react-image-crop';
 
 import 'react-image-crop/dist/ReactCrop.css';
 
+window.ReactCrop = ReactCrop
+
 const c = {
     crop: {
         unit: 'px', // default, can be 'px' or '%'
@@ -53,31 +55,6 @@ const c = {
     }
 }
 
-// class Bork {
-//     static a = 'foo';
-//     static b;
-//
-//     x = 'bar';
-//     y;
-// } // todo make this work
-
-class Demo extends React.PureComponent {
-
-
-    // state = {
-    //     src: null,
-    //     crop: {
-    //         unit: '%',
-    //         width: 30,
-    //         aspect: 16 / 9,
-    //     },
-    // };
-    // onCropChange = (crop, percentCrop) => {
-    //     // You could also use percentCrop:
-    //     // this.setState({ crop: percentCrop });
-    //     this.setState({ crop });
-    // };
-}
 
 var reactElement2 = (
     <div>
@@ -98,7 +75,6 @@ var reactElement2 = (
     </div>
 );
 
-const handler = newCrop => console.log(newCrop);
 
 class Clock extends React.Component {
 
@@ -123,59 +99,60 @@ class Clock extends React.Component {
                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
                 <ReactCrop
                     src={"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"}
-                    onChange = {crop => {
-                        this.setState({crop})}}
+                    onChange={crop => {
+                        this.setState({crop})
+                    }}
                     crop={this.state.crop}
-                    />
+                />
             </div>
-    );
+        );
     }
-    }
+}
 
-    const list =
+const list =
     React.createElement('div', {},
-    React.createElement('h1', {}, 'My favorite ice cream flavors'),
-    React.createElement('ul', {},
-    [
-    React.createElement('li', {}, 'Chocolate'),
-    React.createElement('li', {}, 'Vanilla'),
-    React.createElement('li', {}, 'Banana')
-    ]
-    ),
-    // React.createElement(ReactCrop,{
+        React.createElement('h1', {}, 'My favorite ice cream flavors'),
+        React.createElement('ul', {},
+            [
+                React.createElement('li', {}, 'Chocolate'),
+                React.createElement('li', {}, 'Vanilla'),
+                React.createElement('li', {}, 'Banana')
+            ]
+        ),
+        // React.createElement(ReactCrop,{
         //    src:"6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
         //    onChange:handler
         // }),
         React.createElement(Clock, {date: new Date()})
-        );
+    );
 
 // import Croppr from 'croppr';
-        var reactElement = React.createElement(
-        "h1",
+var reactElement = React.createElement(
+    "h1",
     {
         className: "abc",
 
         style: {
-        textAlign: "center"
-    },
+            textAlign: "center"
+        },
 
         onClick: function () {
-        alert("click");
-    }
+            alert("click");
+        }
     },
-        "Hello, world!"
-        );
+    "Hello, world!"
+);
 
 // The second argument is the property object,
 // it has to be null if empty
-        var anotherElement = React.createElement(
-        "p",
-        null,
-        "A nice text paragraph."
-        );
+var anotherElement = React.createElement(
+    "p",
+    null,
+    "A nice text paragraph."
+);
 
-        var renderTarget = document.getElementById("testComp");
+var renderTarget = document.getElementById("testComp");
 
-        window.ReactDOM.render(list, renderTarget);
+window.ReactDOM.render(list, renderTarget);
 
 
