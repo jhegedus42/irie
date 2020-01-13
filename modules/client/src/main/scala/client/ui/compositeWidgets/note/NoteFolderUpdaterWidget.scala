@@ -5,11 +5,17 @@ import client.sodium.core.Cell
 import client.ui.atomicWidgets.show.text.CellPreformattedText
 import client.ui.compositeWidgets.general.{
   CellOptionDisplayerWidget,
-  EntitySelectorWidget
+  EntitySelectorWidget,
+  EntityUpdaterButton
 }
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{Note, NoteFolder, TypedReferencedValue}
+import shared.dataStorage.{
+  Note,
+  NoteFolder,
+  Ref,
+  TypedReferencedValue
+}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -44,6 +50,35 @@ case class NoteFolderUpdaterWidget(
         <.div(nf.name)
       }
     )
+
+  lazy val entityUpdaterButton
+    : EntityUpdaterButton[Note, Option[Ref[NoteFolder]]] = {
+
+    lazy val updaterOpt
+      : Cell[Option[(Note, Option[Ref[NoteFolder]]) => Note]] = {
+
+      lazy val note:          Cell[Option[Note]]            = ???
+      lazy val noteFolderRef: Cell[Option[Ref[NoteFolder]]] = ???
+
+      lazy val f = { (n: Option[Note], nf: Option[Ref[NoteFolder]]) =>
+        ??? : Option[(Note, Option[Ref[NoteFolder]]) => Note]
+      }
+
+      val res: Cell[Option[(Note, Option[Ref[NoteFolder]]) => Note]] =
+        note.lift(noteFolderRef, f)
+
+      res
+    }
+
+    def extractor(note: Note): Option[Ref[NoteFolder]] = note.folder
+
+    EntityUpdaterButton(selectedNote,
+                        Cache.noteCache,
+                        extractor(_),
+                        updaterOpt,
+                        "update")
+
+  }
 
   def getComp = {
 

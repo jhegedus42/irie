@@ -3,10 +3,10 @@ package client.ui.compositeWidgets.noteFolder
 import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.show.text.CellPreformattedText
-import client.ui.compositeWidgets.general.EntitySelectorWidget
+import client.ui.compositeWidgets.general.{EntitySelectorWidget, EntityUpdaterButton}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{Note, NoteFolder}
+import shared.dataStorage.{Note, NoteFolder, Ref}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react.ScalaComponent
 
@@ -35,6 +35,8 @@ case class NoteFolderWidget() {
     selectedNoteFoldersName
   )
 
+
+
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
@@ -49,6 +51,9 @@ case class NoteFolderWidget() {
       )
     }
 
+    // todo-now 2: set note folder of a selected note to
+    //             one of the possible note folders
+
     val rootComp =
       ScalaComponent
         .builder[Unit]("Hello")
@@ -58,9 +63,5 @@ case class NoteFolderWidget() {
     rootComp
 
   }
-
-  // todo-now 1: display note folder of a selected note
-  // todo-now 2: set note folder of a selected note to
-  //             one of the possible note folders
 
 }
