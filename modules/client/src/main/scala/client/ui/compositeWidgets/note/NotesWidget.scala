@@ -35,6 +35,8 @@ case class NotesWidget() {
     }
   )
 
+  // todo-now - note folder editor
+
   lazy val noteCreator = EntityCreatorWidget({ () =>
     Note("default title", "default content",None)
   }, "Note")
