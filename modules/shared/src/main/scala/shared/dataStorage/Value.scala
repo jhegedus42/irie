@@ -12,7 +12,6 @@ import scala.reflect.ClassTag
   *
   * @tparam T
   */
-//@JsonCodec
 
 sealed trait Value[+T <: Value[T]]
 
@@ -29,7 +28,8 @@ case class TypeName(s: String)
 @JsonCodec
 case class Note(
   title:   String,
-  content: String)
+  content: String,
+  folder:Option[Ref[NoteFolder]])
     extends Value[Note]
 
 @JsonCodec
@@ -48,7 +48,6 @@ case class User(
 
 @JsonCodec
 case class NoteFolder(
-  user: Ref[User],
   name: String)
     extends Value[NoteFolder]
 

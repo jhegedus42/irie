@@ -50,5 +50,8 @@ object TestDataStore extends App {
       .insertHelper(TestDataForImages.appleImage)
       .insertHelper(TestDataForImages.starImage)
       .insertHelper(TestDataForImages.musicImage)
+    .insertHelper(TestDataForNoteFolders.noteFolderOneWithRef)
+      .insertHelper(TestDataForNoteFolders.noteFolderTwoWithRef)
+
 
 }

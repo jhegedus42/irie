@@ -8,6 +8,7 @@ import bootstrap4.TB.C
 import client.ui.compositeWidgets.archive.CounterExampleWidget
 import client.ui.compositeWidgets.image.{ImageList, ImagesWidget}
 import client.ui.compositeWidgets.note.NotesWidget
+import client.ui.compositeWidgets.noteFolder.NoteFolderWidget
 import client.ui.wrappedReact.{Crop, ReactCrop, ReactCropWrapped, TagsInput}
 
 object RootComp {
@@ -27,7 +28,8 @@ object RootComp {
             <.br,
             TagsInput(value    = Seq("foo", "bar42"),
                       onChange = TagsInput.handlerCore(_)),
-            ReactCropWrapped.comp("6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg" )
+            ReactCropWrapped.comp("6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg" ),
+            NoteFolderWidget().getComp()
           )
         )
       )
@@ -41,5 +43,8 @@ object RootComp {
 
     rootComp
   }
+
+
+ // todo-now - ListOfNotes
 
 }

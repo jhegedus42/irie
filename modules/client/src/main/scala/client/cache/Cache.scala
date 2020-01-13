@@ -4,13 +4,7 @@ import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
-import shared.dataStorage.{
-  Image,
-  Note,
-  TypedReferencedValue,
-  User,
-  Value
-}
+import shared.dataStorage.{Image, Note, NoteFolder, TypedReferencedValue, User, Value}
 import io.circe._
 import shared.dataStorage.stateHolder.UserMap
 
@@ -130,6 +124,10 @@ object Cache {
 
   implicit val imgCache: Cache[Image] =
     CacheMaker[Image](streamToSetInitialCacheState)
+      .getCache()
+
+  implicit val noteFolderCache: Cache[NoteFolder] =
+    CacheMaker[NoteFolder](streamToSetInitialCacheState)
       .getCache()
 
 }
