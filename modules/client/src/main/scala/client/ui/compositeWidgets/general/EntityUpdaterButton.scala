@@ -12,7 +12,7 @@ case class EntityUpdaterButton[V <: Value[V], T](
   selectedEntity: Cell[Option[TypedReferencedValue[V]]],
   cache:          Cache[V],
   extractor:      V => T,
-  updaterOpt:     Cell[Option[(V, T) => V]],
+  newValue:       Cell[T],
   buttonLabel:    String) {
 
   lazy val field: core.Cell[Option[T]] =
@@ -24,14 +24,15 @@ case class EntityUpdaterButton[V <: Value[V], T](
   def updateCMD(
     trvOpt: Option[TypedReferencedValue[V]]
   ): Option[UpdateEntityInCacheCmd[V]] = {
-    for {
-      trv <- trvOpt
-      newField <- field.sample()
-      v = trv.versionedEntityValue.valueWithoutVersion
-      updater <- updaterOpt.sample()
-      newVal    = updater(v, newField)
-      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
-    } yield (updateCMD)
+//    for {
+//      trv <- trvOpt
+//      newField <- field.sample()
+//      v = trv.versionedEntityValue.valueWithoutVersion
+//      updater <- updaterOpt.sample()
+//      newVal    = updater(v, newField)
+//      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
+//    } yield (updateCMD)
+    ???
   }
 
   lazy val updateButton = SButton(
