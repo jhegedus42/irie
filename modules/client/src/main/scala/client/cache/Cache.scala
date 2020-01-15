@@ -4,7 +4,15 @@ import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
-import shared.dataStorage.{Image, Note, NoteFolder, TypedReferencedValue, User, Value}
+import shared.dataStorage.{
+  Image,
+  Note,
+  NoteFolder,
+  Ref,
+  TypedReferencedValue,
+  User,
+  Value
+}
 import io.circe._
 import shared.dataStorage.stateHolder.UserMap
 
@@ -31,7 +39,9 @@ case class Cache[V <: Value[V]: Encoder](
     : StreamSink[UpdateEntityInCacheCmd[V]] =
     new StreamSink[UpdateEntityInCacheCmd[V]]()
 
-  val cellLoop: CellLoop[CacheMap[V]] = Transaction.apply[CellLoop[CacheMap[V]]](
+  val cellLoop: CellLoop[CacheMap[V]] = Transaction.apply[CellLoop[
+    CacheMap[V]
+  ]](
     { _ =>
       val insertEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
@@ -110,6 +120,24 @@ case class Cache[V <: Value[V]: Encoder](
 }
 
 object Cache {
+
+  def resolveRef[V <: Value[V]](
+    ref: Cell[Option[Ref[V]]]
+  )(
+    implicit
+    c: Cache[V]
+  ): Cell[Option[TypedReferencedValue[V]]] = {
+    val cm: Cell[CacheMap[V]] = c.cellLoop
+
+    val res: Cell[Option[TypedReferencedValue[V]]] = cm.lift(ref, {
+      (x, ro: Option[Ref[V]]) =>
+      for{
+        r<-ro
+        z<-x.resRef(r)
+      } yield (z)
+    })
+    res
+  }
 
   lazy val streamToSetInitialCacheState =
     new StreamSink[UserMap]()

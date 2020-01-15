@@ -27,9 +27,9 @@ case class TypeName(s: String)
 
 @JsonCodec
 case class Note(
-  title:   String,
-  content: String,
-  folder:Option[Ref[NoteFolder]])
+                 title:   String,
+                 content: String,
+                 folderR:Option[Ref[NoteFolder]])
     extends Value[Note]
 
 @JsonCodec

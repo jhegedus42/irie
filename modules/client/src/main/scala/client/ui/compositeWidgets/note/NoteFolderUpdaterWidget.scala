@@ -37,26 +37,67 @@ case class NoteFolderUpdaterWidget(
 
   val selectedNoteDisplayer =
     CellOptionDisplayerWidget[Note](
-      noteFolderSelectorWidget.selectedEntity.map(
+      selectedNote.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
       ), { n: Note =>
-        <.div(s"${n.title} ${n.folder}")
+        <.div(s"Selected Note's title: ${n.title}",
+              <.br,
+              (s"Selected Note's NoteFolder's Ref: ${n.folderR}"))
       }
     )
 
-  val selectedNoteFolderDisplayer =
+  lazy val selectedNoteFolderDisplayer =
     CellOptionDisplayerWidget[NoteFolder](
       noteFolderSelectorWidget.selectedEntity.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
       ), { nf: NoteFolder =>
-        <.div(nf.name)
+        <.div(
+          <.br,
+          s"Selected NoteFolder's name:",
+          nf.name,
+          <.br
+        )
+      }
+    )
+
+  lazy val selectedNotesNoteFolder: Cell[Option[NoteFolder]] = {
+
+    val sn: Cell[Option[Ref[NoteFolder]]] =
+      selectedNote.map((x: Option[TypedReferencedValue[Note]]) => {
+        x.flatMap(
+          (z: TypedReferencedValue[Note]) => {
+            val res1: Option[Ref[NoteFolder]] =
+              z.versionedEntityValue.valueWithoutVersion.folderR
+            res1
+          }
+        )
+      })
+
+    val res: Cell[Option[TypedReferencedValue[NoteFolder]]] =Cache.resolveRef(sn)
+    res.map(_.map(_.versionedEntityValue.valueWithoutVersion))
+  }
+
+  lazy val selectedNotesNoteFolderDisplayer =
+    CellOptionDisplayerWidget[NoteFolder](
+      selectedNotesNoteFolder, { nf: NoteFolder =>
+        <.div(
+          <.br,
+          s"Selected Note's NoteFolder's name:",
+          nf.name,
+          <.br
+        )
       }
     )
 
   lazy val entityUpdaterButton
     : EntityUpdaterButton[Note, Option[Ref[NoteFolder]]] = {
 
-    def extractor(note: Note): Option[Ref[NoteFolder]] = note.folder
+    def setter(
+      nf: Option[Ref[NoteFolder]],
+      n:  Note
+    ): Note = {
+      n.copy(folderR = nf)
+    }
 
     val newValue: Cell[Option[Ref[NoteFolder]]] =
       noteFolderSelectorWidget.selectedEntity.map(_.map(_.ref))
@@ -64,7 +105,7 @@ case class NoteFolderUpdaterWidget(
     EntityUpdaterButton[Note, Option[Ref[NoteFolder]]](
       selectedNote,
       Cache.noteCache,
-      extractor(_),
+      setter,
       newValue,
       "update"
     )
@@ -81,7 +122,8 @@ case class NoteFolderUpdaterWidget(
         noteFolderSelectorWidget.selectorTable.comp(),
         selectedNoteFolderDisplayer.displayer(),
         selectedNoteDisplayer.displayer(),
-        // todo now - add here updater button
+        selectedNotesNoteFolderDisplayer.displayer(),
+        entityUpdaterButton.updaterButton.comp(),
         <.hr,
         <.br
       )

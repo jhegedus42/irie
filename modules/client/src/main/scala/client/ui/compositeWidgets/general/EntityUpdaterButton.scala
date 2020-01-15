@@ -11,31 +11,27 @@ import shared.dataStorage.{TypedReferencedValue, Value}
 case class EntityUpdaterButton[V <: Value[V], T](
   selectedEntity: Cell[Option[TypedReferencedValue[V]]],
   cache:          Cache[V],
-  extractor:      V => T,
+  setter:         (T,V) => V,
   newValue:       Cell[T],
   buttonLabel:    String) {
 
-  lazy val field: core.Cell[Option[T]] =
+  lazy val currentValueC: core.Cell[Option[V]] =
     selectedEntity
-      .map(_.map(_.versionedEntityValue.valueWithoutVersion)).map(
-        _.map(extractor)
-      )
+      .map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
   def updateCMD(
     trvOpt: Option[TypedReferencedValue[V]]
   ): Option[UpdateEntityInCacheCmd[V]] = {
-//    for {
-//      trv <- trvOpt
-//      newField <- field.sample()
-//      v = trv.versionedEntityValue.valueWithoutVersion
-//      updater <- updaterOpt.sample()
-//      newVal    = updater(v, newField)
-//      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
-//    } yield (updateCMD)
-    ???
+    for {
+      curVal <- currentValueC.sample()
+      newField = newValue.sample()
+      trv <- selectedEntity.sample()
+      newVal    = setter(newField,curVal)
+      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
+    } yield (updateCMD)
   }
 
-  lazy val updateButton = SButton(
+  lazy val updaterButton = SButton(
     buttonLabel,
     Some({ () =>
       {
@@ -54,7 +50,7 @@ case class EntityUpdaterButton[V <: Value[V], T](
     def render: Unit => VdomElement = { _ =>
       <.div(
         <.br,
-        updateButton.comp(),
+        updaterButton.comp(),
         <.br
       )
     }

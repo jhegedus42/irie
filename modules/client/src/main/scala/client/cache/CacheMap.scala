@@ -61,6 +61,8 @@ case class CacheMap[V <: Value[V]](
 
   def getNumberOfEntries: Int = cacheMap.size
 
+  def resRef(r:Ref[V]): Option[TypedReferencedValue[V]] =cacheMap.get(r)
+
   def toJSON(
     implicit
     enc: Encoder[V],
