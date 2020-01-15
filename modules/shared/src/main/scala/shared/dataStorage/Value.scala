@@ -28,8 +28,8 @@ case class TypeName(s: String)
 @JsonCodec
 case class Note(
                  title:   String,
-                 content: String,
-                 folderR:Option[Ref[NoteFolder]])
+                 content: String
+                 )
     extends Value[Note]
 
 @JsonCodec
@@ -48,7 +48,7 @@ case class User(
 
 @JsonCodec
 case class NoteFolder(
-  name: String)
+  name: String , notes:List[Ref[Note]]=List())
     extends Value[NoteFolder]
 
 

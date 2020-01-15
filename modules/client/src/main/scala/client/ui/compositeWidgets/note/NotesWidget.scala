@@ -42,12 +42,12 @@ case class NotesWidget() {
 
   // todo-now - note folder editor
 
-  val noteFolderUpdater = NoteFolderUpdaterWidget(
-    selector.selectedEntity
-  )
+//  val noteFolderUpdater = NoteFolderUpdaterWidget(
+//    selector.selectedEntity
+//  )
 
   lazy val noteCreator = EntityCreatorWidget({ () =>
-    Note("default title", "default content", None)
+    Note("default title", "default content" )
   }, "Note")
 
   def getComp = {
@@ -60,7 +60,7 @@ case class NotesWidget() {
         selector.selectorTable.comp(),
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
-        noteFolderUpdater.getComp(),
+//        noteFolderUpdater.getComp(),
         <.hr,
         <.br
       )
