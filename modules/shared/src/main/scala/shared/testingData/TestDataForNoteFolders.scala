@@ -11,11 +11,13 @@ object TestDataForNoteFolders {
 
   lazy val ar = aliceEnt.ref
 
+  val noteFolderOne = NoteFolder("Note Folder One",List())
+  val noteFolderTwo = NoteFolder("Note Folder Two",List())
 
-  val noteFolderOne=NoteFolder("Note Folder One")
-  val noteFolderTwo=NoteFolder("Note Folder Two")
+  val noteFolderOneWithRef =
+    TypedReferencedValue(noteFolderOne).addEntityOwnerInfo(ar)
 
-  val noteFolderOneWithRef= TypedReferencedValue(noteFolderOne).addEntityOwnerInfo(ar)
-  val noteFolderTwoWithRef= TypedReferencedValue(noteFolderTwo).addEntityOwnerInfo(ar)
+  val noteFolderTwoWithRef =
+    TypedReferencedValue(noteFolderTwo).addEntityOwnerInfo(ar)
 
 }

@@ -46,7 +46,7 @@ case class NotesWidget() {
 //  )
 
   lazy val noteCreator = EntityCreatorWidget({ () =>
-    Note("default title", "default content",None )
+    Note("default title", "default content")
   }, "Note")
 
   def getComp = {

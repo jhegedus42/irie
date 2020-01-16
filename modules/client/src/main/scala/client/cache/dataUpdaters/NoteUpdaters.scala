@@ -1,6 +1,6 @@
 package client.cache.dataUpdaters
 
-import client.cache.Cache
+import client.cache.{Cache, CacheMap}
 import client.sodium.core.{
   Cell,
   CellLoop,
@@ -8,6 +8,7 @@ import client.sodium.core.{
   StreamSink,
   Transaction
 }
+import client.ui.atomicWidgets.input.SButton
 import shared.dataStorage.{
   Note,
   NoteFolder,
@@ -15,24 +16,16 @@ import shared.dataStorage.{
   TypedReferencedValue
 }
 
-
+import scala.collection.immutable
 
 object NoteUpdaters {
 
-//  def createNote()
+  def moveNoteIntoNoteFolderButton(
+    noteC:   Cell[Option[TypedReferencedValue[Note]]],
+    folderC: Cell[Option[Ref[NoteFolder]]]
+  ): SButton = {
+    ???
 
+  }
 
-
-//  def setNoteFolderForNote(
-//    note:      Cell[Option[TypedReferencedValue[Note]]],
-//    newFolder: Cell[Option[Ref[NoteFolder]]]
-//  )(
-//    implicit
-//    nc: Cache[Note],
-//    nf: Cache[NoteFolder]
-//  ):  = {
-//
-//    ???
-//
-//  }
 }
