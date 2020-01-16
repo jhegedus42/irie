@@ -1,6 +1,9 @@
 package client.cache
 
-import client.cache.commands.UpdateEntityInCacheCmd
+import client.cache.commands.{
+  UpdateEntitiesInCacheCommand,
+  UpdateEntityInCacheCmd
+}
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
 import shared.dataStorage._
@@ -35,7 +38,7 @@ import io.circe.generic.auto._
 
 //@JsonCodec
 case class CacheMap[V <: Value[V]](
-                                    cacheMap: Map[Ref[V], TypedReferencedValue[V]] =
+  cacheMap: Map[Ref[V], TypedReferencedValue[V]] =
     Map[Ref[V], TypedReferencedValue[V]]()
 )(
   implicit
@@ -62,7 +65,8 @@ case class CacheMap[V <: Value[V]](
 
   def getNumberOfEntries: Int = cacheMap.size
 
-  def resRef(r:Ref[V]): Option[TypedReferencedValue[V]] =cacheMap.get(r)
+  def resRef(r: Ref[V]): Option[TypedReferencedValue[V]] =
+    cacheMap.get(r)
 
   def toJSON(
     implicit
@@ -90,6 +94,13 @@ object CacheMap {
       val newMap = oldMap + (rv.ref -> rv)
       CacheMap(newMap)
     }
+  }
+
+  def updateEntities[V <: Value[V]](
+    cmd: UpdateEntitiesInCacheCommand[V]
+  ) = {
+    // todo-now
+    ???
   }
 
   def updateReferencedValueTransformer[V <: Value[V]](

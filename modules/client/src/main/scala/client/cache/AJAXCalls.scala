@@ -1,15 +1,9 @@
 package client.cache
 
-import client.cache.commands.UpdateEntityInCacheCmd
+import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRESTCallCommands.persActorCommands.{
-  GetAllEntityiesForUserPersActCmd,
-  UpdateEntityPersActCmd
-}
-import shared.crudRESTCallCommands.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -118,21 +112,20 @@ object AJAXCalls {
   }
 
   def updateEntitiesOnServer[V <: Value[V]: Encoder: Typeable](
-    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
+    updateEntityInCacheCmd: UpdateEntitiesInCacheCommand[V]
   ): Unit = {
 
-    val updateEntityPersActCmd: UpdateEntityPersActCmd =
-      UpdateEntityInCacheCmd.toUpdateEntityPersActCmd(
+    val updateEntitiesPersActCmd: UpdateEntitiesPersActorCmd =
+      UpdateEntitiesInCacheCommand.toUpdateEntityPersActCmd(
         updateEntityInCacheCmd
       )
 
-      // todo-now -- implement this
 
     // test
-    val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
+    val handleReturn = { (t: Try[UpdateEntitiesPersActorCmd]) =>
     }
     // todo later, handle OCC error
-    sendCommandToServerViaAJAXCall(updateEntityPersActCmd,
+    sendCommandToServerViaAJAXCall(updateEntitiesPersActCmd,
                                    handleReturn)
   }
 
