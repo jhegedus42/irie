@@ -107,7 +107,8 @@ case class Cache[V <: Value[V]: Encoder](
       val updateEntitiesTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-        lazy val updateHandler: UpdateEntitiesInCacheCommand[V] => Unit = {
+        lazy val updateHandler
+          : UpdateEntitiesInCacheCommand[V] => Unit = {
           x: UpdateEntitiesInCacheCommand[V] =>
             AJAXCalls.updateEntitiesOnServer(x)
 
@@ -116,11 +117,7 @@ case class Cache[V <: Value[V]: Encoder](
         updateEntitiesCommandStream.listen(updateHandler)
 
 
-//        updateEntitiesCommandStream.listen(updateHandler)
-
-        // todo-now
-        // use
-        ???
+        updateEntitiesCommandStream.map(CacheMap.updateEntities[V](_))
 
       }
 
