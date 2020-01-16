@@ -26,18 +26,16 @@ case class NoteFolderUpdaterWidget(
       x.name
   })
 
-//  val selectedNoteDisplayer =
-//    CellOptionDisplayerWidget[Note](
-//      selectedNote.map(
-//        _.map(_.versionedEntityValue.valueWithoutVersion)
-//      ), { n: Note =>
-//        <.div(
-//          s"Selected Note's title: ${n.title}",
-//          <.br,
-//          (s"Selected Note's NoteFolder's Ref: ${n.locationInNoteFolderOpt}")
-//        )
-//      }
-//    )
+  val selectedNoteDisplayer =
+    CellOptionDisplayerWidget[Note](
+      selectedNote.map(
+        _.map(_.versionedEntityValue.valueWithoutVersion)
+      ), { n: Note =>
+        <.div(
+          s"Selected Note's title: ${n.title}"
+        )
+      }
+    )
 
   lazy val selectedNoteFolderDisplayer =
     CellOptionDisplayerWidget[NoteFolder](
@@ -48,6 +46,9 @@ case class NoteFolderUpdaterWidget(
           <.br,
           s"Selected NoteFolder's name:",
           nf.name,
+          <.br,
+          s"Notes in The Folder",
+          nf.notes.toString(),
           <.br
         )
       }
@@ -116,8 +117,8 @@ case class NoteFolderUpdaterWidget(
         <.h2("Note Folder Updater"),
         <.br,
         noteFolderSelectorWidget.selectorTable.comp(),
-//        selectedNoteFolderDisplayer.displayer(),
-//        selectedNoteDisplayer.displayer(),
+        selectedNoteFolderDisplayer.displayer(),
+        selectedNoteDisplayer.displayer(),
 //        selectedNotesNoteFolderDisplayer.displayer(),
 //        entityUpdaterButton.comp(),
 //        <.hr,
