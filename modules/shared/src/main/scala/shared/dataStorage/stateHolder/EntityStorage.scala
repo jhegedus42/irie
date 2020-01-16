@@ -83,8 +83,11 @@ object EntityStorage {
     storageOpt:             Option[EntityStorage],
     unTypedReferencedValue: UnTypedReferencedValue,
     newValue:               UntypedValue
-  ) = {
-
+  ): Option[EntityStorage] = {
+    for {
+      es<-storageOpt
+      ns <- es.update(unTypedReferencedValue,newValue)
+    } yield (ns)
   }
 
   import io.circe.generic.JsonCodec
