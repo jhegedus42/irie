@@ -8,6 +8,8 @@ import io.circe.generic.JsonCodec
 import shapeless.Typeable
 import shared.dataStorage._
 
+import scala.collection.immutable
+
 //import scala.collection.immutable.HashMap
 //import io.circe.Decoder.Result
 import io.circe._
@@ -98,9 +100,21 @@ object CacheMap {
 
   def updateEntities[V <: Value[V]](
     cmd: UpdateEntitiesInCacheCommand[V]
-  ) = {
-    // todo-now
-    ???
+  )(
+    implicit
+    typeable: Typeable[V]
+  ): CacheMap[V] => CacheMap[V] = {
+
+    val functions =
+      cmd.updates.map(updateReferencedValueTransformer(_))
+
+    def f(cm: CacheMap[V]): CacheMap[V] = {
+      functions.foldLeft(cm)({ (acc, g) =>
+        g(acc)
+      })
+    }
+
+    f _
   }
 
   def updateReferencedValueTransformer[V <: Value[V]](

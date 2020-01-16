@@ -1,22 +1,16 @@
 package client.cache.commands
 
-import io.circe.generic.JsonCodec
-import shared.crudRESTCallCommands.persActorCommands.{
-  UpdateEntitiesPersActorCmd,
-  UpdateEntityPersActCmd
-}
-
+import shared.crudRESTCallCommands.persActorCommands.{UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
+import io.circe.Decoder.Result
+import io.circe._
+import io.circe.parser._
+import io.circe.syntax._
+import shapeless.Typeable
 import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
-import shared.crudRESTCallCommands.persActorCommands.UpdateEntityPersActCmd
-import shared.dataStorage.{
-  TypedReferencedValue,
-  UnTypedReferencedValue,
-  UntypedValue,
-  Value
-}
+import shared.dataStorage.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue, UntypedVersionedValue, Value, VersionedValue}
 import shared.dataStorage.Value
 
 @JsonCodec
