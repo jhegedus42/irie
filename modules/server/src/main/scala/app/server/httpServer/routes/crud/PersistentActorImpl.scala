@@ -29,7 +29,7 @@ class PersistentActorImpl(id: String)
     }
 
     case UpdateEntitiesPersActorCmd(list) =>{
-
+        // todo-now
     }
 
     case UpdateEntityPersActCmd(unTypedReferencedValue,

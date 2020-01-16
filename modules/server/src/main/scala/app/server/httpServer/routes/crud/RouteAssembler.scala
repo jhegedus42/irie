@@ -9,11 +9,7 @@ import app.server.httpServer.routes.fileUploading.UploadFileRoute
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import io.circe.generic.auto._
-import shared.crudRESTCallCommands.persActorCommands.{
-  GetAllEntityiesForUserPersActCmd,
-  InsertEntityPersActCmd,
-  UpdateEntityPersActCmd
-}
+import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.language.postfixOps
@@ -40,6 +36,7 @@ case class RouteAssembler(
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
+      PersCommandRouteFactory[UpdateEntitiesPersActorCmd](actor).getRoute ~
       PersCommandRouteFactory[GetAllEntityiesForUserPersActCmd](actor).getRoute ~
       PersCommandRouteFactory[InsertEntityPersActCmd](
         actor
