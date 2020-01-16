@@ -1,6 +1,7 @@
 package client.ui.compositeWidgets.archive
 
-import client.cache.{Cache, CacheMap, UpdateEntitiesInCacheCmd}
+import client.cache.commands.UpdateEntityInCacheCmd
+import client.cache.{Cache, CacheMap}
 import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.{SButton, STextArea}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
@@ -56,7 +57,7 @@ case class UserAdminWidget() {
                 .lens(_.name).set(newName)
 
             userCache.updateEntityCommandStream.send(
-              UpdateEntitiesInCacheCmd(trv, newUser)
+              UpdateEntityInCacheCmd(trv, newUser)
             )
 
             selectedUserCell.send(None)

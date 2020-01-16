@@ -1,5 +1,6 @@
 package client.cache
 
+import client.cache.commands.UpdateEntityInCacheCmd
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
 import shared.dataStorage._
@@ -92,7 +93,7 @@ object CacheMap {
   }
 
   def updateReferencedValueTransformer[V <: Value[V]](
-    updateCommand: UpdateEntitiesInCacheCmd[V]
+    updateCommand: UpdateEntityInCacheCmd[V]
   )(
     implicit
     typeable: Typeable[V]

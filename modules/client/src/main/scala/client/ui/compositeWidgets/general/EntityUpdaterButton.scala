@@ -1,6 +1,7 @@
 package client.ui.compositeWidgets.general
 
-import client.cache.{Cache, UpdateEntitiesInCacheCmd}
+import client.cache.Cache
+import client.cache.commands.UpdateEntityInCacheCmd
 import client.sodium.core
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
@@ -21,13 +22,13 @@ case class EntityUpdaterButton[V <: Value[V], T](
 
   def updateCMD(
     trvOpt: Option[TypedReferencedValue[V]]
-  ): Option[UpdateEntitiesInCacheCmd[V]] = {
+  ): Option[UpdateEntityInCacheCmd[V]] = {
     for {
       curVal <- currentValueC.sample()
       newField = newValue.sample()
       trv <- selectedEntity.sample()
       newVal    = setter(newField,curVal)
-      updateCMD = UpdateEntitiesInCacheCmd[V](trv, newVal)
+      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
     } yield (updateCMD)
   }
 

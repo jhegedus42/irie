@@ -1,13 +1,14 @@
 package client.ui.compositeWidgets.general
 
-import client.cache.{Cache, UpdateEntitiesInCacheCmd}
+import client.cache.Cache
+import client.cache.commands.UpdateEntityInCacheCmd
 import client.sodium.core
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.{SButton, STextArea}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import shared.dataStorage.{Note, TypedReferencedValue, Value}
-import client.cache.{Cache, CacheMap, UpdateEntitiesInCacheCmd}
+import client.cache.{Cache, CacheMap}
 import client.sodium.core.{Cell, CellLoop, CellSink}
 import client.ui.atomicWidgets.input.{SButton, STextArea}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
@@ -39,13 +40,13 @@ case class TextFieldUpdaterWidget[V <: Value[V]](
 
   def updateCMD(
     trvOpt: Option[TypedReferencedValue[V]]
-  ): Option[UpdateEntitiesInCacheCmd[V]] = {
+  ): Option[UpdateEntityInCacheCmd[V]] = {
     for {
       trv <- trvOpt
       v         = trv.versionedEntityValue.valueWithoutVersion
       newField  = fieldEditor.cell.sample()
       newVal    = updater(v, newField)
-      updateCMD = UpdateEntitiesInCacheCmd[V](trv, newVal)
+      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
     } yield (updateCMD)
   }
 

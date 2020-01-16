@@ -2,21 +2,9 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import shared.crudRESTCallCommands.{
-  RequestReturnedWithError,
-  RequestState,
-  RequestSuccessfullyProcessedInPersistentActor
-}
-import shared.crudRESTCallCommands.persActorCommands.{
-  GetAllEntityiesForUserPersActCmd,
-  InsertEntityPersActCmd,
-  ShutDown,
-  UpdateEntityPersActCmd
-}
-import shared.dataStorage.{
-  RefToEntityOwningUser,
-  UnTypedReferencedValue
-}
+import shared.crudRESTCallCommands.{RequestReturnedWithError, RequestState, RequestSuccessfullyProcessedInPersistentActor}
+import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, ShutDown, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
+import shared.dataStorage.{RefToEntityOwningUser, UnTypedReferencedValue}
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
 
@@ -38,6 +26,10 @@ class PersistentActorImpl(id: String)
       println(s"user uuid is : ${userRef.uuid}")
       val umap: UserMap = state.getUserMap(userRef)
       sender ! GetAllEntityiesForUserPersActCmd(userRef, Some(umap))
+    }
+
+    case UpdateEntitiesPersActorCmd(list) =>{
+
     }
 
     case UpdateEntityPersActCmd(unTypedReferencedValue,

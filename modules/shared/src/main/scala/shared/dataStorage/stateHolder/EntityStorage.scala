@@ -79,6 +79,14 @@ case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
 object EntityStorage {
 
+  def updateOpt(
+    storageOpt:             Option[EntityStorage],
+    unTypedReferencedValue: UnTypedReferencedValue,
+    newValue:               UntypedValue
+  ) = {
+
+  }
+
   import io.circe.generic.JsonCodec
   import io.circe.generic.auto._
   import io.circe.syntax._

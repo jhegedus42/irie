@@ -1,18 +1,11 @@
 package client.cache
 
+import client.cache.commands.UpdateEntityInCacheCmd
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
-import shared.dataStorage.{
-  Image,
-  Note,
-  NoteFolder,
-  Ref,
-  TypedReferencedValue,
-  User,
-  Value
-}
+import shared.dataStorage.{Image, Note, NoteFolder, Ref, TypedReferencedValue, User, Value}
 import io.circe._
 import shared.dataStorage.stateHolder.UserMap
 
@@ -36,8 +29,8 @@ case class Cache[V <: Value[V]: Encoder](
     new StreamSink[TypedReferencedValue[V]]()
 
   lazy val updateEntityCommandStream
-    : StreamSink[UpdateEntitiesInCacheCmd[V]] =
-    new StreamSink[UpdateEntitiesInCacheCmd[V]]()
+    : StreamSink[UpdateEntityInCacheCmd[V]] =
+    new StreamSink[UpdateEntityInCacheCmd[V]]()
 
 //  lazy val updateEntityStream
 
@@ -84,8 +77,8 @@ case class Cache[V <: Value[V]: Encoder](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-        lazy val updateHandler: UpdateEntitiesInCacheCmd[V] => Unit = {
-          x: UpdateEntitiesInCacheCmd[V] =>
+        lazy val updateHandler: UpdateEntityInCacheCmd[V] => Unit = {
+          x: UpdateEntityInCacheCmd[V] =>
             AJAXCalls.updateEntityOnServer(x)
 
         }

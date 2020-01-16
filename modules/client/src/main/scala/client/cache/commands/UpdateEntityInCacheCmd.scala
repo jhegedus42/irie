@@ -1,29 +1,21 @@
-package client.cache
+package client.cache.commands
 
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
-import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
-import shared.crudRESTCallCommands.persActorCommands.{
-  InsertEntityPersActCmd,
-  UpdateEntityPersActCmd
-}
-import shared.dataStorage.{
-  TypedReferencedValue,
-  UnTypedReferencedValue,
-  UntypedValue,
-  Value
-}
 import shapeless.Typeable
+import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
+import shared.crudRESTCallCommands.persActorCommands.UpdateEntityPersActCmd
+import shared.dataStorage.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue, Value}
 
 @JsonCodec
-case class UpdateEntitiesInCacheCmd[V <: Value[V]](
+case class UpdateEntityInCacheCmd[V <: Value[V]](
   currentTypedReferencedValue: TypedReferencedValue[V],
   newValue:                    V)
 
-object UpdateEntitiesInCacheCmd {
+object UpdateEntityInCacheCmd {
 
   def toUpdateEntityPersActCmd[V <: Value[V]: Encoder: Typeable](
-    updateEntityInCacheCmd: UpdateEntitiesInCacheCmd[V]
+    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
   ): UpdateEntityPersActCmd = {
     val currentTypedRefVal: TypedReferencedValue[V] =
       updateEntityInCacheCmd.currentTypedReferencedValue

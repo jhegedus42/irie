@@ -1,14 +1,9 @@
 package client.cache
 
+import client.cache.commands.UpdateEntityInCacheCmd
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRESTCallCommands.persActorCommands.{
-  GetAllEntityiesForUserPersActCmd,
-  UpdateEntityPersActCmd
-}
-import shared.crudRESTCallCommands.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, UpdateEntityPersActCmd}
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -100,11 +95,11 @@ object AJAXCalls {
   }
 
   def updateEntityOnServer[V <: Value[V]: Encoder: Typeable](
-    updateEntityInCacheCmd: UpdateEntitiesInCacheCmd[V]
+    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
   ): Unit = {
 
     val updateEntityPersActCmd: UpdateEntityPersActCmd =
-      UpdateEntitiesInCacheCmd.toUpdateEntityPersActCmd(
+      UpdateEntityInCacheCmd.toUpdateEntityPersActCmd(
         updateEntityInCacheCmd
       )
 
