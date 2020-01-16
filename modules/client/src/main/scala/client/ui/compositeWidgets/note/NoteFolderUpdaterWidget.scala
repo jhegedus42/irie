@@ -4,10 +4,20 @@ import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
-import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  EntitySelectorWidget,
+  EntityUpdaterButton
+}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{Note, NoteFolder, Ref, TypedReferencedValue, VersionedValue}
+import shared.dataStorage.{
+  Note,
+  NoteFolder,
+  Ref,
+  TypedReferencedValue,
+  VersionedValue
+}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -48,7 +58,12 @@ case class NoteFolderUpdaterWidget(
           nf.name,
           <.br,
           s"Notes in The Folder",
-          nf.notes.toString(),
+          <.pre(
+            nf.notes
+              .foldLeft("")({ (s, rn) =>
+                s + s"${rn.unTypedRef.toString}\n"
+              }).toString()
+          ),
           <.br
         )
       }

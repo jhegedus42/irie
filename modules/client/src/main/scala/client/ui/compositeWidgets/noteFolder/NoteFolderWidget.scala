@@ -4,6 +4,7 @@ import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.show.text.CellPreformattedText
 import client.ui.compositeWidgets.general.{EntitySelectorWidget, EntityUpdaterButton}
+import client.ui.compositeWidgets.note.NoteFolderUpdaterWidget
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import shared.dataStorage.{Note, NoteFolder, Ref}
