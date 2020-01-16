@@ -89,7 +89,6 @@ case class Cache[V <: Value[V]: Encoder](
           CacheMap.updateReferencedValueTransformer[V](_)
         )
 
-//        updateEntityTransformerStream.collect(List(),)
 
       }
 

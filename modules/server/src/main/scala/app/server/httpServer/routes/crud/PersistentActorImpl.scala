@@ -2,9 +2,22 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import shared.crudRESTCallCommands.{RequestReturnedWithError, RequestState, RequestSuccessfullyProcessedInPersistentActor}
-import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, ShutDown, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
-import shared.dataStorage.{RefToEntityOwningUser, UnTypedReferencedValue}
+import shared.crudRESTCallCommands.{
+  RequestReturnedWithError,
+  RequestState,
+  RequestSuccessfullyProcessedInPersistentActor
+}
+import shared.crudRESTCallCommands.persActorCommands.{
+  GetAllEntityiesForUserPersActCmd,
+  InsertEntityPersActCmd,
+  ShutDown,
+  UpdateEntitiesPersActorCmd,
+  UpdateEntityPersActCmd
+}
+import shared.dataStorage.{
+  RefToEntityOwningUser,
+  UnTypedReferencedValue
+}
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
 
@@ -28,8 +41,37 @@ class PersistentActorImpl(id: String)
       sender ! GetAllEntityiesForUserPersActCmd(userRef, Some(umap))
     }
 
-    case UpdateEntitiesPersActorCmd(list) =>{
-        // todo-now
+    case UpdateEntitiesPersActorCmd(list, rs) => {
+      // todo-now
+      val res: Option[EntityStorage] = list.foldLeft(
+        Some(state).asInstanceOf[Option[EntityStorage]]
+      )({ (s, c) =>
+        EntityStorage.updateOpt(s,
+                                c.currentUnTypedReferencedValue,
+                                c.newUTPVal)
+      })
+      if (res.isDefined) {
+        state = res.get
+        val toReturn = UpdateEntitiesPersActorCmd(
+          list,
+          RequestSuccessfullyProcessedInPersistentActor()
+        )
+        println(
+          s"batch update on server succeeded, we return:\n$toReturn"
+        )
+        sender ! toReturn
+
+      } else {
+
+        val toReturnToSender = UpdateEntitiesPersActorCmd(
+          list,
+          RequestReturnedWithError(s"error on server with + $list")
+        )
+
+        println(s"update on server failed:\n$toReturnToSender")
+        sender ! toReturnToSender
+      }
+
     }
 
     case UpdateEntityPersActCmd(unTypedReferencedValue,

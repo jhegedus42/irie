@@ -24,7 +24,7 @@ import shared.dataStorage.{
 
 @JsonCodec
 case class UpdateEntitiesPersActorCmd(
-  cmds: List[UpdateEntityPersActCmd])
+  cmds: List[UpdateEntityPersActCmd],requestState:RequestState)
     extends PersActorCommand
 
 object UpdateEntitiesPersActorCmd {
