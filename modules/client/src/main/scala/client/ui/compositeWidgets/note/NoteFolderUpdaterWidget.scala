@@ -2,21 +2,12 @@ package client.ui.compositeWidgets.note
 
 import client.cache.Cache
 import client.sodium.core.Cell
+import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
-import client.ui.compositeWidgets.general.{
-  CellOptionDisplayerWidget,
-  EntitySelectorWidget,
-  EntityUpdaterButton
-}
+import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{
-  Note,
-  NoteFolder,
-  Ref,
-  TypedReferencedValue,
-  VersionedValue
-}
+import shared.dataStorage.{Note, NoteFolder, Ref, TypedReferencedValue, VersionedValue}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -40,9 +31,11 @@ case class NoteFolderUpdaterWidget(
       selectedNote.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
       ), { n: Note =>
-        <.div(s"Selected Note's title: ${n.title}",
-              <.br,
-              (s"Selected Note's NoteFolder's Ref: ${n.folderR}"))
+        <.div(
+          s"Selected Note's title: ${n.title}",
+          <.br,
+          (s"Selected Note's NoteFolder's Ref: ${n.locationInNoteFolderOpt}")
+        )
       }
     )
 
@@ -67,13 +60,14 @@ case class NoteFolderUpdaterWidget(
         x.flatMap(
           (z: TypedReferencedValue[Note]) => {
             val res1: Option[Ref[NoteFolder]] =
-              z.versionedEntityValue.valueWithoutVersion.folderR
+              z.versionedEntityValue.valueWithoutVersion.locationInNoteFolderOpt.map(_.nf)
             res1
           }
         )
       })
 
-    val res: Cell[Option[TypedReferencedValue[NoteFolder]]] =Cache.resolveRef(sn)
+    val res: Cell[Option[TypedReferencedValue[NoteFolder]]] =
+      Cache.resolveRef(sn)
     res.map(_.map(_.versionedEntityValue.valueWithoutVersion))
   }
 
@@ -90,13 +84,14 @@ case class NoteFolderUpdaterWidget(
     )
 
   lazy val entityUpdaterButton
-    : EntityUpdaterButton[Note, Option[Ref[NoteFolder]]] = {
+    : SButton = {
 
     def setter(
       nf: Option[Ref[NoteFolder]],
       n:  Note
     ): Note = {
-      n.copy(folderR = nf)
+//      n.copy(folderR = nf)
+      ??? // todo-now
     }
 
     val newValue: Cell[Option[Ref[NoteFolder]]] =
@@ -110,6 +105,7 @@ case class NoteFolderUpdaterWidget(
       "update"
     )
 
+    ???
   }
 
   def getComp = {
@@ -123,7 +119,7 @@ case class NoteFolderUpdaterWidget(
         selectedNoteFolderDisplayer.displayer(),
         selectedNoteDisplayer.displayer(),
         selectedNotesNoteFolderDisplayer.displayer(),
-        entityUpdaterButton.updaterButton.comp(),
+        entityUpdaterButton.comp(),
         <.hr,
         <.br
       )

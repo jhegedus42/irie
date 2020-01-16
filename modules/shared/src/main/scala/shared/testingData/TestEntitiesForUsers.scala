@@ -27,7 +27,7 @@ object TestEntitiesForUsers {
   val aliceEntity: TypedReferencedValue[User] =
     shared.dataStorage.TypedReferencedValue(alice)
 
-  val bobEntity: TypedReferencedValue[User] =
+  val bobUserEntity: TypedReferencedValue[User] =
     shared.dataStorage.TypedReferencedValue(bob)
 
   val meresiHibaEntity: TypedReferencedValue[User] =
@@ -35,12 +35,12 @@ object TestEntitiesForUsers {
       meresiHiba
     )
 
-  val terezAnyaEntity: TypedReferencedValue[User] =
+  val terezAnyaUserEntity: TypedReferencedValue[User] =
     shared.dataStorage.TypedReferencedValue(
       terezAnya
     )
 
-  val jetiLabnyomEntity: TypedReferencedValue[User] =
+  val jetiLabnyomUserEntity: TypedReferencedValue[User] =
     shared.dataStorage.TypedReferencedValue(
       jetiLabnyom
     )
@@ -51,7 +51,7 @@ object TestEntitiesForUsers {
     .lens(_.ref.unTypedRef.uuid)
     .set(UUIDs.uuid00)
 
-  val bobEntity_with_UUID1 = bobEntity
+  val bobEntity_with_UUID1 = bobUserEntity
     .lens(_.ref.unTypedRef.uuid)
     .set(UUIDs.uuid01)
 

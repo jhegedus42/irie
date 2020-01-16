@@ -21,22 +21,22 @@ object TestDataStore extends App {
 
   lazy val ue = EntityStorage()
 
-  lazy val aliceEnt: TypedReferencedValue[User] =
+  lazy val aliceUserEnt: TypedReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
   lazy val mh =
     TestEntitiesForUsers.meresiHiba_with_UUID2.ref
 
-  lazy val ar = aliceEnt.ref
+  lazy val ar = aliceUserEnt.ref
 
   import TestEntitiesForUsers._
 
   def testData: EntityStorage =
-    ue.insertHelper(aliceEnt.addEntityOwnerInfo(ar))
-      .insertHelper(bobEntity.addEntityOwnerInfo(ar))
-      .insertHelper(terezAnyaEntity.addEntityOwnerInfo(ar))
+    ue.insertHelper(aliceUserEnt.addEntityOwnerInfo(ar))
+      .insertHelper(bobUserEntity.addEntityOwnerInfo(ar))
+      .insertHelper(terezAnyaUserEntity.addEntityOwnerInfo(ar))
       .insertHelper(
-        jetiLabnyomEntity.addEntityOwnerInfo(mh)
+        jetiLabnyomUserEntity.addEntityOwnerInfo(mh)
       )
       .insertHelper(
         TestEntitiesForNotes.note01AliceWithRef.addEntityOwnerInfo(ar)
@@ -50,8 +50,7 @@ object TestDataStore extends App {
       .insertHelper(TestDataForImages.appleImage)
       .insertHelper(TestDataForImages.starImage)
       .insertHelper(TestDataForImages.musicImage)
-    .insertHelper(TestDataForNoteFolders.noteFolderOneWithRef)
+      .insertHelper(TestDataForNoteFolders.noteFolderOneWithRef)
       .insertHelper(TestDataForNoteFolders.noteFolderTwoWithRef)
-
 
 }

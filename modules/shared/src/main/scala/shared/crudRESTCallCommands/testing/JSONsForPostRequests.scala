@@ -7,7 +7,7 @@ import shared.testingData.TestDataStore
 object JSONsForPostRequests extends App {
 
   lazy val userRef =
-    TestDataStore.aliceEnt.ref.unTypedRef.refToEntityOwningUser
+    TestDataStore.aliceUserEnt.ref.unTypedRef.refToEntityOwningUser
   val req = GetAllEntityiesForUserPersActCmd(userRef, None)
 
   // continu here, print this json

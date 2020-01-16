@@ -16,14 +16,14 @@ import shared.dataStorage.{
 import shapeless.Typeable
 
 @JsonCodec
-case class UpdateEntityInCacheCmd[V <: Value[V]](
+case class UpdateEntitiesInCacheCmd[V <: Value[V]](
   currentTypedReferencedValue: TypedReferencedValue[V],
   newValue:                    V)
 
-object UpdateEntityInCacheCmd {
+object UpdateEntitiesInCacheCmd {
 
   def toUpdateEntityPersActCmd[V <: Value[V]: Encoder: Typeable](
-    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
+    updateEntityInCacheCmd: UpdateEntitiesInCacheCmd[V]
   ): UpdateEntityPersActCmd = {
     val currentTypedRefVal: TypedReferencedValue[V] =
       updateEntityInCacheCmd.currentTypedReferencedValue

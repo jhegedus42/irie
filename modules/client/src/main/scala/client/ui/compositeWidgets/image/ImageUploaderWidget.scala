@@ -6,7 +6,7 @@ import japgolly.scalajs.react._
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import bootstrap4.TB.C
 import bootstrap4.TB.C
-import client.cache.{Cache, UpdateEntityInCacheCmd}
+import client.cache.{Cache, UpdateEntitiesInCacheCmd}
 import client.sodium.core.Cell
 import client.ui.compositeWidgets.note.NotesWidget
 import org.scalajs.dom.FormData
@@ -74,7 +74,7 @@ case class ImageUploaderWidget(
                         val newVal =
                           v.lens(_.fileName).set(Some(value))
                         lazy val cmd =
-                          UpdateEntityInCacheCmd(img, newVal)
+                          UpdateEntitiesInCacheCmd(img, newVal)
                         c.updateEntityCommandStream.send(cmd)
                       }
 

@@ -16,7 +16,6 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.{Note, TypedReferencedValue, User}
-
 import scala.concurrent.ExecutionContextExecutor
 
 case class NotesWidget() {
@@ -47,7 +46,7 @@ case class NotesWidget() {
 //  )
 
   lazy val noteCreator = EntityCreatorWidget({ () =>
-    Note("default title", "default content" )
+    Note("default title", "default content",None )
   }, "Note")
 
   def getComp = {

@@ -92,7 +92,7 @@ object CacheMap {
   }
 
   def updateReferencedValueTransformer[V <: Value[V]](
-    updateCommand: UpdateEntityInCacheCmd[V]
+    updateCommand: UpdateEntitiesInCacheCmd[V]
   )(
     implicit
     typeable: Typeable[V]

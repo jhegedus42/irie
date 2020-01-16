@@ -100,11 +100,11 @@ object AJAXCalls {
   }
 
   def updateEntityOnServer[V <: Value[V]: Encoder: Typeable](
-    updateEntityInCacheCmd: UpdateEntityInCacheCmd[V]
+    updateEntityInCacheCmd: UpdateEntitiesInCacheCmd[V]
   ): Unit = {
 
     val updateEntityPersActCmd: UpdateEntityPersActCmd =
-      UpdateEntityInCacheCmd.toUpdateEntityPersActCmd(
+      UpdateEntitiesInCacheCmd.toUpdateEntityPersActCmd(
         updateEntityInCacheCmd
       )
 

@@ -23,7 +23,7 @@ import scala.util.Try
 import client.sodium.core.Cell
 
 case class Cache[V <: Value[V]: Encoder](
-  setInitialValueTransformerStream: Stream[
+  setCacheValue: Stream[
     CacheMap[V] => CacheMap[V]
   ],
   typeName: String
@@ -36,8 +36,11 @@ case class Cache[V <: Value[V]: Encoder](
     new StreamSink[TypedReferencedValue[V]]()
 
   lazy val updateEntityCommandStream
-    : StreamSink[UpdateEntityInCacheCmd[V]] =
-    new StreamSink[UpdateEntityInCacheCmd[V]]()
+    : StreamSink[UpdateEntitiesInCacheCmd[V]] =
+    new StreamSink[UpdateEntitiesInCacheCmd[V]]()
+
+//  lazy val updateEntityStream
+
 
   val cellLoop: CellLoop[CacheMap[V]] = Transaction.apply[CellLoop[
     CacheMap[V]
@@ -81,8 +84,8 @@ case class Cache[V <: Value[V]: Encoder](
       val updateEntityTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] = {
 
-        lazy val updateHandler: UpdateEntityInCacheCmd[V] => Unit = {
-          x: UpdateEntityInCacheCmd[V] =>
+        lazy val updateHandler: UpdateEntitiesInCacheCmd[V] => Unit = {
+          x: UpdateEntitiesInCacheCmd[V] =>
             AJAXCalls.updateEntityOnServer(x)
 
         }
@@ -92,11 +95,15 @@ case class Cache[V <: Value[V]: Encoder](
         updateEntityCommandStream.map(
           CacheMap.updateReferencedValueTransformer[V](_)
         )
+
+//        updateEntityTransformerStream.collect(List(),)
+
       }
+
 
       lazy val combinedCacheMapTransformerStream
         : Stream[CacheMap[V] => CacheMap[V]] =
-        setInitialValueTransformerStream
+        setCacheValue
           .orElse(insertEntityTransformerStream).orElse(
             updateEntityTransformerStream
           )
@@ -131,10 +138,10 @@ object Cache {
 
     val res: Cell[Option[TypedReferencedValue[V]]] = cm.lift(ref, {
       (x, ro: Option[Ref[V]]) =>
-      for{
-        r<-ro
-        z<-x.resRef(r)
-      } yield (z)
+        for {
+          r <- ro
+          z <- x.resRef(r)
+        } yield (z)
     })
     res
   }

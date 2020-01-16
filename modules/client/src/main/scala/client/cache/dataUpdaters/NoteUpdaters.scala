@@ -15,7 +15,13 @@ import shared.dataStorage.{
   TypedReferencedValue
 }
 
+
+
 object NoteUpdaters {
+
+//  def createNote()
+
+
 
 //  def setNoteFolderForNote(
 //    note:      Cell[Option[TypedReferencedValue[Note]]],
@@ -23,8 +29,10 @@ object NoteUpdaters {
 //  )(
 //    implicit
 //    nc: Cache[Note],
-//    nf: Cache[Ref[NoteFolder]]
-//  ): Stream[Unit] = {
+//    nf: Cache[NoteFolder]
+//  ):  = {
+//
 //    ???
+//
 //  }
 }

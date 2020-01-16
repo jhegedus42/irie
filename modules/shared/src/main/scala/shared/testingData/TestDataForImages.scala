@@ -1,7 +1,7 @@
 package shared.testingData
 
 import shared.dataStorage.{Image, TypedReferencedValue, User}
-import shared.testingData.TestDataStore.aliceEnt
+import shared.testingData.TestDataStore.aliceUserEnt
 
 object TestDataForImages {
 
