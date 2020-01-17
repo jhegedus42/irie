@@ -1,4 +1,4 @@
-package client.ui.compositeWidgets.image
+package client.ui.compositeWidgets.specific.image
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, ^, _}
 import japgolly.scalajs.react._
@@ -9,10 +9,10 @@ import bootstrap4.TB.C
 import client.cache.Cache
 import client.cache.commands.UpdateEntityInCacheCmd
 import client.sodium.core.Cell
-import client.ui.compositeWidgets.note.NotesWidget
+import client.ui.compositeWidgets.specific.note.NotesWidget
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.{Image, TypedReferencedValue}
+import shared.dataStorage.{ImageWithQue, TypedReferencedValue}
 
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
@@ -24,8 +24,8 @@ import scalajs.runtime.propertiesOf
 import scalajs.js._
 
 case class ImageUploaderWidget(
-  imgOpt: Cell[Option[TypedReferencedValue[Image]]],
-  c:      Cache[Image]) {
+                                imgOpt: Cell[Option[TypedReferencedValue[ImageWithQue]]],
+                                c:      Cache[ImageWithQue]) {
 
   def render: () => VdomElement = { () =>
     <.div(

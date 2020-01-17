@@ -1,8 +1,8 @@
-package client.ui.compositeWidgets.image
+package client.ui.compositeWidgets.specific.image
 
 import client.cache.{Cache, CacheMap}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
-import shared.dataStorage.{Image }
+import shared.dataStorage.{ImageWithQue }
 
 object ImageList {
 
@@ -13,7 +13,7 @@ object ImageList {
         .cellLoop
         .updates()
         .map(
-          (c: CacheMap[Image]) =>
+          (c: CacheMap[ImageWithQue]) =>
             c.getPrettyPrintedString
         )
     )

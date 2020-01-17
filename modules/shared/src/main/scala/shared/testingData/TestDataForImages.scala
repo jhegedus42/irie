@@ -1,6 +1,15 @@
 package shared.testingData
 
-import shared.dataStorage.{Image, TypedReferencedValue, User}
+import shared.dataStorage.{
+  Coord,
+  ImageWithQue,
+  LocationOfQueFromNextImage,
+  QueForPreviousImage,
+  Rect,
+  Size,
+  TypedReferencedValue,
+  User
+}
 import shared.testingData.TestDataStore.aliceUserEnt
 
 object TestDataForImages {
@@ -10,13 +19,29 @@ object TestDataForImages {
 
   lazy val ar = aliceEnt.ref
 
-  val appleImage = TypedReferencedValue(Image("apple", None,None))
-    .addEntityOwnerInfo(ar)
+  lazy val defaultRect = Rect(Coord(50, 50), Size(50, 50))
 
-  val starImage = TypedReferencedValue(Image("star", None,None))
-    .addEntityOwnerInfo(ar)
+  def createNewImageWithQue(title: String): ImageWithQue = {
+    val t = ImageWithQue(
+      title,
+      None,
+      None,
+      Some(QueForPreviousImage(defaultRect)),
+      Some(LocationOfQueFromNextImage(defaultRect))
+    )
+    t
+  }
 
-  val musicImage = TypedReferencedValue(Image("music", None,None))
-    .addEntityOwnerInfo(ar)
+  val appleImage = TypedReferencedValue(
+    createNewImageWithQue("apple")
+  ).addEntityOwnerInfo(ar)
+
+  val starImage =
+    TypedReferencedValue(createNewImageWithQue("star"))
+      .addEntityOwnerInfo(ar)
+
+  val musicImage = TypedReferencedValue(
+    createNewImageWithQue("music")
+  ).addEntityOwnerInfo(ar)
 
 }

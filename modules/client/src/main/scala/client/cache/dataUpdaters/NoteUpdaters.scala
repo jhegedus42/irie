@@ -11,7 +11,7 @@ import client.sodium.core.{
 import client.ui.atomicWidgets.input.SButton
 import shared.dataStorage.{
   Note,
-  NoteFolder,
+  Folder,
   Ref,
   TypedReferencedValue
 }
@@ -22,7 +22,7 @@ object NoteUpdaters {
 
   def moveNoteIntoNoteFolderButton(
     noteC:   Cell[Option[TypedReferencedValue[Note]]],
-    folderC: Cell[Option[Ref[NoteFolder]]]
+    folderC: Cell[Option[Ref[Folder]]]
   ): SButton = {
     ???
 

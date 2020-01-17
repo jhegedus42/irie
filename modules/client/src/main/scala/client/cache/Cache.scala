@@ -9,9 +9,9 @@ import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
 import shared.dataStorage.{
-  Image,
+  ImageWithQue,
   Note,
-  NoteFolder,
+  Folder,
   Ref,
   TypedReferencedValue,
   User,
@@ -177,12 +177,12 @@ object Cache {
     CacheMaker[Note](streamToSetInitialCacheState)
       .getCache()
 
-  implicit val imgCache: Cache[Image] =
-    CacheMaker[Image](streamToSetInitialCacheState)
+  implicit val imgCache: Cache[ImageWithQue] =
+    CacheMaker[ImageWithQue](streamToSetInitialCacheState)
       .getCache()
 
-  implicit val noteFolderCache: Cache[NoteFolder] =
-    CacheMaker[NoteFolder](streamToSetInitialCacheState)
+  implicit val noteFolderCache: Cache[Folder] =
+    CacheMaker[Folder](streamToSetInitialCacheState)
       .getCache()
 
 }

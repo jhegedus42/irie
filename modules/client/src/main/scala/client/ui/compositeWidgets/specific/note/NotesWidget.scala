@@ -1,4 +1,4 @@
-package client.ui.compositeWidgets.note
+package client.ui.compositeWidgets.specific.note
 
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.{CellLoop, CellSink}

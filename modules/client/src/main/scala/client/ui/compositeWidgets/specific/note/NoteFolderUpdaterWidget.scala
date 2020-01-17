@@ -1,4 +1,4 @@
-package client.ui.compositeWidgets.note
+package client.ui.compositeWidgets.specific.note
 
 import client.cache.Cache
 import client.sodium.core.Cell
@@ -13,7 +13,7 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import shared.dataStorage.{
   Note,
-  NoteFolder,
+  Folder,
   Ref,
   TypedReferencedValue,
   VersionedValue
@@ -28,11 +28,11 @@ case class NoteFolderUpdaterWidget(
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  implicit lazy val noteFolderCache: Cache[NoteFolder] =
+  implicit lazy val noteFolderCache: Cache[Folder] =
     Cache.noteFolderCache
 
-  val noteFolderSelectorWidget = EntitySelectorWidget[NoteFolder]({
-    x: NoteFolder =>
+  val noteFolderSelectorWidget = EntitySelectorWidget[Folder]({
+    x: Folder =>
       x.name
   })
 
@@ -48,10 +48,10 @@ case class NoteFolderUpdaterWidget(
     )
 
   lazy val selectedNoteFolderDisplayer =
-    CellOptionDisplayerWidget[NoteFolder](
+    CellOptionDisplayerWidget[Folder](
       noteFolderSelectorWidget.selectedEntity.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
-      ), { nf: NoteFolder =>
+      ), { nf: Folder =>
         <.div(
           <.br,
           s"Selected NoteFolder's name:",

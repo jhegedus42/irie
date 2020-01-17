@@ -1,18 +1,18 @@
-package client.ui.compositeWidgets.image
+package client.ui.compositeWidgets.specific.image
 
 import java.net.FileNameMap
 
 import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
-import shared.dataStorage.{Image, TypedReferencedValue, Value}
+import shared.dataStorage.{ImageWithQue, TypedReferencedValue, Value}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 case class ImageDisplayerWidget(
-  img: Cell[Option[TypedReferencedValue[Image]]]
+  img: Cell[Option[TypedReferencedValue[ImageWithQue]]]
 ) {
 
-  lazy val cellOptionImage: Cell[Option[Image]] =
+  lazy val cellOptionImage: Cell[Option[ImageWithQue]] =
     img.map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
 
@@ -31,8 +31,8 @@ case class ImageDisplayerWidget(
   }
 
   lazy val imageDisplayer =
-    CellOptionDisplayerWidget[Image](
-      cellOptionImage, { x: Image =>
+    CellOptionDisplayerWidget[ImageWithQue](
+      cellOptionImage, { x: ImageWithQue =>
         {
           <.div(
             <.hr,

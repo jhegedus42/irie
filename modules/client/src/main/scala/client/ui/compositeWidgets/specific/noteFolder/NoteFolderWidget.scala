@@ -1,13 +1,13 @@
-package client.ui.compositeWidgets.noteFolder
+package client.ui.compositeWidgets.specific.noteFolder
 
 import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.show.text.CellPreformattedText
 import client.ui.compositeWidgets.general.{EntitySelectorWidget, EntityUpdaterButton}
-import client.ui.compositeWidgets.note.NoteFolderUpdaterWidget
+import client.ui.compositeWidgets.specific.note.NoteFolderUpdaterWidget
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{Note, NoteFolder, Ref}
+import shared.dataStorage.{Note, Folder, Ref}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import japgolly.scalajs.react.ScalaComponent
 
@@ -19,10 +19,10 @@ case class NoteFolderWidget() {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  implicit lazy val noteFolderCache: Cache[NoteFolder] =
+  implicit lazy val noteFolderCache: Cache[Folder] =
     Cache.noteFolderCache
 
-  val selector = EntitySelectorWidget[NoteFolder]({ x: NoteFolder =>
+  val selector = EntitySelectorWidget[Folder]({ x: Folder =>
     x.name
   })
 

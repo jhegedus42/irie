@@ -1,4 +1,4 @@
-package client.ui.compositeWidgets.archive
+package client.ui.compositeWidgets.specific
 
 import client.cache.commands.UpdateEntityInCacheCmd
 import client.cache.{Cache, CacheMap}

@@ -5,10 +5,9 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
-import client.ui.compositeWidgets.archive.CounterExampleWidget
-import client.ui.compositeWidgets.image.{ImageList, ImagesWidget}
-import client.ui.compositeWidgets.note.NotesWidget
-import client.ui.compositeWidgets.noteFolder.NoteFolderWidget
+import client.ui.compositeWidgets.specific.image.{ImageList, ImagesWidget}
+import client.ui.compositeWidgets.specific.note.NotesWidget
+import client.ui.compositeWidgets.specific.noteFolder.NoteFolderWidget
 import client.ui.wrappedReact.{
   Crop,
   ReactCrop,

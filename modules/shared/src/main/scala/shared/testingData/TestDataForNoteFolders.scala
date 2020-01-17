@@ -4,14 +4,14 @@ import shared.dataStorage.{TypedReferencedValue, User}
 import shared.testingData.TestDataStore.aliceUserEnt
 
 object TestDataForNoteFolders {
-  import shared.dataStorage.NoteFolder
+  import shared.dataStorage.Folder
 
   lazy val aliceEnt: TypedReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0
 
   lazy val ar = aliceEnt.ref
 
-  lazy val noteFolderOne = NoteFolder(
+  lazy val noteFolderOne = Folder(
     "Note Folder One",
     List(
       TestEntitiesForNotes.note02AliceWithRef.ref
@@ -20,7 +20,7 @@ object TestDataForNoteFolders {
         .addTypeInfo().addEntityOwnerInfo(ar)
     )
   )
-  lazy val noteFolderTwo = NoteFolder("Note Folder Two", List())
+  lazy val noteFolderTwo = Folder("Note Folder Two", List())
 
   lazy val noteFolderOneWithRef =
     TypedReferencedValue(noteFolderOne).addEntityOwnerInfo(ar)

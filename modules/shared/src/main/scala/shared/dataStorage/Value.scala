@@ -31,11 +31,13 @@ case class Note(
     extends Value[Note]
 
 @JsonCodec
-case class Image(
-  title:           String,
-  referenceToNote: Option[Ref[Note]],
-  fileName:        Option[String])
-    extends Value[Image]
+case class ImageWithQue(
+  title:               String,
+  referenceToNote:     Option[Ref[Note]],
+  fileName:            Option[String],
+  queForPreviousImage: Option[QueForPreviousImage],
+  queFromNextImage:    Option[LocationOfQueFromNextImage])
+    extends Value[ImageWithQue]
 
 @JsonCodec
 case class User(
@@ -45,7 +47,28 @@ case class User(
     extends Value[User]
 
 @JsonCodec
-case class NoteFolder(
+case class Folder(
   name:  String,
   notes: List[Ref[Note]])
-    extends Value[NoteFolder]
+    extends Value[Folder]
+
+@JsonCodec
+case class LocationOfQueFromNextImage(rect: Rect)
+
+@JsonCodec
+case class QueForPreviousImage(rect: Rect)
+
+@JsonCodec
+case class Coord(
+  x: Int,
+  y: Int)
+
+@JsonCodec
+case class Size(
+  width:  Int,
+  height: Int)
+
+@JsonCodec
+case class Rect(
+  center: Coord,
+  size:   Size)
