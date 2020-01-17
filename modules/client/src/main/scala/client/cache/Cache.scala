@@ -181,7 +181,7 @@ object Cache {
     CacheMaker[ImageWithQue](streamToSetInitialCacheState)
       .getCache()
 
-  implicit val noteFolderCache: Cache[Folder] =
+  implicit val folderCache: Cache[Folder] =
     CacheMaker[Folder](streamToSetInitialCacheState)
       .getCache()
 

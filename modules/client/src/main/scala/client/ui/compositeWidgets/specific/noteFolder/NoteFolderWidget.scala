@@ -20,7 +20,7 @@ case class NoteFolderWidget() {
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
   implicit lazy val noteFolderCache: Cache[Folder] =
-    Cache.noteFolderCache
+    Cache.folderCache
 
   val selector = EntitySelectorWidget[Folder]({ x: Folder =>
     x.name
