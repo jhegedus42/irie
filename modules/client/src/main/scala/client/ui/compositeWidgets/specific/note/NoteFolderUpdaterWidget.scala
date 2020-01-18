@@ -5,10 +5,20 @@ import client.cache.relationalOperations.RelationalOperations
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
-import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  EntitySelectorWidget,
+  EntityUpdaterButton
+}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{Folder, Note, Ref, TypedReferencedValue, VersionedValue}
+import shared.dataStorage.{
+  Folder,
+  Note,
+  Ref,
+  TypedReferencedValue,
+  VersionedValue
+}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 import scala.concurrent.ExecutionContextExecutor
@@ -62,22 +72,40 @@ case class NoteFolderUpdaterWidget(
 
   lazy val selectedNotesNoteFolder: Cell[Option[Folder]] = {
 
-//    def g(f:Folder)=f.notes.contains()
-//    RelationalOperations.filterTable()
-      ???
+    val filterBy: Cell[Folder => Boolean] = {
+      selectedNote.map((xtrv: Option[TypedReferencedValue[Note]]) => {
+        val xOpt: Option[Ref[Note]] =
+          xtrv.map(_.ref)
+        (f: Folder) => {
+
+          def g: Ref[Note] => Boolean = { rn: Ref[Note] =>
+            f.notes.contains(rn)
+          }
+          val res = xOpt.map(g)
+          res.getOrElse(false)
+        }
+      })
+    }
+    val res: Cell[Set[TypedReferencedValue[Folder]]] =
+      RelationalOperations.filterTable(filterBy)
+
+    val r2: Cell[Option[Folder]] = res.map(
+      _.headOption.map(_.versionedEntityValue.valueWithoutVersion)
+    )
+    r2
   }
 
-//  lazy val selectedNotesNoteFolderDisplayer =
-//    CellOptionDisplayerWidget[NoteFolder](
-//      selectedNotesNoteFolder, { nf: NoteFolder =>
-//        <.div(
-//          <.br,
-//          s"Selected Note's NoteFolder's name:",
-//          nf.name,
-//          <.br
-//        )
-//      }
-//    )
+  lazy val selectedNotesNoteFolderDisplayer =
+    CellOptionDisplayerWidget[Folder](
+      selectedNotesNoteFolder, { nf: Folder =>
+        <.div(
+          <.br,
+          s"Selected Note's NoteFolder's name:",
+          nf.name,
+          <.br
+        )
+      }
+    )
 
 //  lazy val entityUpdaterButton
 //    : SButton = {
@@ -114,7 +142,7 @@ case class NoteFolderUpdaterWidget(
         noteFolderSelectorWidget.selectorTable.comp(),
         selectedNoteFolderDisplayer.displayer(),
         selectedNoteDisplayer.displayer(),
-//        selectedNotesNoteFolderDisplayer.displayer(),
+        selectedNotesNoteFolderDisplayer.displayer(),
 //        entityUpdaterButton.comp(),
 //        <.hr,
         <.br

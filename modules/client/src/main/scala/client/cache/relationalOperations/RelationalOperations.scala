@@ -23,19 +23,21 @@ object RelationalOperations {
     c: Cache[V]
   ): Cell[Set[TypedReferencedValue[V]]] = {
 
-    def f(cm: CacheMap[V],g:V=>Boolean): Set[TypedReferencedValue[V]] = {
+    def f(
+      cm: CacheMap[V],
+      g:  V => Boolean
+    ): Set[TypedReferencedValue[V]] = {
 
-      val res: Iterable[TypedReferencedValue[V]] =cm.cacheMap.values.filter({ x =>
-        g(x.versionedEntityValue.valueWithoutVersion)
-      })
+      val res: Iterable[TypedReferencedValue[V]] =
+        cm.cacheMap.values.filter({ x =>
+          g(x.versionedEntityValue.valueWithoutVersion)
+        })
 
       res.toSet
     }
 
-    c.cellLoop.lift(filterCriteriaCell,f)
+    c.cellLoop.lift(filterCriteriaCell, f)
 
   }
 
 }
-
-
