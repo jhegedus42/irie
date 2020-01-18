@@ -2,6 +2,7 @@ package client.ui.compositeWidgets.general
 
 import client.cache.Cache
 import client.cache.commands.UpdateEntityInCacheCmd
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
@@ -9,38 +10,22 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import shared.dataStorage.{TypedReferencedValue, Value}
 
-case class EntityUpdaterButton[V <: Value[V], T](
-  selectedEntity: Cell[Option[TypedReferencedValue[V]]],
-  cache:          Cache[V],
-  setter:         (T,V) => V,
-  newValue:       Cell[T],
-  buttonLabel:    String) {
-
-  lazy val currentValueC: core.Cell[Option[V]] =
-    selectedEntity
-      .map(_.map(_.versionedEntityValue.valueWithoutVersion))
-
-  def updateCMD(
-    trvOpt: Option[TypedReferencedValue[V]]
-  ): Option[UpdateEntityInCacheCmd[V]] = {
-    for {
-      curVal <- currentValueC.sample()
-      newField = newValue.sample()
-      trv <- selectedEntity.sample()
-      newVal    = setter(newField,curVal)
-      updateCMD = UpdateEntityInCacheCmd[V](trv, newVal)
-    } yield (updateCMD)
-  }
+case class EntityUpdaterButton[V <: Value[V]](
+  selectedEntityOpt: CellOption[TypedReferencedValue[V]],
+  cache:             Cache[V],
+  newValOpt:         CellOption[V],
+  buttonLabel:       String) {
 
   lazy val updaterButton = SButton(
     buttonLabel,
     Some({ () =>
       {
-        lazy val trvOpt = selectedEntity.sample()
-        lazy val cmdOpt = updateCMD(trvOpt)
-        if (cmdOpt.isDefined) {
-          val cmd = cmdOpt.get
-          cache.updateEntityCommandStream.send(cmd)
+        lazy val trvOpt      = selectedEntityOpt.co.sample()
+        lazy val newValueOpt = newValOpt.co.sample()
+        if (trvOpt.isDefined && newValueOpt.isDefined) {
+          val updateCMD =
+            UpdateEntityInCacheCmd[V](trvOpt.get, newValueOpt.get)
+          cache.updateEntityCommandStream.send(updateCMD)
         }
       }
     })

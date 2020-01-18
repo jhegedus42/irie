@@ -30,13 +30,12 @@ object RelationalOperations {
 //  def resolveListOfOptions[V<:Value[V]]()
 
   def resolveListOfRefOptions[V <: Value[V]](
-    listOfRefOptions: Cell[Option[List[Ref[V]]]]
-  ): Cell[Option[List[TypedReferencedValue[V]]]] = {
-
-    // continue here - TOMORROW
-
-    ???
-
+    listOfRefOptions: CellOption[List[Ref[V]]]
+  )(
+    implicit
+    c: Cache[V]
+  ): CellOption[List[TypedReferencedValue[V]]] = {
+    new CellOption(Cache.resolveListOfRefs(listOfRefOptions.co))
   }
 
   def filterTable[V <: Value[V]](
@@ -62,5 +61,8 @@ object RelationalOperations {
     c.cellLoop.lift(filterCriteriaCell, f)
 
   }
+
+
+
 
 }

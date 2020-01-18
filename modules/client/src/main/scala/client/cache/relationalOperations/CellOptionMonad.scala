@@ -49,6 +49,10 @@ object CellOptionMonad {
       new CellOption[A](c)
     }
 
+    def fromCellOption[A](co:Cell[Option[A]]):CellOption[A]={
+      new CellOption[A](co)
+    }
+
   }
 
   lazy val testFor = for {

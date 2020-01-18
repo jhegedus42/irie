@@ -12,7 +12,9 @@ import org.scalajs.dom.html.Div
 
 case class EntitySelectorWidget[V <: Value[V]](
   nameProvider: V => String
-)( implicit c: Cache[V]) {
+)(
+  implicit
+  c: Cache[V]) {
 
   lazy val initCell = new Cell[Option[TypedReferencedValue[V]]](None)
 

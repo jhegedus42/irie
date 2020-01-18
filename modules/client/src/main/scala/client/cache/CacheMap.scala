@@ -70,6 +70,15 @@ case class CacheMap[V <: Value[V]](
   def resRef(r: Ref[V]): Option[TypedReferencedValue[V]] =
     cacheMap.get(r)
 
+  def resListOfRefs(lr:List[Ref[V]]):Option[List[TypedReferencedValue[V]]] ={
+
+    import cats.implicits._
+    val list = List(Some(1), Some(2), None)
+    val sequenced: Option[List[Int]] = list.sequence
+    val res: Option[List[TypedReferencedValue[V]]] =lr.map(resRef(_)).sequence
+    res
+  }
+
   def toJSON(
     implicit
     enc: Encoder[V],
@@ -144,6 +153,11 @@ object CacheMap {
         CacheMap(newMap)
       } else CacheMap(oldMap)
     }
+  }
+
+  object TestingCats {
+
+
   }
 
 }

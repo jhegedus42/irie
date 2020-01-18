@@ -4,14 +4,15 @@ import client.cache.commands.{
   UpdateEntitiesInCacheCommand,
   UpdateEntityInCacheCmd
 }
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
 import shared.dataStorage.{
+  Folder,
   ImageWithQue,
   Note,
-  Folder,
   Ref,
   TypedReferencedValue,
   User,
@@ -116,7 +117,6 @@ case class Cache[V <: Value[V]: Encoder](
 
         updateEntitiesCommandStream.listen(updateHandler)
 
-
         updateEntitiesCommandStream.map(CacheMap.updateEntities[V](_))
 
       }
@@ -148,6 +148,14 @@ case class Cache[V <: Value[V]: Encoder](
 
 object Cache {
 
+  def getAllEntites[V <: Value[V]](
+  )(
+    implicit
+    c: Cache[V]
+  ): CellOption[Set[TypedReferencedValue[V]]] = {
+    CellOption.fromCell(c.cellLoop.map(_.cacheMap.values.toSet))
+  }
+
   def resolveRef[V <: Value[V]](
     ref: Cell[Option[Ref[V]]]
   )(
@@ -163,6 +171,24 @@ object Cache {
           z <- x.resRef(r)
         } yield (z)
     })
+    res
+  }
+
+  def resolveListOfRefs[V <: Value[V]](
+    lor: Cell[Option[List[Ref[V]]]]
+  )(
+    implicit
+    c: Cache[V]
+  ): Cell[Option[List[TypedReferencedValue[V]]]] = {
+    val cm: Cell[CacheMap[V]] = c.cellLoop
+
+    val res: Cell[Option[List[TypedReferencedValue[V]]]] =
+      cm.lift(lor, { (x, ro: Option[List[Ref[V]]]) =>
+        for {
+          r <- ro
+          z <- x.resListOfRefs(r)
+        } yield (z.toList)
+      })
     res
   }
 

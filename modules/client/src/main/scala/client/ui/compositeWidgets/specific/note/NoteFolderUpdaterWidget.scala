@@ -30,7 +30,7 @@ case class NoteFolderUpdaterWidget(
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  implicit lazy val noteFolderCache: Cache[Folder] =
+  implicit lazy val folderCache: Cache[Folder] =
     Cache.folderCache
 
   val noteFolderSelectorWidget = EntitySelectorWidget[Folder]({
@@ -72,11 +72,24 @@ case class NoteFolderUpdaterWidget(
     )
 
   lazy val noteNames: CellOption[List[String]] = {
-    ???
-    // todo now : get Cell[Option[List[TypedReferencedValue[Note]]]]
+    val ref: CellOption[TypedReferencedValue[Folder]] =
+      CellOption.fromCellOption(
+        noteFolderSelectorWidget.selectedEntity
+      )
+
+    val notes: CellOption[List[Ref[Note]]] =
+      ref.map(_.versionedEntityValue.valueWithoutVersion.notes)
+
+    val res1: CellOption[List[TypedReferencedValue[Note]]] =
+      RelationalOperations.resolveListOfRefOptions[Note](notes)
+
+    val res2: CellOption[List[String]] = res1.map(
+      _.map(_.versionedEntityValue.valueWithoutVersion.title)
+    )
+    res2
   }
 
-  lazy val resolvedListOfNotesDisplayerWidget =
+  lazy val resolvedListOfNotesNamesDisplayerWidget =
     CellOptionDisplayerWidget[
       List[String]
     ](
@@ -130,30 +143,46 @@ case class NoteFolderUpdaterWidget(
       }
     )
 
-//  lazy val entityUpdaterButton
-//    : SButton = {
-//
-//    def setter(
-//      nf: Option[Ref[NoteFolder]],
-//      n:  Note
-//    ): Note = {
-////      n.copy(folderR = nf)
-//      ??? // todo-now
-//    }
-//
-//    val newValue: Cell[Option[Ref[NoteFolder]]] =
-//      noteFolderSelectorWidget.selectedEntity.map(_.map(_.ref))
-//
-//    EntityUpdaterButton[Note, Option[Ref[NoteFolder]]](
-//      selectedNote,
-//      Cache.noteCache,
-//      setter,
-//      newValue,
-//      "update"
-//    )
-//
-//    ???
-//  }
+  lazy val addSelectedNoteToFolder: EntityUpdaterButton[Folder] = {
+
+    lazy val newValue: CellOption[Folder] = ???
+
+    lazy val allFolders
+      : CellOption[Set[TypedReferencedValue[Folder]]] =
+      Cache.getAllEntites[Folder]
+
+    lazy val folderContainingSelectedNote
+      : CellOption[TypedReferencedValue[Folder]] = ???
+
+    lazy val updaterCommand = ???
+
+    lazy val removerCommand = ???
+
+    lazy val compositeCommand = ???
+
+    // todo-now
+
+    EntityUpdaterButton[Folder](
+      CellOption.fromCellOption(
+        noteFolderSelectorWidget.selectedEntity
+      ),
+      folderCache,
+      newValue,
+      "update"
+    )
+
+    // todo :
+    //
+    //   We need to send a composite command when pushing
+    //   the button:
+    //
+    //    1) remove the selected note from its current Folder
+    //       (if there is any)
+    //
+    //    2) add the selected note to the selected Folder
+    //
+
+  }
 
   def getComp = {
 
@@ -166,8 +195,9 @@ case class NoteFolderUpdaterWidget(
         selectedNoteFolderDisplayer.displayer(),
         selectedNoteDisplayer.displayer(),
         selectedNotesNoteFolderDisplayer.displayer(),
-//        entityUpdaterButton.comp(),
-//        <.hr,
+        resolvedListOfNotesNamesDisplayerWidget.displayer(),
+        addSelectedNoteToFolder.comp(),
+        <.hr,
         <.br
       )
     }
