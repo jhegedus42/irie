@@ -5,6 +5,7 @@ import client.sodium.core.Cell
 import shared.dataStorage.{Ref, TypedReferencedValue, Value}
 import cats.Functor
 import cats.implicits._
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import simulacrum._
 
 object RelationalOperations {
@@ -16,52 +17,27 @@ object RelationalOperations {
   }
 
   def resolveRef[V <: Value[V]](
-    r: Cell[Option[Ref[V]]]
+    r: CellOption[Ref[V]]
   )(
     implicit
     c: Cache[V]
-  ): Cell[Option[TypedReferencedValue[V]]] = {
-    Cache.resolveRef(r)
+  ): CellOption[TypedReferencedValue[V]] = {
+    new CellOption(Cache.resolveRef(r.co))
   }
+
+//  def resolveCO
 
 //  def resolveListOfOptions[V<:Value[V]]()
 
   def resolveListOfRefOptions[V <: Value[V]](
-    listOfRefOptions: Cell[List[Option[Ref[V]]]]
-  ):Cell[Option[List[TypedReferencedValue[V]]]] = {
+    listOfRefOptions: Cell[Option[List[Ref[V]]]]
+  ): Cell[Option[List[TypedReferencedValue[V]]]] = {
+
+    // continue here - TOMORROW
 
     ???
+
   }
-
-  case class CellOption[V](co: Cell[Option[V]])
-  // todo write monad for cellOption (classical, "scala" monad)
-
-//  def resolveList
-
-//  trait Resolveable[V<:Value[V]]  {
-//    def resolve(x: Cell[Ref[V]]): Cell[V]
-//  }
-
-//  implicit def resolveable[V<:Value[V]:Cache]: Resolveable[V] = new Resolveable[V] {
-
-//    override def resolve(x: Cell[Ref[V]]) :Cell[TypedReferencedValue[V]] = resolve(x)
-//    override def resolve(x: Cell[Ref[V]]): Cell[TypedReferencedValue[V]] = resolveCell(x)
-//  }
-
-//  case class Cached[V](v:V)
-
-//  object Cached {
-//    implicit val functorForCached: Functor[Cached] = new Functor[Cached] {
-//      def map[A, B](fa: Cached[A])(f: A => B): Cached[B] = fa.copy(v=f(fa.v))
-//    }
-
-//  }
-
-//  implicit def resolveableForRef[V<:Value[V]] = new Resolveable[Ref[_<:V]] {
-  //      override def resolve(x: Cell[Ref[V]]): Cell[TypedReferencedValue[V]] = ???
-//          override def resolve(x: Cell[Ref[V]]): Cell[V] = ???
-//    override def resolve(x: Cell[Ref[_ <: V][V]]): Cell[V] = ???
-//  }
 
   def filterTable[V <: Value[V]](
     filterCriteriaCell: Cell[V => Boolean]

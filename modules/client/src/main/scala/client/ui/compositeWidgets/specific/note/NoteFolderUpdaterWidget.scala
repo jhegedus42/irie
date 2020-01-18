@@ -1,6 +1,7 @@
 package client.ui.compositeWidgets.specific.note
 
 import client.cache.Cache
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.RelationalOperations
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
@@ -70,18 +71,21 @@ case class NoteFolderUpdaterWidget(
       }
     )
 
-  // todo now : get Cell[Option[List[TypedReferencedValue[Note]]]]
+  lazy val noteNames: CellOption[List[String]] = {
+    ???
+    // todo now : get Cell[Option[List[TypedReferencedValue[Note]]]]
+  }
 
   lazy val resolvedListOfNotesDisplayerWidget =
     CellOptionDisplayerWidget[
-      List[TypedReferencedValue[Note]]
+      List[String]
     ](
-      ???, { nf: List[TypedReferencedValue[Note]] =>
+      noteNames.co, { nf: List[String] =>
         <.div(
           s"Notes in The Selected Note Folder",
           <.pre(
             nf.foldLeft("")({ (s, rn) =>
-                s + s"${rn.versionedEntityValue.valueWithoutVersion.toString}\n"
+                s + s"$rn\n"
               }).toString()
           ),
           <.br
