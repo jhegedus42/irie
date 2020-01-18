@@ -24,16 +24,17 @@ object CellOptionMonad {
       val res2: Cell[Cell[Option[B]]] =
         res1.map(_.getOrElse(new Cell(None)))
 
-      val res3: Cell[Option[B]] =Cell.switchC(res2)
+      val res3: Cell[Option[B]] = Cell.switchC(res2)
       new CellOption[B](res3)
     }
-
-    def optMap[B](f: A => Option[B]): CellOption[B] = {
-      val c1: Cell[Option[B]] = co.map(_.map(f).flatten)
-      new CellOption[B](c1)
-    }
-
   }
+
+//    def optMap[B](f: A => Option[B]): CellOption[B] = {
+//      val c1: Cell[Option[B]] = co.map(_.map(f).flatten)
+//      new CellOption[B](c1)
+//    }
+
+//  }
 
   object CellOption {
 
