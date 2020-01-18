@@ -65,10 +65,25 @@ case class NoteFolderUpdaterWidget(
                 s + s"${rn.unTypedRef.toString}\n"
               }).toString()
           ),
-          // todo-now:
-          //  resolve List[Ref[Note]] to List[Note]
-          //
+          <.br
+        )
+      }
+    )
 
+  // todo now : get Cell[Option[List[TypedReferencedValue[Note]]]]
+
+  lazy val resolvedListOfNotesDisplayerWidget =
+    CellOptionDisplayerWidget[
+      List[TypedReferencedValue[Note]]
+    ](
+      ???, { nf: List[TypedReferencedValue[Note]] =>
+        <.div(
+          s"Notes in The Selected Note Folder",
+          <.pre(
+            nf.foldLeft("")({ (s, rn) =>
+                s + s"${rn.versionedEntityValue.valueWithoutVersion.toString}\n"
+              }).toString()
+          ),
           <.br
         )
       }

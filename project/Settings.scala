@@ -73,7 +73,9 @@ object Settings {
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
       "org.typelevel" %%% "cats-core" % "2.0.0",
-      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
+      "org.typelevel" %%% "simulacrum" % "1.0.0",
+
+  "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",

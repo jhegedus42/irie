@@ -10,7 +10,7 @@ import shared.testingData.TestDataStore
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
-case class CellOptionDisplayerWidget[V <: Value[V]](
+case class CellOptionDisplayerWidget[V](
   entityOptCell: Cell[Option[V]],
   renderer:      V => VdomElement
 ) {
