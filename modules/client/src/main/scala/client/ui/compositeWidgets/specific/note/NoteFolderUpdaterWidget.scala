@@ -65,6 +65,10 @@ case class NoteFolderUpdaterWidget(
                 s + s"${rn.unTypedRef.toString}\n"
               }).toString()
           ),
+          // todo-now:
+          //  resolve List[Ref[Note]] to List[Note]
+          //
+
           <.br
         )
       }
