@@ -7,7 +7,6 @@ import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.specific.image.{ImageList, ImagesWidget}
 import client.ui.compositeWidgets.specific.note.NotesWidget
-import client.ui.compositeWidgets.specific.noteFolder.NoteFolderWidget
 import client.ui.wrappedReact.{
   Crop,
   ReactCrop,
@@ -34,8 +33,7 @@ object RootComp {
                       onChange = TagsInput.handlerCore(_)),
             ReactCropWrapped.comp(
               "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
-            ),
-            NoteFolderWidget().getComp()
+            )
           )
         )
       )
