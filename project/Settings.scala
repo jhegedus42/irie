@@ -72,6 +72,7 @@ object Settings {
       "com.lihaoyi" %%% "scalatags"                    % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
+      "org.typelevel" %%% "cats-core" % "2.0.0",
       "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
     ) ++
       Seq(
