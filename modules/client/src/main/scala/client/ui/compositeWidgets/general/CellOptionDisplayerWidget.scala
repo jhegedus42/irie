@@ -4,7 +4,7 @@ import client.cache.Cache
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.templates.StreamTemplate
-import japgolly.scalajs.react.vdom.VdomElement
+import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
 import shared.dataStorage.{Note, TypedReferencedValue, Value}
 import shared.testingData.TestDataStore
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
@@ -12,16 +12,16 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
 case class CellOptionDisplayerWidget[V](
   entityOptCell: Cell[Option[V]],
-  renderer:      V => VdomElement
-) {
+  renderer:      V => VdomElement) {
 
-  lazy val optRenderer = { x: Option[V] =>
-    {
-      x match {
-        case Some(value) => renderer(value)
-        case None        => <.div("Entity is not defined.")
+  lazy val optRenderer: Option[V] => html_<^.VdomElement = {
+    x: Option[V] =>
+      {
+        x match {
+          case Some(value) => renderer(value)
+          case None        => <.div("Entity is not defined.")
+        }
       }
-    }
 
   }
 

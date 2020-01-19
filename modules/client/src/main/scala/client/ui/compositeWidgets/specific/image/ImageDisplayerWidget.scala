@@ -44,6 +44,8 @@ case class ImageDisplayerWidget(
       : CellOptionMonad.CellOption[Set[TypedReferencedValue[Note]]] =
       NoteOperations.getNotesForAnImage(???)
 
+
+
     CellOptionDisplayerWidget[Set[TypedReferencedValue[Note]]](
       res.co, { x: Set[TypedReferencedValue[Note]] =>
 
