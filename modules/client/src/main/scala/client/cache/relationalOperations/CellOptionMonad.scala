@@ -27,6 +27,8 @@ object CellOptionMonad {
       val res3: Cell[Option[B]] = Cell.switchC(res2)
       new CellOption[B](res3)
     }
+
+
   }
 
 //    def optMap[B](f: A => Option[B]): CellOption[B] = {
@@ -53,7 +55,13 @@ object CellOptionMonad {
       new CellOption[A](co)
     }
 
+    def flattenOpt[A](co:CellOption[Option[A]]):CellOption[A]={
+      new CellOption(co.co.map(_.flatten))
+    }
+
   }
+
+
 
   lazy val testFor = for {
     a <- CellOption(1)

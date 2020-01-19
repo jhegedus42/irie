@@ -20,8 +20,8 @@ case class EntityUpdaterButton[V <: Value[V]](
     buttonLabel,
     Some({ () =>
       {
-        lazy val trvOpt      = selectedEntityOpt.co.sample()
-        lazy val newValueOpt = newValOpt.co.sample()
+        lazy val trvOpt = selectedEntityOpt.co.sample()
+        lazy val newValueOpt: Option[V] = newValOpt.co.sample()
         if (trvOpt.isDefined && newValueOpt.isDefined) {
           val updateCMD =
             UpdateEntityInCacheCmd[V](trvOpt.get, newValueOpt.get)
