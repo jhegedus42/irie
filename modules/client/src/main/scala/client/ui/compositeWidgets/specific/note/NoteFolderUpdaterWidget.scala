@@ -125,7 +125,7 @@ case class NoteFolderUpdaterWidget(
       })
     }
     val res: Cell[Set[TypedReferencedValue[Folder]]] =
-      RelationalOperations.filterTable(filterBy)
+      RelationalOperations.getAllEntitiesWithFilter(filterBy)
 
     val r2: Cell[Option[Folder]] = res.map(
       _.headOption.map(_.versionedEntityValue.valueWithoutVersion)
@@ -286,6 +286,13 @@ case class NoteFolderUpdaterWidget(
   }
 
 }
+
+// todo-now
+//   support for Rect for images
+
+//   1)
+//     -- attach image to Note
+
 //  lazy val addSelectedNoteToFolder: EntityUpdaterButton[Folder] = {
 
 //    lazy val newValue: CellOption[Folder] = ???

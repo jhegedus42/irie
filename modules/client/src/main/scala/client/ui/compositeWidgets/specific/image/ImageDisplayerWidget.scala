@@ -30,7 +30,8 @@ case class ImageDisplayerWidget(
     }
   }
 
-  lazy val imageDisplayer =
+  lazy val imageDisplayer = {
+
     CellOptionDisplayerWidget[ImageWithQue](
       cellOptionImage, { x: ImageWithQue =>
         {
@@ -41,13 +42,16 @@ case class ImageDisplayerWidget(
             <.br,
             s"Image's file name :${x.fileName}",
             <.br,
+            s"It belongs to the following Note:",
+            <.br,
+            s"${x.referenceToNote}",
             getImg(x.fileName),
-            <.hr,
             <.br
           )
         }
       }
     ).displayer
+  }
 
 
 }

@@ -38,7 +38,7 @@ object RelationalOperations {
     new CellOption(Cache.resolveListOfRefs(listOfRefOptions.co))
   }
 
-  def filterTable[V <: Value[V]](
+  def getAllEntitiesWithFilter[V <: Value[V]](
     filterCriteriaCell: Cell[V => Boolean]
   )(
     implicit
@@ -62,7 +62,32 @@ object RelationalOperations {
 
   }
 
+  def coGetAllEntitiesWithFilter[V <: Value[V]](
+    filterCriteria: CellOption[TypedReferencedValue[V] => Boolean]
+  )(
+    implicit
+    c: Cache[V]
+  ): CellOption[Set[TypedReferencedValue[V]]] = {
+
+    def f(
+      cm: CacheMap[V],
+      g:  TypedReferencedValue[V] => Boolean
+    ): Set[TypedReferencedValue[V]] = {
+
+      val res: Iterable[TypedReferencedValue[V]] =
+        cm.cacheMap.values.filter({ x =>
+          g(x)
+        })
+
+      res.toSet
+    }
+
+    val cm = CellOption.fromCell(c.cellLoop)
 
 
+    val res: CellOption[Set[TypedReferencedValue[V]]] =
+      cm.lift2(filterCriteria)(f)
+    res
+  }
 
 }
