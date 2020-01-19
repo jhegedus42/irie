@@ -171,8 +171,6 @@ case class NoteFolderUpdaterWidget(
 
   lazy val addNoteToFolderButton: SButton = {
 
-    // if note is not in any folder
-
     lazy val currentValOpt: CellOption[List[Ref[Note]]] = {
       CellOption.fromCellOption(
         noteFolderSelectorWidget.selectedEntity.map(
@@ -198,67 +196,46 @@ case class NoteFolderUpdaterWidget(
       folder.lens(_.notes).set(newList)
     }
 
-    lazy val newValOpt: CellOption[List[Ref[Note]]] = {
-
-//      selectedFolder.map(_.)
-
-      // todo write lift2 for Cell Option
-
-      ???
-
+    lazy val selectedNoteRefCO: CellOption[Ref[Note]] = {
+      CellOption
+        .fromCellOption(selectedNote).map(
+          _.ref
+        )
     }
 
-//    ???
+    lazy val newValOpt: CellOption[Folder] = {
+
+      val r: CellOption[Folder] =
+        selectedNoteRefCO.lift2(selectedFolder)(
+          appandNoteRefToEndOfList
+        )
+      r
+    }
+
     lazy val updaterButton = SButton(
       "add Note",
-      Some({ () =>
-        {
-//        lazy val trvOpt      = selectedEntityOpt.co.sample()
-//        lazy val newValueOpt = newValOpt.co.sample()
-//        if (trvOpt.isDefined && newValueOpt.isDefined) {
-//          val updateCMD =
-//            UpdateEntityInCacheCmd[V](trvOpt.get, newValueOpt.get)
-//          cache.updateEntityCommandStream.send(updateCMD)
+      Some(() => {
+        lazy val trvOpt: Option[TypedReferencedValue[Folder]] =
+          noteFolderSelectorWidget.selectedEntity.sample()
+        lazy val newValueOpt: Option[Folder] = newValOpt.co.sample()
+
+        lazy val f1 = folderContainingSelectedNote.co.sample()
+
+        // first you have to remove a note from it's existing folder
+        // only after that can you move it to somewhere else...
+
+        if (trvOpt.isDefined && newValueOpt.isDefined & f1.isEmpty) {
+          val updateCMD =
+            UpdateEntityInCacheCmd[Folder](trvOpt.get,
+                                           newValueOpt.get)
+          folderCache.updateEntityCommandStream.send(updateCMD)
           println("we should add a Note")
         }
+
       })
     )
-    ???
+    updaterButton
   }
-
-//  lazy val addSelectedNoteToFolder: EntityUpdaterButton[Folder] = {
-
-//    lazy val newValue: CellOption[Folder] = ???
-
-//    lazy val updaterCommand = ???
-
-//    lazy val removerCommand = ???
-
-//    lazy val compositeCommand = ???
-
-  // todo-now
-
-//    EntityUpdaterButton[Folder](
-//      CellOption.fromCellOption(
-//        noteFolderSelectorWidget.selectedEntity
-//      ),
-//      folderCache,
-//      newValue,
-//      "update"
-//    )
-
-  // todo :
-  //
-  //   We need to send a composite command when pushing
-  //   the button:
-  //
-  //    1) remove the selected note from its current Folder
-  //       (if there is any)
-  //
-  //    2) add the selected note to the selected Folder
-  //
-
-//  }
 
   def getComp = {
 
@@ -290,7 +267,9 @@ case class NoteFolderUpdaterWidget(
         "Notes contained in the selected Folder:",
         <.br,
         resolvedListOfNotesNamesDisplayerWidget.displayer(),
-//        addSelectedNoteToFolder.comp(),
+        <.br,
+        addNoteToFolderButton.comp(),
+        <.br,
         <.hr,
         <.br
       )
@@ -307,3 +286,36 @@ case class NoteFolderUpdaterWidget(
   }
 
 }
+//  lazy val addSelectedNoteToFolder: EntityUpdaterButton[Folder] = {
+
+//    lazy val newValue: CellOption[Folder] = ???
+
+//    lazy val updaterCommand = ???
+
+//    lazy val removerCommand = ???
+
+//    lazy val compositeCommand = ???
+
+// todo-now
+
+//    EntityUpdaterButton[Folder](
+//      CellOption.fromCellOption(
+//        noteFolderSelectorWidget.selectedEntity
+//      ),
+//      folderCache,
+//      newValue,
+//      "update"
+//    )
+
+// todo :
+//
+//   We need to send a composite command when pushing
+//   the button:
+//
+//    1) remove the selected note from its current Folder
+//       (if there is any)
+//
+//    2) add the selected note to the selected Folder
+//
+
+//  }

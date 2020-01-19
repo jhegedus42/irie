@@ -28,6 +28,30 @@ object CellOptionMonad {
       new CellOption[B](res3)
     }
 
+    def lift2[B, C](
+      other: CellOption[B]
+    )(f:     (A, B) => C
+    ): CellOption[C] = {
+
+      val res2 = co.map({ oa: Option[A] =>
+        {
+          val co2: Cell[Option[C]] = other.co.map({ ob: Option[B] =>
+            val res1: Option[C] = for {
+              a <- oa
+              b <- ob
+
+            } yield f(a, b)
+            res1
+          })
+          co2
+        }
+      })
+
+      val r = Cell.switchC(res2)
+
+      CellOption.fromCellOption(r)
+
+    }
 
   }
 
@@ -51,17 +75,15 @@ object CellOptionMonad {
       new CellOption[A](c)
     }
 
-    def fromCellOption[A](co:Cell[Option[A]]):CellOption[A]={
+    def fromCellOption[A](co: Cell[Option[A]]): CellOption[A] = {
       new CellOption[A](co)
     }
 
-    def flattenOpt[A](co:CellOption[Option[A]]):CellOption[A]={
+    def flattenOpt[A](co: CellOption[Option[A]]): CellOption[A] = {
       new CellOption(co.co.map(_.flatten))
     }
 
   }
-
-
 
   lazy val testFor = for {
     a <- CellOption(1)
