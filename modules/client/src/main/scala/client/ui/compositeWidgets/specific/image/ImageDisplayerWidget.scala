@@ -41,24 +41,6 @@ case class ImageDisplayerWidget(
 
 
 
-  lazy val notesBelongingToThisImage = {
-
-    CellOptionDisplayerWidget[Set[TypedReferencedValue[Note]]](
-      NoteOperations
-        .getNotesForAnImage(CellOption.fromCellOption(img)).co, {
-        x: Set[TypedReferencedValue[Note]] =>
-          <.div(
-            <.hr,
-            <.br,
-            "The following notes refer to this Image:",
-            // todo - write a list displayer
-            <.br,
-            <.br,
-            <.hr
-          )
-      }
-    )
-  }
 
   lazy val imageDisplayer = {
 
