@@ -193,10 +193,6 @@ object Cache {
     CacheMaker[Note](streamToSetInitialCacheState)
       .getCache()
 
-  implicit val imgCache: Cache[ImageWithQue] =
-    CacheMaker[ImageWithQue](streamToSetInitialCacheState)
-      .getCache()
-
   implicit val folderCache: Cache[Folder] =
     CacheMaker[Folder](streamToSetInitialCacheState)
       .getCache()

@@ -42,7 +42,6 @@ object Main extends js.JSApp {
 
     AJAXCalls.populateEntityCache(Cache.noteCache)
 
-    AJAXCalls.populateEntityCache(Cache.imgCache)
 
     AJAXCalls.populateEntityCache(Cache.folderCache)
   }

@@ -49,7 +49,6 @@ object Note {
     }
 }
 
-@JsonCodec
 case class ImageWithQue(
   title:               String,
   fileName:            String,

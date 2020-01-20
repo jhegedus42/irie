@@ -7,7 +7,12 @@ import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton, TextFieldUpdaterWidget}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  EntitySelectorWidget,
+  EntityUpdaterButton,
+  TextFieldUpdaterWidget
+}
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
@@ -22,12 +27,8 @@ import shared.dataStorage.relationalWrappers.TypedReferencedValue
 case class ImagesWidget(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  implicit lazy val imgCache: Cache[ImageWithQue] = Cache.imgCache
-
-  val selector = EntitySelectorWidget[ImageWithQue]({
-    x: ImageWithQue =>
-      x.title
-  })
+  val selectedImage =
+    selectedNote.map(_.versionedEntityValue.valueWithoutVersion.img)
 
   def getComp = {
 
@@ -36,11 +37,10 @@ case class ImagesWidget(
         <.hr,
         <.h2("Images"),
         <.br,
-        selector.selectorTable.comp(),
-        <.br,
-        ImageUploaderWidget(selector.selectedEntity, imgCache)
-          .render(),
-        ImageDisplayerWidget(selector.selectedEntity).imageDisplayer(),
+//        ImageUploaderWidget(selector.selectedEntity, imgCache)
+//          .render(),
+        ImageDisplayerWidget(selectedImage.co)
+          .imageDisplayer(),
 //        <.br,
 //        s"Make the Selected Note Point to the Selected Image by pressing this Button:",
 //        entityUpdaterButton.updaterButton.comp(),

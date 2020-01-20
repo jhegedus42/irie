@@ -12,10 +12,8 @@ import shared.dataStorage.model.ImageWithQue
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImageDisplayerWidget(
-  img: Cell[Option[TypedReferencedValue[ImageWithQue]]]) {
+  img: Cell[Option[ImageWithQue]]) {
 
-  lazy val cellOptionImage: Cell[Option[ImageWithQue]] =
-    img.map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
   def getImg(fileNameOpt: String): VdomElement = {
       val fn = fileNameOpt.head
@@ -28,11 +26,10 @@ case class ImageDisplayerWidget(
 
 
 
-
   lazy val imageDisplayer = {
 
     CellOptionDisplayerWidget[ImageWithQue](
-      cellOptionImage, { x: ImageWithQue =>
+      img, { x: ImageWithQue =>
         {
           <.div(
             <.hr,
