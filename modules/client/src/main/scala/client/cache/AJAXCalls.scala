@@ -10,7 +10,8 @@ import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
 import shapeless.Typeable
-import shared.dataStorage.{RefToEntityOwningUser, User, Value}
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 
 import scala.concurrent.ExecutionContextExecutor

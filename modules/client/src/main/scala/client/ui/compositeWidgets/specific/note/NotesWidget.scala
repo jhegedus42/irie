@@ -8,23 +8,12 @@ import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.{
-  CellOptionDisplayerWidget,
-  CellOptionListWidget,
-  EntityCreatorWidget,
-  EntitySelectorWidget,
-  TextFieldUpdaterWidget
-}
+import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, CellOptionListWidget, EntityCreatorWidget, EntitySelectorWidget, TextFieldUpdaterWidget}
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
-import shared.dataStorage.{
-  ImageWithQue,
-  Note,
-  TypedReferencedValue,
-  User
-}
+import shared.dataStorage.model.{CanProvideDefaultValue, ImageWithQue, Note}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -56,32 +45,14 @@ case class NotesWidget() {
     }
   )
 
-  // todo-now - note folder editor
 
-  lazy val imagesComp = {
-
-    import client.cache.relationalOperations.RelationalOperations._
-
-    val is: CellOption[List[ImageWithQue]] =
-      NoteOperations
-        .getImagesForANote(selector.selectedEntity)
-        .map(_ |> toVal)
-        .map(_.toList)
-
-    val f = (i: ImageWithQue) => <.div(i.title)
-
-    CellOptionListWidget[ImageWithQue](
-      is,
-      CellOption.apply(f)
-    )
-  }
 
   val noteFolderUpdater = NoteFolderUpdaterWidget(
     selector.selectedEntity
   )
 
   lazy val noteCreator = EntityCreatorWidget({ () =>
-    Note("default title", "default content")
+    CanProvideDefaultValue.defValOf[Note]
   }, "Note")
 
   def getComp = {
@@ -96,10 +67,6 @@ case class NotesWidget() {
         noteTitleEditor.comp(),
         noteFolderUpdater.getComp(),
         <.br,
-        s"Images that refer to this Note:",
-        <.br,
-        imagesComp.comp(),
-        <.hr,
         <.br
       )
     }

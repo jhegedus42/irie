@@ -3,7 +3,9 @@ package shared.testingData
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
-import shared.dataStorage.{TypedReferencedValue, User}
+import shared.dataStorage.model.User
+import shared.dataStorage.relationalWrappers
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 object TestEntitiesForUsers {
 
@@ -25,23 +27,23 @@ object TestEntitiesForUsers {
     User(name = "JetiLabnyom", favoriteNumber = 46)
 
   val aliceEntity: TypedReferencedValue[User] =
-    shared.dataStorage.TypedReferencedValue(alice)
+    relationalWrappers.TypedReferencedValue(alice)
 
   val bobUserEntity: TypedReferencedValue[User] =
-    shared.dataStorage.TypedReferencedValue(bob)
+    relationalWrappers.TypedReferencedValue(bob)
 
   val meresiHibaEntity: TypedReferencedValue[User] =
-    shared.dataStorage.TypedReferencedValue(
+    relationalWrappers.TypedReferencedValue(
       meresiHiba
     )
 
   val terezAnyaUserEntity: TypedReferencedValue[User] =
-    shared.dataStorage.TypedReferencedValue(
+    relationalWrappers.TypedReferencedValue(
       terezAnya
     )
 
   val jetiLabnyomUserEntity: TypedReferencedValue[User] =
-    shared.dataStorage.TypedReferencedValue(
+    relationalWrappers.TypedReferencedValue(
       jetiLabnyom
     )
 

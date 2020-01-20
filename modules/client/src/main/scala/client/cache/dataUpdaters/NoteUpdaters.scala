@@ -1,20 +1,10 @@
 package client.cache.dataUpdaters
 
 import client.cache.{Cache, CacheMap}
-import client.sodium.core.{
-  Cell,
-  CellLoop,
-  Stream,
-  StreamSink,
-  Transaction
-}
+import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
 import client.ui.atomicWidgets.input.SButton
-import shared.dataStorage.{
-  Note,
-  Folder,
-  Ref,
-  TypedReferencedValue
-}
+import shared.dataStorage.model.{Folder, Note}
+import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
 
 import scala.collection.immutable
 

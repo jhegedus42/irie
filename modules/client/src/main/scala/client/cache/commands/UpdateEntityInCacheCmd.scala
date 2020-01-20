@@ -5,7 +5,8 @@ import io.circe.generic.JsonCodec
 import shapeless.Typeable
 import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
 import shared.crudRESTCallCommands.persActorCommands.UpdateEntityPersActCmd
-import shared.dataStorage.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue, Value}
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue}
 
 @JsonCodec
 case class UpdateEntityInCacheCmd[V <: Value[V]](

@@ -1,7 +1,8 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
+import io.circe.Decoder
 import io.circe.Decoder.Result
-import io.circe.{Decoder, Json}
+import shared.dataStorage.model.Value
 
 case class UntypedVersionedValue(
   version: EntityVersion,

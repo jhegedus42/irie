@@ -1,16 +1,16 @@
 package shared.testingData
 
-import shared.dataStorage.{
+import shared.dataStorage.model.{
+  CanProvideDefaultValue,
   Coord,
   ImageWithQue,
   LocationOfQueFromNextImage,
   QueForPreviousImage,
   Rect,
   Size,
-  TypedReferencedValue,
   User
 }
-import shared.testingData.TestDataStore.aliceUserEnt
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 object TestDataForImages {
 
@@ -22,14 +22,7 @@ object TestDataForImages {
   lazy val defaultRect = Rect(Coord(50, 50), Size(50, 50))
 
   def createNewImageWithQue(title: String): ImageWithQue = {
-    val t = ImageWithQue(
-      title,
-      None,
-      None,
-      Some(QueForPreviousImage(defaultRect)),
-      Some(LocationOfQueFromNextImage(defaultRect))
-    )
-    t
+    CanProvideDefaultValue.defValOf[ImageWithQue]
   }
 
   val appleImage = TypedReferencedValue(

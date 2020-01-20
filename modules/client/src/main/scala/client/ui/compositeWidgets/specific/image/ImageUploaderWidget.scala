@@ -12,7 +12,8 @@ import client.sodium.core.Cell
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.{ImageWithQue, TypedReferencedValue}
+import shared.dataStorage.model.ImageWithQue
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
@@ -73,7 +74,7 @@ case class ImageUploaderWidget(
                           img.versionedEntityValue.valueWithoutVersion
                         import monocle.macros.syntax.lens._
                         val newVal =
-                          v.lens(_.fileName).set(Some(value))
+                          v.lens(_.fileName).set(value)
                         lazy val cmd =
                           UpdateEntityInCacheCmd(img, newVal)
                         c.updateEntityCommandStream.send(cmd)

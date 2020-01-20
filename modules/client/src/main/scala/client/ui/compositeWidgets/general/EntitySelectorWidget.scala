@@ -7,8 +7,9 @@ import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
-import shared.dataStorage.{Note, TypedReferencedValue, Value}
 import org.scalajs.dom.html.Div
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class EntitySelectorWidget[V <: Value[V]](
   nameProvider: V => String

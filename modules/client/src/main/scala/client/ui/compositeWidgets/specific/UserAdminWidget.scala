@@ -10,7 +10,8 @@ import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
-import shared.dataStorage.{TypedReferencedValue, User}
+import shared.dataStorage.model.User
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.concurrent.ExecutionContextExecutor
 

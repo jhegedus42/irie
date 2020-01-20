@@ -1,15 +1,10 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
-import io.circe.Json
-import io.circe.syntax._
-import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.syntax._
 import shapeless.Typeable
-
-import scala.ref.Reference
-import scala.reflect.ClassTag
-
-import io.circe._, io.circe.generic.semiauto._
+import shared.dataStorage.model.{TypeName, User, Value}
 
 @JsonCodec
 case class Ref[V <: Value[V]](unTypedRef: UnTypedRef = UnTypedRef()) {

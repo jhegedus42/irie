@@ -1,12 +1,11 @@
 package client.cache
 
-import client.cache.commands.{
-  UpdateEntitiesInCacheCommand,
-  UpdateEntityInCacheCmd
-}
+import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
 import shared.dataStorage._
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.{EntityVersion, Ref, TypedReferencedValue, VersionedValue}
 
 import scala.collection.immutable
 

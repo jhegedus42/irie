@@ -1,11 +1,6 @@
 package shared.crudRESTCallCommands.persActorCommands
 
-import shared.crudRESTCallCommands.{
-  CanProvideRouteName,
-  JSONConvertable,
-  RequestIsOnItsWayTowardsServer,
-  RequestState
-}
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable, RequestIsOnItsWayTowardsServer, RequestState}
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
@@ -13,14 +8,7 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.dataStorage.{
-  TypedReferencedValue,
-  UnTypedReferencedValue,
-  UntypedValue,
-  UntypedVersionedValue,
-  Value,
-  VersionedValue
-}
+import shared.dataStorage.relationalWrappers.{UnTypedReferencedValue, UntypedValue}
 
 @JsonCodec
 case class UpdateEntityPersActCmd(

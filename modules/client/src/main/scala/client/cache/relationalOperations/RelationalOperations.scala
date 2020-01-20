@@ -3,10 +3,11 @@ package client.cache.relationalOperations
 
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.Cell
-import shared.dataStorage.{Ref, TypedReferencedValue, Value}
 import cats.Functor
 import cats.implicits._
 import client.cache.relationalOperations.CellOptionMonad.CellOption
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
 import simulacrum._
 
 object RelationalOperations {

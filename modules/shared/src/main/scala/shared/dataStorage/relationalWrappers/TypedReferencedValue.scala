@@ -1,8 +1,9 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
-import io.circe.syntax._
-import io.circe.generic.auto._
 import io.circe.generic.JsonCodec
+import io.circe.generic.auto._
+import io.circe.syntax._
+import shared.dataStorage.model.{User, Value}
 //import cats._
 //import cats.derived
 //import cats.implicits._

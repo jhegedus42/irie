@@ -1,6 +1,7 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
 import io.circe.{Encoder, Json}
+import shared.dataStorage.model.Value
 
 case class UntypedValue(json: Json)
 

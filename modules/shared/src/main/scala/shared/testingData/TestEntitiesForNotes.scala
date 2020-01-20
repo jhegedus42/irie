@@ -1,6 +1,13 @@
 package shared.testingData
 
-import shared.dataStorage.{Note, TypedReferencedValue, User}
+import shared.dataStorage.model.CanProvideDefaultValue.defValOf
+import shared.dataStorage.model.{
+  CanProvideDefaultValue,
+  ImageWithQue,
+  Note,
+  User
+}
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 object TestEntitiesForNotes {
 
@@ -15,18 +22,26 @@ object TestEntitiesForNotes {
 //  val nf1_02 = Some(LocationInNoteFolder(nfr, 2))
 
   lazy val note01Alice: Note =
-    shared.dataStorage.Note("Alice note 1", "Super deep story.")
+    shared.dataStorage.model.Note("Alice note 1",
+                                  "Super deep story.",
+                                  defValOf[ImageWithQue])
 
   lazy val note01AliceWithRef: TypedReferencedValue[Note] =
     TypedReferencedValue(note01Alice)
 
   lazy val note02Alice =
-    shared.dataStorage.Note("Alice note 2", "Very boring story")
+    shared.dataStorage.model.Note("Alice note 2",
+                                  "Very boring story",
+                                  defValOf[ImageWithQue])
 
   lazy val note02AliceWithRef = TypedReferencedValue(note02Alice)
 
+  import CanProvideDefaultValue.defValOf
+
   lazy val note03Alice =
-    shared.dataStorage.Note("Alice note 3", "Alice in Wonderland")
+    shared.dataStorage.model.Note("Alice note 3",
+                                  "Alice in Wonderland",
+                                  defValOf[ImageWithQue])
 
   lazy val note03AliceWithRef = TypedReferencedValue(note03Alice)
 

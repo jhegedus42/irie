@@ -5,10 +5,10 @@ import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.templates.StreamTemplate
 import japgolly.scalajs.react.vdom.{VdomElement, html_<^}
-import shared.dataStorage.{Note, TypedReferencedValue, Value}
 import shared.testingData.TestDataStore
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class CellOptionDisplayerWidget[V](
   entityOptCell: Cell[Option[V]],

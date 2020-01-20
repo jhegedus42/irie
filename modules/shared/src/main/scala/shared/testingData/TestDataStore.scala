@@ -4,8 +4,9 @@ import io.circe.Json
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
+import shared.dataStorage.model.{User, Value}
 import shared.dataStorage.stateHolder.EntityStorage
-import shared.dataStorage.{TypedReferencedValue, User, Value}
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 object TestDataStore extends App {
 

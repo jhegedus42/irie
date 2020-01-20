@@ -1,6 +1,7 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
 import io.circe.generic.JsonCodec
+import shared.dataStorage.model.User
 
 @JsonCodec
 case class RefToEntityOwningUser(

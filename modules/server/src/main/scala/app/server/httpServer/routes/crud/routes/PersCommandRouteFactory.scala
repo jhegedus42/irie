@@ -1,25 +1,12 @@
 package app.server.httpServer.routes.crud.routes
 
 import akka.actor.{ActorRef, ActorSystem}
-import akka.http.scaladsl.server.Directives.{
-  as,
-  complete,
-  entity,
-  path,
-  post
-}
+import akka.http.scaladsl.server.Directives.{as, complete, entity, path, post}
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
-import shared.crudRESTCallCommands.persActorCommands.{
-  GetAllEntityiesForUserPersActCmd,
-  InsertEntityPersActCmd,
-  PersActorCommand
-}
-import shared.crudRESTCallCommands.{
-  CanProvideRouteName,
-  JSONConvertable
-}
-import shared.dataStorage.Value
+import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, PersActorCommand}
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
+import shared.dataStorage.model.Value
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag

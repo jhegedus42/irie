@@ -4,7 +4,7 @@ import japgolly.scalajs.react.vdom.TagOf
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import org.scalajs.dom.html.TableRow
 import org.scalajs.dom.{html => *}
-import shared.dataStorage.{User, Value}
+import shared.dataStorage.model.{User, Value}
 
 trait CanMakeTableRowFrom[V <: Value[V]] {
 

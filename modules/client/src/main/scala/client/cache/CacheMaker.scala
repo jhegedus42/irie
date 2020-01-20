@@ -15,13 +15,8 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.dataStorage.{
-  Ref,
-  TypedReferencedValue,
-  UnTypedRef,
-  UnTypedReferencedValue,
-  Value
-}
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue, UnTypedRef, UnTypedReferencedValue}
 import shared.dataStorage.stateHolder.UserMap
 
 case class CacheMaker[V <: Value[V]: Encoder](
@@ -79,7 +74,7 @@ case class CacheMaker[V <: Value[V]: Encoder](
     ): (Ref[V], TypedReferencedValue[V]) = {
       lazy val ur: UnTypedRef = t.unTypedRef
 
-      lazy val r: Ref[V] = shared.dataStorage.Ref[V](ur)
+      lazy val r: Ref[V] = Ref[V](ur)
 
       lazy val trv: Option[TypedReferencedValue[V]] =
         UnTypedReferencedValue.toTypedReferencedValue[V](t)

@@ -2,7 +2,7 @@ package client.ui.compositeWidgets.specific.image
 
 import client.cache.{Cache, CacheMap}
 import client.ui.atomicWidgets.show.text.SWPreformattedText
-import shared.dataStorage.{ImageWithQue }
+import shared.dataStorage.model.ImageWithQue
 
 object ImageList {
 

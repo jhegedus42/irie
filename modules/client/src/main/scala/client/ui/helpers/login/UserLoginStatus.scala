@@ -3,7 +3,8 @@ package client.ui.helpers.login
 import io.circe.{Decoder, Encoder}
 import org.scalajs.dom.window
 import org.scalajs.{dom => d}
-import shared.dataStorage.{TypedReferencedValue, User}
+import shared.dataStorage.model.User
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
 

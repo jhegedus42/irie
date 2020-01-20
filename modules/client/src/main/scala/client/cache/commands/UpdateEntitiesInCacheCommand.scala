@@ -10,8 +10,7 @@ import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
 import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
-import shared.dataStorage.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue, UntypedVersionedValue, Value, VersionedValue}
-import shared.dataStorage.Value
+import shared.dataStorage.model.Value
 
 @JsonCodec
 case class UpdateEntitiesInCacheCommand[V <: Value[V]](

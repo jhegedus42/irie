@@ -1,6 +1,6 @@
 package client.cache
 
-import shared.dataStorage.Value
+import shared.dataStorage.model.Value
 
 trait CanProvideCache[V <: Value[V]] {
   def getCache: Cache[V]

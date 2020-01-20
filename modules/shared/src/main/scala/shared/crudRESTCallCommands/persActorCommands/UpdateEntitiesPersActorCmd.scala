@@ -13,14 +13,6 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.dataStorage.{
-  TypedReferencedValue,
-  UnTypedReferencedValue,
-  UntypedValue,
-  UntypedVersionedValue,
-  Value,
-  VersionedValue
-}
 
 @JsonCodec
 case class UpdateEntitiesPersActorCmd(

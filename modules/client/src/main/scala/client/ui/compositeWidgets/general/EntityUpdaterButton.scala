@@ -8,7 +8,8 @@ import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-import shared.dataStorage.{TypedReferencedValue, Value}
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class EntityUpdaterButton[V <: Value[V]](
   selectedEntityOpt: CellOption[TypedReferencedValue[V]],

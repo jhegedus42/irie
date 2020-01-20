@@ -1,10 +1,11 @@
-package shared.dataStorage
+package shared.dataStorage.relationalWrappers
 
 import io.circe._
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import shapeless.Typeable
+import shared.dataStorage.model.Value
 
 @JsonCodec
 case class UnTypedReferencedValue(

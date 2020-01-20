@@ -2,7 +2,8 @@ package client.ui.compositeWidgets.general
 
 import client.cache.Cache
 import client.ui.atomicWidgets.input.SButton
-import shared.dataStorage.{Note, TypedReferencedValue, Value}
+import shared.dataStorage.model.Value
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 import shared.testingData.TestDataStore
 
 case class EntityCreatorWidget[V <: Value[V]](

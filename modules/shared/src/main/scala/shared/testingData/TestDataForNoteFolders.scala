@@ -1,10 +1,12 @@
 package shared.testingData
 
-import shared.dataStorage.{TypedReferencedValue, User}
+import shared.dataStorage.model.User
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 import shared.testingData.TestDataStore.aliceUserEnt
 
 object TestDataForNoteFolders {
-  import shared.dataStorage.Folder
+
+  import shared.dataStorage.model.Folder
 
   lazy val aliceEnt: TypedReferencedValue[User] =
     TestEntitiesForUsers.aliceEntity_with_UUID0

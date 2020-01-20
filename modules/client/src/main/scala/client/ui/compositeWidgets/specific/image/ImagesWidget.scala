@@ -12,11 +12,12 @@ import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
-import shared.dataStorage.{ImageWithQue, Note, TypedReferencedValue, User}
 
 import scala.concurrent.ExecutionContextExecutor
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
+import shared.dataStorage.model.{ImageWithQue, Note}
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImagesWidget(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
@@ -40,9 +41,9 @@ case class ImagesWidget(
         ImageUploaderWidget(selector.selectedEntity, imgCache)
           .render(),
         ImageDisplayerWidget(selector.selectedEntity).imageDisplayer(),
-        <.br,
-        s"Make the Selected Note Point to the Selected Image by pressing this Button:",
-        entityUpdaterButton.updaterButton.comp(),
+//        <.br,
+//        s"Make the Selected Note Point to the Selected Image by pressing this Button:",
+//        entityUpdaterButton.updaterButton.comp(),
         <.br,
         <.hr
       )
@@ -58,41 +59,41 @@ case class ImagesWidget(
 
   }
 
-  val entityUpdaterButton = {
-
-    import monocle.macros.syntax.lens._
-    val updater: CellOption[ImageWithQue => ImageWithQue] = {
-      val f = (trvNote: TypedReferencedValue[Note]) => {
-        (i: ImageWithQue) =>
-          i.lens(_.referenceToNote).set(Some(trvNote.ref))
-      }
-
-      val res: CellOption[ImageWithQue => ImageWithQue] =
-        selectedNote.map(f)
-      res
-    }
-
-    // todo-now
-    //  make a general composite updater
-    //  val i get the Image that refers to the selected note
-    //  make it point to no note
-    //  make this point to the selected image
-
-
-    // use the following cell to update the image
-    // belonging to the currently selected note :
-
-    val updaterCMD =NoteOperations.getNoteImageUpdaterCompositeCommand( ???, ??? )
-
-
-    val r = EntityUpdaterButton[ImageWithQue](
-      selector.selectedEntity,
-      imgCache,
-      updater,
-      "Update Image"
-    )
-
-    r
-  }
+//  val entityUpdaterButton = {
+//
+//    import monocle.macros.syntax.lens._
+//    val updater: CellOption[ImageWithQue => ImageWithQue] = {
+//      val f = (trvNote: TypedReferencedValue[Note]) => {
+//        (i: ImageWithQue) =>
+//          i.lens(_.referenceToNote).set(Some(trvNote.ref))
+//      }
+//
+//      val res: CellOption[ImageWithQue => ImageWithQue] =
+//        selectedNote.map(f)
+//      res
+//    }
+//
+//    // todo-now
+//    //  make a general composite updater
+//    //  val i get the Image that refers to the selected note
+//    //  make it point to no note
+//    //  make this point to the selected image
+//
+//
+//    // use the following cell to update the image
+//    // belonging to the currently selected note :
+//
+//    val updaterCMD =NoteOperations.getNoteImageUpdaterCompositeCommand( ???, ??? )
+//
+//
+//    val r = EntityUpdaterButton[ImageWithQue](
+//      selector.selectedEntity,
+//      imgCache,
+//      updater,
+//      "Update Image"
+//    )
+//
+//    r
+//  }
 
 }
