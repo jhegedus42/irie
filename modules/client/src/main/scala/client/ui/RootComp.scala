@@ -5,7 +5,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
-import client.ui.compositeWidgets.specific.image.ImagesWidget
+import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.wrappedReact.{
   Crop,
@@ -28,7 +28,7 @@ object RootComp {
           <.div(C.jumbotron)(
             nw.getComp(),
             <.br,
-            ImagesWidget(nw.selectedNote).getComp(),
+            ImagesForANote(nw.selectedNote).getComp(),
             <.br,
             TagsInput(value    = Seq("foo", "bar42"),
                       onChange = TagsInput.handlerCore(_)),

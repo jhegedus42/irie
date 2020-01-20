@@ -63,7 +63,7 @@ object ImageWithQue {
     override def getDefaultValue: ImageWithQue = {
       new ImageWithQue(
         "default image title",
-        "defaultFileName.jpg",
+        "defaultImage.jpeg",
         defValOf[QueForPreviousImage](
           QueForPreviousImage.defaultValue
         ),

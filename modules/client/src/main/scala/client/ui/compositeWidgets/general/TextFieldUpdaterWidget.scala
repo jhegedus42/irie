@@ -15,8 +15,6 @@ import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
-import org.scalajs.dom.html.Div
-import monocle.macros.syntax.lens._
 
 import scala.concurrent.ExecutionContextExecutor
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
@@ -26,7 +24,7 @@ import shared.dataStorage.relationalWrappers.TypedReferencedValue
 case class TextFieldUpdaterWidget[V <: Value[V]](
   fieldName: String,
   cell:      Cell[Option[TypedReferencedValue[V]]],
-  cache: Cache[V],
+  cache:     Cache[V],
   extractor: V => String,
   updater:   (V, String) => V) {
 
@@ -50,18 +48,19 @@ case class TextFieldUpdaterWidget[V <: Value[V]](
     } yield (updateCMD)
   }
 
-
-
-  lazy val updateButton = SButton("update", Some({
-    ()=>{
-      lazy val trvOpt = cell.sample()
-      lazy val cmdOpt = updateCMD(trvOpt)
-      if(cmdOpt.isDefined) {
-        val cmd=cmdOpt.get
-        cache.updateEntityCommandStream.send(cmd)
+  lazy val updateButton = SButton(
+    "update",
+    Some({ () =>
+      {
+        lazy val trvOpt = cell.sample()
+        lazy val cmdOpt = updateCMD(trvOpt)
+        if (cmdOpt.isDefined) {
+          val cmd = cmdOpt.get
+          cache.updateEntityCommandStream.send(cmd)
+        }
       }
-    }
-  }))
+    })
+  )
 
   def comp = {
 
@@ -74,8 +73,6 @@ case class TextFieldUpdaterWidget[V <: Value[V]](
         <.br
       )
     }
-
-
 
     val comp =
       ScalaComponent

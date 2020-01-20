@@ -15,8 +15,8 @@ case class ImageDisplayerWidget(
   img: Cell[Option[ImageWithQue]]) {
 
 
-  def getImg(fileNameOpt: String): VdomElement = {
-      val fn = fileNameOpt.head
+  def getImg(fileName: String): VdomElement = {
+      val fn = fileName
       <.div(
         s"File name :$fn.",
         <.img(^.src := s"$fn", ^.alt := "image", ^.width := "100%"),

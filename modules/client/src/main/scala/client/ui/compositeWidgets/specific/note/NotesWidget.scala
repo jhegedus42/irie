@@ -8,12 +8,23 @@ import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, CellOptionListWidget, EntityCreatorWidget, EntitySelectorWidget, TextFieldUpdaterWidget}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  CellOptionListWidget,
+  EntityCreatorWidget,
+  EntitySelectorWidget,
+  TextFieldUpdaterWidget
+}
+import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
-import shared.dataStorage.model.{CanProvideDefaultValue, ImageWithQue, Note}
+import shared.dataStorage.model.{
+  CanProvideDefaultValue,
+  ImageWithQue,
+  Note
+}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -27,8 +38,6 @@ case class NotesWidget() {
   lazy val selector = EntitySelectorWidget[Note]({ x: Note =>
     x.title
   })
-
-
 
   import client.cache.relationalOperations.RelationalOperations.Pipe
 
@@ -44,8 +53,6 @@ case class NotesWidget() {
       n.copy(title = s)
     }
   )
-
-
 
   val noteFolderUpdater = NoteFolderUpdaterWidget(
     selector.selectedEntity
@@ -66,6 +73,7 @@ case class NotesWidget() {
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
         noteFolderUpdater.getComp(),
+        ImagesForANote(selectedNote).getComp(),
         <.br,
         <.br
       )

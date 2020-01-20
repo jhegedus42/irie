@@ -40,6 +40,7 @@ object ReactCrop extends ReactBridgeComponent {
 
 object ReactCropWrapped {
 
+
   val initCrop = new Crop {
     override val unit:   String = "px"
     override val x:      Int    = 10
