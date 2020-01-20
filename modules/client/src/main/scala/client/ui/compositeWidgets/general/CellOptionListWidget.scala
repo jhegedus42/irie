@@ -15,13 +15,22 @@ case class CellOptionListWidget[V](
       l <- lCO
       f <- elementRendererCO
       lvdom = l.map(f)
+
       vdom = {
         <.ul(
           lvdom.map(<.li(_)).toVdomArray
         )
       }
-    } yield (vdom)
 
-  lazy val comp = CellOptionVDOMWidget(res)
+      vdom2=if(l.isEmpty) {
+        <.div(
+          "List is empty."
+        )
+      } else vdom
+
+    } yield (vdom2)
+
+
+  lazy val comp = CellOptionVDOMWidget(res).comp
 
 }

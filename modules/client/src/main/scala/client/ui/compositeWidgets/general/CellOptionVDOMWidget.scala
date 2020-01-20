@@ -39,7 +39,7 @@ case class CellOptionVDOMWidget(c: CellOption[VdomElement]) {
     ): VdomElement = {
       if (state.isDefined) {
         state.get
-      } else <.p("Note defined.")
+      } else <.p("Result cannot be calculated.")
     }
 
   }

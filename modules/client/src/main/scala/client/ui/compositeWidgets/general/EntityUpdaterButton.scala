@@ -13,15 +13,23 @@ import shared.dataStorage.{TypedReferencedValue, Value}
 case class EntityUpdaterButton[V <: Value[V]](
   selectedEntityOpt: CellOption[TypedReferencedValue[V]],
   cache:             Cache[V],
-  newValOpt:         CellOption[V],
+  updater:           CellOption[V => V],
   buttonLabel:       String) {
 
   lazy val updaterButton = SButton(
     buttonLabel,
     Some({ () =>
       {
+
         lazy val trvOpt = selectedEntityOpt.co.sample()
-        lazy val newValueOpt: Option[V] = newValOpt.co.sample()
+
+        val currentVal: CellOption[V] = selectedEntityOpt.map(
+          _.versionedEntityValue.valueWithoutVersion
+        )
+
+        lazy val newValueOpt: Option[V] =
+          currentVal.applicativeMap(updater).co.sample()
+
         if (trvOpt.isDefined && newValueOpt.isDefined) {
           val updateCMD =
             UpdateEntityInCacheCmd[V](trvOpt.get, newValueOpt.get)

@@ -53,6 +53,20 @@ object CellOptionMonad {
 
     }
 
+    def applicativeMap[B](f: CellOption[A => B]): CellOption[B] = {
+      val col: Cell[Option[A => B]] = f.co
+
+      val f2: (Option[A], Option[A => B]) => Option[B] =
+        (ao: Option[A], go: Option[A => B]) =>
+          ao.flatMap({ (a: A) =>
+            go.map(_(a))
+          })
+
+      val res: Cell[Option[B]] = this.co.lift(col, f2)
+
+      new CellOption[B](res)
+    }
+
   }
 
 //    def optMap[B](f: A => Option[B]): CellOption[B] = {
@@ -75,7 +89,9 @@ object CellOptionMonad {
       new CellOption[A](c)
     }
 
-    def fromCellOption[A](co: Cell[Option[A]]): CellOption[A] = {
+    implicit def fromCellOption[A](
+      co: Cell[Option[A]]
+    ): CellOption[A] = {
       new CellOption[A](co)
     }
 

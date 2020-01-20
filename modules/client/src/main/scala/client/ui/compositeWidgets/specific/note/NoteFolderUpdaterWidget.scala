@@ -9,8 +9,7 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
 import client.ui.compositeWidgets.general.{
   CellOptionDisplayerWidget,
-  EntitySelectorWidget,
-  EntityUpdaterButton
+  EntitySelectorWidget
 }
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}

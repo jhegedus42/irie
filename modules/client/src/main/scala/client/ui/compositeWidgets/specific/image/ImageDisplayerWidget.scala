@@ -3,6 +3,7 @@ package client.ui.compositeWidgets.specific.image
 import java.net.FileNameMap
 
 import client.cache.Cache
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.{
   CellOptionMonad,
   NoteOperations
@@ -38,29 +39,23 @@ case class ImageDisplayerWidget(
     }
   }
 
+
+
   lazy val notesBelongingToThisImage = {
 
-    lazy val res
-      : CellOptionMonad.CellOption[Set[TypedReferencedValue[Note]]] =
-      NoteOperations.getNotesForAnImage(???)
-
-
-
     CellOptionDisplayerWidget[Set[TypedReferencedValue[Note]]](
-      res.co, { x: Set[TypedReferencedValue[Note]] =>
-
-
-        <.div(
-          <.hr,
-          <.br,
-          "The following notes refer to this Image:",
-
-          // todo - write a list displayer
-
-          <.br,
-          <.br,
-          <.hr
-        )
+      NoteOperations
+        .getNotesForAnImage(CellOption.fromCellOption(img)).co, {
+        x: Set[TypedReferencedValue[Note]] =>
+          <.div(
+            <.hr,
+            <.br,
+            "The following notes refer to this Image:",
+            // todo - write a list displayer
+            <.br,
+            <.br,
+            <.hr
+          )
       }
     )
   }

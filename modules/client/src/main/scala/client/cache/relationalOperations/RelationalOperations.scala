@@ -1,5 +1,6 @@
 package client.cache.relationalOperations
 
+
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.Cell
 import shared.dataStorage.{Ref, TypedReferencedValue, Value}
@@ -9,6 +10,21 @@ import client.cache.relationalOperations.CellOptionMonad.CellOption
 import simulacrum._
 
 object RelationalOperations {
+
+  implicit class Pipe[T](val v: T) extends AnyVal {
+    def |>[U] (f: T => U) = f(v)
+    // Additional suggestions:
+    def $$[U](f: T => U): T = {f(v); v}
+    def #!(str: String = ""): T = {println(str + v); v}
+  }
+
+  type ResultSet[A <: Value[A]] = Set[TypedReferencedValue[A]]
+
+  type ResultSetVal[A <: Value[A]] = Set[A]
+
+  def toVal[A<:Value[A]] = (rs:ResultSet[A]) =>
+    rs.map(_.versionedEntityValue.valueWithoutVersion)
+
   val listOption = List(Some(1), None, Some(2))
   val demo       = Functor[List].compose[Option].map(listOption)(_ + 1)
 
@@ -84,10 +100,14 @@ object RelationalOperations {
 
     val cm = CellOption.fromCell(c.cellLoop)
 
-
     val res: CellOption[Set[TypedReferencedValue[V]]] =
       cm.lift2(filterCriteria)(f)
     res
   }
+
+  def getAllAsWhichReferToB[A <: Value[A], B <: Value[B]](
+    a:           CellOption[A],
+    getRefField: A => Ref[B]
+  ): CellOption[Set[TypedReferencedValue[A]]] = ??? // todo-later
 
 }
