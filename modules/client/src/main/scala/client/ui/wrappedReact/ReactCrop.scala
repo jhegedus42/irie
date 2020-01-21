@@ -32,7 +32,10 @@ case class ReactCropWidgetState(
 object ReactCropWidgetState {
 
   def rect2Crop(r:Rect):Crop = ???
+
   def crop2Rect(r:Crop):Rect = ???
+
+  // todo - continue here
 
   val initCrop = new Crop {
     override val unit:   String = "px"
