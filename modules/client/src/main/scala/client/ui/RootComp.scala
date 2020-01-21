@@ -10,7 +10,7 @@ import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.wrappedReact.{
   Crop,
   ReactCrop,
-  ReactCropWrapped,
+  ImgCropWidget,
   TagsInput
 }
 
@@ -31,10 +31,10 @@ object RootComp {
             ImagesForANote(nw.selectedNote).getComp(),
             <.br,
             TagsInput(value    = Seq("foo", "bar42"),
-                      onChange = TagsInput.handlerCore(_)),
-            ReactCropWrapped.comp(
-              "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
-            )
+                      onChange = TagsInput.handlerCore(_))
+//            ReactCropWrapped.comp(
+//              "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
+//            )
           )
         )
       )
