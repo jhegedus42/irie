@@ -3,7 +3,7 @@ package shared.testingData
 import shared.dataStorage.model.CanProvideDefaultValue.defValOf
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  ImageWithQue,
+  VisualHint,
   Note,
   User
 }
@@ -24,7 +24,7 @@ object TestEntitiesForNotes {
   lazy val note01Alice: Note =
     shared.dataStorage.model.Note("Alice note 1",
                                   "Super deep story.",
-                                  defValOf[ImageWithQue])
+                                  defValOf[VisualHint])
 
   lazy val note01AliceWithRef: TypedReferencedValue[Note] =
     TypedReferencedValue(note01Alice)
@@ -32,7 +32,7 @@ object TestEntitiesForNotes {
   lazy val note02Alice =
     shared.dataStorage.model.Note("Alice note 2",
                                   "Very boring story",
-                                  defValOf[ImageWithQue])
+                                  defValOf[VisualHint])
 
   lazy val note02AliceWithRef = TypedReferencedValue(note02Alice)
 
@@ -41,7 +41,7 @@ object TestEntitiesForNotes {
   lazy val note03Alice =
     shared.dataStorage.model.Note("Alice note 3",
                                   "Alice in Wonderland",
-                                  defValOf[ImageWithQue])
+                                  defValOf[VisualHint])
 
   lazy val note03AliceWithRef = TypedReferencedValue(note03Alice)
 

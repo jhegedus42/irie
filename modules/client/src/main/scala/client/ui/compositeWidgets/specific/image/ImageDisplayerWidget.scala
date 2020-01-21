@@ -8,11 +8,11 @@ import client.cache.relationalOperations.{CellOptionMonad, NoteOperations}
 import client.sodium.core.Cell
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
-import shared.dataStorage.model.ImageWithQue
+import shared.dataStorage.model.VisualHint
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImageDisplayerWidget(
-  img: Cell[Option[ImageWithQue]]) {
+  img: Cell[Option[VisualHint]]) {
 
 
   def getImg(fileName: String): VdomElement = {
@@ -28,8 +28,8 @@ case class ImageDisplayerWidget(
 
   lazy val imageDisplayer = {
 
-    CellOptionDisplayerWidget[ImageWithQue](
-      img, { x: ImageWithQue =>
+    CellOptionDisplayerWidget[VisualHint](
+      img, { x: VisualHint =>
         {
           <.div(
             <.hr,

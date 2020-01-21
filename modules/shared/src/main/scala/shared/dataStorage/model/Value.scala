@@ -29,12 +29,12 @@ case class TypeName(s: String)
 case class Note(
   title:   String,
   content: String,
-  img:     ImageWithQue)
+  img:     VisualHint)
     extends Value[Note]
 
 object Note {
 
-  import ImageWithQue.defVal
+  import VisualHint.defVal
 
   implicit val canProvideDefaultValue =
     new CanProvideDefaultValue[Note] {
@@ -43,32 +43,37 @@ object Note {
         Note(
           "default note title",
           "default note content",
-          defValOf[ImageWithQue](defVal)
+          defValOf[VisualHint](defVal)
         )
       }
     }
 }
 
-case class ImageWithQue(
-  title:               String,
-  fileName:            ImgFileName,
-  queForPreviousImage: QueForPreviousImage,
-  queFromNextImage:    LocationOfQueFromNextImage)
-    extends Value[ImageWithQue]
+@JsonCodec
+case class VisualHint(
+  title:           String,
+  fileName:        ImgFileName,
+  hintToThisImage: HintToThisImage,
+  // this cropped part will be displayed in the
+  // previous image as a hint to this image
+  placeForHintToNextImage: PlaceForHintToNextImage
+  // this is where a hint to the next image
+  // will be placed
+) extends Value[VisualHint]
 
-object ImageWithQue {
+object VisualHint {
 
-  implicit val defVal = new CanProvideDefaultValue[ImageWithQue] {
+  implicit val defVal = new CanProvideDefaultValue[VisualHint] {
 
-    override def getDefaultValue: ImageWithQue = {
-      new ImageWithQue(
+    override def getDefaultValue: VisualHint = {
+      new VisualHint(
         "default image title",
         ImgFileName("defaultImage.jpeg"),
-        defValOf[QueForPreviousImage](
-          QueForPreviousImage.defaultValue
+        defValOf[HintToThisImage](
+          HintToThisImage.defaultValue
         ),
-        defValOf[LocationOfQueFromNextImage](
-          LocationOfQueFromNextImage.canProvideDefaultValue
+        defValOf[PlaceForHintToNextImage](
+          PlaceForHintToNextImage.canProvideDefaultValue
         )
       )
     }
@@ -90,31 +95,31 @@ case class Folder(
     extends Value[Folder]
 
 @JsonCodec
-case class LocationOfQueFromNextImage(rect: Rect)
+case class PlaceForHintToNextImage(rect: Rect)
 
-object LocationOfQueFromNextImage {
+object PlaceForHintToNextImage {
 
   implicit val canProvideDefaultValue =
-    new CanProvideDefaultValue[LocationOfQueFromNextImage] {
+    new CanProvideDefaultValue[PlaceForHintToNextImage] {
 
-      override def getDefaultValue: LocationOfQueFromNextImage = {
+      override def getDefaultValue: PlaceForHintToNextImage = {
         val r = defValOf[Rect]
-        LocationOfQueFromNextImage(r)
+        PlaceForHintToNextImage(r)
       }
     }
 
 }
 
 @JsonCodec
-case class QueForPreviousImage(rect: Rect)
+case class HintToThisImage(rect: Rect)
 
-object QueForPreviousImage {
+object HintToThisImage {
 
   implicit val defaultValue =
-    new CanProvideDefaultValue[QueForPreviousImage] {
+    new CanProvideDefaultValue[HintToThisImage] {
 
-      override def getDefaultValue: QueForPreviousImage = {
-        QueForPreviousImage(defValOf[Rect])
+      override def getDefaultValue: HintToThisImage = {
+        HintToThisImage(defValOf[Rect])
       }
     }
 }
@@ -148,5 +153,4 @@ object Rect {
 }
 
 @JsonCodec
-case class ImgFileName(fileNameAsString:String)
-
+case class ImgFileName(fileNameAsString: String)

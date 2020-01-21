@@ -3,9 +3,9 @@ package shared.testingData
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
   Coord,
-  ImageWithQue,
-  LocationOfQueFromNextImage,
-  QueForPreviousImage,
+  VisualHint,
+  PlaceForHintToNextImage,
+  HintToThisImage,
   Rect,
   Size,
   User
@@ -21,8 +21,8 @@ object TestDataForImages {
 
   lazy val defaultRect = Rect(Coord(50, 50), Size(50, 50))
 
-  def createNewImageWithQue(title: String): ImageWithQue = {
-    CanProvideDefaultValue.defValOf[ImageWithQue]
+  def createNewImageWithQue(title: String): VisualHint = {
+    CanProvideDefaultValue.defValOf[VisualHint]
   }
 
   val appleImage = TypedReferencedValue(

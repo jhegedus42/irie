@@ -6,19 +6,19 @@ import client.ui.wrappedReact.{
   ImgCropWidget,
   ReactCropWidgetState
 }
-import shared.dataStorage.model.{ImageWithQue, Note, Rect}
+import shared.dataStorage.model.{VisualHint, Note, Rect}
 
 case class NotesRectWidget(
-  updateImgWithQue: Stream[ImageWithQue],
-  get:              ImageWithQue => Rect,
-  set:              (ImageWithQue, Rect) => ImageWithQue) {
+                            updateImgWithQue: Stream[VisualHint],
+                            get:              VisualHint => Rect,
+                            set:              (VisualHint, Rect) => VisualHint) {
 
   // sync to and back
   //   from ImageWithQue and ReactCropWidgetState
 
   lazy val reactCropWidgetStateUpdater
     : Stream[ReactCropWidgetState] = {
-    def f(imageWithQue: ImageWithQue): ReactCropWidgetState = {
+    def f(imageWithQue: VisualHint): ReactCropWidgetState = {
       val r=get(imageWithQue)
       val c= ReactCropWidgetState.rect2Crop(r)
       val i=imageWithQue.fileName
@@ -28,9 +28,9 @@ case class NotesRectWidget(
     s
   }
 
-  lazy val imageWithQueUpdater: Stream[ImageWithQue] = ???
+  lazy val imageWithQueUpdater: Stream[VisualHint] = ???
 
-  lazy val imageWithQueCell: Cell[ImageWithQue] = ???
+  lazy val imageWithQueCell: Cell[VisualHint] = ???
 
   lazy val component = {
     val w = ImgCropWidget(reactCropWidgetStateUpdater)

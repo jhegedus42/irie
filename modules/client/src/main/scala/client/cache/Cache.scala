@@ -7,7 +7,7 @@ import client.ui.helpers.login.UserLoginStatusHandler
 import shared.crudRESTCallCommands.persActorCommands.InsertEntityPersActCmd
 import shapeless.Typeable
 import io.circe._
-import shared.dataStorage.model.{Folder, ImageWithQue, Note, User, Value}
+import shared.dataStorage.model.{Folder, VisualHint, Note, User, Value}
 import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
 import shared.dataStorage.stateHolder.UserMap
 

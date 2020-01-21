@@ -22,7 +22,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  ImageWithQue,
+  VisualHint,
   Note
 }
 

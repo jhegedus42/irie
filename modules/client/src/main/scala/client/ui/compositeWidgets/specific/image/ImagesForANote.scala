@@ -22,7 +22,7 @@ import scala.concurrent.ExecutionContextExecutor
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.syntax.ApplyLens
-import shared.dataStorage.model.{ImageWithQue, Note, Rect}
+import shared.dataStorage.model.{VisualHint, Note, Rect}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImagesForANote(
@@ -64,9 +64,9 @@ case class ImagesForANote(
     import monocle.macros.syntax.lens._
     RectEditor(
       selectedNote,
-      (n: Note) => n.lens(_.img.queForPreviousImage.rect).get,
+      (n: Note) => n.lens(_.img.hintToThisImage.rect).get,
       (n: Note, r: Rect) =>
-        n.lens(_.img.queForPreviousImage.rect).set(r)
+        n.lens(_.img.hintToThisImage.rect).set(r)
     )
   }
 

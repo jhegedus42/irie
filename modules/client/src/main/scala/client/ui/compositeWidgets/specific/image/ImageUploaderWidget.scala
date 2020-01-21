@@ -12,7 +12,7 @@ import client.sodium.core.Cell
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.model.ImageWithQue
+import shared.dataStorage.model.VisualHint
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
@@ -25,8 +25,8 @@ import scalajs.runtime.propertiesOf
 import scalajs.js._
 
 case class ImageUploaderWidget(
-  imgOpt: Cell[Option[TypedReferencedValue[ImageWithQue]]],
-  c:      Cache[ImageWithQue]) {
+                                imgOpt: Cell[Option[TypedReferencedValue[VisualHint]]],
+                                c:      Cache[VisualHint]) {
 
   def render: () => VdomElement = { () =>
     <.div(
