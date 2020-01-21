@@ -9,7 +9,7 @@ import client.ui.wrappedReact.{
 import shared.dataStorage.model.{VisualHint, Note, Rect}
 
 case class NotesRectWidget(
-                            updateImgWithQue: Stream[VisualHint],
+                            updateImgWithQue: Stream[Option[VisualHint]],
                             get:              VisualHint => Rect,
                             set:              (VisualHint, Rect) => VisualHint) {
 
@@ -17,20 +17,25 @@ case class NotesRectWidget(
   //   from ImageWithQue and ReactCropWidgetState
 
   lazy val reactCropWidgetStateUpdater
-    : Stream[ReactCropWidgetState] = {
+    : Stream[Option[ReactCropWidgetState]] = {
     def f(imageWithQue: VisualHint): ReactCropWidgetState = {
       val r=get(imageWithQue)
       val c= ReactCropWidgetState.rect2Crop(r)
       val i=imageWithQue.fileName
-      ???
+      val s=ReactCropWidgetState(c,i)
+      s
     }
-    val s: Stream[ReactCropWidgetState] = updateImgWithQue.map(f)
+    val s: Stream[Option[ReactCropWidgetState]] = updateImgWithQue.map(_.map(f))
     s
   }
 
-  lazy val imageWithQueUpdater: Stream[VisualHint] = ???
+  lazy val imageWithQueUpdaterFromCropper: Stream[Option[VisualHint]] = {
+    ???
+  }
 
-  lazy val imageWithQueCell: Cell[VisualHint] = ???
+  lazy val imageWithQueCell: Cell[VisualHint] = {
+    updateImgWithQue.orElse(imageWithQueUpdaterFromCropper).hold()
+  }
 
   lazy val component = {
     val w = ImgCropWidget(reactCropWidgetStateUpdater)

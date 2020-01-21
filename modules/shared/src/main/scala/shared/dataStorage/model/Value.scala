@@ -68,7 +68,7 @@ object VisualHint {
     override def getDefaultValue: VisualHint = {
       new VisualHint(
         "default image title",
-        ImgFileName("defaultImage.jpeg"),
+        defValOf[ImgFileName],
         defValOf[HintToThisImage](
           HintToThisImage.defaultValue
         ),
@@ -154,3 +154,14 @@ object Rect {
 
 @JsonCodec
 case class ImgFileName(fileNameAsString: String)
+
+object ImgFileName {
+  implicit val defVal: CanProvideDefaultValue[ImgFileName] =
+    new CanProvideDefaultValue[ImgFileName] {
+
+      override def getDefaultValue: ImgFileName = {
+        new ImgFileName("defaultImage.jpeg")
+      }
+    }
+
+}

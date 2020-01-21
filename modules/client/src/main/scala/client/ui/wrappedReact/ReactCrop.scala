@@ -2,12 +2,24 @@ package client.ui.wrappedReact
 
 import client.sodium.core.{Cell, Stream, StreamSink}
 import client.ui.wrappedReact.ReactCrop.componentName
-import com.payalabs.scalajs.react.bridge.{ReactBridgeComponent, WithPropsNoChildren}
+import com.payalabs.scalajs.react.bridge.{
+  ReactBridgeComponent,
+  WithPropsNoChildren
+}
 import japgolly.scalajs.react.vdom.VdomElement
-import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ScalaComponent}
+import japgolly.scalajs.react.{
+  BackendScope,
+  Callback,
+  CallbackTo,
+  ScalaComponent
+}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import shared.dataStorage.model.Rect
+import shared.dataStorage.model.{
+  CanProvideDefaultValue,
+  ImgFileName,
+  Rect
+}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.ScalaJSDefined
@@ -25,16 +37,17 @@ trait Crop extends js.Object {
   val height: Int
 }
 
-case class ReactCropWidgetState(
-  crop:     Crop   = ReactCropWidgetState.initCrop,
-  fileName: String = "defaultImage.jpeg")
+import CanProvideDefaultValue.defValOf
 
+case class ReactCropWidgetState(
+  crop:     Crop        = ReactCropWidgetState.initCrop,
+  fileName: ImgFileName = defValOf[ImgFileName])
 
 object ReactCropWidgetState {
 
-  def rect2Crop(r:Rect):Crop = ???
+  def rect2Crop(r: Rect): Crop = ???
 
-  def crop2Rect(r:Crop):Rect = ???
+  def crop2Rect(r: Crop): Rect = ???
 
   // todo - continue here
 
@@ -60,13 +73,13 @@ object ReactCrop extends ReactBridgeComponent {
 }
 
 case class ImgCropWidget(
-  externalUpdater: Stream[ReactCropWidgetState]) {
+  externalUpdater: Stream[Option[ReactCropWidgetState]]) {
 
   lazy val internalStateUpdater =
-    new StreamSink[ReactCropWidgetState]()
+    new StreamSink[Option[ReactCropWidgetState]]()
 
   lazy val stateCell = internalStateUpdater
-    .orElse(externalUpdater).hold(ReactCropWidgetState())
+    .orElse(externalUpdater).hold(None)
 
   lazy val comp = ScalaComponent
     .builder[Unit]("ReactCropWidget")
@@ -75,7 +88,7 @@ case class ImgCropWidget(
     .componentWillMount(f => {
 
       Callback {
-        stateCell.listen((x: ReactCropWidgetState) => {
+        stateCell.listen((x: Option[ReactCropWidgetState]) => {
           f.setState(x).runNow()
         })
       }
@@ -83,11 +96,11 @@ case class ImgCropWidget(
     })
     .build
 
-  class Backend($ : BackendScope[Unit, ReactCropWidgetState]) {
+  class Backend($ : BackendScope[Unit, Option[ReactCropWidgetState]]) {
 
     def handlerCore(
       c: Crop,
-      s: ReactCropWidgetState
+      s: Option[ReactCropWidgetState]
     ): Callback = {
       Callback {
         internalStateUpdater.send(s.copy(crop = c))
@@ -97,16 +110,24 @@ case class ImgCropWidget(
 
     def render(
       props: Unit,
-      state: ReactCropWidgetState
+      state: Option[ReactCropWidgetState]
     ): VdomElement = {
+      if(state.isDefined){
+
       <.div(
+
         ReactCrop(
           src      = "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
-          crop     = state.crop,
+          crop     = state.get.crop,
           onChange = handlerCore(_, state)
         )
-      )
+      )}
+        else{
+          <.div(
+            "ImgCropWidget's state is not defined. "
+          )
+        }
+
     }
   }
-
 }
