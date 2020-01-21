@@ -1,27 +1,40 @@
 package client.ui.compositeWidgets.specific.image.rect
 
 import client.sodium.core.{Cell, Stream, StreamSink}
-import client.ui.wrappedReact.Crop
+import client.ui.wrappedReact.{
+  Crop,
+  ImgCropWidget,
+  ReactCropWidgetState
+}
 import shared.dataStorage.model.{ImageWithQue, Note, Rect}
 
 case class NotesRectWidget(
-  note:   Cell[Note],
-  get: Note => Rect,
-  set: (Note, Rect => Note)) {
+  updateImgWithQue: Stream[ImageWithQue],
+  get:              ImageWithQue => Rect,
+  set:              (ImageWithQue, Rect) => ImageWithQue) {
 
+  // sync to and back
+  //   from ImageWithQue and ReactCropWidgetState
 
-//  val crop=Cell[Crop]
+  lazy val reactCropWidgetStateUpdater
+    : Stream[ReactCropWidgetState] = {
+    def f(imageWithQue: ImageWithQue): ReactCropWidgetState = {
+      val r=get(imageWithQue)
+      val c= ReactCropWidgetState.rect2Crop(r)
+      val i=imageWithQue.fileName
+      ???
+    }
+    val s: Stream[ReactCropWidgetState] = updateImgWithQue.map(f)
+    s
+  }
 
+  lazy val imageWithQueUpdater: Stream[ImageWithQue] = ???
 
-  // todo-now
-  //  continue here ...
-  //
-  //  1) display Note's Rect
-  //
-  //  2) turn React state into Cell
-  //
-  //  3) update Note's Rect
-  //     with Update button
-  //
+  lazy val imageWithQueCell: Cell[ImageWithQue] = ???
+
+  lazy val component = {
+    val w = ImgCropWidget(reactCropWidgetStateUpdater)
+    w.comp
+  }
 
 }

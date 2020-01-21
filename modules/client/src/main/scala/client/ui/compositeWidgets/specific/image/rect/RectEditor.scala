@@ -15,7 +15,8 @@ import org.scalajs.dom.html.Div
 case class RectEditor(
   selectedNote: CellOption[TypedReferencedValue[Note]],
   get:          Note => Rect,
-  set:          (Note,Rect) => Note) {
+  set:          (Note,Rect) => Note
+                     ) {
 
   def getComp = {
 

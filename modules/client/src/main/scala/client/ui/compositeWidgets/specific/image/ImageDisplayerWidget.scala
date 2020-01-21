@@ -38,7 +38,7 @@ case class ImageDisplayerWidget(
             <.br,
             s"Image's file name :${x.fileName}",
             <.br,
-            getImg(x.fileName),
+            getImg(x.fileName.fileNameAsString),
             <.br
           )
         }

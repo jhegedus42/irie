@@ -51,7 +51,7 @@ object Note {
 
 case class ImageWithQue(
   title:               String,
-  fileName:            String,
+  fileName:            ImgFileName,
   queForPreviousImage: QueForPreviousImage,
   queFromNextImage:    LocationOfQueFromNextImage)
     extends Value[ImageWithQue]
@@ -63,7 +63,7 @@ object ImageWithQue {
     override def getDefaultValue: ImageWithQue = {
       new ImageWithQue(
         "default image title",
-        "defaultImage.jpeg",
+        ImgFileName("defaultImage.jpeg"),
         defValOf[QueForPreviousImage](
           QueForPreviousImage.defaultValue
         ),
@@ -146,3 +146,7 @@ object Rect {
       }
     }
 }
+
+@JsonCodec
+case class ImgFileName(fileNameAsString:String)
+

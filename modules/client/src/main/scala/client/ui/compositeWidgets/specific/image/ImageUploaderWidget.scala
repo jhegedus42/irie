@@ -25,8 +25,8 @@ import scalajs.runtime.propertiesOf
 import scalajs.js._
 
 case class ImageUploaderWidget(
-                                imgOpt: Cell[Option[TypedReferencedValue[ImageWithQue]]],
-                                c:      Cache[ImageWithQue]) {
+  imgOpt: Cell[Option[TypedReferencedValue[ImageWithQue]]],
+  c:      Cache[ImageWithQue]) {
 
   def render: () => VdomElement = { () =>
     <.div(
@@ -74,7 +74,9 @@ case class ImageUploaderWidget(
                           img.versionedEntityValue.valueWithoutVersion
                         import monocle.macros.syntax.lens._
                         val newVal =
-                          v.lens(_.fileName).set(value)
+                          v.lens(_.fileName.fileNameAsString).set(
+                              value
+                            )
                         lazy val cmd =
                           UpdateEntityInCacheCmd(img, newVal)
                         c.updateEntityCommandStream.send(cmd)
@@ -91,4 +93,3 @@ case class ImageUploaderWidget(
   }
 
 }
-

@@ -29,6 +29,7 @@ case class ReactCropWidgetState(
   crop:     Crop   = ReactCropWidgetState.initCrop,
   fileName: String = "defaultImage.jpeg")
 
+
 object ReactCropWidgetState {
 
   def rect2Crop(r:Rect):Crop = ???
