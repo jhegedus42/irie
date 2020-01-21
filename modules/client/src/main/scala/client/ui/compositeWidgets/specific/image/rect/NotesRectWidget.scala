@@ -33,8 +33,8 @@ case class NotesRectWidget(
     ???
   }
 
-  lazy val imageWithQueCell: Cell[VisualHint] = {
-    updateImgWithQue.orElse(imageWithQueUpdaterFromCropper).hold()
+  lazy val imageWithQueCell: Cell[Option[VisualHint]] = {
+    updateImgWithQue.orElse(imageWithQueUpdaterFromCropper).hold(None)
   }
 
   lazy val component = {

@@ -83,7 +83,7 @@ case class ImgCropWidget(
 
   lazy val comp = ScalaComponent
     .builder[Unit]("ReactCropWidget")
-    .initialState(ReactCropWidgetState())
+    .initialState(None.asInstanceOf[Option[ReactCropWidgetState]])
     .renderBackend[Backend]
     .componentWillMount(f => {
 
@@ -96,14 +96,18 @@ case class ImgCropWidget(
     })
     .build
 
-  class Backend($ : BackendScope[Unit, Option[ReactCropWidgetState]]) {
+  class Backend(
+    $ : BackendScope[Unit, Option[ReactCropWidgetState]]) {
+
+    import monocle.macros.syntax.lens._
 
     def handlerCore(
       c: Crop,
       s: Option[ReactCropWidgetState]
     ): Callback = {
       Callback {
-        internalStateUpdater.send(s.copy(crop = c))
+        val newState = s.map(_.lens(_.crop).set(c))
+        internalStateUpdater.send(newState)
       }
 
     }
@@ -112,21 +116,20 @@ case class ImgCropWidget(
       props: Unit,
       state: Option[ReactCropWidgetState]
     ): VdomElement = {
-      if(state.isDefined){
+      if (state.isDefined) {
 
-      <.div(
-
-        ReactCrop(
-          src      = "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
-          crop     = state.get.crop,
-          onChange = handlerCore(_, state)
-        )
-      )}
-        else{
-          <.div(
-            "ImgCropWidget's state is not defined. "
+        <.div(
+          ReactCrop(
+            src      = "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
+            crop     = state.get.crop,
+            onChange = handlerCore(_, state)
           )
-        }
+        )
+      } else {
+        <.div(
+          "ImgCropWidget's state is not defined. "
+        )
+      }
 
     }
   }
