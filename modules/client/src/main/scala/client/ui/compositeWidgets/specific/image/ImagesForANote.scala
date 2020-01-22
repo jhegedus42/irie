@@ -13,7 +13,7 @@ import client.ui.compositeWidgets.general.{
   EntityUpdaterButton,
   TextFieldUpdaterWidget
 }
-import client.ui.compositeWidgets.specific.image.rect.RectEditor
+import client.ui.compositeWidgets.specific.image.rect.ImgQueEditor
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
@@ -60,13 +60,10 @@ case class ImagesForANote(
 
   }
 
-  lazy val rectEditor = {
+  lazy val imgQueEditor = {
     import monocle.macros.syntax.lens._
-    RectEditor(
+    ImgQueEditor(
       selectedNote,
-      (n: Note) => n.lens(_.img.hintToThisImage.rect).get,
-      (n: Note, r: Rect) =>
-        n.lens(_.img.hintToThisImage.rect).set(r)
     )
   }
 
@@ -81,14 +78,14 @@ case class ImagesForANote(
 //          .render(),
 
         // continue here
-        ImageDisplayerWidget(selectedImage.co)
-          .imageDisplayer(),
+//        ImageDisplayerWidget(selectedImage.co)
+//          .imageDisplayer(),
 //        <.br,
 //        s"Make the Selected Note Point to the Selected Image by pressing this Button:",
 //        entityUpdaterButton.updaterButton.comp(),
         <.br,
         editImageTitle.comp(),
-        rectEditor.getComp(),
+        imgQueEditor.getComp(),
         <.hr
       )
     }

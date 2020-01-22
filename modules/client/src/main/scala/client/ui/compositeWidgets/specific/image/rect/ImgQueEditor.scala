@@ -1,6 +1,7 @@
 package client.ui.compositeWidgets.specific.image.rect
 
 import client.cache.relationalOperations.CellOptionMonad.CellOption
+import client.sodium.core
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import client.ui.compositeWidgets.specific.image.ImageDisplayerWidget
 import japgolly.scalajs.react.ScalaComponent
@@ -12,29 +13,30 @@ import shared.dataStorage.relationalWrappers.TypedReferencedValue
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 
-case class RectEditor(
-  selectedNote: CellOption[TypedReferencedValue[Note]],
-  get:          Note => Rect,
-  set:          (Note,Rect) => Note
-                     ) {
+case class ImgQueEditor(
+  selectedNote: CellOption[TypedReferencedValue[Note]] ) {
+
+
+  val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
+    .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
+
+  val rectHintToThisEditor = {
+    def get(n: Note) = n.lens(_.img.hintToThisImage.rect).get
+
+    def set(n: Note, r: Rect) =
+      n.lens(_.img.hintToThisImage.rect).set(r)
+
+      lazy val comp = NotesRectWidget(selectedNote,get , set)
+    comp
+  }
 
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
-      def renderRect(r: Rect): VdomTagOf[Div] = {
-        <.div(s"center:", r.center.toString)
-      }
-
-      val rectWidget = CellOptionDisplayerWidget(
-        selectedNote
-          .map(_.versionedEntityValue.valueWithoutVersion).map(get).co,
-        renderRect(_)
-      )
-
       <.div(
         <.br,
         "Rect Editor:",
-        rectWidget.displayer(),
+        rectHintToThisEditor.vdom,
         <.br
       )
 

@@ -17,8 +17,10 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
+  Coord,
   ImgFileName,
-  Rect
+  Rect,
+  Size
 }
 
 import scala.scalajs.js
@@ -45,9 +47,19 @@ case class ReactCropWidgetState(
 
 object ReactCropWidgetState {
 
-  def rect2Crop(r: Rect): Crop = ??? // todo-now
+  def rect2Crop(r: Rect): Crop = {
+    new Crop {
+      override val unit:   String = "px"
+      override val x:      Int    = r.center.x
+      override val y:      Int    = r.center.y
+      override val width:  Int    = r.size.width
+      override val height: Int    = r.size.height
+    }
+  }
 
-  def crop2Rect(r: Crop): Rect = ???
+  def crop2Rect(c: Crop): Rect = {
+    Rect(Coord(c.x, c.y), Size(c.width, c.height))
+  }
 
   // todo - continue here
 
@@ -65,8 +77,8 @@ object ReactCrop extends ReactBridgeComponent {
   // todo-now create a simple JS Object
 
   def apply(
-    src:      js.UndefOr[String]           = js.undefined,
-    crop:     js.UndefOr[Crop]             = js.undefined,
+    src:      js.UndefOr[String] = js.undefined,
+    crop:     js.UndefOr[Crop] = js.undefined,
     onChange: js.UndefOr[Crop => Callback] = js.undefined
   ): WithPropsNoChildren = autoNoChildren
 
@@ -89,6 +101,7 @@ case class ImgCropWidget(
 
       Callback {
         stateCell.listen((x: Option[ReactCropWidgetState]) => {
+          println(s"crop is updated:$x")
           f.setState(x).runNow()
         })
       }
@@ -120,7 +133,7 @@ case class ImgCropWidget(
 
         <.div(
           ReactCrop(
-            src      = "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg",
+            src      = state.get.fileName.fileNameAsString,
             crop     = state.get.crop,
             onChange = handlerCore(_, state)
           )

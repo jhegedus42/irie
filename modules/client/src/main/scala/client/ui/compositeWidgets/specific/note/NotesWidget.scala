@@ -72,8 +72,8 @@ case class NotesWidget() {
         selector.selectorTable.comp(),
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
-        noteFolderUpdater.getComp(),
         ImagesForANote(selectedNote).getComp(),
+        noteFolderUpdater.getComp(),
         <.br,
         <.br
       )
