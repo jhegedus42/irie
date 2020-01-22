@@ -25,8 +25,8 @@ import scalajs.runtime.propertiesOf
 import scalajs.js._
 
 case class ImageUploaderWidget(
-                                imgOpt: Cell[Option[TypedReferencedValue[VisualHint]]],
-                                c:      Cache[VisualHint]) {
+  imgOpt: Cell[Option[TypedReferencedValue[VisualHint]]],
+  c:      Cache[VisualHint]) {
 
   def render: () => VdomElement = { () =>
     <.div(

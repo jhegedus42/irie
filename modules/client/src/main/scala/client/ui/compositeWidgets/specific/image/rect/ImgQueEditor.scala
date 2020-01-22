@@ -14,8 +14,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 
 case class ImgQueEditor(
-  selectedNote: CellOption[TypedReferencedValue[Note]] ) {
-
+  selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
   val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
     .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
@@ -23,10 +22,26 @@ case class ImgQueEditor(
   val rectHintToThisEditor = {
     def get(n: Note) = n.lens(_.img.hintToThisImage.rect).get
 
-    def set(n: Note, r: Rect) =
+    def set(
+      n: Note,
+      r: Rect
+    ) =
       n.lens(_.img.hintToThisImage.rect).set(r)
 
-      lazy val comp = NotesRectWidget(selectedNote,get , set)
+    lazy val comp = NotesRectWidget(selectedNote, get, set)
+    comp
+  }
+
+  val placeOfHintToNextEditor = {
+    def get(n: Note) = n.lens(_.img.placeForHintToNextImage.rect).get
+
+    def set(
+      n: Note,
+      r: Rect
+    ) =
+      n.lens(_.img.placeForHintToNextImage.rect).set(r)
+
+    lazy val comp = NotesRectWidget(selectedNote, get, set)
     comp
   }
 
@@ -37,6 +52,7 @@ case class ImgQueEditor(
         <.br,
         "Rect Editor:",
         rectHintToThisEditor.vdom,
+        placeOfHintToNextEditor.vdom,
         <.br
       )
 
@@ -51,5 +67,9 @@ case class ImgQueEditor(
     rootComp
 
   }
+
+  // todo-now
+  //  upload / change image for current note
+
 
 }
