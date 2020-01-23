@@ -17,10 +17,10 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  Coord,
+  CoordInPercentage,
   ImgFileName,
   Rect,
-  Size
+  SizeInPercentage
 }
 
 import scala.scalajs.js
@@ -33,10 +33,10 @@ import scala.scalajs.js.annotation.ScalaJSDefined
 @ScalaJSDefined
 trait Crop extends js.Object {
   val unit:   String
-  val x:      Int
-  val y:      Int
-  val width:  Int
-  val height: Int
+  val x:      Double
+  val y:      Double
+  val width:  Double
+  val height: Double
 }
 
 import CanProvideDefaultValue.defValOf
@@ -49,26 +49,27 @@ object ReactCropWidgetState {
 
   def rect2Crop(r: Rect): Crop = {
     new Crop {
-      override val unit:   String = "px"
-      override val x:      Int    = r.center.x
-      override val y:      Int    = r.center.y
-      override val width:  Int    = r.size.width
-      override val height: Int    = r.size.height
+      override val unit:   String = "%"
+      override val x:      Double = r.center.x
+      override val y:      Double = r.center.y
+      override val width:  Double = r.size.width
+      override val height: Double = r.size.height
     }
   }
 
   def crop2Rect(c: Crop): Rect = {
-    Rect(Coord(c.x, c.y), Size(c.width, c.height))
+    Rect(CoordInPercentage(c.x, c.y),
+         SizeInPercentage(c.width, c.height))
   }
 
   // todo - continue here
 
   val initCrop = new Crop {
-    override val unit:   String = "px"
-    override val x:      Int    = 10
-    override val y:      Int    = 10
-    override val width:  Int    = 50
-    override val height: Int    = 50
+    override val unit:   String = "%"
+    override val x:      Double = 10
+    override val y:      Double = 10
+    override val width:  Double = 50
+    override val height: Double = 50
   }
 }
 
@@ -77,9 +78,10 @@ object ReactCrop extends ReactBridgeComponent {
   // todo-now create a simple JS Object
 
   def apply(
-    src:      js.UndefOr[String] = js.undefined,
-    crop:     js.UndefOr[Crop] = js.undefined,
-    onChange: js.UndefOr[Crop => Callback] = js.undefined
+    src:  js.UndefOr[String] = js.undefined,
+    crop: js.UndefOr[Crop]   = js.undefined,
+    onChange: js.UndefOr[(Crop, Crop)=> Callback] =
+      js.undefined
   ): WithPropsNoChildren = autoNoChildren
 
 }
@@ -100,8 +102,15 @@ case class ImgCropWidget(
     .componentWillMount(f => {
 
       Callback {
-        stateCell.listen((x: Option[ReactCropWidgetState]) => {
-          println(s"crop is updated:$x")
+        externalUpdater.listen((x: Option[ReactCropWidgetState]) => {
+          println(
+            s"crop is updated:$x\n" +
+              s"new value=${x.toString()}\n" +
+              s"new Rect=${x
+                .map({ c =>
+                  ReactCropWidgetState.crop2Rect(c.crop)
+                }).toString}\n"
+          )
           f.setState(x).runNow()
         })
       }
@@ -115,15 +124,26 @@ case class ImgCropWidget(
     import monocle.macros.syntax.lens._
 
     def handlerCore(
-      c: Crop,
-      s: Option[ReactCropWidgetState]
+      c:  Crop,
+      cp: Crop
     ): Callback = {
-      Callback {
-        val newState = s.map(_.lens(_.crop).set(c))
-        internalStateUpdater.send(newState)
+
+      def f(oldState: ReactCropWidgetState): ReactCropWidgetState =
+        oldState.lens(_.crop).set(cp)
+
+      def g(s: Option[ReactCropWidgetState]): Callback = {
+        Callback {
+          val ns = s.map(f)
+          internalStateUpdater.send(ns)
+        }
       }
 
+      lazy val updateCell: CallbackTo[Unit] = ($.state.>>=(g))
+      updateCell >> $.modState(_.map(f))
+
     }
+
+
 
     def render(
       props: Unit,
@@ -135,9 +155,10 @@ case class ImgCropWidget(
           ReactCrop(
             src      = state.get.fileName.fileNameAsString,
             crop     = state.get.crop,
-            onChange = handlerCore(_, state)
+            onChange = handlerCore(_,_)
           )
         )
+
       } else {
         <.div(
           "ImgCropWidget's state is not defined. "

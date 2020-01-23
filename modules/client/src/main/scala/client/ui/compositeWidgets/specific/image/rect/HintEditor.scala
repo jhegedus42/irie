@@ -10,7 +10,7 @@ import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{Note, Rect, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
-case class NotesRectWidget(
+case class HintEditor(
   selectedNoteCell: CellOption[TypedReferencedValue[Note]],
   get:              Note => Rect,
   set:              (Note, Rect) => Note) {

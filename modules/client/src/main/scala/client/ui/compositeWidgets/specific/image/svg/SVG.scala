@@ -1,5 +1,6 @@
 package client.ui.compositeWidgets.specific.image.svg
 
+import japgolly.scalajs.react.vdom.svg_<^.{<, ^}
 import shared.dataStorage.model.VisualHint
 
 case class SVG(background:VisualHint,hint:VisualHint){
@@ -23,6 +24,30 @@ case class SVG(background:VisualHint,hint:VisualHint){
       |</svg>
       |""".stripMargin
   }
+
+  import japgolly.scalajs.react.vdom.svg_<^._
+  lazy val answer= <.svg(^.width:="600",^.height:="400")(
+    <.image(^.xlinkHref := SVG.backgroundExample,
+      ^.width := "300",
+      ^.height := "200"),
+    <.image(^.xlinkHref := SVG.hintExample,
+      ^.width := "30",
+      ^.height := "20",^.transform:="translate(100,100)")
+
+    // FIX-BUG :
+    //  I need to click 2 times on a note so that the
+    //  proper placement in the cropper is updated.
+    //  => WHERE IS THE BUG ???
+
+    // todo-now:
+    //  clip
+
+    // TODO-NOW :
+    //  translate image
+    //  crop image
+    //
+
+  )
 }
 
 object SVG {

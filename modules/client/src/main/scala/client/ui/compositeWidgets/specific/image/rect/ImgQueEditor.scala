@@ -28,7 +28,7 @@ case class ImgQueEditor(
     ) =
       n.lens(_.img.hintToThisImage.rect).set(r)
 
-    lazy val comp = NotesRectWidget(selectedNote, get, set)
+    lazy val comp = HintEditor(selectedNote, get, set)
     comp
   }
 
@@ -41,7 +41,7 @@ case class ImgQueEditor(
     ) =
       n.lens(_.img.placeForHintToNextImage.rect).set(r)
 
-    lazy val comp = NotesRectWidget(selectedNote, get, set)
+    lazy val comp = HintEditor(selectedNote, get, set)
     comp
   }
 

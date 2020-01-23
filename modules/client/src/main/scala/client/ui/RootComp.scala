@@ -23,17 +23,20 @@ object RootComp {
                ^.r := "50",
                ^.fill := "red"),
       <.image(^.xlinkHref := SVG.backgroundExample,
-              ^.width := "300",
-              ^.height := "200"),
+              ^.width := "100%",
+              ^.height := "100%"),
 
       <.image(^.xlinkHref := SVG.hintExample,
-        ^.width := "30",
-        ^.height := "20")
+        ^.width := "10%",
+        ^.height := "10%",^.transform:="translate(100,100)")
 
       // FIX-BUG :
       //  I need to click 2 times on a note so that the
       //  proper placement in the cropper is updated.
       //  => WHERE IS THE BUG ???
+
+      // todo-now:
+      //  clip
 
       // TODO-NOW :
       //  translate image

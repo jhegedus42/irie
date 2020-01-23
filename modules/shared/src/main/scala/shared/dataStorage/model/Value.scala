@@ -125,19 +125,19 @@ object HintToThisImage {
 }
 
 @JsonCodec
-case class Coord(
-  x: Int,
-  y: Int)
+case class CoordInPercentage(
+  x: Double,
+  y: Double)
 
 @JsonCodec
-case class Size(
-  width:  Int,
-  height: Int)
+case class SizeInPercentage(
+  width:  Double,
+  height: Double)
 
 @JsonCodec
 case class Rect(
-  center: Coord,
-  size:   Size)
+  center: CoordInPercentage,
+  size:   SizeInPercentage)
 
 object Rect {
 
@@ -145,8 +145,8 @@ object Rect {
     new CanProvideDefaultValue[Rect] {
 
       override def getDefaultValue: Rect = {
-        val c    = Coord(50, 50)
-        val size = Size(50, 50)
+        val c    = CoordInPercentage(50, 50)
+        val size = SizeInPercentage(20, 20)
         new Rect(c, size)
       }
     }
@@ -156,6 +156,7 @@ object Rect {
 case class ImgFileName(fileNameAsString: String)
 
 object ImgFileName {
+
   implicit val defVal: CanProvideDefaultValue[ImgFileName] =
     new CanProvideDefaultValue[ImgFileName] {
 
@@ -165,4 +166,3 @@ object ImgFileName {
     }
 
 }
-
