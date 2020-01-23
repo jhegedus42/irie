@@ -30,8 +30,9 @@ object RootComp {
         ^.width := "30",
         ^.height := "20")
 
-      // move image
-      // display cropped image in SVG -- TODO-now
+      // TODO-NOW :
+      //  translate image
+      //  crop image
 
     )
 
