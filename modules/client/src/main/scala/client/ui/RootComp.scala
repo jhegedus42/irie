@@ -1,14 +1,14 @@
 package client.ui
 
-
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.specific.image.ImagesForANote
+import client.ui.compositeWidgets.specific.image.svg.SVG
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.wrappedReact.{
   Crop,
-  ReactCrop,
   ImgCropWidget,
+  ReactCrop,
   TagsInput
 }
 
@@ -17,11 +17,22 @@ object RootComp {
   lazy val svgDemo = {
 //    import org.scalajs.dom.{svg => *}
     import japgolly.scalajs.react.vdom.svg_<^._
-    <.svg(
+    <.svg(^.width:="600",^.height:="400")(
       <.circle(^.cx := "50",
                ^.cy := "50",
                ^.r := "50",
-               ^.fill := "red")
+               ^.fill := "red"),
+      <.image(^.xlinkHref := SVG.backgroundExample,
+              ^.width := "300",
+              ^.height := "200"),
+
+      <.image(^.xlinkHref := SVG.hintExample,
+        ^.width := "30",
+        ^.height := "20")
+
+      // move image
+      // display cropped image in SVG -- TODO-now
+
     )
 
   }

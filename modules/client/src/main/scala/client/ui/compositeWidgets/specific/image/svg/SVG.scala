@@ -3,8 +3,6 @@ package client.ui.compositeWidgets.specific.image.svg
 import shared.dataStorage.model.VisualHint
 
 case class SVG(background:VisualHint,hint:VisualHint){
-  lazy val backgroundExample="6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
-  lazy val hintExample="befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
 
   def asString:String = ???
 
@@ -25,4 +23,10 @@ case class SVG(background:VisualHint,hint:VisualHint){
       |</svg>
       |""".stripMargin
   }
+}
+
+object SVG {
+  lazy val backgroundExample="6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
+  lazy val hintExample="befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
+
 }
