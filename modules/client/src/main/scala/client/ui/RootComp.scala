@@ -30,9 +30,15 @@ object RootComp {
         ^.width := "30",
         ^.height := "20")
 
+      // FIX-BUG :
+      //  I need to click 2 times on a note so that the
+      //  proper placement in the cropper is updated.
+      //  => WHERE IS THE BUG ???
+
       // TODO-NOW :
       //  translate image
       //  crop image
+      //
 
     )
 
