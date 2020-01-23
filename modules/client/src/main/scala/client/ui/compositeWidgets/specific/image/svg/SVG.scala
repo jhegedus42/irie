@@ -28,8 +28,8 @@ case class SVG(background:VisualHint,hint:VisualHint){
   import japgolly.scalajs.react.vdom.svg_<^._
   lazy val answer= <.svg(^.width:="600",^.height:="400")(
     <.image(^.xlinkHref := SVG.backgroundExample,
-      ^.width := "300",
-      ^.height := "200"),
+      ^.width := "300"
+      ),
     <.image(^.xlinkHref := SVG.hintExample,
       ^.width := "30",
       ^.height := "20",^.transform:="translate(100,100)")
