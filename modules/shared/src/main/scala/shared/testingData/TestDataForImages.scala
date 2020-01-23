@@ -25,16 +25,5 @@ object TestDataForImages {
     CanProvideDefaultValue.defValOf[VisualHint]
   }
 
-  val appleImage = TypedReferencedValue(
-    createNewImageWithQue("apple")
-  ).addEntityOwnerInfo(ar)
-
-  val starImage =
-    TypedReferencedValue(createNewImageWithQue("star"))
-      .addEntityOwnerInfo(ar)
-
-  val musicImage = TypedReferencedValue(
-    createNewImageWithQue("music")
-  ).addEntityOwnerInfo(ar)
 
 }

@@ -59,7 +59,7 @@ case class VisualHint(
   placeForHintToNextImage: PlaceForHintToNextImage
   // this is where a hint to the next image
   // will be placed
-) extends Value[VisualHint]
+)
 
 object VisualHint {
 
@@ -165,3 +165,4 @@ object ImgFileName {
     }
 
 }
+

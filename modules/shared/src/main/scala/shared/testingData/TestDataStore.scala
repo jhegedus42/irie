@@ -48,9 +48,6 @@ object TestDataStore extends App {
       .insertHelper(
         TestEntitiesForNotes.note03AliceWithRef.addEntityOwnerInfo(ar)
       )
-      .insertHelper(TestDataForImages.appleImage)
-      .insertHelper(TestDataForImages.starImage)
-      .insertHelper(TestDataForImages.musicImage)
       .insertHelper(TestDataForNoteFolders.noteFolderOneWithRef)
       .insertHelper(TestDataForNoteFolders.noteFolderTwoWithRef)
 

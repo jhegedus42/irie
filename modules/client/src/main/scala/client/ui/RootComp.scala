@@ -1,7 +1,5 @@
 package client.ui
 
-import japgolly.scalajs.react.ScalaComponent
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
@@ -16,6 +14,22 @@ import client.ui.wrappedReact.{
 
 object RootComp {
 
+  lazy val svgDemo = {
+//    import org.scalajs.dom.{svg => *}
+    import japgolly.scalajs.react.vdom.svg_<^._
+    <.svg(
+      <.circle(^.cx := "50",
+               ^.cy := "50",
+               ^.r := "50",
+               ^.fill := "red")
+    )
+
+  }
+
+  import japgolly.scalajs.react.ScalaComponent
+  import japgolly.scalajs.react.vdom.html_<^.{<, _}
+  import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
+
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
@@ -27,12 +41,8 @@ object RootComp {
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
             nw.getComp(),
-            <.br
-//            TagsInput(value    = Seq("foo", "bar42"),
-//                      onChange = TagsInput.handlerCore(_))
-//            ReactCropWrapped.comp(
-//              "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
-//            )
+            <.br,
+            svgDemo
           )
         )
       )

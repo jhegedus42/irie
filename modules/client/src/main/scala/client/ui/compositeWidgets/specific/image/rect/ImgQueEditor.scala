@@ -3,7 +3,7 @@ package client.ui.compositeWidgets.specific.image.rect
 import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
-import client.ui.compositeWidgets.specific.image.ImageDisplayerWidget
+import client.ui.compositeWidgets.specific.image.{ImageDisplayerWidget, ImageUploaderWidget}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.macros.syntax.lens._
@@ -45,6 +45,8 @@ case class ImgQueEditor(
     comp
   }
 
+  lazy val imgFileUploader=ImageUploaderWidget(selectedNote)
+
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
@@ -53,6 +55,7 @@ case class ImgQueEditor(
         "Rect Editor:",
         rectHintToThisEditor.vdom,
         placeOfHintToNextEditor.vdom,
+//        imgFileUploader.
         <.br
       )
 

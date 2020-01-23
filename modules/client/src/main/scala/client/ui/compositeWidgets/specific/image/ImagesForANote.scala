@@ -67,6 +67,8 @@ case class ImagesForANote(
     )
   }
 
+  lazy val imageUploaderWidget = ImageUploaderWidget(selectedNote)
+
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
@@ -74,18 +76,10 @@ case class ImagesForANote(
         <.hr,
         <.h2("Images"),
         <.br,
-//        ImageUploaderWidget(selector.selectedEntity, imgCache)
-//          .render(),
-
-        // continue here
-//        ImageDisplayerWidget(selectedImage.co)
-//          .imageDisplayer(),
-//        <.br,
-//        s"Make the Selected Note Point to the Selected Image by pressing this Button:",
-//        entityUpdaterButton.updaterButton.comp(),
         <.br,
         editImageTitle.comp(),
         imgQueEditor.getComp(),
+        imageUploaderWidget.comp.optDisplayer(),
         <.hr
       )
     }
@@ -100,41 +94,5 @@ case class ImagesForANote(
 
   }
 
-//  val entityUpdaterButton = {
-//
-//    import monocle.macros.syntax.lens._
-//    val updater: CellOption[ImageWithQue => ImageWithQue] = {
-//      val f = (trvNote: TypedReferencedValue[Note]) => {
-//        (i: ImageWithQue) =>
-//          i.lens(_.referenceToNote).set(Some(trvNote.ref))
-//      }
-//
-//      val res: CellOption[ImageWithQue => ImageWithQue] =
-//        selectedNote.map(f)
-//      res
-//    }
-//
-//    // todo-now
-//    //  make a general composite updater
-//    //  val i get the Image that refers to the selected note
-//    //  make it point to no note
-//    //  make this point to the selected image
-//
-//
-//    // use the following cell to update the image
-//    // belonging to the currently selected note :
-//
-//    val updaterCMD =NoteOperations.getNoteImageUpdaterCompositeCommand( ???, ??? )
-//
-//
-//    val r = EntityUpdaterButton[ImageWithQue](
-//      selector.selectedEntity,
-//      imgCache,
-//      updater,
-//      "Update Image"
-//    )
-//
-//    r
-//  }
 
 }

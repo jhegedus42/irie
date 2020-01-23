@@ -8,11 +8,13 @@ import bootstrap4.TB.C
 import bootstrap4.TB.C
 import client.cache.Cache
 import client.cache.commands.UpdateEntityInCacheCmd
+import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core.Cell
+import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.model.VisualHint
+import shared.dataStorage.model.{Note, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
@@ -24,11 +26,12 @@ import js.Dynamic.{global => g, newInstance => jsnew}
 import scalajs.runtime.propertiesOf
 import scalajs.js._
 
-case class ImageUploaderWidget(
-  imgOpt: Cell[Option[TypedReferencedValue[VisualHint]]],
-  c:      Cache[VisualHint]) {
+case class ImageUploaderWidget(selectedNote:CellOption[TypedReferencedValue[Note]]) {
 
-  def render: () => VdomElement = { () =>
+
+  lazy val comp= CellOptionDisplayerWidget(selectedNote.co,render(_))
+
+  def render (noteTRV :TypedReferencedValue[Note]) : VdomElement = {
     <.div(
       <.h2("Image Uploader"),
       <.input(^.id := "the-file",
@@ -67,19 +70,20 @@ case class ImageUploaderWidget(
                     case Success(value) => {
                       println(s"Success $value")
                       // todo now, send image update with new file-name
-                      val s = imgOpt.sample()
-                      if (s.isDefined) {
-                        val img = s.head
-                        val v =
-                          img.versionedEntityValue.valueWithoutVersion
+                      val noteOpt = selectedNote.co.sample()
+                      if (noteOpt.isDefined) {
+                        val note =
+                          noteOpt.head.versionedEntityValue.valueWithoutVersion
                         import monocle.macros.syntax.lens._
                         val newVal =
-                          v.lens(_.fileName.fileNameAsString).set(
+                          note
+                            .lens(_.img.fileName.fileNameAsString).set(
                               value
                             )
                         lazy val cmd =
-                          UpdateEntityInCacheCmd(img, newVal)
-                        c.updateEntityCommandStream.send(cmd)
+                          UpdateEntityInCacheCmd(noteOpt.head, newVal)
+                        Cache.noteCache.updateEntityCommandStream
+                          .send(cmd)
                       }
 
                     }
@@ -91,5 +95,7 @@ case class ImageUploaderWidget(
       )
     )
   }
+
+
 
 }

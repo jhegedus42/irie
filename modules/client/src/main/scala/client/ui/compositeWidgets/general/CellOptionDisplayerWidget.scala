@@ -31,6 +31,6 @@ case class CellOptionDisplayerWidget[V](
                               entityOptCell.sample(),
                               optRenderer)
 
-  lazy val displayer = streamTemplate.comp
+  lazy val optDisplayer = streamTemplate.comp
 
 }

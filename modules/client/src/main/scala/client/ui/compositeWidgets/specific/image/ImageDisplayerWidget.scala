@@ -43,7 +43,7 @@ case class ImageDisplayerWidget(
           )
         }
       }
-    ).displayer
+    ).optDisplayer
   }
 
 }

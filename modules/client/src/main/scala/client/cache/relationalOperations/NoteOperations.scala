@@ -12,13 +12,13 @@ object NoteOperations {
 
 
 
-  def getNoteImageUpdaterCompositeCommand(
-    note: CellOption[TypedReferencedValue[Note]],
-    img:  CellOption[TypedReferencedValue[VisualHint]]
-  ) = {
-    // todo-now - write this function
-    ???
-  }
+//  def getNoteImageUpdaterCompositeCommand(
+//    note: CellOption[TypedReferencedValue[Note]],
+//    img:  CellOption[TypedReferencedValue[VisualHint]]
+//  ) = {
+//    // todo-now - write this function
+//    ???
+//  }
 
 
 
