@@ -22,7 +22,6 @@ case class CellOptionDisplayerWidget[V](
           case None        => <.div("Entity is not defined.")
         }
       }
-
   }
 
   lazy val streamTemplate =

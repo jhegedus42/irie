@@ -17,10 +17,10 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  CoordInPercentage,
+  CoordInPixel,
   ImgFileName,
   Rect,
-  SizeInPercentage
+  SizeInPixel
 }
 
 import scala.scalajs.js
@@ -49,7 +49,7 @@ object ReactCropWidgetState {
 
   def rect2Crop(r: Rect): Crop = {
     new Crop {
-      override val unit:   String = "%"
+      override val unit:   String = "px"
       override val x:      Double = r.center.x
       override val y:      Double = r.center.y
       override val width:  Double = r.size.width
@@ -58,14 +58,14 @@ object ReactCropWidgetState {
   }
 
   def crop2Rect(c: Crop): Rect = {
-    Rect(CoordInPercentage(c.x, c.y),
-         SizeInPercentage(c.width, c.height))
+    Rect(CoordInPixel(c.x, c.y),
+         SizeInPixel(c.width, c.height))
   }
 
   // todo - continue here
 
   val initCrop = new Crop {
-    override val unit:   String = "%"
+    override val unit:   String = "px"
     override val x:      Double = 10
     override val y:      Double = 10
     override val width:  Double = 50
@@ -129,7 +129,7 @@ case class ImgCropWidget(
     ): Callback = {
 
       def f(oldState: ReactCropWidgetState): ReactCropWidgetState =
-        oldState.lens(_.crop).set(cp)
+        oldState.lens(_.crop).set(c)
 
       def g(s: Option[ReactCropWidgetState]): Callback = {
         Callback {

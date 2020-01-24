@@ -2,12 +2,12 @@ package shared.testingData
 
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  CoordInPercentage,
+  CoordInPixel,
   HintToThisImage,
   ImgFileName,
   PlaceForHintToNextImage,
   Rect,
-  SizeInPercentage,
+  SizeInPixel,
   User,
   VisualHint
 }
@@ -20,7 +20,7 @@ object TestDataForImages {
 
   lazy val ar = aliceEnt.ref
 
-  lazy val defaultRect = Rect(CoordInPercentage(50, 50), SizeInPercentage(50, 50))
+  lazy val defaultRect = Rect(CoordInPixel(50, 50), SizeInPixel(50, 50))
 
   def createNewImageWithQue(title: String): VisualHint = {
     CanProvideDefaultValue.defValOf[VisualHint]

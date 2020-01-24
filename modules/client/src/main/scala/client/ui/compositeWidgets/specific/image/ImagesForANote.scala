@@ -15,6 +15,7 @@ import client.ui.compositeWidgets.general.{
 }
 import client.ui.compositeWidgets.specific.image.rect.ImgQueEditor
 import client.ui.helpers.table.TableHelpers
+import io.circe.Encoder
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
@@ -22,13 +23,13 @@ import scala.concurrent.ExecutionContextExecutor
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.syntax.ApplyLens
-import shared.dataStorage.model.{VisualHint, Note, Rect}
+import shared.dataStorage.model.{Note, Rect, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImagesForANote(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  val selectedImage =
+  val selectedVisualHint: CellOption[VisualHint] =
     selectedNote.map(_.versionedEntityValue.valueWithoutVersion.img)
 
   lazy val editImageTitle = {
@@ -63,8 +64,31 @@ case class ImagesForANote(
   lazy val imgQueEditor = {
     import monocle.macros.syntax.lens._
     ImgQueEditor(
-      selectedNote,
+      selectedNote
     )
+  }
+
+  lazy val visualHintDisplayer = {
+    import monocle.macros.syntax.lens._
+
+    def renderer(
+      visualHint: VisualHint
+    )(
+      implicit
+      vh: Encoder[VisualHint]
+    ): VdomElement = {
+
+      lazy val s = vh.apply(visualHint).spaces4
+      <.pre(s)
+    }
+
+    lazy val res: CellOptionDisplayerWidget[VisualHint] =
+      CellOptionDisplayerWidget[VisualHint](
+        selectedVisualHint.co,
+        renderer(_)
+      )
+
+    res
   }
 
   lazy val imageUploaderWidget = ImageUploaderWidget(selectedNote)
@@ -80,6 +104,7 @@ case class ImagesForANote(
         editImageTitle.comp(),
         imgQueEditor.getComp(),
         imageUploaderWidget.comp.optDisplayer(),
+        visualHintDisplayer.optDisplayer(),
         <.hr
       )
     }
@@ -93,6 +118,5 @@ case class ImagesForANote(
     rootComp
 
   }
-
 
 }
