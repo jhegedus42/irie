@@ -28,7 +28,7 @@ object CellOptionMonad {
       new CellOption[B](res3)
     }
 
-    def lift2[B, C](
+    def lift2old[B, C](
       other: CellOption[B]
     )(f:     (A, B) => C
     ): CellOption[C] = {
@@ -51,6 +51,39 @@ object CellOptionMonad {
 
       CellOption.fromCellOption(r)
 
+    }
+
+    def lift2co[B, C](
+      other: CellOption[B]
+    )(f:     (Option[A], Option[B]) => Option[C]
+    ): CellOption[C] = {
+
+      val coa = co
+
+      val cob = other.co
+
+      val res: Cell[Option[C]] = coa.lift(cob, f)
+
+      new CellOption[C](res)
+    }
+
+    def lift2[B, C](
+      other: CellOption[B]
+    )(f:     (A, B) => C
+    ): CellOption[C] = {
+      def g(
+        ao: Option[A],
+        bo: Option[B]
+      ): Option[C] = {
+
+        for {
+          a <- ao
+          b <- bo
+        } yield f(a, b)
+
+      }
+      val res: CellOption[C] = lift2co(other)(g(_, _))
+      res
     }
 
     def applicativeMap[B](f: CellOption[A => B]): CellOption[B] = {

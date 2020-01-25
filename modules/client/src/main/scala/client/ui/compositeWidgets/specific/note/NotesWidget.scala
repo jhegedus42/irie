@@ -1,8 +1,8 @@
 package client.ui.compositeWidgets.specific.note
 
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.cache.relationalOperations.NoteOperations
 import client.cache.relationalOperations.RelationalOperations.ResultSet
+import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
@@ -60,6 +60,22 @@ case class NotesWidget() {
     selector.selectedEntityResolved
   )
 
+  lazy val nextNoteTitleDisplayer = {
+    lazy val nextNote: CellOption[TypedReferencedValue[Note]] =
+      NoteOperations.getNextNote(selectedNote)
+    CellOptionDisplayerWidget[Note](
+      nextNote.map(_.versionedEntityValue.valueWithoutVersion).co, {
+        (next: Note) =>
+          {
+            <.div(<.h3("Next Note's title:"),
+                  <.br,
+                  s"${next.title}",
+                  <.br)
+          }
+      }
+    ).optDisplayer
+  }
+
   lazy val noteCreator = EntityCreatorWidget({ () =>
     CanProvideDefaultValue.defValOf[Note]
   }, "Note")
@@ -72,6 +88,7 @@ case class NotesWidget() {
         <.h2("Notes"),
         <.br,
         selector.selectorTable.comp(),
+        nextNoteTitleDisplayer(),
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
         ImagesForANote(selectedNote).getComp(),

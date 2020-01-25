@@ -1,18 +1,13 @@
 package client.ui.compositeWidgets.specific.image
 
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.cache.relationalOperations.NoteOperations
+import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.{Cell, CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.{
-  CellOptionDisplayerWidget,
-  EntitySelectorWidget,
-  EntityUpdaterButton,
-  TextFieldUpdaterWidget
-}
+import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton, TextFieldUpdaterWidget}
 import client.ui.compositeWidgets.specific.image.rect.ImgQueEditor
 import client.ui.helpers.table.TableHelpers
 import io.circe.Encoder

@@ -4,7 +4,7 @@ import java.net.FileNameMap
 
 import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.cache.relationalOperations.{CellOptionMonad, NoteOperations}
+import client.cache.relationalOperations.CellOptionMonad
 import client.sodium.core.Cell
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}

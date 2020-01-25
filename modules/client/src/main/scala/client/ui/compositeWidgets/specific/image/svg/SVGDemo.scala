@@ -70,6 +70,13 @@ object SVGDemo {
   //  put the result of imgInSVGWithViewBox into
   //  the image to which this hint is pointing
 
+  def imgWithQueToNexgIMG(
+    currentVisualHint: VisualHint,
+    nextVisualHint:    VisualHint
+  ) = {
+    ???
+  }
+
   def imgInSVGWithViewBox(hint: VisualHint): VdomTagOf[SVG] = {
 
     lazy val imgSizePixel = hint.fileData.sizeInPixel
@@ -86,7 +93,6 @@ object SVGDemo {
     lazy val hintSizeInPixel: SizeInPixel = {
       hintSizePerc.toSizeInPixel(imgSizePixel)
     }
-
 
     lazy val viewBoxPX =
       ViewBoxPX(LocationInPixel(0, 0), hintSizeInPixel)

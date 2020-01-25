@@ -4,6 +4,7 @@ import client.cache.Cache
 import client.cache.commands.UpdateEntityInCacheCmd
 import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.RelationalOperations
+import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
@@ -100,28 +101,7 @@ case class NoteFolderUpdaterWidget(
     )
 
   lazy val selectedNotesNoteFolder: Cell[Option[Folder]] = {
-
-    val filterBy: Cell[Folder => Boolean] = {
-      selectedNote.map((xtrv: Option[TypedReferencedValue[Note]]) => {
-        val xOpt: Option[Ref[Note]] =
-          xtrv.map(_.ref)
-        (f: Folder) => {
-
-          def g: Ref[Note] => Boolean = { rn: Ref[Note] =>
-            f.notes.contains(rn)
-          }
-          val res = xOpt.map(g)
-          res.getOrElse(false)
-        }
-      })
-    }
-    val res: Cell[Set[TypedReferencedValue[Folder]]] =
-      RelationalOperations.getAllEntitiesWithFilter(filterBy)
-
-    val r2: Cell[Option[Folder]] = res.map(
-      _.headOption.map(_.versionedEntityValue.valueWithoutVersion)
-    )
-    r2
+    NoteOperations.selectedNotesNoteFolder(selectedNote)
   }
 
   lazy val selectedNotesNoteFolderDisplayer =
