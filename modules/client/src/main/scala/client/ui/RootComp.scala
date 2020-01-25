@@ -3,7 +3,10 @@ package client.ui
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.specific.image.ImagesForANote
-import client.ui.compositeWidgets.specific.image.svg.SVG
+import client.ui.compositeWidgets.specific.image.svg.{
+  SVGDemo,
+  VisualHintDemoData
+}
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.wrappedReact.{
   Crop,
@@ -34,9 +37,7 @@ object RootComp {
             nw.getComp(),
             <.br,
             <.hr,
-            <.h2("static visual hint json decoded example"),
-            <.br,
-            <.pre(SVG.jsonVisualHint)
+            SVGDemo.imgInSVGWithViewBox
           )
         )
       )
