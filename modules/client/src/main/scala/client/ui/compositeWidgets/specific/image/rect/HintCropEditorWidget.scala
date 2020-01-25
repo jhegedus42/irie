@@ -2,34 +2,18 @@ package client.ui.compositeWidgets.specific.image.rect
 
 import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.sodium.core.{
-  Cell,
-  CellLoop,
-  Stream,
-  StreamSink,
-  Transaction
-}
-import client.ui.compositeWidgets.general.{
-  CellOptionDisplayerWidget,
-  EntityUpdaterButton
-}
+import client.cache.relationalOperations.onDataModel.NoteOperations
+import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
+import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntityUpdaterButton}
 import client.ui.compositeWidgets.specific.image.svg.SVGDemo
-import client.ui.wrappedReact.{
-  Crop,
-  ImgCropWidget,
-  ReactCropWidgetState
-}
+import client.ui.wrappedReact.{Crop, ImgCropWidget, ReactCropWidgetState}
 import japgolly.scalajs.react.vdom.TagOf
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{Note, Rect, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
-case class HintEditor(
+case class HintCropEditorWidget(
   selectedNoteCell: CellOption[TypedReferencedValue[Note]],
-  // todo-later :
-  // selectedNoteCell: CellOption[Ref[Note]]
-  // resolve Note by reference
-
   get: Note         => Rect,
   set: (Note, Rect) => Note) {
 
@@ -109,24 +93,9 @@ case class HintEditor(
 
   import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 
-  lazy val hintDisplayer = {
-//    import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-    import japgolly.scalajs.react.vdom.html_<^.{<, _}
-    lazy val coHint: CellOption[VisualHint] = selectedNoteCell.map(
-      _.versionedEntityValue.valueWithoutVersion.img
-    )
-    CellOptionDisplayerWidget(coHint.co, { (h: VisualHint) =>
-      <.div(SVGDemo.imgInSVGWithViewBox(h))
-    })
-  }
-
   lazy val vdom: TagOf[Div] = {
     import japgolly.scalajs.react.vdom.html_<^.{<, _}
     <.div(
-      <.br,
-      "cropped hint to be placed into the following image:",
-      <.br,
-      hintDisplayer.optDisplayer(),
       <.br,
       imgCropWidget.comp(),
       <.br,

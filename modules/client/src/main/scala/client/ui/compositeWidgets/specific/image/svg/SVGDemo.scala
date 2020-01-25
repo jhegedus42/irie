@@ -77,6 +77,24 @@ object SVGDemo {
     ???
   }
 
+  def getSVGBackground(hint: VisualHint) = {
+    lazy val imgSizePixel = hint.fileData.sizeInPixel
+
+    lazy val origo     = LocationInPixel(0, 0)
+    lazy val viewBoxPX = ViewBoxPX(origo, imgSizePixel)
+
+    lazy val svgLoc =
+      LocationAndSizeInPixel(origo, imgSizePixel)
+
+    lazy val imgLoc =
+      LocationAndSizeInPixel(origo, imgSizePixel)
+
+    lazy val img = image(hint, imgLoc)
+
+    lazy val res = svgElement(viewBoxPX, svgLoc)(img)
+    res
+  }
+
   def imgInSVGWithViewBox(hint: VisualHint): VdomTagOf[SVG] = {
 
     lazy val imgSizePixel = hint.fileData.sizeInPixel

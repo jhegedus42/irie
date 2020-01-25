@@ -60,21 +60,6 @@ case class NotesWidget() {
     selector.selectedEntityResolved
   )
 
-  lazy val nextNoteTitleDisplayer = {
-    lazy val nextNote: CellOption[TypedReferencedValue[Note]] =
-      NoteOperations.getNextNote(selectedNote)
-    CellOptionDisplayerWidget[Note](
-      nextNote.map(_.versionedEntityValue.valueWithoutVersion).co, {
-        (next: Note) =>
-          {
-            <.div(<.h3("Next Note's title:"),
-                  <.br,
-                  s"${next.title}",
-                  <.br)
-          }
-      }
-    ).optDisplayer
-  }
 
   lazy val noteCreator = EntityCreatorWidget({ () =>
     CanProvideDefaultValue.defValOf[Note]
@@ -88,7 +73,6 @@ case class NotesWidget() {
         <.h2("Notes"),
         <.br,
         selector.selectorTable.comp(),
-        nextNoteTitleDisplayer(),
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
         ImagesForANote(selectedNote).getComp(),

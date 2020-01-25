@@ -8,7 +8,7 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget, EntityUpdaterButton, TextFieldUpdaterWidget}
-import client.ui.compositeWidgets.specific.image.rect.ImgQueEditor
+import client.ui.compositeWidgets.specific.image.rect.VisualHintEditor
 import client.ui.helpers.table.TableHelpers
 import io.circe.Encoder
 import japgolly.scalajs.react.ScalaComponent
@@ -58,7 +58,7 @@ case class ImagesForANote(
 
   lazy val imgQueEditor = {
     import monocle.macros.syntax.lens._
-    ImgQueEditor(
+    VisualHintEditor(
       selectedNote
     )
   }
