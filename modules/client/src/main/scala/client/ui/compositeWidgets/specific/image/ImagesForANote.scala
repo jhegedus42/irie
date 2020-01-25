@@ -80,6 +80,7 @@ case class ImagesForANote(
 
       lazy val s = vh.apply(visualHint).spaces4
       <.pre(s)
+
     }
 
     lazy val res: CellOptionDisplayerWidget[VisualHint] =
