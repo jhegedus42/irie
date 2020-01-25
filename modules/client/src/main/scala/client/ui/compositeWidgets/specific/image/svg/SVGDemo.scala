@@ -66,6 +66,10 @@ object SVGDemo {
 //    "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
 //  lazy val hintExample = "befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
 
+  // todo now
+  //  put the result of imgInSVGWithViewBox into
+  //  the image to which this hint is pointing
+
   def imgInSVGWithViewBox(hint: VisualHint): VdomTagOf[SVG] = {
 
     lazy val imgSizePixel = hint.fileData.sizeInPixel
