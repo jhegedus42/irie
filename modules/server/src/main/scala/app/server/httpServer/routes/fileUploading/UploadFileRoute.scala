@@ -8,6 +8,8 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.util.ByteString
+import io.circe.Encoder
+import shared.dataStorage.model.{ImgFileData, ImgFileName, SizeInPercentage, SizeInPixel}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -35,18 +37,35 @@ trait UploadFileRoute {
 
   def route: Route = {
 
-
     path("user" / "upload" / "file") {
       (post & entity(as[Multipart.FormData])) { fileData =>
         complete {
-          val fileName = UUID.randomUUID().toString+".jpeg"
+          val fileName = UUID.randomUUID().toString + ".jpeg"
           val filePath = "./" + fileName
           processFile(filePath, fileData)
             .map { fileSize =>
               HttpResponse(
                 StatusCodes.OK,
-                entity =
-                  s"$filePath"
+                entity = {
+
+                  // get file size
+                  import sys.process._
+                  val width=
+                    (s"""identify -format "%w" ${fileName}""" !!).trim
+                      .filterNot(_ == '"').toString.toDouble
+
+                  val height=
+                    (s"""identify -format "%h" ${fileName}""" !!).trim
+                      .filterNot(_ == '"').toString.toDouble
+
+
+                  val imgFileData = ImgFileData(
+                    ImgFileName(fileName),
+                    SizeInPixel(width, height)
+                  )
+                  implicitly[Encoder[ImgFileData]]
+                    .apply(imgFileData).spaces4
+                }
               )
             }.recover {
               case ex: Exception =>
@@ -66,9 +85,6 @@ trait UploadFileRoute {
 
     fileData.parts
       .mapAsync(1) { bodyPart ⇒
-
-
-
         def writeFileOnLocal(
           array:      Array[Byte],
           byteString: ByteString
@@ -84,6 +100,5 @@ trait UploadFileRoute {
       }.runFold(0)(_ + _.length)
 
   }
-
 
 }

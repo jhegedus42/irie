@@ -22,9 +22,10 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  VisualHint,
-  Note
+  Note,
+  VisualHint
 }
+import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -35,18 +36,19 @@ case class NotesWidget() {
 
   implicit lazy val noteCache: Cache[Note] = Cache.noteCache
 
-  lazy val selector = EntitySelectorWidget[Note]({ x: Note =>
-    x.title
-  })
+  lazy val selector: EntitySelectorWidget[Note] =
+    EntitySelectorWidget[Note]({ x: Note =>
+      x.title
+    })
 
   import client.cache.relationalOperations.RelationalOperations.Pipe
 
-  lazy val selectedNote =
-    selector.selectedEntity |> CellOption.fromCellOption
+  lazy val selectedNote: CellOption[TypedReferencedValue[Note]] =
+    selector.selectedEntityResolved |> CellOption.fromCellOption
 
   lazy val noteTitleEditor = TextFieldUpdaterWidget[Note](
     "title",
-    selector.selectedEntity,
+    selector.selectedEntityResolved,
     noteCache, { n: Note =>
       n.title
     }, { (n: Note, s: String) =>
@@ -55,7 +57,7 @@ case class NotesWidget() {
   )
 
   val noteFolderUpdater = NoteFolderUpdaterWidget(
-    selector.selectedEntity
+    selector.selectedEntityResolved
   )
 
   lazy val noteCreator = EntityCreatorWidget({ () =>

@@ -12,9 +12,10 @@ import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core.Cell
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import client.ui.compositeWidgets.specific.note.NotesWidget
+import io.circe.Decoder
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.model.{Note, VisualHint}
+import shared.dataStorage.model.{ImgFileData, Note, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
@@ -26,12 +27,13 @@ import js.Dynamic.{global => g, newInstance => jsnew}
 import scalajs.runtime.propertiesOf
 import scalajs.js._
 
-case class ImageUploaderWidget(selectedNote:CellOption[TypedReferencedValue[Note]]) {
+case class ImageUploaderWidget(
+  selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
+  lazy val comp =
+    CellOptionDisplayerWidget(selectedNote.co, render(_))
 
-  lazy val comp= CellOptionDisplayerWidget(selectedNote.co,render(_))
-
-  def render (noteTRV :TypedReferencedValue[Note]) : VdomElement = {
+  def render(noteTRV: TypedReferencedValue[Note]): VdomElement = {
     <.div(
       <.h2("Image Uploader"),
       <.input(^.id := "the-file",
@@ -69,21 +71,41 @@ case class ImageUploaderWidget(selectedNote:CellOption[TypedReferencedValue[Note
                     }
                     case Success(value) => {
                       println(s"Success $value")
-                      // todo now, send image update with new file-name
-                      val noteOpt = selectedNote.co.sample()
-                      if (noteOpt.isDefined) {
-                        val note =
-                          noteOpt.head.versionedEntityValue.valueWithoutVersion
-                        import monocle.macros.syntax.lens._
-                        val newVal =
-                          note
-                            .lens(_.img.fileName.fileNameAsString).set(
-                              value
+                      val decoder = implicitly[Decoder[ImgFileData]]
+                      import io.circe._
+                      import io.circe.generic.JsonCodec
+                      import io.circe.generic.auto._
+                      import io.circe.parser._
+                      import io.circe.syntax._
+
+                      val res: Either[Error, ImgFileData] =
+                        decode[ImgFileData](value)
+
+                      if (res.toOption.isDefined) {
+                        val imgDataNew=res.toOption.head
+
+                        // todo now, send image update with new file-name
+                        val noteOpt = selectedNote.co.sample()
+                        if (noteOpt.isDefined) {
+                          val note =
+                            noteOpt.head.versionedEntityValue.valueWithoutVersion
+                          import monocle.macros.syntax.lens._
+                          val newVal =
+                            note
+                              .lens(_.img.fileData).set(
+                              imgDataNew
                             )
-                        lazy val cmd =
-                          UpdateEntityInCacheCmd(noteOpt.head, newVal)
-                        Cache.noteCache.updateEntityCommandStream
-                          .send(cmd)
+
+                          // todo - get image size
+
+                          lazy val cmd =
+                            UpdateEntityInCacheCmd(noteOpt.head, newVal)
+                          Cache.noteCache.updateEntityCommandStream
+                            .send(cmd)
+
+                      } else {
+                          println(s"img upload failed, result is $value")
+                        }
                       }
 
                     }
@@ -95,7 +117,5 @@ case class ImageUploaderWidget(selectedNote:CellOption[TypedReferencedValue[Note
       )
     )
   }
-
-
 
 }

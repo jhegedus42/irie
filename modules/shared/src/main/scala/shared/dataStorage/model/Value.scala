@@ -52,7 +52,7 @@ object Note {
 @JsonCodec
 case class VisualHint(
   title:           String,
-  fileName:        ImgFileName,
+  fileData:        ImgFileData,
   hintToThisImage: HintToThisImage,
   // this cropped part will be displayed in the
   // previous image as a hint to this image
@@ -68,7 +68,7 @@ object VisualHint {
     override def getDefaultValue: VisualHint = {
       new VisualHint(
         "default image title",
-        defValOf[ImgFileName],
+        defValOf[ImgFileData],
         defValOf[HintToThisImage](
           HintToThisImage.defaultValue
         ),
@@ -125,19 +125,67 @@ object HintToThisImage {
 }
 
 @JsonCodec
-case class CoordInPixel(
-  x: Double,
-  y: Double)
+case class LocationInPercentage(
+  xInPercentage: Double,
+  yInPercentage: Double) {
+
+  def toLocationInPixel(sizeInPixel: SizeInPixel): LocationInPixel = {
+    LocationInPixel(
+      sizeInPixel.width * (xInPercentage / 100.0),
+      sizeInPixel.height * (yInPercentage / 100.0)
+    )
+  }
+}
+
+@JsonCodec
+case class LocationInPixel(
+  xInPixel: Double,
+  yInPixel: Double)
+
+@JsonCodec
+case class ImgFileData(
+  fileName:    ImgFileName,
+  sizeInPixel: SizeInPixel)
+
+object ImgFileData {
+
+  implicit val defVal: CanProvideDefaultValue[ImgFileData] =
+    new CanProvideDefaultValue[ImgFileData] {
+
+      override def getDefaultValue: ImgFileData = {
+        val c    = defValOf[ImgFileName]
+        val size = SizeInPixel(20, 20)
+        new ImgFileData(c, size)
+
+      }
+    }
+
+}
+
+@JsonCodec
+case class SizeInPercentage(
+  width:  Double,
+  height: Double) {
+
+  def toSizeInPixel(sizeInPixel: SizeInPixel): SizeInPixel = {
+    SizeInPixel(
+      sizeInPixel.width * (width / 100.0),
+      sizeInPixel.height * (height / 100.0)
+    )
+  }
+}
 
 @JsonCodec
 case class SizeInPixel(
   width:  Double,
   height: Double)
 
+object SizeInPixel {}
+
 @JsonCodec
 case class Rect(
-                 center: CoordInPixel,
-                 size:   SizeInPixel)
+  upperLeftCornerXYInPercentage: LocationInPercentage,
+  sizeInPercentage:              SizeInPercentage)
 
 object Rect {
 
@@ -145,9 +193,9 @@ object Rect {
     new CanProvideDefaultValue[Rect] {
 
       override def getDefaultValue: Rect = {
-        val c    = CoordInPixel(50, 50)
-        val size = SizeInPixel(20, 20)
-        new Rect(c, size)
+        val coordInPercentage = LocationInPercentage(50, 50)
+        val sizeInPercentage  = SizeInPercentage(20, 20)
+        new Rect(coordInPercentage, sizeInPercentage)
       }
     }
 }

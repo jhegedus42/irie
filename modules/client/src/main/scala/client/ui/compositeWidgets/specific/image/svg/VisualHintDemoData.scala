@@ -5,81 +5,52 @@ import shared.dataStorage.model.VisualHint
 
 object VisualHintDemoData {
 
-  lazy val jsonVisualHint2 = {
+  lazy val benchDemoHint = {
     s"""
-       |{
-       |    "title" : "csaj padon",
-       |    "fileName" : {
-       |        "fileNameAsString" : "./befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
-       |    },
-       |    "hintToThisImage" : {
-       |        "rect" : {
-       |            "center" : {
-       |                "x" : 151,
-       |                "y" : 221
-       |            },
-       |            "size" : {
-       |                "width" : 209,
-       |                "height" : 217
-       |            }
-       |        }
-       |    },
-       |    "placeForHintToNextImage" : {
-       |        "rect" : {
-       |            "center" : {
-       |                "x" : 28,
-       |                "y" : 508
-       |            },
-       |            "size" : {
-       |                "width" : 167,
-       |                "height" : 125
-       |            }
-       |        }
-       |    }
-       |}
-       |""".stripMargin
-  }
-
-  lazy val jsonVisualHint =
-    s"""
+       |
        |{
        |    "title" : "default image title",
-       |    "fileName" : {
-       |        "fileNameAsString" : "./43ea782f-6960-44c4-a0d3-5227917abef7.jpeg"
+       |    "fileData" : {
+       |        "fileName" : {
+       |            "fileNameAsString" : "ca8b6452-02d0-425b-89f0-6cbcc4b475cb.jpeg"
+       |        },
+       |        "sizeInPixel" : {
+       |            "width" : 427,
+       |            "height" : 640
+       |        }
        |    },
        |    "hintToThisImage" : {
        |        "rect" : {
-       |            "center" : {
-       |                "x" : 453,
-       |                "y" : 159
+       |            "upperLeftCornerXY" : {
+       |                "x" : 168,
+       |                "y" : 198
        |            },
        |            "size" : {
-       |                "width" : 422,
-       |                "height" : 302
+       |                "width" : 198,
+       |                "height" : 226
        |            }
        |        }
        |    },
        |    "placeForHintToNextImage" : {
        |        "rect" : {
-       |            "center" : {
-       |                "x" : 769.6954819088226,
-       |                "y" : 114.14639190479977
+       |            "upperLeftCornerXY" : {
+       |                "x" : 50,
+       |                "y" : 50
        |            },
        |            "size" : {
-       |                "width" : 231.87857971712867,
-       |                "height" : 228.04066253120334
+       |                "width" : 20,
+       |                "height" : 20
        |            }
        |        }
        |    }
        |}
+       |
        |""".stripMargin
 
-  lazy val visualHint1: VisualHint = {
-    jsonVisualHintParser(jsonVisualHint)
   }
 
-  lazy val visualHint2: VisualHint = {
-    jsonVisualHintParser(jsonVisualHint2)
+  lazy val benchDemoHintDecoded: VisualHint = {
+    jsonVisualHintParser(benchDemoHint)
   }
 
   def jsonVisualHintParser(

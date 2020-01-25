@@ -2,9 +2,23 @@ package client.ui.compositeWidgets.specific.image.rect
 
 import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
-import client.ui.compositeWidgets.general.EntityUpdaterButton
-import client.ui.wrappedReact.{Crop, ImgCropWidget, ReactCropWidgetState}
+import client.sodium.core.{
+  Cell,
+  CellLoop,
+  Stream,
+  StreamSink,
+  Transaction
+}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  EntityUpdaterButton
+}
+import client.ui.compositeWidgets.specific.image.svg.SVGDemo
+import client.ui.wrappedReact.{
+  Crop,
+  ImgCropWidget,
+  ReactCropWidgetState
+}
 import japgolly.scalajs.react.vdom.TagOf
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{Note, Rect, VisualHint}
@@ -12,8 +26,12 @@ import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class HintEditor(
   selectedNoteCell: CellOption[TypedReferencedValue[Note]],
-  get:              Note => Rect,
-  set:              (Note, Rect) => Note) {
+  // todo-later :
+  // selectedNoteCell: CellOption[Ref[Note]]
+  // resolve Note by reference
+
+  get: Note         => Rect,
+  set: (Note, Rect) => Note) {
 
   // sync to and back
   //   from ImageWithQue and ReactCropWidgetState
@@ -23,7 +41,7 @@ case class HintEditor(
     def f(note: Note): ReactCropWidgetState = {
       val r = get(note)
       val c = ReactCropWidgetState.rect2Crop(r)
-      val i = note.img.fileName
+      val i = note.img.fileData.fileName
       val s = ReactCropWidgetState(c, i)
       s
     }
@@ -33,7 +51,8 @@ case class HintEditor(
     s
   }
 
-  lazy val updateNewNoteCellOnChangeOfSelectedNote =
+  lazy val updateNewNoteCellOnChangeOfSelectedNote
+    : Stream[Option[Note]] =
     selectedNoteCell
       .map(_.versionedEntityValue.valueWithoutVersion).co.updates()
 
@@ -72,7 +91,7 @@ case class HintEditor(
           } yield (set(vh, r))
         }
 
-        w.internalStateUpdater
+        imgCropWidget.internalStateUpdater
           .map(_.map(_.crop)).map(
             _.map(ReactCropWidgetState.crop2Rect(_))
           ).snapshot(cellLoop, f(_, _))
@@ -86,13 +105,30 @@ case class HintEditor(
       cellLoop
     })
 
-  lazy val w = ImgCropWidget(reactCropWidgetStateUpdater)
+  lazy val imgCropWidget = ImgCropWidget(reactCropWidgetStateUpdater)
 
   import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 
+  lazy val hintDisplayer = {
+//    import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
+    import japgolly.scalajs.react.vdom.html_<^.{<, _}
+    lazy val coHint: CellOption[VisualHint] = selectedNoteCell.map(
+      _.versionedEntityValue.valueWithoutVersion.img
+    )
+    CellOptionDisplayerWidget(coHint.co, { (h: VisualHint) =>
+      <.div(SVGDemo.imgInSVGWithViewBox(h))
+    })
+  }
+
   lazy val vdom: TagOf[Div] = {
+    import japgolly.scalajs.react.vdom.html_<^.{<, _}
     <.div(
-      w.comp(),
+      <.br,
+      "cropped hint to be placed into the following image:",
+      <.br,
+      hintDisplayer.optDisplayer(),
+      <.br,
+      imgCropWidget.comp(),
       <.br,
       updaterButton.comp(),
       <.br

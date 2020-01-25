@@ -6,10 +6,18 @@ import io.circe.Decoder.Result
 import io.circe.{Decoder, Encoder, Json}
 import japgolly.scalajs.react.vdom.{SvgTagOf, svg_<^}
 import org.scalajs.dom.svg.SVG
-import shared.dataStorage.model.CoordInPixel
+import shared.dataStorage.model.{
+  LocationInPercentage,
+  LocationInPixel,
+  SizeInPixel
+}
 //import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.svg_<^.{<, ^}
-import shared.dataStorage.model.{ImgFileName, SizeInPixel, VisualHint}
+import shared.dataStorage.model.{
+  ImgFileName,
+  SizeInPercentage,
+  VisualHint
+}
 
 case class SVGDemo(
   background: VisualHint,
@@ -19,16 +27,10 @@ case class SVGDemo(
 
 }
 
-
-
 object SVGDemo {
-
-
 
   val scale = 0.5
   import japgolly.scalajs.react.vdom.svg_<^._
-
-
 
 //  def f(
 //    vh1: VisualHint,
@@ -64,16 +66,43 @@ object SVGDemo {
 //    "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
 //  lazy val hintExample = "befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
 
-  lazy val imgInSVGWithViewBox  : VdomTagOf[SVG] ={
-    lazy val vb=ViewBox(CoordInPixel(0, 0), SizeInPixel(100, 150))
-    lazy val svgLoc= Location(CoordInPixel(0,0),SizeInPixel(400,400))
+  def imgInSVGWithViewBox(hint: VisualHint): VdomTagOf[SVG] = {
 
-    lazy val imgLoc= Location(CoordInPixel(0,0),SizeInPixel(100,200))
-    lazy val img=image(VisualHintDemoData.visualHint2,imgLoc)
-    lazy val res= svgElement(vb,svgLoc)(img)
+    lazy val imgSizePixel = hint.fileData.sizeInPixel
+
+    lazy val hintLocPerc: LocationInPercentage =
+      hint.hintToThisImage.rect.upperLeftCornerXYInPercentage
+
+    lazy val hintLocPixel: LocationInPixel =
+      hintLocPerc.toLocationInPixel(imgSizePixel)
+
+    lazy val hintSizePerc: SizeInPercentage =
+      hint.hintToThisImage.rect.sizeInPercentage
+
+    lazy val hintSizeInPixel: SizeInPixel = {
+      hintSizePerc.toSizeInPixel(imgSizePixel)
+    }
+
+
+    lazy val viewBoxPX =
+      ViewBoxPX(LocationInPixel(0, 0), hintSizeInPixel)
+
+    lazy val svgLoc =
+      LocationAndSizeInPixel(LocationInPixel(0, 0), hintSizeInPixel)
+
+    lazy val imgLoc =
+      LocationAndSizeInPixel(
+        LocationInPixel(-hintLocPixel.xInPixel,
+                        -hintLocPixel.yInPixel),
+        imgSizePixel
+      )
+
+    lazy val img =
+      image(hint, imgLoc)
+
+    lazy val res = svgElement(viewBoxPX, svgLoc)(img)
 //    res
     res
   }
 
 }
-

@@ -9,7 +9,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.Value
-import shared.dataStorage.relationalWrappers.TypedReferencedValue
+import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue, UnTypedRef}
 
 case class EntitySelectorWidget[V <: Value[V]](
   nameProvider: V => String
@@ -22,8 +22,19 @@ case class EntitySelectorWidget[V <: Value[V]](
   lazy val selectedEntityInjector =
     new StreamSink[Cell[Option[TypedReferencedValue[V]]]]()
 
-  lazy val selectedEntity: Cell[Option[TypedReferencedValue[V]]] =
-    Cell.switchC(selectedEntityInjector.hold(initCell))
+  lazy val selectedEntityRefInjector =
+    new StreamSink[Option[Ref[V]]]()
+
+  lazy val refToSelectedEntity: Cell[Option[Ref[V]]] =
+    selectedEntityRefInjector.hold(None)
+
+  lazy val selectedEntityResolved : Cell[Option[TypedReferencedValue[V]]] = {
+    Cache.resolveRef(refToSelectedEntity)
+  }
+
+
+//  lazy val selectedEntity: Cell[Option[TypedReferencedValue[V]]] =
+//    Cell.switchC(selectedEntityInjector.hold(initCell))
 
   lazy val selectorTable = {
 
@@ -35,9 +46,15 @@ case class EntitySelectorWidget[V <: Value[V]](
         )
 
       val selector = SButton("select", {
-        val ent: Cell[Option[TypedReferencedValue[V]]] =
-          c.cellLoop.map(_.cacheMap.get(u.ref))
-        Some(() => selectedEntityInjector.send(ent))
+
+//        val ent: Cell[Option[TypedReferencedValue[V]]] =
+//          c.cellLoop.map(_.cacheMap.get(u.ref))
+
+//        Some(() => selectedEntityInjector.send(ent))
+        //        ???
+
+        Some(() => selectedEntityRefInjector.send(Some(u.ref)))
+
       })
 
       List(name, selector.comp())

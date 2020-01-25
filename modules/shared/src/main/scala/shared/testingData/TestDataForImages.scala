@@ -2,12 +2,12 @@ package shared.testingData
 
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  CoordInPixel,
+  LocationInPercentage,
   HintToThisImage,
   ImgFileName,
   PlaceForHintToNextImage,
   Rect,
-  SizeInPixel,
+  SizeInPercentage,
   User,
   VisualHint
 }
@@ -20,27 +20,27 @@ object TestDataForImages {
 
   lazy val ar = aliceEnt.ref
 
-  lazy val defaultRect = Rect(CoordInPixel(50, 50), SizeInPixel(50, 50))
+  lazy val defaultRect = Rect(LocationInPercentage(50, 50), SizeInPercentage(50, 50))
 
   def createNewImageWithQue(title: String): VisualHint = {
     CanProvideDefaultValue.defValOf[VisualHint]
   }
 
-  lazy val backgroundExample = ImgFileName(
-    "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
-  )
-
-  lazy val hintExample = ImgFileName(
-    "befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
-  )
-
-  lazy val backround = VisualHint(
-    "supernova",
-    backgroundExample,
-    ???,
-    ???
-//    HintToThisImage(Coord(100,200), Crop(),),
+//  lazy val backgroundExample = ImgFileName(
+//    "6a7e6ec8-daf8-4773-b977-76d6e27e5591.jpeg"
+//  )
+//
+//  lazy val hintExample = ImgFileName(
+//    "befe7bd2-05be-485c-abb0-aaceb88cbc31.jpeg"
+//  )
+//
+//  lazy val backround = VisualHint(
+//    "supernova",
+//    backgroundExample,
+//    ???,
 //    ???
-  )
+////    HintToThisImage(Coord(100,200), Crop(),),
+////    ???
+//  )
 
 }

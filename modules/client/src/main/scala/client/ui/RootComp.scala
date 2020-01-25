@@ -15,7 +15,7 @@ import client.ui.wrappedReact.{
   TagsInput
 }
 import japgolly.scalajs.react.vdom.SvgTagOf
-import shared.dataStorage.model.{ImgFileName, SizeInPixel, VisualHint}
+import shared.dataStorage.model.{ImgFileName, SizeInPercentage, VisualHint}
 
 object RootComp {
 
@@ -36,8 +36,10 @@ object RootComp {
           <.div(C.jumbotron)(
             nw.getComp(),
             <.br,
-            <.hr,
-            SVGDemo.imgInSVGWithViewBox
+            <.hr
+//            SVGDemo.imgInSVGWithViewBox(
+//              VisualHintDemoData.benchDemoHintDecoded
+//            )
           )
         )
       )
@@ -51,6 +53,7 @@ object RootComp {
 
     rootComp
   }
+
   // todo-now - ListOfNotes
 
 }

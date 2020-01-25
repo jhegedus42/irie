@@ -44,7 +44,7 @@ case class NoteFolderUpdaterWidget(
 
   lazy val selectedNoteFolderDisplayer =
     CellOptionDisplayerWidget[Folder](
-      noteFolderSelectorWidget.selectedEntity.map(
+      noteFolderSelectorWidget.selectedEntityResolved.map(
         _.map(_.versionedEntityValue.valueWithoutVersion)
       ), { nf: Folder =>
         <.div(
@@ -67,7 +67,7 @@ case class NoteFolderUpdaterWidget(
   lazy val noteNames: CellOption[List[String]] = {
     val ref: CellOption[TypedReferencedValue[Folder]] =
       CellOption.fromCellOption(
-        noteFolderSelectorWidget.selectedEntity
+        noteFolderSelectorWidget.selectedEntityResolved
       )
 
     val notes: CellOption[List[Ref[Note]]] =
@@ -164,7 +164,7 @@ case class NoteFolderUpdaterWidget(
 
     lazy val currentValOpt: CellOption[List[Ref[Note]]] = {
       CellOption.fromCellOption(
-        noteFolderSelectorWidget.selectedEntity.map(
+        noteFolderSelectorWidget.selectedEntityResolved.map(
           _.map(_.versionedEntityValue.valueWithoutVersion.notes)
         )
       )
@@ -172,7 +172,7 @@ case class NoteFolderUpdaterWidget(
 
     lazy val selectedFolder: CellOption[Folder] =
       CellOption.fromCellOption(
-        noteFolderSelectorWidget.selectedEntity.map(
+        noteFolderSelectorWidget.selectedEntityResolved.map(
           _.map(_.versionedEntityValue.valueWithoutVersion)
         )
       )
@@ -207,7 +207,7 @@ case class NoteFolderUpdaterWidget(
       "add Note",
       Some(() => {
         lazy val trvOpt: Option[TypedReferencedValue[Folder]] =
-          noteFolderSelectorWidget.selectedEntity.sample()
+          noteFolderSelectorWidget.selectedEntityResolved.sample()
         lazy val newValueOpt: Option[Folder] = newValOpt.co.sample()
 
         lazy val f1 = folderContainingSelectedNote.co.sample()

@@ -4,8 +4,10 @@ package client.ui.compositeWidgets.specific.image.svg
 //import org.scalajs.dom.svg.Image
 import japgolly.scalajs.react.vdom.{TagOf, svg_<^}
 import shared.dataStorage.model.{
-  CoordInPixel,
   ImgFileName,
+  LocationInPercentage,
+  LocationInPixel,
+  SizeInPercentage,
   SizeInPixel,
   VisualHint
 }
@@ -25,33 +27,35 @@ object SVGElements {
   final def clipPath = SvgTagOf[*.ClipPath]("clipPath")
 
   def svgElement(
-    viewBox:  ViewBox,
-    location: Location
+    viewBox:  ViewBoxPX,
+    location: LocationAndSizeInPixel
   )(children: TagMod
   ) = {
     <.svg(viewBox.getTag, location.getTags)(children)
   }
 
-  case class ViewBox(
-    c: CoordInPixel,
-    s: SizeInPixel) {
-    def getTag = ^.viewBox := s"${c.x} ${c.y} ${s.width} ${s.height}"
+  case class ViewBoxPX(
+    coordInPixel: LocationInPixel,
+    sizeInPixel:  SizeInPixel) {
+
+    def getTag =
+      ^.viewBox := s"${coordInPixel.xInPixel} ${coordInPixel.yInPixel} ${sizeInPixel.width} ${sizeInPixel.height}"
   }
 
-  case class Location(
-    loc:  CoordInPixel,
-    size: SizeInPixel) {
+  case class LocationAndSizeInPixel(
+    locationInPixel: LocationInPixel,
+    sizeInPixel:     SizeInPixel) {
 
     def getTags =
-      List(^.width := s"${size.width}",
-           ^.height := s"${size.height}",
-           ^.x := s"${loc.x}",
-           ^.y := s"${loc.y}").toTagMod
+      List(^.width := s"${sizeInPixel.width}",
+           ^.height := s"${sizeInPixel.height}",
+           ^.x := s"${locationInPixel.xInPixel}",
+           ^.y := s"${locationInPixel.yInPixel}").toTagMod
   }
 
   def clipPathVal(
-    l:  Location,
-    id: String
+                   l:  LocationAndSizeInPixel,
+                   id: String
   ) =
     <.defs(
       SVGElements.clipPath(^.id := "clipPath")(
@@ -60,16 +64,18 @@ object SVGElements {
     )
 
   def image(
-    vh: VisualHint,
-    l:  Location
+    vh:              VisualHint,
+    locationAndSize: LocationAndSizeInPixel
   ) = {
-    svg_<^.<.image(^.xlinkHref := vh.fileName.fileNameAsString,
-                   l.getTags )
+    svg_<^.<.image(
+      ^.xlinkHref := vh.fileData.fileName.fileNameAsString,
+      locationAndSize.getTags
+    )
   }
 
   def clippedImage(
     fn: ImgFileName,
-    l:  Location
+    l:  LocationAndSizeInPixel
   ) = {
     <.image(^.xlinkHref := fn.fileNameAsString,
             l.getTags,
