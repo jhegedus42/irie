@@ -7,18 +7,21 @@ import shared.dataStorage.relationalWrappers.Ref
 
 object FolderOperations {
 
-  def getNextNote(
+  def getRefToNextNote(
     folderCO:  CellOption[Folder],
     noteRefCO: CellOption[Ref[Note]]
   ): CellOption[Ref[Note]] = {
+
     def g(
       nr: Ref[Note],
       f:  Folder
     ): Option[Ref[Note]] = {
-      val l   = f.notes
-      val ls  = l.dropWhile(_.unTypedRef.uuid != nr.unTypedRef.uuid)
-      val res = ls.headOption
-      res
+      val l  = f.notes
+      val ls = l.dropWhile(_.unTypedRef.uuid != nr.unTypedRef.uuid)
+      if (!ls.isEmpty) {
+        val res = ls.tail.headOption
+        res
+      } else None
     }
 
     val res: CellOption[Option[Ref[Note]]] =

@@ -25,7 +25,7 @@ object NoteOperations {
     val noteRefCO = currentNote.map(_.ref)
 
     val nextNoteRefCO: CellOption[Ref[Note]] =
-      FolderOperations.getNextNote(folderCO, noteRefCO)
+      FolderOperations.getRefToNextNote(folderCO, noteRefCO)
 
     val res: CellOption[TypedReferencedValue[Note]] =
       Cache.resolveRefCO(nextNoteRefCO)
