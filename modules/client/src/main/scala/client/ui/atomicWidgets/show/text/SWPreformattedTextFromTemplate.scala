@@ -14,7 +14,7 @@ case class SWPreformattedTextFromTemplate(
   val comp =
     StreamTemplate[State](input,
                           "SWPreformattedTextFromTemplate",
-                          State(initialState),
+                          () => State(initialState),
                           renderer(_))
 
   def renderer(state: State): VdomElement = {

@@ -45,31 +45,6 @@ case class CompositeSVGDisplayer(
 
   }
 
-  lazy val visualLinkComponentsAsVDOM = {
-    //    import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-
-    <.div(
-      CellOptionDisplayerWidget(hintForNote.co, {
-        (h: HintForNote) =>
-          <.div(
-            <.br,
-            "Visual hint to this Note:",
-            <.br,
-            VisualLinkAsSVGHelpers.hintToThisNoteAsSVG(h)
-          )
-      }).optDisplayer(),
-      CellOptionDisplayerWidget(
-        hintForNextNote.co, { (h: HintForNote) =>
-          <.div(
-            <.br,
-            "Hint to next note (to be placed into this Note's image)",
-            <.br,
-            VisualLinkAsSVGHelpers.hintToNextNoteAsSVG(h)
-          )
-        }
-      ).optDisplayer()
-    )
-  }
 
 }
 

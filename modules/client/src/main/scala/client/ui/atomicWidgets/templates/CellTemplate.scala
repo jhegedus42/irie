@@ -11,7 +11,7 @@ case class CellTemplate[V](
   val streamTemplate =
     StreamTemplate(cell.updates(),
                    "CellComp",
-                   cell.sample(),
+                   () => cell.sample(),
                    renderer)
 
   lazy val comp = streamTemplate.comp

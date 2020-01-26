@@ -9,24 +9,15 @@ import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.HiderWidget
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
-import client.ui.compositeWidgets.general.{
-  CellOptionDisplayerWidget,
-  CellOptionListWidget,
-  EntityCreatorWidget,
-  EntitySelectorWidget,
-  TextFieldUpdaterWidget
-}
+import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, CellOptionListWidget, EntityCreatorWidget, EntitySelectorWidget, TextFieldUpdaterWidget}
 import client.ui.compositeWidgets.specific.image.ImagesForANote
+import client.ui.compositeWidgets.specific.image.svg.CompositeSVGDisplayer
 import client.ui.helpers.table.TableHelpers
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import japgolly.scalajs.react.component.Scala.{Component, Unmounted}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
-import shared.dataStorage.model.{
-  CanProvideDefaultValue,
-  HintForNote,
-  Note
-}
+import shared.dataStorage.model.{CanProvideDefaultValue, HintForNote, Note}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.concurrent.ExecutionContextExecutor
@@ -75,6 +66,11 @@ case class NotesWidget() {
     selectedNote
   ).getComp
 
+  lazy val imagesForANoteWithHider =
+    HiderWidget("Images", imagesForANoteComp).hider
+
+  lazy val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
+
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
@@ -83,10 +79,11 @@ case class NotesWidget() {
         <.h2("Notes"),
         <.br,
         selector.selectorTable.comp(),
+        visualLinkDisplayer,
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
-        HiderWidget("Images",imagesForANoteComp).hider(),
-        HiderWidget("Folders",noteFolderUpdaterComp).hider(),
+        imagesForANoteWithHider(),
+        HiderWidget("Folders", noteFolderUpdaterComp).hider(),
         <.br,
         <.br
       )

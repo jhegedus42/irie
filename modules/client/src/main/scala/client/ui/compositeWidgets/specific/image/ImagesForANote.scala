@@ -35,29 +35,6 @@ case class ImagesForANote(
     )
   }
 
-  lazy val visualHintDisplayer = {
-    import monocle.macros.syntax.lens._
-
-    def renderer(
-      visualHint: HintForNote
-    )(
-      implicit
-      vh: Encoder[HintForNote]
-    ): VdomElement = {
-
-      lazy val s = vh.apply(visualHint).spaces4
-      <.pre(s)
-
-    }
-
-    lazy val res: CellOptionDisplayerWidget[HintForNote] =
-      CellOptionDisplayerWidget[HintForNote](
-        selectedVisualHint.co,
-        renderer(_)
-      )
-
-    res
-  }
 
   lazy val imageUploaderWidget = ImageUploaderWidget(selectedNote)
 
@@ -71,7 +48,6 @@ case class ImagesForANote(
         <.br,
         imgQueEditor.getComp(),
         imageUploaderWidget.comp.optDisplayer(),
-        visualHintDisplayer.optDisplayer(),
         <.hr
       )
     }

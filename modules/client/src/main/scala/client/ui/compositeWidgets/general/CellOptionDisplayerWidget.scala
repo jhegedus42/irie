@@ -27,7 +27,7 @@ case class CellOptionDisplayerWidget[V](
   lazy val streamTemplate =
     StreamTemplate[Option[V]](entityOptCell.updates(),
                               "EntityDisplayerWidget",
-                              entityOptCell.sample(),
+                              () => entityOptCell.sample(),
                               optRenderer)
 
   lazy val optDisplayer = streamTemplate.comp
