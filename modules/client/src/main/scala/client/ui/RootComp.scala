@@ -3,10 +3,7 @@ package client.ui
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
 import client.ui.compositeWidgets.specific.image.ImagesForANote
-import client.ui.compositeWidgets.specific.image.svg.{
-  SVGDemo,
-  VisualHintDemoData
-}
+import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.wrappedReact.{
   Crop,

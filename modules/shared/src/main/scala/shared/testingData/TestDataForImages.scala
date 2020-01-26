@@ -3,9 +3,9 @@ package shared.testingData
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
   LocationInPercentage,
-  HintToThisImage,
+  HeadOfVisualLink,
   ImgFileName,
-  PlaceForHintToNextImage,
+  TailOfVisualLink,
   Rect,
   SizeInPercentage,
   User,

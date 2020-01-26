@@ -5,7 +5,7 @@ import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
 import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntityUpdaterButton}
-import client.ui.compositeWidgets.specific.image.svg.SVGDemo
+import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.wrappedReact.{Crop, ImgCropWidget, ReactCropWidgetState}
 import japgolly.scalajs.react.vdom.TagOf
 import org.scalajs.dom.html.Div
@@ -25,7 +25,7 @@ case class HintCropEditorWidget(
     def f(note: Note): ReactCropWidgetState = {
       val r = get(note)
       val c = ReactCropWidgetState.rect2Crop(r)
-      val i = note.img.fileData.fileName
+      val i = note.visualHint.imgHintToThisNotesText.fileName
       val s = ReactCropWidgetState(c, i)
       s
     }

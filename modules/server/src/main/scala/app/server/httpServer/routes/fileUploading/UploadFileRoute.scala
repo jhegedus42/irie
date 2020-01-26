@@ -9,7 +9,7 @@ import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.util.ByteString
 import io.circe.Encoder
-import shared.dataStorage.model.{ImgFileData, ImgFileName, SizeInPercentage, SizeInPixel}
+import shared.dataStorage.model.{ImgHintToThisNotesText, ImgFileName, SizeInPercentage, SizeInPixel}
 
 import scala.concurrent.ExecutionContextExecutor
 
@@ -59,11 +59,11 @@ trait UploadFileRoute {
                       .filterNot(_ == '"').toString.toDouble
 
 
-                  val imgFileData = ImgFileData(
+                  val imgFileData = ImgHintToThisNotesText(
                     ImgFileName(fileName),
                     SizeInPixel(width, height)
                   )
-                  implicitly[Encoder[ImgFileData]]
+                  implicitly[Encoder[ImgHintToThisNotesText]]
                     .apply(imgFileData).spaces4
                 }
               )

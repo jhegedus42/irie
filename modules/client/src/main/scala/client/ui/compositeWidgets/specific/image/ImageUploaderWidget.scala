@@ -15,7 +15,7 @@ import client.ui.compositeWidgets.specific.note.NotesWidget
 import io.circe.Decoder
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.model.{ImgFileData, Note, VisualHint}
+import shared.dataStorage.model.{ImgHintToThisNotesText, Note, VisualHint}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
@@ -71,15 +71,15 @@ case class ImageUploaderWidget(
                     }
                     case Success(value) => {
                       println(s"Success $value")
-                      val decoder = implicitly[Decoder[ImgFileData]]
+                      val decoder = implicitly[Decoder[ImgHintToThisNotesText]]
                       import io.circe._
                       import io.circe.generic.JsonCodec
                       import io.circe.generic.auto._
                       import io.circe.parser._
                       import io.circe.syntax._
 
-                      val res: Either[Error, ImgFileData] =
-                        decode[ImgFileData](value)
+                      val res: Either[Error, ImgHintToThisNotesText] =
+                        decode[ImgHintToThisNotesText](value)
 
                       if (res.toOption.isDefined) {
                         val imgDataNew=res.toOption.head
@@ -92,7 +92,7 @@ case class ImageUploaderWidget(
                           import monocle.macros.syntax.lens._
                           val newVal =
                             note
-                              .lens(_.img.fileData).set(
+                              .lens(_.visualHint.imgHintToThisNotesText).set(
                               imgDataNew
                             )
 

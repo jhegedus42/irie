@@ -4,8 +4,14 @@ import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.sodium.core
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
-import client.ui.compositeWidgets.specific.image.svg.SVGDemo
-import client.ui.compositeWidgets.specific.image.{ImageDisplayerWidget, ImageUploaderWidget}
+import client.ui.compositeWidgets.specific.image.svg.{
+  CompositeSVGDisplayer,
+  VisualLinkAsSVGHelpers
+}
+import client.ui.compositeWidgets.specific.image.{
+  ImageDisplayerWidget,
+  ImageUploaderWidget
+}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.macros.syntax.lens._
@@ -22,45 +28,30 @@ case class VisualHintEditor(
     .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
   val rectHintToThisEditor = {
-    def get(n: Note) = n.lens(_.img.hintToThisImage.rect).get
+    def get(n: Note) = n.lens(_.visualHint.hintToNextNotesImage.rect).get
 
     def set(
       n: Note,
       r: Rect
     ) =
-      n.lens(_.img.hintToThisImage.rect).set(r)
+      n.lens(_.visualHint.hintToNextNotesImage.rect).set(r)
 
     lazy val comp = HintCropEditorWidget(selectedNote, get, set)
     comp
   }
 
   val placeOfHintToNextEditor = {
-    def get(n: Note) = n.lens(_.img.placeForHintToNextImage.rect).get
+    def get(n: Note) =
+      n.lens(_.visualHint.tailOfVisualLinkFromThisNoteToNextNote.rect).get
 
     def set(
       n: Note,
       r: Rect
     ) =
-      n.lens(_.img.placeForHintToNextImage.rect).set(r)
+      n.lens(_.visualHint.tailOfVisualLinkFromThisNoteToNextNote.rect).set(r)
 
     lazy val comp = HintCropEditorWidget(selectedNote, get, set)
     comp
-  }
-
-  lazy val hintDisplayer = {
-    //    import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
-    import japgolly.scalajs.react.vdom.html_<^.{<, _}
-    lazy val coHint: CellOption[VisualHint] = selectedNote.map(
-      _.versionedEntityValue.valueWithoutVersion.img
-    )
-    CellOptionDisplayerWidget(coHint.co, { (h: VisualHint) =>
-      <.div(
-        <.br,
-        "cropped hint to be placed into the following image:",
-        <.br,
-        SVGDemo.imgInSVGWithViewBox(h)
-      )
-    })
   }
 
   lazy val nextNoteTitleDisplayer = {
@@ -71,15 +62,16 @@ case class VisualHintEditor(
     CellOptionDisplayerWidget[Note](
       nextNote.map(_.versionedEntityValue.valueWithoutVersion).co, {
         (next: Note) =>
-        {
-          <.div(<.h3("Next Note's title:"),
-            <.br,
-            s"${next.title}",
-            <.br)
-        }
+          {
+            <.div(<.h3("Next Note's title:"),
+                  <.br,
+                  s"${next.title}",
+                  <.br)
+          }
       }
     ).optDisplayer
   }
+  lazy val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote)
 
   def getComp = {
 
@@ -87,9 +79,16 @@ case class VisualHintEditor(
       <.div(
         <.br,
         nextNoteTitleDisplayer(),
-        hintDisplayer.optDisplayer(),
+        visualLinkDisplayer.visualLinkComponentsAsVDOM,
+        visualLinkDisplayer.visualLinkAsVDOM,
         "Rect Editor:",
+        <.h4(
+          "Cropped hint to this Note's VisualHint to be placed into previous Note's Hint:"
+        ),
+        <.br,
         rectHintToThisEditor.vdom,
+        <.h4("Place of hint to next Note:"),
+        <.br,
         placeOfHintToNextEditor.vdom,
         <.br
       )

@@ -27,9 +27,9 @@ case class TypeName(s: String)
 
 @JsonCodec
 case class Note(
-  title:   String,
-  content: String,
-  img:     VisualHint)
+  title:      String,
+  content:    String,
+  visualHint: VisualHint)
     extends Value[Note]
 
 object Note {
@@ -51,34 +51,33 @@ object Note {
 
 @JsonCodec
 case class VisualHint(
-  title:           String,
-  fileData:        ImgFileData,
-  hintToThisImage: HintToThisImage,
+  imgHintToThisNotesText: ImgHintToThisNotesText,
+  hintToNextNotesImage:   HeadOfVisualLink,
   // this cropped part will be displayed in the
   // previous image as a hint to this image
-  placeForHintToNextImage: PlaceForHintToNextImage
+  tailOfVisualLinkFromThisNoteToNextNote: TailOfVisualLink
   // this is where a hint to the next image
   // will be placed
 )
 
 object VisualHint {
 
-  implicit val defVal = new CanProvideDefaultValue[VisualHint] {
+  implicit val defVal =
+    new CanProvideDefaultValue[VisualHint] {
 
-    override def getDefaultValue: VisualHint = {
-      new VisualHint(
-        "default image title",
-        defValOf[ImgFileData],
-        defValOf[HintToThisImage](
-          HintToThisImage.defaultValue
-        ),
-        defValOf[PlaceForHintToNextImage](
-          PlaceForHintToNextImage.canProvideDefaultValue
+      override def getDefaultValue: VisualHint = {
+        new VisualHint(
+          defValOf[ImgHintToThisNotesText],
+          defValOf[HeadOfVisualLink](
+            HeadOfVisualLink.defaultValue
+          ),
+          defValOf[TailOfVisualLink](
+            TailOfVisualLink.canProvideDefaultValue
+          )
         )
-      )
-    }
+      }
 
-  }
+    }
 }
 
 @JsonCodec
@@ -95,31 +94,33 @@ case class Folder(
     extends Value[Folder]
 
 @JsonCodec
-case class PlaceForHintToNextImage(rect: Rect)
+case class TailOfVisualLink(rect: Rect)
 
-object PlaceForHintToNextImage {
+object TailOfVisualLink {
 
   implicit val canProvideDefaultValue =
-    new CanProvideDefaultValue[PlaceForHintToNextImage] {
+    new CanProvideDefaultValue[TailOfVisualLink] {
 
-      override def getDefaultValue: PlaceForHintToNextImage = {
+      override def getDefaultValue: TailOfVisualLink = {
         val r = defValOf[Rect]
-        PlaceForHintToNextImage(r)
+        TailOfVisualLink(r)
       }
     }
 
 }
 
 @JsonCodec
-case class HintToThisImage(rect: Rect)
+case class HeadOfVisualLink(rect: Rect)
 
-object HintToThisImage {
+object HeadOfVisualLink {
 
   implicit val defaultValue =
-    new CanProvideDefaultValue[HintToThisImage] {
+    new CanProvideDefaultValue[
+      HeadOfVisualLink
+    ] {
 
-      override def getDefaultValue: HintToThisImage = {
-        HintToThisImage(defValOf[Rect])
+      override def getDefaultValue: HeadOfVisualLink = {
+        HeadOfVisualLink(defValOf[Rect])
       }
     }
 }
@@ -143,19 +144,20 @@ case class LocationInPixel(
   yInPixel: Double)
 
 @JsonCodec
-case class ImgFileData(
+case class ImgHintToThisNotesText(
   fileName:    ImgFileName,
   sizeInPixel: SizeInPixel)
 
-object ImgFileData {
+object ImgHintToThisNotesText {
 
-  implicit val defVal: CanProvideDefaultValue[ImgFileData] =
-    new CanProvideDefaultValue[ImgFileData] {
+  implicit val defVal
+    : CanProvideDefaultValue[ImgHintToThisNotesText] =
+    new CanProvideDefaultValue[ImgHintToThisNotesText] {
 
-      override def getDefaultValue: ImgFileData = {
+      override def getDefaultValue: ImgHintToThisNotesText = {
         val c    = defValOf[ImgFileName]
         val size = SizeInPixel(20, 20)
-        new ImgFileData(c, size)
+        new ImgHintToThisNotesText(c, size)
 
       }
     }

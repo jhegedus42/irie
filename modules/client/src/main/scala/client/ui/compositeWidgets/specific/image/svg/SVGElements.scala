@@ -26,6 +26,20 @@ object SVGElements {
   import org.scalajs.dom.{svg => *}
   final def clipPath = SvgTagOf[*.ClipPath]("clipPath")
 
+  def translateAndScale(
+    locationInPixel: LocationInPixel,
+    scaleFactor:     Double
+  )(children:        TagMod
+  ) = {
+    <.g(
+      ^.transform :=
+        s"translate(${locationInPixel.xInPixel} ${locationInPixel.yInPixel}) " +
+        s"scale($scaleFactor)"
+    )(
+      children
+    )
+  }
+
   def svgElement(
     viewBox:  ViewBoxPX,
     location: LocationAndSizeInPixel
@@ -54,8 +68,8 @@ object SVGElements {
   }
 
   def clipPathVal(
-                   l:  LocationAndSizeInPixel,
-                   id: String
+    l:  LocationAndSizeInPixel,
+    id: String
   ) =
     <.defs(
       SVGElements.clipPath(^.id := "clipPath")(
@@ -68,7 +82,7 @@ object SVGElements {
     locationAndSize: LocationAndSizeInPixel
   ) = {
     svg_<^.<.image(
-      ^.xlinkHref := vh.fileData.fileName.fileNameAsString,
+      ^.xlinkHref := vh.imgHintToThisNotesText.fileName.fileNameAsString,
       locationAndSize.getTags
     )
   }

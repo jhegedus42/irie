@@ -25,36 +25,8 @@ case class ImagesForANote(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
   val selectedVisualHint: CellOption[VisualHint] =
-    selectedNote.map(_.versionedEntityValue.valueWithoutVersion.img)
+    selectedNote.map(_.versionedEntityValue.valueWithoutVersion.visualHint)
 
-  lazy val editImageTitle = {
-    def updaterFunction(
-      n: Note,
-      s: String
-    ): Note = {
-      import monocle.macros.syntax.lens._
-      n.lens(_.img.title).set(s)
-    }
-
-    lazy val extractorFunction: Note => String = (n: Note) => {
-
-      import monocle.macros.syntax.lens._
-      val l: ApplyLens[Note, Note, String, String] =
-        n.lens(_.img.title)
-      l.get
-    }
-    lazy val noteCO: Cell[Option[TypedReferencedValue[Note]]] =
-      selectedNote.co
-
-    TextFieldUpdaterWidget(
-      "Image's title:",
-      noteCO,
-      Cache.noteCache,
-      extractorFunction,
-      updaterFunction(_, _)
-    )
-
-  }
 
   lazy val imgQueEditor = {
     import monocle.macros.syntax.lens._
@@ -97,7 +69,6 @@ case class ImagesForANote(
         <.h2("Images"),
         <.br,
         <.br,
-        editImageTitle.comp(),
         imgQueEditor.getComp(),
         imageUploaderWidget.comp.optDisplayer(),
         visualHintDisplayer.optDisplayer(),

@@ -11,20 +11,16 @@ import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import shared.dataStorage.model.VisualHint
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
-case class ImageDisplayerWidget(
-  img: Cell[Option[VisualHint]]) {
-
+case class ImageDisplayerWidget(img: Cell[Option[VisualHint]]) {
 
   def getImg(fileName: String): VdomElement = {
-      val fn = fileName
-      <.div(
-        s"File name :$fn.",
-        <.img(^.src := s"$fn", ^.alt := "image", ^.width := "100%"),
-        <.br
-      )
+    val fn = fileName
+    <.div(
+      s"File name :$fn.",
+      <.img(^.src := s"$fn", ^.alt := "image", ^.width := "100%"),
+      <.br
+    )
   }
-
-
 
   lazy val imageDisplayer = {
 
@@ -34,11 +30,11 @@ case class ImageDisplayerWidget(
           <.div(
             <.hr,
             <.br,
-            s"Image's title: ${x.title}",
+            s"Image's file name :${x.imgHintToThisNotesText.fileName.fileNameAsString}",
             <.br,
-            s"Image's file name :${x.fileData.fileName.fileNameAsString}",
-            <.br,
-            getImg(x.fileData.fileName.fileNameAsString),
+            getImg(
+              x.imgHintToThisNotesText.fileName.fileNameAsString
+            ),
             <.br
           )
         }
