@@ -9,7 +9,7 @@ import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.wrappedReact.{Crop, ImgCropWidget, ReactCropWidgetState}
 import japgolly.scalajs.react.vdom.TagOf
 import org.scalajs.dom.html.Div
-import shared.dataStorage.model.{Note, Rect, VisualHint}
+import shared.dataStorage.model.{Note, Rect, HintForNote}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class HintCropEditorWidget(
@@ -25,7 +25,7 @@ case class HintCropEditorWidget(
     def f(note: Note): ReactCropWidgetState = {
       val r = get(note)
       val c = ReactCropWidgetState.rect2Crop(r)
-      val i = note.visualHint.imgHintToThisNotesText.fileName
+      val i = note.visualHint.hint.fileName
       val s = ReactCropWidgetState(c, i)
       s
     }

@@ -3,13 +3,13 @@ package shared.testingData
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
   LocationInPercentage,
-  HeadOfVisualLink,
+  RectForHead,
   ImgFileName,
-  TailOfVisualLink,
+  RectForTail,
   Rect,
   SizeInPercentage,
   User,
-  VisualHint
+  HintForNote
 }
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
@@ -22,8 +22,8 @@ object TestDataForImages {
 
   lazy val defaultRect = Rect(LocationInPercentage(50, 50), SizeInPercentage(50, 50))
 
-  def createNewImageWithQue(title: String): VisualHint = {
-    CanProvideDefaultValue.defValOf[VisualHint]
+  def createNewImageWithQue(title: String): HintForNote = {
+    CanProvideDefaultValue.defValOf[HintForNote]
   }
 
 //  lazy val backgroundExample = ImgFileName(

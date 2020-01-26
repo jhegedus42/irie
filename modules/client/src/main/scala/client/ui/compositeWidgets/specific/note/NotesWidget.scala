@@ -23,7 +23,7 @@ import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
   Note,
-  VisualHint
+  HintForNote
 }
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 

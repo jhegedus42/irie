@@ -15,7 +15,7 @@ import client.ui.compositeWidgets.specific.note.NotesWidget
 import io.circe.Decoder
 import org.scalajs.dom.FormData
 import org.scalajs.dom._
-import shared.dataStorage.model.{ImgHintToThisNotesText, Note, VisualHint}
+import shared.dataStorage.model.{ImgHintToThisNotesText, Note, HintForNote}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 import scala.scalajs.js
@@ -92,7 +92,7 @@ case class ImageUploaderWidget(
                           import monocle.macros.syntax.lens._
                           val newVal =
                             note
-                              .lens(_.visualHint.imgHintToThisNotesText).set(
+                              .lens(_.visualHint.hint).set(
                               imgDataNew
                             )
 

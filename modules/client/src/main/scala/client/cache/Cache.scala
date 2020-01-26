@@ -12,7 +12,7 @@ import shapeless.Typeable
 import io.circe._
 import shared.dataStorage.model.{
   Folder,
-  VisualHint,
+  HintForNote,
   Note,
   User,
   Value

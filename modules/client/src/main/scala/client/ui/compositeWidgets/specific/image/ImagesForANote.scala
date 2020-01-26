@@ -18,13 +18,13 @@ import scala.concurrent.ExecutionContextExecutor
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.syntax.ApplyLens
-import shared.dataStorage.model.{Note, Rect, VisualHint}
+import shared.dataStorage.model.{Note, Rect, HintForNote}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class ImagesForANote(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  val selectedVisualHint: CellOption[VisualHint] =
+  val selectedVisualHint: CellOption[HintForNote] =
     selectedNote.map(_.versionedEntityValue.valueWithoutVersion.visualHint)
 
 
@@ -39,10 +39,10 @@ case class ImagesForANote(
     import monocle.macros.syntax.lens._
 
     def renderer(
-      visualHint: VisualHint
+      visualHint: HintForNote
     )(
       implicit
-      vh: Encoder[VisualHint]
+      vh: Encoder[HintForNote]
     ): VdomElement = {
 
       lazy val s = vh.apply(visualHint).spaces4
@@ -50,8 +50,8 @@ case class ImagesForANote(
 
     }
 
-    lazy val res: CellOptionDisplayerWidget[VisualHint] =
-      CellOptionDisplayerWidget[VisualHint](
+    lazy val res: CellOptionDisplayerWidget[HintForNote] =
+      CellOptionDisplayerWidget[HintForNote](
         selectedVisualHint.co,
         renderer(_)
       )

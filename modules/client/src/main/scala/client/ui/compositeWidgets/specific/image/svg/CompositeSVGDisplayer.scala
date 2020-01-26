@@ -4,7 +4,7 @@ import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.ui.compositeWidgets.general.CellOptionDisplayerWidget
 import client.ui.compositeWidgets.specific.image.svg.CompositeSVGDisplayer.VisualLinkData
-import shared.dataStorage.model.{Note, VisualHint}
+import shared.dataStorage.model.{Note, HintForNote}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
 case class CompositeSVGDisplayer(
@@ -12,7 +12,7 @@ case class CompositeSVGDisplayer(
 
   import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
-  lazy val hintToThisNote: CellOption[VisualHint] =
+  lazy val hintForNote: CellOption[HintForNote] =
     selectedNote.map(
       _.versionedEntityValue.valueWithoutVersion.visualHint
     )
@@ -20,13 +20,13 @@ case class CompositeSVGDisplayer(
   lazy val nextNote: CellOption[TypedReferencedValue[Note]] =
     NoteOperations.getNextNote(selectedNote)
 
-  lazy val hintToNextNote: CellOption[VisualHint] =
+  lazy val hintForNextNote: CellOption[HintForNote] =
     nextNote.map(
       _.versionedEntityValue.valueWithoutVersion.visualHint
     )
 
   lazy val visualLinkDataCellOption: CellOption[VisualLinkData] = {
-    hintToThisNote.lift2(hintToNextNote)(VisualLinkData(_, _))
+    hintForNote.lift2(hintForNextNote)(VisualLinkData(_, _))
   }
 
   lazy val visualLinkAsVDOM = {
@@ -49,8 +49,8 @@ case class CompositeSVGDisplayer(
     //    import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 
     <.div(
-      CellOptionDisplayerWidget(hintToThisNote.co, {
-        (h: VisualHint) =>
+      CellOptionDisplayerWidget(hintForNote.co, {
+        (h: HintForNote) =>
           <.div(
             <.br,
             "Visual hint to this Note:",
@@ -59,7 +59,7 @@ case class CompositeSVGDisplayer(
           )
       }).optDisplayer(),
       CellOptionDisplayerWidget(
-        hintToNextNote.co, { (h: VisualHint) =>
+        hintForNextNote.co, { (h: HintForNote) =>
           <.div(
             <.br,
             "Hint to next note (to be placed into this Note's image)",
@@ -76,7 +76,7 @@ case class CompositeSVGDisplayer(
 object CompositeSVGDisplayer {
 
   case class VisualLinkData(
-    thisNote: VisualHint,
-    nextNote: VisualHint)
+                             hintForThis: HintForNote,
+                             hintForNext: HintForNote)
 
 }

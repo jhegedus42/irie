@@ -16,7 +16,7 @@ import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.macros.syntax.lens._
 import monocle.syntax.ApplyLens
-import shared.dataStorage.model.{Note, Rect, VisualHint}
+import shared.dataStorage.model.{Note, Rect, HintForNote}
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
@@ -28,13 +28,13 @@ case class VisualHintEditor(
     .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
   val rectHintToThisEditor = {
-    def get(n: Note) = n.lens(_.visualHint.hintToNextNotesImage.rect).get
+    def get(n: Note) = n.lens(_.visualHint.rectForHead.rect).get
 
     def set(
       n: Note,
       r: Rect
     ) =
-      n.lens(_.visualHint.hintToNextNotesImage.rect).set(r)
+      n.lens(_.visualHint.rectForHead.rect).set(r)
 
     lazy val comp = HintCropEditorWidget(selectedNote, get, set)
     comp
@@ -42,13 +42,13 @@ case class VisualHintEditor(
 
   val placeOfHintToNextEditor = {
     def get(n: Note) =
-      n.lens(_.visualHint.tailOfVisualLinkFromThisNoteToNextNote.rect).get
+      n.lens(_.visualHint.rectForTail.rect).get
 
     def set(
       n: Note,
       r: Rect
     ) =
-      n.lens(_.visualHint.tailOfVisualLinkFromThisNoteToNextNote.rect).set(r)
+      n.lens(_.visualHint.rectForTail.rect).set(r)
 
     lazy val comp = HintCropEditorWidget(selectedNote, get, set)
     comp

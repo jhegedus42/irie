@@ -29,12 +29,12 @@ case class TypeName(s: String)
 case class Note(
   title:      String,
   content:    String,
-  visualHint: VisualHint)
+  visualHint: HintForNote)
     extends Value[Note]
 
 object Note {
 
-  import VisualHint.defVal
+  import HintForNote.defVal
 
   implicit val canProvideDefaultValue =
     new CanProvideDefaultValue[Note] {
@@ -43,36 +43,36 @@ object Note {
         Note(
           "default note title",
           "default note content",
-          defValOf[VisualHint](defVal)
+          defValOf[HintForNote](defVal)
         )
       }
     }
 }
 
 @JsonCodec
-case class VisualHint(
-  imgHintToThisNotesText: ImgHintToThisNotesText,
-  hintToNextNotesImage:   HeadOfVisualLink,
-  // this cropped part will be displayed in the
-  // previous image as a hint to this image
-  tailOfVisualLinkFromThisNoteToNextNote: TailOfVisualLink
-  // this is where a hint to the next image
-  // will be placed
+case class HintForNote(
+                        hint:        ImgHintToThisNotesText,
+                        rectForHead: RectForHead,
+                        // this cropped part will be displayed in the
+                        // previous image as a hint to this image
+                        rectForTail: RectForTail
+                        // this is where a hint to the next image
+                        // will be placed
 )
 
-object VisualHint {
+object HintForNote {
 
   implicit val defVal =
-    new CanProvideDefaultValue[VisualHint] {
+    new CanProvideDefaultValue[HintForNote] {
 
-      override def getDefaultValue: VisualHint = {
-        new VisualHint(
+      override def getDefaultValue: HintForNote = {
+        new HintForNote(
           defValOf[ImgHintToThisNotesText],
-          defValOf[HeadOfVisualLink](
-            HeadOfVisualLink.defaultValue
+          defValOf[RectForHead](
+            RectForHead.defaultValue
           ),
-          defValOf[TailOfVisualLink](
-            TailOfVisualLink.canProvideDefaultValue
+          defValOf[RectForTail](
+            RectForTail.canProvideDefaultValue
           )
         )
       }
@@ -94,33 +94,33 @@ case class Folder(
     extends Value[Folder]
 
 @JsonCodec
-case class TailOfVisualLink(rect: Rect)
+case class RectForTail(rect: Rect)
 
-object TailOfVisualLink {
+object RectForTail {
 
   implicit val canProvideDefaultValue =
-    new CanProvideDefaultValue[TailOfVisualLink] {
+    new CanProvideDefaultValue[RectForTail] {
 
-      override def getDefaultValue: TailOfVisualLink = {
+      override def getDefaultValue: RectForTail = {
         val r = defValOf[Rect]
-        TailOfVisualLink(r)
+        RectForTail(r)
       }
     }
 
 }
 
 @JsonCodec
-case class HeadOfVisualLink(rect: Rect)
+case class RectForHead(rect: Rect)
 
-object HeadOfVisualLink {
+object RectForHead {
 
   implicit val defaultValue =
     new CanProvideDefaultValue[
-      HeadOfVisualLink
+      RectForHead
     ] {
 
-      override def getDefaultValue: HeadOfVisualLink = {
-        HeadOfVisualLink(defValOf[Rect])
+      override def getDefaultValue: RectForHead = {
+        RectForHead(defValOf[Rect])
       }
     }
 }

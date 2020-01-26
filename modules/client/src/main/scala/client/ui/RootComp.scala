@@ -12,7 +12,7 @@ import client.ui.wrappedReact.{
   TagsInput
 }
 import japgolly.scalajs.react.vdom.SvgTagOf
-import shared.dataStorage.model.{ImgFileName, SizeInPercentage, VisualHint}
+import shared.dataStorage.model.{ImgFileName, SizeInPercentage, HintForNote}
 
 object RootComp {
 

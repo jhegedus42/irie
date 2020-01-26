@@ -17,7 +17,7 @@ import japgolly.scalajs.react.vdom.svg_<^.{<, ^}
 import shared.dataStorage.model.{
   ImgFileName,
   SizeInPercentage,
-  VisualHint
+  HintForNote
 }
 
 object VisualLinkAsSVGHelpers {
@@ -25,31 +25,38 @@ object VisualLinkAsSVGHelpers {
   import japgolly.scalajs.react.vdom.svg_<^._
 
   def visualLinkToNextNoteAsSVG(vld: VisualLinkData) = {
-    lazy val thisHint = vld.thisNote
-    lazy val imgSizePixel =
-      thisHint.imgHintToThisNotesText.sizeInPixel
+    lazy val hintForThis = vld.hintForThis
+    lazy val imgSizeForThis =
+      hintForThis.hint.sizeInPixel
 
     lazy val origo     = LocationInPixel(0, 0)
-    lazy val viewBoxPX = ViewBoxPX(origo, imgSizePixel)
+    lazy val viewBoxPX = ViewBoxPX(origo, imgSizeForThis)
 
     lazy val translateTo: LocationInPixel =
-      vld.thisNote.tailOfVisualLinkFromThisNoteToNextNote.rect.upperLeftCornerXYInPercentage
-        .toLocationInPixel(imgSizePixel)
+      vld.hintForThis.rectForTail.rect.upperLeftCornerXYInPercentage
+        .toLocationInPixel(imgSizeForThis)
 
-    lazy val sizeOfTargetRextInPixel: SizeInPixel =
-      vld.thisNote.tailOfVisualLinkFromThisNoteToNextNote.rect.
-        sizeInPercentage.toSizeInPixel(imgSizePixel)
+    lazy val imgSizeForNext =
+      vld.hintForNext.hint.sizeInPixel
 
-    // todo-now - calculate scaling factor - use the width only
-    //  1) get width of current rect in pixel ===> ????
+    lazy val sizeOfHintToNextInPixel: SizeInPixel =
+      vld.hintForNext.rectForHead.rect.sizeInPercentage
+        .toSizeInPixel(imgSizeForNext)
+
+    lazy val sizeOfTargetRectInPixel: SizeInPixel =
+      vld.hintForThis.rectForTail.rect.sizeInPercentage
+        .toSizeInPixel(imgSizeForThis)
+
+    lazy val scaleFactor = sizeOfTargetRectInPixel.width /
+      sizeOfHintToNextInPixel.width
+
 
     <.svg(viewBoxPX.getTag)(
-      hintToThisNoteAsSVG(vld.thisNote),
-      translateAndScale(translateTo, 2.0)(
-        hintToNextNoteAsSVG(vld.nextNote)
+      hintToThisNoteAsSVG(vld.hintForThis),
+      translateAndScale(translateTo, scaleFactor)(
+        hintToNextNoteAsSVG(vld.hintForNext)
       )
     )
-
 
   }
 
@@ -61,8 +68,8 @@ object VisualLinkAsSVGHelpers {
 //    </g>
 //  </svg>
 
-  def hintToThisNoteAsSVG(hint: VisualHint) = {
-    lazy val imgSizePixel = hint.imgHintToThisNotesText.sizeInPixel
+  def hintToThisNoteAsSVG(hint: HintForNote) = {
+    lazy val imgSizePixel = hint.hint.sizeInPixel
 
     lazy val origo     = LocationInPixel(0, 0)
     lazy val viewBoxPX = ViewBoxPX(origo, imgSizePixel)
@@ -75,18 +82,18 @@ object VisualLinkAsSVGHelpers {
     <.svg(viewBoxPX.getTag)(img)
   }
 
-  def hintToNextNoteAsSVG(hint: VisualHint): VdomTagOf[SVG] = {
+  def hintToNextNoteAsSVG(hint: HintForNote): VdomTagOf[SVG] = {
 
-    lazy val imgSizePixel = hint.imgHintToThisNotesText.sizeInPixel
+    lazy val imgSizePixel = hint.hint.sizeInPixel
 
     lazy val hintLocPerc: LocationInPercentage =
-      hint.hintToNextNotesImage.rect.upperLeftCornerXYInPercentage
+      hint.rectForHead.rect.upperLeftCornerXYInPercentage
 
     lazy val hintLocPixel: LocationInPixel =
       hintLocPerc.toLocationInPixel(imgSizePixel)
 
     lazy val hintSizePerc: SizeInPercentage =
-      hint.hintToNextNotesImage.rect.sizeInPercentage
+      hint.rectForHead.rect.sizeInPercentage
 
     lazy val hintSizeInPixel: SizeInPixel = {
       hintSizePerc.toSizeInPixel(imgSizePixel)

@@ -9,7 +9,7 @@ import shared.dataStorage.model.{
   LocationInPixel,
   SizeInPercentage,
   SizeInPixel,
-  VisualHint
+  HintForNote
 }
 //import japgolly.scalajs.react.vdom.SvgTagOf
 import japgolly.scalajs.react.vdom.svg_<^._
@@ -78,11 +78,11 @@ object SVGElements {
     )
 
   def image(
-    vh:              VisualHint,
-    locationAndSize: LocationAndSizeInPixel
+             vh:              HintForNote,
+             locationAndSize: LocationAndSizeInPixel
   ) = {
     svg_<^.<.image(
-      ^.xlinkHref := vh.imgHintToThisNotesText.fileName.fileNameAsString,
+      ^.xlinkHref := vh.hint.fileName.fileNameAsString,
       locationAndSize.getTags
     )
   }
