@@ -9,7 +9,14 @@ import shared.dataStorage.stateHolder.EntityStorage.UntypedMap
 import shared.dataStorage._
 import monocle.macros.syntax.lens._
 import shared.dataStorage.model.Value
-import shared.dataStorage.relationalWrappers.{RefToEntityOwningUser, TypedReferencedValue, UnTypedRef, UnTypedReferencedValue, UntypedValue, UntypedVersionedValue}
+import shared.dataStorage.relationalWrappers.{
+  RefToEntityOwningUser,
+  TypedReferencedValue,
+  UnTypedRef,
+  UnTypedReferencedValue,
+  UntypedValue,
+  UntypedVersionedValue
+}
 
 case class EntityStorage(val untypedMap: UntypedMap = UntypedMap()) {
 
@@ -87,8 +94,8 @@ object EntityStorage {
     newValue:               UntypedValue
   ): Option[EntityStorage] = {
     for {
-      es<-storageOpt
-      ns <- es.update(unTypedReferencedValue,newValue)
+      es <- storageOpt
+      ns <- es.update(unTypedReferencedValue, newValue)
     } yield (ns)
   }
 
@@ -99,8 +106,18 @@ object EntityStorage {
   /**
     * @param map
     */
+
   case class UntypedMap(
     map: Map[UnTypedRef, UnTypedReferencedValue] =
       Map[UnTypedRef, UnTypedReferencedValue]())
+
+  @JsonCodec
+  case class MapAsList(
+    mapAsList: List[(UnTypedRef, UnTypedReferencedValue)])
+
+  def getJSON(untypedMap: UntypedMap): String = {
+    val mapAsList = MapAsList(untypedMap.map.toList)
+    implicitly[Encoder[MapAsList]].apply(mapAsList).spaces4
+  }
 
 }

@@ -2,28 +2,15 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{
-  GetAllEntityiesForUserPersActCmd,
-  InsertEntityPersActCmd,
-  UpdateEntitiesPersActorCmd,
-  UpdateEntityPersActCmd
-}
+import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
-import shared.crudRESTCallCommands.{
-  RequestReturnedWithError,
-  RequestState,
-  RequestSuccessfullyProcessedInPersistentActor
-}
-import shared.crudRESTCallCommands.persActorCommands.{
-  Response,
-  ShutDown
-}
-import shared.dataStorage.relationalWrappers.{
-  RefToEntityOwningUser,
-  UnTypedReferencedValue
-}
+import shared.crudRESTCallCommands.{RequestReturnedWithError, RequestState, RequestSuccessfullyProcessedInPersistentActor}
+import shared.crudRESTCallCommands.persActorCommands.{Response, ShutDown}
+import shared.dataStorage.relationalWrappers.{RefToEntityOwningUser, UnTypedReferencedValue}
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
+
+import scala.io.Source
 
 class PersistentActorImpl(id: String)
     extends PersistentActor
@@ -38,6 +25,20 @@ class PersistentActorImpl(id: String)
       cmd match {
         case GeneralPersActorCmd.CommandStrings.saveData => {
           println("we need to save the data")
+          import scala.io.Source
+          println("file's old content:")
+          Source.fromFile("data.json").foreach { x => print(x) }
+          import java.io.File
+          import java.io.PrintWriter
+          val writer = new PrintWriter(new File("data.json"))
+
+          writer.write(EntityStorage.getJSON(state.untypedMap))
+          writer.close()
+
+          println("\nfile's new content:")
+          Source.fromFile("data.json").foreach { x => print(x) }
+          println("----------------------")
+
           sender ! Response(GeneralPersActorCmd(cmd), None)
         }
         case _ => {

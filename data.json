@@ -1,0 +1,434 @@
+{
+    "mapAsList" : [
+        [
+            {
+                "typeName" : {
+                    "s" : "Note"
+                },
+                "uuid" : "53f0a6d0-e335-457b-9cd9-7e067649f427",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "Note"
+                    },
+                    "uuid" : "53f0a6d0-e335-457b-9cd9-7e067649f427",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 1
+                    },
+                    "value" : {
+                        "json" : {
+                            "title" : "bimm",
+                            "content" : "Alice in Wonderland",
+                            "visualHint" : {
+                                "hint" : {
+                                    "fileName" : {
+                                        "fileNameAsString" : "defaultImage.jpeg"
+                                    },
+                                    "sizeInPixel" : {
+                                        "width" : 20,
+                                        "height" : 20
+                                    }
+                                },
+                                "rectForHead" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50,
+                                            "yInPercentage" : 50
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20,
+                                            "height" : 20
+                                        }
+                                    }
+                                },
+                                "rectForTail" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50,
+                                            "yInPercentage" : 50
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20,
+                                            "height" : 20
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "User"
+                },
+                "uuid" : "72b240b6-97cd-4780-95ad-630bd1df7be7",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "User"
+                    },
+                    "uuid" : "72b240b6-97cd-4780-95ad-630bd1df7be7",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "Bob",
+                            "favoriteNumber" : 45,
+                            "password" : "titok"
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "Folder"
+                },
+                "uuid" : "14283519-be54-44e4-bd46-fb4f8d603f72",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "Folder"
+                    },
+                    "uuid" : "14283519-be54-44e4-bd46-fb4f8d603f72",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "Note Folder One",
+                            "notes" : [
+                                {
+                                    "unTypedRef" : {
+                                        "typeName" : {
+                                            "s" : "Note"
+                                        },
+                                        "uuid" : "7040c6a6-10c3-40cc-a7f8-faa9c580fdf6",
+                                        "refToEntityOwningUser" : {
+                                            "uuid" : "00000000-0000-0000-0000-000000000000"
+                                        }
+                                    }
+                                },
+                                {
+                                    "unTypedRef" : {
+                                        "typeName" : {
+                                            "s" : "Note"
+                                        },
+                                        "uuid" : "a89a279e-c304-4f9c-bee4-eaa78c039f60",
+                                        "refToEntityOwningUser" : {
+                                            "uuid" : "00000000-0000-0000-0000-000000000000"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "User"
+                },
+                "uuid" : "26899cc2-d51a-4063-a245-773fa5c1b382",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000002"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "User"
+                    },
+                    "uuid" : "26899cc2-d51a-4063-a245-773fa5c1b382",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000002"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "JetiLabnyom",
+                            "favoriteNumber" : 46,
+                            "password" : "titok"
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "User"
+                },
+                "uuid" : "00000000-0000-0000-0000-000000000000",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "User"
+                    },
+                    "uuid" : "00000000-0000-0000-0000-000000000000",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "Alice",
+                            "favoriteNumber" : 38,
+                            "password" : "titokNyitja"
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "Note"
+                },
+                "uuid" : "a89a279e-c304-4f9c-bee4-eaa78c039f60",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "Note"
+                    },
+                    "uuid" : "a89a279e-c304-4f9c-bee4-eaa78c039f60",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "title" : "Alice note 1",
+                            "content" : "Super deep story.",
+                            "visualHint" : {
+                                "hint" : {
+                                    "fileName" : {
+                                        "fileNameAsString" : "defaultImage.jpeg"
+                                    },
+                                    "sizeInPixel" : {
+                                        "width" : 20.0,
+                                        "height" : 20.0
+                                    }
+                                },
+                                "rectForHead" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50.0,
+                                            "yInPercentage" : 50.0
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20.0,
+                                            "height" : 20.0
+                                        }
+                                    }
+                                },
+                                "rectForTail" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50.0,
+                                            "yInPercentage" : 50.0
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20.0,
+                                            "height" : 20.0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "Folder"
+                },
+                "uuid" : "5c59429c-05cf-421a-ada9-289545505711",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "Folder"
+                    },
+                    "uuid" : "5c59429c-05cf-421a-ada9-289545505711",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "Note Folder Two",
+                            "notes" : [
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "Note"
+                },
+                "uuid" : "7040c6a6-10c3-40cc-a7f8-faa9c580fdf6",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "Note"
+                    },
+                    "uuid" : "7040c6a6-10c3-40cc-a7f8-faa9c580fdf6",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "title" : "Alice note 2",
+                            "content" : "Very boring story",
+                            "visualHint" : {
+                                "hint" : {
+                                    "fileName" : {
+                                        "fileNameAsString" : "defaultImage.jpeg"
+                                    },
+                                    "sizeInPixel" : {
+                                        "width" : 20.0,
+                                        "height" : 20.0
+                                    }
+                                },
+                                "rectForHead" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50.0,
+                                            "yInPercentage" : 50.0
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20.0,
+                                            "height" : 20.0
+                                        }
+                                    }
+                                },
+                                "rectForTail" : {
+                                    "rect" : {
+                                        "upperLeftCornerXYInPercentage" : {
+                                            "xInPercentage" : 50.0,
+                                            "yInPercentage" : 50.0
+                                        },
+                                        "sizeInPercentage" : {
+                                            "width" : 20.0,
+                                            "height" : 20.0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            {
+                "typeName" : {
+                    "s" : "User"
+                },
+                "uuid" : "d333c0f9-6001-46e8-9afb-d2ad7c9d6462",
+                "refToEntityOwningUser" : {
+                    "uuid" : "00000000-0000-0000-0000-000000000000"
+                }
+            },
+            {
+                "unTypedRef" : {
+                    "typeName" : {
+                        "s" : "User"
+                    },
+                    "uuid" : "d333c0f9-6001-46e8-9afb-d2ad7c9d6462",
+                    "refToEntityOwningUser" : {
+                        "uuid" : "00000000-0000-0000-0000-000000000000"
+                    }
+                },
+                "value" : {
+                    "version" : {
+                        "versionNumber" : 0
+                    },
+                    "value" : {
+                        "json" : {
+                            "name" : "TerezAnya",
+                            "favoriteNumber" : 666,
+                            "password" : "titok"
+                        }
+                    }
+                }
+            }
+        ]
+    ]
+}
