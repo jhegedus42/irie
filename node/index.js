@@ -151,8 +151,8 @@ var anotherElement = React.createElement(
     "A nice text paragraph."
 );
 
-var renderTarget = document.getElementById("testComp");
+// var renderTarget = document.getElementById("testComp");
 
-window.ReactDOM.render(list, renderTarget);
+// window.ReactDOM.render(list, renderTarget);
 
 

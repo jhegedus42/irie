@@ -6,6 +6,7 @@ import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.cache.{Cache, CacheMap}
 import client.sodium.core.{CellLoop, CellSink}
 import client.ui.atomicWidgets.input.SButton
+import client.ui.atomicWidgets.show.HiderWidget
 import client.ui.atomicWidgets.show.text.SWPreformattedText
 import client.ui.atomicWidgets.templates.CellTemplate
 import client.ui.compositeWidgets.general.{
@@ -17,13 +18,14 @@ import client.ui.compositeWidgets.general.{
 }
 import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.helpers.table.TableHelpers
-import japgolly.scalajs.react.ScalaComponent
+import japgolly.scalajs.react.{CtorType, ScalaComponent}
+import japgolly.scalajs.react.component.Scala.{Component, Unmounted}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import org.scalajs.dom.html.Div
 import shared.dataStorage.model.{
   CanProvideDefaultValue,
-  Note,
-  HintForNote
+  HintForNote,
+  Note
 }
 import shared.dataStorage.relationalWrappers.TypedReferencedValue
 
@@ -60,10 +62,18 @@ case class NotesWidget() {
     selector.selectedEntityResolved
   )
 
-
   lazy val noteCreator = EntityCreatorWidget({ () =>
     CanProvideDefaultValue.defValOf[Note]
   }, "Note")
+
+  lazy val noteFolderUpdaterComp
+    : Component[Unit, Unit, Unit, CtorType.Nullary] =
+    noteFolderUpdater.getComp
+
+  lazy val imagesForANoteComp
+    : Component[Unit, Unit, Unit, CtorType.Nullary] = ImagesForANote(
+    selectedNote
+  ).getComp
 
   def getComp = {
 
@@ -75,8 +85,8 @@ case class NotesWidget() {
         selector.selectorTable.comp(),
         noteCreator.createNewEntityButton.comp(),
         noteTitleEditor.comp(),
-        ImagesForANote(selectedNote).getComp(),
-        noteFolderUpdater.getComp(),
+        HiderWidget("Images",imagesForANoteComp).hider(),
+        HiderWidget("Folders",noteFolderUpdaterComp).hider(),
         <.br,
         <.br
       )
