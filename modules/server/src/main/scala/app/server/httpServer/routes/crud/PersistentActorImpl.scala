@@ -10,7 +10,7 @@ import shared.dataStorage.relationalWrappers.{RefToEntityOwningUser, UnTypedRefe
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
 
-import scala.io.Source
+import scala.io.{BufferedSource, Source}
 
 class PersistentActorImpl(id: String)
     extends PersistentActor
@@ -147,9 +147,23 @@ class PersistentActorImpl(id: String)
 
   override def receiveRecover: Receive = {
     case RecoveryCompleted => {
+
+
+      val res: BufferedSource =Source.fromFile("data.json")
+      val res2 =res.mkString
+
       log.info(
         "Recovery completed \n\nState is:\n"
       )
+
+      println("Data read:")
+      println(res2)
+
+      val loadedState=EntityStorage.getStateFromJSON(res2)
+      println("Data Parsed:")
+      println(loadedState)
+      state=EntityStorage(loadedState)
+
     }
   }
 

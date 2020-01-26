@@ -4,6 +4,7 @@ import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
+import io.circe._
 import shapeless.Typeable
 import shared.dataStorage.stateHolder.EntityStorage.UntypedMap
 import shared.dataStorage._
@@ -118,6 +119,25 @@ object EntityStorage {
   def getJSON(untypedMap: UntypedMap): String = {
     val mapAsList = MapAsList(untypedMap.map.toList)
     implicitly[Encoder[MapAsList]].apply(mapAsList).spaces4
+  }
+
+  def getStateFromJSON(jsonAsString: String): UntypedMap = {
+    import io.circe.Decoder
+    import io.circe._
+    import io.circe.generic.JsonCodec
+    import io.circe.generic.auto._
+    import io.circe.parser._
+    import io.circe.syntax._
+    val res  = decode[MapAsList](jsonAsString)
+    val res2 = res.toOption.get.mapAsList
+
+    val map: Map[UnTypedRef, UnTypedReferencedValue] =
+      Map[UnTypedRef, UnTypedReferencedValue]()
+
+    val res3: Map[UnTypedRef, UnTypedReferencedValue] = res2.toMap
+
+    UntypedMap(res3)
+
   }
 
 }
