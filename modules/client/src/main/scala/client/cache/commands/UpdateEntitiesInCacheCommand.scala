@@ -1,6 +1,5 @@
 package client.cache.commands
 
-import shared.crudRESTCallCommands.persActorCommands.{UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
@@ -10,6 +9,7 @@ import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
 import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
+import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import shared.dataStorage.model.Value
 
 @JsonCodec

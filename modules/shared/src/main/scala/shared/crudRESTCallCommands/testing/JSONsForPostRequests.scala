@@ -1,7 +1,7 @@
 package shared.crudRESTCallCommands.testing
 
 import shared.crudRESTCallCommands.JSONConvertable
-import shared.crudRESTCallCommands.persActorCommands.GetAllEntityiesForUserPersActCmd
+import shared.crudRESTCallCommands.persActorCommands.crudCMDs.GetAllEntityiesForUserPersActCmd
 import shared.testingData.TestDataStore
 
 object JSONsForPostRequests extends App {

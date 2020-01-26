@@ -1,12 +1,13 @@
-package shared.crudRESTCallCommands.persActorCommands
+package shared.crudRESTCallCommands.persActorCommands.crudCMDs
 
-import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
 import io.circe.Decoder.Result
 import io.circe._
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
+import shared.crudRESTCallCommands.persActorCommands.PersActorCommand
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 

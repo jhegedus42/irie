@@ -2,6 +2,7 @@ package client.ui
 
 import scala.concurrent.ExecutionContextExecutor
 import bootstrap4.TB.C
+import client.ui.compositeWidgets.specific.SaveDataOnServerButton
 import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.compositeWidgets.specific.note.NotesWidget
@@ -12,7 +13,11 @@ import client.ui.wrappedReact.{
   TagsInput
 }
 import japgolly.scalajs.react.vdom.SvgTagOf
-import shared.dataStorage.model.{ImgFileName, SizeInPercentage, HintForNote}
+import shared.dataStorage.model.{
+  HintForNote,
+  ImgFileName,
+  SizeInPercentage
+}
 
 object RootComp {
 
@@ -22,6 +27,8 @@ object RootComp {
 
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+  lazy val saveDataOnServerButton = SaveDataOnServerButton()
 
   def getComp = {
 
@@ -33,10 +40,7 @@ object RootComp {
           <.div(C.jumbotron)(
             nw.getComp(),
             <.br,
-            <.hr
-//            SVGDemo.imgInSVGWithViewBox(
-//              VisualHintDemoData.benchDemoHintDecoded
-//            )
+            saveDataOnServerButton.btn.comp()
           )
         )
       )

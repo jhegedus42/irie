@@ -1,15 +1,27 @@
 package client.cache
 
-import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
+import client.cache.commands.{
+  UpdateEntitiesInCacheCommand,
+  UpdateEntityInCacheCmd
+}
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRESTCallCommands.persActorCommands.{GetAllEntityiesForUserPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
-import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
-import io.circe.Encoder
+import shared.crudRESTCallCommands.{
+  CanProvideRouteName,
+  JSONConvertable
+}
+import io.circe.{Decoder, Encoder}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
 import shapeless.Typeable
+import shared.crudRESTCallCommands.persActorCommands.Response
+import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{
+  GetAllEntityiesForUserPersActCmd,
+  UpdateEntitiesPersActorCmd,
+  UpdateEntityPersActCmd
+}
+import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
 import shared.dataStorage.model.Value
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
@@ -49,6 +61,39 @@ object AJAXCalls {
       .map(_.responseText)
       .map(
         implicitly[JSONConvertable[Command]].fromJSONToObject(_)
+      )
+      .onComplete(runOnComplete)
+
+  }
+
+  def sendCommandToServerViaAJAXCallAndParseResponse[
+    Command: JSONConvertable: CanProvideRouteName: Encoder: Decoder
+  ](in:            Command,
+    runOnComplete: (Try[Response[Command]] => Unit)
+  )(
+    implicit
+    respDecoder: JSONConvertable[Response[Command]]
+  ): Unit = {
+
+    //    import io.circe.syntax._
+
+    val headers: Map[String, String] = Map(
+      "Content-Type" -> "application/json"
+    )
+
+    import io.circe.generic.auto._
+    import io.circe.syntax._
+
+    Ajax
+      .post(
+        s"http://$ip:8080/${implicitly[CanProvideRouteName[Command]].getRouteName}",
+        in.asJson.spaces4,
+        headers = headers
+      )
+      .map(_.responseText)
+      .map(
+        implicitly[JSONConvertable[Response[Command]]]
+          .fromJSONToObject(_)
       )
       .onComplete(runOnComplete)
 
@@ -121,13 +166,23 @@ object AJAXCalls {
         updateEntityInCacheCmd
       )
 
-
     // test
     val handleReturn = { (t: Try[UpdateEntitiesPersActorCmd]) =>
     }
     // todo later, handle OCC error
     sendCommandToServerViaAJAXCall(updateEntitiesPersActCmd,
                                    handleReturn)
+  }
+
+  def saveDataOnServer(): Unit = {
+    sendCommandToServerViaAJAXCallAndParseResponse[
+      GeneralPersActorCmd
+    ](
+      GeneralPersActorCmd(GeneralPersActorCmd.CommandStrings.saveData),{
+        resp: Try[Response[GeneralPersActorCmd]] =>
+          println(resp)
+      }
+    )
   }
 
 }

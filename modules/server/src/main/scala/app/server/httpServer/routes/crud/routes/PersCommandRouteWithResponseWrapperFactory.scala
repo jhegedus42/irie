@@ -10,7 +10,10 @@ import akka.http.scaladsl.server.Directives.{
 }
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
-import shared.crudRESTCallCommands.persActorCommands.PersActorCommand
+import shared.crudRESTCallCommands.persActorCommands.{
+  PersActorCommand,
+  Response
+}
 import shared.crudRESTCallCommands.{
   CanProvideRouteName,
   JSONConvertable
@@ -20,8 +23,8 @@ import shared.dataStorage.model.Value
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-case class PersCommandRouteFactory[
-//  V  <: Value[V],
+case class PersCommandRouteWithResponseWrapperFactory[
+  //  V  <: Value[V],
   PC <: PersActorCommand
 ](val actor: ActorRef
 )(
@@ -30,6 +33,7 @@ case class PersCommandRouteFactory[
   executionContextExecutor: ExecutionContextExecutor,
   rnp:                      CanProvideRouteName[PC],
   j:                        JSONConvertable[PC],
+  jResp:                    JSONConvertable[Response[PC]],
   ct:                       ClassTag[PC]) {
 
   def getRoute: Route = {
@@ -39,7 +43,7 @@ case class PersCommandRouteFactory[
           {
 
             val fs = getResult(j.fromJSONToObject(s))
-              .map(x => j.toJSON(x))
+              .map(x => jResp.toJSON(x))
 
             complete(fs)
 
@@ -49,13 +53,13 @@ case class PersCommandRouteFactory[
     }
   }
 
-  def getResult(msg: PersActorCommand): Future[PC] = {
+  def getResult(msg: PersActorCommand): Future[Response[PC]] = {
     import akka.pattern.ask
 
     import scala.concurrent.duration._
     implicit val timeout = Timeout(5 seconds)
 
-    ask(actor, msg).mapTo[PC]
+    ask(actor, msg).mapTo[Response[PC]]
 
   }
 

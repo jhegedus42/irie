@@ -89,6 +89,8 @@ case class NotesWidget() {
       )
     }
 
+    // todo-now : lapozgato - show next note, show previous note...
+
     val rootComp =
       ScalaComponent
         .builder[Unit]("Hello")
