@@ -33,7 +33,7 @@ case class ImageDisplayerWidget(img: Cell[Option[HintForNote]]) {
             s"Image's file name :${x.hint.fileName.fileNameAsString}",
             <.br,
             getImg(
-              x.hint.fileName.fileNameAsString
+              x.hint.fileName.fileNameWithPathAsString
             ),
             <.br
           )

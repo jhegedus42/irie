@@ -78,9 +78,6 @@ case class VisualHintEditor(
     def render: Unit => VdomElement = { _ =>
       <.div(
         <.br,
-//        nextNoteTitleDisplayer(),
-//        visualLinkDisplayer.visualLinkComponentsAsVDOM,
-//        visualLinkDisplayer,
         "Rect Editor:",
         <.h4(
           "Cropped hint to this Note's VisualHint to be placed into previous Note's Hint:"

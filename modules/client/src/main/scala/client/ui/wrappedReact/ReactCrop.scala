@@ -154,7 +154,7 @@ case class ImgCropWidget(
 
         <.div(
           ReactCrop(
-            src      = state.get.fileName.fileNameAsString,
+            src      = state.get.fileName.fileNameWithPathAsString,
             crop     = state.get.crop,
             onChange = handlerCore(_,_)
           )

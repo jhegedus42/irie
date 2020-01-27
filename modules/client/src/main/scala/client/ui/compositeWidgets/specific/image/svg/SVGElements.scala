@@ -34,7 +34,7 @@ object SVGElements {
     <.g(
       ^.transform :=
         s"translate(${locationInPixel.xInPixel} ${locationInPixel.yInPixel}) " +
-        s"scale($scaleFactor)"
+          s"scale($scaleFactor)"
     )(
       children
     )
@@ -78,11 +78,11 @@ object SVGElements {
     )
 
   def image(
-             vh:              HintForNote,
-             locationAndSize: LocationAndSizeInPixel
+    vh:              HintForNote,
+    locationAndSize: LocationAndSizeInPixel
   ) = {
     svg_<^.<.image(
-      ^.xlinkHref := vh.hint.fileName.fileNameAsString,
+      ^.xlinkHref := vh.hint.fileName.fileNameWithPathAsString,
       locationAndSize.getTags
     )
   }
@@ -91,7 +91,7 @@ object SVGElements {
     fn: ImgFileName,
     l:  LocationAndSizeInPixel
   ) = {
-    <.image(^.xlinkHref := fn.fileNameAsString,
+    <.image(^.xlinkHref := fn.fileNameWithPathAsString,
             l.getTags,
             ^.clipPath := "url(#clipPath)")
   }

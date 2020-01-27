@@ -203,7 +203,9 @@ object Rect {
 }
 
 @JsonCodec
-case class ImgFileName(fileNameAsString: String)
+case class ImgFileName(fileNameAsString: String){
+  def fileNameWithPathAsString=s"./images/${fileNameAsString}"
+}
 
 object ImgFileName {
 
@@ -214,5 +216,6 @@ object ImgFileName {
         new ImgFileName("defaultImage.jpeg")
       }
     }
+
 
 }
