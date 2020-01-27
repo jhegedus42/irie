@@ -28,6 +28,10 @@ private[routes] object IndexDotHtml {
             div( id := "testComp" ),
             script(
               `type` := "text/javascript",
+              src := "./www/assets/js/config_client.js"
+            ),
+            script(
+              `type` := "text/javascript",
               src := "./www/assets/js/bootstrap/popper.min.js"
             ),
             script(

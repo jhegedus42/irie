@@ -25,21 +25,23 @@ case class ImageSequenceTraversingWidget() {
   })
 
   lazy val selectedNoteRefSetter: Stream[Option[Ref[Note]]] = {
-//    lazy val noteFolderSelectorWidget
-//    .selectedEntityResolved
 
-    // todo-now - implement this in terms of noteFolderSelectorWidget
-    // get the first Ref[Note] from that Cell
-
-    ???
+    val res1: Cell[Option[Option[Ref[Note]]]] =
+      noteFolderSelectorWidget.selectedEntityResolved.map(
+        _.map(
+          _.versionedEntityValue.valueWithoutVersion.notes.headOption
+        )
+      )
+    val res2: Cell[Option[Ref[Note]]] = res1.map(_.flatten)
+    res2.updates()
   }
 
   lazy val selectedNoteRefCell: Cell[Option[Ref[Note]]] =
     selectedNoteRefSetter.hold(None)
 
+  // we need to set this to a cell-loop => ...
+
   lazy val visualLinkDisplayer = {
-    lazy val selectedNoteTypedRefValSetter =
-      new StreamSink[Option[TypedReferencedValue[Note]]]()
 
     val resolvedNote: Cell[Option[TypedReferencedValue[Note]]] =
       Cache.resolveRef(selectedNoteRefCell)
@@ -49,54 +51,26 @@ case class ImageSequenceTraversingWidget() {
 
     CompositeSVGDisplayer(
       selectedNoteTypedRefValCellOption
-    ).visualLinkAsVDOM
+    )
   }
 
-  //  Cache.resolveRef()
+  lazy val stateCell: CellOption[State] =
+    new CellOption(new Cell[Option[State]](None))
 
-  lazy val comp = ScalaComponent
-    .builder[Unit]("ImageSequenceTraversingWidget")
-    .initialState(State(None, None))
-    .renderBackend[Backend]
-    .componentWillMount(f => {
 
-      Callback {
+  lazy val nextNote = visualLinkDisplayer.nextNote
 
-        noteFolderSelectorWidget.selectedEntityResolved
-          .listen((x: Option[TypedReferencedValue[Folder]]) => {
-            println(s"sodum label's cell is $x");
+  lazy val vdom = {
+    <.div(
+      <.h3("ImageSequenceTraversingWidget"),
+      <.br,
+      noteFolderSelectorWidget.selectorTable.comp(),
+      <.br,
+      visualLinkDisplayer.visualLinkAsVDOM
 
-            // get first note in folder
-            val optRefToNote = for {
-              trv <- x
-              refToNote <- trv.versionedEntityValue.valueWithoutVersion.notes.headOption
-            } yield (refToNote)
-            val s =
-              State(x.map(_.versionedEntityValue.valueWithoutVersion),
-                    optRefToNote)
+      // todo-now - add button here to go to next note...
 
-            f.setState(s).runNow()
-
-          })
-
-      }
-    })
-    .build
-
-  class Backend($ : BackendScope[Unit, State]) {
-
-    def render(
-      unit:  Unit,
-      state: State
-    ): VdomElement = {
-      <.div(
-        <.h3("ImageSequenceTraversingWidget"),
-        <.br,
-        noteFolderSelectorWidget.selectorTable.comp(),
-        <.br,
-        s"State is: $state"
-      )
-    }
+    )
   }
 
 }

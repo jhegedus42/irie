@@ -42,7 +42,7 @@ object RootComp {
 //        svgDemo,
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
-            imageSequenceTraversingWidget.comp(),
+            imageSequenceTraversingWidget.vdom,
             <.br,
             nw.getComp(),
             <.br,
