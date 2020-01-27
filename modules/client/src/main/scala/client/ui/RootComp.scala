@@ -6,6 +6,7 @@ import client.ui.compositeWidgets.specific.SaveDataOnServerButton
 import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.compositeWidgets.specific.note.NotesWidget
+import client.ui.compositeWidgets.specific.noteFolder.ImageSequenceTraversingWidget
 import client.ui.wrappedReact.{
   Crop,
   ImgCropWidget,
@@ -30,6 +31,9 @@ object RootComp {
 
   lazy val saveDataOnServerButton = SaveDataOnServerButton()
 
+  lazy val imageSequenceTraversingWidget =
+    ImageSequenceTraversingWidget()
+
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
@@ -38,6 +42,8 @@ object RootComp {
 //        svgDemo,
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
+            imageSequenceTraversingWidget.comp(),
+            <.br,
             nw.getComp(),
             <.br,
             saveDataOnServerButton.btn.comp()
