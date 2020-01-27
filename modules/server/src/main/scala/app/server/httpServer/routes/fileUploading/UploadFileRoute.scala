@@ -9,23 +9,14 @@ import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.util.ByteString
 import io.circe.Encoder
-import shared.dataStorage.model.{ImgHintToThisNotesText, ImgFileName, SizeInPercentage, SizeInPixel}
+import shared.dataStorage.model.{
+  ImgHintToThisNotesText,
+  ImgFileName,
+  SizeInPercentage,
+  SizeInPixel
+}
 
 import scala.concurrent.ExecutionContextExecutor
-
-// from https://github.com/knoldus/akka-http-file-upload/blob/master/src/main/scala/com/rishi/Boot.scala
-
-// https://github.com/scalajs-io/express-fileupload
-
-// https://stackoverflow.com/questions/44357501/how-to-upload-a-file-using-ajax-in-scalajs/47630262
-
-// https://gitlab.com/bullbytes/scala-js-example
-
-// https://gitter.im/scala-js/scala-js?at=59db182f177fb9fe7e55c63f
-
-// https://developer.mozilla.org/en-US/docs/Web/API/FormData
-
-// https://thoughtbot.com/blog/ridiculously-simple-ajax-uploads-with-formdata
 
 trait UploadFileRoute {
 
@@ -40,9 +31,9 @@ trait UploadFileRoute {
     path("user" / "upload" / "file") {
       (post & entity(as[Multipart.FormData])) { fileData =>
         complete {
-          val fileName = UUID.randomUUID().toString + ".jpeg"
-          val filePath = "./" + fileName
-          processFile(filePath, fileData)
+          val fileName                 = UUID.randomUUID().toString
+          val filePathWithoutExtension = "./images/"+fileName
+          processFile(filePathWithoutExtension, fileData)
             .map { fileSize =>
               HttpResponse(
                 StatusCodes.OK,
@@ -50,21 +41,30 @@ trait UploadFileRoute {
 
                   // get file size
                   import sys.process._
-                  val width=
-                    (s"""identify -format "%w" ${fileName}""" !!).trim
+                  val width =
+                    (s"""identify -format "%w" ${filePathWithoutExtension}""" !!).trim
                       .filterNot(_ == '"').toString.toDouble
 
-                  val height=
-                    (s"""identify -format "%h" ${fileName}""" !!).trim
+                  val height =
+                    (s"""identify -format "%h" ${filePathWithoutExtension}""" !!).trim
                       .filterNot(_ == '"').toString.toDouble
 
+                  val encoding: String =
+                    (s"""identify -format "%m" ${filePathWithoutExtension}""" !!).trim
+                      .filterNot(_ == '"').toString.toLowerCase()
+
+                  val newFileName = s"$fileName.$encoding"
+
+                  s"""mv ${filePathWithoutExtension} ${filePathWithoutExtension}.${encoding}""" !!
 
                   val imgFileData = ImgHintToThisNotesText(
-                    ImgFileName(fileName),
+                    ImgFileName(newFileName),
                     SizeInPixel(width, height)
                   )
+
                   implicitly[Encoder[ImgHintToThisNotesText]]
                     .apply(imgFileData).spaces4
+
                 }
               )
             }.recover {

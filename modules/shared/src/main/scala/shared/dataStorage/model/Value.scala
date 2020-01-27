@@ -51,13 +51,13 @@ object Note {
 
 @JsonCodec
 case class HintForNote(
-                        hint:        ImgHintToThisNotesText,
-                        rectForHead: RectForHead,
-                        // this cropped part will be displayed in the
-                        // previous image as a hint to this image
-                        rectForTail: RectForTail
-                        // this is where a hint to the next image
-                        // will be placed
+  hint:        ImgHintToThisNotesText,
+  rectForHead: RectForHead,
+  // this cropped part will be displayed in the
+  // previous image as a hint to this image
+  rectForTail: RectForTail
+  // this is where a hint to the next image
+  // will be placed
 )
 
 object HintForNote {
@@ -203,8 +203,8 @@ object Rect {
 }
 
 @JsonCodec
-case class ImgFileName(fileNameAsString: String){
-  def fileNameWithPathAsString=s"./images/${fileNameAsString}"
+case class ImgFileName(fileNameAsString: String) {
+  def fileNameWithPathAsString = s"./images/${fileNameAsString}"
 }
 
 object ImgFileName {
@@ -216,6 +216,5 @@ object ImgFileName {
         new ImgFileName("defaultImage.jpeg")
       }
     }
-
 
 }
