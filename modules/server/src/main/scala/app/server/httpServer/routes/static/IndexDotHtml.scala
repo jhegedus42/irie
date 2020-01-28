@@ -27,9 +27,13 @@ private[routes] object IndexDotHtml {
             div( id := "rootComp" ),
             div( id := "testComp" ),
             script(
-              `type` := "text/javascript",
-              src := "./www/assets/js/config_client.js"
+              `type` := "text/javascript"
             ),
+
+            // todo - continue here ...
+            // add config information into .js from
+            // config.json on the server side
+
             script(
               `type` := "text/javascript",
               src := "./www/assets/js/bootstrap/popper.min.js"

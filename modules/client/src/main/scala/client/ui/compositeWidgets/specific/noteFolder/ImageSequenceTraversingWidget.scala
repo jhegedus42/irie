@@ -103,11 +103,12 @@ case class ImageSequenceTraversingWidget() {
     <.div(
       <.h3("ImageSequenceTraversingWidget"),
       <.br,
+      SButtonSendClick("Go to Next Note", clickGoToNextNote).comp(),
+      <.br,
       noteFolderSelectorWidget.selectorTable.comp(),
       <.br,
       visualLinkDisplayer.visualLinkAsVDOM,
-      <.br,
-      SButtonSendClick("Go to Next Note", clickGoToNextNote).comp()
+      <.br
     )
   }
 

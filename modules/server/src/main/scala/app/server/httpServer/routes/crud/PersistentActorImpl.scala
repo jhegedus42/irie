@@ -26,6 +26,7 @@ class PersistentActorImpl(id: String)
         case GeneralPersActorCmd.CommandStrings.saveData => {
           println("we need to save the data")
           import scala.io.Source
+
           println("file's old content:")
           Source.fromFile("data.json").foreach { x => print(x) }
           import java.io.File
@@ -163,6 +164,7 @@ class PersistentActorImpl(id: String)
       println("Data Parsed:")
       println(loadedState)
       state=EntityStorage(loadedState)
+      res.close()
 
     }
   }
