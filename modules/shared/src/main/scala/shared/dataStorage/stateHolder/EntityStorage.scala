@@ -137,7 +137,6 @@ object EntityStorage {
     val res3: Map[UnTypedRef, UnTypedReferencedValue] = res2.toMap
 
     UntypedMap(res3)
-
   }
 
 }

@@ -1,5 +1,7 @@
 package app.server.httpServer.routes.static
 
+import app.server.Config
+
 private[routes] object IndexDotHtml {
   import scalatags.Text.all._
   import scalatags.Text.tags2.title
@@ -39,21 +41,34 @@ private[routes] object IndexDotHtml {
               src := "./www/assets/js/bootstrap/popper.min.js"
             ),
             script(
+              s"""
+                |window.configObjFromServer={
+                |     'port':${Config.configFromJSON.port},
+                |     'host':'${Config.configFromJSON.host}'
+                |    }
+                |
+                |""".stripMargin
+            ),
+            script(
               `type` := "text/javascript",
               src := "./www/assets/js/bootstrap/jquery-slim.min.js"
             ),
+
             script(
               `type` := "text/javascript",
               src := "./www/assets/js/bootstrap/bootstrap.min.js"
             ),
+
             script(
               `type` := "text/javascript",
               src := "./modules/client/target/scala-2.12/client-fastopt.js"
             ),
+
             script(
               `type` := "text/javascript",
               src := "./node/generated.js/bundle.js"
             ),
+
 //            script("sourceMapSupport.install()"), //todo-later
             script( "Main().main()" ) // this starts the client
           )

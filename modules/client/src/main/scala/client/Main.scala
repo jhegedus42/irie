@@ -28,8 +28,16 @@ import io.circe.syntax._
 @JSExport("Main")
 object Main extends js.JSApp {
 
+  import js.Dynamic.{global => g, newInstance => jsnew}
+
   @JSExport
   def main(): Unit = {
+
+    val port: Int    = g.configObjFromServer.port.asInstanceOf[Int]
+    val host: String = g.configObjFromServer.host.asInstanceOf[String]
+
+    println(s"config obj. from Server, port: $port")
+    println(s"config obj. from Server, host: $host")
 
     Router.disableBackButton()
 
