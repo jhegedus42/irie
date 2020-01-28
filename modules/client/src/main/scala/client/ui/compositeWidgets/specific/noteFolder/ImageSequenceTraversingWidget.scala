@@ -2,7 +2,18 @@ package client.ui.compositeWidgets.specific.noteFolder
 
 import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.sodium.core.{Cell, StreamSink, Stream}
+import client.cache.relationalOperations.onDataModel.{
+  FolderOperations,
+  NoteOperations
+}
+import client.sodium.core.{
+  Cell,
+  CellLoop,
+  Stream,
+  StreamSink,
+  Transaction
+}
+import client.ui.atomicWidgets.input.SButtonSendClick
 import client.ui.compositeWidgets.general.EntitySelectorWidget
 import client.ui.compositeWidgets.specific.image.svg.CompositeSVGDisplayer
 import client.ui.compositeWidgets.specific.noteFolder.ImageSequenceTraversingWidget.State
@@ -32,19 +43,48 @@ case class ImageSequenceTraversingWidget() {
           _.versionedEntityValue.valueWithoutVersion.notes.headOption
         )
       )
+
     val res2: Cell[Option[Ref[Note]]] = res1.map(_.flatten)
+
     res2.updates()
   }
 
-  lazy val selectedNoteRefCell: Cell[Option[Ref[Note]]] =
-    selectedNoteRefSetter.hold(None)
+  lazy val clickGoToNextNote = new StreamSink[Unit]()
 
-  // we need to set this to a cell-loop => ...
+  lazy val selectedNoteRefCellLoop =
+    Transaction.apply[CellLoop[Option[Ref[Note]]]] { _ =>
+      lazy val selectedNoteRefCellLoop: CellLoop[Option[Ref[Note]]] =
+        new CellLoop[Option[Ref[Note]]]()
+
+      lazy val nextNoteRefCellOption: CellOption[Ref[Note]] = {
+
+        val folder =
+          CellOption.fromCellOption(
+            noteFolderSelectorWidget.selectedEntityResolved.map(
+              _.map(_.versionedEntityValue.valueWithoutVersion)
+            )
+          )
+
+        FolderOperations.getRefToNextNote(
+          folder,
+          CellOption.fromCellOption(selectedNoteRefCellLoop)
+        )
+      }
+
+      lazy val getNextNoteStream: Stream[Option[Ref[Note]]] =
+        clickGoToNextNote.snapshot(nextNoteRefCellOption.co)
+
+      selectedNoteRefCellLoop.loop(
+        selectedNoteRefSetter.orElse(getNextNoteStream).hold(None)
+      )
+
+      selectedNoteRefCellLoop
+    }
 
   lazy val visualLinkDisplayer = {
 
     val resolvedNote: Cell[Option[TypedReferencedValue[Note]]] =
-      Cache.resolveRef(selectedNoteRefCell)
+      Cache.resolveRef(selectedNoteRefCellLoop)
 
     lazy val selectedNoteTypedRefValCellOption =
       CellOption[TypedReferencedValue[Note]](resolvedNote)
@@ -57,7 +97,6 @@ case class ImageSequenceTraversingWidget() {
   lazy val stateCell: CellOption[State] =
     new CellOption(new Cell[Option[State]](None))
 
-
   lazy val nextNote = visualLinkDisplayer.nextNote
 
   lazy val vdom = {
@@ -66,10 +105,9 @@ case class ImageSequenceTraversingWidget() {
       <.br,
       noteFolderSelectorWidget.selectorTable.comp(),
       <.br,
-      visualLinkDisplayer.visualLinkAsVDOM
-
-      // todo-now - add button here to go to next note...
-
+      visualLinkDisplayer.visualLinkAsVDOM,
+      <.br,
+      SButtonSendClick("Go to Next Note", clickGoToNextNote).comp()
     )
   }
 

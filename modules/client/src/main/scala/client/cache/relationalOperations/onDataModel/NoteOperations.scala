@@ -4,6 +4,7 @@ import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.cache.relationalOperations.RelationalOperations
 import client.sodium.core.Cell
+import client.sodium.core.Stream
 import shared.dataStorage.model.{Folder, Note}
 import shared.dataStorage.relationalWrappers.{
   Ref,
@@ -32,6 +33,7 @@ object NoteOperations {
 
     res
   }
+
 
   def selectedNotesNoteFolder(
     selectedNote: Cell[Option[TypedReferencedValue[Note]]]

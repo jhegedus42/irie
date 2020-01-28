@@ -1,14 +1,26 @@
 package client.cache
 
-import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
+import client.cache.commands.{
+  UpdateEntitiesInCacheCommand,
+  UpdateEntityInCacheCmd
+}
 import client.cache.relationalOperations.CellOptionMonad.CellOption
 import client.sodium.core.{CellLoop, Stream, StreamSink, Transaction}
 import client.ui.helpers.login.UserLoginStatusHandler
 import shapeless.Typeable
 import io.circe._
 import shared.crudRESTCallCommands.persActorCommands.crudCMDs.InsertEntityPersActCmd
-import shared.dataStorage.model.{Folder, HintForNote, Note, User, Value}
-import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
+import shared.dataStorage.model.{
+  Folder,
+  HintForNote,
+  Note,
+  User,
+  Value
+}
+import shared.dataStorage.relationalWrappers.{
+  Ref,
+  TypedReferencedValue
+}
 import shared.dataStorage.stateHolder.UserMap
 
 import scala.util.Try
@@ -163,6 +175,7 @@ object Cache {
     })
     res
   }
+
 
   def resolveRefCO[V <: Value[V]](
     ref: CellOption[Ref[V]]
