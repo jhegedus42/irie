@@ -1,14 +1,9 @@
 package client.cache
 
-import client.cache.commands.{
-  UpdateEntitiesInCacheCommand,
-  UpdateEntityInCacheCmd
-}
+import client.Main
+import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRESTCallCommands.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -16,11 +11,7 @@ import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
 import shapeless.Typeable
 import shared.crudRESTCallCommands.persActorCommands.Response
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{
-  GetAllEntityiesForUserPersActCmd,
-  UpdateEntitiesPersActorCmd,
-  UpdateEntityPersActCmd
-}
+import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{GetAllEntityiesForUserPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
 import shared.dataStorage.model.Value
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
@@ -31,7 +22,7 @@ import scala.util.Try
 
 object AJAXCalls {
 
-  val ip = "localhost"
+  val ip = Main.host
 //  val ip = "ec2-3-124-8-254.eu-central-1.compute.amazonaws.com"
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -52,9 +43,11 @@ object AJAXCalls {
     import io.circe.generic.auto._
     import io.circe.syntax._
 
+    val port=Main.port
+
     Ajax
       .post(
-        s"http://$ip:8080/${implicitly[CanProvideRouteName[Command]].getRouteName}",
+        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
         in.asJson.spaces4,
         headers = headers
       )
