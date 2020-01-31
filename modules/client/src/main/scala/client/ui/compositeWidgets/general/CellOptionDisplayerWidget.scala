@@ -14,7 +14,7 @@ case class CellOptionDisplayerWidget[V](
   entityOptCell: Cell[Option[V]],
   renderer:      V => VdomElement) {
 
-  lazy val optRenderer: Option[V] => html_<^.VdomElement = {
+  val optRenderer: Option[V] => html_<^.VdomElement = {
     x: Option[V] =>
       {
         x match {
@@ -24,12 +24,12 @@ case class CellOptionDisplayerWidget[V](
       }
   }
 
-  lazy val streamTemplate =
+  val streamTemplate =
     StreamTemplate[Option[V]](entityOptCell.updates(),
                               "EntityDisplayerWidget",
                               () => entityOptCell.sample(),
                               optRenderer)
 
-  lazy val optDisplayer = streamTemplate.comp
+  val optDisplayer = streamTemplate.comp
 
 }

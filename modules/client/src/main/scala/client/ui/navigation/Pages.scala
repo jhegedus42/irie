@@ -62,31 +62,30 @@ case class Page(
 object Pages {
 
   implicit lazy val noteCache: Cache[Note] = Cache.noteCache
-  lazy val nw = NotesWidget()
 
-  lazy val selectedNote: CellOption[TypedReferencedValue[Note]] =
+  val selector: EntitySelectorWidget[Note] =
+    EntitySelectorWidget[Note]({ x: Note =>
+    {
+      val imgFileName =
+        x.visualHint.hint.fileName.fileNameWithPathAsString
+      <.div(x.title,
+        <.br,
+        <.img(^.src := s"$imgFileName",
+          ^.width := "200px",
+          ^.alt := "image"),
+        <.br,
+        <.hr)
+
+    }
+    })
+
+  val selectedNote: CellOption[TypedReferencedValue[Note]] =
     selector.selectedEntityResolved |> CellOption.fromCellOption
 
   lazy val imageSequenceTraversingWidget =
     ImageSequenceTraversingWidget()
 
-  lazy val selector: EntitySelectorWidget[Note] =
-    EntitySelectorWidget[Note]({ x: Note =>
-      {
-        val imgFileName =
-          x.visualHint.hint.fileName.fileNameWithPathAsString
-        <.div(x.title,
-              <.br,
-              <.img(^.src := s"$imgFileName",
-                    ^.width := "200px",
-                    ^.alt := "image"),
-              <.br,
-              <.hr)
-
-      }
-    })
-
-  lazy val pages = List(imgSeq,
+  val pages = List(imgSeq,
                         noteSelector,
                         noteCreator,
                         noteTextEditor,
@@ -111,7 +110,7 @@ object Pages {
   )
 
   lazy val noteCreator = {
-    lazy val noteCreator = EntityCreatorWidget({ () =>
+    val noteCreator = EntityCreatorWidget({ () =>
       CanProvideDefaultValue.defValOf[Note]
     }, "Note")
     Page("Note Creator", {
@@ -123,7 +122,7 @@ object Pages {
 
   lazy val noteTextEditor = {
 
-    lazy val noteTitleEditor = TextFieldUpdaterWidget[Note](
+    val noteTitleEditor = TextFieldUpdaterWidget[Note](
       "title",
       selector.selectedEntityResolved,
       noteCache, { n: Note =>
@@ -144,7 +143,7 @@ object Pages {
 
   lazy val visualLinkEditorForSelectedNote = {
 
-    lazy val imgQueEditor = {
+    val imgQueEditor = {
       import monocle.macros.syntax.lens._
       VisualHintEditor(
         selectedNote
@@ -154,7 +153,7 @@ object Pages {
 //    lazy val selectedVisualHint: CellOption[HintForNote] =
 //      selectedNote.map(_.versionedEntityValue.valueWithoutVersion.visualHint)
 
-    lazy val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
+    val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
 
     Page(
       "Visual Link Editor", {
@@ -169,8 +168,8 @@ object Pages {
   }
 
   lazy val imageUploader = {
-    lazy val imageUploaderWidget = ImageUploaderWidget(selectedNote)
-    lazy val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
+    val imageUploaderWidget = ImageUploaderWidget(selectedNote)
+    val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
     Page(
       "Image Uploader", {
         <.div(
@@ -187,7 +186,7 @@ object Pages {
       selector.selectedEntityResolved
     )
 
-    lazy val noteFolderUpdaterComp
+    val noteFolderUpdaterComp
       : Component[Unit, Unit, Unit, CtorType.Nullary] =
       noteFolderUpdater.getComp
 
@@ -209,11 +208,11 @@ object Pages {
 
   lazy val backupDataOnServer = Page(
     "Server Admin", {
-      lazy val saveDataOnServerButton = SaveDataOnServerButton()
+      val saveDataOnServerButton = SaveDataOnServerButton()
       <.div(
         <.main(C.container, ^.role := "container")(
           <.div(C.jumbotron)(
-            saveDataOnServerButton.btn.comp()
+            saveDataOnServerButton.vdom
           )
         )
       )

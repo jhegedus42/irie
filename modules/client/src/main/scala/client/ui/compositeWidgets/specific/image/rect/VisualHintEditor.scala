@@ -24,10 +24,10 @@ import org.scalajs.dom.html.Div
 case class VisualHintEditor(
   selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  lazy val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
+  val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
     .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
-  lazy val rectHintToThisEditor = {
+  val rectHintToThisEditor = {
     def get(n: Note) = n.lens(_.visualHint.rectForHead.rect).get
 
     def set(
@@ -36,11 +36,11 @@ case class VisualHintEditor(
     ) =
       n.lens(_.visualHint.rectForHead.rect).set(r)
 
-    lazy val comp = HintCropEditorWidget(selectedNote, get, set)
+    val comp = HintCropEditorWidget(selectedNote, get, set)
     comp
   }
 
-  lazy val placeOfHintToNextEditor = {
+  val placeOfHintToNextEditor = {
     def get(n: Note) =
       n.lens(_.visualHint.rectForTail.rect).get
 
@@ -54,7 +54,7 @@ case class VisualHintEditor(
     comp
   }
 
-  lazy val nextNoteTitleDisplayer = {
+  val nextNoteTitleDisplayer = {
     import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 
     lazy val nextNote: CellOption[TypedReferencedValue[Note]] =

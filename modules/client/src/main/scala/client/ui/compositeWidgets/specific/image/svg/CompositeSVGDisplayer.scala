@@ -12,24 +12,24 @@ case class CompositeSVGDisplayer(
 
   import japgolly.scalajs.react.vdom.html_<^.{<, _}
 
-  lazy val hintForNote: CellOption[HintForNote] =
+  val hintForNote: CellOption[HintForNote] =
     selectedNote.map(
       _.versionedEntityValue.valueWithoutVersion.visualHint
     )
 
-  lazy val nextNote: CellOption[TypedReferencedValue[Note]] =
+  val nextNote: CellOption[TypedReferencedValue[Note]] =
     NoteOperations.getNextNote(selectedNote)
 
-  lazy val hintForNextNote: CellOption[HintForNote] =
+  val hintForNextNote: CellOption[HintForNote] =
     nextNote.map(
       _.versionedEntityValue.valueWithoutVersion.visualHint
     )
 
-  lazy val visualLinkDataCellOption: CellOption[VisualLinkData] = {
+  val visualLinkDataCellOption: CellOption[VisualLinkData] = {
     hintForNote.lift2(hintForNextNote)(VisualLinkData(_, _))
   }
 
-  lazy val visualLinkAsVDOM = {
+  val visualLinkAsVDOM = {
     <.div(
       CellOptionDisplayerWidget(
         visualLinkDataCellOption.co, { (vld: VisualLinkData) =>

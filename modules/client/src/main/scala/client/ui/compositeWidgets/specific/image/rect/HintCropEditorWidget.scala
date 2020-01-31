@@ -31,14 +31,14 @@ case class HintCropEditorWidget(
   set:              (Note, Rect) => Note) {
 
 
-  lazy val updaterButton = {
+  val updaterButton = {
 
-    lazy val updateNewNoteCellOnChangeOfSelectedNote
+    val updateNewNoteCellOnChangeOfSelectedNote
     : Stream[Option[Note]] =
       selectedNoteCell
         .map(_.versionedEntityValue.valueWithoutVersion).co.updates()
 
-    lazy val newNoteOptCell =
+    val newNoteOptCell =
       Transaction.apply[CellLoop[Option[Note]]](_ => {
 
         lazy val cellLoop: CellLoop[Option[Note]] =
@@ -78,7 +78,7 @@ case class HintCropEditorWidget(
         }
       })
 
-    lazy val comp = EntityUpdaterButton(selectedNoteCell,
+    val comp = EntityUpdaterButton(selectedNoteCell,
                                         Cache.noteCache,
                                         updater,
                                         "Update Rect")
@@ -86,7 +86,7 @@ case class HintCropEditorWidget(
   }
 
   lazy val imgCropWidget = {
-    lazy val reactCropWidgetStateUpdater
+    val reactCropWidgetStateUpdater
       : Stream[Option[ReactCropWidgetState]] = {
       def f(note: Note): ReactCropWidgetState = {
         val r = get(note)
@@ -105,7 +105,7 @@ case class HintCropEditorWidget(
 
   import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 
-  lazy val vdom: TagOf[Div] = {
+  val vdom: TagOf[Div] = {
     import japgolly.scalajs.react.vdom.html_<^.{<, _}
     <.div(
       <.br,

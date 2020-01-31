@@ -30,7 +30,7 @@ import scalajs.js._
 case class ImageUploaderWidget(
   selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  lazy val comp =
+  val comp =
     CellOptionDisplayerWidget(selectedNote.co, render(_))
 
   def render(noteTRV: TypedReferencedValue[Note]): VdomElement = {
