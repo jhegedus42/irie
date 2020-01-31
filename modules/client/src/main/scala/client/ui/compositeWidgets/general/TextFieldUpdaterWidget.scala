@@ -28,13 +28,13 @@ case class TextFieldUpdaterWidget[V <: Value[V]](
   extractor: V => String,
   updater:   (V, String) => V) {
 
-  lazy val field: core.Stream[String] =
+  val field: core.Stream[String] =
     cell
       .map(_.map(_.versionedEntityValue.valueWithoutVersion)).map(
         _.map(extractor).getOrElse("")
       ).updates()
 
-  lazy val fieldEditor: STextArea = STextArea("", field)
+  val fieldEditor: STextArea = STextArea("", field)
 
   def updateCMD(
     trvOpt: Option[TypedReferencedValue[V]]
@@ -48,7 +48,7 @@ case class TextFieldUpdaterWidget[V <: Value[V]](
     } yield (updateCMD)
   }
 
-  lazy val updateButton = SButton(
+  val updateButton = SButton(
     "update",
     Some({ () =>
       {

@@ -8,10 +8,6 @@ import client.ui.compositeWidgets.specific.image.svg.{
   CompositeSVGDisplayer,
   VisualLinkAsSVGHelpers
 }
-import client.ui.compositeWidgets.specific.image.{
-  ImageDisplayerWidget,
-  ImageUploaderWidget
-}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import monocle.macros.syntax.lens._

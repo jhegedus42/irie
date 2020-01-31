@@ -20,6 +20,7 @@ import client.ui.compositeWidgets.specific.{
   UserAdminWidget
 }
 import client.ui.compositeWidgets.specific.image.{
+  ImageDisplayerWidget,
   ImageUploaderWidget,
   ImagesForANote
 }
@@ -61,22 +62,22 @@ case class Page(
 
 object Pages {
 
-  implicit lazy val noteCache: Cache[Note] = Cache.noteCache
+  implicit val noteCache: Cache[Note] = Cache.noteCache
 
   val selector: EntitySelectorWidget[Note] =
     EntitySelectorWidget[Note]({ x: Note =>
-    {
-      val imgFileName =
-        x.visualHint.hint.fileName.fileNameWithPathAsString
-      <.div(x.title,
-        <.br,
-        <.img(^.src := s"$imgFileName",
-          ^.width := "200px",
-          ^.alt := "image"),
-        <.br,
-        <.hr)
+      {
+        val imgFileName =
+          x.visualHint.hint.fileName.fileNameWithPathAsString
+        <.div(x.title,
+              <.br,
+              <.img(^.src := s"$imgFileName",
+                    ^.width := "200px",
+                    ^.alt := "image"),
+              <.br,
+              <.hr)
 
-    }
+      }
     })
 
   val selectedNote: CellOption[TypedReferencedValue[Note]] =
@@ -86,14 +87,14 @@ object Pages {
     ImageSequenceTraversingWidget()
 
   val pages = List(imgSeq,
-                        noteSelector,
-                        noteCreator,
-                        noteTextEditor,
-                        imageUploader,
-                        visualLinkEditorForSelectedNote,
-                        noteFolderEditor,
-                        backupDataOnServer,
-                        userAdminPage)
+                   noteSelector,
+                   noteCreator,
+                   noteTextEditor,
+                   imageUploader,
+                   visualLinkEditorForSelectedNote,
+                   noteFolderEditor,
+                   backupDataOnServer,
+                   userAdminPage)
 
   lazy val imgSeq = Page(
     "Note Seq", {
@@ -168,12 +169,16 @@ object Pages {
   }
 
   lazy val imageUploader = {
+
     val imageUploaderWidget = ImageUploaderWidget(selectedNote)
-    val visualLinkDisplayer = CompositeSVGDisplayer(selectedNote).visualLinkAsVDOM
+    val imageDisplayerWidget = ImageDisplayerWidget(
+      selectedNote.map(_.versionedEntityValue.valueWithoutVersion)
+    )
+
     Page(
       "Image Uploader", {
         <.div(
-          visualLinkDisplayer,
+          imageDisplayerWidget.imageDisplayer(),
           imageUploaderWidget.comp.optDisplayer()
         )
       }
@@ -204,7 +209,6 @@ object Pages {
            page.getComp()
          ))
   }
-
 
   lazy val backupDataOnServer = Page(
     "Server Admin", {
