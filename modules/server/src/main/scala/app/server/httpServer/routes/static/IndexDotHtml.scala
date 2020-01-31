@@ -44,7 +44,7 @@ private[routes] object IndexDotHtml {
               s"""
                 |window.configObjFromServer={
                 |     'port':${Config.configFromJSON.port},
-                |     'host':'${Config.configFromJSON.host}'
+                |     'host':'${Config.configFromJSON.ipForClient}'
                 |    }
                 |
                 |""".stripMargin

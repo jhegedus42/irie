@@ -24,19 +24,10 @@ import shared.dataStorage.relationalWrappers.TypedReferencedValue
 case class ImagesForANote(
   val selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  val selectedVisualHint: CellOption[HintForNote] =
-    selectedNote.map(_.versionedEntityValue.valueWithoutVersion.visualHint)
 
 
-  lazy val imgQueEditor = {
-    import monocle.macros.syntax.lens._
-    VisualHintEditor(
-      selectedNote
-    )
-  }
 
 
-  lazy val imageUploaderWidget = ImageUploaderWidget(selectedNote)
 
   def getComp = {
 
@@ -46,8 +37,6 @@ case class ImagesForANote(
         <.h2("Images"),
         <.br,
         <.br,
-        imgQueEditor.getComp(),
-        imageUploaderWidget.comp.optDisplayer(),
         <.hr
       )
     }

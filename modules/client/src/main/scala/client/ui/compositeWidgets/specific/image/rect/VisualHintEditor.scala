@@ -24,10 +24,10 @@ import org.scalajs.dom.html.Div
 case class VisualHintEditor(
   selectedNote: CellOption[TypedReferencedValue[Note]]) {
 
-  val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
+  lazy val optNoteStream: core.Stream[Option[Note]] = selectedNote.co
     .updates().map(_.map(_.versionedEntityValue.valueWithoutVersion))
 
-  val rectHintToThisEditor = {
+  lazy val rectHintToThisEditor = {
     def get(n: Note) = n.lens(_.visualHint.rectForHead.rect).get
 
     def set(
@@ -40,7 +40,7 @@ case class VisualHintEditor(
     comp
   }
 
-  val placeOfHintToNextEditor = {
+  lazy val placeOfHintToNextEditor = {
     def get(n: Note) =
       n.lens(_.visualHint.rectForTail.rect).get
 

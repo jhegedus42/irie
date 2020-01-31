@@ -9,10 +9,11 @@ import shared.crudRESTCallCommands.persActorCommands.PersActorCommand
 import shared.crudRESTCallCommands.persActorCommands.crudCMDs.InsertEntityPersActCmd
 
 @JsonCodec
-case class GeneralPersActorCmd(commandAsString:String)
+case class GeneralPersActorCmd(commandAsString:String,pwd:String)
   extends PersActorCommand
 
 object GeneralPersActorCmd {
+
 
   object CommandStrings{
     val saveData="save"

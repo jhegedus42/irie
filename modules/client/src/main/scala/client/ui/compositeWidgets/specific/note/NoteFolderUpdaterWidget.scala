@@ -8,12 +8,18 @@ import client.cache.relationalOperations.onDataModel.NoteOperations
 import client.sodium.core.Cell
 import client.ui.atomicWidgets.input.SButton
 import client.ui.atomicWidgets.show.text.CellPreformattedText
-import client.ui.compositeWidgets.general.{CellOptionDisplayerWidget, EntitySelectorWidget}
+import client.ui.compositeWidgets.general.{
+  CellOptionDisplayerWidget,
+  EntitySelectorWidget
+}
 import japgolly.scalajs.react.ScalaComponent
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
 import shared.dataStorage.model.{Folder, Note}
-import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
+import shared.dataStorage.relationalWrappers.{
+  Ref,
+  TypedReferencedValue
+}
 
 import scala.collection.immutable
 import scala.concurrent.ExecutionContextExecutor
@@ -29,7 +35,7 @@ case class NoteFolderUpdaterWidget(
 
   val noteFolderSelectorWidget = EntitySelectorWidget[Folder]({
     x: Folder =>
-      x.name
+      <.div(x.name)
   })
 
   val selectedNoteDisplayer =

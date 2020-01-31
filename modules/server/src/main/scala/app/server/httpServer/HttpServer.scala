@@ -23,7 +23,7 @@ case class HttpServer(actorSystem: ActorSystem) {
 
     val bindingFuture: Future[Http.ServerBinding] =
       Http().bindAndHandle(routes.route,
-                           Config.configFromJSON.host,
+                           Config.configFromJSON.ipForServer,
                            Config.configFromJSON.port)
 
     println(s"listening on $host:${Config.configFromJSON.port}")

@@ -41,6 +41,13 @@ case class RouteAssembler(
 
   lazy val uploadFileRoute = UploadFileRouteImpl()
 
+
+  //
+  // todo-now
+  //  write route to provide hash on user if the password and login matches
+  //
+  //
+
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
       PersCommandRouteFactory[UpdateEntitiesPersActorCmd](actor).getRoute ~

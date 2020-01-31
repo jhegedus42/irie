@@ -10,8 +10,9 @@ case class Config(
 
 @JsonCodec
 case class ConfigFromJSON(
-  port: Int,
-  host:     String)
+                           port: Int,
+                           ipForClient:     String,
+                           ipForServer:String)
 
 object Config {
 

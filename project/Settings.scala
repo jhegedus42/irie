@@ -72,10 +72,9 @@ object Settings {
       "com.lihaoyi" %%% "scalatags"                    % "0.6.7",
       "com.github.julien-truffaut" %%% "monocle-core"  % versions.monocleVersion,
       "com.github.julien-truffaut" %%% "monocle-macro" % versions.monocleVersion,
-      "org.typelevel" %%% "cats-core" % "2.0.0",
-      "org.typelevel" %%% "simulacrum" % "1.0.0",
-
-  "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
+      "org.typelevel" %%% "cats-core"                  % "2.0.0",
+      "org.typelevel" %%% "simulacrum"                 % "1.0.0",
+      "org.scalatest" %%% "scalatest"                  % versions.scalaTestVersion % "test"
     ) ++
       Seq(
         "io.circe" %%% "circe-core",
@@ -87,6 +86,7 @@ object Settings {
   /** Dependencies only used by the JVM project */
   val jvmDependencies = Def.setting(
     Seq(
+      "com.outr"  %% "hasher"                          % "1.2.2",
       "org.slf4j"         % "slf4j-simple"         % "1.7.25",
       "com.typesafe.akka" %% "akka-slf4j"          % versions.akka,
       "com.typesafe.akka" %% "akka-actor"          % versions.akka,
@@ -114,7 +114,7 @@ object Settings {
       "com.github.japgolly.scalacss" %%% "core"       % versions.scalaCSS,
       "org.scala-js" %%% "scalajs-dom"                % versions.scalaDom,
       "io.github.nafg.css-dsl" %%% "bootstrap4"       % "0.4.0",
-      "com.payalabs" %%% "scalajs-react-bridge" % "0.8.1",
+      "com.payalabs" %%% "scalajs-react-bridge"       % "0.8.1",
       "org.scalatest" %%% "scalatest"                 % versions.scalaTestVersion % "test"
     )
   )

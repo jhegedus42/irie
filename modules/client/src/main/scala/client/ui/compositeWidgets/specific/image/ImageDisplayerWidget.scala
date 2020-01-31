@@ -43,3 +43,7 @@ case class ImageDisplayerWidget(img: Cell[Option[HintForNote]]) {
   }
 
 }
+
+object ImageDisplayerWidget {
+
+}

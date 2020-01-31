@@ -32,6 +32,8 @@ object Main extends js.JSApp {
   val port: Int    = g.configObjFromServer.port.asInstanceOf[Int]
   val host: String = g.configObjFromServer.host.asInstanceOf[String]
 
+
+
   @JSExport
   def main(): Unit = {
 
@@ -49,4 +51,7 @@ object Main extends js.JSApp {
     AJAXCalls.populateEntityCache(Cache.folderCache)
 
   }
+
+
+
 }

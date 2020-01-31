@@ -94,6 +94,9 @@ object EntityStorage {
     unTypedReferencedValue: UnTypedReferencedValue,
     newValue:               UntypedValue
   ): Option[EntityStorage] = {
+
+    // todo-now - check owner hash
+
     for {
       es <- storageOpt
       ns <- es.update(unTypedReferencedValue, newValue)

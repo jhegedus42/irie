@@ -7,10 +7,15 @@ import io.circe.parser.parse
 import shared.crudRESTCallCommands.JSONConvertable
 import shared.crudRESTCallCommands.persActorCommands.crudCMDs.GetAllEntityiesForUserPersActCmd
 
+//import cats.instances.either._
+
+@JsonCodec
+case class SuccessOrFailure(result:Option[String])
+
 @JsonCodec
 case class Response[CMD](
   cmd:   CMD,
-  error: Option[String])
+  error: SuccessOrFailure)
 
 object Response {
 

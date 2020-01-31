@@ -11,7 +11,7 @@ import shared.dataStorage.relationalWrappers.Ref
   *
   * @tparam T
   */
-sealed trait Value[+T <: Value[T]]
+trait Value[+T <: Value[T]]
 
 //@JsonCodec
 //object Value {
@@ -25,29 +25,9 @@ import CanProvideDefaultValue.defValOf
 @JsonCodec
 case class TypeName(s: String)
 
-@JsonCodec
-case class Note(
-  title:      String,
-  content:    String,
-  visualHint: HintForNote)
-    extends Value[Note]
 
-object Note {
 
-  import HintForNote.defVal
 
-  implicit val canProvideDefaultValue =
-    new CanProvideDefaultValue[Note] {
-
-      override def getDefaultValue: Note = {
-        Note(
-          "default note title",
-          "default note content",
-          defValOf[HintForNote](defVal)
-        )
-      }
-    }
-}
 
 @JsonCodec
 case class HintForNote(
@@ -80,12 +60,15 @@ object HintForNote {
     }
 }
 
+
+
 @JsonCodec
 case class User(
   name:           String,
   favoriteNumber: Int,
-  password:       String = "titok")
+  password: String = "defaultPWD")
     extends Value[User]
+
 
 @JsonCodec
 case class Folder(

@@ -2,17 +2,8 @@ package client.ui.compositeWidgets.specific.noteFolder
 
 import client.cache.Cache
 import client.cache.relationalOperations.CellOptionMonad.CellOption
-import client.cache.relationalOperations.onDataModel.{
-  FolderOperations,
-  NoteOperations
-}
-import client.sodium.core.{
-  Cell,
-  CellLoop,
-  Stream,
-  StreamSink,
-  Transaction
-}
+import client.cache.relationalOperations.onDataModel.{FolderOperations, NoteOperations}
+import client.sodium.core.{Cell, CellLoop, Stream, StreamSink, Transaction}
 import client.ui.atomicWidgets.input.SButtonSendClick
 import client.ui.compositeWidgets.general.EntitySelectorWidget
 import client.ui.compositeWidgets.specific.image.svg.CompositeSVGDisplayer
@@ -20,10 +11,7 @@ import client.ui.compositeWidgets.specific.noteFolder.ImageSequenceTraversingWid
 import japgolly.scalajs.react.{BackendScope, Callback, ScalaComponent}
 import japgolly.scalajs.react.vdom.VdomElement
 import shared.dataStorage.model.{Folder, Note}
-import shared.dataStorage.relationalWrappers.{
-  Ref,
-  TypedReferencedValue
-}
+import shared.dataStorage.relationalWrappers.{Ref, TypedReferencedValue}
 import japgolly.scalajs.react.{CtorType, ScalaComponent}
 import japgolly.scalajs.react.component.Scala.{Component, Unmounted}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement, _}
@@ -32,7 +20,7 @@ case class ImageSequenceTraversingWidget() {
 
   lazy val noteFolderSelectorWidget = EntitySelectorWidget[Folder]({
     x: Folder =>
-      x.name
+      <.div(x.name)
   })
 
   lazy val selectedNoteRefSetter: Stream[Option[Ref[Note]]] = {
@@ -101,13 +89,13 @@ case class ImageSequenceTraversingWidget() {
 
   lazy val vdom = {
     <.div(
-      <.h3("ImageSequenceTraversingWidget"),
-      <.br,
-      SButtonSendClick("Go to Next Note", clickGoToNextNote).comp(),
+      <.h3("Image Seq."),
       <.br,
       noteFolderSelectorWidget.selectorTable.comp(),
       <.br,
       visualLinkDisplayer.visualLinkAsVDOM,
+      <.br,
+        SButtonSendClick("Go to Next Note", clickGoToNextNote).comp(),
       <.br
     )
   }

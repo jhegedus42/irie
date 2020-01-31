@@ -20,9 +20,12 @@ import shared.dataStorage.stateHolder.UserMap
 import scala.concurrent.ExecutionContextExecutor
 import scala.util.Try
 
+// router + header
+
 object AJAXCalls {
 
   val ip = Main.host
+  val port = Main.port
 //  val ip = "ec2-3-124-8-254.eu-central-1.compute.amazonaws.com"
 
   implicit def executionContext: ExecutionContextExecutor =
@@ -79,7 +82,7 @@ object AJAXCalls {
 
     Ajax
       .post(
-        s"http://$ip:8080/${implicitly[CanProvideRouteName[Command]].getRouteName}",
+        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
         in.asJson.spaces4,
         headers = headers
       )
@@ -167,11 +170,11 @@ object AJAXCalls {
                                    handleReturn)
   }
 
-  def saveDataOnServer(): Unit = {
+  def saveDataOnServer(pwd:String): Unit = {
     sendCommandToServerViaAJAXCallAndParseResponse[
       GeneralPersActorCmd
     ](
-      GeneralPersActorCmd(GeneralPersActorCmd.CommandStrings.saveData),{
+      GeneralPersActorCmd(GeneralPersActorCmd.CommandStrings.saveData,pwd),{
         resp: Try[Response[GeneralPersActorCmd]] =>
           println(resp)
       }

@@ -2,10 +2,11 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
+import app.server.httpServer.authentication.{AdminPWD, HashUtils}
 import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
 import shared.crudRESTCallCommands.{RequestReturnedWithError, RequestState, RequestSuccessfullyProcessedInPersistentActor}
-import shared.crudRESTCallCommands.persActorCommands.{Response, ShutDown}
+import shared.crudRESTCallCommands.persActorCommands.{Response, ShutDown, SuccessOrFailure}
 import shared.dataStorage.relationalWrappers.{RefToEntityOwningUser, UnTypedReferencedValue}
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
@@ -20,31 +21,46 @@ class PersistentActorImpl(id: String)
 
   override def receiveCommand: Receive = {
 
-    case GeneralPersActorCmd(cmd: String) => {
+    case GeneralPersActorCmd(cmd: String, pwd: String) => {
 
-      cmd match {
-        case GeneralPersActorCmd.CommandStrings.saveData => {
-          println("we need to save the data")
-          import scala.io.Source
+      if (HashUtils.getSHA1(pwd) == AdminPWD.getAdminPWDHash) {
+        cmd match {
+          case GeneralPersActorCmd.CommandStrings.saveData => {
+            println("we need to save the data")
+            import scala.io.Source
 
-          println("file's old content:")
-          Source.fromFile("data.json").foreach { x => print(x) }
-          import java.io.File
-          import java.io.PrintWriter
-          val writer = new PrintWriter(new File("data.json"))
+            println("file's old content:")
+            Source.fromFile("data.json").foreach { x =>
+              print(x)
+            }
+            import java.io.File
+            import java.io.PrintWriter
+            val writer = new PrintWriter(new File("data.json"))
 
-          writer.write(EntityStorage.getJSON(state.untypedMap))
-          writer.close()
+            writer.write(EntityStorage.getJSON(state.untypedMap))
+            writer.close()
 
-          println("\nfile's new content:")
-          Source.fromFile("data.json").foreach { x => print(x) }
-          println("----------------------")
+            println("\nfile's new content:")
+            Source.fromFile("data.json").foreach { x =>
+              print(x)
+            }
+            println("----------------------")
 
-          sender ! Response(GeneralPersActorCmd(cmd), None)
+            sender ! Response(GeneralPersActorCmd(cmd, ""),
+              SuccessOrFailure(None))
+          }
+          case _ => {
+            println("command cannot be interpreted")
+            sender ! Response(
+              GeneralPersActorCmd(cmd, ""),
+              SuccessOrFailure(Some("PWD OK, something else NOT OK"))
+            )
+          }
         }
-        case _ => {
-          println("command cannot be interpreted")
-        }
+      }
+        else {
+        sender ! Response(GeneralPersActorCmd(cmd, ""),
+          SuccessOrFailure(Some("PWD NOT OK!")))
       }
 
     }
@@ -149,9 +165,8 @@ class PersistentActorImpl(id: String)
   override def receiveRecover: Receive = {
     case RecoveryCompleted => {
 
-
-      val res: BufferedSource =Source.fromFile("data.json")
-      val res2 =res.mkString
+      val res: BufferedSource = Source.fromFile("data.json")
+      val res2 = res.mkString
 
       log.info(
         "Recovery completed \n\nState is:\n"
@@ -160,10 +175,10 @@ class PersistentActorImpl(id: String)
       println("Data read:")
       println(res2)
 
-      val loadedState=EntityStorage.getStateFromJSON(res2)
+      val loadedState = EntityStorage.getStateFromJSON(res2)
       println("Data Parsed:")
       println(loadedState)
-      state=EntityStorage(loadedState)
+      state = EntityStorage(loadedState)
       res.close()
 
     }

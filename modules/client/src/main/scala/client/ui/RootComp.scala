@@ -7,6 +7,7 @@ import client.ui.compositeWidgets.specific.image.ImagesForANote
 import client.ui.compositeWidgets.specific.image.svg.VisualLinkAsSVGHelpers
 import client.ui.compositeWidgets.specific.note.NotesWidget
 import client.ui.compositeWidgets.specific.noteFolder.ImageSequenceTraversingWidget
+import client.ui.navigation.{Pages, NavigatorComp}
 import client.ui.wrappedReact.{
   Crop,
   ImgCropWidget,
@@ -22,6 +23,8 @@ import shared.dataStorage.model.{
 
 object RootComp {
 
+  lazy val adminPWDSHA1Hash="939fbd7fce4a4b362f05043500a9386983b92928"
+
   import japgolly.scalajs.react.ScalaComponent
   import japgolly.scalajs.react.vdom.html_<^.{<, _}
   import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
@@ -29,27 +32,13 @@ object RootComp {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  lazy val saveDataOnServerButton = SaveDataOnServerButton()
 
-  lazy val imageSequenceTraversingWidget =
-    ImageSequenceTraversingWidget()
 
   def getComp = {
 
     def render: Unit => VdomElement = { _ =>
-      val nw = NotesWidget()
-      <.div(
-//        svgDemo,
-        <.main(C.container, ^.role := "container")(
-          <.div(C.jumbotron)(
-            imageSequenceTraversingWidget.vdom,
-            <.br,
-            nw.getComp(),
-            <.br,
-            saveDataOnServerButton.btn.comp()
-          )
-        )
-      )
+      NavigatorComp.vdom
+
     }
 
     val rootComp =
