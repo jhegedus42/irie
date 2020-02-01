@@ -2,12 +2,32 @@ package app.server.httpServer.routes.crud
 
 import akka.actor.ActorLogging
 import akka.persistence.{PersistentActor, RecoveryCompleted}
-import app.server.httpServer.authentication.{AdminPWD, HashUtils}
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{GetAllEntityiesForUserPersActCmd, InsertEntityPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
-import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
-import shared.crudRESTCallCommands.{RequestReturnedWithError, RequestState, RequestSuccessfullyProcessedInPersistentActor}
-import shared.crudRESTCallCommands.persActorCommands.{Response, ShutDown, SuccessOrFailure}
-import shared.dataStorage.relationalWrappers.{RefToEntityOwningUser, UnTypedReferencedValue}
+import app.server.httpServer.authentication.HashUtils
+import shared.communication.authentication.AdminPWD
+import shared.communication.persActorCommands.auth.QueryAuthWrapper
+import shared.communication.persActorCommands.crudCMDs.{
+  GetAllEntityiesForUserPersActCmd,
+  InsertEntityPersActCmd,
+  UpdateEntitiesPersActorCmd,
+  UpdateEntityPersActCmd
+}
+import shared.communication.persActorCommands.generalCmd.GeneralPersActorQuery
+import shared.communication.{
+  RequestReturnedWithError,
+  RequestState,
+  RequestSuccessfullyProcessedInPersistentActor
+}
+import shared.communication.persActorCommands.{
+  PersActorQuery,
+  Response,
+  ShutDown,
+  SuccessOrFailure
+}
+import shared.dataStorage.model.{PWDHashed, PWDNotHashed}
+import shared.dataStorage.relationalWrappers.{
+  RefToEntityOwningUser,
+  UnTypedReferencedValue
+}
 import shared.dataStorage.stateHolder.{EntityStorage, UserMap}
 import shared.testingData.TestDataStore
 
@@ -21,48 +41,52 @@ class PersistentActorImpl(id: String)
 
   override def receiveCommand: Receive = {
 
-    case GeneralPersActorCmd(cmd: String, pwd: String) => {
+    case QueryAuthWrapper(query: String, pwd: PWDNotHashed) => query match {
 
-      if (HashUtils.getSHA1(pwd) == AdminPWD.getAdminPWDHash) {
-        cmd match {
-          case GeneralPersActorCmd.CommandStrings.saveData => {
-            println("we need to save the data")
-            import scala.io.Source
-
-            println("file's old content:")
-            Source.fromFile("data.json").foreach { x =>
-              print(x)
-            }
-            import java.io.File
-            import java.io.PrintWriter
-            val writer = new PrintWriter(new File("data.json"))
-
-            writer.write(EntityStorage.getJSON(state.untypedMap))
-            writer.close()
-
-            println("\nfile's new content:")
-            Source.fromFile("data.json").foreach { x =>
-              print(x)
-            }
-            println("----------------------")
-
-            sender ! Response(GeneralPersActorCmd(cmd, ""),
-              SuccessOrFailure(None))
-          }
-          case _ => {
-            println("command cannot be interpreted")
-            sender ! Response(
-              GeneralPersActorCmd(cmd, ""),
-              SuccessOrFailure(Some("PWD OK, something else NOT OK"))
-            )
-          }
-        }
+      case "test" =>{
+        println("test launched on server")
       }
-        else {
-        sender ! Response(GeneralPersActorCmd(cmd, ""),
-          SuccessOrFailure(Some("PWD NOT OK!")))
-      }
+//      case GeneralPersActorQuery(cmd: String) => {
 
+        //        cmd match {
+        //          case GeneralPersActorQuery.CommandStrings.saveData => {
+        //            println("we need to save the data")
+        //            import scala.io.Source
+        //
+        //            println("file's old content:")
+        //            Source.fromFile("data.json").foreach { x =>
+        //              print(x)
+        //            }
+        //            import java.io.File
+        //            import java.io.PrintWriter
+        //            val writer = new PrintWriter(new File("data.json"))
+        //
+        //            writer.write(EntityStorage.getJSON(state.untypedMap))
+        //            writer.close()
+        //
+        //            println("\nfile's new content:")
+        //            Source.fromFile("data.json").foreach { x =>
+        //              print(x)
+        //            }
+        //            println("----------------------")
+        //
+        //            sender ! Response(GeneralPersActorQuery(cmd, ""),
+        //                              SuccessOrFailure(None))
+        //          }
+        //          case _ => {
+        //            println("command cannot be interpreted")
+        //            sender ! Response(
+        //              GeneralPersActorQuery(cmd, ""),
+        //              SuccessOrFailure(Some("PWD OK, something else NOT OK"))
+        //            )
+        //          }
+        //        }
+        //      } else {
+        //        sender ! Response(GeneralPersActorQuery(cmd, ""),
+        //                          SuccessOrFailure(Some("PWD NOT OK!")))
+        //      }
+
+//      }
     }
 
     case ShutDown =>
@@ -71,11 +95,16 @@ class PersistentActorImpl(id: String)
 
     case GetAllEntityiesForUserPersActCmd(
         userRef: RefToEntityOwningUser,
-        resp
+        resp,
+        pWDNotHashed: PWDNotHashed
         ) => {
       println(s"user uuid is : ${userRef.uuid}")
+
       val umap: UserMap = state.getUserMap(userRef)
-      sender ! GetAllEntityiesForUserPersActCmd(userRef, Some(umap))
+
+      sender ! GetAllEntityiesForUserPersActCmd(userRef,
+                                                Some(umap),
+                                                PWDNotHashed(""))
     }
 
     case UpdateEntitiesPersActorCmd(list, rs) => {

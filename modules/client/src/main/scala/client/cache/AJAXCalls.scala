@@ -1,19 +1,29 @@
 package client.cache
 
 import client.Main
-import client.cache.commands.{UpdateEntitiesInCacheCommand, UpdateEntityInCacheCmd}
+import client.cache.commands.{
+  UpdateEntitiesInCacheCommand,
+  UpdateEntityInCacheCmd
+}
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
+import shared.communication.{
+  CanProvideRouteName,
+  JSONConvertable
+}
 import io.circe.{Decoder, Encoder}
 import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
 import shapeless.Typeable
-import shared.crudRESTCallCommands.persActorCommands.Response
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{GetAllEntityiesForUserPersActCmd, UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
-import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
-import shared.dataStorage.model.Value
+import shared.communication.persActorCommands.Response
+import shared.communication.persActorCommands.crudCMDs.{
+  GetAllEntityiesForUserPersActCmd,
+  UpdateEntitiesPersActorCmd,
+  UpdateEntityPersActCmd
+}
+import shared.communication.persActorCommands.generalCmd.GeneralPersActorQuery
+import shared.dataStorage.model.{PWDNotHashed, Value}
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 
@@ -24,7 +34,7 @@ import scala.util.Try
 
 object AJAXCalls {
 
-  val ip = Main.host
+  val ip   = Main.host
   val port = Main.port
 //  val ip = "ec2-3-124-8-254.eu-central-1.compute.amazonaws.com"
 
@@ -46,7 +56,7 @@ object AJAXCalls {
     import io.circe.generic.auto._
     import io.circe.syntax._
 
-    val port=Main.port
+    val port = Main.port
 
     Ajax
       .post(
@@ -95,7 +105,10 @@ object AJAXCalls {
 
   }
 
-  def populateEntityCache[V <: Value[V]](c: Cache[V]): Unit = {
+  def populateEntityCache[V <: Value[V]](
+    c:               Cache[V],
+    pwdNotHashedPar: PWDNotHashed
+  ): Unit = {
 
     import io.circe.syntax._
 
@@ -130,7 +143,11 @@ object AJAXCalls {
     }
 
     sendCommandToServerViaAJAXCall(
-      GetAllEntityiesForUserPersActCmd(owner, None),
+      GetAllEntityiesForUserPersActCmd(
+        owner,
+        None,
+        pwdNotHashed = pwdNotHashedPar
+      ),
       ajaxReturnHandler
     )
 
@@ -170,12 +187,12 @@ object AJAXCalls {
                                    handleReturn)
   }
 
-  def saveDataOnServer(pwd:String): Unit = {
+  def saveDataOnServer(pwd: String): Unit = {
     sendCommandToServerViaAJAXCallAndParseResponse[
-      GeneralPersActorCmd
+      GeneralPersActorQuery
     ](
-      GeneralPersActorCmd(GeneralPersActorCmd.CommandStrings.saveData,pwd),{
-        resp: Try[Response[GeneralPersActorCmd]] =>
+      GeneralPersActorQuery(GeneralPersActorQuery.CommandStrings.saveData ), {
+        resp: Try[Response[GeneralPersActorQuery]] =>
           println(resp)
       }
     )

@@ -6,19 +6,19 @@ import akka.http.scaladsl.server.Route
 import akka.stream.{ActorMaterializer, Materializer}
 import app.server.httpServer.routes.crud.routes.{
   PersCommandRouteFactory,
-  PersCommandRouteWithResponseWrapperFactory
+  PersCommandRouteWithAuthFactory
 }
 import app.server.httpServer.routes.fileUploading.UploadFileRoute
 import app.server.httpServer.routes.static.IndexDotHtml
 import app.server.httpServer.routes.static.StaticRoutes._
 import io.circe.generic.auto._
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{
+import shared.communication.persActorCommands.crudCMDs.{
   GetAllEntityiesForUserPersActCmd,
   InsertEntityPersActCmd,
   UpdateEntitiesPersActorCmd,
   UpdateEntityPersActCmd
 }
-import shared.crudRESTCallCommands.persActorCommands.generalCmd.GeneralPersActorCmd
+import shared.communication.persActorCommands.generalCmd.GeneralPersActorQuery
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.language.postfixOps
@@ -41,7 +41,6 @@ case class RouteAssembler(
 
   lazy val uploadFileRoute = UploadFileRouteImpl()
 
-
   //
   // todo-now
   //  write route to provide hash on user if the password and login matches
@@ -50,7 +49,10 @@ case class RouteAssembler(
 
   private def allRoutes: Route =
     getStaticRoute(rootPageHtml) ~
-      PersCommandRouteFactory[UpdateEntitiesPersActorCmd](actor).getRoute ~
+//      PersCommandRouteFactory[UpdateEntitiesPersActorCmd](actor).getRoute ~
+      PersCommandRouteWithAuthFactory[
+        UpdateEntitiesPersActorCmd
+      ](actor).getRoute ~
       PersCommandRouteFactory[GetAllEntityiesForUserPersActCmd](actor).getRoute ~
       PersCommandRouteFactory[InsertEntityPersActCmd](
         actor
@@ -59,7 +61,7 @@ case class RouteAssembler(
         actor
       ).getRoute ~
       uploadFileRoute.route ~
-      PersCommandRouteWithResponseWrapperFactory[GeneralPersActorCmd](
+      PersCommandRouteWithAuthFactory[GeneralPersActorQuery](
         actor
       ).getRoute
 

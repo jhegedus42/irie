@@ -1,11 +1,11 @@
-package shared.crudRESTCallCommands.persActorCommands
+package shared.communication.persActorCommands
 
 import io.circe.Decoder.Result
 import io.circe.{Decoder, Encoder, Json, ParsingFailure}
 import io.circe.generic.JsonCodec
 import io.circe.parser.parse
-import shared.crudRESTCallCommands.JSONConvertable
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.GetAllEntityiesForUserPersActCmd
+import shared.communication.JSONConvertable
+import shared.communication.persActorCommands.crudCMDs.GetAllEntityiesForUserPersActCmd
 
 //import cats.instances.either._
 

@@ -1,4 +1,4 @@
-package shared.crudRESTCallCommands
+package shared.communication
 
 import io.circe.generic.JsonCodec
 

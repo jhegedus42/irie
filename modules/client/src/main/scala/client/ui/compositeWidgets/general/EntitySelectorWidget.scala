@@ -20,7 +20,7 @@ case class EntitySelectorWidget[V <: Value[V]](
 
   lazy val initCell = new Cell[Option[TypedReferencedValue[V]]](None)
 
-  lazy val selectedEntityInjector =
+  lazy val selectorStreamCell =
     new StreamSink[Cell[Option[TypedReferencedValue[V]]]]()
 
   lazy val selectedEntityRefInjector =

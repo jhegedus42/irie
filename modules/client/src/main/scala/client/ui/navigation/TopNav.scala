@@ -23,7 +23,7 @@ object NavigatorComp {
   lazy val selectPageByIDX: StreamSink[Int] = new StreamSink[Int]()
 
   lazy val selectPage: core.Stream[Option[Page]] =
-    selectPageByIDX.map(Pages.pages.drop(_).headOption)
+    selectPageByIDX.map(Pages.pagesAfterLogin.drop(_).headOption)
 
   lazy val selectedPage: Cell[Option[Page]] =
     selectPage.hold(Some(Pages.imgSeq))
@@ -48,7 +48,7 @@ object NavigatorComp {
           C.pb1,
           C.pt0,
           C.navLink,
-          s"${Pages.pages.toVector(i).name}",
+          s"${Pages.pagesAfterLogin.toVector(i).name}",
           handler(i),
           ^.key := s"key_$i"
         )
@@ -56,7 +56,7 @@ object NavigatorComp {
       res
     }
 
-    val res1: TagMod = (0 to (Pages.pages.length-1)).map(x).toVdomArray
+    val res1: TagMod = (0 to (Pages.pagesAfterLogin.length-1)).map(x).toVdomArray
     res1
 
   }
@@ -92,6 +92,8 @@ object NavigatorComp {
 
   lazy val pageDisplayer =
     CellOptionDisplayerWidget[Page](selectedPage, _.vdomTagOf)
+
+
 
   lazy val vdom=
     <.div(

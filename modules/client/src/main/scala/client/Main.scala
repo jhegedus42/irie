@@ -13,6 +13,7 @@ import io.circe.Decoder.Result
 import io.circe._
 import io.circe.Json
 import io.circe.syntax._
+import shared.dataStorage.model.PWDNotHashed
 import shared.dataStorage.stateHolder.UserMap
 //import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
@@ -32,7 +33,11 @@ object Main extends js.JSApp {
   val port: Int    = g.configObjFromServer.port.asInstanceOf[Int]
   val host: String = g.configObjFromServer.host.asInstanceOf[String]
 
+  def getPWDNotHashed: PWDNotHashed = {
+//    ???
 
+    PWDNotHashed("titok")
+  }
 
   @JSExport
   def main(): Unit = {
@@ -44,14 +49,12 @@ object Main extends js.JSApp {
 
     RootComp.getComp().renderIntoDOM(e)
 
-    AJAXCalls.populateEntityCache(Cache.userCache)
+    AJAXCalls.populateEntityCache(Cache.userCache,getPWDNotHashed)
 
-    AJAXCalls.populateEntityCache(Cache.noteCache)
+    AJAXCalls.populateEntityCache(Cache.noteCache,getPWDNotHashed)
 
-    AJAXCalls.populateEntityCache(Cache.folderCache)
+    AJAXCalls.populateEntityCache(Cache.folderCache,getPWDNotHashed)
 
   }
-
-
 
 }

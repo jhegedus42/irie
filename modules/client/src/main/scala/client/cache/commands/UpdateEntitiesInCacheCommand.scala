@@ -8,8 +8,8 @@ import io.circe._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.{UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
+import shared.communication.RequestIsOnItsWayTowardsServer
+import shared.communication.persActorCommands.crudCMDs.{UpdateEntitiesPersActorCmd, UpdateEntityPersActCmd}
 import shared.dataStorage.model.Value
 
 @JsonCodec

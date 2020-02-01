@@ -3,8 +3,8 @@ package client.cache.commands
 import io.circe.Encoder
 import io.circe.generic.JsonCodec
 import shapeless.Typeable
-import shared.crudRESTCallCommands.RequestIsOnItsWayTowardsServer
-import shared.crudRESTCallCommands.persActorCommands.crudCMDs.UpdateEntityPersActCmd
+import shared.communication.RequestIsOnItsWayTowardsServer
+import shared.communication.persActorCommands.crudCMDs.UpdateEntityPersActCmd
 import shared.dataStorage.model.Value
 import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedReferencedValue, UntypedValue}
 

@@ -201,3 +201,11 @@ object ImgFileName {
     }
 
 }
+
+@JsonCodec
+case class PWDHashed(hash:String)
+
+@JsonCodec
+case class PWDNotHashed(str:String)
+
+

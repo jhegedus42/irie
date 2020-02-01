@@ -1,4 +1,4 @@
-package shared.crudRESTCallCommands.persActorCommands.crudCMDs
+package shared.communication.persActorCommands.crudCMDs
 
 import io.circe.Decoder.Result
 import io.circe._
@@ -6,16 +6,17 @@ import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
-import shared.crudRESTCallCommands.persActorCommands.PersActorCommand
-import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable}
+import shared.communication.persActorCommands.PersActorQuery
+import shared.communication.{CanProvideRouteName, JSONConvertable}
+import shared.dataStorage.model.{PWDHashed, PWDNotHashed}
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 
 @JsonCodec
 case class GetAllEntityiesForUserPersActCmd(
-  par: RefToEntityOwningUser,
-  res: Option[UserMap])
-    extends PersActorCommand
+                                             par: RefToEntityOwningUser,
+                                             res: Option[UserMap], pwdNotHashed:PWDNotHashed)
+    extends PersActorQuery
 
 object GetAllEntityiesForUserPersActCmd {
 

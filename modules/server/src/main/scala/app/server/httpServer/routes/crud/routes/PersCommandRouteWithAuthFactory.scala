@@ -10,11 +10,11 @@ import akka.http.scaladsl.server.Directives.{
 }
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
-import shared.crudRESTCallCommands.persActorCommands.{
-  PersActorCommand,
+import shared.communication.persActorCommands.{
+  PersActorQuery,
   Response
 }
-import shared.crudRESTCallCommands.{
+import shared.communication.{
   CanProvideRouteName,
   JSONConvertable
 }
@@ -23,9 +23,9 @@ import shared.dataStorage.model.Value
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
-case class PersCommandRouteWithResponseWrapperFactory[
+case class PersCommandRouteWithAuthFactory[
   //  V  <: Value[V],
-  PC <: PersActorCommand
+  PC <: PersActorQuery
 ](val actor: ActorRef
 )(
   implicit
@@ -53,7 +53,7 @@ case class PersCommandRouteWithResponseWrapperFactory[
     }
   }
 
-  def getResult(msg: PersActorCommand): Future[Response[PC]] = {
+  def getResult(msg: PersActorQuery): Future[Response[PC]] = {
     import akka.pattern.ask
 
     import scala.concurrent.duration._

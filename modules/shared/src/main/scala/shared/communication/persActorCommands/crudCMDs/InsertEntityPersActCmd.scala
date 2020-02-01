@@ -1,4 +1,4 @@
-package shared.crudRESTCallCommands.persActorCommands.crudCMDs
+package shared.communication.persActorCommands.crudCMDs
 
 import io.circe.Decoder.Result
 import io.circe._
@@ -7,8 +7,8 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.crudRESTCallCommands.persActorCommands.PersActorCommand
-import shared.crudRESTCallCommands.{CanProvideRouteName, JSONConvertable, RequestIsOnItsWayTowardsServer, RequestState}
+import shared.communication.persActorCommands.PersActorQuery
+import shared.communication.{CanProvideRouteName, JSONConvertable, RequestIsOnItsWayTowardsServer, RequestState}
 import shared.dataStorage.model.Value
 import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedReferencedValue}
 
@@ -21,7 +21,7 @@ import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedRefer
 case class InsertEntityPersActCmd(
   unTypedReferencedValue: UnTypedReferencedValue,
   res:                    RequestState)
-    extends PersActorCommand
+    extends PersActorQuery
 
 object InsertEntityPersActCmd {
 

@@ -50,11 +50,15 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import japgolly.scalajs.react.vdom.html_<^.{<, VdomElement}
 import org.scalajs.dom.html.Div
 import client.cache.relationalOperations.RelationalOperations.Pipe
+import client.sodium.core
 import client.ui.atomicWidgets.show.HiderWidget
 import client.ui.compositeWidgets.specific.image.rect.VisualHintEditor
 import client.ui.navigation.Pages.noteCreator
 import japgolly.scalajs.react.component.Scala.Component
-import shared.dataStorage.relationalWrappers.TypedReferencedValue
+import shared.dataStorage.relationalWrappers.{
+  Ref,
+  TypedReferencedValue
+}
 
 case class Page(
   name:      String,
@@ -80,21 +84,24 @@ object Pages {
       }
     })
 
+  val selectedNoteRefSetterStream: core.Stream[Option[Ref[Note]]] =
+    selector.selectedEntityRefInjector
+
+  val imageSequenceTraversingWidget =
+    ImageSequenceTraversingWidget(selectedNoteRefSetterStream)
+
   val selectedNote: CellOption[TypedReferencedValue[Note]] =
-    selector.selectedEntityResolved |> CellOption.fromCellOption
+    imageSequenceTraversingWidget.resolvedNote
 
-  lazy val imageSequenceTraversingWidget =
-    ImageSequenceTraversingWidget()
-
-  val pages = List(imgSeq,
-                   noteSelector,
-                   noteCreator,
-                   noteTextEditor,
-                   imageUploader,
-                   visualLinkEditorForSelectedNote,
-                   noteFolderEditor,
-                   backupDataOnServer,
-                   userAdminPage)
+  val pagesAfterLogin = List(imgSeq,
+                             noteSelector,
+                             noteCreator,
+                             noteTextEditor,
+                             imageUploader,
+                             visualLinkEditorForSelectedNote,
+                             noteFolderEditor,
+                             backupDataOnServer,
+                             userAdminPage)
 
   lazy val imgSeq = Page(
     "Note Seq", {
@@ -161,6 +168,8 @@ object Pages {
         <.div(
           <.h3("Visual Link Editor"),
           visualLinkDisplayer,
+          <.br,
+          imageSequenceTraversingWidget.goToNextNoteButton(),
           <.br,
           imgQueEditor.getComp()
         )

@@ -1,3 +1,0 @@
-package shared.crudRESTCallCommands.persActorCommands
-
-trait PersActorCommand
