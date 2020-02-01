@@ -41,11 +41,15 @@ class PersistentActorImpl(id: String)
 
   override def receiveCommand: Receive = {
 
-    case QueryAuthWrapper(query: String, pwd: PWDNotHashed) => query match {
+    case QueryAuthWrapper(
+        query: GeneralPersActorQuery,
+        pwd:   PWDNotHashed
+        ) =>
+      query match {
 
-      case "test" =>{
-        println("test launched on server")
-      }
+        case GeneralPersActorQuery(commandAsString:String) => {
+          println(s"test launched on server, CMD string: $commandAsString")
+        }
 //      case GeneralPersActorQuery(cmd: String) => {
 
         //        cmd match {
@@ -87,7 +91,7 @@ class PersistentActorImpl(id: String)
         //      }
 
 //      }
-    }
+      }
 
     case ShutDown =>
       println("shutting down persistent actor")
