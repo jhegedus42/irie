@@ -42,13 +42,29 @@ class PersistentActorImpl(id: String)
   override def receiveCommand: Receive = {
 
     case QueryAuthWrapper(
-        query: GeneralPersActorQuery,
+        query: PersActorQuery,
         pwd:   PWDNotHashed
         ) =>
       query match {
 
-        case GeneralPersActorQuery(commandAsString:String) => {
-          println(s"test launched on server, CMD string: $commandAsString")
+        case GetAllEntityiesForUserPersActCmd(
+            userRef: RefToEntityOwningUser,
+            resp,
+            pWDNotHashed: PWDNotHashed
+            ) => {
+          println(s"user uuid is : ${userRef.uuid}")
+
+          val umap: UserMap = state.getUserMap(userRef)
+
+          sender ! GetAllEntityiesForUserPersActCmd(userRef,
+                                                    Some(umap),
+                                                    PWDNotHashed(""))
+        }
+
+        case GeneralPersActorQuery(commandAsString: String) => {
+          println(
+            s"test launched on server, CMD string: $commandAsString"
+          )
         }
 //      case GeneralPersActorQuery(cmd: String) => {
 
