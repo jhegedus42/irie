@@ -1,5 +1,5 @@
 package shared.communication
 
-import shared.communication.persActorCommands.PersActorQuery
+import shared.communication.persActorCommands.Query
 
-trait PersActorResponse[Q<:PersActorQuery]
+trait PersActorResponse[Q<:Query]

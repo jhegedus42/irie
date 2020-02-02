@@ -10,38 +10,61 @@ import akka.http.scaladsl.server.Directives.{
 }
 import akka.http.scaladsl.server.Route
 import akka.util.Timeout
-import shared.communication.persActorCommands.PersActorQuery
-import shared.communication.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import io.circe
+import io.circe.{Decoder, Encoder, Json}
+import shared.communication.persActorCommands.{Query, Response}
+import shared.communication.CanProvideRouteName
 import shared.dataStorage.model.Value
+import shared.communication.persActorCommands.auth.QueryAuthWrapper
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.reflect.ClassTag
 
 case class PersCommandRouteFactory[
 //  V  <: Value[V],
-  PC <: PersActorQuery
-](val actor: ActorRef
+  PC <: Query
+](val actor: ActorRef,
+  dec: Decoder[QueryAuthWrapper[PC]],
+  enc:  Encoder[PC],
+    encR:  Encoder[Response[PC]]
 )(
   implicit
   actorSystem:              ActorSystem,
   executionContextExecutor: ExecutionContextExecutor,
   rnp:                      CanProvideRouteName[PC],
-  j:                        JSONConvertable[PC],
-  ct:                       ClassTag[PC]) {
-
+//  j:                        JSONConvertable[PC],
+//  dec2: Decoder[PC],
+//  ct:  ClassTag[PC]
+) {
+  val rn=rnp.getRouteName
   def getRoute: Route = {
     post {
-      path(rnp.getRouteName) {
+      path(rn) {
         entity(as[String]) { s: String =>
           {
+            println(s"req:\n$s")
+//            val j = Json.fromString(s)
+//            val res = dec.decodeJson(j)
+            import circe.parser._
 
-            val fs = getResult(j.fromJSONToObject(s))
-              .map(x => j.toJSON(x))
+            val res: Either[circe.Error, QueryAuthWrapper[PC]] =
+              decode[QueryAuthWrapper[PC]](s)(dec)
 
-            complete(fs)
+            println(s"decoded req: $res")
+
+            val res1: QueryAuthWrapper[PC] = res.toOption.get
+
+            val res2: Future[Response[PC]] = getResult(res1)
+
+            import io.circe.syntax._
+
+            implicit val r=encR
+
+            val res3: Future[String] = {
+              res2.map((x: Response[PC]) => x.asJson.spaces2)
+            }
+
+            complete(res3)
 
           }
         }
@@ -49,13 +72,14 @@ case class PersCommandRouteFactory[
     }
   }
 
-  def getResult(msg: PersActorQuery): Future[PC] = {
+  def getResult(msg: Query): Future[Response[PC]] = {
+    println(s"query sent to PA : $msg")
     import akka.pattern.ask
 
     import scala.concurrent.duration._
     implicit val timeout = Timeout(5 seconds)
 
-    ask(actor, msg).mapTo[PC]
+    ask(actor, msg).mapTo[Response[PC]]
 
   }
 

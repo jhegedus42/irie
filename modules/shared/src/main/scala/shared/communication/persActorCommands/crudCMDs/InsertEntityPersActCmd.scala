@@ -7,8 +7,8 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 import shapeless.Typeable
-import shared.communication.persActorCommands.PersActorQuery
-import shared.communication.{CanProvideRouteName, JSONConvertable, RequestIsOnItsWayTowardsServer, RequestState}
+import shared.communication.persActorCommands.Query
+import shared.communication.{CanProvideRouteName,  RequestIsOnItsWayTowardsServer, RequestState}
 import shared.dataStorage.model.Value
 import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedReferencedValue}
 
@@ -21,7 +21,7 @@ import shared.dataStorage.relationalWrappers.{TypedReferencedValue, UnTypedRefer
 case class InsertEntityPersActCmd(
   unTypedReferencedValue: UnTypedReferencedValue,
   res:                    RequestState)
-    extends PersActorQuery
+    extends Query
 
 object InsertEntityPersActCmd {
 
@@ -41,32 +41,6 @@ object InsertEntityPersActCmd {
       RequestIsOnItsWayTowardsServer()
     )
   }
-
-  implicit val jSONConvertable
-    : JSONConvertable[InsertEntityPersActCmd] =
-    new JSONConvertable[InsertEntityPersActCmd] {
-
-      override def toJSON(v: InsertEntityPersActCmd): String =
-        v.asJson.spaces4
-
-      override def fromJSONToObject(
-        json: String
-      ): InsertEntityPersActCmd = {
-        val jsonParsed: Either[ParsingFailure, Json] =
-          parse(json)
-
-        val res1: Json = jsonParsed.toOption.get
-
-        val decoder =
-          implicitly[Decoder[InsertEntityPersActCmd]]
-
-        val res2: Result[InsertEntityPersActCmd] =
-          decoder.decodeJson(res1)
-
-        res2.toOption.get
-      }
-
-    }
 
   implicit val users: CanProvideRouteName[InsertEntityPersActCmd] =
     new CanProvideRouteName[InsertEntityPersActCmd] {

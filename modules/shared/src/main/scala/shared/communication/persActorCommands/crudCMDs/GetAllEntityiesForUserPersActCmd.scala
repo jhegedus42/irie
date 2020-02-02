@@ -6,17 +6,17 @@ import io.circe.generic.JsonCodec
 import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
-import shared.communication.persActorCommands.PersActorQuery
-import shared.communication.{CanProvideRouteName, JSONConvertable}
+import shared.communication.persActorCommands.Query
+import shared.communication.{CanProvideRouteName }
 import shared.dataStorage.model.{PWDHashed, PWDNotHashed}
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
 
 @JsonCodec
 case class GetAllEntityiesForUserPersActCmd(
-                                             par: RefToEntityOwningUser,
-                                             res: Option[UserMap], pwdNotHashed:PWDNotHashed)
-    extends PersActorQuery
+  par: RefToEntityOwningUser,
+  res: Option[UserMap]
+) extends Query
 
 object GetAllEntityiesForUserPersActCmd {
 
@@ -28,27 +28,4 @@ object GetAllEntityiesForUserPersActCmd {
         "GetAllEntityiesForUser"
     }
 
-  implicit val jSONConvertable
-    : JSONConvertable[GetAllEntityiesForUserPersActCmd] =
-    new JSONConvertable[GetAllEntityiesForUserPersActCmd] {
-
-      override def toJSON(
-        v: GetAllEntityiesForUserPersActCmd
-      ): String =
-        v.asJson.spaces4
-
-      override def fromJSONToObject(
-        json: String
-      ): GetAllEntityiesForUserPersActCmd = {
-        val jsonParsed: Either[ParsingFailure, Json] =
-          parse(json)
-        val res1: Json = jsonParsed.toOption.get
-        val decoder =
-          implicitly[Decoder[GetAllEntityiesForUserPersActCmd]]
-        val res2: Result[GetAllEntityiesForUserPersActCmd] =
-          decoder.decodeJson(res1)
-        res2.toOption.get
-      }
-
-    }
 }

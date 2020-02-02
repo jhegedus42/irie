@@ -25,6 +25,7 @@ object Ref {
   //
 }
 
+@JsonCodec
 case class EntityVersion(versionNumber: Integer = 0) {
   def inc: EntityVersion = EntityVersion(versionNumber + 1)
 }

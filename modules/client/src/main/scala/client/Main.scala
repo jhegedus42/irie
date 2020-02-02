@@ -9,17 +9,14 @@ import org.scalajs.dom.ext.Ajax
 import shared.testingData.TestEntitiesForUsers
 
 import scala.collection.immutable.HashMap
-import io.circe.Decoder.Result
-import io.circe._
-import io.circe.Json
 import io.circe.syntax._
 import shared.dataStorage.model.PWDNotHashed
 import shared.dataStorage.stateHolder.UserMap
 //import io.circe.generic.JsonCodec
-import io.circe.generic.auto._
+//import io.circe.generic.auto._
 import io.circe.{Decoder, Json}
 import shapeless.Typeable
-import io.circe.parser._
+//import io.circe.parser._
 import shapeless.Typeable
 
 import scala.scalajs.js

@@ -2,8 +2,10 @@ package shared.dataStorage.relationalWrappers
 
 import io.circe.Decoder
 import io.circe.Decoder.Result
+import io.circe.generic.JsonCodec
 import shared.dataStorage.model.Value
 
+@JsonCodec
 case class UntypedVersionedValue(
   version: EntityVersion,
   value:   UntypedValue)

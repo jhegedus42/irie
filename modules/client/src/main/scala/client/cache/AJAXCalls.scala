@@ -6,23 +6,21 @@ import client.cache.commands.{
   UpdateEntityInCacheCmd
 }
 import client.ui.helpers.login.UserLoginStatusHandler
-import shared.communication.{
-  CanProvideRouteName,
-  JSONConvertable
-}
+import shared.communication.{CanProvideRouteName}
 import io.circe.{Decoder, Encoder}
-import io.circe.generic.JsonCodec
-import io.circe.generic.auto._
+//import io.circe.generic.JsonCodec
+//import io.circe.generic.auto._
 import io.circe.syntax._
 import org.scalajs.dom.ext.Ajax
 import shapeless.Typeable
-import shared.communication.persActorCommands.Response
+import shared.communication.persActorCommands.{Query, Response}
+import shared.communication.persActorCommands.auth.QueryAuthWrapper
 import shared.communication.persActorCommands.crudCMDs.{
   GetAllEntityiesForUserPersActCmd,
   UpdateEntitiesPersActorCmd,
   UpdateEntityPersActCmd
 }
-import shared.communication.persActorCommands.generalCmd.GeneralPersActorQuery
+import shared.communication.persActorCommands.generalCmd.AdminQuery
 import shared.dataStorage.model.{PWDNotHashed, Value}
 import shared.dataStorage.relationalWrappers.RefToEntityOwningUser
 import shared.dataStorage.stateHolder.UserMap
@@ -42,7 +40,7 @@ object AJAXCalls {
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
   def sendCommandToServerViaAJAXCall[
-    Command: JSONConvertable: CanProvideRouteName: Encoder
+    Command: CanProvideRouteName: Encoder: Decoder
   ](in:            Command,
     runOnComplete: (Try[Command] => Unit)
   ): Unit = {
@@ -55,6 +53,7 @@ object AJAXCalls {
 
     import io.circe.generic.auto._
     import io.circe.syntax._
+    import io.circe.parser._
 
     val port = Main.port
 
@@ -65,20 +64,20 @@ object AJAXCalls {
         headers = headers
       )
       .map(_.responseText)
-      .map(
-        implicitly[JSONConvertable[Command]].fromJSONToObject(_)
-      )
+      .map(decode[Command](_).toOption.get)
       .onComplete(runOnComplete)
 
   }
 
-  def sendCommandToServerViaAJAXCallAndParseResponse[
-    Command: JSONConvertable: CanProvideRouteName: Encoder: Decoder
-  ](in:            Command,
-    runOnComplete: (Try[Response[Command]] => Unit)
+  def sendCommandToServerWithAuthWrapper[
+    Q <: Query: CanProvideRouteName: Encoder: Decoder
+  ](in:            Q,
+    pwd:           PWDNotHashed,
+    runOnComplete: (Try[Response[Q]] => Unit)
   )(
     implicit
-    respDecoder: JSONConvertable[Response[Command]]
+    encoder:     Encoder[QueryAuthWrapper[Q]],
+    respDecoder: Decoder[Response[Q]]
   ): Unit = {
 
     //    import io.circe.syntax._
@@ -86,31 +85,70 @@ object AJAXCalls {
     val headers: Map[String, String] = Map(
       "Content-Type" -> "application/json"
     )
+    val query = QueryAuthWrapper(in, pwd)
 
-    import io.circe.generic.auto._
-    import io.circe.syntax._
+//    import io.circe.generic.auto._
+//    import io.circe.syntax._
+//    import io.circe.generic.auto._
+//    import io.circe.syntax._
+    import io.circe.parser._
+
+    val jsonStringToSend: String = query.asJson.spaces4
 
     Ajax
       .post(
-        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
-        in.asJson.spaces4,
+        s"http://$ip:$port/${implicitly[CanProvideRouteName[Q]].getRouteName}",
+        jsonStringToSend,
         headers = headers
       )
       .map(_.responseText)
-      .map(
-        implicitly[JSONConvertable[Response[Command]]]
-          .fromJSONToObject(_)
-      )
+      .map(decode[Response[Q]](_).toOption.get)
       .onComplete(runOnComplete)
 
   }
 
+//  def sendCommandToServerViaAJAXCallAndParseResponse[
+//    Command: JSONConvertable: CanProvideRouteName: Encoder: Decoder
+//  ](in:            Command,
+//    runOnComplete: (Try[Response[Command]] => Unit)
+//  )(
+//    implicit
+//    respDecoder: JSONConvertable[Response[Command]]
+//  ): Unit = {
+//
+//    //    import io.circe.syntax._
+//
+//    val headers: Map[String, String] = Map(
+//      "Content-Type" -> "application/json"
+//    )
+//
+//    import io.circe.generic.auto._
+//    import io.circe.syntax._
+//
+//    Ajax
+//      .post(
+//        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
+//        in.asJson.spaces4,
+//        headers = headers
+//      )
+//      .map(_.responseText)
+//      .map(
+//        implicitly[JSONConvertable[Response[Command]]]
+//          .fromJSONToObject(_)
+//      )
+//      .onComplete(runOnComplete)
+//
+//  }
+
   def populateEntityCache[V <: Value[V]](
     c:               Cache[V],
     pwdNotHashedPar: PWDNotHashed
-  ): Unit = {
+  ) : Unit = {
 
     import io.circe.syntax._
+
+    implicit val enc =
+      QueryAuthWrapper.encoder[GetAllEntityiesForUserPersActCmd]()
 
     lazy val owner: RefToEntityOwningUser =
       RefToEntityOwningUser.makeFromRef(
@@ -118,10 +156,10 @@ object AJAXCalls {
       )
 
     def ajaxReturnHandler
-      : Try[GetAllEntityiesForUserPersActCmd] => Unit = {
-      (x: Try[GetAllEntityiesForUserPersActCmd]) =>
+      : Try[Response[GetAllEntityiesForUserPersActCmd]] => Unit = {
+      (x: Try[Response[GetAllEntityiesForUserPersActCmd]]) =>
         {
-          val res1: UserMap = x.toOption.get.res.get
+          val res1: UserMap = x.toOption.get.cmd.res.get
 
           Cache.streamToSetInitialCacheState.send(res1)
           println(res1)
@@ -142,14 +180,15 @@ object AJAXCalls {
         }
     }
 
-    sendCommandToServerViaAJAXCall(
+    val cmdToSend =
       GetAllEntityiesForUserPersActCmd(
         owner,
-        None,
-        pwdNotHashed = pwdNotHashedPar
-      ),
-      ajaxReturnHandler
-    )
+        None
+      )
+
+    sendCommandToServerWithAuthWrapper(cmdToSend,
+                                       pwdNotHashedPar,
+                                       ajaxReturnHandler)
 
   }
 
@@ -187,15 +226,16 @@ object AJAXCalls {
                                    handleReturn)
   }
 
-  def saveDataOnServer(pwd: String): Unit = {
-    sendCommandToServerViaAJAXCallAndParseResponse[
-      GeneralPersActorQuery
-    ](
-      GeneralPersActorQuery(GeneralPersActorQuery.CommandStrings.saveData ), {
-        resp: Try[Response[GeneralPersActorQuery]] =>
-          println(resp)
-      }
-    )
-  }
+//  def saveDataOnServer(pwd: String): Unit = {
+//    sendCommandToServerViaAJAXCallAndParseResponse[
+//      AdminQuery
+//    ](
+//      AdminQuery(
+//        AdminQuery.CommandStrings.saveData
+//      ), { resp: Try[Response[AdminQuery]] =>
+//        println(resp)
+//      }
+//    )
+//  }
 
 }

@@ -1,3 +1,3 @@
 package shared.communication.persActorCommands
 
-trait PersActorQuery
+trait Query

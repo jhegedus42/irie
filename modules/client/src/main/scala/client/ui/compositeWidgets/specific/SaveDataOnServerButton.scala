@@ -14,7 +14,7 @@ case class SaveDataOnServerButton() {
     Some({ () =>
       {
         println("we gonna save the data on the server !")
-        AJAXCalls.saveDataOnServer(pwdField.cell.sample())
+//        AJAXCalls.saveDataOnServer(pwdField.cell.sample())
         println(
           "AJAX call for saving data on the server has been sent."
         )
