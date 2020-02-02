@@ -24,19 +24,20 @@ case class PersCommandRouteFactory[
 //  V  <: Value[V],
   PC <: Query
 ](val actor: ActorRef,
-  dec: Decoder[QueryAuthWrapper[PC]],
-  enc:  Encoder[PC],
-    encR:  Encoder[Response[PC]]
+  dec:       Decoder[QueryAuthWrapper[PC]],
+  enc:       Encoder[PC],
+  encR:      Encoder[Response[PC]]
 )(
   implicit
   actorSystem:              ActorSystem,
   executionContextExecutor: ExecutionContextExecutor,
-  rnp:                      CanProvideRouteName[PC],
+  rnp:                      CanProvideRouteName[PC]
 //  j:                        JSONConvertable[PC],
 //  dec2: Decoder[PC],
 //  ct:  ClassTag[PC]
 ) {
-  val rn=rnp.getRouteName
+  val rn = rnp.getRouteName
+
   def getRoute: Route = {
     post {
       path(rn) {
@@ -45,27 +46,21 @@ case class PersCommandRouteFactory[
             println(s"req:\n$s")
 //            val j = Json.fromString(s)
 //            val res = dec.decodeJson(j)
-            import circe.parser._
 
-            val res: Either[circe.Error, QueryAuthWrapper[PC]] =
-              decode[QueryAuthWrapper[PC]](s)(dec)
-
-            println(s"decoded req: $res")
-
-            val res1: QueryAuthWrapper[PC] = res.toOption.get
+            val res1 =
+              PersCommandRouteFactory.decodeQuery(s)(dec, enc, encR)
 
             val res2: Future[Response[PC]] = getResult(res1)
 
             import io.circe.syntax._
 
-            implicit val r=encR
+            implicit val r = encR
 
             val res3: Future[String] = {
               res2.map((x: Response[PC]) => x.asJson.spaces2)
             }
 
             complete(res3)
-
 
           }
         }
@@ -82,6 +77,27 @@ case class PersCommandRouteFactory[
 
     ask(actor, msg).mapTo[Response[PC]]
 
+  }
+
+}
+
+object PersCommandRouteFactory {
+
+  def decodeQuery[PC <: Query](
+    s:    String
+  )(dec:  Decoder[QueryAuthWrapper[PC]],
+    enc:  Encoder[PC],
+    encR: Encoder[Response[PC]]
+  ) = {
+    import circe.parser._
+
+    val res: Either[circe.Error, QueryAuthWrapper[PC]] =
+      decode[QueryAuthWrapper[PC]](s)(dec)
+
+    println(s"decoded req: $res")
+
+    val res1: QueryAuthWrapper[PC] = res.toOption.get
+    res1
   }
 
 }

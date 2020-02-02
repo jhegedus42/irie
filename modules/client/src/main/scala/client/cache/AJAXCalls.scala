@@ -39,39 +39,40 @@ object AJAXCalls {
   implicit def executionContext: ExecutionContextExecutor =
     scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-  def sendCommandToServerViaAJAXCall[
-    Command: CanProvideRouteName: Encoder: Decoder
-  ](in:            Command,
-    runOnComplete: (Try[Command] => Unit)
-  ): Unit = {
-
+//  def sendCommandToServerViaAJAXCall[
+//    Command: CanProvideRouteName: Encoder: Decoder
+//  ](in:            Command,
+//    runOnComplete: (Try[Command] => Unit)
+//  ): Unit = {
+//
+////    import io.circe.syntax._
+//
+//    val headers: Map[String, String] = Map(
+//      "Content-Type" -> "application/json"
+//    )
+//
+//    import io.circe.generic.auto._
 //    import io.circe.syntax._
-
-    val headers: Map[String, String] = Map(
-      "Content-Type" -> "application/json"
-    )
-
-    import io.circe.generic.auto._
-    import io.circe.syntax._
-    import io.circe.parser._
-
-    val port = Main.port
-
-    Ajax
-      .post(
-        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
-        in.asJson.spaces4,
-        headers = headers
-      )
-      .map(_.responseText)
-      .map(decode[Command](_).toOption.get)
-      .onComplete(runOnComplete)
-
-  }
+//    import io.circe.parser._
+//
+//    val port = Main.port
+//
+//    Ajax
+//      .post(
+//        s"http://$ip:$port/${implicitly[CanProvideRouteName[Command]].getRouteName}",
+//        in.asJson.spaces4,
+//        headers = headers
+//      )
+//      .map(_.responseText)
+//      .map(decode[Command](_).toOption.get)
+//      .onComplete(runOnComplete)
+//
+//  }
 
   def sendCommandToServerWithAuthWrapper[
     Q <: Query: CanProvideRouteName: Encoder: Decoder
-  ](in:            Q,
+  ](
+                                             in:            Q,
     pwd:           PWDNotHashed,
     runOnComplete: (Try[Response[Q]] => Unit)
   )(
@@ -91,6 +92,7 @@ object AJAXCalls {
 //    import io.circe.syntax._
 //    import io.circe.generic.auto._
 //    import io.circe.syntax._
+
     import io.circe.parser._
 
     val jsonStringToSend: String = query.asJson.spaces4
@@ -205,8 +207,9 @@ object AJAXCalls {
     val handleReturn = { (t: Try[UpdateEntityPersActCmd]) =>
     }
     // todo later, handle OCC error
-    sendCommandToServerViaAJAXCall(updateEntityPersActCmd,
-                                   handleReturn)
+//    sendCommandToServerViaAJAXCall(updateEntityPersActCmd,
+//                                   handleReturn)
+    ???
   }
 
   def updateEntitiesOnServer[V <: Value[V]: Encoder: Typeable](
@@ -222,8 +225,9 @@ object AJAXCalls {
     val handleReturn = { (t: Try[UpdateEntitiesPersActorCmd]) =>
     }
     // todo later, handle OCC error
-    sendCommandToServerViaAJAXCall(updateEntitiesPersActCmd,
-                                   handleReturn)
+//    sendCommandToServerViaAJAXCall(updateEntitiesPersActCmd,
+//                                   handleReturn)
+    ???
   }
 
 //  def saveDataOnServer(pwd: String): Unit = {

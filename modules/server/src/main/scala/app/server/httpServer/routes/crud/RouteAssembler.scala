@@ -36,23 +36,6 @@ case class RouteAssembler(
 
   import QueryAuthWrapper._
 
-  val enc: Encoder[GetAllEntityiesForUserPersActCmd] =
-    implicitly[Encoder[GetAllEntityiesForUserPersActCmd]]
-  import io.circe.generic.semiauto._
-  val encR = deriveEncoder[Response[GetAllEntityiesForUserPersActCmd]]
-
-  val decSimple: Decoder[GetAllEntityiesForUserPersActCmd] =
-    implicitly[Decoder[GetAllEntityiesForUserPersActCmd]]
-
-  val decQAuthWrapper
-    : Decoder[QueryAuthWrapper[GetAllEntityiesForUserPersActCmd]] = {
-
-    QueryAuthWrapper.decoder[GetAllEntityiesForUserPersActCmd](
-      decSimple
-    )
-
-  }
-
   val actor: ActorRef = actorSystem.actorOf(
     Props(
       new PersistentActorImpl(
@@ -60,6 +43,7 @@ case class RouteAssembler(
       )
     )
   )
+  import Marschallers._
 
   val uploadFileRoute = UploadFileRouteImpl()
 
@@ -86,4 +70,29 @@ case class RouteAssembler(
 
   private def rootPageHtml: String =
     IndexDotHtml.getIndexDotHTML
+}
+
+object RouteAssembler {}
+
+object Marschallers {
+
+  val enc: Encoder[GetAllEntityiesForUserPersActCmd] =
+    implicitly[Encoder[GetAllEntityiesForUserPersActCmd]]
+
+  import io.circe.generic.semiauto._
+
+  val encR = deriveEncoder[Response[GetAllEntityiesForUserPersActCmd]]
+
+  val decSimple: Decoder[GetAllEntityiesForUserPersActCmd] =
+    implicitly[Decoder[GetAllEntityiesForUserPersActCmd]]
+
+  val decQAuthWrapper
+    : Decoder[QueryAuthWrapper[GetAllEntityiesForUserPersActCmd]] = {
+
+    QueryAuthWrapper.decoder[GetAllEntityiesForUserPersActCmd](
+      decSimple
+    )
+
+  }
+
 }

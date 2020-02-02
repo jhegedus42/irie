@@ -70,6 +70,7 @@ object QueryAuthWrapper {
         } yield (new QueryAuthWrapper(res, PWDNotHashed(pnh)))
       }
     }
+
 }
 
 // todo-now JSON encoding for subtypes

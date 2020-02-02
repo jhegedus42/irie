@@ -1,6 +1,5 @@
 package shared.communication.testing
 
-import shared.communication.JSONConvertable
 import shared.communication.persActorCommands.crudCMDs.GetAllEntityiesForUserPersActCmd
 import shared.testingData.TestDataStore
 

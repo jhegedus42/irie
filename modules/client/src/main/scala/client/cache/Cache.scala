@@ -66,10 +66,10 @@ case class Cache[V <: Value[V]: Encoder](
                 InsertEntityPersActCmd
                   .fromReferencedValue(x)
 
-              AJAXCalls.sendCommandToServerViaAJAXCall(in, {
-                x: Try[InsertEntityPersActCmd] =>
-                  println(x)
-              })
+//              AJAXCalls.sendCommandToServerViaAJAXCall(in, {
+//                x: Try[InsertEntityPersActCmd] =>
+//                  println(x)
+//              })
 
             }
 
